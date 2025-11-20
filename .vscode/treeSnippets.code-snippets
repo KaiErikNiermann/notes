@@ -1,0 +1,195 @@
+{
+  // Basic tree: title + date + author + taxon + first paragraph
+  "Forester: basic tree skeleton": {
+    "prefix": "tree",
+    "scope": "forester",
+    "body": [
+      "\\title{${1:my first tree}}",
+      "\\date{${2:2025-01-01}}",
+      "\\author{${3:author-id}}",
+      "\\taxon{${4:Note}}",
+      "",
+      "\\p{${5:Write your first paragraph here.}}",
+      "$0"
+    ],
+    "description": "Basic Forester tree with frontmatter and a first paragraph."
+  },
+
+  // Biographical / Person tree
+  "Forester: person tree": {
+    "prefix": "person",
+    "scope": "forester",
+    "body": [
+      "\\title{${1:Full Name}}",
+      "\\taxon{Person}",
+      "\\meta{external}{${2:https://example.com/}}",
+      "\\meta{institution}{${3:institution-tag}}",
+      "\\meta{orcid}{${4:0000-0000-0000-0000}}",
+      "\\meta{position}{${5:Position Title}}",
+      "",
+      "\\p{${6:Short biographical paragraph.}}",
+      "$0"
+    ],
+    "description": "Biographical Person tree frontmatter and paragraph."
+  },
+
+  // Definition tree
+  "Forester: definition tree": {
+    "prefix": "def-tree",
+    "scope": "forester",
+    "body": [
+      "\\title{${1:Name of definition}}",
+      "\\date{${2:2025-01-01}}",
+      "\\taxon{Definition}",
+      "\\author{${3:author-id}}",
+      "",
+      "\\p{${4:State the definition here.}}",
+      "$0"
+    ],
+    "description": "Tree with taxon Definition."
+  },
+
+  // Theorem tree
+  "Forester: theorem tree": {
+    "prefix": "thm-tree",
+    "scope": "forester",
+    "body": [
+      "\\title{${1:Name of theorem}}",
+      "\\date{${2:2025-01-01}}",
+      "\\taxon{Theorem}",
+      "\\author{${3:author-id}}",
+      "",
+      "\\p{${4:State the theorem here.}}",
+      "",
+      "\\p{${5:Sketch or write the proof here.}}",
+      "$0"
+    ],
+    "description": "Tree with taxon Theorem."
+  },
+
+  // Paragraph
+  "Forester: paragraph": {
+    "prefix": "p",
+    "scope": "forester",
+    "body": [
+      "\\p{${1:Paragraph text.}}$0"
+    ],
+    "description": "Insert a \\p{...} paragraph."
+  },
+
+  // Inline math
+  "Forester: inline math": {
+    "prefix": "m",
+    "scope": "forester",
+    "body": [
+      "#{${1:math expression}}$0"
+    ],
+    "description": "Inline math #{...}."
+  },
+
+  // Display math
+  "Forester: display math": {
+    "prefix": "mm",
+    "scope": "forester",
+    "body": [
+      "##{",
+      "  ${1:display math expression}",
+      "}$0"
+    ],
+    "description": "Display math ##{...}."
+  },
+
+  // Ordered list skeleton
+  "Forester: ordered list": {
+    "prefix": "ol",
+    "scope": "forester",
+    "body": [
+      "\\ol{",
+      "  \\li{${1:first item}}",
+      "  \\li{${2:second item}}",
+      "}$0"
+    ],
+    "description": "Ordered list with \\ol and \\li."
+  },
+
+  // Unordered list skeleton
+  "Forester: unordered list": {
+    "prefix": "ul",
+    "scope": "forester",
+    "body": [
+      "\\ul{",
+      "  \\li{${1:first item}}",
+      "  \\li{${2:second item}}",
+      "}$0"
+    ],
+    "description": "Unordered list with \\ul and \\li."
+  },
+
+  // Transclusion
+  "Forester: transclude": {
+    "prefix": "trans",
+    "scope": "forester",
+    "body": [
+      "\\transclude{${1:address}}$0"
+    ],
+    "description": "Transclude another tree as a subsection."
+  },
+
+  // Global macro definition (\def...)
+  "Forester: def macro": {
+    "prefix": "defmacro",
+    "scope": "forester",
+    "body": [
+      "\\def\\${1:Ident}[${2:arg1}][${3:arg2}]{${4:body}}$0"
+    ],
+    "description": "Define and export a macro from the current tree."
+  },
+
+  // Local macro definition (\let...)
+  "Forester: let macro": {
+    "prefix": "letmacro",
+    "scope": "forester",
+    "body": [
+      "\\let\\${1:Ident}[${2:arg1}][${3:arg2}]{${4:body}}$0"
+    ],
+    "description": "Define a local macro within the tree."
+  },
+
+  // Import / export declarations
+  "Forester: import/export block": {
+    "prefix": "impblock",
+    "scope": "forester",
+    "body": [
+      "\\import{${1:address-1}}",
+      "\\import{${2:address-2}}",
+      "// optional re-exports:",
+      "\\export{${3:address-to-reexport}}$0"
+    ],
+    "description": "Common pattern for \\import and \\export declarations."
+  },
+
+  // LaTeX external rendering block
+  "Forester: tex block": {
+    "prefix": "texblock",
+    "scope": "forester",
+    "body": [
+      "\\tex{",
+      "  ${1:% preamble, e.g.}",
+      "  % \\usepackage{tikz}",
+      "  % \\usetikzlibrary{cd}",
+      "}{",
+      "  ${2:% LaTeX body, e.g. a tikzcd diagram}",
+      "}$0"
+    ],
+    "description": "External LaTeX rendering via \\tex{preamble}{body}."
+  },
+  // Code monospace
+  "Forester: inline code": {
+    "prefix": "code",
+    "scope": "forester",
+    "body": [
+      "\\code{${1:monospace text}}$0"
+    ],
+    "description": "Inline monospace via \\code{...}."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "forester",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "forester build forest.toml --dev",
+    "watch": "chokidar \"trees/**/*.tree\" \"theme/**/*.{xsl,css}\" \"theme/javascript-source/**/*.js\" \"assets/**/*\" forest.toml --initial --debounce 300 -c \"npm run build\"",
+    "serve": "browser-sync start --server output --files \"output/*.xml\" \"output/*.css\" \"output/*.js\" --watch --no-ui --host 0.0.0.0 --port 1313 --index index.xml --startPath index.xml",
+    "dev": "concurrently -k \"npm:watch\" \"npm:serve\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^9.2.1"
+  }
+}

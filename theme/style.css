@@ -344,7 +344,7 @@ footer h2 {
   }
 
   #grid-wrapper>nav {
-    display: none;
+    display: grid;
     transition: ease all .2s;
   }
 }
@@ -750,18 +750,17 @@ address {
 
 img {
   object-fit: cover;
-  max-width: 100%;
+  max-width: 90%;
 }
 
-img.tex-diagram {
+img {
   display: block;
-  margin-left: auto;
   margin-right: auto;
   background-color: transparent;
   transition: filter 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
 }
 
-body[data-theme='dark'] img.tex-diagram {
+body[data-theme='dark'] img {
   filter: invert(1) hue-rotate(180deg) brightness(1);
   opacity: 1;
   background-color: transparent;

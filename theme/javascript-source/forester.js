@@ -92,11 +92,16 @@ const storeTheme = (theme) => {
 
 // const KATEX_IGNORED_TAGS = ["script", "noscript", "style", "textarea"];
 
-window.addEventListener("load", (event) => {
-//  autoRenderMath(document.body, {
-//   ignoredTags: KATEX_IGNORED_TAGS,
-//  });
+window.addEventListener("load", () => {
  highlightCodeBlocks();
+ autoRenderMath(document.body, {
+  delimiters: [
+   { left: '$$', right: '$$', display: true },
+   { left: '\\(', right: '\\)', display: false },
+   { left: '\\[', right: '\\]', display: true },
+  ],
+  ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'option'],
+ });
 
  const themeToggle = document.getElementById('theme-toggle');
  let prefersDark;
@@ -106,8 +111,9 @@ window.addEventListener("load", (event) => {
   prefersDark = null;
  }
  const storedTheme = getStoredTheme();
+ const fallbackTheme = 'dark';
  const systemTheme = prefersDark && prefersDark.matches ? 'dark' : 'light';
- const initialTheme = storedTheme || systemTheme;
+ const initialTheme = storedTheme || fallbackTheme || systemTheme;
  applyTheme(initialTheme);
 
  if (themeToggle) {

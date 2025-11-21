@@ -33,6 +33,9 @@ jobs:
       - name: Install Forester CLI
         run: opam install forester --confirm-level=unsafe-yes
 
+      - name: Install LaTeX toolchain
+        run: sudo apt-get update && sudo apt-get install -y texlive-latex-extra texlive-fonts-recommended texlive-plain-generic
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:

@@ -755,6 +755,7 @@ img {
 
 img {
   display: block;
+  padding: 1em 1em;
   margin-right: auto;
   background-color: transparent;
   transition: filter 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;

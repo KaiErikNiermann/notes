@@ -1,0 +1,110 @@
+\import{erct-latex-preamble}
+
+\def\agda-source[uid]{
+  \let\escape[x]{\x}
+  \let\filename{\escape{\uid}.agda}
+  [\filename](https://git.sr.ht/~jonsterling/agda-erct/tree/main/item/agda/\filename)
+}
+
+\xmlns:html{http://www.w3.org/1999/xhtml}
+
+\def\iblock[body]{
+ \<html:div>[class]{jms-indent-block}[style]{margin-left: 1em}{\body}
+}
+
+\def\irow[body]{
+ \<html:div>[class]{jms-indent-row}[style]{min-height: 1em}{\body}
+}
+
+\def\nowrap[body]{\<html:span>[style]{white-space: nowrap}{\body}}
+
+\def\with-delim[l][r][body]{
+ #{\mathopen{}\left\l\body\right\r\mathclose{}}
+}
+
+\def\prn[x]{\with-delim{\lparen}{\rparen}{\x}}
+\def\brc[x]{\with-delim{\lbrace}{\rbrace}{\x}}
+\def\brk[x]{\with-delim{\lbrack}{\rbrack}{\x}}
+\def\vrt[x]{\with-delim{\lvert}{\rvert}{\x}}
+\def\vvrt[x]{\with-delim{\lVert}{\rVert}{\x}}
+\def\compr[A][B]{\brc{\A\,\middle\vert\,\B}}
+
+\def\big-symbol[sym]{\mathchoice{\textstyle\sym}{\textstyle\sym}{\scriptstyle\sym}{\scriptscriptstyle\sym}}
+
+\def\cA{#{\mathcal{A}}}
+\def\cB{#{\mathcal{B}}}
+\def\cC{#{\mathcal{C}}}
+\def\cG{#{\mathcal{G}}}
+\def\edge[A]{#{\approx_{\A}}}
+\def\dedge[B][x]{#{\approx_{\B}^{\x}}}
+\def\rx[A]{#{\mathsf{rx}_{\A}}}
+\def\drx[B][x]{#{\mathsf{rx}_{\B}^{\x}}}
+
+\def\ind[A]{\mathsf{ind}_{\A}}
+\def\fiber{\mathsf{fiber}}
+\def\is-truncated{\mathsf{isTruncated}}
+
+\def\inv{^{-1}}
+\def\dem[x]{\em{\strong{\x}}}
+\def\ob[C]{#{\vrt{\C}}}
+\def\hom[C][x][y]{#{\C\prn{\x,\y}}}
+\def\dhom[C][i][x][y]{#{\C _{\i}\prn{\x,\y}}}
+\def\idn[x]{1_{\x}}
+
+\def\ixsum[ix]{#{\big-symbol{\sum_{\prn{\ix}}}}}
+\def\ixcoprod[ix]{#{\big-symbol{\coprod_{\prn{\ix}}}}}
+\def\covsum[ix]{#{\big-symbol{\oint_{\prn{\ix}}}}}
+\def\ctrvsum[ix]{#{\big-symbol{\int_{\prn{\ix}}}}}
+\def\ixprod[ix]{#{\big-symbol{\prod_{\prn{\ix}}}}}
+\def\iixprod[ix]{#{\big-symbol{\prod_{\brc{\ix}}}}}
+\def\vs{\em{vs.}}
+
+\def\refl{#{\mathsf{refl}}}
+\def\act[f]{#{\mathsf{act}_{\f}}}
+\def\lunit[z]{#{\mathsf{lunit}_{\z}}}
+
+\def\type-of-types{#{\mathsf{Type}}}
+\def\type-of-props{#{\mathsf{Prop}}}
+\def\type-of-urgs{#{\mathsf{PathObj}}}
+\def\type-of-durgs[A]{#{\mathsf{DispPathObj}\,\A}}
+
+\def\disc-rx-gph[A]{#{\mathord{\vartriangle}\A}}
+
+\def\type-of-sets{#{\mathsf{Set}}}
+\def\type-of-precategories{#{\mathsf{Precategory}}}
+\def\is-propositional-map{#{\mathsf{isPropMap}}}
+\def\is-surjection{#{\mathsf{isSurjection}}}
+\def\is-biinvertible{#{\mathsf{isBiinvertible}}}
+\def\type-of-equivs{#{\mathsf{Equiv}}}
+\def\type-of-bijections{#{\mathsf{Bijection}}}
+\def\lam[x]{#{\lambda{\x}\mathpunct{.}}}
+
+\def\coherent-remainder[f]{\mathsf{coherentRemainder}_{\f}}
+\def\section{\mathsf{section}}
+
+\def\to-prop{#{\mathsf{toProp}}}
+\def\to-prop-unit{#{\eta_{\mathsf{prop}}}}
+
+
+\def\proof[body]{
+ \scope{
+   \put\transclude/toc{false}
+   \subtree{
+     \taxon{Proof}
+     \body
+   }
+ }
+}
+
+\def\citek[uid]{\let\escape[x]{\x}[\escape{[\uid]}](\uid)}
+
+\alloc\erct/tex-preamble
+
+\def\texfig[~body]{
+ \scope{
+  \put?\erct/tex-preamble{\latex-preamble}
+  \figure{
+   \tex{\get\erct/tex-preamble}{\body{}}
+  }
+ }
+}

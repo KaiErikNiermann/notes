@@ -1,0 +1,39 @@
+\def\latex-preamble{
+ \startverb
+ \usepackage{syntax}
+ \usepackage{mathpartir, amsmath, amsthm, amsfonts}
+ \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
+ \usetikzlibrary{matrix,arrows}
+ \usetikzlibrary{backgrounds,fit,positioning,calc,shapes}
+ \usetikzlibrary{decorations.pathreplacing}
+ \usetikzlibrary{decorations.pathmorphing}
+ \usetikzlibrary{decorations.markings}
+ \stopverb
+}
+
+\def\latex-preamble/diagrams{
+ \latex-preamble
+}
+
+\def\latex-preamble/mathpar{
+  \startverb
+   \usepackage{syntax}
+   \usepackage{eulervm}
+   \usepackage{mathpartir, amsmath, amsthm, amsfonts}
+  \stopverb
+}
+
+\def\latex-preamble/align{
+  \startverb
+  \usepackage{eulervm}
+  \usepackage{amsmath}
+  \stopverb
+}
+
+\def\latex-preamble/string-diagrams{
+ \startverb
+ % String-diagram specific extensions live here. Add diagram tweaks without
+ % re-running the full base preamble (to avoid duplicate definitions).
+ \stopverb
+}
+

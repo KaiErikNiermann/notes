@@ -1,0 +1,11 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Exponential Blow up problem}
+
+\p{
+  When converting a formula to Disjunctive Normal Form (DNF) or Conjunctive Normal Form (CNF), the size of the resulting formula can grow exponentially in the worst case. This is known as the \strong{exponential blow up problem}. For example, a formula with #{n} variables can result in a DNF or CNF with up to #{2^n} clauses.
+}

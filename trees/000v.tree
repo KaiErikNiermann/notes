@@ -1,0 +1,31 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{FOL - Syntax}
+
+\p{We can define a first order language as a tuple of 3 sets #{\langle \mathcal C, \mathcal F, \mathcal R\rangle} where:}
+
+\ul{
+  \li{\strong{Constants} (#{\mathcal C}): the set of constants in the language. E.g., #{\{a, b, c\}}}
+  \li{\strong{Function Symbols} (#{\mathcal F}): the set of function symbols in the language. E.g., #{\{f, g, h\}}}
+  \li{\strong{Relation Symbols} (#{\mathcal R}): the set of relation symbols in the language. E.g., #{\{R, S, T\}}}
+}
+
+\p{Using BNF we can define the syntax as follows}
+
+\tex{
+  \usepackage{amsmath}
+  \usepackage{eulervm}
+}{
+{\small 
+  \begin{align*}
+    \text{Atom} \quad \alpha &::= \top \mid \bot \mid p(t_1, \ldots, t_n) \\
+    \text{Formula} \quad F &::= \alpha \mid \neg F  \mid (F \land F) \mid (F \lor F) \mid (F \to F) \mid (F \leftrightarrow F) \mid \forall x.\ F \mid \exists x.\ F \\
+  \end{align*}
+}
+}
+
+\p{Here the atom #{p} rerpesents an \em{atomic predicate} applied to terms #{t_1, \ldots, t_n}, where #{p \in \mathcal R} with an arity of #{n}}

@@ -1,0 +1,25 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Quiz}
+\title{Quantifiers and Scoping in FOL}
+
+\p{Consider the formula}
+##{
+  \forall y.\ ((\forall x.\ p(x))) \to q(x, y)
+}
+
+\ol{
+  \li{Is the #{y} bound or free?}
+  \li{Is the first occurence of #{x} bound or free?}
+  \li{Is the second occurence of #{x} bound or free?}
+}
+
+\solution{
+  \ol{
+    \li{#{y} is \em{bound}, as it is within the scope of the quantifier #{\forall y}.}
+    \li{The first occurence of #{x} is \em{bound}, as it is within the scope of the quantifier #{\forall x}.}
+    \li{The second occurence of #{x} is \em{free}, as it is not within the scope of any quantifier that binds it.}
+  }
+}

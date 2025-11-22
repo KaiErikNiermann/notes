@@ -1,0 +1,19 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Term evaluation (FOL)}
+
+\p{In First Order Logic, terms are evaluated based on an [interpretation](0012) #{I} and a [variable assignment](0013) #{\sigma} within a structure #{S} denoted as #{\langle I, \sigma\rangle(t)}. The evaluation rules are as follows:}
+
+\ul{
+  \li{If #{t} is a constant symbol #{c}, then #{\langle I, \sigma\rangle(c) = I(c)}.}
+  \li{If #{t} is a variable #{x}, then #{\langle I, \sigma\rangle(x) = \sigma(x)}.}
+  \li{If #{t} is a function application #{f(t_1, t_2, \ldots, t_n)}, then 
+    ##{
+      \langle I, \sigma\rangle(f(t_1, t_2, \ldots, t_n)) = I(f)(\langle I, \sigma\rangle(t_1), \langle I, \sigma\rangle(t_2), \ldots, \langle I, \sigma\rangle(t_n))
+    }
+  }
+}

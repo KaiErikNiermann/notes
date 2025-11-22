@@ -1,7 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
-npm install
-
-./node_modules/.bin/esbuild --minify --bundle javascript-source/forester.js --outfile=forester.js
-
-
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+exec "$SCRIPT_DIR/dev/bundle-js.sh" "$@"

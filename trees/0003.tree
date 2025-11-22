@@ -1,0 +1,14 @@
+\date{2025-11-22}
+\import{base-macros}
+\taxon{VU-VFS-2025}
+\title{All VFS Quiz Solutions}
+
+\p{
+  This is an explanation and solution to all quizzes in the VFS lectures. By default I have the solutions minimized, but you can expand them by clicking on the upper part of the solution box (i.e. just click the solution section).
+}
+
+\put\transclude/expanded{false}
+
+\transclude{0004}
+\transclude{000b}
+\transclude{000u}

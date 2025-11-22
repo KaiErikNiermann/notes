@@ -1,0 +1,32 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Semantic Entailment (FOL)}
+
+\p{Consider constants (free variables) #{a, b} and a unary function #{f}, and a binary predicate #{p}. Let #{U = \{\alpha, \beta\}} and interpretation function #{I} be defined as follows:}
+##{
+  \begin{align*}
+    I &= \{a \mapsto \alpha, b \mapsto \beta\} \\ 
+    I &= \{f(\alpha) \mapsto \beta, f(\beta) \mapsto \alpha\} \\
+    I &= \{p(\beta, \alpha) \mapsto \top, p(\beta, \beta) \mapsto \top\}
+  \end{align*}
+}
+
+\p{Under the structure #{S = (U, I)} and variable assignment #{\sigma = \{x \mapsto \alpha\}} what do the following formulas evaluate to?}
+
+\ol{
+  \li{#{p(f(b), f(x))}}
+  \li{#{p(f(x), f(b))}}
+  \li{#{p(a, f(x))}}
+}
+
+\solution{
+  \ol{
+    \li{#{p(f(b), f(x))} evaluates to #{\top} because #{f(b) = f(\beta) = \alpha} and #{f(x) = f(\alpha) = \beta}, and #{p(\alpha, \beta) = \top}.}
+    \li{#{p(f(x), f(b))} evaluates to #{\top} because #{f(x) = f(\alpha) = \beta} and #{f(b) = f(\beta) = \alpha}, and #{p(\beta, \alpha) = \top}.}
+    \li{#{p(a, f(x))} evaluates to #{\bot} because #{a = \alpha} and #{f(x) = f(\alpha) = \beta}, and #{p(\alpha, \beta) = \bot}.}
+  }
+}

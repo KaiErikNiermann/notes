@@ -1,0 +1,47 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{VU-VFS-2025}
+
+\title{Lecture 3 - First Order Logic}
+
+
+\subtree{
+  \title{Syntax}
+  \transclude{000v}
+  \transclude{000w}
+}
+
+\subtree{
+  \title{Quantifiers & Scoping}
+  \transclude{000x}
+  \transclude{000y}
+}
+
+\subtree{
+  \title{Closed, Open & Ground Formulas}
+  \transclude{000z}
+  \transclude{0010}
+}
+
+\subtree{
+  \title{Term Evaluation}
+  \transclude{0012}
+  \transclude{0013}
+  \transclude{0011}
+  \transclude{0014}
+}
+
+\subtree{
+  \title{Semantic Entailment}
+  \transclude{0015}
+  \transclude{0016}
+}
+
+\subtree{
+  \title{Semantic argument method}
+  \transclude{0017}
+  \transclude{0018}
+  \transclude{0019}
+}

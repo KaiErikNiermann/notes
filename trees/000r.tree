@@ -1,0 +1,16 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Equisatisfiability}
+
+\p{If a formula #{F} and #{G} are equisatisfiable, then are they equivalent?}
+
+\solution{
+  No. We can answer this in a few different ways. In the most direct sense they are just definitionally not the same thing, in that equivalence requires that both formulas have the same truth value under all interpretations, whereas equisatisfiability only requires that both formulas have \em{a} satisfying interpretation or both be unsatisfiable.
+
+  Another way to see it is that in an abstract sense equivalence describes an object-level relationship between formulas, whereas equisatisfiability describes a meta-level relationship about the existence of satisfying interpretations. Thus they are fundamentally different kinds of relationships.
+}
+

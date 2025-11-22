@@ -1,0 +1,30 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Converting to DNF}
+\p{Convert the following formula into Disjunctive Normal Form (DNF):}
+##{
+  (q \lor \neg \neg p) \land (\neg r \to s)
+}
+
+\solution{
+  \tex{
+    \usepackage{amsmath}
+    \usepackage{eulervm}
+    \usepackage[scaled=0.92]{inconsolata} 
+  }{
+    \startverb
+    {\small
+      \begin{align*}
+        & (q \lor \neg \neg p) \land (\neg r \to s) \\
+        & \equiv (q \lor p) \land (r \lor s) \tag{Eliminate Implication} \\
+        & \equiv ((q \lor p) \land r) \lor ((q \lor p) \land s) \tag{Distribute Conjunction} \\
+        & \equiv (q \land r) \lor (p \land r) \lor (q \land s) \lor (p \land s) \tag{Distribute Conjunction} \\
+      \end{align*}
+    }
+    \stopverb
+  }
+}

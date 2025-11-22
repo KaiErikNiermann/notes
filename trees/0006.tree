@@ -1,0 +1,34 @@
+\date{2025-11-22}
+
+\import{base-macros}
+\taxon{Quiz}
+\title{Evaluating Syntax}
+
+\ol{
+  \li{\strong{Is #{p} an atom?}}
+  \li{\strong{Is #{p} a literal?}}
+  \li{\strong{Is #{p} a formula?}}
+  \li{\strong{What about #{\neg p}?}}
+  \li{\strong{What about #{\neg \neg p}? }}
+}
+
+\solution{
+  \ol{
+    \li{
+      Yes, #{p} is an atom.
+    }
+    \li{
+      Yes, #{p} is a literal. Literals are either atoms or negated atoms, and since #{p} is an atom, it is also a literal.
+    }
+    \li{
+      Yes, #{p} is a formula. Formulas can be literals, and since #{p} is a literal, it is also a formula.
+    }
+    \li{
+      #{\neg p} is not an atom, but it is a literal (as it is a negated atom) and therefore also a formula.
+    }
+    \li{
+      #{\neg \neg p} is a formula, since the inner negation #{\neg p} is a literal and any additional negation applied promotes it to a formula. In other words only \em{negated atoms} are literals but \em{negated literals} are formulas. This is especially important when we later discuss Negation Normal Form (NNF). 
+    }
+  }
+}
+

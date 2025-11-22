@@ -1,0 +1,41 @@
+\date{2025-11-22}
+
+\import{base-macros}
+\taxon{Quiz}
+
+\title{Term evaluation (FOL)}
+
+\p{Consider the following domain/universe of discourse, variable assignment, and interpretation:}
+\ul{
+  \li{Universe 
+  ##{
+    U \triangleq \{1, 2\}
+  }}
+  \li{Variable assignment
+    ##{
+      \sigma \triangleq \{x\mapsto 2, y\mapsto 1\}
+    }
+  }
+  \li{
+    Interpretation
+    ##{
+      \begin{align*}
+        I & \triangleq \{a \mapsto 1, b \mapsto 2\} \\ 
+        I & \triangleq \{f(1, 1) \mapsto 2, f(1, 2) \mapsto 2, f(2, 1) \mapsto 1, f(2, 2) \mapsto 1\} 
+      \end{align*}
+    }
+  }
+}
+\p{What is the evaluation of the following terms under the given interpretation and variable assignment?}
+\ol{
+  \li{#{f(a, y)}}
+  \li{#{f(x, b)}}
+  \li{#{f(f(x, b), f(a, y))}}
+}
+
+\solution{
+\ol{
+  \li{#{\langle I, \sigma \rangle (f(a, y)) = I(f)(\langle I, \sigma \rangle (a), \langle I, \sigma \rangle (y)) = I(f)(I(a), \sigma(y)) = I(f)(1, 1) = 2}}
+  \li{#{\langle I, \sigma \rangle (f(x, b)) = I(f)(\langle I, \sigma \rangle (x), \langle I, \sigma \rangle (b)) = I(f)(\sigma(x), I(b)) = I(f)(2, 2) = 1}}
+  \li{#{\langle I, \sigma \rangle (f(f(x, b), f(a, y))) = I(f)(\langle I, \sigma \rangle (f(x, b)), \langle I, \sigma \rangle (f(a, y))) = I(f)(1, 2) = 2}}}
+}

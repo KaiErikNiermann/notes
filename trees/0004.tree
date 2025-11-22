@@ -1,0 +1,19 @@
+\date{2025-11-22}
+\import{base-macros}
+\taxon{VU-VFS-2025}
+\title{Lecture 1 - Propositional Logic}
+
+
+\subtree{
+  \title{Syntax}
+  \transclude{0005}
+  \transclude{0006}
+}
+
+\subtree{
+  \title{Semantics & Intepretations}
+  \transclude{0007}
+  \transclude{0008}
+  \transclude{0009}
+  \transclude{000a}
+}

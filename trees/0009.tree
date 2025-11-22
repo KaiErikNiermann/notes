@@ -1,0 +1,86 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Quiz} 
+
+\title{Evaluating PL Formulae}
+
+\strong{
+  Consider the formula 
+  #{
+    F \triangleq (\neg p \land q)
+  }
+  and interpretation 
+  #{
+    I \triangleq \{p \to \top, q \to \bot\}
+  }
+  Which of the following is true
+}
+
+\ol{
+  \li{#{I \models F}}
+  \li{#{I \nvDash F}}
+}
+
+\strong{
+  What about the formula
+  ##{
+    (p \land q) \to (\neg p \lor q)
+  }
+  under the same interpretation?
+}
+
+\solution{
+  Theres two main ways you can usually approach questions like this, the more drawn out operational way and then just going by observation more or less. Starting out with the more pedantic approach we can try to construct a proof tree for the formula under the given interpretation. So considering the first formula we have: 
+  \infrule{
+    \inferrule{
+      \inferrule{
+        \inferrule{
+          I(p) = \top
+        }{
+          I \models p
+        }
+      }{
+        I \nvDash \neg p
+      }
+      \quad
+      \inferrule{
+        \inferrule{
+          I(q) = \bot
+        }{
+          I \nvDash q
+        }
+      }{
+        I \nvDash q
+      }
+    }{
+      I \nvDash (\neg p \land q)
+    }
+  }
+
+  \p{So we can see that the interpretation does not satisfy the formula. In other words for this assignment the formula does not hold true. Given that this is a somewhat simple formula we could also just see this by observation, i.e. }
+  ##{
+    \underbrace{\neg p}_{\texttt{False}} \land \underbrace{q}_{\texttt{False}} \equiv \bot
+  }
+  \p{For the second formula lets just go with the simpler approach again, so we have}
+  \tex{
+    \usepackage{amsmath}
+    \usepackage{eulervm}
+    \usepackage[scaled=0.92]{inconsolata} 
+
+  }{
+    \startverb
+    {\small
+      \begin{align*}
+          (p \land q) \to (\neg p \lor q) &\equiv (\texttt{true} \land \texttt{false}) \to (\neg \texttt{true} \lor \texttt{false}) \tag{by $I$}\\
+      &\equiv \texttt{false} \to (\texttt{false} \lor \texttt{false}) \\
+      &\equiv \texttt{false} \to \texttt{false} \\
+      &\equiv \texttt{true} \tag{vacuously true} 
+      \end{align*}
+    }
+    \stopverb
+  }
+
+  \p{So in this case the formula is satisfied by the interpretation.}
+}

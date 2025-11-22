@@ -1,0 +1,87 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Connectives and Quantifiers (FOL)}
+
+\p{In addition to evaluating atomic formulas, we can define the evaluation of complex formulas using logical connectives and quantifiers as follows:}
+
+\infrule{
+  \inferrule*[right=Not-True]{
+    S, \sigma \not\models F
+  }{
+    S, \sigma \models \neg F
+  }
+  \and
+  \inferrule*[right=Not-False]{
+    S, \sigma \models F
+  }{
+    S, \sigma \not\models \neg F
+  }
+  \and
+  \inferrule*[right=And-True]{
+    S, \sigma \models F_1 \\ S, \sigma \models F_2
+  }{
+    S, \sigma \models F_1 \land F_2
+  }
+  \and
+  \inferrule*[right=And-False]{
+    S, \sigma \not\models F_1 \lor S, \sigma \not\models F_2
+  }{
+    S, \sigma \not\models F_1 \land F_2
+  }
+  \and
+  \inferrule*[right=Or-True]{
+    S, \sigma \models F_1 \lor S, \sigma \models F_2
+  }{
+    S, \sigma \models F_1 \lor F_2 
+  }
+  \and
+  \inferrule*[right=Or-False]{
+    S, \sigma \not\models F_1 \\ S, \sigma \not\models F_2
+  }{
+    S, \sigma \not\models F_1 \lor F_2
+  }
+  \and
+  \inferrule*[right=Imp-True]{
+    S, \sigma \not\models F_1 \lor S, \sigma \models F_2
+  }{
+    S, \sigma \models F_1 \to F_2
+  }
+  \and
+  \inferrule*[right=Imp-False]{
+    S, \sigma \models F_1 \\ S, \sigma \not\models F_2
+  }{
+    S, \sigma \not\models F_1 \to F_2
+  }
+}
+
+\p{For the proof rules of quantifiers we have two variants depending on whether we are dealing with free or bound variables:}
+
+\infrule{
+  \inferrule*[right=$\forall$-$\top$]{
+    S, \sigma \models x.\ F \\ \forall d \in D
+  }{
+    S, \sigma[x \mapsto d] \models \forall F
+  }
+  \and
+  \inferrule*[right=$\forall$-$\bot$]{
+    S, \sigma \not\models \exists x.\ F \\ \exists d \in D
+  }{
+    S, \sigma[x \mapsto d] \not\models F
+  }
+  \and
+  \inferrule*[right=$\exists$-$\top$]{
+    S, \sigma \models \exists x.\ F \\ \exists d \in D
+  }{
+    S, \sigma[x \mapsto d] \models F
+  }
+  \and
+  \inferrule*[right=$\exists$-$\bot$]{
+    S, \sigma \not\models \exists x.\ F \\ \forall d \in D
+  }{
+    S, \sigma[x \mapsto d] \not\models F
+  }
+}

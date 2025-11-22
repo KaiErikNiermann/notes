@@ -1,0 +1,15 @@
+\date{2025-11-22}
+\import{base-macros}
+
+\title{Course Notes}
+
+\put\transclude/expanded{false}
+\put\transclude/metadata{true}
+\put\transclude/numbered{false}
+\put\transclude/toc{false}
+
+\p{
+  This is a collection of notes for various courses I have taken.
+}
+
+\transclude{0003}

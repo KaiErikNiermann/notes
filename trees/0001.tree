@@ -1,0 +1,17 @@
+\date{2025-11-21}
+\taxon{Definition}
+\import{base-macros}
+\title{Small-step Operational Semantics}
+
+\p{
+  We can describe small-step semantics at a few different levels of detail. In the most basic sense they represent a binary; or yes-no; relation between program states. 
+}
+
+\codeblock{lean}{
+  Stmt × State → Stmt × State → Prop
+}
+
+##{
+  (S_0, \sigma_0) \to (S_1, \sigma_1) \to \ldots \to (S_n, \sigma_n)
+}
+

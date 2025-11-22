@@ -1,0 +1,25 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Interpretation (FOL)}
+
+\p{In first order logic a \em{Interpretation}; similar to the case of propositional logic; is a mapping which assigns meaning to the syntax of the language. In this instance its a mapping from constants, function symbols and predicate symbols to specific objects, functions and relations in a given domain. We can define an interpretation as a sort of piecewise function as follows:}
+
+##{
+  \begin{align*}
+    I &: \mathcal C \cup \mathcal F \cup \mathcal R \to D \cup (D^n \to D) \cup (D^n \to \{\top, \bot\}) \\
+    I(c) & = d \quad \forall c \in \mathcal C, d \in D \\
+    I(f) & = f_D: D^n \to D \quad \forall f \in \mathcal F \\
+    I(p) & = p_D: D^n \to \{\top, \bot\} \quad \forall p \in \mathcal R \\
+  \end{align*}
+}
+
+\p{Where #{D} (sometimes also denoted as #{U}) is the \em{domain of discourse} which is a non-empty set of objects over which the quantifiers range. Intuitively the domain of discourse represents what we wish to talk about in our interpretation. We can break this down into 3 parts:}
+\ul{
+  \li{\strong{constants} (#{c \in \mathcal C}): are mapped to specific elements in the domain #{d \in D}. For example if #{c} is the constant #{"a"} and #{D = \{1, 2, 3\}}, then #{I(a) = 1} could be a valid mapping.}
+  \li{\strong{function symbols} (#{f \in \mathcal F}): are mapped to functions that take elements from the domain and return elements in the domain. For example if #{f} is a unary function symbol #{"f"} and #{D = \{1, 2, 3\}}, then #{I(f) = f_D} where #{f_D(1) = 2}, #{f_D(2) = 3}, and #{f_D(3) = 1} could be a valid mapping.}
+  \li{\strong{relation symbols} (#{p \in \mathcal R}): are mapped to relations (or predicates) that take elements from the domain and return truth values #{\{\top, \bot\}}. For example if #{p} is a binary relation symbol #{"R"} and #{D = \{1, 2, 3\}}, then #{I(R) = R_D} where #{R_D(1, 2) = \top}, #{R_D(2, 3) = \bot}, and #{R_D(3, 1) = \top} could be a valid mapping.}
+}

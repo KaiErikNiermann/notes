@@ -19,14 +19,14 @@
   \startverb
    \usepackage{syntax}
    \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts}
+   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
   \stopverb
 }
 
 \def\latex-preamble/align{
   \startverb
-  \usepackage{eulervm}
   \usepackage{amsmath}
+  \usepackage{eulervm}
   \stopverb
 }
 

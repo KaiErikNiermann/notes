@@ -1,3 +1,11 @@
 \title{Kai Erik Niermann}
 \import{base-macros}
 
+\put\transclude/expanded{false}
+\put\transclude/metadata{true}
+\put\transclude/numbered{false}
+\put\transclude/toc{false}
+
+\transclude{0002}
+
+\p{}

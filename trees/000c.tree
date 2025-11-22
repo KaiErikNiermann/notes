@@ -1,0 +1,15 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Equivalence of Formulae}
+
+\p{
+  Two formulas #{F} and #{G} are said to be \strong{equivalent}, written #{F \equiv G}, if they have the same truth value under every interpretation. In other words, for every interpretation #{I}, #{I \models F} if and only if #{I \models G}.
+}
+
+##{
+  F \equiv G \iff \forall I (I \models F \iff I \models G)
+}

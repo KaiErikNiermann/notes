@@ -5,6 +5,10 @@
   font-family: 'Euler Math', serif !important;
 }
 
+.katex .texttt {
+  font-family: var(--code-font-stack) !important;
+}
+
 /* inria-sans-300 - latin_latin-ext */
 @font-face {
   font-display: swap;
@@ -12,8 +16,9 @@
   font-family: 'Inria Sans';
   font-style: normal;
   font-weight: 300;
-  src: url('fonts/inria-sans-v14-latin_latin-ext-300.woff2') format('woff2');
+  width: min(100%, 26rem);
   /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  height: auto;
 }
 
 /* inria-sans-300italic - latin_latin-ext */
@@ -183,7 +188,7 @@ pre.code-block {
   border-radius: calc(var(--radius) + 2px);
   border: 1px solid var(--code-border-color);
   box-shadow: 0 14px 40px -32px var(--code-shadow-color);
-  white-space: pre;
+  white-space: normal;
   word-break: normal;
   word-wrap: normal;
   tab-size: 2;
@@ -204,6 +209,7 @@ pre.code-block code {
 
 pre code {
   background: transparent;
+  white-space: normal;
   padding: 0;
 }
 
@@ -211,7 +217,13 @@ code {
   border-radius: var(--radius);
   background-color: var(--surface-color);
   padding: 0.2em;
+}
+
+img.tex-diagram {
+  display: block;
+  margin: 1.5rem auto;
   font-size: 0.9em;
+  white-space: pre;
   font-family: var(--code-font-stack);
   font-variant-ligatures: contextual discretionary-ligatures historical-ligatures common-ligatures;
   font-feature-settings: "calt" 1, "liga" 1, "dlig" 1, "hlig" 1;
@@ -749,14 +761,14 @@ address {
 }
 
 img {
-  object-fit: cover;
-  max-width: 90%;
+  object-fit: fill;
 }
 
 img {
   display: block;
   padding: 1em 1em;
   margin-right: auto;
+  justify-content: center;
   background-color: transparent;
   transition: filter 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
 }

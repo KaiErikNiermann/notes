@@ -1,0 +1,16 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{De Morgan's Laws}
+\p{
+  De Morgan's laws describe how negation interacts with conjunction and disjunction in propositional logic. They state that:
+}
+##{
+  \begin{align*}
+    \neg (p \land q) &\equiv \neg p \lor \neg q \\
+    \neg (p \lor q) &\equiv \neg p \land \neg q
+  \end{align*}
+}

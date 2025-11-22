@@ -1,0 +1,9 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Negation Normal Form (NNF)}
+
+\p{A formula #{F} is in Negation Normal Form (NNF) if the negation operator #{\neg} is onyl applied to literlas (i.e., propositional variables or their negations), and the only other allowed operators are conjunction #{\land} and disjunction #{\lor}. A nice way to think about it is that we can never have the case where we need to apply [De Morgan's laws](000g) to push negations further down the formula tree. So all negations come pre-distributed to the literals.}

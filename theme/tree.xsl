@@ -14,25 +14,6 @@
         <meta name="viewport" content="width=device-width" />
         <link rel="stylesheet" href="{/f:tree/@base-url}style.css" />
         <link rel="stylesheet" href="{/f:tree/@base-url}katex.min.css" />
-        <script id="__bs_script__">//<![CDATA[
-        (function() {
-          try {
-            var script = document.createElement('script');
-            if ('async') {
-              script.async = true;
-            }
-            script.src = '/browser-sync/browser-sync-client.js?v=3.0.4'.replace("HOST", location.hostname);
-            if (document.body) {
-              document.body.appendChild(script);
-            } else if (document.head) {
-              document.head.appendChild(script);
-            }
-          } catch (e) {
-            console.error("Browsersync: could not append script tag", e);
-          }
-        })()
-      //]]></script>
-        <script async="" src="/browser-sync/browser-sync-client.js?v=3.0.4"></script>
         <script type="text/javascript">
           <xsl:if test="/f:tree/f:frontmatter/f:source-path">
             <xsl:text>window.sourcePath = '</xsl:text>
@@ -50,12 +31,11 @@
         <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
           <span class="theme-toggle__icon" aria-hidden="true">◎</span>
         </button>
-        <ninja-keys placeholder="Start typing a note title or ID"></ninja-keys>
         <xsl:if test="not(/f:tree[@root = 'true'])">
           <header class="header">
             <nav class="nav">
               <div class="logo">
-                <a href="{/f:tree/@base-url}index.html" title="Home">
+                <a href="{/f:tree/@base-url}index/index.xml" title="Home">
                   <xsl:text>« Home</xsl:text>
                 </a>
               </div>
@@ -265,7 +245,7 @@
   </xsl:template>
 
   <xsl:template match="f:source-path">
-    <a class="edit-button" href="{concat('vscode://file', .)}">
+    <a class="edit-button" href="{concat('vscode://vscode-remote/dev-container+2f776f726b7370616365732f756e692f72616e646f6d2f6e6f746573', .)}">
       <xsl:text>[edit]</xsl:text>
     </a>
   </xsl:template>

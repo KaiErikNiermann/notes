@@ -1,0 +1,19 @@
+\date{2025-11-22}
+\taxon{Definition}
+
+\title{Syntax}
+
+\p{Using BNF notation, the syntax of propositional logic can be defined as follows:}
+
+\tex{
+  \usepackage{amsmath}
+  \usepackage{eulervm}
+}{
+{\small 
+  \begin{align*}
+    \text{Atom} \quad \alpha &::= p \mid q \mid r \mid \top \mid \bot \\
+    \text{Literal} \quad l &::= \alpha \mid \neg \alpha \\
+    \text{Formula} \quad F &::= l \mid \neg F  \mid (F \land F) \mid (F \lor F) \mid (F \to F) \mid (F \leftrightarrow F)
+  \end{align*}
+}
+}

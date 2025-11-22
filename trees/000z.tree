@@ -1,0 +1,14 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Closed, Open, and Ground Formulas in FOL}
+
+\p{We have 3 important classifications of formulas in First Order Logic (FOL) based on the nature of their variables:}
+\ul{
+  \li{\strong{Closed Formula}: A formula with \em{no free variables}. All variables in the formula are bound by quantifiers. E.g., #{\forall x.\ \exists y.\ p(x, y)} is a closed formula.}
+  \li{\strong{Open Formula}: A formula with \em{at least one free variable}. E.g., #{p(x, y)} is an open formula since both #{x} and #{y} are free.}
+  \li{\strong{Ground Formula}: A formula with \em{no variables at all}. E.g., #{p(a, b)} is a ground formula if #{a} and #{b} are constants.}
+}

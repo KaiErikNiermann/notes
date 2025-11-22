@@ -1,0 +1,32 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Quiz} 
+
+\title{Evaluating sat/unsat/valid}
+
+\strong{Are the following formulas sat., unsat., or valid?}
+
+\ol{
+  \li{#{(p\land q) \to \neg p}}
+  \li{#{(p \land q) \to (p \lor \neg q)}}
+  \li{#{(p \to (q \to r)) \land \neg((p \land q) \to r)}}
+}
+
+\solution{
+  As a reminder lets recap the definitions:
+  \ul{
+    \li{A formula is \strong{satisfiable} if there exists at least one combination of true/false assignments to its variables that makes the formula true.}
+    \li{A formula is \strong{unsatisfiable} if there is no combination of true/false assignments to its variables that makes the formula true (i.e., it is always false).}
+    \li{A formula is \strong{valid} (or a tautology) if it is true under all possible combinations of true/false assignments to its variables.}
+  }
+  \p{Now we can analyze each formula:}
+  \ol{
+    \li{For the lhs to be true both p and q must be true. However if p is true then #{\neg p} is false, making the implication false. If p is false then the then the implication is vacuously true regardless of what we set q to. Thus this formula is satisfiable (e.g., when p is false) but not valid (e.g., when p and q are true).}
+    \li{If both p and q are true then the lhs is true and so is the rhs by virtue of p being true. If p is false then the implication is vacuously true regardless of q. If q is false then the rhs is true regardless of p. Thus this formula is valid as it is true for all combinations of truth values for p and q.}
+    \li{The first part #{(p \to (q \to r))} is true unless p is true and either q or r is false. The second part #{\neg((p \land q) \to r)} is true when p and q are true but r is false. Thus we can satisfy the entire formula by setting p and q to true and r to false. However if we set p to false then the first part is vacuously true but the second part becomes false. Thus this formula is satisfiable (e.g., when p and q are true and r is false) but not valid (e.g., when p is false).}    
+  }
+
+  If you want to be absolutely sure about these kinds of questions constructing truth tables is always a good idea, albeit a bit tedious for formulas with many variables so just doing a bit of analysis like above is usually sufficient
+}

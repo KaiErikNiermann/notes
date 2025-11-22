@@ -1,4 +1,12 @@
 \date{2025-11-21}
-\taxon{Blog}
+\title{My failed JetBrains Interview}
 
+\p{
+  I thought as a wonderful first addition to this blog wold be to share some insights from my failed interview with JetBrains for an internship position as a language verification engineer.
+}
 
+\p{
+  The process started out somewhat nicely, the task that was given for this position was to simply implement the small-step operational semantics of simple arithmetic operations. With an added bonus to also implement variables; and this is where I messed up.
+}
+
+\transclude{0001}

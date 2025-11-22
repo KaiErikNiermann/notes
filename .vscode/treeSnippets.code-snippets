@@ -14,7 +14,15 @@
     ],
     "description": "Basic Forester tree with frontmatter and a first paragraph."
   },
-
+  "Forester: list item" 
+: {
+    "prefix": "li",
+    "scope": "forester",
+    "body": [
+      "\\li{${1:list item text}}$0"
+    ],
+    "description": "Insert a \\li{...} list item."
+  },
   // Biographical / Person tree
   "Forester: person tree": {
     "prefix": "person",

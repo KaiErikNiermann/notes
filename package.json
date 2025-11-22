@@ -5,18 +5,23 @@
   "main": "index.js",
   "scripts": {
     "build": "forester build forest.toml --dev",
-    "watch": "chokidar \"trees/**/*.tree\" \"theme/**/*.{xsl,css}\" \"theme/javascript-source/**/*.js\" \"assets/**/*\" forest.toml --ignore \"theme/node_modules/**\" --initial --debounce 300 -c \"npm run build\"",
-    "serve": "browser-sync start --server output --files \"output/**/*.xml\" \"output/**/*.css\" \"output/**/*.js\" --ignore \"output/node_modules/**\" \"output/fonts/**\" \"output/LICENSES/**\" --watch --no-ui --host 0.0.0.0 --port 1313 --index index/index.xml --startPath /index/index.xml",
-    "dev": "concurrently -k \"npm:watch\" \"npm:serve\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "python3 -m http.server 35729 -d output",
+    "dev": "npm run serve",
+    "test": "npm --prefix theme/dev run test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "browser-sync": "^3.0.4",
     "chokidar-cli": "^3.0.0",
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.1",
+    "connect": "^3.7.0",
+    "connect-livereload": "^0.6.1",
+    "live-reload": "^1.1.1",
+    "serve-static": "^1.16.2"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
   }
 }

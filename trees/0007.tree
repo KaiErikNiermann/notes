@@ -1,0 +1,97 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Semantics}
+
+\p{We can define the semantic inference rules for propositional logic formulas under interpretations as follows inductively, starting with the base cases:}
+
+\infrule{
+  \inferrule*[right=Atom-$\top$]{
+    I(p) = \top
+  }{
+    I \models p
+  }
+  \and
+  \inferrule*[right=Atom-$\bot$]{
+    I(p) = \bot
+  }{
+    I \not\models p
+  }
+  \and
+  \inferrule*[right=True]{
+  }{
+    I \models \top
+  }
+  \and
+  \inferrule*[right=False]{
+  }{
+    I \not\models \bot
+  }
+}
+
+\p{Moving on to the inductive case we have}
+
+\infrule{
+  \inferrule*[right=Neg-$\top$]{
+    I \models \neg F
+  }{
+    I \not\models F
+  }
+  \and 
+  \inferrule*[right=Conj-$\top$]{
+    I \models F_1 \quad I \models F_2
+  }{
+    I \models F_1 \land F_2
+  }
+  \and
+  \inferrule*[right=Disj-$\top$]{
+    I \models F_1 \quad \text{or} \quad I \models F_2
+  }{
+    I \models F_1 \lor F_2
+  }
+  \and 
+  \inferrule*[right=Imp-$\top$]{
+    I \not\models F_1 \quad \text{or} \quad I \models F_2
+  }{
+    I \models F_1 \to F_2
+  }
+  \and
+  \inferrule*[right=Contr-$\top$]{
+    I \models F \\ I \not\models F
+  }{
+    I \models \bot
+  }
+}
+
+\p{
+Similarly, the rules for when an interpretation does not satisfy a formula are as follows:
+}
+
+\infrule{
+  \inferrule*[right=Neg-$\bot$]{
+    I \not\models \neg F
+  }{
+    I \models F
+  }
+  \and 
+  \inferrule*[right=Conj-$\bot$]{
+    I \not\models F_1 \quad \text{or} \quad I \not\models F_2
+  }{
+    I \not\models F_1 \land F_2
+  }
+  \and
+  \inferrule*[right=Disj-$\bot$]{
+    I \not\models F_1 \\ I \not\models F_2
+  }{
+    I \not\models F_1 \lor F_2
+  }
+  \and 
+  \inferrule*[right=Imp-$\bot$]{
+    I \models F_1 \\ I \not\models F_2
+  }{
+    I \not\models F_1 \to F_2
+  }
+}

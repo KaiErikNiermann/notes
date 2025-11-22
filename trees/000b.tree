@@ -1,0 +1,41 @@
+\date{2025-11-22}
+
+\import{base-macros}
+\taxon{VU-VFS-2025}
+\title{Lecture 2 - Normal Forms & DPLL}
+
+
+\subtree{
+  \title{Formula Equivalence}
+  \transclude{000c}
+  \transclude{000d}
+}
+
+\subtree{
+  \title{Negation Normal Forms}
+  \transclude{000e}
+  \transclude{000f}
+}
+
+\subtree{
+  \title{Disjunctive Normal Form}
+  \transclude{000k}
+  \transclude{000j}
+  \transclude{000h}
+  \transclude{000l}
+}
+
+\subtree{
+  \title{Equisatisfiability}
+  \transclude{000q}
+  \transclude{000r}
+
+}
+
+\subtree{
+  \title{Tseitin Transformation}
+  \transclude{000n}
+  \transclude{000m}
+  \transclude{000s}
+  \transclude{000t}
+}

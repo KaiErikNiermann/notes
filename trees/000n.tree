@@ -1,0 +1,18 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Conjunctive Normal Form (CNF)}
+
+\p{
+  A formula is in \strong{Conjunctive Normal Form (CNF)} if it is expressed as a conjunction of disjunctions of literals. In other words, a CNF formula is a series of clauses (disjunctions) connected by AND operators. Each clause contains literals (variables or their negations) connected by OR operators. For example, the formula #{(p \lor \neg q) \land (r \lor s \lor \neg t)} is in CNF.
+}
+##{
+  F = C_1 \land C_2 \land ... \land C_n
+}
+\p{Where each clause #{C_i} is of the form:}
+##{
+  C_i = L_{i1} \lor L_{i2} \lor ... \lor L_{im}
+}

@@ -1,0 +1,24 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Quiz}
+\title{Negation Normal Form (NNF)}
+
+\strong{Which of the following formulas are in Negation Normal Form (NNF)?}
+
+\ol{
+  \li{#{p \to q}}
+  \li{#{p \lor (\neg q  \land (r \lor \neg s))}}
+  \li{#{p \lor (\neg q \land \neg (\neg r \land s))}}
+  \li{#{p \lor (\neg q \land (\neg \neg r \lor \neg s)) }}
+}
+
+\solution{
+  \ol{
+    \li{No. The implication operator #{\to} is not allowed in NNF.}
+    \li{Yes. Negations are only applied to literals, and only #{\land} and #{\lor} are used.}
+    \li{No. The negation operator #{\neg} is applied to a non-literal formula #{(\neg r \land s)}.}
+    \li{No. The double negation #{\neg \neg r} is not allowed in NNF. Important to remember since that can trip you up.}
+  }
+}

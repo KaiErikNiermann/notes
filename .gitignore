@@ -1,7 +1,10 @@
 output/
 node_modules/
-theme/package-lock.json
+theme/dev/package-lock.json
+theme/dev/node_modules/
 output/package-lock.json
 
 .tmp/
+theme/dev/.tmp/
 build
+_tmp/

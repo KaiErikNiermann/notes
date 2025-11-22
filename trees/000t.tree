@@ -1,0 +1,29 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Tseytin's Transformation}
+
+\p{Lets consider the following formula}
+##{
+  F \triangleq (p \land q) \lor (p \land \neg r \land s)
+}
+\p{Using Tseytin's transformation, convert the formula #{F} into an equisatisfiable formula in CNF.}
+
+\solution{
+  For the sake of breavity, lets skip assume the subformula extraction is already done and we created the following equivalence clauses:
+  ##{
+    \begin{align*}
+    F_1 &\triangleq t_1 \leftrightarrow (\neg r \land s) \\
+    F_2 &\triangleq t_2 \leftrightarrow (p \land t_1) \\
+    F_3 &\triangleq t_3 \leftrightarrow (p \land q) \\
+    F_4 &\triangleq t_4 \leftrightarrow (t_2 \lor t_3)
+    \end{align*}
+  }
+  This gives us the following conjunct for the transformed formula:
+  ##{
+    F' \triangleq F_1 \land F_2 \land F_3 \land F_4 \land t_4
+  }
+}

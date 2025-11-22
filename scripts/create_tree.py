@@ -7,6 +7,8 @@ import argparse
 import sys
 from datetime import datetime
 from pathlib import Path
+import shutil
+import subprocess
 import re
 
 BASE36_STEM = re.compile(r"^[0-9a-zA-Z]{4}$")
@@ -79,6 +81,8 @@ def create_tree_file(tree_dir: Path) -> Path:
 
     date_line = format_date_line()
     target.write_text(f"{date_line}\n\n", encoding="utf-8")
+    with target.open("a", encoding="utf-8") as stream:
+        stream.write("\\import{base-macros}\n\n")
     return target
 
 
@@ -91,6 +95,19 @@ def main() -> None:
         print(f"Error: {exc}", file=sys.stderr)
         sys.exit(1)
     print(f"Created {new_path}")
+    code_path = shutil.which("code")
+    if code_path is None:
+        print(
+            "Warning: Visual Studio Code CLI ('code') not found on PATH; skipping auto-open",
+            file=sys.stderr,
+        )
+        return
+    try:
+        subprocess.run([code_path, str(new_path)], check=False)
+    except Exception as exc:  # noqa: BLE001 - we just log and continue
+        print(
+            f"Warning: failed to launch VS Code for {new_path}: {exc}", file=sys.stderr
+        )
 
 
 if __name__ == "__main__":

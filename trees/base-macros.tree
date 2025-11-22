@@ -42,9 +42,11 @@
      \latex-preamble/mathpar
     }
     \tex{\get\base/tex-preamble}{
-      \begin{mathpar}
+      {\small
+        \begin{mathpar}
         \body{}
-      \end{mathpar}
+        \end{mathpar}
+      }
     }
   }
 }
@@ -75,6 +77,7 @@
 \def\solution[body]{
  \scope{
    \put\transclude/toc{false}
+   \put\transclude/expanded{false}
    \subtree{
      \taxon{Solution}
      \body

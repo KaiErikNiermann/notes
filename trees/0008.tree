@@ -1,0 +1,24 @@
+\date{2025-11-22}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Interpretation}
+
+\p{We define an interpretation as a function which maps propositional variables in a formula to truth values, so formally}
+
+##{
+  I : \texttt{Var} \to \{\top, \bot\}
+}
+
+\p{We can \em{evaluate} a formula \em{under} an interpretation #{I} by substituting each propositional variable with its corresponding truth value given by #{I}. Naturally under different kinds of interpretations formulas can evaluate to different truth values. We can create a classifcation of formulas based on how many interpretations evaluate them to true or false.}
+
+\ol{
+  \li{\strong{satisfiable}: A formula is satisfiable if there exists at least one interpretation under which it evaluates to true.}
+  \li{\strong{unsatisfying}: A formula is unsatisfying if there exists at least one interpretation under which it evaluates to false.}
+  \li{\strong{tautology}: A formula is a tautology if it evaluates to true under every possible interpretation.}
+  \li{\strong{contradiction}: A formula is a contradiction if it evaluates to false under every possible interpretation.}
+  \li{\strong{contingent}: A formula is contingent if it is satisfiable and unsatisfying, i.e., there exists at least one interpretation under which it evaluates to true and at least one interpretation under which it evaluates to false.}
+}
+

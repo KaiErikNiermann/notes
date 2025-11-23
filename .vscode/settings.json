@@ -14,7 +14,7 @@
       {
         // Run whenever any file is saved
         "match": ".*",
-        "cmd": "forester build"
+        "cmd": "npm run build"
       }
     ]
   }

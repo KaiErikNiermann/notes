@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "forester build forest.toml --dev",
-    "serve": "python3 -m http.server 1313 -d output",
+    "build": "forester build forest.toml && mv output docs",
+    "serve": "python3 -m http.server 1313 -d docs",
     "dev": "npm run serve",
     "test": "npm --prefix theme/dev run test"
   },

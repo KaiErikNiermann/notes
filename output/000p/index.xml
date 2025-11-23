@@ -8,6 +8,7 @@
       <fr:month>11</fr:month>
       <fr:day>22</fr:day>
     </fr:date>
+    <fr:source-path>/workspaces/uni/random/notes/trees/000p.tree</fr:source-path>
     <fr:uri>https://localhost:1314/000p/</fr:uri>
     <fr:display-uri>000p</fr:display-uri>
     <fr:route>/000p/</fr:route>

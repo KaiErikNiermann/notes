@@ -8,6 +8,7 @@
       <fr:month>11</fr:month>
       <fr:day>22</fr:day>
     </fr:date>
+    <fr:source-path>/workspaces/uni/random/notes/trees/000i.tree</fr:source-path>
     <fr:uri>https://localhost:1314/000i/</fr:uri>
     <fr:display-uri>000i</fr:display-uri>
     <fr:route>/000i/</fr:route>
@@ -19,7 +20,7 @@
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000i.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li>Yes. As we are restricted to the same set of connectives in both DNF and NNF, and since DNF also only applies negations to literals, any formula in DNF is also in NNF.</html:li>
     <html:li>A formula in DNF is satisfiable if at least one of its clauses is satisfiable. Since each clause is a conjunction of literals, a clause is satisfiable if none of its literals contradict each other (i.e., it does not contain both a variable and its negation). Thus, to check the satisfiability of a DNF formula, we can examine each clause individually and see if there exists at least one clause where all literals can be true simultaneously.</html:li></html:ol>
 </fr:mainmatter></fr:tree>

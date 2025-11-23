@@ -8,6 +8,7 @@
       <fr:month>11</fr:month>
       <fr:day>22</fr:day>
     </fr:date>
+    <fr:source-path>/workspaces/uni/random/notes/trees/000n.tree</fr:source-path>
     <fr:uri>https://localhost:1314/000n/</fr:uri>
     <fr:display-uri>000n</fr:display-uri>
     <fr:route>/000n/</fr:route>
@@ -48,6 +49,7 @@
               <fr:month>11</fr:month>
               <fr:day>22</fr:day>
             </fr:date>
+            <fr:source-path>/workspaces/uni/random/notes/trees/000b.tree</fr:source-path>
             <fr:uri>https://localhost:1314/000b/</fr:uri>
             <fr:display-uri>000b</fr:display-uri>
             <fr:route>/000b/</fr:route>
@@ -63,6 +65,7 @@
                   <fr:month>11</fr:month>
                   <fr:day>22</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/000b.tree</fr:source-path>
                 <fr:title text="Formula Equivalence">Formula Equivalence</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
@@ -74,6 +77,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000c.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000c/</fr:uri>
                     <fr:display-uri>000c</fr:display-uri>
                     <fr:route>/000c/</fr:route>
@@ -97,6 +101,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000d.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000d/</fr:uri>
                     <fr:display-uri>000d</fr:display-uri>
                     <fr:route>/000d/</fr:route>
@@ -112,7 +117,7 @@
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000d.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li>True. Both sides are always false.</html:li>
     <html:li>True. Both sides are always true.</html:li>
     <html:li>False. Left side is always false, right side is always true.</html:li>
@@ -136,6 +141,7 @@
                   <fr:month>11</fr:month>
                   <fr:day>22</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/000b.tree</fr:source-path>
                 <fr:title text="Negation Normal Forms">Negation Normal Forms</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
@@ -147,6 +153,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000e.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000e/</fr:uri>
                     <fr:display-uri>000e</fr:display-uri>
                     <fr:route>/000e/</fr:route>
@@ -165,6 +172,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000f.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000f/</fr:uri>
                     <fr:display-uri>000f</fr:display-uri>
                     <fr:route>/000f/</fr:route>
@@ -178,7 +186,7 @@
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000f.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li>No. The implication operator <fr:tex display="inline"><![CDATA[\to ]]></fr:tex> is not allowed in NNF.</html:li>
     <html:li>Yes. Negations are only applied to literals, and only <fr:tex display="inline"><![CDATA[\land ]]></fr:tex> and <fr:tex display="inline"><![CDATA[\lor ]]></fr:tex> are used.</html:li>
     <html:li>No. The negation operator <fr:tex display="inline"><![CDATA[\neg ]]></fr:tex> is applied to a non-literal formula <fr:tex display="inline"><![CDATA[(\neg  r \land  s)]]></fr:tex>.</html:li>
@@ -197,6 +205,7 @@
                   <fr:month>11</fr:month>
                   <fr:day>22</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/000b.tree</fr:source-path>
                 <fr:title text="Disjunctive Normal Form">Disjunctive Normal Form</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
@@ -208,6 +217,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000k.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000k/</fr:uri>
                     <fr:display-uri>000k</fr:display-uri>
                     <fr:route>/000k/</fr:route>
@@ -232,6 +242,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000j.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000j/</fr:uri>
                     <fr:display-uri>000j</fr:display-uri>
                     <fr:route>/000j/</fr:route>
@@ -256,6 +267,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000h.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000h/</fr:uri>
                     <fr:display-uri>000h</fr:display-uri>
                     <fr:route>/000h/</fr:route>
@@ -281,6 +293,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000l.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000l/</fr:uri>
                     <fr:display-uri>000l</fr:display-uri>
                     <fr:route>/000l/</fr:route>
@@ -293,7 +306,7 @@
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000l.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <fr:resource hash="d0026a0e6ac8cdcb077e7120ac508b53"><fr:resource-content><html:img src="/d0026a0e6ac8cdcb077e7120ac508b53.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
     \usepackage {amsmath}
     \usepackage {eulervm}
@@ -322,6 +335,7 @@
                   <fr:month>11</fr:month>
                   <fr:day>22</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/000b.tree</fr:source-path>
                 <fr:title text="Equisatisfiability">Equisatisfiability</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
@@ -333,6 +347,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000q.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000q/</fr:uri>
                     <fr:display-uri>000q</fr:display-uri>
                     <fr:route>/000q/</fr:route>
@@ -354,6 +369,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000r.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000r/</fr:uri>
                     <fr:display-uri>000r</fr:display-uri>
                     <fr:route>/000r/</fr:route>
@@ -364,7 +380,7 @@
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000r.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   No. We can answer this in a few different ways. In the most direct sense they are just definitionally not the same thing, in that equivalence requires that both formulas have the same truth value under all interpretations, whereas equisatisfiability only requires that both formulas have <html:em>a</html:em> satisfying interpretation or both be unsatisfiable.
 
   Another way to see it is that in an abstract sense equivalence describes an object-level relationship between formulas, whereas equisatisfiability describes a meta-level relationship about the existence of satisfying interpretations. Thus they are fundamentally different kinds of relationships.
@@ -382,6 +398,7 @@
                   <fr:month>11</fr:month>
                   <fr:day>22</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/000b.tree</fr:source-path>
                 <fr:title text="Tseitin Transformation">Tseitin Transformation</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
@@ -393,6 +410,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000n.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000n/</fr:uri>
                     <fr:display-uri>000n</fr:display-uri>
                     <fr:route>/000n/</fr:route>
@@ -420,6 +438,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000m.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000m/</fr:uri>
                     <fr:display-uri>000m</fr:display-uri>
                     <fr:route>/000m/</fr:route>
@@ -440,6 +459,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000s.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000s/</fr:uri>
                     <fr:display-uri>000s</fr:display-uri>
                     <fr:route>/000s/</fr:route>
@@ -502,6 +522,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000t.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000t/</fr:uri>
                     <fr:display-uri>000t</fr:display-uri>
                     <fr:route>/000t/</fr:route>
@@ -514,7 +535,7 @@
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000t.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   For the sake of breavity, lets skip assume the subformula extraction is already done and we created the following equivalence clauses:
   <fr:tex display="block"><![CDATA[
     \begin {align*}
@@ -552,6 +573,7 @@
               <fr:month>11</fr:month>
               <fr:day>22</fr:day>
             </fr:date>
+            <fr:source-path>/workspaces/uni/random/notes/trees/000s.tree</fr:source-path>
             <fr:uri>https://localhost:1314/000s/</fr:uri>
             <fr:display-uri>000s</fr:display-uri>
             <fr:route>/000s/</fr:route>

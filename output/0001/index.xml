@@ -8,6 +8,7 @@
       <fr:month>11</fr:month>
       <fr:day>21</fr:day>
     </fr:date>
+    <fr:source-path>/workspaces/uni/random/notes/trees/0001.tree</fr:source-path>
     <fr:uri>https://localhost:1314/0001/</fr:uri>
     <fr:display-uri>0001</fr:display-uri>
     <fr:route>/0001/</fr:route>
@@ -49,6 +50,7 @@
               <fr:month>11</fr:month>
               <fr:day>21</fr:day>
             </fr:date>
+            <fr:source-path>/workspaces/uni/random/notes/trees/0000.tree</fr:source-path>
             <fr:uri>https://localhost:1314/0000/</fr:uri>
             <fr:display-uri>0000</fr:display-uri>
             <fr:route>/0000/</fr:route>
@@ -69,6 +71,7 @@
                   <fr:month>11</fr:month>
                   <fr:day>21</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/0001.tree</fr:source-path>
                 <fr:uri>https://localhost:1314/0001/</fr:uri>
                 <fr:display-uri>0001</fr:display-uri>
                 <fr:route>/0001/</fr:route>

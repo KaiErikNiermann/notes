@@ -8,6 +8,7 @@
       <fr:month>11</fr:month>
       <fr:day>22</fr:day>
     </fr:date>
+    <fr:source-path>/workspaces/uni/random/notes/trees/0017.tree</fr:source-path>
     <fr:uri>https://localhost:1314/0017/</fr:uri>
     <fr:display-uri>0017</fr:display-uri>
     <fr:route>/0017/</fr:route>
@@ -143,6 +144,7 @@
               <fr:month>11</fr:month>
               <fr:day>22</fr:day>
             </fr:date>
+            <fr:source-path>/workspaces/uni/random/notes/trees/000u.tree</fr:source-path>
             <fr:uri>https://localhost:1314/000u/</fr:uri>
             <fr:display-uri>000u</fr:display-uri>
             <fr:route>/000u/</fr:route>
@@ -158,6 +160,7 @@
                   <fr:month>11</fr:month>
                   <fr:day>22</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/000u.tree</fr:source-path>
                 <fr:title text="Syntax">Syntax</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
@@ -169,6 +172,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000v.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000v/</fr:uri>
                     <fr:display-uri>000v</fr:display-uri>
                     <fr:route>/000v/</fr:route>
@@ -209,6 +213,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000w.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000w/</fr:uri>
                     <fr:display-uri>000w</fr:display-uri>
                     <fr:route>/000w/</fr:route>
@@ -223,7 +228,7 @@
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000w.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li><fr:tex display="inline"><![CDATA[f(x)]]></fr:tex>: <html:em>Invalid</html:em>, as <fr:tex display="inline"><![CDATA[f]]></fr:tex> is a function symbol and cannot stand alone as a formula.</html:li>
     <html:li><fr:tex display="inline"><![CDATA[p(x)]]></fr:tex>: <html:em>Valid</html:em>, as <fr:tex display="inline"><![CDATA[p]]></fr:tex> is a relation symbol applied to the term <fr:tex display="inline"><![CDATA[x]]></fr:tex>.</html:li>
     <html:li><fr:tex display="inline"><![CDATA[p(f(x))]]></fr:tex>: <html:em>Valid</html:em>, as <fr:tex display="inline"><![CDATA[f(x)]]></fr:tex> is a term and <fr:tex display="inline"><![CDATA[p]]></fr:tex> is a relation symbol applied to that term.</html:li>
@@ -243,6 +248,7 @@
                   <fr:month>11</fr:month>
                   <fr:day>22</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/000u.tree</fr:source-path>
                 <fr:title text="Quantifiers &amp; Scoping">Quantifiers &amp; Scoping</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
@@ -254,6 +260,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000x.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000x/</fr:uri>
                     <fr:display-uri>000x</fr:display-uri>
                     <fr:route>/000x/</fr:route>
@@ -278,6 +285,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000y.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000y/</fr:uri>
                     <fr:display-uri>000y</fr:display-uri>
                     <fr:route>/000y/</fr:route>
@@ -292,7 +300,7 @@
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000y.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li><fr:tex display="inline"><![CDATA[y]]></fr:tex> is <html:em>bound</html:em>, as it is within the scope of the quantifier <fr:tex display="inline"><![CDATA[\forall  y]]></fr:tex>.</html:li>
     <html:li>The first occurence of <fr:tex display="inline"><![CDATA[x]]></fr:tex> is <html:em>bound</html:em>, as it is within the scope of the quantifier <fr:tex display="inline"><![CDATA[\forall  x]]></fr:tex>.</html:li>
     <html:li>The second occurence of <fr:tex display="inline"><![CDATA[x]]></fr:tex> is <html:em>free</html:em>, as it is not within the scope of any quantifier that binds it.</html:li></html:ol>
@@ -310,6 +318,7 @@
                   <fr:month>11</fr:month>
                   <fr:day>22</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/000u.tree</fr:source-path>
                 <fr:title text="Closed, Open &amp; Ground Formulas">Closed, Open &amp; Ground Formulas</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
@@ -321,6 +330,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000z.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000z/</fr:uri>
                     <fr:display-uri>000z</fr:display-uri>
                     <fr:route>/000z/</fr:route>
@@ -342,6 +352,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0010.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/0010/</fr:uri>
                     <fr:display-uri>0010</fr:display-uri>
                     <fr:route>/0010/</fr:route>
@@ -354,7 +365,7 @@
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/0010.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   This formula is a <html:strong>closed formula</html:strong> because all variables within the formula are bound by quantifiers. The variable <fr:tex display="inline"><![CDATA[y]]></fr:tex> is bound by the quantifier <fr:tex display="inline"><![CDATA[\forall  y]]></fr:tex>, and both occurrences of <fr:tex display="inline"><![CDATA[x]]></fr:tex> are bound by their respective quantifiers <fr:tex display="inline"><![CDATA[\forall  x]]></fr:tex> and <fr:tex display="inline"><![CDATA[\exists  x]]></fr:tex>. There are no free variables in this formula. 
 
   A nice example of a ground formula is something like this 
@@ -376,6 +387,7 @@
                   <fr:month>11</fr:month>
                   <fr:day>22</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/000u.tree</fr:source-path>
                 <fr:title text="Term Evaluation">Term Evaluation</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
@@ -387,6 +399,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0012.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/0012/</fr:uri>
                     <fr:display-uri>0012</fr:display-uri>
                     <fr:route>/0012/</fr:route>
@@ -417,6 +430,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0013.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/0013/</fr:uri>
                     <fr:display-uri>0013</fr:display-uri>
                     <fr:route>/0013/</fr:route>
@@ -441,6 +455,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0011.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/0011/</fr:uri>
                     <fr:display-uri>0011</fr:display-uri>
                     <fr:route>/0011/</fr:route>
@@ -465,6 +480,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0014.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/0014/</fr:uri>
                     <fr:display-uri>0014</fr:display-uri>
                     <fr:route>/0014/</fr:route>
@@ -492,7 +508,7 @@
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/0014.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
 <html:ol><html:li><fr:tex display="inline"><![CDATA[\langle  I, \sigma  \rangle  (f(a, y)) = I(f)(\langle  I, \sigma  \rangle  (a), \langle  I, \sigma  \rangle  (y)) = I(f)(I(a), \sigma (y)) = I(f)(1, 1) = 2]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[\langle  I, \sigma  \rangle  (f(x, b)) = I(f)(\langle  I, \sigma  \rangle  (x), \langle  I, \sigma  \rangle  (b)) = I(f)(\sigma (x), I(b)) = I(f)(2, 2) = 1]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[\langle  I, \sigma  \rangle  (f(f(x, b), f(a, y))) = I(f)(\langle  I, \sigma  \rangle  (f(x, b)), \langle  I, \sigma  \rangle  (f(a, y))) = I(f)(1, 2) = 2]]></fr:tex></html:li></html:ol>
@@ -510,6 +526,7 @@
                   <fr:month>11</fr:month>
                   <fr:day>22</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/000u.tree</fr:source-path>
                 <fr:title text="Semantic Entailment">Semantic Entailment</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
@@ -521,6 +538,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0015.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/0015/</fr:uri>
                     <fr:display-uri>0015</fr:display-uri>
                     <fr:route>/0015/</fr:route>
@@ -573,6 +591,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0016.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/0016/</fr:uri>
                     <fr:display-uri>0016</fr:display-uri>
                     <fr:route>/0016/</fr:route>
@@ -591,7 +610,7 @@
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/0016.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li><fr:tex display="inline"><![CDATA[p(f(b), f(x))]]></fr:tex> evaluates to <fr:tex display="inline"><![CDATA[\top ]]></fr:tex> because <fr:tex display="inline"><![CDATA[f(b) = f(\beta ) = \alpha ]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(x) = f(\alpha ) = \beta ]]></fr:tex>, and <fr:tex display="inline"><![CDATA[p(\alpha , \beta ) = \top ]]></fr:tex>.</html:li>
     <html:li><fr:tex display="inline"><![CDATA[p(f(x), f(b))]]></fr:tex> evaluates to <fr:tex display="inline"><![CDATA[\top ]]></fr:tex> because <fr:tex display="inline"><![CDATA[f(x) = f(\alpha ) = \beta ]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = f(\beta ) = \alpha ]]></fr:tex>, and <fr:tex display="inline"><![CDATA[p(\beta , \alpha ) = \top ]]></fr:tex>.</html:li>
     <html:li><fr:tex display="inline"><![CDATA[p(a, f(x))]]></fr:tex> evaluates to <fr:tex display="inline"><![CDATA[\bot ]]></fr:tex> because <fr:tex display="inline"><![CDATA[a = \alpha ]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(x) = f(\alpha ) = \beta ]]></fr:tex>, and <fr:tex display="inline"><![CDATA[p(\alpha , \beta ) = \bot ]]></fr:tex>.</html:li></html:ol>
@@ -609,6 +628,7 @@
                   <fr:month>11</fr:month>
                   <fr:day>22</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/000u.tree</fr:source-path>
                 <fr:title text="Semantic argument method">Semantic argument method</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
@@ -620,6 +640,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0017.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/0017/</fr:uri>
                     <fr:display-uri>0017</fr:display-uri>
                     <fr:route>/0017/</fr:route>
@@ -742,6 +763,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0018.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/0018/</fr:uri>
                     <fr:display-uri>0018</fr:display-uri>
                     <fr:route>/0018/</fr:route>
@@ -785,6 +807,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0019.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/0019/</fr:uri>
                     <fr:display-uri>0019</fr:display-uri>
                     <fr:route>/0019/</fr:route>
@@ -797,7 +820,7 @@
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/0019.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   We begin by assuming that <fr:tex display="inline"><![CDATA[\exists  S, \sigma  \nvDash  F]]></fr:tex>
   <fr:tex display="block"><![CDATA[
     \begin {align*}

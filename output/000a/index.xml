@@ -8,6 +8,7 @@
       <fr:month>11</fr:month>
       <fr:day>22</fr:day>
     </fr:date>
+    <fr:source-path>/workspaces/uni/random/notes/trees/000a.tree</fr:source-path>
     <fr:uri>https://localhost:1314/000a/</fr:uri>
     <fr:display-uri>000a</fr:display-uri>
     <fr:route>/000a/</fr:route>
@@ -20,7 +21,7 @@
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000a.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   As a reminder lets recap the definitions:
   <html:ul><html:li>A formula is <html:strong>satisfiable</html:strong> if there exists at least one combination of true/false assignments to its variables that makes the formula true.</html:li>
     <html:li>A formula is <html:strong>unsatisfiable</html:strong> if there is no combination of true/false assignments to its variables that makes the formula true (i.e., it is always false).</html:li>
@@ -56,6 +57,7 @@
               <fr:month>11</fr:month>
               <fr:day>22</fr:day>
             </fr:date>
+            <fr:source-path>/workspaces/uni/random/notes/trees/0004.tree</fr:source-path>
             <fr:uri>https://localhost:1314/0004/</fr:uri>
             <fr:display-uri>0004</fr:display-uri>
             <fr:route>/0004/</fr:route>
@@ -71,6 +73,7 @@
                   <fr:month>11</fr:month>
                   <fr:day>22</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/0004.tree</fr:source-path>
                 <fr:title text="Syntax">Syntax</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
@@ -82,6 +85,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0005.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/0005/</fr:uri>
                     <fr:display-uri>0005</fr:display-uri>
                     <fr:route>/0005/</fr:route>
@@ -118,6 +122,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0006.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/0006/</fr:uri>
                     <fr:display-uri>0006</fr:display-uri>
                     <fr:route>/0006/</fr:route>
@@ -132,7 +137,7 @@
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/0006.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li>
       Yes, <fr:tex display="inline"><![CDATA[p]]></fr:tex> is an atom.
     </html:li>
@@ -160,6 +165,7 @@
                   <fr:month>11</fr:month>
                   <fr:day>22</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/0004.tree</fr:source-path>
                 <fr:title text="Semantics &amp; Intepretations">Semantics &amp; Intepretations</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
@@ -171,6 +177,7 @@
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0007.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/0007/</fr:uri>
                     <fr:display-uri>0007</fr:display-uri>
                     <fr:route>/0007/</fr:route>
@@ -316,6 +323,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0008.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/0008/</fr:uri>
                     <fr:display-uri>0008</fr:display-uri>
                     <fr:route>/0008/</fr:route>
@@ -343,6 +351,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0009.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/0009/</fr:uri>
                     <fr:display-uri>0009</fr:display-uri>
                     <fr:route>/0009/</fr:route>
@@ -370,7 +379,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/0009.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   Theres two main ways you can usually approach questions like this, the more drawn out operational way and then just going by observation more or less. Starting out with the more pedantic approach we can try to construct a proof tree for the formula under the given interpretation. So considering the first formula we have: 
   
   
@@ -449,6 +458,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000a.tree</fr:source-path>
                     <fr:uri>https://localhost:1314/000a/</fr:uri>
                     <fr:display-uri>000a</fr:display-uri>
                     <fr:route>/000a/</fr:route>
@@ -461,7 +471,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000a.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   As a reminder lets recap the definitions:
   <html:ul><html:li>A formula is <html:strong>satisfiable</html:strong> if there exists at least one combination of true/false assignments to its variables that makes the formula true.</html:li>
     <html:li>A formula is <html:strong>unsatisfiable</html:strong> if there is no combination of true/false assignments to its variables that makes the formula true (i.e., it is always false).</html:li>

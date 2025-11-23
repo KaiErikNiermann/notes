@@ -8,6 +8,7 @@
       <fr:month>11</fr:month>
       <fr:day>22</fr:day>
     </fr:date>
+    <fr:source-path>/workspaces/uni/random/notes/trees/0004.tree</fr:source-path>
     <fr:uri>https://localhost:1314/0004/</fr:uri>
     <fr:display-uri>0004</fr:display-uri>
     <fr:route>/0004/</fr:route>
@@ -23,6 +24,7 @@
           <fr:month>11</fr:month>
           <fr:day>22</fr:day>
         </fr:date>
+        <fr:source-path>/workspaces/uni/random/notes/trees/0004.tree</fr:source-path>
         <fr:title text="Syntax">Syntax</fr:title>
       </fr:frontmatter>
       <fr:mainmatter>
@@ -34,6 +36,7 @@
               <fr:month>11</fr:month>
               <fr:day>22</fr:day>
             </fr:date>
+            <fr:source-path>/workspaces/uni/random/notes/trees/0005.tree</fr:source-path>
             <fr:uri>https://localhost:1314/0005/</fr:uri>
             <fr:display-uri>0005</fr:display-uri>
             <fr:route>/0005/</fr:route>
@@ -70,6 +73,7 @@
               <fr:month>11</fr:month>
               <fr:day>22</fr:day>
             </fr:date>
+            <fr:source-path>/workspaces/uni/random/notes/trees/0006.tree</fr:source-path>
             <fr:uri>https://localhost:1314/0006/</fr:uri>
             <fr:display-uri>0006</fr:display-uri>
             <fr:route>/0006/</fr:route>
@@ -84,7 +88,7 @@
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/0006.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li>
       Yes, <fr:tex display="inline"><![CDATA[p]]></fr:tex> is an atom.
     </html:li>
@@ -112,6 +116,7 @@
           <fr:month>11</fr:month>
           <fr:day>22</fr:day>
         </fr:date>
+        <fr:source-path>/workspaces/uni/random/notes/trees/0004.tree</fr:source-path>
         <fr:title text="Semantics &amp; Intepretations">Semantics &amp; Intepretations</fr:title>
       </fr:frontmatter>
       <fr:mainmatter>
@@ -123,6 +128,7 @@
               <fr:month>11</fr:month>
               <fr:day>22</fr:day>
             </fr:date>
+            <fr:source-path>/workspaces/uni/random/notes/trees/0007.tree</fr:source-path>
             <fr:uri>https://localhost:1314/0007/</fr:uri>
             <fr:display-uri>0007</fr:display-uri>
             <fr:route>/0007/</fr:route>
@@ -268,6 +274,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
               <fr:month>11</fr:month>
               <fr:day>22</fr:day>
             </fr:date>
+            <fr:source-path>/workspaces/uni/random/notes/trees/0008.tree</fr:source-path>
             <fr:uri>https://localhost:1314/0008/</fr:uri>
             <fr:display-uri>0008</fr:display-uri>
             <fr:route>/0008/</fr:route>
@@ -295,6 +302,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
               <fr:month>11</fr:month>
               <fr:day>22</fr:day>
             </fr:date>
+            <fr:source-path>/workspaces/uni/random/notes/trees/0009.tree</fr:source-path>
             <fr:uri>https://localhost:1314/0009/</fr:uri>
             <fr:display-uri>0009</fr:display-uri>
             <fr:route>/0009/</fr:route>
@@ -322,7 +330,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/0009.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   Theres two main ways you can usually approach questions like this, the more drawn out operational way and then just going by observation more or less. Starting out with the more pedantic approach we can try to construct a proof tree for the formula under the given interpretation. So considering the first formula we have: 
   
   
@@ -401,6 +409,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
               <fr:month>11</fr:month>
               <fr:day>22</fr:day>
             </fr:date>
+            <fr:source-path>/workspaces/uni/random/notes/trees/000a.tree</fr:source-path>
             <fr:uri>https://localhost:1314/000a/</fr:uri>
             <fr:display-uri>000a</fr:display-uri>
             <fr:route>/000a/</fr:route>
@@ -413,7 +422,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000a.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   As a reminder lets recap the definitions:
   <html:ul><html:li>A formula is <html:strong>satisfiable</html:strong> if there exists at least one combination of true/false assignments to its variables that makes the formula true.</html:li>
     <html:li>A formula is <html:strong>unsatisfiable</html:strong> if there is no combination of true/false assignments to its variables that makes the formula true (i.e., it is always false).</html:li>
@@ -453,6 +462,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
               <fr:month>11</fr:month>
               <fr:day>22</fr:day>
             </fr:date>
+            <fr:source-path>/workspaces/uni/random/notes/trees/0003.tree</fr:source-path>
             <fr:uri>https://localhost:1314/0003/</fr:uri>
             <fr:display-uri>0003</fr:display-uri>
             <fr:route>/0003/</fr:route>
@@ -471,6 +481,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                   <fr:month>11</fr:month>
                   <fr:day>22</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/0004.tree</fr:source-path>
                 <fr:uri>https://localhost:1314/0004/</fr:uri>
                 <fr:display-uri>0004</fr:display-uri>
                 <fr:route>/0004/</fr:route>
@@ -486,6 +497,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0004.tree</fr:source-path>
                     <fr:title text="Syntax">Syntax</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
@@ -497,6 +509,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/0005.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/0005/</fr:uri>
                         <fr:display-uri>0005</fr:display-uri>
                         <fr:route>/0005/</fr:route>
@@ -533,6 +546,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/0006.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/0006/</fr:uri>
                         <fr:display-uri>0006</fr:display-uri>
                         <fr:route>/0006/</fr:route>
@@ -547,7 +561,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/0006.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li>
       Yes, <fr:tex display="inline"><![CDATA[p]]></fr:tex> is an atom.
     </html:li>
@@ -575,6 +589,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/0004.tree</fr:source-path>
                     <fr:title text="Semantics &amp; Intepretations">Semantics &amp; Intepretations</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
@@ -586,6 +601,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/0007.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/0007/</fr:uri>
                         <fr:display-uri>0007</fr:display-uri>
                         <fr:route>/0007/</fr:route>
@@ -731,6 +747,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/0008.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/0008/</fr:uri>
                         <fr:display-uri>0008</fr:display-uri>
                         <fr:route>/0008/</fr:route>
@@ -758,6 +775,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/0009.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/0009/</fr:uri>
                         <fr:display-uri>0009</fr:display-uri>
                         <fr:route>/0009/</fr:route>
@@ -785,7 +803,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/0009.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   Theres two main ways you can usually approach questions like this, the more drawn out operational way and then just going by observation more or less. Starting out with the more pedantic approach we can try to construct a proof tree for the formula under the given interpretation. So considering the first formula we have: 
   
   
@@ -864,6 +882,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000a.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000a/</fr:uri>
                         <fr:display-uri>000a</fr:display-uri>
                         <fr:route>/000a/</fr:route>
@@ -876,7 +895,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000a.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   As a reminder lets recap the definitions:
   <html:ul><html:li>A formula is <html:strong>satisfiable</html:strong> if there exists at least one combination of true/false assignments to its variables that makes the formula true.</html:li>
     <html:li>A formula is <html:strong>unsatisfiable</html:strong> if there is no combination of true/false assignments to its variables that makes the formula true (i.e., it is always false).</html:li>
@@ -903,6 +922,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                   <fr:month>11</fr:month>
                   <fr:day>22</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/000b.tree</fr:source-path>
                 <fr:uri>https://localhost:1314/000b/</fr:uri>
                 <fr:display-uri>000b</fr:display-uri>
                 <fr:route>/000b/</fr:route>
@@ -918,6 +938,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000b.tree</fr:source-path>
                     <fr:title text="Formula Equivalence">Formula Equivalence</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
@@ -929,6 +950,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000c.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000c/</fr:uri>
                         <fr:display-uri>000c</fr:display-uri>
                         <fr:route>/000c/</fr:route>
@@ -952,6 +974,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000d.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000d/</fr:uri>
                         <fr:display-uri>000d</fr:display-uri>
                         <fr:route>/000d/</fr:route>
@@ -967,7 +990,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000d.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li>True. Both sides are always false.</html:li>
     <html:li>True. Both sides are always true.</html:li>
     <html:li>False. Left side is always false, right side is always true.</html:li>
@@ -991,6 +1014,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000b.tree</fr:source-path>
                     <fr:title text="Negation Normal Forms">Negation Normal Forms</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
@@ -1002,6 +1026,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000e.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000e/</fr:uri>
                         <fr:display-uri>000e</fr:display-uri>
                         <fr:route>/000e/</fr:route>
@@ -1020,6 +1045,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000f.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000f/</fr:uri>
                         <fr:display-uri>000f</fr:display-uri>
                         <fr:route>/000f/</fr:route>
@@ -1033,7 +1059,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000f.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li>No. The implication operator <fr:tex display="inline"><![CDATA[\to ]]></fr:tex> is not allowed in NNF.</html:li>
     <html:li>Yes. Negations are only applied to literals, and only <fr:tex display="inline"><![CDATA[\land ]]></fr:tex> and <fr:tex display="inline"><![CDATA[\lor ]]></fr:tex> are used.</html:li>
     <html:li>No. The negation operator <fr:tex display="inline"><![CDATA[\neg ]]></fr:tex> is applied to a non-literal formula <fr:tex display="inline"><![CDATA[(\neg  r \land  s)]]></fr:tex>.</html:li>
@@ -1052,6 +1078,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000b.tree</fr:source-path>
                     <fr:title text="Disjunctive Normal Form">Disjunctive Normal Form</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
@@ -1063,6 +1090,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000k.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000k/</fr:uri>
                         <fr:display-uri>000k</fr:display-uri>
                         <fr:route>/000k/</fr:route>
@@ -1087,6 +1115,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000j.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000j/</fr:uri>
                         <fr:display-uri>000j</fr:display-uri>
                         <fr:route>/000j/</fr:route>
@@ -1111,6 +1140,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000h.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000h/</fr:uri>
                         <fr:display-uri>000h</fr:display-uri>
                         <fr:route>/000h/</fr:route>
@@ -1136,6 +1166,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000l.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000l/</fr:uri>
                         <fr:display-uri>000l</fr:display-uri>
                         <fr:route>/000l/</fr:route>
@@ -1148,7 +1179,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000l.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <fr:resource hash="d0026a0e6ac8cdcb077e7120ac508b53"><fr:resource-content><html:img src="/d0026a0e6ac8cdcb077e7120ac508b53.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
     \usepackage {amsmath}
     \usepackage {eulervm}
@@ -1177,6 +1208,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000b.tree</fr:source-path>
                     <fr:title text="Equisatisfiability">Equisatisfiability</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
@@ -1188,6 +1220,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000q.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000q/</fr:uri>
                         <fr:display-uri>000q</fr:display-uri>
                         <fr:route>/000q/</fr:route>
@@ -1209,6 +1242,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000r.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000r/</fr:uri>
                         <fr:display-uri>000r</fr:display-uri>
                         <fr:route>/000r/</fr:route>
@@ -1219,7 +1253,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000r.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   No. We can answer this in a few different ways. In the most direct sense they are just definitionally not the same thing, in that equivalence requires that both formulas have the same truth value under all interpretations, whereas equisatisfiability only requires that both formulas have <html:em>a</html:em> satisfying interpretation or both be unsatisfiable.
 
   Another way to see it is that in an abstract sense equivalence describes an object-level relationship between formulas, whereas equisatisfiability describes a meta-level relationship about the existence of satisfying interpretations. Thus they are fundamentally different kinds of relationships.
@@ -1237,6 +1271,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000b.tree</fr:source-path>
                     <fr:title text="Tseitin Transformation">Tseitin Transformation</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
@@ -1248,6 +1283,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000n.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000n/</fr:uri>
                         <fr:display-uri>000n</fr:display-uri>
                         <fr:route>/000n/</fr:route>
@@ -1275,6 +1311,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000m.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000m/</fr:uri>
                         <fr:display-uri>000m</fr:display-uri>
                         <fr:route>/000m/</fr:route>
@@ -1295,6 +1332,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000s.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000s/</fr:uri>
                         <fr:display-uri>000s</fr:display-uri>
                         <fr:route>/000s/</fr:route>
@@ -1357,6 +1395,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000t.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000t/</fr:uri>
                         <fr:display-uri>000t</fr:display-uri>
                         <fr:route>/000t/</fr:route>
@@ -1369,7 +1408,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000t.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   For the sake of breavity, lets skip assume the subformula extraction is already done and we created the following equivalence clauses:
   <fr:tex display="block"><![CDATA[
     \begin {align*}
@@ -1399,6 +1438,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                   <fr:month>11</fr:month>
                   <fr:day>22</fr:day>
                 </fr:date>
+                <fr:source-path>/workspaces/uni/random/notes/trees/000u.tree</fr:source-path>
                 <fr:uri>https://localhost:1314/000u/</fr:uri>
                 <fr:display-uri>000u</fr:display-uri>
                 <fr:route>/000u/</fr:route>
@@ -1414,6 +1454,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000u.tree</fr:source-path>
                     <fr:title text="Syntax">Syntax</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
@@ -1425,6 +1466,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000v.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000v/</fr:uri>
                         <fr:display-uri>000v</fr:display-uri>
                         <fr:route>/000v/</fr:route>
@@ -1465,6 +1507,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000w.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000w/</fr:uri>
                         <fr:display-uri>000w</fr:display-uri>
                         <fr:route>/000w/</fr:route>
@@ -1479,7 +1522,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000w.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li><fr:tex display="inline"><![CDATA[f(x)]]></fr:tex>: <html:em>Invalid</html:em>, as <fr:tex display="inline"><![CDATA[f]]></fr:tex> is a function symbol and cannot stand alone as a formula.</html:li>
     <html:li><fr:tex display="inline"><![CDATA[p(x)]]></fr:tex>: <html:em>Valid</html:em>, as <fr:tex display="inline"><![CDATA[p]]></fr:tex> is a relation symbol applied to the term <fr:tex display="inline"><![CDATA[x]]></fr:tex>.</html:li>
     <html:li><fr:tex display="inline"><![CDATA[p(f(x))]]></fr:tex>: <html:em>Valid</html:em>, as <fr:tex display="inline"><![CDATA[f(x)]]></fr:tex> is a term and <fr:tex display="inline"><![CDATA[p]]></fr:tex> is a relation symbol applied to that term.</html:li>
@@ -1499,6 +1542,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000u.tree</fr:source-path>
                     <fr:title text="Quantifiers &amp; Scoping">Quantifiers &amp; Scoping</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
@@ -1510,6 +1554,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000x.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000x/</fr:uri>
                         <fr:display-uri>000x</fr:display-uri>
                         <fr:route>/000x/</fr:route>
@@ -1534,6 +1579,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000y.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000y/</fr:uri>
                         <fr:display-uri>000y</fr:display-uri>
                         <fr:route>/000y/</fr:route>
@@ -1548,7 +1594,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/000y.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li><fr:tex display="inline"><![CDATA[y]]></fr:tex> is <html:em>bound</html:em>, as it is within the scope of the quantifier <fr:tex display="inline"><![CDATA[\forall  y]]></fr:tex>.</html:li>
     <html:li>The first occurence of <fr:tex display="inline"><![CDATA[x]]></fr:tex> is <html:em>bound</html:em>, as it is within the scope of the quantifier <fr:tex display="inline"><![CDATA[\forall  x]]></fr:tex>.</html:li>
     <html:li>The second occurence of <fr:tex display="inline"><![CDATA[x]]></fr:tex> is <html:em>free</html:em>, as it is not within the scope of any quantifier that binds it.</html:li></html:ol>
@@ -1566,6 +1612,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000u.tree</fr:source-path>
                     <fr:title text="Closed, Open &amp; Ground Formulas">Closed, Open &amp; Ground Formulas</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
@@ -1577,6 +1624,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/000z.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/000z/</fr:uri>
                         <fr:display-uri>000z</fr:display-uri>
                         <fr:route>/000z/</fr:route>
@@ -1598,6 +1646,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/0010.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/0010/</fr:uri>
                         <fr:display-uri>0010</fr:display-uri>
                         <fr:route>/0010/</fr:route>
@@ -1610,7 +1659,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/0010.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   This formula is a <html:strong>closed formula</html:strong> because all variables within the formula are bound by quantifiers. The variable <fr:tex display="inline"><![CDATA[y]]></fr:tex> is bound by the quantifier <fr:tex display="inline"><![CDATA[\forall  y]]></fr:tex>, and both occurrences of <fr:tex display="inline"><![CDATA[x]]></fr:tex> are bound by their respective quantifiers <fr:tex display="inline"><![CDATA[\forall  x]]></fr:tex> and <fr:tex display="inline"><![CDATA[\exists  x]]></fr:tex>. There are no free variables in this formula. 
 
   A nice example of a ground formula is something like this 
@@ -1632,6 +1681,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000u.tree</fr:source-path>
                     <fr:title text="Term Evaluation">Term Evaluation</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
@@ -1643,6 +1693,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/0012.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/0012/</fr:uri>
                         <fr:display-uri>0012</fr:display-uri>
                         <fr:route>/0012/</fr:route>
@@ -1673,6 +1724,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/0013.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/0013/</fr:uri>
                         <fr:display-uri>0013</fr:display-uri>
                         <fr:route>/0013/</fr:route>
@@ -1697,6 +1749,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/0011.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/0011/</fr:uri>
                         <fr:display-uri>0011</fr:display-uri>
                         <fr:route>/0011/</fr:route>
@@ -1721,6 +1774,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/0014.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/0014/</fr:uri>
                         <fr:display-uri>0014</fr:display-uri>
                         <fr:route>/0014/</fr:route>
@@ -1748,7 +1802,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/0014.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
 <html:ol><html:li><fr:tex display="inline"><![CDATA[\langle  I, \sigma  \rangle  (f(a, y)) = I(f)(\langle  I, \sigma  \rangle  (a), \langle  I, \sigma  \rangle  (y)) = I(f)(I(a), \sigma (y)) = I(f)(1, 1) = 2]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[\langle  I, \sigma  \rangle  (f(x, b)) = I(f)(\langle  I, \sigma  \rangle  (x), \langle  I, \sigma  \rangle  (b)) = I(f)(\sigma (x), I(b)) = I(f)(2, 2) = 1]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[\langle  I, \sigma  \rangle  (f(f(x, b), f(a, y))) = I(f)(\langle  I, \sigma  \rangle  (f(x, b)), \langle  I, \sigma  \rangle  (f(a, y))) = I(f)(1, 2) = 2]]></fr:tex></html:li></html:ol>
@@ -1766,6 +1820,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000u.tree</fr:source-path>
                     <fr:title text="Semantic Entailment">Semantic Entailment</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
@@ -1777,6 +1832,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/0015.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/0015/</fr:uri>
                         <fr:display-uri>0015</fr:display-uri>
                         <fr:route>/0015/</fr:route>
@@ -1829,6 +1885,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/0016.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/0016/</fr:uri>
                         <fr:display-uri>0016</fr:display-uri>
                         <fr:route>/0016/</fr:route>
@@ -1847,7 +1904,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/0016.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li><fr:tex display="inline"><![CDATA[p(f(b), f(x))]]></fr:tex> evaluates to <fr:tex display="inline"><![CDATA[\top ]]></fr:tex> because <fr:tex display="inline"><![CDATA[f(b) = f(\beta ) = \alpha ]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(x) = f(\alpha ) = \beta ]]></fr:tex>, and <fr:tex display="inline"><![CDATA[p(\alpha , \beta ) = \top ]]></fr:tex>.</html:li>
     <html:li><fr:tex display="inline"><![CDATA[p(f(x), f(b))]]></fr:tex> evaluates to <fr:tex display="inline"><![CDATA[\top ]]></fr:tex> because <fr:tex display="inline"><![CDATA[f(x) = f(\alpha ) = \beta ]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = f(\beta ) = \alpha ]]></fr:tex>, and <fr:tex display="inline"><![CDATA[p(\beta , \alpha ) = \top ]]></fr:tex>.</html:li>
     <html:li><fr:tex display="inline"><![CDATA[p(a, f(x))]]></fr:tex> evaluates to <fr:tex display="inline"><![CDATA[\bot ]]></fr:tex> because <fr:tex display="inline"><![CDATA[a = \alpha ]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(x) = f(\alpha ) = \beta ]]></fr:tex>, and <fr:tex display="inline"><![CDATA[p(\alpha , \beta ) = \bot ]]></fr:tex>.</html:li></html:ol>
@@ -1865,6 +1922,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:month>11</fr:month>
                       <fr:day>22</fr:day>
                     </fr:date>
+                    <fr:source-path>/workspaces/uni/random/notes/trees/000u.tree</fr:source-path>
                     <fr:title text="Semantic argument method">Semantic argument method</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
@@ -1876,6 +1934,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/0017.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/0017/</fr:uri>
                         <fr:display-uri>0017</fr:display-uri>
                         <fr:route>/0017/</fr:route>
@@ -1998,6 +2057,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/0018.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/0018/</fr:uri>
                         <fr:display-uri>0018</fr:display-uri>
                         <fr:route>/0018/</fr:route>
@@ -2041,6 +2101,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                           <fr:month>11</fr:month>
                           <fr:day>22</fr:day>
                         </fr:date>
+                        <fr:source-path>/workspaces/uni/random/notes/trees/0019.tree</fr:source-path>
                         <fr:uri>https://localhost:1314/0019/</fr:uri>
                         <fr:display-uri>0019</fr:display-uri>
                         <fr:route>/0019/</fr:route>
@@ -2053,7 +2114,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
  
    
    
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:source-path>/workspaces/uni/random/notes/trees/0019.tree</fr:source-path><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   We begin by assuming that <fr:tex display="inline"><![CDATA[\exists  S, \sigma  \nvDash  F]]></fr:tex>
   <fr:tex display="block"><![CDATA[
     \begin {align*}

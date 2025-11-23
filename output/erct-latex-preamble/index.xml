@@ -3,6 +3,7 @@
 <fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/">
   <fr:frontmatter>
     <fr:authors />
+    <fr:source-path>/workspaces/uni/random/notes/trees/erct-latex-preamble.tree</fr:source-path>
     <fr:uri>https://localhost:1314/erct-latex-preamble/</fr:uri>
     <fr:display-uri>erct-latex-preamble</fr:display-uri>
     <fr:route>/erct-latex-preamble/</fr:route>

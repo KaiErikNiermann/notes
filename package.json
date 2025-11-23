@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "forester build forest.toml",
-    "serve": "python3 -m http.server 1313 -d output/notes",
+    "serve": "python3 -m http.server 1313 -d output",
     "dev": "npm run serve",
     "test": "npm --prefix theme/dev run test"
   },

@@ -20,6 +20,7 @@
    \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata} 
   \stopverb
 }
 

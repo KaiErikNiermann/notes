@@ -4,7 +4,7 @@
 
 \taxon{Definition}
 
-\title{Closed, Open, and Ground Formulas in FOL}
+\title{Closed, Open, and Ground Formulas (FOL)}
 
 \p{We have 3 important classifications of formulas in First Order Logic (FOL) based on the nature of their variables:}
 \ul{

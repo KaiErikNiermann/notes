@@ -1,0 +1,9 @@
+\date{2025-11-23}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Terminal Object (Category Theory)}
+
+\p{In category theory, a \em{terminal object} (or \em{final object}) in a category #{\mathcal C} is an object #{T} such that for every object #{X} in #{\mathcal C}, there exists a unique morphism #{f : X \to T}. In other words, a terminal object is an object that can be reached from any other object in the category via a unique morphism.}

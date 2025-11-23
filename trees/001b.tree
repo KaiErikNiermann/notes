@@ -1,0 +1,181 @@
+\date{2025-11-23}
+
+\import{base-macros}
+
+\taxon{Blog}
+
+\title{Understanding recursors with Lean4}
+
+\p{Before we define recursors, let's first introduce the idea of an inductive type. We'll do this by examining how lean defines natural numbers.}
+
+\codeblock{lean}{
+  inductive Nat where
+  | zero : Nat
+  | succ (n : Nat) : Nat
+}
+
+\p{The idea here being that we can construct natural numbers by either using the constructor \code{zero} to get \code{0}, or by applying the constructor \code{succ} to an existing natural number to get its successor. For example, we can construct \code{3} as follows:}
+
+\codeblock{lean}{
+  def three : Nat := Nat.succ (Nat.succ (Nat.succ Nat.zero))
+}
+
+\p{We can equivalently express this definition using the type formation and term intruduction rules:}
+
+\infrule{
+  \inferrule*[right=Form-Nat]{
+  }{
+    \N : \texttt{type}
+  }
+  \and 
+  \inferrule*[right=Intro-Zero]{}{
+    0 : \N
+  }
+  \and
+  \inferrule*[right=Intro-Succ]{
+    n : \N
+  }{
+    \texttt{succ}\ n : \N
+  }
+}
+
+\p{While this explanation for inductive types usually gives most people I think enough intuition to understand the basic notions of how to use them to construct something like natural numbers, I think it kind of misses the deeper idea of what an inductive type and by extension a recursor really is. To attempt to explain this we'll take a look into some of the categorical semantics behind inductive types.}
+
+\transclude{001c}
+
+\p{While at first this definition seems a bit needlessly abstract, it actually captures what the inductive type of natural numbers really is. The basic thing to recognize is that the two morphisms (just think of them as functions for now) in reality don't have anything to do with natural numbers directly. Instead they act as a kind of blueprint for how we can use the properties or constraints of natural numbers to make anything. Here on a high level we can describe the two functions / constructors as follows:} 
+
+\ul{
+  \li{#{0 : 1 \to \N} - The represents the abstract idea of having some starting point or base case. Within natural numbers this is represented by \code{0}, but in reality it denote an abstract concept of having a starting point.}
+  \li{#{s : \N \to \N} - This represents the abstract idea of being able to build upon existing things to create new things. Within natural numbers this is represented by the successor function.}
+}
+
+\p{Now this might quite fairly still seem a bit confusing and abstract. How can we \em{use properties} to \em{make anything?}. To describe this more formally lets constrain ourselves to the category of sets, #{\mathbf{Set}}. If you are unfamiliar with category theory its sufficient to think of this as just a collection of all kinds of sets and functions between them.}
+
+\transclude{001e}
+
+\p{So in plain english what this is saying is that given any set #{X} where we have some starting point #{x \in X} and some way of building upon existing elements of #{X} (the function #{f : X \to X}), we can use the properties of natural numbers to create a unique function #{u : \N \to X} that maps natural numbers to elements of #{X} in a way that respects our starting point and building function. A natural next question to have might be }
+
+\blockquote{
+  But what does it mean to \em{respect} the starting point and building function?
+}
+
+\p{Here I'd fast say intuitively you can just imagine construct which has some notion of a start and some way of building upon existing things. For example let's imagine the following graph:}
+
+##{
+  a \to b \to c \to d \to e \to \ldots
+}
+
+\p{Clearly here with have:}
+\ul{
+  \li{\strong{Starting point}: Our start here is the node #{a}.}
+  \li{\strong{Building function}: Our building function i.e. successor mechanism here is just following the arrows to the next node.}
+}
+
+\p{So our two morphisms then are:}
+\ul{
+  \li{#{x : 1 \to X} where #{x} maps to #{a}.}
+  \li{#{f : X \to X} where #{f} maps each node to the next node along the arrow. That is
+    \codeblock{lean}{
+      f(a) = b
+      f(b) = c
+      f(c) = d
+      f(d) = e
+      ...
+    }
+  }
+}
+
+\p{Creating a minimal replica of this in Lean we could do something like:}
+\codeblock{lean}{
+  inductive Node where
+  | start : Node           -- this will play the role of “a”
+  | next  : Node → Node   
+
+  def succNode (v : Node) : Node :=
+    Node.next v
+
+  def natToNode : ℕ → Node
+    | 0       => Node.start
+    | n + 1   => succNode (natToNode n)
+}
+
+\p{So we can see our function #{u : \N \to X} here is represented by \code{natToNode}. Where the function maps \code{0} to \code{a} and each successor natural number to the next node along the arrow.}
+
+\p{Something you might notice here is that if our \code{natToNode} function is replaced by just an identity, i.e.:}
+\codeblock{lean}{
+  def natToNat : ℕ → ℕ
+    | 0       => 0
+    | n + 1   => n + 1
+}
+\p{Then we get just the natural numbers themselves as defined by their properties. This is precisely what's expressed by the earlier commuative diagram we say. The two arrows:}
+##{
+  1 \xrightarrow{0} \N
+  \quad \text{ and } \quad \N \xrightarrow{s} \N
+}
+\p{Are just the natural numbers defined by their properties. So in a sense the natural numbers are the most basic instantiation of their own properties. So now a fair thing to wonder is:}
+\blockquote{
+  So what does this have to do with recursers?
+}
+\p{Well the key insight here is that our functions \code{natToNat} and \code{natToNode} both \em{are our recursers} for the natural numbers. A recursor is just a function that allows us to define functions \em{out of} an inductive type by specifying how to handle each constructor of the inductive type. So equivalently we can express our recursor for natural numbers as:}
+\codeblock{lean}{
+  def recNat {C : Type} (z : C) (s : C → C) : ℕ → C
+    | 0       => z
+    | n + 1   => s (recNat z s n)
+}
+\p{If we examine the actual type signature generated by \code{#check Nat.rec} we have:}
+
+\codeblock{lean}{
+  «Nat».rec.{u} 
+  {motive : ℕ → Sort u} 
+  (zero : motive «Nat».zero)
+  (succ : (n : ℕ) 
+    → motive n 
+    → motive n.succ) 
+  (t : ℕ) : motive t
+}
+
+\p{In our examples above we can see that the \code{motive} is just the type we are mapping to (either #{\N} or #{X}), the \code{zero} is our starting point (either \code{0} or \code{a}) and the \code{succ} is our building function (either the successor function or following the arrows). So using the recursor we can rewrite our earlier \code{natToNat} and \code{natToNode} functions as:}
+
+\codeblock{lean}{
+  def natToNat : ℕ → ℕ :=
+    Nat.rec 
+      0                 -- | 0     => 0
+      (fun n => n + 1)  -- | n + 1 => n + 1
+
+  def natToNode : ℕ → Node :=
+    Nat.rec 
+      Node.start            -- | 0     => Node.start
+      (fun n => succNode n) -- | n + 1 => succNode (natToNode n)
+}
+
+\p{This for the most part covers the basic idea of recursors for the sake of breviety I won't go into more instances of recursors for other inductive types though conceptually they work the same way. You specify how to handle each constructor of the inductive type and the recursor gives you a function that maps from the inductive type to whatever type you specified. A very important property of recursors emerges when we make the motive dependent. To elabroate on what that means let's first consider the situation of simple stepwise induction.}
+
+\transclude{001f}
+
+\p{Something we can notice here just by superficial observation alone is that this seems to look an awful lot like the recursor for natural numbers we defined earlier. In fact it \em{is} an application of the recursor for natural numbers for the \em{dependent} motive #{P : \N \to \texttt{Prop}.}. To make this a little more concrete let's define a simple property over natural numbers:}
+\codeblock{lean}{
+  def P (n : ℕ) : Prop := n + 0 = n
+}
+\p{Now its important to note that in an abstract sense this is no different then any other function from natural numbers to some type. The dependency comes into play when we try to use the recursor i.e. the properties of naturals with this motive.}
+
+\codeblock{lean}{
+  def natToProp (n : ℕ) : (P n) :=
+    Nat.rec
+      (motive := P)
+      (by simp [P])                    -- base case: P 0
+      (fun n ih => by simp [P])        -- inductive step: P n → P (n+1)
+      n
+}
+
+\p{A few things we can observe here:}
+\ul{
+  \li{The recursor here represents a \em{dependent} function, which is to say that the return type of the function depends on the input value. Contrasing this to the earlier case where the return type was always just #{\N} or #{X}.}
+  \li{\strong{Base case} - Importantly here as opposed to providing a function that returns some value of type #{C} for the base case, we instead provide a proof that the property #{P(0)} holds.}
+  \li{\strong{Inductive step} - Similarly for the inductive step we provide a function that takes an arbitrary natural number #{n} and a proof that #{P(n)} holds (the inductive hypothesis) and returns a proof that #{P(n + 1)} holds.}
+}
+\p{If we view this through the lens of the Curry-Howard correspondence it quite nicely illustrates how our proof here is just a program which constructs witnesses (valid proofs) for each natural number that the property #{P(n)} holds. In the same way that our earlier recursor provided elements on the correct type, this dependent recursor provides proofs on the correct property. As this application of a recursor to a proposition represents said proposition being true for all natural numbers, we can equivalently use this within a theorem.}
+\codeblock{lean}{
+  theorem add_zero (n : ℕ) : n + 0 = n := 
+    natToProp n
+}

@@ -1,6 +1,8 @@
 \date{2025-11-22}
 \import{base-macros}
 
+\meta{description}{Course Notes}
+
 \title{Course Notes}
 
 \put\transclude/expanded{false}

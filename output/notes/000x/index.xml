@@ -226,7 +226,7 @@
                     <fr:uri>https://kaierikniermann.github.io/notes/000z/</fr:uri>
                     <fr:display-uri>000z</fr:display-uri>
                     <fr:route>/notes/000z/</fr:route>
-                    <fr:title text="Closed, Open, and Ground Formulas in FOL">Closed, Open, and Ground Formulas in FOL</fr:title>
+                    <fr:title text="Closed, Open, and Ground Formulas (FOL)">Closed, Open, and Ground Formulas (FOL)</fr:title>
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
@@ -437,11 +437,12 @@
   ]]></fr:tex></html:li></html:ul><html:p>We can define semantic entailment inductively as follows:</html:p>
   
     
-    <fr:resource hash="ef16624902bbed0fd74962290e8feacc"><fr:resource-content><html:img src="/notes/ef16624902bbed0fd74962290e8feacc.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="df632c4b69978068f7b52c7e8abb7151"><fr:resource-content><html:img src="/notes/df632c4b69978068f7b52c7e8abb7151.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
      \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       {\small 
@@ -531,11 +532,12 @@
                   <fr:mainmatter><html:p>In addition to evaluating atomic formulas, we can define the evaluation of complex formulas using logical connectives and quantifiers as follows:</html:p>
   
     
-    <fr:resource hash="67bf641c26dfb836c2849cd619df8e3b"><fr:resource-content><html:img src="/notes/67bf641c26dfb836c2849cd619df8e3b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="37d91251bf7d233acf730f64edad23aa"><fr:resource-content><html:img src="/notes/37d91251bf7d233acf730f64edad23aa.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
      \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       {\small 
@@ -596,11 +598,12 @@
 <html:p>For the proof rules of quantifiers we have two variants depending on whether we are dealing with free or bound variables:</html:p>
   
     
-    <fr:resource hash="e56e0b01db5ac892a538d5ba50a6a410"><fr:resource-content><html:img src="/notes/e56e0b01db5ac892a538d5ba50a6a410.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="8d6d80899a7de1c57c82b42520653675"><fr:resource-content><html:img src="/notes/8d6d80899a7de1c57c82b42520653675.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
      \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       {\small 
@@ -655,11 +658,12 @@
   <html:li>If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.</html:li></html:ol><html:p>We can express the semantic argument method via the following inference rule:</html:p>
   
     
-    <fr:resource hash="9b74ce5f3ffa02c82fd9dbbd9cd9c17f"><fr:resource-content><html:img src="/notes/9b74ce5f3ffa02c82fd9dbbd9cd9c17f.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="41dd7a395f61fbfdfe3c26856eec2f22"><fr:resource-content><html:img src="/notes/41dd7a395f61fbfdfe3c26856eec2f22.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
      \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       {\small 

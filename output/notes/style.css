@@ -188,7 +188,10 @@ pre.code-block {
   border-radius: calc(var(--radius) + 2px);
   border: 1px solid var(--code-border-color);
   box-shadow: 0 14px 40px -32px var(--code-shadow-color);
-  white-space: normal;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
   word-break: normal;
   word-wrap: normal;
   tab-size: 2;
@@ -209,7 +212,7 @@ pre.code-block code {
 
 pre code {
   background: transparent;
-  white-space: normal;
+  white-space: inherit;
   padding: 0;
 }
 

@@ -132,11 +132,12 @@
           <fr:mainmatter><html:p>We can define the semantic inference rules for propositional logic formulas under interpretations as follows inductively, starting with the base cases:</html:p>
   
     
-    <fr:resource hash="e059c44a4f2857396ff489229a09f7b8"><fr:resource-content><html:img src="/notes/e059c44a4f2857396ff489229a09f7b8.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="29e05ee7acbcda2573111c95b3160dee"><fr:resource-content><html:img src="/notes/29e05ee7acbcda2573111c95b3160dee.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
      \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       {\small 
@@ -171,11 +172,12 @@
 <html:p>Moving on to the inductive case we have</html:p>
   
     
-    <fr:resource hash="de14521c9244dd6eedd9ea8686f6c096"><fr:resource-content><html:img src="/notes/de14521c9244dd6eedd9ea8686f6c096.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="22850a682b4003dd7d4ac4f3818e382a"><fr:resource-content><html:img src="/notes/22850a682b4003dd7d4ac4f3818e382a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
      \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       {\small 
@@ -220,11 +222,12 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
 </html:p>
   
     
-    <fr:resource hash="535a80c311c8f84896a2b6cf690dcafb"><fr:resource-content><html:img src="/notes/535a80c311c8f84896a2b6cf690dcafb.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="ba50616c508247d50b9ef4374c6206cc"><fr:resource-content><html:img src="/notes/ba50616c508247d50b9ef4374c6206cc.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
      \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       {\small 
@@ -327,11 +330,12 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   
   
     
-    <fr:resource hash="1bca82786e2afe547560d262f6fadcb0"><fr:resource-content><html:img src="/notes/1bca82786e2afe547560d262f6fadcb0.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="bbc4fefce2510aa6a10286e9d07718b8"><fr:resource-content><html:img src="/notes/bbc4fefce2510aa6a10286e9d07718b8.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
      \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       {\small 
@@ -595,11 +599,12 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:mainmatter><html:p>We can define the semantic inference rules for propositional logic formulas under interpretations as follows inductively, starting with the base cases:</html:p>
   
     
-    <fr:resource hash="e059c44a4f2857396ff489229a09f7b8"><fr:resource-content><html:img src="/notes/e059c44a4f2857396ff489229a09f7b8.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="29e05ee7acbcda2573111c95b3160dee"><fr:resource-content><html:img src="/notes/29e05ee7acbcda2573111c95b3160dee.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
      \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       {\small 
@@ -634,11 +639,12 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
 <html:p>Moving on to the inductive case we have</html:p>
   
     
-    <fr:resource hash="de14521c9244dd6eedd9ea8686f6c096"><fr:resource-content><html:img src="/notes/de14521c9244dd6eedd9ea8686f6c096.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="22850a682b4003dd7d4ac4f3818e382a"><fr:resource-content><html:img src="/notes/22850a682b4003dd7d4ac4f3818e382a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
      \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       {\small 
@@ -683,11 +689,12 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
 </html:p>
   
     
-    <fr:resource hash="535a80c311c8f84896a2b6cf690dcafb"><fr:resource-content><html:img src="/notes/535a80c311c8f84896a2b6cf690dcafb.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="ba50616c508247d50b9ef4374c6206cc"><fr:resource-content><html:img src="/notes/ba50616c508247d50b9ef4374c6206cc.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
      \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       {\small 
@@ -790,11 +797,12 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   
   
     
-    <fr:resource hash="1bca82786e2afe547560d262f6fadcb0"><fr:resource-content><html:img src="/notes/1bca82786e2afe547560d262f6fadcb0.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="bbc4fefce2510aa6a10286e9d07718b8"><fr:resource-content><html:img src="/notes/bbc4fefce2510aa6a10286e9d07718b8.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
      \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       {\small 
@@ -1580,7 +1588,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                         <fr:uri>https://kaierikniermann.github.io/notes/000z/</fr:uri>
                         <fr:display-uri>000z</fr:display-uri>
                         <fr:route>/notes/000z/</fr:route>
-                        <fr:title text="Closed, Open, and Ground Formulas in FOL">Closed, Open, and Ground Formulas in FOL</fr:title>
+                        <fr:title text="Closed, Open, and Ground Formulas (FOL)">Closed, Open, and Ground Formulas (FOL)</fr:title>
                         <fr:taxon>Definition</fr:taxon>
                       </fr:frontmatter>
                       <fr:mainmatter>
@@ -1791,11 +1799,12 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   ]]></fr:tex></html:li></html:ul><html:p>We can define semantic entailment inductively as follows:</html:p>
   
     
-    <fr:resource hash="ef16624902bbed0fd74962290e8feacc"><fr:resource-content><html:img src="/notes/ef16624902bbed0fd74962290e8feacc.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="df632c4b69978068f7b52c7e8abb7151"><fr:resource-content><html:img src="/notes/df632c4b69978068f7b52c7e8abb7151.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
      \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       {\small 
@@ -1885,11 +1894,12 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:mainmatter><html:p>In addition to evaluating atomic formulas, we can define the evaluation of complex formulas using logical connectives and quantifiers as follows:</html:p>
   
     
-    <fr:resource hash="67bf641c26dfb836c2849cd619df8e3b"><fr:resource-content><html:img src="/notes/67bf641c26dfb836c2849cd619df8e3b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="37d91251bf7d233acf730f64edad23aa"><fr:resource-content><html:img src="/notes/37d91251bf7d233acf730f64edad23aa.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
      \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       {\small 
@@ -1950,11 +1960,12 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
 <html:p>For the proof rules of quantifiers we have two variants depending on whether we are dealing with free or bound variables:</html:p>
   
     
-    <fr:resource hash="e56e0b01db5ac892a538d5ba50a6a410"><fr:resource-content><html:img src="/notes/e56e0b01db5ac892a538d5ba50a6a410.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="8d6d80899a7de1c57c82b42520653675"><fr:resource-content><html:img src="/notes/8d6d80899a7de1c57c82b42520653675.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
      \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       {\small 
@@ -2009,11 +2020,12 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   <html:li>If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.</html:li></html:ol><html:p>We can express the semantic argument method via the following inference rule:</html:p>
   
     
-    <fr:resource hash="9b74ce5f3ffa02c82fd9dbbd9cd9c17f"><fr:resource-content><html:img src="/notes/9b74ce5f3ffa02c82fd9dbbd9cd9c17f.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="41dd7a395f61fbfdfe3c26856eec2f22"><fr:resource-content><html:img src="/notes/41dd7a395f61fbfdfe3c26856eec2f22.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
      \usepackage{syntax}
    \usepackage{eulervm}
    \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
+   \usepackage[scaled=0.92]{inconsolata}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       {\small 

@@ -1,0 +1,17 @@
+\date{2025-11-23}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Stepwise (Mathematical) Induction}
+
+\p{Stepwise (mathematical/natural/ordinary) induction is a proof technique used to establish the truth of a statement #{P(n)} for all natural numbers #{n \in \N}. The process involves two main steps:}
+\ol{
+  \li{\strong{Base Case:} Prove that the statement #{P(0)} is true.}
+  \li{\strong{Inductive Step:} Assume that the statement #{P(k)} is true for some arbitrary natural number #{k \in \N} (this assumption is called the \em{inductive hypothesis}). Then, using this assumption, prove that the statement #{P(k + 1)} is also true.}
+}
+\p{If both the base case and the inductive step are successfully proven, we can conclude that the statement #{P(n)} holds for all natural numbers #{n \in \N}. The concise formulation of this can be given by the induction principle.}
+##{
+  (P(0) \land \forall k \in \N.\ (P(k) \to P(k + 1))) \to \forall n \in \N.\ P(n)
+}

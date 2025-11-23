@@ -1,0 +1,12 @@
+\date{2025-11-23}
+
+\import{base-macros}
+
+\title{Blog posts}
+
+\put\transclude/expanded{false}
+\put\transclude/metadata{true}
+\put\transclude/numbered{false}
+\put\transclude/toc{false}
+
+\transclude{001b}

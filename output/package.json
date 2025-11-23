@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "esbuild": "^0.18.15",
+    "highlight.js": "^11.11.1",
+    "katex": "^0.16.8",
+    "ninja-keys": "^1.2.2"
+  }
+}

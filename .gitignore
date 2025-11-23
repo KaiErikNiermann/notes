@@ -1,4 +1,3 @@
-output/
 node_modules/
 theme/dev/package-lock.json
 theme/dev/node_modules/

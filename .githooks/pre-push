@@ -5,7 +5,7 @@ echo "[pre-push] Building site with local Forester before push..."
 
 npm run build
 
-if [ ! -d output ] || [ -z "$(ls -A docs)" ]; then
+if [ ! -d output ] || [ -z "$(ls -A output)" ]; then
   echo "[pre-push] Forester build did not produce the output directory." >&2
   exit 1
 fi

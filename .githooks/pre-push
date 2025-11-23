@@ -5,18 +5,18 @@ echo "[pre-push] Building site with local Forester before push..."
 
 npm run build
 
-if [ ! -d output ] || [ -z "$(ls -A output)" ]; then
-  echo "[pre-push] Forester build did not produce the output directory." >&2
+if [ ! -d docs ] || [ -z "$(ls -A docs)" ]; then
+  echo "[pre-push] Forester build did not produce the docs directory." >&2
   exit 1
 fi
 
-if [ ! -f output/index.html ]; then
-  echo "[pre-push] output/index.html missing after build; stopping push." >&2
+if [ ! -f docs/index.html ]; then
+  echo "[pre-push] docs/index.html missing after build; stopping push." >&2
   exit 1
 fi
 
 # Keep hook fast by skipping push if build left unstaged changes.
-if ! git diff --quiet -- output; then
-  echo "[pre-push] output/ has changes. Stage/commit them before pushing." >&2
+if ! git diff --quiet -- docs; then
+  echo "[pre-push] docs/ has changes. Stage/commit them before pushing." >&2
   exit 1
 fi

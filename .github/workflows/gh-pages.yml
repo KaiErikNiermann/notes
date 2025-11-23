@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  upload:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
@@ -25,28 +25,16 @@ jobs:
           submodules: true
           fetch-depth: 0
 
-      - name: Set up OCaml & opam
-        uses: ocaml/setup-ocaml@v3
-        with:
-          ocaml-compiler: 5.1.1
-
-      - name: Install Forester CLI
-        run: opam install forester --confirm-level=unsafe-yes
-
-      - name: Install LaTeX toolchain
-        run: sudo apt-get update && sudo apt-get install -y texlive-latex-extra texlive-fonts-recommended texlive-plain-generic
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: npm
-
-      - name: Install JS deps
-        run: npm ci
-
-      - name: Build forest
-        run: opam exec -- forester build forest.toml
+      - name: Ensure output contains committed build
+        run: |
+          if [ ! -d output ] || [ -z "$(ls -A output)" ]; then
+            echo "The output directory is missing or empty. Run 'npm run build' locally before pushing." >&2
+            exit 1
+          fi
+          if [ ! -f output/index.html ]; then
+            echo "output/index.html is missing. Did the local build complete?" >&2
+            exit 1
+          fi
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -55,7 +43,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build
+    needs: upload
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>11</fr:month>
+      <fr:day>21</fr:day>
+    </fr:date>
+    <fr:uri>https://localhost:1314/0000/</fr:uri>
+    <fr:display-uri>0000</fr:display-uri>
+    <fr:route>/0000/</fr:route>
+    <fr:title text="My failed JetBrains Interview">My failed JetBrains Interview</fr:title>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <html:p>
+  I thought as a wonderful first addition to this blog wold be to share some insights from my failed interview with JetBrains for an internship position as a language verification engineer.
+</html:p>
+    <html:p>
+  The process started out somewhat nicely, the task that was given for this position was to simply implement the small-step operational semantics of simple arithmetic operations. With an added bonus to also implement variables; and this is where I messed up.
+</html:p>
+    <fr:tree show-metadata="false">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:date>
+          <fr:year>2025</fr:year>
+          <fr:month>11</fr:month>
+          <fr:day>21</fr:day>
+        </fr:date>
+        <fr:uri>https://localhost:1314/0001/</fr:uri>
+        <fr:display-uri>0001</fr:display-uri>
+        <fr:route>/0001/</fr:route>
+        <fr:title text="Small-step Operational Semantics">Small-step Operational Semantics</fr:title>
+        <fr:taxon>Definition</fr:taxon>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <html:p>
+  We can describe small-step semantics at a few different levels of detail. In the most basic sense they represent a binary; or yes-no; relation between program states. 
+</html:p>
+        <html:pre class="code-block language-lean">
+          <html:code class="language-lean">
+  Stmt × State → Stmt × State → Prop
+</html:code>
+        </html:pre>
+        <fr:tex display="block"><![CDATA[
+  (S_0, \sigma _0) \to  (S_1, \sigma _1) \to  \ldots  \to  (S_n, \sigma _n)
+]]></fr:tex>
+      </fr:mainmatter>
+    </fr:tree>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

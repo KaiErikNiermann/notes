@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": ".tmp/tests",
+    "rootDir": ".",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "declaration": false,
+    "declarationMap": false,
+    "emitDeclarationOnly": false,
+    "sourceMap": false
+  },
+  "include": [
+    "javascript-source/**/*.ts",
+    "types/**/*.d.ts"
+  ],
+  "exclude": [
+    "javascript-source/forester.ts"
+  ]
+}

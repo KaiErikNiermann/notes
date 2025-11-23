@@ -27,19 +27,20 @@ jobs:
 
       - name: Ensure output contains committed build
         run: |
-          if [ ! -d output ] || [ -z "$(ls -A output)" ]; then
-            echo "The output directory is missing or empty. Run 'npm run build' locally before pushing." >&2
+          OUTPUT_ROOT="output/notes"
+          if [ ! -d "$OUTPUT_ROOT" ] || [ -z "$(ls -A "$OUTPUT_ROOT")" ]; then
+            echo "The output/notes directory is missing or empty. Run 'npm run build' locally before pushing." >&2
             exit 1
           fi
-          if [ ! -f output/index.html ]; then
-            echo "output/index.html is missing. Did the local build complete?" >&2
+          if [ ! -f "$OUTPUT_ROOT/index.html" ]; then
+            echo "output/notes/index.html is missing. Did the local build complete?" >&2
             exit 1
           fi
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: output
+          path: output/notes
 
   deploy:
     runs-on: ubuntu-latest

@@ -1,0 +1,5 @@
+\date{2025-11-24}
+\taxon{Note}
+\title{Referencing the Stacks Project}
+
+\p{This short entry demonstrates how to cite the new reference created from the BibTeX pipeline. See [The Stacks Project](stacks-project) for the full bibliographic details.}

@@ -1695,7 +1695,18 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
             <fr:title text="Understanding recursors with Lean4">Understanding recursors with Lean4</fr:title>
             <fr:taxon>Blog</fr:taxon>
           </fr:frontmatter>
-          <fr:mainmatter><html:p>Before we define recursors, let's first introduce the idea of an inductive type. We'll do this by examining how lean defines natural numbers.</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+          <fr:mainmatter>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>23</fr:day>
+                </fr:date>
+                <fr:title text="The recursor for natural numbers">The recursor for natural numbers</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter><html:p>Before we define recursors, let's first introduce the idea of an inductive type. We'll do this by examining how lean defines natural numbers. <fr:link href="/notes/vooys2020nnoquasitoposes/" title="Natural Numbers Objects and Quasitoposes" uri="https://kaierikniermann.github.io/notes/vooys2020nnoquasitoposes/" display-uri="vooys2020nnoquasitoposes" type="local">asdasda</fr:link></html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
   inductive Nat where
   | zero : Nat
   | succ (n : Nat) : Nat
@@ -1823,23 +1834,85 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
     Nat.rec 
       Node.start            -- | 0     =&gt; Node.start
       (fun n =&gt; succNode n) -- | n + 1 =&gt; succNode (natToNode n)
-</html:code></html:pre><html:p>This for the most part covers the basic idea of recursors for the sake of breviety I won't go into more instances of recursors for other inductive types though conceptually they work the same way. You specify how to handle each constructor of the inductive type and the recursor gives you a function that maps from the inductive type to whatever type you specified. A very important property of recursors emerges when we make the motive dependent. To elabroate on what that means let's first consider the situation of simple stepwise induction.</html:p><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:uri>https://kaierikniermann.github.io/notes/001f/</fr:uri><fr:display-uri>001f</fr:display-uri><fr:route>/notes/001f/</fr:route><fr:title text="Stepwise (Mathematical) Induction">Stepwise (Mathematical) Induction</fr:title><fr:taxon>Definition</fr:taxon></fr:frontmatter><fr:mainmatter><html:p>Stepwise (mathematical/natural/ordinary) induction is a proof technique used to establish the truth of a statement <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> for all natural numbers <fr:tex display="inline"><![CDATA[n \in  \mathbb {N}]]></fr:tex>. The process involves two main steps:</html:p><html:ol><html:li><html:strong>Base Case:</html:strong> Prove that the statement <fr:tex display="inline"><![CDATA[P(0)]]></fr:tex> is true.</html:li>
-  <html:li><html:strong>Inductive Step:</html:strong> Assume that the statement <fr:tex display="inline"><![CDATA[P(k)]]></fr:tex> is true for some arbitrary natural number <fr:tex display="inline"><![CDATA[k \in  \mathbb {N}]]></fr:tex> (this assumption is called the <html:em>inductive hypothesis</html:em>). Then, using this assumption, prove that the statement <fr:tex display="inline"><![CDATA[P(k + 1)]]></fr:tex> is also true.</html:li></html:ol><html:p>If both the base case and the inductive step are successfully proven, we can conclude that the statement <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> holds for all natural numbers <fr:tex display="inline"><![CDATA[n \in  \mathbb {N}]]></fr:tex>. The concise formulation of this can be given by the induction principle.</html:p><fr:tex display="block"><![CDATA[
+</html:code></html:pre></fr:mainmatter>
+            </fr:tree>
+            <html:p>This for the most part covers the basic idea of recursors for the sake of breviety I won't go into more instances of recursors for other inductive types though conceptually they work the same way. You specify how to handle each constructor of the inductive type and the recursor gives you a function that maps from the inductive type to whatever type you specified.</html:p>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>23</fr:day>
+                </fr:date>
+                <fr:title text="The connection to induction">The connection to induction</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>A very important property of recursors emerges when we make the motive dependent. To elabroate on what that means let's first consider the situation of simple stepwise induction.</html:p>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>11</fr:month>
+                      <fr:day>23</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/001f/</fr:uri>
+                    <fr:display-uri>001f</fr:display-uri>
+                    <fr:route>/notes/001f/</fr:route>
+                    <fr:title text="Stepwise (Mathematical) Induction">Stepwise (Mathematical) Induction</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>Stepwise (mathematical/natural/ordinary) induction is a proof technique used to establish the truth of a statement <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> for all natural numbers <fr:tex display="inline"><![CDATA[n \in  \mathbb {N}]]></fr:tex>. The process involves two main steps:</html:p>
+                    <html:ol><html:li><html:strong>Base Case:</html:strong> Prove that the statement <fr:tex display="inline"><![CDATA[P(0)]]></fr:tex> is true.</html:li>
+  <html:li><html:strong>Inductive Step:</html:strong> Assume that the statement <fr:tex display="inline"><![CDATA[P(k)]]></fr:tex> is true for some arbitrary natural number <fr:tex display="inline"><![CDATA[k \in  \mathbb {N}]]></fr:tex> (this assumption is called the <html:em>inductive hypothesis</html:em>). Then, using this assumption, prove that the statement <fr:tex display="inline"><![CDATA[P(k + 1)]]></fr:tex> is also true.</html:li></html:ol>
+                    <html:p>If both the base case and the inductive step are successfully proven, we can conclude that the statement <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> holds for all natural numbers <fr:tex display="inline"><![CDATA[n \in  \mathbb {N}]]></fr:tex>. The concise formulation of this can be given by the induction principle.</html:p>
+                    <fr:tex display="block"><![CDATA[
   (P(0) \land  \forall  k \in  \mathbb {N}.\ (P(k) \to  P(k + 1))) \to  \forall  n \in  \mathbb {N}.\ P(n)
-]]></fr:tex></fr:mainmatter></fr:tree><html:p>Something we can notice here just by superficial observation alone is that this seems to look an awful lot like the recursor for natural numbers we defined earlier. In fact it <html:em>is</html:em> an application of the recursor for natural numbers for the <html:em>dependent</html:em> motive <fr:tex display="inline"><![CDATA[P : \mathbb {N} \to  \texttt {Prop}.]]></fr:tex>. To make this a little more concrete let's define a simple property over natural numbers:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+]]></fr:tex>
+                  </fr:mainmatter>
+                </fr:tree>
+                <html:p>Something we can notice here just by superficial observation alone is that this seems to look an awful lot like the recursor for natural numbers we defined earlier. In fact it <html:em>is</html:em> an application of the recursor for natural numbers for the <html:em>dependent</html:em> motive <fr:tex display="inline"><![CDATA[P : \mathbb {N} \to  \texttt {Prop}.]]></fr:tex>. To make this a little more concrete let's define a simple property over natural numbers:</html:p>
+                <html:pre class="code-block language-lean">
+                  <html:code class="language-lean">
   def P (n : ℕ) : Prop := n + 0 = n
-</html:code></html:pre><html:p>Now its important to note that in an abstract sense this is no different then any other function from natural numbers to some type. The dependency comes into play when we try to use the recursor i.e. the properties of naturals with this motive.</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+</html:code>
+                </html:pre>
+                <html:p>Now its important to note that in an abstract sense this is no different then any other function from natural numbers to some type. The dependency comes into play when we try to use the recursor i.e. the properties of naturals with this motive.</html:p>
+                <html:pre class="code-block language-lean">
+                  <html:code class="language-lean">
   def natToProp (n : ℕ) : (P n) :=
     Nat.rec
       (motive := P)
       (by simp [P])                    -- base case: P 0
       (fun n ih =&gt; by simp [P])        -- inductive step: P n → P (n+1)
       n
-</html:code></html:pre><html:p>A few things we can observe here:</html:p><html:ul><html:li>The recursor here represents a <html:em>dependent</html:em> function, which is to say that the return type of the function depends on the input value. Contrasing this to the earlier case where the return type was always just <fr:tex display="inline"><![CDATA[\mathbb {N}]]></fr:tex> or <fr:tex display="inline"><![CDATA[X]]></fr:tex>.</html:li>
+</html:code>
+                </html:pre>
+                <html:p>A few things we can observe here:</html:p>
+                <html:ul><html:li>The recursor here represents a <html:em>dependent</html:em> function, which is to say that the return type of the function depends on the input value. Contrasing this to the earlier case where the return type was always just <fr:tex display="inline"><![CDATA[\mathbb {N}]]></fr:tex> or <fr:tex display="inline"><![CDATA[X]]></fr:tex>.</html:li>
   <html:li><html:strong>Base case</html:strong> - Importantly here as opposed to providing a function that returns some value of type <fr:tex display="inline"><![CDATA[C]]></fr:tex> for the base case, we instead provide a proof that the property <fr:tex display="inline"><![CDATA[P(0)]]></fr:tex> holds.</html:li>
-  <html:li><html:strong>Inductive step</html:strong> - Similarly for the inductive step we provide a function that takes an arbitrary natural number <fr:tex display="inline"><![CDATA[n]]></fr:tex> and a proof that <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> holds (the inductive hypothesis) and returns a proof that <fr:tex display="inline"><![CDATA[P(n + 1)]]></fr:tex> holds.</html:li></html:ul><html:p>If we view this through the lens of the Curry-Howard correspondence it quite nicely illustrates how our proof here is just a program which constructs witnesses (valid proofs) for each natural number that the property <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> holds. In the same way that our earlier recursor provided elements on the correct type, this dependent recursor provides proofs on the correct property. As this application of a recursor to a proposition represents said proposition being true for all natural numbers, we can equivalently use this within a theorem.</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+  <html:li><html:strong>Inductive step</html:strong> - Similarly for the inductive step we provide a function that takes an arbitrary natural number <fr:tex display="inline"><![CDATA[n]]></fr:tex> and a proof that <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> holds (the inductive hypothesis) and returns a proof that <fr:tex display="inline"><![CDATA[P(n + 1)]]></fr:tex> holds.</html:li></html:ul>
+                <html:p>If we view this through the lens of the Curry-Howard correspondence it quite nicely illustrates how our proof here is just a program which constructs witnesses (valid proofs) for each natural number that the property <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> holds. In the same way that our earlier recursor provided elements on the correct type, this dependent recursor provides proofs on the correct property. As this application of a recursor to a proposition represents said proposition being true for all natural numbers, we can equivalently use this within a theorem.</html:p>
+                <html:pre class="code-block language-lean">
+                  <html:code class="language-lean">
   theorem add_zero (n : ℕ) : n + 0 = n := natToProp n
-</html:code></html:pre><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Case Study: Evaluating arithmetic expressions">Case Study: Evaluating arithmetic expressions</fr:title></fr:frontmatter><fr:mainmatter><html:p>As a little kind of case study I want to give an example of an inductive type (and its recursor) that most people become familiar with; in a sense; as early as primary school: the operational semantics of binary operators. We'll start by defining some of the basic syntax for arithmetic expressions:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+</html:code>
+                </html:pre>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>23</fr:day>
+                </fr:date>
+                <fr:title text="Case Study: Evaluating arithmetic expressions">Case Study: Evaluating arithmetic expressions</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter><html:p>As a little kind of case study I want to give an example of an inductive type (and its recursor) that most people become familiar with; in a sense; as early as primary school: the operational semantics of binary operators. We'll start by defining some of the basic syntax for arithmetic expressions:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
   inductive BinOp where 
   | add : BinOp
   | sub : BinOp
@@ -1924,7 +1997,7 @@ macro_rules
   | `(ex{ $e₁:arithTm / $e₂:arithTm }) =&gt;
       `(Expr.binop BinOp.div (ex{$e₁}) (ex{$e₂}))
   </html:code></html:pre></fr:mainmatter></fr:tree>
-</fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Describing arithmetic evaluation">Describing arithmetic evaluation</fr:title></fr:frontmatter><fr:mainmatter><html:p>Now say that we wanted to evaluate the expression <fr:tex display="inline"><![CDATA[((2 * 3) + 4)]]></fr:tex> on a high level what we would do is rewrite the multiplication to <fr:tex display="inline"><![CDATA[6 + 4]]></fr:tex> and then rewrite that to <fr:tex display="inline"><![CDATA[10]]></fr:tex>. Expressing this in lean we have:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+<fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Describing arithmetic evaluation">Describing arithmetic evaluation</fr:title></fr:frontmatter><fr:mainmatter><html:p>Now say that we wanted to evaluate the expression <fr:tex display="inline"><![CDATA[((2 * 3) + 4)]]></fr:tex> on a high level what we would do is rewrite the multiplication to <fr:tex display="inline"><![CDATA[6 + 4]]></fr:tex> and then rewrite that to <fr:tex display="inline"><![CDATA[10]]></fr:tex>. Expressing this in lean we have:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
   example : -- ((2 * 3) + 4) -&gt;ⁿ 10
   ex{ ((2 * 3) + 4) } -&gt;ⁿ ex{ 10 } :=
     .trans (rw_lhs (rw_const .mul 2 3)) (rw_const .add 6 4)
@@ -2004,6 +2077,24 @@ def eval : Expr -&gt; Nat
         )
       )
 </html:code></html:pre><html:p>In other words our proof for describing that our evaluation function is correct amounts to essentially simulating or describing quite literally how the evaluation works step by step using the recursors we defined earlier. To see precisely how <html:code>rcases</html:code> works here I'd recommend to paste the code into a Lean environment and examine the types of each of the intermediate values.</html:p></fr:mainmatter></fr:tree></fr:mainmatter>
+            </fr:tree>
+          </fr:mainmatter>
+        </fr:tree>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>11</fr:month>
+              <fr:day>24</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/001g/</fr:uri>
+            <fr:display-uri>001g</fr:display-uri>
+            <fr:route>/notes/001g/</fr:route>
+            <fr:title text="Disambiguating Induction Principles">Disambiguating Induction Principles</fr:title>
+            <fr:taxon>Blog</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter />
         </fr:tree>
       </fr:mainmatter>
     </fr:tree>
@@ -2014,7 +2105,30 @@ def eval : Expr -&gt; Nat
         <fr:authors />
         <fr:title text="References">References</fr:title>
       </fr:frontmatter>
-      <fr:mainmatter />
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors>
+              <fr:author>Vooys, Geoff</fr:author>
+            </fr:authors>
+            <fr:date>
+              <fr:year>2020</fr:year>
+              <fr:month>3</fr:month>
+              <fr:day>9</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/vooys2020nnoquasitoposes/</fr:uri>
+            <fr:display-uri>vooys2020nnoquasitoposes</fr:display-uri>
+            <fr:route>/notes/vooys2020nnoquasitoposes/</fr:route>
+            <fr:title text="Natural Numbers Objects and Quasitoposes">Natural Numbers Objects and Quasitoposes</fr:title>
+            <fr:taxon>Reference</fr:taxon>
+            <fr:meta name="external">https://cspages.ucalgary.ca/~robin/class/Topos-readings/Natural%20Numbers%20Objects%20and%20Quasitoposes.pdf</fr:meta>
+            <fr:meta name="note">Reading note</fr:meta>
+            <fr:meta name="ENTRYTYPE">misc</fr:meta>
+            <fr:meta name="ID">vooys2020nnoquasitoposes</fr:meta>
+          </fr:frontmatter>
+          <fr:mainmatter />
+        </fr:tree>
+      </fr:mainmatter>
     </fr:tree>
     <fr:tree show-metadata="false" hidden-when-empty="true">
       <fr:frontmatter>

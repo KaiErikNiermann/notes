@@ -2,27 +2,25 @@
 <?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
 <fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
   <fr:frontmatter>
-    <fr:authors />
+    <fr:authors>
+      <fr:author>Vooys, Geoff</fr:author>
+    </fr:authors>
     <fr:date>
-      <fr:year>2025</fr:year>
-      <fr:month>11</fr:month>
-      <fr:day>23</fr:day>
+      <fr:year>2020</fr:year>
+      <fr:month>3</fr:month>
+      <fr:day>9</fr:day>
     </fr:date>
-    <fr:uri>https://kaierikniermann.github.io/notes/001e/</fr:uri>
-    <fr:display-uri>001e</fr:display-uri>
-    <fr:route>/notes/001e/</fr:route>
-    <fr:title text="Natural Number Object (NNO) in Set">Natural Number Object (NNO) in Set</fr:title>
-    <fr:taxon>Example</fr:taxon>
+    <fr:uri>https://kaierikniermann.github.io/notes/vooys2020nnoquasitoposes/</fr:uri>
+    <fr:display-uri>vooys2020nnoquasitoposes</fr:display-uri>
+    <fr:route>/notes/vooys2020nnoquasitoposes/</fr:route>
+    <fr:title text="Natural Numbers Objects and Quasitoposes">Natural Numbers Objects and Quasitoposes</fr:title>
+    <fr:taxon>Reference</fr:taxon>
+    <fr:meta name="external">https://cspages.ucalgary.ca/~robin/class/Topos-readings/Natural%20Numbers%20Objects%20and%20Quasitoposes.pdf</fr:meta>
+    <fr:meta name="note">Reading note</fr:meta>
+    <fr:meta name="ENTRYTYPE">misc</fr:meta>
+    <fr:meta name="ID">vooys2020nnoquasitoposes</fr:meta>
   </fr:frontmatter>
-  <fr:mainmatter>
-    <html:p>In the category <html:strong>Set</html:strong>, the natural number object (NNO) can be represented by the set of natural numbers <fr:tex display="inline"><![CDATA[\mathbb {N} = \{0, 1, 2, 3, \ldots \}]]></fr:tex>. If we take some arbitrary other set <fr:tex display="inline"><![CDATA[X]]></fr:tex> with some point <fr:tex display="inline"><![CDATA[x : 1 \to  X]]></fr:tex> (which can be identified with an element of <fr:tex display="inline"><![CDATA[X]]></fr:tex>) and some function <fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex>, we can define a unique function <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> as follows:</html:p>
-    <fr:tex display="block"><![CDATA[
-  u(n) = \begin {cases}
-    x & \text {if } n = 0 \\
-    f^n(x) & \text {if } n \geq  0
-  \end {cases}
-]]></fr:tex>
-  </fr:mainmatter>
+  <fr:mainmatter />
   <fr:backmatter>
     <fr:tree show-metadata="false" hidden-when-empty="true">
       <fr:frontmatter>
@@ -35,6 +33,13 @@
       <fr:frontmatter>
         <fr:authors />
         <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
       </fr:frontmatter>
       <fr:mainmatter>
         <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
@@ -437,13 +442,6 @@ def eval : Expr -&gt; Nat
           </fr:mainmatter>
         </fr:tree>
       </fr:mainmatter>
-    </fr:tree>
-    <fr:tree show-metadata="false" hidden-when-empty="true">
-      <fr:frontmatter>
-        <fr:authors />
-        <fr:title text="Backlinks">Backlinks</fr:title>
-      </fr:frontmatter>
-      <fr:mainmatter />
     </fr:tree>
     <fr:tree show-metadata="false" hidden-when-empty="true">
       <fr:frontmatter>

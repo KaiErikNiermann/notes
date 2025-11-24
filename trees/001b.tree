@@ -6,7 +6,9 @@
 
 \title{Understanding recursors with Lean4}
 
-\p{Before we define recursors, let's first introduce the idea of an inductive type. We'll do this by examining how lean defines natural numbers.}
+\subtree{
+  \title{The recursor for natural numbers}
+  \p{Before we define recursors, let's first introduce the idea of an inductive type. We'll do this by examining how lean defines natural numbers. [asdasda](vooys2020nnoquasitoposes) }
 
 \codeblock{lean}{
   inductive Nat where
@@ -148,8 +150,13 @@
       Node.start            -- | 0     => Node.start
       (fun n => succNode n) -- | n + 1 => succNode (natToNode n)
 }
+}
 
-\p{This for the most part covers the basic idea of recursors for the sake of breviety I won't go into more instances of recursors for other inductive types though conceptually they work the same way. You specify how to handle each constructor of the inductive type and the recursor gives you a function that maps from the inductive type to whatever type you specified. A very important property of recursors emerges when we make the motive dependent. To elabroate on what that means let's first consider the situation of simple stepwise induction.}
+\p{This for the most part covers the basic idea of recursors for the sake of breviety I won't go into more instances of recursors for other inductive types though conceptually they work the same way. You specify how to handle each constructor of the inductive type and the recursor gives you a function that maps from the inductive type to whatever type you specified.}
+
+\subtree{
+  \title{The connection to induction}
+  \p{A very important property of recursors emerges when we make the motive dependent. To elabroate on what that means let's first consider the situation of simple stepwise induction.}
 
 \transclude{001f}
 
@@ -178,6 +185,7 @@
 
 \codeblock{lean}{
   theorem add_zero (n : ℕ) : n + 0 = n := natToProp n
+}
 }
 
 \subtree{
@@ -285,7 +293,6 @@ macro_rules
   | `(ex{ $e₁:arithTm / $e₂:arithTm }) =>
       `(Expr.binop BinOp.div (ex{$e₁}) (ex{$e₂}))
   }
-}
 }
 }
 
@@ -406,4 +413,5 @@ def eval : Expr -> Nat
       )
 }
 \p{In other words our proof for describing that our evaluation function is correct amounts to essentially simulating or describing quite literally how the evaluation works step by step using the recursors we defined earlier. To see precisely how \code{rcases} works here I'd recommend to paste the code into a Lean environment and examine the types of each of the intermediate values.}
+}
 }

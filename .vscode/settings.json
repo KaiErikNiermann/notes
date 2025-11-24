@@ -3,7 +3,8 @@
     "**/node_modules/**": true,
     "**/.git/**": true,
     "**/dist/**": true,
-    "**/build/**": true
+    "**/build/**": true,
+    "**/target": true
   },
   "ocaml.sandbox": {
     "kind": "opam",

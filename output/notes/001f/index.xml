@@ -194,9 +194,172 @@
 </html:code></html:pre><html:p>A few things we can observe here:</html:p><html:ul><html:li>The recursor here represents a <html:em>dependent</html:em> function, which is to say that the return type of the function depends on the input value. Contrasing this to the earlier case where the return type was always just <fr:tex display="inline"><![CDATA[\mathbb {N}]]></fr:tex> or <fr:tex display="inline"><![CDATA[X]]></fr:tex>.</html:li>
   <html:li><html:strong>Base case</html:strong> - Importantly here as opposed to providing a function that returns some value of type <fr:tex display="inline"><![CDATA[C]]></fr:tex> for the base case, we instead provide a proof that the property <fr:tex display="inline"><![CDATA[P(0)]]></fr:tex> holds.</html:li>
   <html:li><html:strong>Inductive step</html:strong> - Similarly for the inductive step we provide a function that takes an arbitrary natural number <fr:tex display="inline"><![CDATA[n]]></fr:tex> and a proof that <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> holds (the inductive hypothesis) and returns a proof that <fr:tex display="inline"><![CDATA[P(n + 1)]]></fr:tex> holds.</html:li></html:ul><html:p>If we view this through the lens of the Curry-Howard correspondence it quite nicely illustrates how our proof here is just a program which constructs witnesses (valid proofs) for each natural number that the property <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> holds. In the same way that our earlier recursor provided elements on the correct type, this dependent recursor provides proofs on the correct property. As this application of a recursor to a proposition represents said proposition being true for all natural numbers, we can equivalently use this within a theorem.</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-  theorem add_zero (n : ℕ) : n + 0 = n := 
-    natToProp n
-</html:code></html:pre></fr:mainmatter>
+  theorem add_zero (n : ℕ) : n + 0 = n := natToProp n
+</html:code></html:pre><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Case Study: Evaluating arithmetic expressions">Case Study: Evaluating arithmetic expressions</fr:title></fr:frontmatter><fr:mainmatter><html:p>As a little kind of case study I want to give an example of an inductive type (and its recursor) that most people become familiar with; in a sense; as early as primary school: the operational semantics of binary operators. We'll start by defining some of the basic syntax for arithmetic expressions:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+  inductive BinOp where 
+  | add : BinOp
+  | sub : BinOp
+  | mul : BinOp
+  | div : BinOp
+
+  inductive Expr where
+  | const : ℕ → Expr
+  | binop : BinOp → Expr → Expr → Expr
+</html:code></html:pre><html:p>So here we have defined a simple language of arithmetic expressions consisting of natural number constants and binary operations. This provides us with the means to construct expressions like:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+  #check Expr.binop BinOp.add (Expr.const 10) (Expr.const 20)
+</html:code></html:pre><html:p>If we want to actually define the semantics of how to evaluate these expression we'll need to define a set of rewrite rules that describe how we can take an expression and reduce it to a value i.e. evaluate it. To evaluate an expression we want to traverse the expression tree and whenever we encounter a binary operation with two constant operands we want to apply the operation and replace the entire sub-expression with the resulting constant. We express this as 3 rewrite rules:</html:p><html:ul><html:li><html:strong>Left Evaluation</html:strong>: If the left operand of a binary operation can be reduced, then we reduce it.</html:li>
+  <html:li><html:strong>Right Evaluation</html:strong>: If the left operand is a constant and the right operand can be reduced, then we reduce the right operand.</html:li>
+  <html:li><html:strong>Operation Evaluation</html:strong>: If both operands are constants, we apply the binary operation and replace the entire sub-expression with the resulting constant.</html:li></html:ul><html:pre class="code-block language-lean"><html:code class="language-lean">
+  def eval_op : BinOp → (Nat → Nat → Nat)
+  | .add =&gt; Nat.add
+  | .sub =&gt; Nat.sub
+  | .mul =&gt; Nat.mul
+  | .div =&gt; Nat.div
+
+  inductive Step : Expr -&gt; Expr -&gt; Prop
+  | ST_BinOp1 (op : BinOp)
+      (e₁ e₁' e₂ : Expr)   
+      (h : Step e₁ e₁') :  
+      Step (Expr.binop op e₁ e₂) 
+           (Expr.binop op e₁' e₂)
+  | ST_BinOp2 (op : BinOp) 
+      (v₁ : Nat) 
+      (e₂ e₂' : Expr) 
+      (h : Step e₂ e₂') :
+      Step (Expr.binop op (Expr.const v₁) e₂) 
+           (Expr.binop op (Expr.const v₁) e₂')
+  | ST_BinOpConst (op : BinOp) (v₁ v₂ : Nat) :
+      Step (Expr.binop op (Expr.const v₁) (Expr.const v₂)) 
+           (Expr.const (eval_op op v₁ v₂))
+</html:code></html:pre><html:p>Since expressions can naturally require multiple evaluations steps it makes sense to define a multi-step evaluation relation as the reflexive transitive closure of the single step evaluation relation defined above. This we can define as:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+  abbrev MultiStep := Relation.ReflTransGen Step
+
+  -- helper notation to express multi-step evaluation
+  notation:50 e " -&gt;ⁿ " e' =&gt;  MultiStep e e'
+</html:code></html:pre><html:p>Let's also define a small helper syntax and macro to make it easier to write arithmetic expressions:</html:p>
+  
+<fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="A small arithmetic expression grammar">A small arithmetic expression grammar</fr:title></fr:frontmatter><fr:mainmatter><html:pre class="code-block language-lean"><html:code class="language-lean">
+declare_syntax_cat arithTm
+
+-- atoms
+syntax num                      : arithTm
+syntax "(" arithTm ")"          : arithTm
+
+-- multiplicative level (higher precedence)
+syntax:70 arithTm:70 "*" arithTm:71 : arithTm
+syntax:70 arithTm:70 "/" arithTm:71 : arithTm
+
+-- additive level (lower precedence)
+syntax:60 arithTm:60 "+" arithTm:61 : arithTm
+syntax:60 arithTm:60 "-" arithTm:61 : arithTm
+
+syntax "ex{" arithTm "}" : term
+
+macro_rules
+  -- numerals
+  | `(ex{ $n:num }) =&gt;
+      `(Expr.const $n)
+
+  -- parentheses
+  | `(ex{ ($t:arithTm) }) =&gt;
+      `(ex{$t})
+
+  -- addition
+  | `(ex{ $e₁:arithTm + $e₂:arithTm }) =&gt;
+      `(Expr.binop BinOp.add (ex{$e₁}) (ex{$e₂}))
+
+  -- subtraction
+  | `(ex{ $e₁:arithTm - $e₂:arithTm }) =&gt;
+      `(Expr.binop BinOp.sub (ex{$e₁}) (ex{$e₂}))
+
+  -- multiplication
+  | `(ex{ $e₁:arithTm * $e₂:arithTm }) =&gt;
+      `(Expr.binop BinOp.mul (ex{$e₁}) (ex{$e₂}))
+
+  -- division
+  | `(ex{ $e₁:arithTm / $e₂:arithTm }) =&gt;
+      `(Expr.binop BinOp.div (ex{$e₁}) (ex{$e₂}))
+  </html:code></html:pre></fr:mainmatter></fr:tree>
+</fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Describing arithmetic evaluation">Describing arithmetic evaluation</fr:title></fr:frontmatter><fr:mainmatter><html:p>Now say that we wanted to evaluate the expression <fr:tex display="inline"><![CDATA[((2 * 3) + 4)]]></fr:tex> on a high level what we would do is rewrite the multiplication to <fr:tex display="inline"><![CDATA[6 + 4]]></fr:tex> and then rewrite that to <fr:tex display="inline"><![CDATA[10]]></fr:tex>. Expressing this in lean we have:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+  example : -- ((2 * 3) + 4) -&gt;ⁿ 10
+  ex{ ((2 * 3) + 4) } -&gt;ⁿ ex{ 10 } :=
+    .trans (rw_lhs (rw_const .mul 2 3)) (rw_const .add 6 4)
+</html:code></html:pre><html:p>Here we say that the expression <fr:tex display="inline"><![CDATA[((2 * 3) + 4)]]></fr:tex> after multiple steps evaluates to <fr:tex display="inline"><![CDATA[10]]></fr:tex> by first rewriting the left hand side multiplication to <fr:tex display="inline"><![CDATA[6 + 4]]></fr:tex> and then rewriting that to <fr:tex display="inline"><![CDATA[10]]></fr:tex>. And we chain these operations together using the <html:code>.trans</html:code> constructor of the multi-step evaluation relation. Now the question becomes, how do we define these rewrite steps? Intuitively we can imagine evaluation as being described by the following sort of graph</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+ +(lhs [op] rhs) 
+ |
+ +-+(rw_lhs) -&gt;ⁿ lhs' [op] rhs    (1) reduce lhs some number of steps
+   | 
+   +-+(rw_rhs) -&gt;ⁿ lhs [op] rhs'  (2) reduce rhs some number of steps
+     |
+     +- (rw_const) -&gt; value       (3) reduce both to a constant value
+</html:code></html:pre><html:p>The idea of each rule being that:</html:p><html:ul><html:li><html:strong>rw_lhs</html:strong>: If the left hand side can be reduced some number of steps we can reduce it while keeping the right hand side the same. This corresponds to the <html:code>ST_BinOp1</html:code> rule defined earlier.</html:li>
+  <html:li><html:strong>rw_rhs</html:strong>: If the left hand side is a constant we can reduce the right hand side some number of steps while keeping the left hand side the same. This corresponds to the <html:code>ST_BinOp2</html:code> rule defined earlier.</html:li>
+  <html:li><html:strong>rw_const</html:strong>: If both sides are constants we can apply the binary operation and reduce the entire expression to a single constant value. This corresponds to the <html:code>ST_BinOpConst</html:code> rule defined earlier.</html:li></html:ul><html:p>As these rules are defined over the structure of multi-step evaluation our implementation of them will naturally be in terms of the inductive structure of a multistep relationship:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+lemma rw_lhs (lhs_rw : lhs -&gt;ⁿ lhs') :
+  (lhs [op] rhs) -&gt;ⁿ (lhs' [op] rhs) :=
+match lhs_rw with
+| .refl       =&gt; .refl
+| .tail S₁ S₂ =&gt; (rw_lhs S₁).tail (.ST_BinOp1 S₂)
+
+lemma rw_rhs (rhs_rw : rhs -&gt;ⁿ rhs') :
+  ((.const lhs) [op] rhs) -&gt;ⁿ ((.const lhs) [op] rhs') :=
+match rhs_rw with
+| .refl       =&gt; .refl
+| .tail S₁ S₂ =&gt; (rw_rhs S₁).tail (.ST_BinOp2 S₂)
+
+lemma rw_const (op : BinOp) (lhs rhs : Nat) :
+  ((.const lhs) [op] (.const rhs)) -&gt;ⁿ .const (eval_op op lhs rhs) :=
+.single (.ST_BinOpConst op lhs rhs)
+</html:code></html:pre><html:p>Alternatively we can specify the left and right rewrite rules using the recursor or or head induction principle for multi-step evaluation:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+lemma rw_rhs' (rhs_rw : rhs -&gt;ⁿ rhs') :
+  ((.const lhs) [op] rhs) -&gt;ⁿ ((.const lhs) [op] rhs') :=
+.rec
+  (refl := .refl)
+  (tail := by
+    intro _ _ _ hcb ih
+    exact ih.tail (.ST_BinOp2 hcb)
+  ) rhs_rw
+
+lemma rw_rhs'' (rhs_rw : rhs -&gt;ⁿ rhs') :
+  ((.const lhs) [op] rhs) -&gt;ⁿ ((.const lhs) [op] rhs') :=
+.head_induction_on
+  (refl := .refl)
+  (head := by
+    intro _ _ hac _ ih
+    exact ih.head (.ST_BinOp2 hac)
+  ) rhs_rw
+</html:code></html:pre><html:p>The motive function here is inferred by Lean via the Lemma, which allos us to avoid having to explicitly specify it. Other then this we can see that the recursors again simply correspond to providing methods to describe what to do for each of the constructors.</html:p></fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Recursors describe usage">Recursors describe usage</fr:title></fr:frontmatter><fr:mainmatter><html:p>So at this point you might I think fairly ask yourself:</html:p><html:blockquote>
+  Wait why are you spending so much time on this random example for recursors?
+</html:blockquote><html:p>The main reason is that to me it provides one of the most grounded direct examples of what it means for a recursor function to <html:em>eliminate</html:em> a term of an inductive type. In general in type theory we say that <html:em>term elimination</html:em> represents the natural deduction rules for <html:em>how to use</html:em> terms of a given type. Applied to our example we can see that these recursors precisely correspond to the rules of how we evaluate i.e. <html:em>use</html:em> arithmetic expressions.</html:p><html:p>Each rewrite rule describes how we can take an expression and reduce it step by step until we reach a final value. So in a sense the recursor here <html:em>eliminates</html:em> the expression by providing a systematic way to break it down into its constituent parts and evaluate it. This is precisely the essence of what recursors do in type theory; they provide a way to systematically deconstruct and utilize terms of inductive types according to their defined structure and properties.</html:p></fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Proving correct evaluation">Proving correct evaluation</fr:title></fr:frontmatter><fr:mainmatter><html:p>One of the wonderful things we then naturally get from these recusors is that we can use them to describe how a correct evaluation works. So given our evaluation function:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+@[simp]
+def eval : Expr -&gt; Nat
+  | Expr.const n =&gt; n
+  | Expr.binop op e₁ e₂ =&gt;
+      let v₁ := eval e₁
+      let v₂ := eval e₂
+      eval_op op v₁ v₂
+</html:code></html:pre><html:p>We can use the recursors describing the rewrite rules to show that this evaluation function for our expressions both yields a constant and that we have some sequence of reduction steps (application of rewrite rules) to get to said constant. Or expressed formally:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+  (e : Expr) : -- for any expression e
+    (∃ v : Nat), -- there exists a value v
+      (eval e = v) ∧ (e -&gt;ⁿ (.const v))
+      -- such that eval e = v and e reduces to the constant v
+</html:code></html:pre><html:p>The proof of this statement works by induction on the structure of the expression <html:code>e</html:code> if our expression represents a constant then the proof is trivial as we can just take the value of the constant itself. If our expression represents a binary operation then same as we showed for the concrete example we just apply our recursors to first rewrite the lhs, then the rhs and finally apply the operation to get the final constant value. In full the proof looks like:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+  theorem eval_correct (e : Expr) :
+  ∃ v : Nat, (eval e = v) ∧ (e -&gt;ⁿ (.const v)) := by
+  induction e with
+  | const n =&gt; exists n
+  | binop op lhs rhs eval_lhs eval_rhs =&gt;
+    rcases eval_lhs with ⟨lhs_v, ⟨rhs_is_v, lhs_rw⟩⟩
+    rcases eval_rhs with ⟨rhs_v, ⟨lhs_is_v, rhs_rw⟩⟩
+    simp [rhs_is_v, lhs_is_v]
+
+    exact
+      (rw_lhs lhs_rw).trans (
+        (rw_rhs rhs_rw).trans (
+          rw_const op lhs_v rhs_v
+        )
+      )
+</html:code></html:pre><html:p>In other words our proof for describing that our evaluation function is correct amounts to essentially simulating or describing quite literally how the evaluation works step by step using the recursors we defined earlier. To see precisely how <html:code>rcases</html:code> works here I'd recommend to paste the code into a Lean environment and examine the types of each of the intermediate values.</html:p></fr:mainmatter></fr:tree></fr:mainmatter>
         </fr:tree>
       </fr:mainmatter>
     </fr:tree>

@@ -28,6 +28,12 @@ const HOLE_MODE: Mode = {
     begin: /\?_?\w*/
 };
 
+const CHAR_MODE: Mode = {
+    className: 'string',
+    begin: /'(?:\\.|[^\\'])'/,
+    relevance: 0
+};
+
 const OPERATOR_MODE: Mode = {
     className: 'operator',
     begin: /:=|::|\*\*|->|←|→|↔|λ|∀|∃|≤|≥|≠|==|=|<|>|∧|∨|¬|⊢|⟨|⟩|∑|∏/,
@@ -42,7 +48,7 @@ const lean: LanguageFn = (hljs) => {
         LINE_COMMENT,
         BLOCK_COMMENT,
         hljs.QUOTE_STRING_MODE,
-        hljs.APOS_STRING_MODE,
+        CHAR_MODE,
         hljs.C_NUMBER_MODE,
         ATTRIBUTE_MODE,
         COMMAND_MODE,

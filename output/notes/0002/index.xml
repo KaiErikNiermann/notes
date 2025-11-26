@@ -76,27 +76,52 @@
                     <fr:title text="Syntax">Syntax</fr:title>
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
-                  <fr:mainmatter>
-                    <html:p>Using BNF notation, the syntax of propositional logic can be defined as follows:</html:p>
-                    <fr:resource hash="79310b74afbd5b0eb64c868a3daa4346">
-                      <fr:resource-content>
-                        <html:img src="/notes/79310b74afbd5b0eb64c868a3daa4346.svg" />
-                      </fr:resource-content>
-                      <fr:resource-source type="latex" part="preamble"><![CDATA[
-  \usepackage {amsmath}
-  \usepackage {eulervm}
-]]></fr:resource-source>
-                      <fr:resource-source type="latex" part="body"><![CDATA[
-{\small  
+                  <fr:mainmatter><html:p>Using BNF notation, the syntax of propositional logic can be defined as follows:</html:p>
+ 
+  
+  <html:figure><fr:resource hash="aeb968467886f85e1939e467d64293d7"><fr:resource-content><html:img src="/notes/aeb968467886f85e1939e467d64293d7.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+   
+  % String-diagram specific extensions live here. Add diagram tweaks without
+ % re-running the full base preamble (to avoid duplicate definitions).
+
+   
+ 
+   \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{amsmath, amsthm, amsfonts}
+  \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
+
+  % A TikZ style for curved arrows of a fixed height, due to AndréC.
+  \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+        .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+        and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+    \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+  quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+  % A TikZ style for shortening paths without the poor behaviour of `shorten <' and `shorten >'.
+  \tikzset{between/.style n args={2}{/tikz/spath/at end path construction={
+        \tikzset{spath/split at keep middle={current}{#1}{#2}}
+  }}}
+
+  % TikZ arrowhead/tail styles.
+  \tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+  \tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+  \tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+  % TikZ arrow styles.
+  \tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+
+
+  ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
   \begin {align*}
     \text {Atom} \quad  \alpha  &::= p \mid  q \mid  r \mid  \top  \mid  \bot  \\
     \text {Literal} \quad  l &::= \alpha  \mid  \neg  \alpha  \\
     \text {Formula} \quad  F &::= l \mid  \neg  F  \mid  (F \land  F) \mid  (F \lor  F) \mid  (F \to  F) \mid  (F \leftrightarrow  F)
   \end {align*}
-}
-]]></fr:resource-source>
-                    </fr:resource>
-                  </fr:mainmatter>
+]]></fr:resource-source></fr:resource></html:figure>
+ 
+</fr:mainmatter>
                 </fr:tree>
                 <fr:tree show-metadata="false">
                   <fr:frontmatter>
@@ -168,17 +193,13 @@
                   <fr:mainmatter><html:p>We can define the semantic inference rules for propositional logic formulas under interpretations as follows inductively, starting with the base cases:</html:p>
   
     
-    <fr:resource hash="29e05ee7acbcda2573111c95b3160dee"><fr:resource-content><html:img src="/notes/29e05ee7acbcda2573111c95b3160dee.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="98f1ded5c64073562293977be012aa77"><fr:resource-content><html:img src="/notes/98f1ded5c64073562293977be012aa77.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Atom-$\top $]{
     I(p) = \top 
   }{
@@ -200,25 +221,18 @@
   }{
     I \not \models  \bot 
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>Moving on to the inductive case we have</html:p>
   
     
-    <fr:resource hash="22850a682b4003dd7d4ac4f3818e382a"><fr:resource-content><html:img src="/notes/22850a682b4003dd7d4ac4f3818e382a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="9e66b8d3c6180df36be5c59336932e10"><fr:resource-content><html:img src="/notes/9e66b8d3c6180df36be5c59336932e10.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Neg-$\top $]{
     I \models  \neg  F
   }{
@@ -248,27 +262,20 @@
   }{
     I \models  \bot 
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>
 Similarly, the rules for when an interpretation does not satisfy a formula are as follows:
 </html:p>
   
     
-    <fr:resource hash="ba50616c508247d50b9ef4374c6206cc"><fr:resource-content><html:img src="/notes/ba50616c508247d50b9ef4374c6206cc.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="94c0fb6507f78107d95fffce5b28eb60"><fr:resource-content><html:img src="/notes/94c0fb6507f78107d95fffce5b28eb60.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Neg-$\bot $]{
     I \not \models  \neg  F
   }{
@@ -292,10 +299,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     I \not \models  F_1 \to  F_2
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 </fr:mainmatter>
                 </fr:tree>
@@ -366,17 +370,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   
   
     
-    <fr:resource hash="bbc4fefce2510aa6a10286e9d07718b8"><fr:resource-content><html:img src="/notes/bbc4fefce2510aa6a10286e9d07718b8.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="bf7ed9631e84666547b9f155ffe495f8"><fr:resource-content><html:img src="/notes/bf7ed9631e84666547b9f155ffe495f8.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
     \inferrule {
       \inferrule {
         \inferrule {
@@ -400,10 +400,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
     }{
       I \nvDash  (\neg  p \land  q)
     }
-  
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+  \end {mathpar}]]></fr:resource-source></fr:resource>
   
 
 
@@ -412,7 +409,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
     \underbrace {\neg  p}_{\texttt {False}} \land  \underbrace {q}_{\texttt {False}} \equiv  \bot 
   ]]></fr:tex>
   <html:p>For the second formula lets just go with the simpler approach again, so we have</html:p>
-  <fr:resource hash="d401b1e175086da1211655145e7cf1e6"><fr:resource-content><html:img src="/notes/d401b1e175086da1211655145e7cf1e6.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <fr:resource hash="f4ab80a835ec37191d2964edcfdc39a1"><fr:resource-content><html:img src="/notes/f4ab80a835ec37191d2964edcfdc39a1.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
     \usepackage {amsmath}
     \usepackage {eulervm}
     \usepackage [scaled=0.92]{inconsolata} 
@@ -726,7 +723,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
    
    
    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
-  <fr:resource hash="d0026a0e6ac8cdcb077e7120ac508b53"><fr:resource-content><html:img src="/notes/d0026a0e6ac8cdcb077e7120ac508b53.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <fr:resource hash="0ed774c5f98ccbf4fe2a8d866cb96b0e"><fr:resource-content><html:img src="/notes/0ed774c5f98ccbf4fe2a8d866cb96b0e.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
     \usepackage {amsmath}
     \usepackage {eulervm}
     \usepackage [scaled=0.92]{inconsolata} 
@@ -1014,9 +1011,9 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   <html:li><html:strong>Function Symbols</html:strong> (<fr:tex display="inline"><![CDATA[\mathcal  F]]></fr:tex>): the set of function symbols in the language. E.g., <fr:tex display="inline"><![CDATA[\{f, g, h\}]]></fr:tex></html:li>
   <html:li><html:strong>Relation Symbols</html:strong> (<fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>): the set of relation symbols in the language. E.g., <fr:tex display="inline"><![CDATA[\{R, S, T\}]]></fr:tex></html:li></html:ul>
                     <html:p>Using BNF we can define the syntax as follows</html:p>
-                    <fr:resource hash="c0b1402cba0393f815c3a0f59f367e08">
+                    <fr:resource hash="18b8dd7c29a3cc72847fbb5fc08ba8f0">
                       <fr:resource-content>
-                        <html:img src="/notes/c0b1402cba0393f815c3a0f59f367e08.svg" />
+                        <html:img src="/notes/18b8dd7c29a3cc72847fbb5fc08ba8f0.svg" />
                       </fr:resource-content>
                       <fr:resource-source type="latex" part="preamble"><![CDATA[
   \usepackage {amsmath}
@@ -1368,17 +1365,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   ]]></fr:tex></html:li></html:ul><html:p>We can define semantic entailment inductively as follows:</html:p>
   
     
-    <fr:resource hash="df632c4b69978068f7b52c7e8abb7151"><fr:resource-content><html:img src="/notes/df632c4b69978068f7b52c7e8abb7151.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="bf38ef538d97d37abb4d5740fd4c5e05"><fr:resource-content><html:img src="/notes/bf38ef538d97d37abb4d5740fd4c5e05.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=True]{}{
     U, I, \sigma  \models  \top 
   }
@@ -1392,10 +1385,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     U, I, \sigma  \models  p(t_1, \ldots , t_n)
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 </fr:mainmatter>
                 </fr:tree>
@@ -1463,17 +1453,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                   <fr:mainmatter><html:p>In addition to evaluating atomic formulas, we can define the evaluation of complex formulas using logical connectives and quantifiers as follows:</html:p>
   
     
-    <fr:resource hash="37d91251bf7d233acf730f64edad23aa"><fr:resource-content><html:img src="/notes/37d91251bf7d233acf730f64edad23aa.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="6def192365920c45e9f367e6b771acb3"><fr:resource-content><html:img src="/notes/6def192365920c45e9f367e6b771acb3.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Not-True]{
     S, \sigma  \not \models  F
   }{
@@ -1521,25 +1507,18 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     S, \sigma  \not \models  F_1 \to  F_2
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>For the proof rules of quantifiers we have two variants depending on whether we are dealing with free or bound variables:</html:p>
   
     
-    <fr:resource hash="8d6d80899a7de1c57c82b42520653675"><fr:resource-content><html:img src="/notes/8d6d80899a7de1c57c82b42520653675.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="ca7213d0553a10c29293a0ea1d9b5c87"><fr:resource-content><html:img src="/notes/ca7213d0553a10c29293a0ea1d9b5c87.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=$\forall $-$\top $]{
     S, \sigma  \models  x.\ F \\ \forall  d \in  D
   }{
@@ -1563,10 +1542,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     S, \sigma [x \mapsto  d] \not \models  F
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 </fr:mainmatter>
                 </fr:tree>
@@ -1589,17 +1565,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   <html:li>If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.</html:li></html:ol><html:p>We can express the semantic argument method via the following inference rule:</html:p>
   
     
-    <fr:resource hash="41dd7a395f61fbfdfe3c26856eec2f22"><fr:resource-content><html:img src="/notes/41dd7a395f61fbfdfe3c26856eec2f22.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="d9cae6dd020a28c2f7ee470a5e57854a"><fr:resource-content><html:img src="/notes/d9cae6dd020a28c2f7ee470a5e57854a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Contradiction]{
     S, \sigma  \models  p(s_1, \ldots , s_n) \\
     S, \sigma  \models  \neg  p(t_1, \ldots , t_n) \\ 
@@ -1607,10 +1579,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     S, \sigma  \models  \bot 
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>So the idea here being that if we have a predicate and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction. This allows us to conclude that our initial assumption (that the formula is not valid) must be false, thereby proving the validity of the formula.</html:p></fr:mainmatter>
                 </fr:tree>
@@ -1756,27 +1725,52 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                                 <fr:title text="Syntax">Syntax</fr:title>
                                 <fr:taxon>Definition</fr:taxon>
                               </fr:frontmatter>
-                              <fr:mainmatter>
-                                <html:p>Using BNF notation, the syntax of propositional logic can be defined as follows:</html:p>
-                                <fr:resource hash="79310b74afbd5b0eb64c868a3daa4346">
-                                  <fr:resource-content>
-                                    <html:img src="/notes/79310b74afbd5b0eb64c868a3daa4346.svg" />
-                                  </fr:resource-content>
-                                  <fr:resource-source type="latex" part="preamble"><![CDATA[
-  \usepackage {amsmath}
-  \usepackage {eulervm}
-]]></fr:resource-source>
-                                  <fr:resource-source type="latex" part="body"><![CDATA[
-{\small  
+                              <fr:mainmatter><html:p>Using BNF notation, the syntax of propositional logic can be defined as follows:</html:p>
+ 
+  
+  <html:figure><fr:resource hash="aeb968467886f85e1939e467d64293d7"><fr:resource-content><html:img src="/notes/aeb968467886f85e1939e467d64293d7.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+   
+  % String-diagram specific extensions live here. Add diagram tweaks without
+ % re-running the full base preamble (to avoid duplicate definitions).
+
+   
+ 
+   \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{amsmath, amsthm, amsfonts}
+  \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
+
+  % A TikZ style for curved arrows of a fixed height, due to AndréC.
+  \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+        .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+        and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+    \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+  quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+  % A TikZ style for shortening paths without the poor behaviour of `shorten <' and `shorten >'.
+  \tikzset{between/.style n args={2}{/tikz/spath/at end path construction={
+        \tikzset{spath/split at keep middle={current}{#1}{#2}}
+  }}}
+
+  % TikZ arrowhead/tail styles.
+  \tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+  \tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+  \tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+  % TikZ arrow styles.
+  \tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+
+
+  ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
   \begin {align*}
     \text {Atom} \quad  \alpha  &::= p \mid  q \mid  r \mid  \top  \mid  \bot  \\
     \text {Literal} \quad  l &::= \alpha  \mid  \neg  \alpha  \\
     \text {Formula} \quad  F &::= l \mid  \neg  F  \mid  (F \land  F) \mid  (F \lor  F) \mid  (F \to  F) \mid  (F \leftrightarrow  F)
   \end {align*}
-}
-]]></fr:resource-source>
-                                </fr:resource>
-                              </fr:mainmatter>
+]]></fr:resource-source></fr:resource></html:figure>
+ 
+</fr:mainmatter>
                             </fr:tree>
                             <fr:tree show-metadata="false">
                               <fr:frontmatter>
@@ -1848,17 +1842,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                               <fr:mainmatter><html:p>We can define the semantic inference rules for propositional logic formulas under interpretations as follows inductively, starting with the base cases:</html:p>
   
     
-    <fr:resource hash="29e05ee7acbcda2573111c95b3160dee"><fr:resource-content><html:img src="/notes/29e05ee7acbcda2573111c95b3160dee.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="98f1ded5c64073562293977be012aa77"><fr:resource-content><html:img src="/notes/98f1ded5c64073562293977be012aa77.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Atom-$\top $]{
     I(p) = \top 
   }{
@@ -1880,25 +1870,18 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     I \not \models  \bot 
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>Moving on to the inductive case we have</html:p>
   
     
-    <fr:resource hash="22850a682b4003dd7d4ac4f3818e382a"><fr:resource-content><html:img src="/notes/22850a682b4003dd7d4ac4f3818e382a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="9e66b8d3c6180df36be5c59336932e10"><fr:resource-content><html:img src="/notes/9e66b8d3c6180df36be5c59336932e10.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Neg-$\top $]{
     I \models  \neg  F
   }{
@@ -1928,27 +1911,20 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     I \models  \bot 
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>
 Similarly, the rules for when an interpretation does not satisfy a formula are as follows:
 </html:p>
   
     
-    <fr:resource hash="ba50616c508247d50b9ef4374c6206cc"><fr:resource-content><html:img src="/notes/ba50616c508247d50b9ef4374c6206cc.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="94c0fb6507f78107d95fffce5b28eb60"><fr:resource-content><html:img src="/notes/94c0fb6507f78107d95fffce5b28eb60.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Neg-$\bot $]{
     I \not \models  \neg  F
   }{
@@ -1972,10 +1948,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     I \not \models  F_1 \to  F_2
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 </fr:mainmatter>
                             </fr:tree>
@@ -2046,17 +2019,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   
   
     
-    <fr:resource hash="bbc4fefce2510aa6a10286e9d07718b8"><fr:resource-content><html:img src="/notes/bbc4fefce2510aa6a10286e9d07718b8.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="bf7ed9631e84666547b9f155ffe495f8"><fr:resource-content><html:img src="/notes/bf7ed9631e84666547b9f155ffe495f8.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
     \inferrule {
       \inferrule {
         \inferrule {
@@ -2080,10 +2049,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
     }{
       I \nvDash  (\neg  p \land  q)
     }
-  
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+  \end {mathpar}]]></fr:resource-source></fr:resource>
   
 
 
@@ -2092,7 +2058,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
     \underbrace {\neg  p}_{\texttt {False}} \land  \underbrace {q}_{\texttt {False}} \equiv  \bot 
   ]]></fr:tex>
   <html:p>For the second formula lets just go with the simpler approach again, so we have</html:p>
-  <fr:resource hash="d401b1e175086da1211655145e7cf1e6"><fr:resource-content><html:img src="/notes/d401b1e175086da1211655145e7cf1e6.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <fr:resource hash="f4ab80a835ec37191d2964edcfdc39a1"><fr:resource-content><html:img src="/notes/f4ab80a835ec37191d2964edcfdc39a1.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
     \usepackage {amsmath}
     \usepackage {eulervm}
     \usepackage [scaled=0.92]{inconsolata} 
@@ -2406,7 +2372,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
    
    
    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
-  <fr:resource hash="d0026a0e6ac8cdcb077e7120ac508b53"><fr:resource-content><html:img src="/notes/d0026a0e6ac8cdcb077e7120ac508b53.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <fr:resource hash="0ed774c5f98ccbf4fe2a8d866cb96b0e"><fr:resource-content><html:img src="/notes/0ed774c5f98ccbf4fe2a8d866cb96b0e.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
     \usepackage {amsmath}
     \usepackage {eulervm}
     \usepackage [scaled=0.92]{inconsolata} 
@@ -2694,9 +2660,9 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   <html:li><html:strong>Function Symbols</html:strong> (<fr:tex display="inline"><![CDATA[\mathcal  F]]></fr:tex>): the set of function symbols in the language. E.g., <fr:tex display="inline"><![CDATA[\{f, g, h\}]]></fr:tex></html:li>
   <html:li><html:strong>Relation Symbols</html:strong> (<fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>): the set of relation symbols in the language. E.g., <fr:tex display="inline"><![CDATA[\{R, S, T\}]]></fr:tex></html:li></html:ul>
                                 <html:p>Using BNF we can define the syntax as follows</html:p>
-                                <fr:resource hash="c0b1402cba0393f815c3a0f59f367e08">
+                                <fr:resource hash="18b8dd7c29a3cc72847fbb5fc08ba8f0">
                                   <fr:resource-content>
-                                    <html:img src="/notes/c0b1402cba0393f815c3a0f59f367e08.svg" />
+                                    <html:img src="/notes/18b8dd7c29a3cc72847fbb5fc08ba8f0.svg" />
                                   </fr:resource-content>
                                   <fr:resource-source type="latex" part="preamble"><![CDATA[
   \usepackage {amsmath}
@@ -3048,17 +3014,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   ]]></fr:tex></html:li></html:ul><html:p>We can define semantic entailment inductively as follows:</html:p>
   
     
-    <fr:resource hash="df632c4b69978068f7b52c7e8abb7151"><fr:resource-content><html:img src="/notes/df632c4b69978068f7b52c7e8abb7151.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="bf38ef538d97d37abb4d5740fd4c5e05"><fr:resource-content><html:img src="/notes/bf38ef538d97d37abb4d5740fd4c5e05.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=True]{}{
     U, I, \sigma  \models  \top 
   }
@@ -3072,10 +3034,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     U, I, \sigma  \models  p(t_1, \ldots , t_n)
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 </fr:mainmatter>
                             </fr:tree>
@@ -3143,17 +3102,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                               <fr:mainmatter><html:p>In addition to evaluating atomic formulas, we can define the evaluation of complex formulas using logical connectives and quantifiers as follows:</html:p>
   
     
-    <fr:resource hash="37d91251bf7d233acf730f64edad23aa"><fr:resource-content><html:img src="/notes/37d91251bf7d233acf730f64edad23aa.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="6def192365920c45e9f367e6b771acb3"><fr:resource-content><html:img src="/notes/6def192365920c45e9f367e6b771acb3.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Not-True]{
     S, \sigma  \not \models  F
   }{
@@ -3201,25 +3156,18 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     S, \sigma  \not \models  F_1 \to  F_2
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>For the proof rules of quantifiers we have two variants depending on whether we are dealing with free or bound variables:</html:p>
   
     
-    <fr:resource hash="8d6d80899a7de1c57c82b42520653675"><fr:resource-content><html:img src="/notes/8d6d80899a7de1c57c82b42520653675.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="ca7213d0553a10c29293a0ea1d9b5c87"><fr:resource-content><html:img src="/notes/ca7213d0553a10c29293a0ea1d9b5c87.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=$\forall $-$\top $]{
     S, \sigma  \models  x.\ F \\ \forall  d \in  D
   }{
@@ -3243,10 +3191,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     S, \sigma [x \mapsto  d] \not \models  F
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 </fr:mainmatter>
                             </fr:tree>
@@ -3269,17 +3214,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   <html:li>If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.</html:li></html:ol><html:p>We can express the semantic argument method via the following inference rule:</html:p>
   
     
-    <fr:resource hash="41dd7a395f61fbfdfe3c26856eec2f22"><fr:resource-content><html:img src="/notes/41dd7a395f61fbfdfe3c26856eec2f22.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="d9cae6dd020a28c2f7ee470a5e57854a"><fr:resource-content><html:img src="/notes/d9cae6dd020a28c2f7ee470a5e57854a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Contradiction]{
     S, \sigma  \models  p(s_1, \ldots , s_n) \\
     S, \sigma  \models  \neg  p(t_1, \ldots , t_n) \\ 
@@ -3287,10 +3228,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     S, \sigma  \models  \bot 
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>So the idea here being that if we have a predicate and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction. This allows us to conclude that our initial assumption (that the formula is not valid) must be false, thereby proving the validity of the formula.</html:p></fr:mainmatter>
                             </fr:tree>
@@ -3384,17 +3322,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
 </html:code></html:pre><html:p>We can equivalently express this definition using the type formation and term intruduction rules:</html:p>
   
     
-    <fr:resource hash="bcb67e2e9cc0f3c7e267cde01c7827d1"><fr:resource-content><html:img src="/notes/bcb67e2e9cc0f3c7e267cde01c7827d1.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="33d702bd484db0f38d36a948c284b41e"><fr:resource-content><html:img src="/notes/33d702bd484db0f38d36a948c284b41e.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Form-Nat]{
   }{
     \mathbb {N} : \texttt {type}
@@ -3409,30 +3343,44 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     \texttt {succ}\ n : \mathbb {N}
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>While this explanation for inductive types usually gives most people I think enough intuition to understand the basic notions of how to use them to construct something like natural numbers, I think it kind of misses the deeper idea of what an inductive type and by extension a recursor really is. To attempt to explain this we'll take a look into some of the categorical semantics behind inductive types.</html:p><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:uri>https://kaierikniermann.github.io/notes/001c/</fr:uri><fr:display-uri>001c</fr:display-uri><fr:route>/notes/001c/</fr:route><fr:title text="Natural Number Object (NNO)">Natural Number Object (NNO)</fr:title><fr:taxon>Definition</fr:taxon></fr:frontmatter><fr:mainmatter><html:p>We assume that <fr:tex display="inline"><![CDATA[\mathcal  L]]></fr:tex> is a category with a <fr:link href="/notes/001d/" title="Terminal Object (Category Theory)" uri="https://kaierikniermann.github.io/notes/001d/" display-uri="001d" type="local">terminal object</fr:link> <fr:tex display="inline"><![CDATA[1]]></fr:tex>. This category has a <html:em>natural number object</html:em> (NNO) if there exists an object <fr:tex display="inline"><![CDATA[\mathbb {N}]]></fr:tex> together with two morphisms:</html:p><html:ul><html:li><fr:tex display="inline"><![CDATA[0 : 1 \to  \mathbb {N}]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[s : \mathbb {N} \to  \mathbb {N}]]></fr:tex></html:li></html:ul><html:p>such that, given any global element <fr:tex display="inline"><![CDATA[z : 1 \to  X]]></fr:tex> and any morphism <fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex>, there exists a unique morphism <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> such that the following diagram commutes:</html:p>
  
   
-  <html:figure><fr:resource hash="7c76fba05ad4c8a281d04182bd1e3d42"><fr:resource-content><html:img src="/notes/7c76fba05ad4c8a281d04182bd1e3d42.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="faf709942093ed663cd467e2f00c916b"><fr:resource-content><html:img src="/notes/faf709942093ed663cd467e2f00c916b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
  
-  \usepackage{syntax}
- \usepackage{mathpartir, amsmath, amsthm, amsfonts}
- \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
- \usetikzlibrary{matrix,arrows}
- \usetikzlibrary{backgrounds,fit,positioning,calc,shapes}
- \usetikzlibrary{decorations.pathreplacing}
- \usetikzlibrary{decorations.pathmorphing}
- \usetikzlibrary{decorations.markings}
+   \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{amsmath, amsthm, amsfonts}
+  \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
+
+  % A TikZ style for curved arrows of a fixed height, due to AndréC.
+  \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+        .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+        and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+    \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+  quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+  % A TikZ style for shortening paths without the poor behaviour of `shorten <' and `shorten >'.
+  \tikzset{between/.style n args={2}{/tikz/spath/at end path construction={
+        \tikzset{spath/split at keep middle={current}{#1}{#2}}
+  }}}
+
+  % TikZ arrowhead/tail styles.
+  \tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+  \tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+  \tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+  % TikZ arrow styles.
+  \tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
 
 
   ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[

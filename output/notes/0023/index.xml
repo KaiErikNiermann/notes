@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>11</fr:month>
+      <fr:day>25</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/0023/</fr:uri>
+    <fr:display-uri>0023</fr:display-uri>
+    <fr:route>/notes/0023/</fr:route>
+    <fr:title text="Well-founded Relation on &lt; over \mathbb {N}">Well-founded Relation on <fr:tex display="inline"><![CDATA[<]]></fr:tex> over <fr:tex display="inline"><![CDATA[\mathbb {N}]]></fr:tex></fr:title>
+    <fr:taxon>Example</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <html:p>A classic example of a <fr:link href="/notes/0022/" title="Well-founded Relation" uri="https://kaierikniermann.github.io/notes/0022/" display-uri="0022" type="local">well-founded relation</fr:link> is the standard less-than relation <fr:tex display="inline"><![CDATA[<]]></fr:tex> defined over the set of natural numbers <fr:tex display="inline"><![CDATA[\mathbb {N} = \{0, 1, 2, 3, \ldots \}]]></fr:tex>. To see why, consider any sequence of natural numbers <fr:tex display="inline"><![CDATA[n_0, n_1, n_2, \ldots ]]></fr:tex> such that each successive number is less than its predecessor according to the relation <fr:tex display="inline"><![CDATA[<]]></fr:tex>:</html:p>
+    <fr:tex display="block"><![CDATA[
+  n_1 < n_0,\quad  n_2 < n_1,\quad  n_3 < n_2,\quad  \ldots 
+]]></fr:tex>
+    <html:p>Since the natural numbers are well-ordered, there is a smallest natural number, which is <fr:tex display="inline"><![CDATA[0]]></fr:tex>. Therefore, any decreasing sequence of natural numbers must eventually reach <fr:tex display="inline"><![CDATA[0]]></fr:tex> and cannot continue indefinitely. This means that there cannot exist an infinite sequence of natural numbers where each successive number is less than its predecessor.</html:p>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>11</fr:month>
+              <fr:day>25</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/0022/</fr:uri>
+            <fr:display-uri>0022</fr:display-uri>
+            <fr:route>/notes/0022/</fr:route>
+            <fr:title text="Well-founded Relation">Well-founded Relation</fr:title>
+            <fr:taxon>Definition</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <html:p>We say that a binary relation or predicate <fr:tex display="inline"><![CDATA[\prec ]]></fr:tex> over a set <fr:tex display="inline"><![CDATA[S]]></fr:tex> is a <html:em>well-founded relation</html:em> if there does not exist an infinite sequence of elements such that each successive element is less than it's predecessor according to the relation <fr:tex display="inline"><![CDATA[\prec ]]></fr:tex>. Formally this can be expressed as follows <fr:link href="/notes/bradley2007calculus/" title="The Calculus of Computation: Decision Procedures with Applications to Verification" uri="https://kaierikniermann.github.io/notes/bradley2007calculus/" display-uri="bradley2007calculus" type="local">1</fr:link>:</html:p>
+            <fr:tex display="block"><![CDATA[
+  \nexists  x_0, x_1, x_2, \ldots  \in  S.\ x_1 \prec  x_0 \land  x_2 \prec  x_1 \land  x_3 \prec  x_2 \land  \ldots 
+]]></fr:tex>
+            <html:p>In other words each sequence of elements of S that decreases according to the relation <fr:tex display="inline"><![CDATA[\prec ]]></fr:tex> must eventually terminate and cannot continue indefinitely. Another way to express this is that every non-empty subset <fr:tex display="inline"><![CDATA[T \subseteq  S]]></fr:tex> must have a minimal element <fr:tex display="inline"><![CDATA[m \in  T]]></fr:tex> such that there is no other element <fr:tex display="inline"><![CDATA[t \in  T]]></fr:tex> with <fr:tex display="inline"><![CDATA[t \prec  m]]></fr:tex>. Here we can express this as:</html:p>
+            <fr:tex display="block"><![CDATA[
+  (\forall  T \subseteq  S.\ T\ \mathrlap {\,/}{=}\ \emptyset  \implies  \exists  m \in  T.\ \forall  t \in  T.\ \lnot  (t \prec  m))
+]]></fr:tex>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

@@ -304,7 +304,7 @@
    
    
    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
-  <fr:resource hash="d0026a0e6ac8cdcb077e7120ac508b53"><fr:resource-content><html:img src="/notes/d0026a0e6ac8cdcb077e7120ac508b53.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <fr:resource hash="0ed774c5f98ccbf4fe2a8d866cb96b0e"><fr:resource-content><html:img src="/notes/0ed774c5f98ccbf4fe2a8d866cb96b0e.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
     \usepackage {amsmath}
     \usepackage {eulervm}
     \usepackage [scaled=0.92]{inconsolata} 

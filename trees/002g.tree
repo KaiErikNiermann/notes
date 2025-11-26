@@ -1,0 +1,97 @@
+\date{2025-11-26}
+
+\import{base-macros}
+
+\taxon{Example}
+
+\title{[Complete lattice](002c) for subsets ordered by inclusion}
+
+\p{One of the most basic examples of a [complete lattice](002c) is the power set of a given set #{X}, denoted as #{\mathcal{P}(X)}, ordered by the subset relation #{\subseteq}. The power set #{\mathcal{P}(X)} consists of all possible subsets of #{X}, including the empty set #{\emptyset} and the set #{X} itself. If we consider the following three element set:}
+##{
+  \{a, b, c\}
+}
+\p{We can draw the (complete) powerset lattice as follows:}
+
+\texfig{
+  % https://q.uiver.app/#q=WzAsOCxbMSwwLCJcXHthLCBiLCBjXFx9Il0sWzAsMSwiXFx7YSwgYlxcfSJdLFsyLDEsIlxce2IsIGNcXH0iXSxbMSwxLCJcXHthLCBjXFx9Il0sWzEsMiwiXFx7YlxcfSJdLFswLDIsIlxce2FcXH0iXSxbMiwyLCJcXHtjXFx9Il0sWzEsMywiXFx7XFxlbXB0eVxcfSJdLFswLDEsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFswLDIsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFswLDNdLFsxLDQsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFsyLDQsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFsxLDUsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFsyLDYsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFszLDYsIiIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSw3LCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJhcnJvd2hlYWQifX19XSxbNCw3XSxbNiw3LCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJhcnJvd2hlYWQifX19XSxbMyw1LCIiLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJhcnJvd2hlYWQifSwiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+  \begin{tikzcd}[column sep=small]
+    & {\{a, b, c\}} \\
+    {\{a, b\}} & {\{a, c\}} & {\{b, c\}} \\
+    {\{a\}} & {\{b\}} & {\{c\}} \\
+    & {\{\empty\}}
+    \arrow[tail reversed, from=1-2, to=2-1]
+    \arrow[from=1-2, to=2-2]
+    \arrow[tail reversed, from=1-2, to=2-3]
+    \arrow[tail reversed, from=2-1, to=3-1]
+    \arrow[tail reversed, from=2-1, to=3-2]
+    \arrow[dashed, tail reversed, from=2-2, to=3-1]
+    \arrow[dashed, tail reversed, from=2-2, to=3-3]
+    \arrow[tail reversed, from=2-3, to=3-2]
+    \arrow[tail reversed, from=2-3, to=3-3]
+    \arrow[tail reversed, from=3-1, to=4-2]
+    \arrow[from=3-2, to=4-2]
+    \arrow[tail reversed, from=3-3, to=4-2]
+  \end{tikzcd}
+}
+
+\subtree{
+  \title{Some intuition}
+  \p{There's a few observations we can make just by looking at the lattice:}
+  \ul{
+    \li{If we take any two subsets on the same level, such as #{\{\{a\}, \{b\}\}} then \em{two move up a level} we take the union of the sets, so:
+    ##{
+      \{a\} \cup \{b\} \to \{a, b\}
+    }
+    Conversly if we wish to \em{move down a level} we take the intersection of the two sets, so for the same pair
+    ##{
+      \{a\} \cap \{b\} \to \{\}
+    }
+    \li{Each level expresses the different powersets of #{X} with a given cardinality. So the bottom level is the powerset of cardinality 0 (i.e. the empty set), the next level up is the powerset of cardinality 1 (i.e. the singletons), then cardinality 2 and finally cardinality 3 at the top level which is just the set #{X} itself.}
+    \li{Naturally as we move up the lattice the sets get larger (with respect to inclusion) and as we move down the lattice the sets get smaller.}
+  }
+  }
+}
+
+\p{As a reminder, a [complete lattice](002c) is a partially ordered set (here on inclusion) in which all subsets exhibit both a meet and join. Let's for example take the following subset:}
+
+##{
+  S = \{\{a\}, \{a, b\}\}
+}
+
+\subtree{
+  \title{Lower bound}
+  \p{Here the lower bound is any element #{(\sqcup S) \in L} in the larger lattice in which the following property holds:}
+  ##{
+    \forall s \in S.\ (\sqcup S) \leq s
+  }
+  \p{In our case we know that #{\leq\ \equiv\ \subseteq}, furthermore we have that the elements of #{S} are the two sets #{\{a\}} and #{\{a, b\}}, hence we can rephrase this condition as}
+  ##{
+    (\sqcup S) \subseteq \{a\} \land (\sqcup S) \subseteq \{a, b\}
+  }
+  \p{Clearly the lower bound in this instance is then just:}
+  ##{
+    lb(\sqcup S) = \{\{\emptyset\}, \{a\}\}
+  }
+  \p{The greatest lower bound is simply the intersection of all lower bounds hence:}
+  ##{
+    \text{glb}(\sqcup S) = \bigcap\ \{\{\emptyset\}, \{a\}\} = \{a\}
+  }
+}
+
+\subtree{
+  \title{Upper bound}
+  \p{The upper bound is just the flipped condition of the lower bound, i.e.:}
+  ##{
+    \forall s \in S.\ s \leq (\sqcap S) \equiv (\{a\} \subseteq (\sqcap S)) \land (\{a, b\} \subseteq (\sqcap S))
+  }
+  \p{The sets which satisfy this condition are:}
+  ##{
+    \text(ub)(\sqcup S) = \{\{a, b\}, \{a, b, c\}\}
+  }
+  \p{The least upper bound is the smallest of the sets which form the upper bound, i.e.:}
+  ##{
+    \text{lub}(\sqcap S) = \{a, b\}
+  }
+}
+
+

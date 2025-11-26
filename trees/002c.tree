@@ -1,0 +1,19 @@
+\date{2025-11-25}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Complete Lattice}
+
+\p{A \em{complete lattice} is a [partially ordered set](002d) in which all subsets have both a \em{greatest lower bound} (also known as \em{infimum} or \em{meet}) and a \em{least upper bound} (also known as \em{supremum} or \em{join}). This means that for any subset #{S} of the complete lattice #{L}, there exists an element #{\sqcup\ S} in #{L} such that: [(1)](baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024)}
+\ul{
+  \li{#{\sqcup\ S} is a lower bound of #{S}: For all elements #{s \in S}, #{\sqcup\ S \leq s}.}
+  \li{#{\sqcup\ S} is the greatest of all lower bounds: For any other lower bound #{b} of #{S}, #{b \leq \sqcup\ S}.}
+}
+\p{Similarly, there exists an element #{\sqcap\ S} in #{L} such that:}
+\ul{
+  \li{#{\sqcap\ S} is an upper bound of #{S}: For all elements #{s \in S}, #{s \leq \sqcap\ S}.}
+  \li{#{\sqcap\ S} is the least of all upper bounds: For any other upper bound #{b} of #{S}, #{\sqcap\ S \leq b}.}
+}
+\p{In a complete lattice, every subset, including the empty set and the entire set itself, has both a supremum and an infimum within the lattice.}

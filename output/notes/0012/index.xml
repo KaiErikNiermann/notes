@@ -89,9 +89,9 @@
   <html:li><html:strong>Function Symbols</html:strong> (<fr:tex display="inline"><![CDATA[\mathcal  F]]></fr:tex>): the set of function symbols in the language. E.g., <fr:tex display="inline"><![CDATA[\{f, g, h\}]]></fr:tex></html:li>
   <html:li><html:strong>Relation Symbols</html:strong> (<fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>): the set of relation symbols in the language. E.g., <fr:tex display="inline"><![CDATA[\{R, S, T\}]]></fr:tex></html:li></html:ul>
                     <html:p>Using BNF we can define the syntax as follows</html:p>
-                    <fr:resource hash="c0b1402cba0393f815c3a0f59f367e08">
+                    <fr:resource hash="18b8dd7c29a3cc72847fbb5fc08ba8f0">
                       <fr:resource-content>
-                        <html:img src="/notes/c0b1402cba0393f815c3a0f59f367e08.svg" />
+                        <html:img src="/notes/18b8dd7c29a3cc72847fbb5fc08ba8f0.svg" />
                       </fr:resource-content>
                       <fr:resource-source type="latex" part="preamble"><![CDATA[
   \usepackage {amsmath}
@@ -443,17 +443,13 @@
   ]]></fr:tex></html:li></html:ul><html:p>We can define semantic entailment inductively as follows:</html:p>
   
     
-    <fr:resource hash="df632c4b69978068f7b52c7e8abb7151"><fr:resource-content><html:img src="/notes/df632c4b69978068f7b52c7e8abb7151.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="bf38ef538d97d37abb4d5740fd4c5e05"><fr:resource-content><html:img src="/notes/bf38ef538d97d37abb4d5740fd4c5e05.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=True]{}{
     U, I, \sigma  \models  \top 
   }
@@ -467,10 +463,7 @@
   }{
     U, I, \sigma  \models  p(t_1, \ldots , t_n)
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 </fr:mainmatter>
                 </fr:tree>
@@ -538,17 +531,13 @@
                   <fr:mainmatter><html:p>In addition to evaluating atomic formulas, we can define the evaluation of complex formulas using logical connectives and quantifiers as follows:</html:p>
   
     
-    <fr:resource hash="37d91251bf7d233acf730f64edad23aa"><fr:resource-content><html:img src="/notes/37d91251bf7d233acf730f64edad23aa.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="6def192365920c45e9f367e6b771acb3"><fr:resource-content><html:img src="/notes/6def192365920c45e9f367e6b771acb3.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Not-True]{
     S, \sigma  \not \models  F
   }{
@@ -596,25 +585,18 @@
   }{
     S, \sigma  \not \models  F_1 \to  F_2
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>For the proof rules of quantifiers we have two variants depending on whether we are dealing with free or bound variables:</html:p>
   
     
-    <fr:resource hash="8d6d80899a7de1c57c82b42520653675"><fr:resource-content><html:img src="/notes/8d6d80899a7de1c57c82b42520653675.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="ca7213d0553a10c29293a0ea1d9b5c87"><fr:resource-content><html:img src="/notes/ca7213d0553a10c29293a0ea1d9b5c87.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=$\forall $-$\top $]{
     S, \sigma  \models  x.\ F \\ \forall  d \in  D
   }{
@@ -638,10 +620,7 @@
   }{
     S, \sigma [x \mapsto  d] \not \models  F
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 </fr:mainmatter>
                 </fr:tree>
@@ -664,17 +643,13 @@
   <html:li>If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.</html:li></html:ol><html:p>We can express the semantic argument method via the following inference rule:</html:p>
   
     
-    <fr:resource hash="41dd7a395f61fbfdfe3c26856eec2f22"><fr:resource-content><html:img src="/notes/41dd7a395f61fbfdfe3c26856eec2f22.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="d9cae6dd020a28c2f7ee470a5e57854a"><fr:resource-content><html:img src="/notes/d9cae6dd020a28c2f7ee470a5e57854a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Contradiction]{
     S, \sigma  \models  p(s_1, \ldots , s_n) \\
     S, \sigma  \models  \neg  p(t_1, \ldots , t_n) \\ 
@@ -682,10 +657,7 @@
   }{
     S, \sigma  \models  \bot 
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>So the idea here being that if we have a predicate and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction. This allows us to conclude that our initial assumption (that the formula is not valid) must be false, thereby proving the validity of the formula.</html:p></fr:mainmatter>
                 </fr:tree>

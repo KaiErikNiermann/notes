@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors>
+      <fr:author>Harper, Robert</fr:author>
+    </fr:authors>
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>1</fr:month>
+      <fr:day>1</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/harper-tarski-fixed-point-2025/</fr:uri>
+    <fr:display-uri>harper-tarski-fixed-point-2025</fr:display-uri>
+    <fr:route>/notes/harper-tarski-fixed-point-2025/</fr:route>
+    <fr:title text="Tarski’s Fixed Point Theorem*">Tarski’s Fixed Point Theorem*</fr:title>
+    <fr:taxon>Reference</fr:taxon>
+    <fr:meta name="note">Lecture notes, Spring 2025</fr:meta>
+    <fr:meta name="institution">Carnegie Mellon University</fr:meta>
+    <fr:meta name="external">file:///mnt/data/tarski.pdf</fr:meta>
+    <fr:meta name="ENTRYTYPE">misc</fr:meta>
+    <fr:meta name="ID">harper_tarski_fixed_point_2025</fr:meta>
+  </fr:frontmatter>
+  <fr:mainmatter />
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

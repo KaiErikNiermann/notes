@@ -1,0 +1,95 @@
+\date{2025-11-25}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Tarski's Theorem}
+
+\p{We define a set #{X}, let #{\mathcal L(X)} be the [complete lattice](002c) of all subsets of #{X} ordered by inclusion. A function #{f: \mathcal L(X) \to \mathcal L(X)} is said to be [\em{monotone}](0029) in this instance if it preserves inclusion which is to say that the following holds:}
+##{
+  A \subseteq B \subseteq X \implies f(A) \subseteq f(B)
+}
+
+\subtree{
+  \title{Pre-and-post fixed point}
+  \p{For a monotone function #{f} a \em{pre-fixed point} of #{f} is a subset #{A \subseteq X} such that #{f(A) \subseteq A}. Similarly, a \em{post-fixed point} of #{f} is a subset #{B \subseteq X} such that #{B \subseteq f(B)}.}
+
+  \p{Conceptually the idea here is that the pre-fixed points are those sets in #{X} where the function #{f} maps to \em{at most} all members in #{A}. Conversly the post-fixed points represents the subset where at least all members of the set are mapped to by other members of the same set. Another way to describe it would be that the pre-fixed points represent a closed or \em{under-approximation} of the function #{f} while the post-fixed points represent an consistent or \em{over-approximation} of the function.}
+
+  \p{A pre-fixed point of #{f} is also said to be #{f}-closed and a post-fixed point of #{f} is said to be #{f}-consistent.}
+
+  \p{A \em{least pre-fixed point} of a monotone #{f} is the \em{smallest} subset #{A \subseteq X} such that #{f(A) \subseteq A}, denoted by #{\mu f}. Similarly, a \em{greatest post-fixed point} of #{f} is the \em{largest} subset #{B \subseteq X} such that #{B \subseteq f(B)}, denoted by #{\nu f}.}
+
+  \p{Every monotone function #{f} has a unique least pre-fixed point and a unique greatest post-fixed point given by the following equations:}
+  ##{
+    \begin{align*}
+      \mu f & = \bigcap \{ A \subseteq X \mid f(A) \subseteq A \} \\
+      \nu f & = \bigcup \{ B \subseteq X \mid B \subseteq f(B) \}
+    \end{align*}
+  }
+}
+\p{Of note here is that the least pre-fixed point here corresponds to the closure of the function #{f}. That is to say that it is the smallest set which is closed under the function #{f}. Conversely, the greatest post-fixed point corresponds to the consistency of the function #{f}, being the largest set which is consistent with respect to #{f}.}
+
+\subtree{
+  \title{Lambek's lemma}
+  \p{One thing we can observe is that #{\mu f} is contained in all pre-fixed points of #{f}, by virtue of being the intersection, i.e. closure for all pre-fixed points. Furthermore we have that #{\mu f} is itself a pre-fixed point of #{f}}
+  ##{
+    f(\mu f) \subseteq \mu f
+  }
+  \p{and it is thereby the least pre-fixed point. To see this we note that if:}
+  ##{
+    f(A ) \subseteq A \to f(\mu f) \subseteq A
+  }
+  \scope{
+    \put\transclude/expanded{false}
+    \subtree{
+      \title{Explanation}
+      \p{So the idea here is again that since #{A} is a pre-fixed point of #{f}, by definition we have that #{f(A) \subseteq A}. The implication here is that if we apply #{f} to our closure, the resulting set must still be within #{A} since again we definitially cannot have that #{f} maps outside of #{A} so even if we constrain ourselves to some smaller set #{\mu f} it doesnt negate the fact that #{f} still cannot map outside of #{A}.}
+    }
+  }
+  \p{But by definition of #{\mu f} we have that}
+  ##{
+    \mu f \subseteq A
+  }
+  \scope{
+    \put\transclude/expanded{false}
+    \subtree{
+      \title{Explanation}
+      \p{This is more or less just restating the definition of #{\mu f} as the intersection of all pre-fixed points of #{f}, which includes #{A}.}
+    }
+  }
+  \p{Thus by monotonicity of #{f} we have the following as required}
+  ##{
+    f(\mu f) \subseteq f(A) \subseteq A
+  }
+  \p{Additionally we have}
+  ##{
+    f(f(\mu f)) \subseteq f(\mu f)
+  }
+  \p{Which is to reiterate that #{f(\mu f)} is itself a pre-fixed point of #{f}. Therefore we have that}
+  ##{
+    \mu f \subseteq f(\mu f)
+  }
+    \scope{
+    \put\transclude/expanded{false}
+    \subtree{
+      \title{Explanation}
+      \p{What this says at a high level; or what it implies given the above condition; is that the application of the monotone operator to the closure set #{\mu f} doesnt shrink the set any further, in other words its operation stabilizes at this set such that each member in this set maps precisely to some other member in the set not more (i.e. outside as that would mean its not closed) and not less (as that would imply its not minimal). }
+      ##{
+        f(\mu f) \subseteq \mu f
+      }
+      \p{What this says at a high level; or what it implies given the above condition; is that the application of the monotone operator to the closure set #{\mu f} doesnt shrink the set any further, in other words its operation stabilizes at this set such that each member in this set maps precisely to some other member in the set not more (i.e. outside as that would mean its not closed) and not less (as that would imply its not minimal). A question I had here was:}
+      \blockquote{
+        But why does this actually happen?
+      } 
+      \p{A nice perspective to have firstly is seeing the the set #{\mu f} here as a [generating set](002f) for the function #{f}. In other words if we view the function #{f} as a set of rules which generate new members in the set from existing members, then the closure #{\mu f} represents the most precise set of members which can be generated by these rules without introducing any extraneous members.}
+
+      \p{The effect of this is that because the members in #{\mu f} are precisely those which can be generated by the rules in #{f}, applying #{f} to this set will simply regenerate the same members, hence why we have that #{\mu f \subseteq f(\mu f)} since all the members in #{\mu f} already correspond to members generated by the members of #{\mu f} under the rules of #{f}}
+
+      \p{Furthermore, since we are working in the context of a complete lattice, as we take the intersection of more and more closed subsets under #{f} we eventually reach a point where if we take some further intersection (move down more) we end up losing the closed property, but if we move up (i.e. take the union of more closed sets) we end up introducing extraneous members which violate the minimality property, hence the idea that we stablize at this set i.e. we are a [\em{fixed point}](0028) on the lattice under the operator.}
+    }
+  }
+  \p{The implication of this being that the closure #{\mu f} is a [\em{fixed point}](0028) of #{f}, and, because any fixed point is a pre-fixed point, it is the least pre-fixed point of #{f}. A dual argument shows that the greatest post-fixed point #{\nu f} is also a fixed point of #{f}. This result is known as \em{Lambek's lemma} in Category theory.}
+
+}

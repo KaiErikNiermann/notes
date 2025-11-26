@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>11</fr:month>
+      <fr:day>26</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/002e/</fr:uri>
+    <fr:display-uri>002e</fr:display-uri>
+    <fr:route>/notes/002e/</fr:route>
+    <fr:title text="Closed set">Closed set</fr:title>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <html:p>We define a subset of a given set to be <html:em>closed</html:em> under some operation on the larget set if preforming that operation on a member of the <html:em>subset</html:em> always produces a member of the same subset. Formally we can say that:</html:p>
+    <html:ul><html:li>Given some <html:strong>set operation</html:strong> <fr:tex display="inline"><![CDATA[f : X^n \to  X]]></fr:tex></html:li>
+  <html:li>A subset <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex> is <html:strong>closed</html:strong> under the operation <fr:tex display="inline"><![CDATA[f]]></fr:tex> if
+    <fr:tex display="block"><![CDATA[
+      \forall  x_1, x_2, \ldots , x_n \in  S.\ f(x_1, x_2, \ldots , x_n) \in  S
+    ]]></fr:tex></html:li></html:ul>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

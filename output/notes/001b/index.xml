@@ -34,17 +34,13 @@
 </html:code></html:pre><html:p>We can equivalently express this definition using the type formation and term intruduction rules:</html:p>
   
     
-    <fr:resource hash="bcb67e2e9cc0f3c7e267cde01c7827d1"><fr:resource-content><html:img src="/notes/bcb67e2e9cc0f3c7e267cde01c7827d1.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="33d702bd484db0f38d36a948c284b41e"><fr:resource-content><html:img src="/notes/33d702bd484db0f38d36a948c284b41e.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Form-Nat]{
   }{
     \mathbb {N} : \texttt {type}
@@ -59,30 +55,44 @@
   }{
     \texttt {succ}\ n : \mathbb {N}
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>While this explanation for inductive types usually gives most people I think enough intuition to understand the basic notions of how to use them to construct something like natural numbers, I think it kind of misses the deeper idea of what an inductive type and by extension a recursor really is. To attempt to explain this we'll take a look into some of the categorical semantics behind inductive types.</html:p><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:uri>https://kaierikniermann.github.io/notes/001c/</fr:uri><fr:display-uri>001c</fr:display-uri><fr:route>/notes/001c/</fr:route><fr:title text="Natural Number Object (NNO)">Natural Number Object (NNO)</fr:title><fr:taxon>Definition</fr:taxon></fr:frontmatter><fr:mainmatter><html:p>We assume that <fr:tex display="inline"><![CDATA[\mathcal  L]]></fr:tex> is a category with a <fr:link href="/notes/001d/" title="Terminal Object (Category Theory)" uri="https://kaierikniermann.github.io/notes/001d/" display-uri="001d" type="local">terminal object</fr:link> <fr:tex display="inline"><![CDATA[1]]></fr:tex>. This category has a <html:em>natural number object</html:em> (NNO) if there exists an object <fr:tex display="inline"><![CDATA[\mathbb {N}]]></fr:tex> together with two morphisms:</html:p><html:ul><html:li><fr:tex display="inline"><![CDATA[0 : 1 \to  \mathbb {N}]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[s : \mathbb {N} \to  \mathbb {N}]]></fr:tex></html:li></html:ul><html:p>such that, given any global element <fr:tex display="inline"><![CDATA[z : 1 \to  X]]></fr:tex> and any morphism <fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex>, there exists a unique morphism <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> such that the following diagram commutes:</html:p>
  
   
-  <html:figure><fr:resource hash="7c76fba05ad4c8a281d04182bd1e3d42"><fr:resource-content><html:img src="/notes/7c76fba05ad4c8a281d04182bd1e3d42.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="faf709942093ed663cd467e2f00c916b"><fr:resource-content><html:img src="/notes/faf709942093ed663cd467e2f00c916b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
  
-  \usepackage{syntax}
- \usepackage{mathpartir, amsmath, amsthm, amsfonts}
- \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
- \usetikzlibrary{matrix,arrows}
- \usetikzlibrary{backgrounds,fit,positioning,calc,shapes}
- \usetikzlibrary{decorations.pathreplacing}
- \usetikzlibrary{decorations.pathmorphing}
- \usetikzlibrary{decorations.markings}
+   \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{amsmath, amsthm, amsfonts}
+  \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
+
+  % A TikZ style for curved arrows of a fixed height, due to AndréC.
+  \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+        .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+        and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+    \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+  quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+  % A TikZ style for shortening paths without the poor behaviour of `shorten <' and `shorten >'.
+  \tikzset{between/.style n args={2}{/tikz/spath/at end path construction={
+        \tikzset{spath/split at keep middle={current}{#1}{#2}}
+  }}}
+
+  % TikZ arrowhead/tail styles.
+  \tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+  \tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+  \tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+  % TikZ arrow styles.
+  \tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
 
 
   ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
@@ -483,17 +493,13 @@ def eval : Expr -&gt; Nat
 </html:code></html:pre><html:p>We can equivalently express this definition using the type formation and term intruduction rules:</html:p>
   
     
-    <fr:resource hash="bcb67e2e9cc0f3c7e267cde01c7827d1"><fr:resource-content><html:img src="/notes/bcb67e2e9cc0f3c7e267cde01c7827d1.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="33d702bd484db0f38d36a948c284b41e"><fr:resource-content><html:img src="/notes/33d702bd484db0f38d36a948c284b41e.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
-     \usepackage{syntax}
-   \usepackage{eulervm}
-   \usepackage{mathpartir, amsmath, amsthm, amsfonts, amssymb}
-   \usepackage[scaled=0.92]{inconsolata}
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
 
-    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-      {\small 
-        \begin {mathpar}
-        
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Form-Nat]{
   }{
     \mathbb {N} : \texttt {type}
@@ -508,30 +514,44 @@ def eval : Expr -&gt; Nat
   }{
     \texttt {succ}\ n : \mathbb {N}
   }
-
-        \end {mathpar}
-      }
-    ]]></fr:resource-source></fr:resource>
+\end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>While this explanation for inductive types usually gives most people I think enough intuition to understand the basic notions of how to use them to construct something like natural numbers, I think it kind of misses the deeper idea of what an inductive type and by extension a recursor really is. To attempt to explain this we'll take a look into some of the categorical semantics behind inductive types.</html:p><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:uri>https://kaierikniermann.github.io/notes/001c/</fr:uri><fr:display-uri>001c</fr:display-uri><fr:route>/notes/001c/</fr:route><fr:title text="Natural Number Object (NNO)">Natural Number Object (NNO)</fr:title><fr:taxon>Definition</fr:taxon></fr:frontmatter><fr:mainmatter><html:p>We assume that <fr:tex display="inline"><![CDATA[\mathcal  L]]></fr:tex> is a category with a <fr:link href="/notes/001d/" title="Terminal Object (Category Theory)" uri="https://kaierikniermann.github.io/notes/001d/" display-uri="001d" type="local">terminal object</fr:link> <fr:tex display="inline"><![CDATA[1]]></fr:tex>. This category has a <html:em>natural number object</html:em> (NNO) if there exists an object <fr:tex display="inline"><![CDATA[\mathbb {N}]]></fr:tex> together with two morphisms:</html:p><html:ul><html:li><fr:tex display="inline"><![CDATA[0 : 1 \to  \mathbb {N}]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[s : \mathbb {N} \to  \mathbb {N}]]></fr:tex></html:li></html:ul><html:p>such that, given any global element <fr:tex display="inline"><![CDATA[z : 1 \to  X]]></fr:tex> and any morphism <fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex>, there exists a unique morphism <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> such that the following diagram commutes:</html:p>
  
   
-  <html:figure><fr:resource hash="7c76fba05ad4c8a281d04182bd1e3d42"><fr:resource-content><html:img src="/notes/7c76fba05ad4c8a281d04182bd1e3d42.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="faf709942093ed663cd467e2f00c916b"><fr:resource-content><html:img src="/notes/faf709942093ed663cd467e2f00c916b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
  
-  \usepackage{syntax}
- \usepackage{mathpartir, amsmath, amsthm, amsfonts}
- \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
- \usetikzlibrary{matrix,arrows}
- \usetikzlibrary{backgrounds,fit,positioning,calc,shapes}
- \usetikzlibrary{decorations.pathreplacing}
- \usetikzlibrary{decorations.pathmorphing}
- \usetikzlibrary{decorations.markings}
+   \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{amsmath, amsthm, amsfonts}
+  \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
+
+  % A TikZ style for curved arrows of a fixed height, due to AndréC.
+  \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+        .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+        and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+    \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+  quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+  % A TikZ style for shortening paths without the poor behaviour of `shorten <' and `shorten >'.
+  \tikzset{between/.style n args={2}{/tikz/spath/at end path construction={
+        \tikzset{spath/split at keep middle={current}{#1}{#2}}
+  }}}
+
+  % TikZ arrowhead/tail styles.
+  \tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+  \tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+  \tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+  % TikZ arrow styles.
+  \tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
 
 
   ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[

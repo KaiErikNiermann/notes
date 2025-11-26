@@ -3,3 +3,9 @@ trees = ["trees" ]  # The directories in which your trees are stored
 assets = ["assets"] # The directories in which your assets are stored
 url = "https://kaierikniermann.github.io/notes/" # Replace this with your own domain or web storage. If you don't have one, you can use "http://localhost/"; the URL given here does not matter unless you plan to publish your forest.
 home = "index"
+
+[forest.latex]
+document_class = "standalone"
+document_class_options = ["preview", "border=2pt"]
+compile_command = ["latex", "-halt-on-error", "-interaction=nonstopmode"]
+dvisvgm_command = ["dvisvgm", "--exact", "--clipjoin", "--font-format=woff", "--zoom=1.3", "--stdin", "--stdout"]

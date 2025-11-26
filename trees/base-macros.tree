@@ -41,13 +41,7 @@
     \put?\base/tex-preamble{
      \latex-preamble/mathpar
     }
-    \tex{\get\base/tex-preamble}{
-      {\small
-        \begin{mathpar}
-        \body{}
-        \end{mathpar}
-      }
-    }
+    \tex{\get\base/tex-preamble}{\begin{mathpar}\body{}\end{mathpar}}
   }
 }
 

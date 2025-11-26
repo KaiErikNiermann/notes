@@ -1,0 +1,17 @@
+\date{2025-11-25}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Preorder relation}
+
+\p{A \em{preorder relation} is a binary relation #{\preceq} on a set #{S} that is both \em{reflexive} and \em{transitive}. This means that for all elements #{a, b, c \in S}, the following conditions hold:[(1)](fong-spivak-seven-sketches-2019)}
+\ul{
+  \li{#{x \preceq x} (Reflexivity): Every element is related to itself.}
+  \li{#{a \preceq b \land b \preceq c \to a \preceq c} (Transitivity): If an element #{a} is related to #{b}, and #{b} is related to #{c}, then #{a} is also related to #{c}.}
+}
+\p{We denote the case of #{x} and #{y} being equivalent using the notation #{\equiv} under the following conditions}
+##{
+  x \equiv y \iff x \preceq y \land y \preceq x
+}

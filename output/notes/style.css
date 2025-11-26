@@ -1,13 +1,5 @@
 /* SPDX-License-Identifier: CC0-1.0 */
 
-.katex {
- font-size: 1.15em !important;
-  font-family: 'Euler Math', serif !important;
-}
-
-.katex .texttt {
-  font-family: var(--code-font-stack) !important;
-}
 
 /* inria-sans-300 - latin_latin-ext */
 @font-face {
@@ -84,6 +76,22 @@
   src: url('fonts/eulervm/EulerMath-Regular.woff2') format('woff2'),
        url('fonts/eulervm/EulerMath-Regular.otf') format('opentype');
 }
+
+.katex {
+ font-size: 1.15em !important;
+  font-family: 'Euler Math', serif !important;
+}
+
+.katex .mathnormal {
+  font-family: 'Euler Math', serif !important;
+  /* font-style: italic; */
+}
+
+.katex .texttt {
+  font-family: var(--code-font-stack) !important;
+  font-size: 0.5em !important;
+}
+
 
 :root {
   --content-gap: 15px;

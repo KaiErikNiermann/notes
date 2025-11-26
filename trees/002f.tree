@@ -1,0 +1,27 @@
+\date{2025-11-26}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Closure operator}
+
+\p{A \em{closure operator} on a set #{S} is a function #{\text{Cl} : \mathcal P(S) \to \mathcal P(S)} from the powerset of #{S} to itself that satisfies the following three properties for all subsets #{A, B \subseteq S}:}
+\ul{
+  \li{The operator is \strong{extensive} meaning that the closure of a set always contains the set itself:
+    ##{
+      A \subseteq \text{Cl}(A)
+    }
+  }
+  \li{The operator is \strong{idempotent} meaning that applying the closure operator twice is the same as applying it once:
+    ##{
+      \text{Cl}(\text{Cl}(A)) = \text{Cl}(A)
+    }
+  }
+  \li{The operator is \strong{monotone} meaning that if one set is a subset of another, then the closure of the first set is a subset of the closure of the second set:
+    ##{
+      A \subseteq B \implies \text{Cl}(A) \subseteq \text{Cl}(B)
+    }
+  }
+}
+\p{We say that the \em{closure of a subset} is the result of the closure operator beingapplied to that subset. The closure of this subset under some operation is the \em{smallest superset} of the subset which is closed (i.e., remains within the superset when the operation is applied). It's also sometimes called the \em{span} (such as in linear algebra), \em{generated set}, or \em{hull}.}

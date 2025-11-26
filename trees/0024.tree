@@ -1,0 +1,11 @@
+\date{2025-11-25}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Strict subformula relation}
+\p{Given a formula #{\phi}, \em{strict subformula} of #{\phi} is any formula that is a proper part of #{\phi}, meaning it is contained within #{\phi} but is not equal to #{\phi} itself. We can denote the strict subformula relation using the symbol #{\prec_{\text{sf}}}. Formally, we say that a formula #{\psi} is a strict subformula of #{\phi} (written as #{\psi \prec_{\text{sf}} \phi}) if and only if #{\psi} is a subformula of #{\phi} and #{\psi \ \mathrlap{\,/}{=}\ \phi}.}
+##{
+  \psi \prec_{\text{sf}} \phi \iff \psi\ \text{is a subformula of}\ \phi \land \psi \ \mathrlap{\,/}{=}\ \phi
+}

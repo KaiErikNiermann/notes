@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>11</fr:month>
+      <fr:day>26</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/002h/</fr:uri>
+    <fr:display-uri>002h</fr:display-uri>
+    <fr:route>/notes/002h/</fr:route>
+    <fr:title text="Syntactic (inference) rule">Syntactic (inference) rule</fr:title>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter><html:p>The basic form of a rule that describes a subset of a set <fr:tex display="inline"><![CDATA[X]]></fr:tex> is given by:</html:p>
+  
+    
+    <fr:resource hash="ed9cfe01732079066646443cbdaf96f3"><fr:resource-content><html:img src="/notes/ed9cfe01732079066646443cbdaf96f3.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule *{
+    x_1 \\ \ldots  \\ x_n
+  }{
+    x
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>In plain English this can be read as: <html:em>If <fr:tex display="inline"><![CDATA[x_1]]></fr:tex> to {x_n} are elements of the subset I am defining, then so is <fr:tex display="inline"><![CDATA[x]]></fr:tex></html:em>. Here the elements <fr:tex display="inline"><![CDATA[x_1]]></fr:tex> to <fr:tex display="inline"><![CDATA[x_n]]></fr:tex> are called the <html:em>premises</html:em> of the rule while <fr:tex display="inline"><![CDATA[x]]></fr:tex> is called the <html:em>conclusion</html:em> of the rule.</html:p><html:p>One potentially helpful perspective for the set theoretic is that the conclusion <fr:tex display="inline"><![CDATA[x]]></fr:tex> can be thought of as a label for the set of premises <fr:tex display="inline"><![CDATA[\{x_1, \ldots , x_n\}]]></fr:tex></html:p></fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>11</fr:month>
+              <fr:day>26</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/002i/</fr:uri>
+            <fr:display-uri>002i</fr:display-uri>
+            <fr:route>/notes/002i/</fr:route>
+            <fr:title text="Closure of a syntactic rule">Closure of a <fr:link href="/notes/002h/" title="Syntactic (inference) rule" uri="https://kaierikniermann.github.io/notes/002h/" display-uri="002h" type="local">syntactic rule</fr:link></fr:title>
+            <fr:taxon>Definition</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <html:p>A <fr:link href="/notes/002h/" title="Syntactic (inference) rule" uri="https://kaierikniermann.github.io/notes/002h/" display-uri="002h" type="local">syntactic rule</fr:link> on a set <fr:tex display="inline"><![CDATA[X]]></fr:tex> expresses a closure condition (or <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">operator</fr:link>) on the subsets of <fr:tex display="inline"><![CDATA[X]]></fr:tex>, which is to say on the elements of the powerset <fr:tex display="inline"><![CDATA[\mathcal {P}]]></fr:tex>. In particular we can say that for a particular subset <fr:tex display="inline"><![CDATA[S \in  \mathcal {P}(X)]]></fr:tex>, we have that:</html:p>
+            <fr:tex display="block"><![CDATA[
+  \{S \subseteq  X \mid  x_1,\ldots ,x_n \in  S \to  x \in  S\}
+]]></fr:tex>
+            <html:p>When we have a set <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> denoting a set of <fr:link href="/notes/002h/" title="Syntactic (inference) rule" uri="https://kaierikniermann.github.io/notes/002h/" display-uri="002h" type="local">rules</fr:link> over <fr:tex display="inline"><![CDATA[X]]></fr:tex>, we will write:</html:p>
+            <fr:tex display="block"><![CDATA[
+  \text {Cl}_\mathcal  R \in  \mathcal  P(X)
+]]></fr:tex>
+            <html:p>to denote the intersection of the closure conditions expressed by each rule in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words, the set of subsets of <fr:tex display="inline"><![CDATA[X]]></fr:tex> that are closed under all the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. Intuitively this set denotes all set's which satisfy the premises of the rule and hence can derive the conclusion. A particular rule <fr:tex display="inline"><![CDATA[r \in  \mathcal  R]]></fr:tex> is said to determine a monotone function <fr:tex display="inline"><![CDATA[f_r: \mathcal  P(X) \to  \mathcal  P(X)]]></fr:tex> such that for any subset <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex>, we have that:</html:p>
+            <fr:tex display="block"><![CDATA[
+  f_r(S) = \{x \in  X \mid  x_1, \ldots , x_n \in  S\}
+]]></fr:tex>
+            <html:p>What this function expresses is that if we know the assertions <fr:tex display="inline"><![CDATA[x_1]]></fr:tex> to <fr:tex display="inline"><![CDATA[x_n]]></fr:tex> are true (are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>) then we can additionally conclude <fr:tex display="inline"><![CDATA[x]]></fr:tex> is true. A more pedantic equivalent version of this function is:</html:p>
+            <fr:tex display="block"><![CDATA[
+  f_r(S) = S \cup  \{x \in  X \mid  x_1, \ldots , x_n \in  S\}
+]]></fr:tex>
+            <html:p>There seems to be a general tendency to prefer the first version as it emphasizes the idea of the derivation of new conclusions from premises, however the second version is what's pedantically accurate in that we are accumulating the conclusion <fr:tex display="inline"><![CDATA[x]]></fr:tex> into the set <fr:tex display="inline"><![CDATA[S]]></fr:tex> based on the existing premises.</html:p>
+            <html:p>Furthermore we have that the set <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> of rules induces a monotone function that collectively closes up under each rule in the set as follows:</html:p>
+            <fr:tex display="block"><![CDATA[
+  f_\mathcal  R(S) = \bigcup _{r \in  \mathcal  R} f_r(S)
+]]></fr:tex>
+            <html:p>What this function expresses is that for any subset <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex>, we can apply each rule in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> to <fr:tex display="inline"><![CDATA[S]]></fr:tex> and take the union of all the resulting sets. This gives us the smallest superset of <fr:tex display="inline"><![CDATA[S]]></fr:tex> closed under <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. Intuitively it expresses all derivable conclusions <fr:tex display="inline"><![CDATA[x]]></fr:tex> from premises <fr:tex display="inline"><![CDATA[x_1, \ldots , x_n]]></fr:tex> in <fr:tex display="inline"><![CDATA[S]]></fr:tex> according to the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words it corresponds to the idea of enumerating all rules for our given set <fr:tex display="inline"><![CDATA[S]]></fr:tex> and seeing if we can add any new conclusions to <fr:tex display="inline"><![CDATA[S]]></fr:tex> based on the premises already in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.</html:p>
+            <html:p>The <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">closure</fr:link> of the set <fr:tex display="inline"><![CDATA[X]]></fr:tex> under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, denoted by <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex>, is then defined as the least fixpoint (or <fr:link href="/notes/002b/" title="Tarski's Theorem" uri="https://kaierikniermann.github.io/notes/002b/" display-uri="002b" type="local">least pre-fixed point</fr:link>) of the function <fr:tex display="inline"><![CDATA[f_\mathcal  R]]></fr:tex>:</html:p>
+            <fr:tex display="block"><![CDATA[
+  \mu  f_\mathcal  R = \bigcap \ \{ S \subseteq  X \mid  f_\mathcal  R(S) \subseteq  S \}
+]]></fr:tex>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

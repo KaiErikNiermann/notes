@@ -1,0 +1,115 @@
+\date{2025-11-27}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Grothendieck universe}
+
+\subtree{
+  \title{Motivation}
+
+\p{In set theory (along with other theories which consider collections of stuff) there is an issue which you try to talk about the \em{collection of collections}, as it gives rise to certain paradoxes by the recursive nature of it. One way out is to consider a hierarchy of notions of collections, where a "collection of collections" is not in fact considered a "collection" itself but rather some notion of a higher increment of collection. } 
+
+\p{This is the idea behind \em{universes}, where the universe is a collection of all set's which intuitively can be thought of as a "set of all sets" but is not itself a set but one increment above it in the hierarchy.}
+
+}
+
+\subtree{
+  \title{Definition}
+
+  \p{A \em{Grothendieck universe} is a set (in ZFC) #{\mathcal U} with the following properties [(1)](johnson-yau-2d-categories-2020):}
+\ol{
+  \li{( \em{transitivity} ) If #{x \in \mathcal U} and #{y \in x}, then #{y \in \mathcal U}.}
+  \li{( \em{power set} ) If #{x \in \mathcal U}, then #{\mathcal P(x) \in \mathcal U} where #{\mathcal P(x)} is the powerset (set of all subsets) of #{x}.}
+  \li{( \em{unions} ) If #{I \in \mathcal U} and #{x_i \in \mathcal U} for each #{i \in I}, then the union
+  ##{
+    \bigcup _{i \in I} x_i \in \mathcal U
+  }}
+  \li{(\em{ natural numbers }) The set of natural numbers #{\mathbb{N} \in \mathcal U}.}
+}
+
+\p{Additional properties of #{\mathcal U} can be enumerated as follows:}
+\ul{
+  \li{If #{x, y \in \mathcal U} then #{\{x, y\} \in \mathcal U}.}
+  \li{If #{x \in \mathcal U} and #{y \subset x}, then #{y \in \mathcal U}.}
+  \li{If #{I \in \mathcal U} and #{x_i \in \mathcal U} for each #{i \in I}, we have the \strong{cartesian product}:
+  ##{
+    \prod_{i \in I} x_i \in \mathcal U
+  }
+  }
+  \li{If #{I \in \mathcal U} and #{x_i \in \mathcal U} for each #{i \in I}, we have the \strong{disjoint union}:
+  ##{\coprod_{i \in I} x_i \in \mathcal U
+    
+  }
+  \li{If #{x, y \in \mathcal U}, then the \strong{function set} from #{x} to #{y} is also in #{\mathcal U}:
+  ##{
+    y^x = \{ f : x \to y \} \in \mathcal U
+  }}
+  }
+}
+
+}
+
+\subtree{
+  \title{An aside on classes and sets}
+  \p{In a very general sense a \strong{class} is any collection of sets defined by a property that all its members share. So we can express it it as a predicate on some universe #{\mathcal U}:}
+  ##{
+    A : \mathcal U \to \texttt{Prop}
+  }
+  \p{As an example in the case of an unsorted set theory (such as ZFC) in which all objects are sets, we define a class #{C} as a proposition or truth value in the context of some free variable #{A}, the notation used in [(5)](nlab-class) is:}
+  ##{
+    \Gamma, A \mid \phi \vdash C : \texttt{Prop}
+  }
+  \p{This expresses that in the context of assumptions #{\Gamma} extended with the variable #{A} the proposition #{\phi} defines a class #{C}. A more classical, albiet probably less formal, way to read this might be:}
+  ##{
+    C = \{ x \in \mathcal U \mid \phi(x)\}
+  }
+  \p{Furthermore we say that a class #{X} is a \em{set} if and only if there exists a class #{Y \in \mathcal U} such that #{X \in Y}. A \strong{proper class} is a class which is not a set [(6)](low-universes-category-theory-2014). }
+}
+
+\subtree{
+  \title{Axiom of Universes}
+  \p{The common theme amongst these properties is that the aim to express [\em{closure}](002e) of the set #{\mathcal U} under various standard set-theoretic operations. This allows us to treat #{\mathcal U} as a \em{universe} of sets in which we can carry out normal set-theoretic constructions without leaving the universe.}
+
+  \p{The \em{Axiom of Universes} is the general convention which is adopted in category theory and other fields which states that for every set #{x} there exists a Grothendieck universe #{\mathcal U} such that #{x \in \mathcal U}.}
+
+  \p{An \em{element} of #{\mathcal U} is by convention called a #{\mathcal U}-\strong{small set} or simply a \em{small set} when the universe is clear from context or apparently also just a \em{set} [(1)](johnson-yau-2d-categories-2020).}
+
+  \p{A subset of #{\mathcal U} is called #{\mathcal U}-\strong{moderate} or simply \em{moderate} when the universe is clear from context.}
+
+  \p{The general line of reasoning, at least in ZFC is that for every set #{x} we assume there exists a Grothendieck universe #{\mathcal U} such that #{x \in \mathcal U}. Accordinly for every universe #{\mathcal U} there exists a larger universe #{\mathcal U'} such that #{\mathcal U \in \mathcal U'}, and therefore also #{U \subseteq U'}. Thus under this assumption with have the guarantee of a hierarchy of universes [(4)](streicher-intro-category-logic-2003):}
+  ##{
+    \mathcal U_0 \in \mathcal U_1 \in \mathcal U_2 \in \cdots
+  }
+  \p{Which are also \em{cumulative} in the sense that}
+  ##{
+    \mathcal U_0 \subseteq \mathcal U_1 \subseteq \mathcal U_2 \subseteq \cdots
+  }
+}
+
+\subtree{
+  \title{Remarks}
+  \ul{
+    \li{
+        \p{An additional point made in [(2)](nlab-grothendieck-universe) is that #{\mathcal U} denotes a \em{pure set}, that is, all elements of #{\mathcal U} are sets and there are no urelements (elements which are not sets). Formally we say that a set #{x} is pure if for every finite sequence or chain [(3)](nlab-pure-set):}
+  ##{
+    x_0 = x \in x_1 \in x_2 \in \cdots \in x_n
+  }
+  \p{each #{x_i} is a set. Another way this is intuitively thought of is that every object reachable from #{x} by finitely many membership steps is also a set.}
+
+  \p{Since we are typically working in the context of ZFC set theory which only allows for sets as elements, all sets are pure by default hence the distinction is sometimes omitted. Theories such as ZFA (Zermelo-Fraenkel set theory with atoms) allow for urelements which do not qualify as sets but can be members of sets.}
+    }
+    \li{
+      \p{The \em{countable set} property is sometimes [(7)](levy-formulating-categorical-classes-2018) also replaces with}
+      ##{
+        \emptyset \in \mathcal U \quad \text{ or } \quad  \omega \in \mathcal U
+      }
+      \p{Where #{\omega} is the set of all finite (von Neumann) ordinals.}
+    }
+    \li{\p{Subset's of #{\mathcal U} seem to have a somewhat confusing naming convention. So nlab says they are called \em{moderate} though this is sometimes also overloaded with the ambiguous term \em{large}. They mention that under the assumption that \em{set} is equivalent to \em{small set} then \em{moderate} clearly aligns with \em{proper classes} (as those are definitionally distinct from sets). I assume the convention taken in at least [(1)](johnson-yau-2d-categories-2020) is that they use they essentially use the term \em{class} to mean \em{proper class} and by implication \em{moderate set} relative to some universe.}
+    
+    \p{My assumption is that people use \em{class} and \em{proper class} interchangeably mainly because a proper class actually refers to an object distinct from a set, whereas a class can make it ambiguous whether you mean a set (which is a class) or a proper class (which is not a set).}
+    } 
+  }
+}

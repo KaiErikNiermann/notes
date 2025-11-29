@@ -88,8 +88,8 @@
 }
 
 .katex .texttt {
-  font-family: var(--code-font-stack) !important;
-  font-size: 0.5em !important;
+  font-family: "Inconsolata", "monospace" !important;
+  font-size: 0.75em !important;
 }
 
 
@@ -816,6 +816,13 @@ ul,
 ol {
   padding-bottom: .5em;
   color: var(--text-color);
+}
+
+/* Reduce left margin for nested lists */
+li > ul,
+li > ol {
+  padding-left: 1.2em;
+  margin-left: 0;
 }
 
 li::marker {

@@ -109,7 +109,7 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>We let <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> denote the set of syntactic rules over some set <fr:tex display="inline"><![CDATA[X]]></fr:tex>. Let <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  X]]></fr:tex> be the closure of <fr:tex display="inline"><![CDATA[X]]></fr:tex> under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words:</html:p>
+            <html:p>We let <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> denote the set of syntactic rules over some set <fr:tex display="inline"><![CDATA[X]]></fr:tex>. Let <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  X]]></fr:tex> be the closure of <fr:tex display="inline"><![CDATA[X]]></fr:tex> under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words: <fr:link href="/notes/sterling-rule-induction-2025/" title="Theorem. Rule induction" uri="https://kaierikniermann.github.io/notes/sterling-rule-induction-2025/" display-uri="sterling-rule-induction-2025" type="local">(1)</fr:link></html:p>
             <fr:tex display="block"><![CDATA[
   (X_\mathcal  R \in  \text {Cl}_\mathcal  R \land  \forall  S \in  \text {Cl}_\mathcal  R \to  X_\mathcal  R \subseteq  S) \equiv  (X_\mathcal  R = \bigcap  \text {Cl}_\mathcal  R)
 ]]></fr:tex>
@@ -132,11 +132,13 @@
   
   
     
-    <fr:resource hash="7bbfd5241b9f629c1cd9b9dbc20d3c9f"><fr:resource-content><html:img src="/notes/7bbfd5241b9f629c1cd9b9dbc20d3c9f.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="f4653973b7e9680c2ae642fabff79fb9"><fr:resource-content><html:img src="/notes/f4653973b7e9680c2ae642fabff79fb9.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
+  \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
     \inferrule *{
@@ -167,11 +169,13 @@
     
   
     
-    <fr:resource hash="ef446ba11e6a2df387923a08982919f0"><fr:resource-content><html:img src="/notes/ef446ba11e6a2df387923a08982919f0.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="854dfcb89f5e959462bf425fa714d6f0"><fr:resource-content><html:img src="/notes/854dfcb89f5e959462bf425fa714d6f0.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
+  \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
       \inferrule *{
@@ -188,15 +192,28 @@
  
 </fr:mainmatter>
             </fr:tree>
-            <html:p>Another way we can view what this proof establishes is in terms of the <fr:link href="/notes/0029/" title="Monotone function" uri="https://kaierikniermann.github.io/notes/0029/" display-uri="0029" type="local">monotone function</fr:link> <fr:tex display="inline"><![CDATA[f_\mathcal  R: \mathcal  P(X) \to  \mathcal  P(X)]]></fr:tex> induced by the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, <fr:link href="/notes/002i/" title="Closure of a syntactic rule" uri="https://kaierikniermann.github.io/notes/002i/" display-uri="002i" type="local">defined as</fr:link>:</html:p>
-            <fr:tex display="block"><![CDATA[
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>25</fr:day>
+                </fr:date>
+                <fr:title text="Tarski's fixpoint view">Tarski's fixpoint view</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>Another way we can view what this proof establishes is in terms of the <fr:link href="/notes/0029/" title="Monotone function" uri="https://kaierikniermann.github.io/notes/0029/" display-uri="0029" type="local">monotone function</fr:link> <fr:tex display="inline"><![CDATA[f_\mathcal  R: \mathcal  P(X) \to  \mathcal  P(X)]]></fr:tex> induced by the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, <fr:link href="/notes/002i/" title="Closure of a syntactic rule" uri="https://kaierikniermann.github.io/notes/002i/" display-uri="002i" type="local">defined as</fr:link>:</html:p>
+                <fr:tex display="block"><![CDATA[
   f_\mathcal  R(S) = \bigcup _{r \in  \mathcal  R} f_r(S)
 ]]></fr:tex>
-            <html:p>The main fact this proof establishes is that the closure <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the least fixed point of the function <fr:tex display="inline"><![CDATA[f_\mathcal  R]]></fr:tex>, meaning that:</html:p>
-            <fr:tex display="block"><![CDATA[
+                <html:p>The main fact this proof establishes is that the closure <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the <fr:link href="/notes/002b/" title="Tarski's Theorem" uri="https://kaierikniermann.github.io/notes/002b/" display-uri="002b" type="local">least fixed point</fr:link> of the function <fr:tex display="inline"><![CDATA[f_\mathcal  R]]></fr:tex>, meaning that:</html:p>
+                <fr:tex display="block"><![CDATA[
   f_\mathcal  R(X_\mathcal  R) = X_\mathcal  R \land  \forall  S.\ f_\mathcal  R(S) \subseteq  S \implies  X_\mathcal  R \subseteq  S
 ]]></fr:tex>
-            <html:p>In other words <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the smallest set of premises and conclusions that is <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">closed under</fr:link> the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. Naturally every other set <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">closed under</fr:link> the rules must contain at least the members of <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> (but possibly more).</html:p>
+                <html:p>In other words <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the smallest set of premises and conclusions that is <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">closed under</fr:link> the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. Naturally every other set <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">closed under</fr:link> the rules must contain at least the members of <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> (but possibly more).</html:p>
+              </fr:mainmatter>
+            </fr:tree>
           </fr:mainmatter>
         </fr:tree>
         <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
@@ -214,7 +231,7 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>We define a set <fr:tex display="inline"><![CDATA[X]]></fr:tex>, let <fr:tex display="inline"><![CDATA[\mathcal  L(X)]]></fr:tex> be the <fr:link href="/notes/002c/" title="Complete Lattice" uri="https://kaierikniermann.github.io/notes/002c/" display-uri="002c" type="local">complete lattice</fr:link> of all subsets of <fr:tex display="inline"><![CDATA[X]]></fr:tex> ordered by inclusion. A function <fr:tex display="inline"><![CDATA[f: \mathcal  L(X) \to  \mathcal  L(X)]]></fr:tex> is said to be <fr:link href="/notes/0029/" title="Monotone function" uri="https://kaierikniermann.github.io/notes/0029/" display-uri="0029" type="local"><html:em>monotone</html:em></fr:link> in this instance if it preserves inclusion which is to say that the following holds:</html:p>
+            <html:p>We define a set <fr:tex display="inline"><![CDATA[X]]></fr:tex>, let <fr:tex display="inline"><![CDATA[\mathcal  L(X)]]></fr:tex> be the <fr:link href="/notes/002c/" title="Complete Lattice" uri="https://kaierikniermann.github.io/notes/002c/" display-uri="002c" type="local">complete lattice</fr:link> of all subsets of <fr:tex display="inline"><![CDATA[X]]></fr:tex> ordered by inclusion. A function <fr:tex display="inline"><![CDATA[f: \mathcal  L(X) \to  \mathcal  L(X)]]></fr:tex> is said to be <fr:link href="/notes/0029/" title="Monotone function" uri="https://kaierikniermann.github.io/notes/0029/" display-uri="0029" type="local"><html:em>monotone</html:em></fr:link> in this instance if it preserves inclusion which is to say that the following holds: <fr:link href="/notes/harper-tarski-fixed-point-2025/" title="Tarski’s Fixed Point Theorem*" uri="https://kaierikniermann.github.io/notes/harper-tarski-fixed-point-2025/" display-uri="harper-tarski-fixed-point-2025" type="local">(1)</fr:link></html:p>
             <fr:tex display="block"><![CDATA[
   A \subseteq  B \subseteq  X \implies  f(A) \subseteq  f(B)
 ]]></fr:tex>

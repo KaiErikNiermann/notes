@@ -1,0 +1,17 @@
+\date{2025-11-29}
+
+\import{base-macros}
+
+\taxon{Definition}
+\title{Isomorphism (morphisms)}
+
+\p{A morphism #{f : X \to Y} is called an \strong{Isomorphism} if there exists a morphism #{g : Y \to X} such that the following hold [(1)](johnson-yau-2d-categories-2020):}
+##{
+  g \circ f = 1_X
+  \quad
+  f \circ g = 1_Y
+}
+\p{Sometimes an isomorphism is also denoted}
+##{
+  X \xrightarrow{\cong} Y
+}

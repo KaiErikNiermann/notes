@@ -1,211 +1,1044 @@
 {
-  // Basic tree: title + date + author + taxon + first paragraph
-  "Forester: basic tree skeleton": {
-    "prefix": "tree",
-    "scope": "forester",
+  // ============================================================
+  // FORESTER LANGUAGE SNIPPETS FOR VS CODE
+  // ============================================================
+  // Comprehensive snippets for the Forester markup language
+  // Place in .vscode/forester.code-snippets or user snippets
+  // ============================================================
+
+  // ============================================================
+  // METADATA / FRONTMATTER
+  // ============================================================
+
+  "Title": {
+    "prefix": ["\\title", "title"],
+    "body": ["\\title{${1:Title}}"],
+    "description": "Set the tree title"
+  },
+  "Taxon": {
+    "prefix": ["\\taxon", "taxon"],
+    "body": ["\\taxon{${1|Definition,Theorem,Lemma,Proposition,Corollary,Example,Remark,Note,Proof,Construction,Conjecture,Exercise,Problem,Solution,Reference,Person,Institution|}}"],
+    "description": "Set the taxon (type of content)"
+  },
+  "Date": {
+    "prefix": ["\\date", "date"],
+    "body": ["\\date{${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}}"],
+    "description": "Set the date"
+  },
+  "Author (URI)": {
+    "prefix": ["\\author", "author"],
+    "body": ["\\author{${1:author-id}}"],
+    "description": "Add an author by URI reference"
+  },
+  "Author (Literal)": {
+    "prefix": ["\\author/literal", "authorlit"],
+    "body": ["\\author/literal{${1:Author Name}}"],
+    "description": "Add an author by literal name"
+  },
+  "Contributor (URI)": {
+    "prefix": ["\\contributor", "contributor"],
+    "body": ["\\contributor{${1:contributor-id}}"],
+    "description": "Add a contributor by URI reference"
+  },
+  "Contributor (Literal)": {
+    "prefix": ["\\contributor/literal", "contriblit"],
+    "body": ["\\contributor/literal{${1:Contributor Name}}"],
+    "description": "Add a contributor by literal name"
+  },
+  "Parent": {
+    "prefix": ["\\parent", "parent"],
+    "body": ["\\parent{${1:parent-id}}"],
+    "description": "Set the designated parent tree"
+  },
+  "Tag": {
+    "prefix": ["\\tag", "tag"],
+    "body": ["\\tag{${1:tag-name}}"],
+    "description": "Add a tag to the tree"
+  },
+  "Number": {
+    "prefix": ["\\number", "number"],
+    "body": ["\\number{${1:1.2.3}}"],
+    "description": "Set the section number"
+  },
+  "Meta": {
+    "prefix": ["\\meta", "meta"],
+    "body": ["\\meta{${1:key}}{${2:value}}"],
+    "description": "Add custom metadata key-value pair"
+  },
+
+  // ============================================================
+  // FRONTMATTER TEMPLATE
+  // ============================================================
+
+  "Tree Frontmatter": {
+    "prefix": ["frontmatter", "treehead"],
     "body": [
-      "\\title{${1:my first tree}}",
-      "\\date{${2:2025-01-01}}",
+      "\\title{${1:Title}}",
+      "\\taxon{${2|Definition,Theorem,Lemma,Proposition,Corollary,Example,Remark,Note|}}",
       "\\author{${3:author-id}}",
-      "\\taxon{${4:Note}}",
-      "",
-      "\\p{${5:Write your first paragraph here.}}",
-      "$0"
+      "\\date{${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}}",
+      "\\tag{${4:tag}}",
+      ""
     ],
-    "description": "Basic Forester tree with frontmatter and a first paragraph."
+    "description": "Complete tree frontmatter template"
   },
-  "Forester: list item" 
-: {
-    "prefix": "li",
-    "scope": "forester",
+  "New Tree Template": {
+    "prefix": ["newtree", "tree"],
     "body": [
-      "\\li{${1:list item text}}$0"
+      "\\title{${1:Title}}",
+      "\\date{${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}}",
+      "\\author{${2:author-id}}",
+      "",
+      "\\p{${3:Content here...}}",
+      ""
     ],
-    "description": "Insert a \\li{...} list item."
+    "description": "Complete new tree template"
   },
-  // Biographical / Person tree
-  "Forester: person tree": {
-    "prefix": "person",
-    "scope": "forester",
+  "Person Tree Template": {
+    "prefix": ["person", "newperson"],
     "body": [
       "\\title{${1:Full Name}}",
       "\\taxon{Person}",
-      "\\meta{external}{${2:https://example.com/}}",
-      "\\meta{institution}{${3:institution-tag}}",
+      "\\meta{position}{${2:Position}}",
+      "\\meta{institution}{${3:Institution}}",
       "\\meta{orcid}{${4:0000-0000-0000-0000}}",
-      "\\meta{position}{${5:Position Title}}",
-      "",
-      "\\p{${6:Short biographical paragraph.}}",
-      "$0"
+      ""
     ],
-    "description": "Biographical Person tree frontmatter and paragraph."
+    "description": "Template for a person tree"
   },
 
-  // Definition tree
-  "Forester: definition tree": {
-    "prefix": "def-tree",
-    "scope": "forester",
+  // ============================================================
+  // IMPORTS / EXPORTS
+  // ============================================================
+
+  "Import": {
+    "prefix": ["\\import", "import"],
+    "body": ["\\import{${1:tree-id}}"],
+    "description": "Private import of another tree"
+  },
+  "Export": {
+    "prefix": ["\\export", "export"],
+    "body": ["\\export{${1:tree-id}}"],
+    "description": "Public export of another tree"
+  },
+  "Transclude": {
+    "prefix": ["\\transclude", "transclude", "tc"],
+    "body": ["\\transclude{${1:tree-id}}"],
+    "description": "Transclude another tree"
+  },
+
+  // ============================================================
+  // DEFINITIONS / MACROS
+  // ============================================================
+
+  "Define Macro": {
+    "prefix": ["\\def", "def", "macro"],
+    "body": ["\\def\\${1:name}{${2:body}}"],
+    "description": "Define a globally-visible macro"
+  },
+  "Define Macro with Args": {
+    "prefix": ["\\defargs", "defargs"],
+    "body": ["\\def\\${1:name}[${2:arg}]{${3:body using \\${2}}}"],
+    "description": "Define a macro with arguments"
+  },
+  "Define Macro with Multiple Args": {
+    "prefix": ["\\defmulti", "defmulti"],
+    "body": ["\\def\\${1:name}[${2:x}][${3:y}]{${4:body}}"],
+    "description": "Define a macro with multiple arguments"
+  },
+  "Let (Local Macro)": {
+    "prefix": ["\\let", "let"],
+    "body": ["\\let\\${1:name}{${2:body}}"],
+    "description": "Define a locally-scoped macro"
+  },
+  "Let with Args": {
+    "prefix": ["\\letargs", "letargs"],
+    "body": ["\\let\\${1:name}[${2:arg}]{${3:body}}"],
+    "description": "Define a local macro with arguments"
+  },
+  "Anonymous Function": {
+    "prefix": ["\\fun", "fun", "lambda"],
+    "body": ["\\fun[${1:arg}]{${2:body}}"],
+    "description": "Anonymous function/lambda"
+  },
+  "Scope": {
+    "prefix": ["\\scope", "scope"],
+    "body": ["\\scope{", "  ${1:content}", "}"],
+    "description": "Create a local scope"
+  },
+
+  // ============================================================
+  // NAMESPACES
+  // ============================================================
+
+  "Namespace": {
+    "prefix": ["\\namespace", "namespace", "ns"],
+    "body": ["\\namespace{${1:name}}{", "  ${2:content}", "}"],
+    "description": "Create a namespace"
+  },
+  "Open Namespace": {
+    "prefix": ["\\open", "open"],
+    "body": ["\\open\\${1:namespace/path}"],
+    "description": "Open a namespace"
+  },
+
+  // ============================================================
+  // FLUID/DYNAMIC VARIABLES
+  // ============================================================
+
+  "Put (Set Fluid Variable)": {
+    "prefix": ["\\put", "put"],
+    "body": ["\\put\\${1:varname}{${2:value}}{", "  ${3:body}", "}"],
+    "description": "Set a dynamic/fluid variable"
+  },
+  "Put Default": {
+    "prefix": ["\\put?", "putdefault"],
+    "body": ["\\put?\\${1:varname}{${2:default-value}}{", "  ${3:body}", "}"],
+    "description": "Set default value for fluid variable"
+  },
+  "Get (Retrieve Fluid Variable)": {
+    "prefix": ["\\get", "get"],
+    "body": ["\\get\\${1:varname}"],
+    "description": "Retrieve a fluid variable"
+  },
+
+  // ============================================================
+  // SYMBOLS
+  // ============================================================
+
+  "Alloc Symbol": {
+    "prefix": ["\\alloc", "alloc"],
+    "body": ["\\alloc\\${1:symname}"],
+    "description": "Allocate a new symbol"
+  },
+
+  // ============================================================
+  // SUBTREES / STRUCTURE
+  // ============================================================
+
+  "Subtree": {
+    "prefix": ["\\subtree", "subtree", "sub"],
     "body": [
-      "\\title{${1:Name of definition}}",
-      "\\date{${2:2025-01-01}}",
-      "\\taxon{Definition}",
-      "\\author{${3:author-id}}",
-      "",
-      "\\p{${4:State the definition here.}}",
-      "$0"
+      "\\subtree{",
+      "  \\title{${1:Subtree Title}}",
+      "  ",
+      "  \\p{${2:Content}}",
+      "}"
     ],
-    "description": "Tree with taxon Definition."
+    "description": "Create a nested subtree"
   },
-
-  // Theorem tree
-  "Forester: theorem tree": {
-    "prefix": "thm-tree",
-    "scope": "forester",
+  "Subtree with Address": {
+    "prefix": ["\\subtreeaddr", "subtreeaddr"],
     "body": [
-      "\\title{${1:Name of theorem}}",
-      "\\date{${2:2025-01-01}}",
-      "\\taxon{Theorem}",
-      "\\author{${3:author-id}}",
-      "",
-      "\\p{${4:State the theorem here.}}",
-      "",
-      "\\p{${5:Sketch or write the proof here.}}",
-      "$0"
+      "\\subtree[${1:address}]{",
+      "  \\title{${2:Subtree Title}}",
+      "  ",
+      "  \\p{${3:Content}}",
+      "}"
     ],
-    "description": "Tree with taxon Theorem."
+    "description": "Create a subtree with explicit address"
   },
 
-  // Paragraph
-  "Forester: paragraph": {
-    "prefix": "p",
-    "scope": "forester",
+  // ============================================================
+  // OBJECTS / METHODS
+  // ============================================================
+
+  "Object": {
+    "prefix": ["\\object", "object", "obj"],
     "body": [
-      "\\p{${1:Paragraph text.}}$0"
+      "\\object[${1:self}]{",
+      "  [${2:method}]{${3:body}}",
+      "}"
     ],
-    "description": "Insert a \\p{...} paragraph."
+    "description": "Create an object"
   },
-
-  // Inline math
-  "Forester: inline math": {
-    "prefix": "m",
-    "scope": "forester",
+  "Patch Object": {
+    "prefix": ["\\patch", "patch"],
     "body": [
-      "#{${1:math expression}}$0"
+      "\\patch{${1:base-obj}}[${2:self}][${3:super}]{",
+      "  [${4:method}]{${5:body}}",
+      "}"
     ],
-    "description": "Inline math #{...}."
+    "description": "Patch/extend an object"
+  },
+  "Method Call": {
+    "prefix": ["methodcall", "call"],
+    "body": ["\\${1:object}#${2:method}"],
+    "description": "Call an object method"
   },
 
-  // Display math
-  "Forester: display math": {
-    "prefix": "mm",
-    "scope": "forester",
-    "body": [
-      "##{",
-      "  ${1:display math expression}",
-      "}$0"
-    ],
-    "description": "Display math ##{...}."
-  },
+  // ============================================================
+  // HTML PRIMITIVES
+  // ============================================================
 
-  // Ordered list skeleton
-  "Forester: ordered list": {
-    "prefix": "ol",
-    "scope": "forester",
-    "body": [
-      "\\ol{",
-      "  \\li{${1:first item}}",
-      "  \\li{${2:second item}}",
-      "}$0"
-    ],
-    "description": "Ordered list with \\ol and \\li."
+  "Paragraph": {
+    "prefix": ["\\p", "para", "paragraph"],
+    "body": ["\\p{${1:text}}"],
+    "description": "Paragraph"
   },
-
-  // Unordered list skeleton
-  "Forester: unordered list": {
-    "prefix": "ul",
-    "scope": "forester",
+  "Emphasis": {
+    "prefix": ["\\em", "em", "italic"],
+    "body": ["\\em{${1:text}}"],
+    "description": "Emphasis (italics)"
+  },
+  "Strong": {
+    "prefix": ["\\strong", "strong", "bold"],
+    "body": ["\\strong{${1:text}}"],
+    "description": "Strong (bold)"
+  },
+  "Unordered List": {
+    "prefix": ["\\ul", "ul", "ulist"],
     "body": [
       "\\ul{",
-      "  \\li{${1:first item}}",
-      "  \\li{${2:second item}}",
-      "}$0"
+      "  \\li{${1:item}}",
+      "  \\li{${2:item}}",
+      "}"
     ],
-    "description": "Unordered list with \\ul and \\li."
+    "description": "Unordered list"
   },
-
-  // Transclusion
-  "Forester: transclude": {
-    "prefix": "trans",
-    "scope": "forester",
+  "Ordered List": {
+    "prefix": ["\\ol", "ol", "olist"],
     "body": [
-      "\\transclude{${1:address}}$0"
+      "\\ol{",
+      "  \\li{${1:item}}",
+      "  \\li{${2:item}}",
+      "}"
     ],
-    "description": "Transclude another tree as a subsection."
+    "description": "Ordered list"
   },
-
-  // Global macro definition (\def...)
-  "Forester: def macro": {
-    "prefix": "defmacro",
-    "scope": "forester",
+  "List Item": {
+    "prefix": ["\\li", "li", "item"],
+    "body": ["\\li{${1:item}}"],
+    "description": "List item"
+  },
+  "Inline Code": {
+    "prefix": ["\\code", "code", "inline"],
+    "body": ["\\cf{${1:code}}"],
+    "description": "Inline code"
+  },
+  "Block code": {
+    "prefix": ["\\codeblock", "codeblock", "codeb"],
     "body": [
-      "\\def\\${1:Ident}[${2:arg1}][${3:arg2}]{${4:body}}$0"
+      "\\codeblock{${1:lean}}{",
+      "  ${2:code content}",
+      "}"
     ],
-    "description": "Define and export a macro from the current tree."
+    "description": "Block code"
   },
-
-  // Local macro definition (\let...)
-  "Forester: let macro": {
-    "prefix": "letmacro",
-    "scope": "forester",
+  "Preformatted Block": {
+    "prefix": ["\\pre", "pre"],
+    "body": ["\\pre{${1:preformatted text}}"],
+    "description": "Preformatted block"
+  },
+  "Blockquote": {
+    "prefix": ["\\blockquote", "blockquote", "quote"],
+    "body": ["\\blockquote{${1:quoted text}}"],
+    "description": "Block quote"
+  },
+  "Figure": {
+    "prefix": ["\\figure", "figure", "fig"],
     "body": [
-      "\\let\\${1:Ident}[${2:arg1}][${3:arg2}]{${4:body}}$0"
+      "\\figure{",
+      "  ${1:content}",
+      "  \\figcaption{${2:caption}}",
+      "}"
     ],
-    "description": "Define a local macro within the tree."
+    "description": "Figure with caption"
+  },
+  "Figure Caption": {
+    "prefix": ["\\figcaption", "figcaption", "caption"],
+    "body": ["\\figcaption{${1:caption}}"],
+    "description": "Figure caption"
   },
 
-  // Import / export declarations
-  "Forester: import/export block": {
-    "prefix": "impblock",
-    "scope": "forester",
+  // ============================================================
+  // LINKS / REFERENCES
+  // ============================================================
+
+  "Reference": {
+    "prefix": ["\\ref", "ref"],
+    "body": ["\\ref{${1:tree-id}}"],
+    "description": "Reference another tree"
+  },
+  "Auto-titled Link": {
+    "prefix": ["autolink", "[["],
+    "body": ["[[${1:target}]]"],
+    "description": "Auto-titled link to another tree"
+  },
+  "Link with Title": {
+    "prefix": ["link", "[]("],
+    "body": ["[${1:title}](${2:target})"],
+    "description": "Link with custom title"
+  },
+  "External Link": {
+    "prefix": ["extlink", "href"],
+    "body": ["[${1:title}](${2:https://example.com/})"],
+    "description": "External hyperlink"
+  },
+
+  // ============================================================
+  // MATH MODE
+  // ============================================================
+
+  "Inline Math": {
+    "prefix": ["#", "inlinemath", "m", "math"],
+    "body": ["#{${1:expression}}"],
+    "description": "Inline math mode"
+  },
+  "Display Math": {
+    "prefix": ["##", "displaymath", "dmath", "mm"],
     "body": [
-      "\\import{${1:address-1}}",
-      "\\import{${2:address-2}}",
-      "// optional re-exports:",
-      "\\export{${3:address-to-reexport}}$0"
+      "##{",
+      "  ${1:expression}",
+      "}"
     ],
-    "description": "Common pattern for \\import and \\export declarations."
+    "description": "Display math mode"
+  },
+  "Fraction": {
+    "prefix": ["\\frac", "frac"],
+    "body": ["\\frac{${1:numerator}}{${2:denominator}}"],
+    "description": "Fraction"
+  },
+  "Square Root": {
+    "prefix": ["\\sqrt", "sqrt"],
+    "body": ["\\sqrt{${1:expression}}"],
+    "description": "Square root"
+  },
+  "Nth Root": {
+    "prefix": ["\\nroot", "nroot"],
+    "body": ["\\sqrt[${1:n}]{${2:expression}}"],
+    "description": "Nth root"
+  },
+  "Summation": {
+    "prefix": ["\\sum", "sum"],
+    "body": ["\\sum_{${1:i=0}}^{${2:n}} ${3:expression}"],
+    "description": "Summation"
+  },
+  "Product": {
+    "prefix": ["\\prod", "prod"],
+    "body": ["\\prod_{${1:i=0}}^{${2:n}} ${3:expression}"],
+    "description": "Product"
+  },
+  "Integral": {
+    "prefix": ["\\int", "int", "integral"],
+    "body": ["\\int_{${1:a}}^{${2:b}} ${3:f(x)} \\, d${4:x}"],
+    "description": "Definite integral"
+  },
+  "Limit": {
+    "prefix": ["\\lim", "lim", "limit"],
+    "body": ["\\lim_{${1:x \\to \\infty}} ${2:expression}"],
+    "description": "Limit"
+  },
+  "Matrix": {
+    "prefix": ["\\matrix", "matrix"],
+    "body": [
+      "\\begin{${1|pmatrix,bmatrix,vmatrix,Vmatrix,matrix|}}",
+      "  ${2:a} & ${3:b} \\\\\\\\",
+      "  ${4:c} & ${5:d}",
+      "\\end{${1}}"
+    ],
+    "description": "Matrix environment"
+  },
+  "Aligned Equations": {
+    "prefix": ["\\align", "align"],
+    "body": [
+      "\\begin{align}",
+      "  ${1:lhs} &= ${2:rhs} \\\\\\\\",
+      "  ${3:lhs} &= ${4:rhs}",
+      "\\end{align}"
+    ],
+    "description": "Aligned equations"
+  },
+  "Cases": {
+    "prefix": ["\\cases", "cases"],
+    "body": [
+      "\\begin{cases}",
+      "  ${1:value_1} & \\text{if } ${2:condition_1} \\\\\\\\",
+      "  ${3:value_2} & \\text{otherwise}",
+      "\\end{cases}"
+    ],
+    "description": "Cases/piecewise function"
   },
 
-  // LaTeX external rendering block
-  "Forester: tex block": {
-    "prefix": "texblock",
-    "scope": "forester",
+  // ============================================================
+  // GREEK LETTERS (Math Mode)
+  // ============================================================
+
+  "Alpha": { "prefix": ["\\alpha"], "body": ["\\alpha"], "description": "Greek letter alpha" },
+  "Beta": { "prefix": ["\\beta"], "body": ["\\beta"], "description": "Greek letter beta" },
+  "Gamma": { "prefix": ["\\gamma"], "body": ["\\gamma"], "description": "Greek letter gamma" },
+  "Delta": { "prefix": ["\\delta"], "body": ["\\delta"], "description": "Greek letter delta" },
+  "Epsilon": { "prefix": ["\\epsilon", "\\varepsilon"], "body": ["\\epsilon"], "description": "Greek letter epsilon" },
+  "Zeta": { "prefix": ["\\zeta"], "body": ["\\zeta"], "description": "Greek letter zeta" },
+  "Eta": { "prefix": ["\\eta"], "body": ["\\eta"], "description": "Greek letter eta" },
+  "Theta": { "prefix": ["\\theta"], "body": ["\\theta"], "description": "Greek letter theta" },
+  "Iota": { "prefix": ["\\iota"], "body": ["\\iota"], "description": "Greek letter iota" },
+  "Kappa": { "prefix": ["\\kappa"], "body": ["\\kappa"], "description": "Greek letter kappa" },
+  "Lambda": { "prefix": ["\\lambda"], "body": ["\\lambda"], "description": "Greek letter lambda" },
+  "Mu": { "prefix": ["\\mu"], "body": ["\\mu"], "description": "Greek letter mu" },
+  "Nu": { "prefix": ["\\nu"], "body": ["\\nu"], "description": "Greek letter nu" },
+  "Xi": { "prefix": ["\\xi"], "body": ["\\xi"], "description": "Greek letter xi" },
+  "Pi": { "prefix": ["\\pi"], "body": ["\\pi"], "description": "Greek letter pi" },
+  "Rho": { "prefix": ["\\rho"], "body": ["\\rho"], "description": "Greek letter rho" },
+  "Sigma": { "prefix": ["\\sigma"], "body": ["\\sigma"], "description": "Greek letter sigma" },
+  "Tau": { "prefix": ["\\tau"], "body": ["\\tau"], "description": "Greek letter tau" },
+  "Upsilon": { "prefix": ["\\upsilon"], "body": ["\\upsilon"], "description": "Greek letter upsilon" },
+  "Phi": { "prefix": ["\\phi", "\\varphi"], "body": ["\\phi"], "description": "Greek letter phi" },
+  "Chi": { "prefix": ["\\chi"], "body": ["\\chi"], "description": "Greek letter chi" },
+  "Psi": { "prefix": ["\\psi"], "body": ["\\psi"], "description": "Greek letter psi" },
+  "Omega": { "prefix": ["\\omega"], "body": ["\\omega"], "description": "Greek letter omega" },
+
+  // ============================================================
+  // MATH OPERATORS
+  // ============================================================
+
+  "Times": { "prefix": ["\\times"], "body": ["\\times"], "description": "Multiplication sign" },
+  "Divide": { "prefix": ["\\div"], "body": ["\\div"], "description": "Division sign" },
+  "Plus Minus": { "prefix": ["\\pm"], "body": ["\\pm"], "description": "Plus-minus sign" },
+  "Minus Plus": { "prefix": ["\\mp"], "body": ["\\mp"], "description": "Minus-plus sign" },
+  "Center Dot": { "prefix": ["\\cdot"], "body": ["\\cdot"], "description": "Center dot (multiplication)" },
+  "Partial": { "prefix": ["\\partial"], "body": ["\\partial"], "description": "Partial derivative" },
+  "Nabla": { "prefix": ["\\nabla"], "body": ["\\nabla"], "description": "Nabla/gradient operator" },
+  "Infinity": { "prefix": ["\\infty"], "body": ["\\infty"], "description": "Infinity" },
+
+  // ============================================================
+  // MATH RELATIONS
+  // ============================================================
+
+  "Less Than or Equal": { "prefix": ["\\leq", "\\le"], "body": ["\\leq"], "description": "Less than or equal" },
+  "Greater Than or Equal": { "prefix": ["\\geq", "\\ge"], "body": ["\\geq"], "description": "Greater than or equal" },
+  "Not Equal": { "prefix": ["\\neq", "\\ne"], "body": ["\\neq"], "description": "Not equal" },
+  "Approximately": { "prefix": ["\\approx"], "body": ["\\approx"], "description": "Approximately equal" },
+  "Equivalent": { "prefix": ["\\equiv"], "body": ["\\equiv"], "description": "Equivalent/congruent" },
+  "Subset": { "prefix": ["\\subset"], "body": ["\\subset"], "description": "Subset" },
+  "Superset": { "prefix": ["\\supset"], "body": ["\\supset"], "description": "Superset" },
+  "Subset or Equal": { "prefix": ["\\subseteq"], "body": ["\\subseteq"], "description": "Subset or equal" },
+  "Element Of": { "prefix": ["\\in"], "body": ["\\in"], "description": "Element of" },
+  "Not Element Of": { "prefix": ["\\notin"], "body": ["\\notin"], "description": "Not element of" },
+
+  // ============================================================
+  // ARROWS
+  // ============================================================
+
+  "Right Arrow": { "prefix": ["\\to", "\\rightarrow"], "body": ["\\to"], "description": "Right arrow" },
+  "Left Arrow": { "prefix": ["\\leftarrow"], "body": ["\\leftarrow"], "description": "Left arrow" },
+  "Double Right Arrow": { "prefix": ["\\Rightarrow", "\\implies"], "body": ["\\Rightarrow"], "description": "Implies (double arrow)" },
+  "Double Left Arrow": { "prefix": ["\\Leftarrow"], "body": ["\\Leftarrow"], "description": "Double left arrow" },
+  "Iff": { "prefix": ["\\iff", "\\Leftrightarrow"], "body": ["\\iff"], "description": "If and only if" },
+  "Maps To": { "prefix": ["\\mapsto"], "body": ["\\mapsto"], "description": "Maps to" },
+  "Hook Right Arrow": { "prefix": ["\\hookrightarrow"], "body": ["\\hookrightarrow"], "description": "Inclusion arrow" },
+
+  // ============================================================
+  // LOGIC
+  // ============================================================
+
+  "For All": { "prefix": ["\\forall"], "body": ["\\forall"], "description": "For all (universal quantifier)" },
+  "Exists": { "prefix": ["\\exists"], "body": ["\\exists"], "description": "Exists (existential quantifier)" },
+  "Negation": { "prefix": ["\\neg", "\\lnot"], "body": ["\\neg"], "description": "Negation" },
+  "And": { "prefix": ["\\land", "\\wedge"], "body": ["\\land"], "description": "Logical and" },
+  "Or": { "prefix": ["\\lor", "\\vee"], "body": ["\\lor"], "description": "Logical or" },
+
+  // ============================================================
+  // DELIMITERS
+  // ============================================================
+
+  "Left/Right Parentheses": {
+    "prefix": ["\\left(", "bigparen"],
+    "body": ["\\left( ${1:content} \\right)"],
+    "description": "Auto-sized parentheses"
+  },
+  "Left/Right Brackets": {
+    "prefix": ["\\left[", "bigbracket"],
+    "body": ["\\left[ ${1:content} \\right]"],
+    "description": "Auto-sized brackets"
+  },
+  "Left/Right Braces": {
+    "prefix": ["\\left\\{", "bigbrace"],
+    "body": ["\\left\\\\{ ${1:content} \\right\\\\}"],
+    "description": "Auto-sized braces"
+  },
+  "Left/Right Angle Brackets": {
+    "prefix": ["\\langle", "angle"],
+    "body": ["\\langle ${1:content} \\rangle"],
+    "description": "Angle brackets"
+  },
+  "Left/Right Floor": {
+    "prefix": ["\\lfloor", "floor"],
+    "body": ["\\lfloor ${1:content} \\rfloor"],
+    "description": "Floor function brackets"
+  },
+  "Left/Right Ceiling": {
+    "prefix": ["\\lceil", "ceil"],
+    "body": ["\\lceil ${1:content} \\rceil"],
+    "description": "Ceiling function brackets"
+  },
+  "Norm": {
+    "prefix": ["\\norm", "norm"],
+    "body": ["\\| ${1:content} \\|"],
+    "description": "Norm notation"
+  },
+  "Absolute Value": {
+    "prefix": ["\\abs", "abs"],
+    "body": ["|${1:content}|"],
+    "description": "Absolute value"
+  },
+
+  // ============================================================
+  // TEXT IN MATH
+  // ============================================================
+
+  "Text in Math": {
+    "prefix": ["\\text", "text"],
+    "body": ["\\text{${1:text}}"],
+    "description": "Text within math mode"
+  },
+  "Bold Math": {
+    "prefix": ["\\mathbf", "mathbf"],
+    "body": ["\\mathbf{${1:text}}"],
+    "description": "Bold math"
+  },
+  "Calligraphic": {
+    "prefix": ["\\mathcal", "mathcal"],
+    "body": ["\\mathcal{${1:A}}"],
+    "description": "Calligraphic font"
+  },
+  "Blackboard Bold": {
+    "prefix": ["\\mathbb", "mathbb"],
+    "body": ["\\mathbb{${1|R,C,N,Z,Q|}}"],
+    "description": "Blackboard bold (for R, C, N, Z, Q, etc.)"
+  },
+  "Fraktur": {
+    "prefix": ["\\mathfrak", "frak"],
+    "body": ["\\mathfrak{${1:g}}"],
+    "description": "Fraktur font"
+  },
+
+  // ============================================================
+  // VERBATIM
+  // ============================================================
+
+  "Verbatim": {
+    "prefix": ["\\verb", "verbatim"],
+    "body": ["\\verb|${1:content}|"],
+    "description": "Inline verbatim"
+  },
+  "Verbatim Block": {
+    "prefix": ["\\startverb", "verbblock"],
+    "body": [
+      "\\startverb<<|",
+      "${1:verbatim content}",
+      "<<|"
+    ],
+    "description": "Multi-line verbatim block"
+  },
+  "Verbatim with Custom Delimiter": {
+    "prefix": ["\\verbcustom"],
+    "body": ["\\verb${1:DELIM}|${2:content}${1}|"],
+    "description": "Verbatim with custom herald/delimiter"
+  },
+
+  // ============================================================
+  // LATEX EMBEDDING
+  // ============================================================
+
+  "Embed TeX": {
+    "prefix": ["\\tex", "tex", "latex"],
     "body": [
       "\\tex{",
-      "  ${1:% preamble, e.g.}",
-      "  % \\usepackage{tikz}",
-      "  % \\usetikzlibrary{cd}",
+      "  \\usepackage{${1:package}}",
       "}{",
-      "  ${2:% LaTeX body, e.g. a tikzcd diagram}",
-      "}$0"
+      "  ${2:LaTeX content}",
+      "}"
     ],
-    "description": "External LaTeX rendering via \\tex{preamble}{body}."
+    "description": "Embed LaTeX rendered to SVG"
   },
-  // Code monospace
-  "Forester: inline code": {
-    "prefix": "code",
-    "scope": "forester",
+  "Embed TeX (TikZ)": {
+    "prefix": ["\\tikz", "tikz"],
     "body": [
-      "\\code{${1:monospace text}}$0"
+      "\\tex{",
+      "  \\usepackage{tikz}",
+      "}{",
+      "  \\begin{tikzpicture}",
+      "    ${1:TikZ code}",
+      "  \\end{tikzpicture}",
+      "}"
     ],
-    "description": "Inline monospace via \\code{...}."
-  }, 
-  "Forester: definition taxon": {
-    "prefix": "deftaxon",
-    "scope": "forester",
+    "description": "Embed TikZ diagram"
+  },
+  "Embed TeX (Commutative Diagram)": {
+    "prefix": ["\\tikzcd", "cd", "commdiag"],
     "body": [
-      "\\taxon{Definition}$0"
+      "\\tex{",
+      "  \\usepackage{tikz-cd}",
+      "}{",
+      "  \\begin{tikzcd}",
+      "    ${1:A} \\arrow[r] \\arrow[d] & ${2:B} \\arrow[d] \\\\\\\\",
+      "    ${3:C} \\arrow[r] & ${4:D}",
+      "  \\end{tikzcd}",
+      "}"
     ],
-    "description": "Insert a \\taxon{Definition} line."
+    "description": "Commutative diagram with tikz-cd"
+  },
+
+  // ============================================================
+  // ASSETS
+  // ============================================================
+
+  "Route Asset": {
+    "prefix": ["\\route-asset", "asset"],
+    "body": ["\\route-asset{${1:path/to/asset}}"],
+    "description": "Route to an asset file"
+  },
+
+  // ============================================================
+  // CUSTOM XML/HTML
+  // ============================================================
+
+  "Custom HTML Element": {
+    "prefix": ["\\<", "htmlelem"],
+    "body": ["\\<${1:element}>{${2:content}}"],
+    "description": "Custom HTML element"
+  },
+  "Custom HTML with Attribute": {
+    "prefix": ["\\<attr", "htmlattr"],
+    "body": ["\\<${1:element}>[${2:attr}]{${3:value}}{${4:content}}"],
+    "description": "HTML element with attribute"
+  },
+  "Custom HTML with Class": {
+    "prefix": ["\\<class", "htmlclass"],
+    "body": ["\\<${1:div}>[class]{${2:classname}}{${3:content}}"],
+    "description": "HTML element with class"
+  },
+  "XML Namespace": {
+    "prefix": ["\\xmlns", "xmlns"],
+    "body": ["\\xmlns:${1:prefix}{${2:namespace-uri}}"],
+    "description": "Declare XML namespace"
+  },
+  "Namespaced Element": {
+    "prefix": ["\\<ns:", "nselem"],
+    "body": ["\\<${1:prefix}:${2:element}>{${3:content}}"],
+    "description": "Namespaced XML element"
+  },
+
+  // ============================================================
+  // DATALOG / QUERIES
+  // ============================================================
+
+  "Query": {
+    "prefix": ["\\query", "query"],
+    "body": ["\\query{${1:datalog-query}}"],
+    "description": "Display results of a datalog query"
+  },
+  "Datalog Block": {
+    "prefix": ["\\datalog", "datalog"],
+    "body": [
+      "\\datalog{",
+      "  ${1:query}",
+      "}"
+    ],
+    "description": "Datalog query block"
+  },
+  "Datalog Variable": {
+    "prefix": ["?var", "dlvar"],
+    "body": ["?${1:varname}"],
+    "description": "Datalog variable"
+  },
+  "Datalog Entailment": {
+    "prefix": ["-:", "entails"],
+    "body": ["${1:conclusion} -: ${2:premises}"],
+    "description": "Datalog entailment"
+  },
+  "Execute Datalog": {
+    "prefix": ["\\execute", "execute"],
+    "body": ["\\execute{${1:sequent}}"],
+    "description": "Execute datalog script"
+  },
+  "Syndicate Query as JSON": {
+    "prefix": ["\\syndicate-query", "syndicatejson"],
+    "body": ["\\syndicate-query-as-json-blob{${1:name}}{${2:query}}"],
+    "description": "Export query as JSON blob"
+  },
+  "Syndicate Atom Feed": {
+    "prefix": ["\\syndicate-atom", "atomfeed"],
+    "body": ["\\syndicate-current-tree-as-atom-feed"],
+    "description": "Create Atom feed for current tree"
+  },
+
+  // ============================================================
+  // BUILT-IN RELATIONS (for Datalog queries)
+  // ============================================================
+
+  "Relation: Has Tag": {
+    "prefix": ["\\rel/has-tag", "hastag"],
+    "body": ["\\rel/has-tag{${1:?tree}}{${2:'tag-name}}"],
+    "description": "Has tag relation"
+  },
+  "Relation: Has Taxon": {
+    "prefix": ["\\rel/has-taxon", "hastaxon"],
+    "body": ["\\rel/has-taxon{${1:?tree}}{${2:'taxon}}"],
+    "description": "Has taxon relation"
+  },
+  "Relation: Has Author": {
+    "prefix": ["\\rel/has-author", "hasauthor"],
+    "body": ["\\rel/has-author{${1:?tree}}{${2:?author}}"],
+    "description": "Has author relation"
+  },
+  "Relation: Transcludes": {
+    "prefix": ["\\rel/transcludes", "transcludes"],
+    "body": ["\\rel/transcludes{${1:?parent}}{${2:?child}}"],
+    "description": "Transcludes relation"
+  },
+  "Relation: Links To": {
+    "prefix": ["\\rel/links-to", "linksto"],
+    "body": ["\\rel/links-to{${1:?source}}{${2:?target}}"],
+    "description": "Links to relation"
+  },
+
+  // ============================================================
+  // TRANSCLUSION FLAGS
+  // ============================================================
+
+  "Transclude Expanded": {
+    "prefix": ["\\transclude/expanded", "tcexpanded"],
+    "body": ["\\put\\transclude/expanded{${1|true,false|}}{", "  ${2:content}", "}"],
+    "description": "Control transclude expanded state"
+  },
+  "Transclude Heading": {
+    "prefix": ["\\transclude/heading", "tcheading"],
+    "body": ["\\put\\transclude/heading{${1|true,false|}}{", "  ${2:content}", "}"],
+    "description": "Show/hide transclude heading"
+  },
+  "Transclude TOC": {
+    "prefix": ["\\transclude/toc", "tctoc"],
+    "body": ["\\put\\transclude/toc{${1|true,false|}}{", "  ${2:content}", "}"],
+    "description": "Include transclude in TOC"
+  },
+  "Transclude Numbered": {
+    "prefix": ["\\transclude/numbered", "tcnumbered"],
+    "body": ["\\put\\transclude/numbered{${1|true,false|}}{", "  ${2:content}", "}"],
+    "description": "Number transcluded section"
+  },
+
+  // ============================================================
+  // SPECIAL CHARACTERS / ESCAPES
+  // ============================================================
+
+  "Escape Backslash": { "prefix": ["\\\\"], "body": ["\\\\"], "description": "Literal backslash" },
+  "Escape Percent": { "prefix": ["\\%"], "body": ["\\%"], "description": "Literal percent sign" },
+  "Escape Brace Open": { "prefix": ["\\{"], "body": ["\\{"], "description": "Literal open brace" },
+  "Escape Brace Close": { "prefix": ["\\}"], "body": ["\\}"], "description": "Literal close brace" },
+  "Escape Bracket Open": { "prefix": ["\\["], "body": ["\\["], "description": "Literal open bracket" },
+  "Escape Bracket Close": { "prefix": ["\\]"], "body": ["\\]"], "description": "Literal close bracket" },
+  "Escape Hash": { "prefix": ["\\#"], "body": ["\\#"], "description": "Literal hash sign" },
+  "Escape Apostrophe": { "prefix": ["\\'"], "body": ["\\'"], "description": "Literal apostrophe" },
+  "Escape At": { "prefix": ["\\@"], "body": ["\\@"], "description": "Literal at sign" },
+  "Non-breaking Space": { "prefix": ["\\ ", "nbsp"], "body": ["\\ "], "description": "Non-breaking space" },
+  "Thin Space": { "prefix": ["\\,"], "body": ["\\,"], "description": "Thin space" },
+  "Medium Space": { "prefix": ["\\;"], "body": ["\\;"], "description": "Medium space" },
+  "Em Dash": { "prefix": ["---", "emdash"], "body": ["---"], "description": "Em dash" },
+  "En Dash": { "prefix": ["--", "endash"], "body": ["--"], "description": "En dash" },
+
+  // ============================================================
+  // COMMENTS
+  // ============================================================
+
+  "Comment": {
+    "prefix": ["%", "comment"],
+    "body": ["% ${1:comment}"],
+    "description": "Comment (to end of line)"
+  },
+  "Block Comment": {
+    "prefix": ["blockcomment"],
+    "body": [
+      "% ============================================================",
+      "% ${1:Section Name}",
+      "% ============================================================"
+    ],
+    "description": "Block comment separator"
+  },
+
+  // ============================================================
+  // COMMON PATTERNS / COMPOSITIONS
+  // ============================================================
+
+  "Definition Block": {
+    "prefix": ["definition", "defblock"],
+    "body": [
+      "\\subtree{",
+      "  \\taxon{Definition}",
+      "  \\title{${1:Term}}",
+      "  ",
+      "  \\p{${2:Definition text...}}",
+      "}"
+    ],
+    "description": "Definition block pattern"
+  },
+  "Theorem Block": {
+    "prefix": ["theorem", "thmblock"],
+    "body": [
+      "\\subtree{",
+      "  \\taxon{Theorem}",
+      "  \\title{${1:Theorem Name}}",
+      "  ",
+      "  \\p{${2:Statement...}}",
+      "}"
+    ],
+    "description": "Theorem block pattern"
+  },
+  "Theorem with Proof": {
+    "prefix": ["theoremproof", "thmproof"],
+    "body": [
+      "\\subtree{",
+      "  \\taxon{Theorem}",
+      "  \\title{${1:Theorem Name}}",
+      "  ",
+      "  \\p{${2:Statement...}}",
+      "  ",
+      "  \\subtree{",
+      "    \\taxon{Proof}",
+      "    ",
+      "    \\p{${3:Proof...}}",
+      "  }",
+      "}"
+    ],
+    "description": "Theorem with proof pattern"
+  },
+  "Lemma Block": {
+    "prefix": ["lemma", "lemblock"],
+    "body": [
+      "\\subtree{",
+      "  \\taxon{Lemma}",
+      "  \\title{${1:Lemma Name}}",
+      "  ",
+      "  \\p{${2:Statement...}}",
+      "}"
+    ],
+    "description": "Lemma block pattern"
+  },
+  "Example Block": {
+    "prefix": ["example", "exblock"],
+    "body": [
+      "\\subtree{",
+      "  \\taxon{Example}",
+      "  \\title{${1:Example Title}}",
+      "  ",
+      "  \\p{${2:Example content...}}",
+      "}"
+    ],
+    "description": "Example block pattern"
+  },
+  "Remark Block": {
+    "prefix": ["remark", "remblock"],
+    "body": [
+      "\\subtree{",
+      "  \\taxon{Remark}",
+      "  ",
+      "  \\p{${1:Remark text...}}",
+      "}"
+    ],
+    "description": "Remark block pattern"
+  },
+  "Bibliography Entry": {
+    "prefix": ["bibentry", "reference"],
+    "body": [
+      "\\title{${1:Paper Title}}",
+      "\\taxon{Reference}",
+      "\\author{${2:author-id}}",
+      "\\date{${3:2024}}",
+      "\\meta{doi}{${4:10.xxxx/xxxxx}}",
+      "\\meta{bibtex}{\\startverb<<|",
+      "@article{${5:citekey},",
+      "  title = {${1}},",
+      "  author = {${6:Author Name}},",
+      "  year = {${3}},",
+      "  journal = {${7:Journal Name}}",
+      "}",
+      "<<|}",
+      ""
+    ],
+    "description": "Bibliography/reference entry pattern"
+  },
+  "Macros File Template": {
+    "prefix": ["macros", "macrosfile"],
+    "body": [
+      "\\title{Macros}",
+      "",
+      "% Common abbreviations",
+      "\\def\\${1:R}{\\mathbb{R}}",
+      "\\def\\${2:N}{\\mathbb{N}}",
+      "\\def\\${3:Z}{\\mathbb{Z}}",
+      "\\def\\${4:C}{\\mathbb{C}}",
+      "",
+      "% Custom commands",
+      "\\def\\${5:mycommand}[${6:arg}]{${7:body}}",
+      ""
+    ],
+    "description": "Macros file template"
+  },
+  "Numbered Equation": {
+    "prefix": ["numeq", "equation"],
+    "body": [
+      "##{",
+      "  ${1:equation}",
+      "}"
+    ],
+    "description": "Numbered display equation"
+  },
+  "Inline Math with Text": {
+    "prefix": ["mathtext"],
+    "body": ["#{${1:expression}} ${2:connecting text} #{${3:expression}}"],
+    "description": "Inline math with surrounding text"
+  },
+  "Proof Environment": {
+    "prefix": ["proof", "proofblock"],
+    "body": [
+      "\\subtree{",
+      "  \\taxon{Proof}",
+      "  ",
+      "  \\p{${1:Proof content...}}",
+      "}"
+    ],
+    "description": "Proof block"
+  },
+  "Nested List": {
+    "prefix": ["nestedlist", "nestul"],
+    "body": [
+      "\\ul{",
+      "  \\li{${1:First item}",
+      "    \\ul{",
+      "      \\li{${2:Nested item}}",
+      "    }",
+      "  }",
+      "  \\li{${3:Second item}}",
+      "}"
+    ],
+    "description": "Nested unordered list"
+  },
+  "Table of Contents Query": {
+    "prefix": ["toc", "tableofcontents"],
+    "body": [
+      "\\query{",
+      "  \\rel/transcludes{\\self}{?child}",
+      "}"
+    ],
+    "description": "Table of contents via transclusion query"
+  },
+  "Trees by Tag Query": {
+    "prefix": ["bytag", "tagquery"],
+    "body": [
+      "\\query{",
+      "  \\rel/has-tag{?tree}{'${1:tag-name}}",
+      "}"
+    ],
+    "description": "Query trees by tag"
+  },
+  "Trees by Author Query": {
+    "prefix": ["byauthor", "authorquery"],
+    "body": [
+      "\\query{",
+      "  \\rel/has-author{?tree}{@${1:author-id}}",
+      "}"
+    ],
+    "description": "Query trees by author"
   }
 }

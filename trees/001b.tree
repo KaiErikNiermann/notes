@@ -8,7 +8,7 @@
 
 \subtree{
   \title{The recursor for natural numbers}
-  \p{Before we define recursors, let's first introduce the idea of an inductive type. We'll do this by examining how lean defines natural numbers. [asdasda](vooys2020nnoquasitoposes) }
+  \p{Before we define recursors, let's first introduce the idea of an inductive type. We'll do this by examining how lean defines natural numbers.}
 
 \codeblock{lean}{
   inductive Nat where

@@ -1,0 +1,136 @@
+\date{2025-11-27}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Type Universes}
+
+\p{In an abstract sense type universes can be regarded similarly in motivation to [Grothendieck universes](002q) in that they represent a collection (type in this case) of types which are [closed](002e) under certain type constructions. There are typically two presentations of type universes either a la Russell or Tarksi, starting with the former we have:}
+\infrule{
+  \inferrule*[right=Universe-Form]{
+    \Gamma\ \texttt{ctx}
+  }{
+     \mathcal{U} : \texttt{Type}
+  }
+  \and
+  \inferrule*[right=Universe-Russell]{
+    A : \mathcal{U}
+  }{
+    A : \texttt{Type}
+  }
+}
+
+\infrule{
+  \inferrule*[right=R-Level]{
+     i\ \texttt{level}
+  }{
+     \mathcal{U}_i : \mathcal{U}_{S(i)}
+  }
+  \and 
+  \inferrule*[right=R-Cumul]{
+     i\ \texttt{level} \\  A : \mathcal{U}_i
+  }{
+     A : \mathcal{U}_{S(i)}
+  }
+  \and 
+  \inferrule*[right=R-Lift]{
+     i\ \texttt{level} \\ 
+     A : \mathcal{U}_i
+  }{
+     \texttt{lift}_{i,j}(A) : \mathcal{U}_j
+  }
+}
+
+\infrule{
+    \inferrule*[right=R-AddCtx]{
+     i\ \texttt{level} \\
+     A : \mathcal{U}_i 
+  }{
+    (\Gamma, x : A)\ \texttt{ctx}
+  }
+}
+
+\infrule{
+  \inferrule*[right=R-Judgement]{
+     i\ \texttt{level} \\ 
+     j\ \texttt{level} \\
+     i = j\ \texttt{true} 
+  }{
+     \mathcal{U}_i \equiv \mathcal{U}_j : \mathcal U_{S(i)}
+  }
+  \and 
+  \inferrule*[right=R-Typal]{
+     i\ \texttt{level} \\
+     j\ \texttt{level} \\
+     i = j\ \texttt{true} 
+  }{
+     \texttt{ap}_{\mathcal U}^{i = j} : \mathcal{U}_i = _{\mathcal U_{S(i)}} \mathcal{U}_j
+  }
+}
+
+\hr
+
+\infrule{
+  \inferrule*[right=Universe-Form]{
+  }{
+    \mathcal{U}_i : \texttt{Type}
+  }
+  \and 
+  \inferrule*[right=T-Decode]{
+     A : \mathcal{U}_i
+  }{
+     \texttt{El}_i(A) : \texttt{Type}
+  }
+}
+
+##{
+  \pi(X, B) : \prod_{(X\ :\ \mathcal{U}_i)} (\texttt{El}_i(X) \to \mathcal{U}_i) \to \mathcal{U}_i
+}
+
+\infrule{
+  \inferrule*[right=T-Prod]{
+    \\ \\ ( x : \texttt{El}_i(A)) \\\\
+    \\ \\ \vdots \\\\
+     A : \mathcal{U}_i \\
+     B : \mathcal{U}_i
+  }{
+     \pi(A, B) : \mathcal{U}_i
+  }
+}
+\infrule{
+  \inferrule*[right=T-ProdEq]{
+    \\ \\ ( x : \texttt{El}_i(A)) \\\\
+    \\ \\ \vdots \\\\
+     A : \mathcal{U}_i \\
+     B : \mathcal{U}_i
+  }{
+     \texttt{El}_i(\pi(A, B)) \equiv ((x : \texttt{El}_i(A)) \to  \texttt{El}_i(B(x))) : \texttt{Type}
+  }
+}
+
+\infrule{
+  \inferrule*[right=T-UnivIncr]{
+  }{
+      \mathcal{U}_i : \mathcal{U}_{S(i)}
+  }
+  \and 
+  \inferrule*[right=T-UnivElIncr]{
+  }{
+    \texttt{El}_{S(i)}(\mathcal U_i) \equiv \mathcal{U}_i : \texttt{Type}
+  }
+}
+
+\infrule{
+  \inferrule*[right=T-TypIncr]{
+      A : \mathcal{U}_i
+  }{
+    \texttt{lift}_i(A) : \mathcal{U}_{S(i)}
+  }
+  \and
+  \inferrule*[right=T-TypElIncr]{
+      A : \mathcal{U}_i
+  }{
+    \texttt{El}_{S(i)}(\texttt{lift}_i(A)) \equiv \texttt{El}_i(A) : \texttt{Type}
+  }
+}

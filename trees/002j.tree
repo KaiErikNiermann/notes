@@ -1,0 +1,46 @@
+\date{2025-11-26}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{W-type}
+
+\infrule{
+  \inferrule*[right=W-Form]{
+    C : \texttt{type} \\ c : C \vdash A(c) : \texttt{type}
+  }{
+    \Gamma \vdash W_{c:C} A(c) : \texttt{type}
+  }
+}
+
+\infrule{
+  \inferrule*[right=W-Intro]{
+    \vdash r : C \\ s : A(r) \to W_{c:C} A(c)
+  }{
+    \texttt{tree}(r, s) : W_{c:C} A(c)
+  }
+}
+
+\infrule{
+  \mprset{flushleft}
+    \inferrule*[right=W-Elim]{
+      t : W_{c:C} A(c) \vdash D(t) : \texttt{type} \\ 
+      (r : C,\ s : A(r)\to W_{c:C} A(c),\ s_D : \prod_{a:A(r)} D(s(a))) \\
+        \vdash \texttt{tree}_D(r,s,s_D) : D(\texttt{tree}(r,s))
+    }{
+      \Gamma, w : W_{c:C} A(c) \vdash \texttt{wrec}(w,b) : D(w)
+    }
+}
+
+\infrule{
+  \mprset{flushleft}
+  \inferrule*[right=W-Comp]{
+      t : W_{c:C} A(c) \vdash D(t) : \texttt{type} \\ 
+      (r : C,\ s : A(r)\to W_{c:C} A(c),\ s_D : \prod_{a:A(r)} D(s(a))) \\
+        \vdash \texttt{tree}_D(r,s,s_D) : D(\texttt{tree}(r,s))
+  }{
+    (r : C), (s : A(r)\to W_{c:C} A(c)) \\\\
+    \vdash \texttt{wrec}_{(D, \texttt{tree}_D)}(\texttt{tree}(r,s)) = \texttt{tree}_D(r, s, \lambda a.\ \texttt{wrec}_{(D, \texttt{tree}_D)}(s(a)))
+  }
+}

@@ -20,7 +20,8 @@ const QUOTED_NAME_MODE: Mode = {
 const COMMAND_MODE: Mode = {
     className: 'meta',
     begin: /#(check|eval|reduce|print|simp|synth)\b/,
-    end: /$/
+    end: /(?=--)|$/,
+    excludeEnd: true
 };
 
 const HOLE_MODE: Mode = {

@@ -6,7 +6,7 @@
 
 \title{Tarski's Theorem}
 
-\p{We define a set #{X}, let #{\mathcal L(X)} be the [complete lattice](002c) of all subsets of #{X} ordered by inclusion. A function #{f: \mathcal L(X) \to \mathcal L(X)} is said to be [\em{monotone}](0029) in this instance if it preserves inclusion which is to say that the following holds:}
+\p{We define a set #{X}, let #{\mathcal L(X)} be the [complete lattice](002c) of all subsets of #{X} ordered by inclusion. A function #{f: \mathcal L(X) \to \mathcal L(X)} is said to be [\em{monotone}](0029) in this instance if it preserves inclusion which is to say that the following holds: [(1)](harper-tarski-fixed-point-2025)}
 ##{
   A \subseteq B \subseteq X \implies f(A) \subseteq f(B)
 }

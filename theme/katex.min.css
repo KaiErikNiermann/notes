@@ -216,7 +216,7 @@
   font-family: KaTeX_SansSerif;
 }
 .katex .texttt {
-  font-family: KaTeX_Typewriter;
+  font-family: "Inconsolata", monospace;
 }
 .katex .mathnormal {
   font-family: 'Euler Math' !important;

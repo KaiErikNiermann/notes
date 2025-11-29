@@ -5,7 +5,7 @@
 \taxon{Definition}
 
 \title{Rule induction}
-\p{We let #{\mathcal R} denote the set of syntactic rules over some set #{X}. Let #{X_\mathcal R \subseteq X} be the closure of #{X} under the rules in #{\mathcal R}. In other words:}
+\p{We let #{\mathcal R} denote the set of syntactic rules over some set #{X}. Let #{X_\mathcal R \subseteq X} be the closure of #{X} under the rules in #{\mathcal R}. In other words: [(1)](sterling-rule-induction-2025)}
 
 ##{
   (X_\mathcal R \in \text{Cl}_\mathcal R \land \forall S \in \text{Cl}_\mathcal R \to X_\mathcal R \subseteq S) \equiv (X_\mathcal R = \bigcap \text{Cl}_\mathcal R)
@@ -60,12 +60,15 @@
 }
 }
 
-\p{Another way we can view what this proof establishes is in terms of the [monotone function](0029) #{f_\mathcal R: \mathcal P(X) \to \mathcal P(X)} induced by the rules in #{\mathcal R}, [defined as](002i):}
+\subtree{
+  \title{Tarski's fixpoint view}
+  \p{Another way we can view what this proof establishes is in terms of the [monotone function](0029) #{f_\mathcal R: \mathcal P(X) \to \mathcal P(X)} induced by the rules in #{\mathcal R}, [defined as](002i):}
 ##{
   f_\mathcal R(S) = \bigcup_{r \in \mathcal R} f_r(S)
 }
-\p{The main fact this proof establishes is that the closure #{X_\mathcal R} is the least fixed point of the function #{f_\mathcal R}, meaning that:}
+\p{The main fact this proof establishes is that the closure #{X_\mathcal R} is the [least fixed point](002b) of the function #{f_\mathcal R}, meaning that:}
 ##{
   f_\mathcal R(X_\mathcal R) = X_\mathcal R \land \forall S.\ f_\mathcal R(S) \subseteq S \implies X_\mathcal R \subseteq S
 }
 \p{In other words #{X_\mathcal R} is the smallest set of premises and conclusions that is [closed under](002f) the rules in #{\mathcal R}. Naturally every other set [closed under](002f) the rules must contain at least the members of #{X_\mathcal R} (but possibly more).}
+}

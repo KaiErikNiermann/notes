@@ -27,6 +27,22 @@
     </xsl:element>
   </xsl:template>
 
+  <!-- Special handling for html:pre to only copy element children (skip whitespace-only text nodes between tags) -->
+  <xsl:template match="html:pre">
+    <xsl:element namespace="http://www.w3.org/1999/xhtml" name="pre">
+      <xsl:apply-templates select="@*" />
+      <xsl:apply-templates select="*" />
+    </xsl:element>
+  </xsl:template>
+
+  <!-- Special handling for html:code inside pre to copy text content directly -->
+  <xsl:template match="html:pre/html:code">
+    <xsl:element namespace="http://www.w3.org/1999/xhtml" name="code">
+      <xsl:apply-templates select="@*" />
+      <xsl:apply-templates select="node()" />
+    </xsl:element>
+  </xsl:template>
+
   <xsl:template match="mml:*">
     <xsl:element namespace="http://www.w3.org/1998/Math/MathML" name="{local-name()}">
       <xsl:apply-templates select="@* | node()" />

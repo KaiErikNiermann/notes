@@ -1,0 +1,32 @@
+\date{2025-11-27}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Monoid (algebra)}
+
+\p{In algebra a \em{monoid} is a collection (a set) of elements equipped with a binary operation (multiplication) which has the properties of being associative and having a unit (identity) element. Formally, we say tht it is a set #{M} equipped with the structure [(1)](002n):} 
+\ul{
+  \li{A \strong{binary operation} (or \em{multiplication}) map from the cartesian product of the set with itself to itself, that is:
+  ##{
+    (-) \cdot (-) : M \times M \to M
+  }}
+  \li{A \strong{neutral} (or \em{identity}) \strong{element} 
+  ##{
+    1 \in M
+  }}
+}
+\p{Such that the following properties hold:}
+\ul{
+  \li{The elements are \strong{associative} w.r.t the operation, that is:
+  ##{
+    \forall x, y, z \in M \vdash (x \cdot y) \cdot z = x \cdot (y \cdot z)
+  }
+  }
+  \li{Composition with the identity element is a \strong{unit}, that is:
+  ##{
+    \forall x \in M \vdash 1 \cdot x = x = x \cdot 1
+  }
+  }
+}

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors>
+      <fr:author>Johnson, Niles, Yau, Donald</fr:author>
+    </fr:authors>
+    <fr:date>
+      <fr:year>2020</fr:year>
+      <fr:month>6</fr:month>
+      <fr:day>17</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/</fr:uri>
+    <fr:display-uri>johnson-yau-2d-categories-2020</fr:display-uri>
+    <fr:route>/notes/johnson-yau-2d-categories-2020/</fr:route>
+    <fr:title text="2-Dimensional Categories">2-Dimensional Categories</fr:title>
+    <fr:taxon>Reference</fr:taxon>
+    <fr:meta name="external">https://arxiv.org/abs/2002.06055v3</fr:meta>
+    <fr:meta name="eprint">2002.06055</fr:meta>
+    <fr:meta name="ENTRYTYPE">misc</fr:meta>
+    <fr:meta name="ID">johnson_yau_2d_categories_2020</fr:meta>
+  </fr:frontmatter>
+  <fr:mainmatter />
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>11</fr:month>
+              <fr:day>29</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/002s/</fr:uri>
+            <fr:display-uri>002s</fr:display-uri>
+            <fr:route>/notes/002s/</fr:route>
+            <fr:title text="Isomorphism (morphisms)">Isomorphism (morphisms)</fr:title>
+            <fr:taxon>Definition</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <html:p>A morphism <fr:tex display="inline"><![CDATA[f : X \to  Y]]></fr:tex> is called an <html:strong>Isomorphism</html:strong> if there exists a morphism <fr:tex display="inline"><![CDATA[g : Y \to  X]]></fr:tex> such that the following hold <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(1)</fr:link>:</html:p>
+            <fr:tex display="block"><![CDATA[
+  g \circ  f = 1_X
+  \quad 
+  f \circ  g = 1_Y
+]]></fr:tex>
+            <html:p>Sometimes an isomorphism is also denoted</html:p>
+            <fr:tex display="block"><![CDATA[
+  X \xrightarrow {\cong } Y
+]]></fr:tex>
+          </fr:mainmatter>
+        </fr:tree>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>11</fr:month>
+              <fr:day>27</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/002m/</fr:uri>
+            <fr:display-uri>002m</fr:display-uri>
+            <fr:route>/notes/002m/</fr:route>
+            <fr:title text="Category">Category</fr:title>
+            <fr:taxon>Definition</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <html:p>There are a few ways you can define a <html:em>category</html:em>. In the most basic intuitive sense a category consits of a collection of things called <html:em>objects</html:em> and binary relationships (or transitions) between those objects called <html:em>morphisms</html:em> (or <html:em>arrows</html:em>). We can combine these relationships by <html:em>composing</html:em> them, and for each object there is an <html:em>identity morphism</html:em> that acts as a neutral element for composition. <fr:link href="/notes/nlab-category/" title="category" uri="https://kaierikniermann.github.io/notes/nlab-category/" display-uri="nlab-category" type="local">(1)</fr:link></html:p>
+            <html:p>In the context of <fr:link href="/notes/002l/" title="Quiver" uri="https://kaierikniermann.github.io/notes/002l/" display-uri="002l" type="local"><html:em>quivers</html:em></fr:link> a category can be defined as a quiver with a rule saying for how we can compose two edges that fit together to get a new edge. Furthermore, each vertex (object) has an edge starting and ending at that vertex (the identity morphism) an. The classical definition is something like this:</html:p>
+            <html:p>A <html:em>category</html:em> <fr:tex display="inline"><![CDATA[C]]></fr:tex> consits of:</html:p>
+            <html:ul><html:li>A collection (or <html:em>class</html:em> <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(2)</fr:link>) of <html:strong>objects</html:strong>, denoted as <fr:tex display="inline"><![CDATA[\text {Ob}(C)]]></fr:tex> or <fr:tex display="inline"><![CDATA[C_0]]></fr:tex>.</html:li>
+  <html:li>A collection (or <html:em>set</html:em> <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(2)</fr:link>) of <html:strong>morphisms</html:strong> (or <html:em>arrows</html:em>), denoted <fr:tex display="inline"><![CDATA[C_1]]></fr:tex> or <fr:tex display="inline"><![CDATA[C(x, y)]]></fr:tex> for <fr:tex display="inline"><![CDATA[x, y \in  \text {Ob}(C)]]></fr:tex>.
+    <html:ul><html:li>For every morphism <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex>, there are two associated objects: the <html:em>source</html:em> (or <html:em>domain</html:em>) <fr:tex display="inline"><![CDATA[x]]></fr:tex> and the <html:em>target</html:em> (or <html:em>codomain</html:em>) <fr:tex display="inline"><![CDATA[y]]></fr:tex>. In standard function notation, we write <fr:tex display="inline"><![CDATA[f: x \to  y]]></fr:tex> where <fr:tex display="inline"><![CDATA[x = \text {dom}(f)]]></fr:tex> and <fr:tex display="inline"><![CDATA[y = \text {cod}(f)]]></fr:tex>. NLab has a nice convention where it denotes the source <fr:tex display="inline"><![CDATA[s]]></fr:tex> of a morphism as <fr:tex display="inline"><![CDATA[s(f)]]></fr:tex> and the target <fr:tex display="inline"><![CDATA[t]]></fr:tex> as <fr:tex display="inline"><![CDATA[t(f)]]></fr:tex>.</html:li>
+      <html:li>For every pair of morphisms <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex> and <fr:tex display="inline"><![CDATA[g \in  C(y, z)]]></fr:tex> (s.t. <fr:tex display="inline"><![CDATA[t(f) = s(g)]]></fr:tex> i.e. the morphisms type check), there is a <html:strong>composition</html:strong> morphism <fr:tex display="inline"><![CDATA[g \circ  f \in  C(x, z)]]></fr:tex>. Written out we can denote this as:
+        <fr:tex display="block"><![CDATA[
+          C(x, y) \times  C(y, z) \to  C(x, z)
+        ]]></fr:tex>
+      in diagramatic order this is often written as <fr:tex display="inline"><![CDATA[f; g]]></fr:tex> we can equivalently use a more graphical notation:
+        
+ 
+  
+  <html:figure><fr:resource hash="a1254e8b81c910fff27a40b48d5eabed"><fr:resource-content><html:img src="/notes/a1254e8b81c910fff27a40b48d5eabed.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+   
+  % String-diagram specific extensions live here. Add diagram tweaks without
+ % re-running the full base preamble (to avoid duplicate definitions).
+
+   
+ 
+   \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{amsmath, amsthm, amsfonts}
+  \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
+  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix}
+
+  % A TikZ style for curved arrows of a fixed height, due to AndréC.
+  \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+        .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+        and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+    \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+  quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+  % A TikZ style for shortening paths without the poor behaviour of `shorten <' and `shorten >'.
+  \tikzset{between/.style n args={2}{/tikz/spath/at end path construction={
+        \tikzset{spath/split at keep middle={current}{#1}{#2}}
+  }}}
+
+  % TikZ arrowhead/tail styles.
+  \tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+  \tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+  \tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+  % TikZ arrow styles.
+  \tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+
+
+  ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
+          \[\begin {tikzcd}[column sep=small]
+            x && y && z
+            \arrow ["f", from=1-1, to=1-3]
+            \arrow ["{f;g}", curve={height=-18pt}, from=1-1, to=1-5]
+            \arrow ["g", from=1-3, to=1-5]
+          \end {tikzcd}\]
+        ]]></fr:resource-source></fr:resource></html:figure></html:li>
+      <html:li>For every object <fr:tex display="inline"><![CDATA[x \in  \text {Ob}]]></fr:tex> there is an <html:strong>identity morphism</html:strong>:
+        <fr:tex display="block"><![CDATA[
+          (\text {id}_x : x \to  x) \in  C(x, x)
+        ]]></fr:tex></html:li></html:ul>
+    Note: Some additional notations for morphisms include <fr:tex display="inline"><![CDATA[\text {hom}(x, y)]]></fr:tex>, <fr:tex display="inline"><![CDATA[\text {hom}_C(x, y)]]></fr:tex> or <fr:tex display="inline"><![CDATA[C_1(x, y)]]></fr:tex>. Additionally people use the notation <fr:tex display="inline"><![CDATA[\text {Mor(C)}]]></fr:tex> to denote the following disjoint union
+    <fr:tex display="block"><![CDATA[
+      \text {Mor}(C) = \bigsqcup _{x, y \in  \text {Ob}(C)} C(x, y)
+    ]]></fr:tex>
+    Which just expresses the idea that the collection of all morphisms in a category is made up of the morphisms between each pair of objects.
+  </html:li></html:ul>
+            <html:p>The above are often called <html:strong>data</html:strong> of a category. In addition to this data, a category must satisfy the following <html:strong>axioms</html:strong> or (<html:em>conditions</html:em>):</html:p>
+            <html:ul><html:li>Morphisms need to be <html:strong>associative</html:strong> which means that for every triple of morphisms <fr:tex display="inline"><![CDATA[f \in  C(w, x)]]></fr:tex>, <fr:tex display="inline"><![CDATA[g \in  C(x, y)]]></fr:tex>, and <fr:tex display="inline"><![CDATA[h \in  C(y, z)]]></fr:tex> the following holds:
+    <fr:tex display="block"><![CDATA[
+      h \circ  (g \circ  f) = (h \circ  g) \circ  f
+    ]]></fr:tex></html:li>
+  <html:li>For each morphism <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex> the identity morphisms act as <html:strong>neutral elements</html:strong> for composition:
+    <fr:tex display="block"><![CDATA[
+      \text {id}_y \circ  f = f = f \circ  \text {id}_x
+    ]]></fr:tex>
+    This is also known as the <html:em>left</html:em> and <html:em>right</html:em> <html:strong>unit laws</html:strong> or just <html:strong>unity</html:strong> in general.
+  </html:li></html:ul>
+          </fr:mainmatter>
+        </fr:tree>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>11</fr:month>
+              <fr:day>27</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/002q/</fr:uri>
+            <fr:display-uri>002q</fr:display-uri>
+            <fr:route>/notes/002q/</fr:route>
+            <fr:title text="Grothendieck universe">Grothendieck universe</fr:title>
+            <fr:taxon>Definition</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>27</fr:day>
+                </fr:date>
+                <fr:title text="Motivation">Motivation</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>In set theory (along with other theories which consider collections of stuff) there is an issue which you try to talk about the <html:em>collection of collections</html:em>, as it gives rise to certain paradoxes by the recursive nature of it. One way out is to consider a hierarchy of notions of collections, where a "collection of collections" is not in fact considered a "collection" itself but rather some notion of a higher increment of collection. </html:p>
+                <html:p>This is the idea behind <html:em>universes</html:em>, where the universe is a collection of all set's which intuitively can be thought of as a "set of all sets" but is not itself a set but one increment above it in the hierarchy.</html:p>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>27</fr:day>
+                </fr:date>
+                <fr:title text="Definition">Definition</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>A <html:em>Grothendieck universe</html:em> is a set (in ZFC) <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> with the following properties <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(1)</fr:link>:</html:p>
+                <html:ol><html:li>( <html:em>transitivity</html:em> ) If <fr:tex display="inline"><![CDATA[x \in  \mathcal  U]]></fr:tex> and <fr:tex display="inline"><![CDATA[y \in  x]]></fr:tex>, then <fr:tex display="inline"><![CDATA[y \in  \mathcal  U]]></fr:tex>.</html:li>
+  <html:li>( <html:em>power set</html:em> ) If <fr:tex display="inline"><![CDATA[x \in  \mathcal  U]]></fr:tex>, then <fr:tex display="inline"><![CDATA[\mathcal  P(x) \in  \mathcal  U]]></fr:tex> where <fr:tex display="inline"><![CDATA[\mathcal  P(x)]]></fr:tex> is the powerset (set of all subsets) of <fr:tex display="inline"><![CDATA[x]]></fr:tex>.</html:li>
+  <html:li>( <html:em>unions</html:em> ) If <fr:tex display="inline"><![CDATA[I \in  \mathcal  U]]></fr:tex> and <fr:tex display="inline"><![CDATA[x_i \in  \mathcal  U]]></fr:tex> for each <fr:tex display="inline"><![CDATA[i \in  I]]></fr:tex>, then the union
+  <fr:tex display="block"><![CDATA[
+    \bigcup  _{i \in  I} x_i \in  \mathcal  U
+  ]]></fr:tex></html:li>
+  <html:li>(<html:em> natural numbers </html:em>) The set of natural numbers <fr:tex display="inline"><![CDATA[\mathbb {N} \in  \mathcal  U]]></fr:tex>.</html:li></html:ol>
+                <html:p>Additional properties of <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> can be enumerated as follows:</html:p>
+                <html:ul><html:li>If <fr:tex display="inline"><![CDATA[x, y \in  \mathcal  U]]></fr:tex> then <fr:tex display="inline"><![CDATA[\{x, y\} \in  \mathcal  U]]></fr:tex>.</html:li>
+  <html:li>If <fr:tex display="inline"><![CDATA[x \in  \mathcal  U]]></fr:tex> and <fr:tex display="inline"><![CDATA[y \subset  x]]></fr:tex>, then <fr:tex display="inline"><![CDATA[y \in  \mathcal  U]]></fr:tex>.</html:li>
+  <html:li>If <fr:tex display="inline"><![CDATA[I \in  \mathcal  U]]></fr:tex> and <fr:tex display="inline"><![CDATA[x_i \in  \mathcal  U]]></fr:tex> for each <fr:tex display="inline"><![CDATA[i \in  I]]></fr:tex>, we have the <html:strong>cartesian product</html:strong>:
+  <fr:tex display="block"><![CDATA[
+    \prod _{i \in  I} x_i \in  \mathcal  U
+  ]]></fr:tex></html:li>
+  <html:li>If <fr:tex display="inline"><![CDATA[I \in  \mathcal  U]]></fr:tex> and <fr:tex display="inline"><![CDATA[x_i \in  \mathcal  U]]></fr:tex> for each <fr:tex display="inline"><![CDATA[i \in  I]]></fr:tex>, we have the <html:strong>disjoint union</html:strong>:
+  <fr:tex display="block"><![CDATA[\coprod _{i \in  I} x_i \in  \mathcal  U
+    
+  ]]></fr:tex>
+  <html:li>If <fr:tex display="inline"><![CDATA[x, y \in  \mathcal  U]]></fr:tex>, then the <html:strong>function set</html:strong> from <fr:tex display="inline"><![CDATA[x]]></fr:tex> to <fr:tex display="inline"><![CDATA[y]]></fr:tex> is also in <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex>:
+  <fr:tex display="block"><![CDATA[
+    y^x = \{ f : x \to  y \} \in  \mathcal  U
+  ]]></fr:tex></html:li></html:li></html:ul>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>27</fr:day>
+                </fr:date>
+                <fr:title text="An aside on classes and sets">An aside on classes and sets</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>In a very general sense a <html:strong>class</html:strong> is any collection of sets defined by a property that all its members share. So we can express it it as a predicate on some universe <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex>:</html:p>
+                <fr:tex display="block"><![CDATA[
+    A : \mathcal  U \to  \texttt {Prop}
+  ]]></fr:tex>
+                <html:p>As an example in the case of an unsorted set theory (such as ZFC) in which all objects are sets, we define a class <fr:tex display="inline"><![CDATA[C]]></fr:tex> as a proposition or truth value in the context of some free variable <fr:tex display="inline"><![CDATA[A]]></fr:tex>, the notation used in <fr:link href="/notes/nlab-class/" title="class" uri="https://kaierikniermann.github.io/notes/nlab-class/" display-uri="nlab-class" type="local">(5)</fr:link> is:</html:p>
+                <fr:tex display="block"><![CDATA[
+    \Gamma , A \mid  \phi  \vdash  C : \texttt {Prop}
+  ]]></fr:tex>
+                <html:p>This expresses that in the context of assumptions <fr:tex display="inline"><![CDATA[\Gamma ]]></fr:tex> extended with the variable <fr:tex display="inline"><![CDATA[A]]></fr:tex> the proposition <fr:tex display="inline"><![CDATA[\phi ]]></fr:tex> defines a class <fr:tex display="inline"><![CDATA[C]]></fr:tex>. A more classical, albiet probably less formal, way to read this might be:</html:p>
+                <fr:tex display="block"><![CDATA[
+    C = \{ x \in  \mathcal  U \mid  \phi (x)\}
+  ]]></fr:tex>
+                <html:p>Furthermore we say that a class <fr:tex display="inline"><![CDATA[X]]></fr:tex> is a <html:em>set</html:em> if and only if there exists a class <fr:tex display="inline"><![CDATA[Y \in  \mathcal  U]]></fr:tex> such that <fr:tex display="inline"><![CDATA[X \in  Y]]></fr:tex>. A <html:strong>proper class</html:strong> is a class which is not a set <fr:link href="/notes/low-universes-category-theory-2014/" title="Universes for Category Theory" uri="https://kaierikniermann.github.io/notes/low-universes-category-theory-2014/" display-uri="low-universes-category-theory-2014" type="local">(6)</fr:link>. </html:p>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>27</fr:day>
+                </fr:date>
+                <fr:title text="Axiom of Universes">Axiom of Universes</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>The common theme amongst these properties is that the aim to express <fr:link href="/notes/002e/" title="Closed set" uri="https://kaierikniermann.github.io/notes/002e/" display-uri="002e" type="local"><html:em>closure</html:em></fr:link> of the set <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> under various standard set-theoretic operations. This allows us to treat <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> as a <html:em>universe</html:em> of sets in which we can carry out normal set-theoretic constructions without leaving the universe.</html:p>
+                <html:p>The <html:em>Axiom of Universes</html:em> is the general convention which is adopted in category theory and other fields which states that for every set <fr:tex display="inline"><![CDATA[x]]></fr:tex> there exists a Grothendieck universe <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> such that <fr:tex display="inline"><![CDATA[x \in  \mathcal  U]]></fr:tex>.</html:p>
+                <html:p>An <html:em>element</html:em> of <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> is by convention called a <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex>-<html:strong>small set</html:strong> or simply a <html:em>small set</html:em> when the universe is clear from context or apparently also just a <html:em>set</html:em> <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(1)</fr:link>.</html:p>
+                <html:p>A subset of <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> is called <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex>-<html:strong>moderate</html:strong> or simply <html:em>moderate</html:em> when the universe is clear from context.</html:p>
+                <html:p>The general line of reasoning, at least in ZFC is that for every set <fr:tex display="inline"><![CDATA[x]]></fr:tex> we assume there exists a Grothendieck universe <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> such that <fr:tex display="inline"><![CDATA[x \in  \mathcal  U]]></fr:tex>. Accordinly for every universe <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> there exists a larger universe <fr:tex display="inline"><![CDATA[\mathcal  U']]></fr:tex> such that <fr:tex display="inline"><![CDATA[\mathcal  U \in  \mathcal  U']]></fr:tex>, and therefore also <fr:tex display="inline"><![CDATA[U \subseteq  U']]></fr:tex>. Thus under this assumption with have the guarantee of a hierarchy of universes <fr:link href="/notes/streicher-intro-category-logic-2003/" title="Introduction to Category Theory and Categorical Logic" uri="https://kaierikniermann.github.io/notes/streicher-intro-category-logic-2003/" display-uri="streicher-intro-category-logic-2003" type="local">(4)</fr:link>:</html:p>
+                <fr:tex display="block"><![CDATA[
+    \mathcal  U_0 \in  \mathcal  U_1 \in  \mathcal  U_2 \in  \cdots 
+  ]]></fr:tex>
+                <html:p>Which are also <html:em>cumulative</html:em> in the sense that</html:p>
+                <fr:tex display="block"><![CDATA[
+    \mathcal  U_0 \subseteq  \mathcal  U_1 \subseteq  \mathcal  U_2 \subseteq  \cdots 
+  ]]></fr:tex>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>27</fr:day>
+                </fr:date>
+                <fr:title text="Remarks">Remarks</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:ul><html:li><html:p>An additional point made in <fr:link href="/notes/nlab-grothendieck-universe/" title="Grothendieck universe" uri="https://kaierikniermann.github.io/notes/nlab-grothendieck-universe/" display-uri="nlab-grothendieck-universe" type="local">(2)</fr:link> is that <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> denotes a <html:em>pure set</html:em>, that is, all elements of <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> are sets and there are no urelements (elements which are not sets). Formally we say that a set <fr:tex display="inline"><![CDATA[x]]></fr:tex> is pure if for every finite sequence or chain <fr:link href="/notes/nlab-pure-set/" title="pure set" uri="https://kaierikniermann.github.io/notes/nlab-pure-set/" display-uri="nlab-pure-set" type="local">(3)</fr:link>:</html:p>
+  <fr:tex display="block"><![CDATA[
+    x_0 = x \in  x_1 \in  x_2 \in  \cdots  \in  x_n
+  ]]></fr:tex>
+  <html:p>each <fr:tex display="inline"><![CDATA[x_i]]></fr:tex> is a set. Another way this is intuitively thought of is that every object reachable from <fr:tex display="inline"><![CDATA[x]]></fr:tex> by finitely many membership steps is also a set.</html:p>
+
+  <html:p>Since we are typically working in the context of ZFC set theory which only allows for sets as elements, all sets are pure by default hence the distinction is sometimes omitted. Theories such as ZFA (Zermelo-Fraenkel set theory with atoms) allow for urelements which do not qualify as sets but can be members of sets.</html:p></html:li>
+    <html:li><html:p>The <html:em>countable set</html:em> property is sometimes <fr:link href="/notes/levy-formulating-categorical-classes-2018/" title="Formulating Categorical Concepts with Classes" uri="https://kaierikniermann.github.io/notes/levy-formulating-categorical-classes-2018/" display-uri="levy-formulating-categorical-classes-2018" type="local">(7)</fr:link> also replaces with</html:p>
+      <fr:tex display="block"><![CDATA[
+        \emptyset  \in  \mathcal  U \quad  \text { or } \quad   \omega  \in  \mathcal  U
+      ]]></fr:tex>
+      <html:p>Where <fr:tex display="inline"><![CDATA[\omega ]]></fr:tex> is the set of all finite (von Neumann) ordinals.</html:p></html:li>
+    <html:li><html:p>Subset's of <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> seem to have a somewhat confusing naming convention. So nlab says they are called <html:em>moderate</html:em> though this is sometimes also overloaded with the ambiguous term <html:em>large</html:em>. They mention that under the assumption that <html:em>set</html:em> is equivalent to <html:em>small set</html:em> then <html:em>moderate</html:em> clearly aligns with <html:em>proper classes</html:em> (as those are definitionally distinct from sets). I assume the convention taken in at least <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(1)</fr:link> is that they use they essentially use the term <html:em>class</html:em> to mean <html:em>proper class</html:em> and by implication <html:em>moderate set</html:em> relative to some universe.</html:p>
+    
+    <html:p>My assumption is that people use <html:em>class</html:em> and <html:em>proper class</html:em> interchangeably mainly because a proper class actually refers to an object distinct from a set, whereas a class can make it ambiguous whether you mean a set (which is a class) or a proper class (which is not a set).</html:p></html:li></html:ul>
+              </fr:mainmatter>
+            </fr:tree>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

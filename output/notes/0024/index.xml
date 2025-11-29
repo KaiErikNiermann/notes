@@ -64,11 +64,13 @@
 ]]></fr:tex><html:p>We can equivalently express this through a inference rule as follows:</html:p>
   
     
-    <fr:resource hash="3eb7bb38ebbc3b4ac110407b876152d2"><fr:resource-content><html:img src="/notes/3eb7bb38ebbc3b4ac110407b876152d2.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="f8d9da3fcf29e78b2100c207e3b32c1f"><fr:resource-content><html:img src="/notes/f8d9da3fcf29e78b2100c207e3b32c1f.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
+  \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *{

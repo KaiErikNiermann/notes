@@ -225,7 +225,6 @@
 \def\Mod[arg1]{#{\operatorname{Mod}(\arg1)}}
 \def\cf[arg1]{#{\texttt{\arg1}}}
 
-
 \def\citek[uid]{\let\escape[x]{\x}[\escape{[\uid]}](\uid)}
 
 \xmlns:jms-indent{jonmsterling:indenting}

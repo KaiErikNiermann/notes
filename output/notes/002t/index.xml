@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>11</fr:month>
+      <fr:day>29</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/002t/</fr:uri>
+    <fr:display-uri>002t</fr:display-uri>
+    <fr:route>/notes/002t/</fr:route>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <fr:tree show-metadata="false">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:date>
+          <fr:year>2025</fr:year>
+          <fr:month>11</fr:month>
+          <fr:day>29</fr:day>
+        </fr:date>
+        <fr:title text="Injective, Surjective &amp; Bijective (Sets)">Injective, Surjective &amp; Bijective (Sets)</fr:title>
+        <fr:taxon>Definition</fr:taxon>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <html:p>A function <fr:tex display="inline"><![CDATA[f : X \to  Y]]></fr:tex> is called <html:strong>injective</html:strong> (or <html:em>one-to-one</html:em>) if for every pair of elements <fr:tex display="inline"><![CDATA[x_1, x_2 \in  X]]></fr:tex> the following holds:</html:p>
+        <fr:tex display="block"><![CDATA[
+    f(x_1) = f(x_2) \implies  x_1 = x_2
+  ]]></fr:tex>
+        <html:p>A function <fr:tex display="inline"><![CDATA[f : X \to  Y]]></fr:tex> is called <html:strong>surjective</html:strong> (or <html:em>onto</html:em>) if for every element <fr:tex display="inline"><![CDATA[y \in  Y]]></fr:tex> there exists an element <fr:tex display="inline"><![CDATA[x \in  X]]></fr:tex> such that:</html:p>
+        <fr:tex display="block"><![CDATA[
+    f(x) = y
+  ]]></fr:tex>
+        <html:p>A function <fr:tex display="inline"><![CDATA[f : X \to  Y]]></fr:tex> is called <html:strong>bijective</html:strong> if it is both <html:em>injective</html:em> and <html:em>surjective</html:em>. In this case there exists an <html:strong>inverse function</html:strong> <fr:tex display="inline"><![CDATA[f^{-1} : Y \to  X]]></fr:tex> such that the following hold:</html:p>
+        <fr:tex display="block"><![CDATA[
+    f^{-1}(f(x)) = x
+    \quad 
+    f(f^{-1}(y)) = y
+  ]]></fr:tex>
+        <html:p>In the categorical sense a bijection is just an <html:strong>isomorphism</html:strong> in a 0-category (i.e. the category of sets). We can give an equivalent more pedantic definition of bijectivity as follows:</html:p>
+        <fr:tex display="block"><![CDATA[
+    \forall  y \in  Y.\ (f(f^{-1}(y)) = y \land  \forall  x \in  X.\ (f(y) = x \to  f^{-1}(x) = y))
+  ]]></fr:tex>
+      </fr:mainmatter>
+    </fr:tree>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

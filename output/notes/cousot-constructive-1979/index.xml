@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors>
+      <fr:author>Cousot, Patrick, Cousot, Radhia</fr:author>
+    </fr:authors>
+    <fr:date>
+      <fr:year>1979</fr:year>
+      <fr:month>1</fr:month>
+      <fr:day>1</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/cousot-constructive-1979/</fr:uri>
+    <fr:display-uri>cousot-constructive-1979</fr:display-uri>
+    <fr:route>/notes/cousot-constructive-1979/</fr:route>
+    <fr:title text="Constructive Versions of Tarski's Fixed Point Theorems">Constructive Versions of Tarski's Fixed Point Theorems</fr:title>
+    <fr:taxon>Reference</fr:taxon>
+    <fr:meta name="issn">0030-8730</fr:meta>
+    <fr:meta name="external">https://msp.org/pjm/1979/81-2/pjm-v81-n2-p06.pdf</fr:meta>
+    <fr:meta name="doi">10.2140/pjm.1979.81.409</fr:meta>
+    <fr:meta name="pages">409--430</fr:meta>
+    <fr:meta name="number">2</fr:meta>
+    <fr:meta name="volume">81</fr:meta>
+    <fr:meta name="journal">Pacific Journal of Mathematics</fr:meta>
+    <fr:meta name="ENTRYTYPE">article</fr:meta>
+    <fr:meta name="ID">cousot_constructive_1979</fr:meta>
+  </fr:frontmatter>
+  <fr:mainmatter />
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

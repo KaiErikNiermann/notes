@@ -108,7 +108,7 @@
           <fr:mainmatter>
             <html:p>Well founded induction describes the generalized induction principle to any <fr:link href="/notes/0022/" title="Well-founded Relation" uri="https://kaierikniermann.github.io/notes/0022/" display-uri="0022" type="local">well-founded relation</fr:link> <fr:tex display="inline"><![CDATA[\prec ]]></fr:tex>. Given a set <fr:tex display="inline"><![CDATA[S]]></fr:tex> with a well-founded relation <fr:tex display="inline"><![CDATA[\prec ]]></fr:tex>, to prove that a property <fr:tex display="inline"><![CDATA[P(x)]]></fr:tex> holds for all elements <fr:tex display="inline"><![CDATA[x \in  S]]></fr:tex>, it suffices to show that for every element <fr:tex display="inline"><![CDATA[x \in  S]]></fr:tex>, if <fr:tex display="inline"><![CDATA[P(y)]]></fr:tex> holds for all elements <fr:tex display="inline"><![CDATA[y \in  S]]></fr:tex> such that <fr:tex display="inline"><![CDATA[y \prec  x]]></fr:tex>, then <fr:tex display="inline"><![CDATA[P(x)]]></fr:tex> also holds. Formally, this can be expressed as:</html:p>
             <fr:tex display="block"><![CDATA[
-  (\forall  x \in  S.\ (\forall  y \in  S.\ y \prec  x \implies  P(y)) \implies  P(x)) \implies  (\forall  x \in  S.\ P(x))
+  (\forall  x \in  S.\ (\forall  y \in  S.\ y \prec  x \to  P(y)) \to  P(x)) \to  (\forall  x \in  S.\ P(x))
 ]]></fr:tex>
           </fr:mainmatter>
         </fr:tree>

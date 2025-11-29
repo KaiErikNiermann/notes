@@ -4,6 +4,7 @@
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
+  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix}
 
   % A TikZ style for curved arrows of a fixed height, due to AndréC.
   \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
@@ -36,8 +37,10 @@
 \def\latex-preamble/mathpar{
   \startverb
   \usepackage{eulervm}
+  \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
   \stopverb
 }
 

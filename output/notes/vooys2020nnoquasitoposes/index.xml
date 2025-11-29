@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors>
+      <fr:author>Vooys, Geoff</fr:author>
+    </fr:authors>
+    <fr:date>
+      <fr:year>2020</fr:year>
+      <fr:month>3</fr:month>
+      <fr:day>9</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/vooys2020nnoquasitoposes/</fr:uri>
+    <fr:display-uri>vooys2020nnoquasitoposes</fr:display-uri>
+    <fr:route>/notes/vooys2020nnoquasitoposes/</fr:route>
+    <fr:title text="Natural Numbers Objects and Quasitoposes">Natural Numbers Objects and Quasitoposes</fr:title>
+    <fr:taxon>Reference</fr:taxon>
+    <fr:meta name="external">https://cspages.ucalgary.ca/~robin/class/Topos-readings/Natural%20Numbers%20Objects%20and%20Quasitoposes.pdf</fr:meta>
+    <fr:meta name="note">Reading note</fr:meta>
+    <fr:meta name="ENTRYTYPE">misc</fr:meta>
+    <fr:meta name="ID">vooys2020nnoquasitoposes</fr:meta>
+  </fr:frontmatter>
+  <fr:mainmatter />
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>11</fr:month>
+      <fr:day>26</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/002g/</fr:uri>
+    <fr:display-uri>002g</fr:display-uri>
+    <fr:route>/notes/002g/</fr:route>
+    <fr:title text="Complete lattice for subsets ordered by inclusion"><fr:link href="/notes/002c/" title="Complete Lattice" uri="https://kaierikniermann.github.io/notes/002c/" display-uri="002c" type="local">Complete lattice</fr:link> for subsets ordered by inclusion</fr:title>
+    <fr:taxon>Example</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter><html:p>One of the most basic examples of a <fr:link href="/notes/002c/" title="Complete Lattice" uri="https://kaierikniermann.github.io/notes/002c/" display-uri="002c" type="local">complete lattice</fr:link> is the power set of a given set <fr:tex display="inline"><![CDATA[X]]></fr:tex>, denoted as <fr:tex display="inline"><![CDATA[\mathcal {P}(X)]]></fr:tex>, ordered by the subset relation <fr:tex display="inline"><![CDATA[\subseteq ]]></fr:tex>. The power set <fr:tex display="inline"><![CDATA[\mathcal {P}(X)]]></fr:tex> consists of all possible subsets of <fr:tex display="inline"><![CDATA[X]]></fr:tex>, including the empty set <fr:tex display="inline"><![CDATA[\emptyset ]]></fr:tex> and the set <fr:tex display="inline"><![CDATA[X]]></fr:tex> itself. If we consider the following three element set:</html:p><fr:tex display="block"><![CDATA[
+  \{a, b, c\}
+]]></fr:tex><html:p>We can draw the (complete) powerset lattice as follows:</html:p>
+ 
+  
+  <html:figure><fr:resource hash="734a5853a3ebff8c45598a4886938c28"><fr:resource-content><html:img src="/notes/734a5853a3ebff8c45598a4886938c28.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+   
+  % String-diagram specific extensions live here. Add diagram tweaks without
+ % re-running the full base preamble (to avoid duplicate definitions).
+
+   
+ 
+   \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{amsmath, amsthm, amsfonts}
+  \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
+  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix}
+
+  % A TikZ style for curved arrows of a fixed height, due to AndréC.
+  \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+        .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+        and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+    \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+  quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+  % A TikZ style for shortening paths without the poor behaviour of `shorten <' and `shorten >'.
+  \tikzset{between/.style n args={2}{/tikz/spath/at end path construction={
+        \tikzset{spath/split at keep middle={current}{#1}{#2}}
+  }}}
+
+  % TikZ arrowhead/tail styles.
+  \tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+  \tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+  \tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+  % TikZ arrow styles.
+  \tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+
+
+  ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
+  \begin {tikzcd}[column sep=small]
+    & {\{a, b, c\}} \\
+    {\{a, b\}} & {\{a, c\}} & {\{b, c\}} \\
+    {\{a\}} & {\{b\}} & {\{c\}} \\
+    & {\{\empty \}}
+    \arrow [tail reversed, from=1-2, to=2-1]
+    \arrow [from=1-2, to=2-2]
+    \arrow [tail reversed, from=1-2, to=2-3]
+    \arrow [tail reversed, from=2-1, to=3-1]
+    \arrow [tail reversed, from=2-1, to=3-2]
+    \arrow [dashed, tail reversed, from=2-2, to=3-1]
+    \arrow [dashed, tail reversed, from=2-2, to=3-3]
+    \arrow [tail reversed, from=2-3, to=3-2]
+    \arrow [tail reversed, from=2-3, to=3-3]
+    \arrow [tail reversed, from=3-1, to=4-2]
+    \arrow [from=3-2, to=4-2]
+    \arrow [tail reversed, from=3-3, to=4-2]
+  \end {tikzcd}
+]]></fr:resource-source></fr:resource></html:figure>
+ 
+<fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>26</fr:day></fr:date><fr:title text="Some intuition">Some intuition</fr:title></fr:frontmatter><fr:mainmatter><html:p>There's a few observations we can make just by looking at the lattice:</html:p><html:ul><html:li>If we take any two subsets on the same level, such as <fr:tex display="inline"><![CDATA[\{\{a\}, \{b\}\}]]></fr:tex> then <html:em>two move up a level</html:em> we take the union of the sets, so:
+    <fr:tex display="block"><![CDATA[
+      \{a\} \cup  \{b\} \to  \{a, b\}
+    ]]></fr:tex>
+    Conversly if we wish to <html:em>move down a level</html:em> we take the intersection of the two sets, so for the same pair
+    <fr:tex display="block"><![CDATA[
+      \{a\} \cap  \{b\} \to  \{\}
+    ]]></fr:tex>
+    <html:li>Each level expresses the different powersets of <fr:tex display="inline"><![CDATA[X]]></fr:tex> with a given cardinality. So the bottom level is the powerset of cardinality 0 (i.e. the empty set), the next level up is the powerset of cardinality 1 (i.e. the singletons), then cardinality 2 and finally cardinality 3 at the top level which is just the set <fr:tex display="inline"><![CDATA[X]]></fr:tex> itself.</html:li>
+    <html:li>Naturally as we move up the lattice the sets get larger (with respect to inclusion) and as we move down the lattice the sets get smaller.</html:li></html:li></html:ul></fr:mainmatter></fr:tree><html:p>As a reminder, a <fr:link href="/notes/002c/" title="Complete Lattice" uri="https://kaierikniermann.github.io/notes/002c/" display-uri="002c" type="local">complete lattice</fr:link> is a partially ordered set (here on inclusion) in which all subsets exhibit both a meet and join. Let's for example take the following subset:</html:p><fr:tex display="block"><![CDATA[
+  S = \{\{a\}, \{a, b\}\}
+]]></fr:tex><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>26</fr:day></fr:date><fr:title text="Lower bound">Lower bound</fr:title></fr:frontmatter><fr:mainmatter><html:p>Here the lower bound is any element <fr:tex display="inline"><![CDATA[(\sqcup  S) \in  L]]></fr:tex> in the larger lattice in which the following property holds:</html:p><fr:tex display="block"><![CDATA[
+    \forall  s \in  S.\ (\sqcup  S) \leq  s
+  ]]></fr:tex><html:p>In our case we know that <fr:tex display="inline"><![CDATA[\leq \ \equiv \ \subseteq ]]></fr:tex>, furthermore we have that the elements of <fr:tex display="inline"><![CDATA[S]]></fr:tex> are the two sets <fr:tex display="inline"><![CDATA[\{a\}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\{a, b\}]]></fr:tex>, hence we can rephrase this condition as</html:p><fr:tex display="block"><![CDATA[
+    (\sqcup  S) \subseteq  \{a\} \land  (\sqcup  S) \subseteq  \{a, b\}
+  ]]></fr:tex><html:p>Clearly the lower bound in this instance is then just:</html:p><fr:tex display="block"><![CDATA[
+    lb(\sqcup  S) = \{\{\emptyset \}, \{a\}\}
+  ]]></fr:tex><html:p>The greatest lower bound is simply the intersection of all lower bounds hence:</html:p><fr:tex display="block"><![CDATA[
+    \text {glb}(\sqcup  S) = \bigcap \ \{\{\emptyset \}, \{a\}\} = \{a\}
+  ]]></fr:tex></fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>26</fr:day></fr:date><fr:title text="Upper bound">Upper bound</fr:title></fr:frontmatter><fr:mainmatter><html:p>The upper bound is just the flipped condition of the lower bound, i.e.:</html:p><fr:tex display="block"><![CDATA[
+    \forall  s \in  S.\ s \leq  (\sqcap  S) \equiv  (\{a\} \subseteq  (\sqcap  S)) \land  (\{a, b\} \subseteq  (\sqcap  S))
+  ]]></fr:tex><html:p>The sets which satisfy this condition are:</html:p><fr:tex display="block"><![CDATA[
+    \text (ub)(\sqcup  S) = \{\{a, b\}, \{a, b, c\}\}
+  ]]></fr:tex><html:p>The least upper bound is the smallest of the sets which form the upper bound, i.e.:</html:p><fr:tex display="block"><![CDATA[
+    \text {lub}(\sqcap  S) = \{a, b\}
+  ]]></fr:tex></fr:mainmatter></fr:tree></fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>11</fr:month>
+              <fr:day>25</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/002c/</fr:uri>
+            <fr:display-uri>002c</fr:display-uri>
+            <fr:route>/notes/002c/</fr:route>
+            <fr:title text="Complete Lattice">Complete Lattice</fr:title>
+            <fr:taxon>Definition</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <html:p>A <html:em>complete lattice</html:em> is a <fr:link href="/notes/002d/" title="Partial order" uri="https://kaierikniermann.github.io/notes/002d/" display-uri="002d" type="local">partially ordered set</fr:link> in which all subsets have both a <html:em>greatest lower bound</html:em> (also known as <html:em>infimum</html:em> or <html:em>meet</html:em>) and a <html:em>least upper bound</html:em> (also known as <html:em>supremum</html:em> or <html:em>join</html:em>). This means that for any subset <fr:tex display="inline"><![CDATA[S]]></fr:tex> of the complete lattice <fr:tex display="inline"><![CDATA[L]]></fr:tex>, there exists an element <fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> in <fr:tex display="inline"><![CDATA[L]]></fr:tex> such that: <fr:link href="/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" title="The Hitchhiker’s Guide to Logical Verification (2024 Desktop Edition)" uri="https://kaierikniermann.github.io/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" display-uri="baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024" type="local">(1)</fr:link></html:p>
+            <html:ul><html:li><fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> is a lower bound of <fr:tex display="inline"><![CDATA[S]]></fr:tex>: For all elements <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[\sqcup \ S \leq  s]]></fr:tex>.</html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> is the greatest of all lower bounds: For any other lower bound <fr:tex display="inline"><![CDATA[b]]></fr:tex> of <fr:tex display="inline"><![CDATA[S]]></fr:tex>, <fr:tex display="inline"><![CDATA[b \leq  \sqcup \ S]]></fr:tex>.</html:li></html:ul>
+            <html:p>Similarly, there exists an element <fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> in <fr:tex display="inline"><![CDATA[L]]></fr:tex> such that:</html:p>
+            <html:ul><html:li><fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> is an upper bound of <fr:tex display="inline"><![CDATA[S]]></fr:tex>: For all elements <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[s \leq  \sqcap \ S]]></fr:tex>.</html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> is the least of all upper bounds: For any other upper bound <fr:tex display="inline"><![CDATA[b]]></fr:tex> of <fr:tex display="inline"><![CDATA[S]]></fr:tex>, <fr:tex display="inline"><![CDATA[\sqcap \ S \leq  b]]></fr:tex>.</html:li></html:ul>
+            <html:p>In a complete lattice, every subset, including the empty set and the entire set itself, has both a supremum and an infimum within the lattice.</html:p>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

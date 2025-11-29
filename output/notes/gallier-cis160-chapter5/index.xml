@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors>
+      <fr:author>Gallier, Jean</fr:author>
+    </fr:authors>
+    <fr:uri>https://kaierikniermann.github.io/notes/gallier-cis160-chapter5/</fr:uri>
+    <fr:display-uri>gallier-cis160-chapter5</fr:display-uri>
+    <fr:route>/notes/gallier-cis160-chapter5/</fr:route>
+    <fr:title text="Chapter 5: Partial Orders, Lattices, Well-Founded Orderings, Equivalence Relations, Distributive Lattices, Boolean Algebras, Heyting Algebras">Chapter 5: Partial Orders, Lattices, Well-Founded Orderings, Equivalence Relations, Distributive Lattices, Boolean Algebras, Heyting Algebras</fr:title>
+    <fr:taxon>Reference</fr:taxon>
+    <fr:meta name="institution">University of Pennsylvania</fr:meta>
+    <fr:meta name="note">CIS 160 lecture slides</fr:meta>
+    <fr:meta name="external">https://www.seas.upenn.edu/~jean/cis160/cis260slides7.pdf</fr:meta>
+    <fr:meta name="ENTRYTYPE">misc</fr:meta>
+    <fr:meta name="ID">gallier_cis160_chapter5</fr:meta>
+  </fr:frontmatter>
+  <fr:mainmatter />
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>11</fr:month>
+              <fr:day>26</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/002k/</fr:uri>
+            <fr:display-uri>002k</fr:display-uri>
+            <fr:route>/notes/002k/</fr:route>
+            <fr:title text="Well-order (well ordering)">Well-order (well ordering)</fr:title>
+            <fr:taxon>Definition</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <html:p>Given a <fr:link href="/notes/002d/" title="Partial order" uri="https://kaierikniermann.github.io/notes/002d/" display-uri="002d" type="local">poset</fr:link> <fr:tex display="inline"><![CDATA[(X, \leq )]]></fr:tex>, we say that the relation <fr:tex display="inline"><![CDATA[\leq ]]></fr:tex> is a <html:em>well-order</html:em> and that <fr:tex display="inline"><![CDATA[X]]></fr:tex> is <html:em>well-ordered</html:em> by <fr:tex display="inline"><![CDATA[\leq ]]></fr:tex> iff. every non-empty subset <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex> has a least element; that is, there exists an element <fr:tex display="inline"><![CDATA[m \in  S]]></fr:tex> such that for all <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[m \leq  s]]></fr:tex>. So, formally we have: <fr:link href="/notes/gallier-cis160-chapter5/" title="Chapter 5: Partial Orders, Lattices, Well-Founded Orderings, Equivalence Relations, Distributive Lattices, Boolean Algebras, Heyting Algebras" uri="https://kaierikniermann.github.io/notes/gallier-cis160-chapter5/" display-uri="gallier-cis160-chapter5" type="local">(1)</fr:link></html:p>
+            <fr:tex display="block"><![CDATA[
+  \forall  (S : \mathcal {P}(X)).\ S \neq  \emptyset  \implies  (\exists  m \in  S.\ \forall  s \in  S.\ m \leq  s)
+]]></fr:tex>
+            <html:p>When X is nonempty, if we pick out any two-element subset, <fr:tex display="inline"><![CDATA[\{a, b\}]]></fr:tex> of <fr:tex display="inline"><![CDATA[X]]></fr:tex>, since the subset must have a least element, either <fr:tex display="inline"><![CDATA[a \leq  b]]></fr:tex> or <fr:tex display="inline"><![CDATA[b \leq  a]]></fr:tex>. Thus, a <html:em>well-order</html:em> is a total order.</html:p>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

@@ -24,7 +24,7 @@
       def BoolCat.tt : BoolCat := ⟨true⟩
       def BoolCat.ff : BoolCat := ⟨false⟩
     }
-    \p{Next we want to define the morphisms between these objects. For each pair of objects we express 3 kinds of morphisms: the identity morphism, a morphism from #{false} to \cf{true}, \cf{false}from \cf{true} to \cf{false}. We can express this in Lean as follows:}
+    \p{Next we want to define the morphisms between these objects. For each pair of objects we express 3 kinds of morphisms: the identity morphism, a morphism from \cf{false} to \cf{true}, \cf{false}from \cf{true} to \cf{false}. We can express this in Lean as follows:}
     \codeblock{lean}{
       /-- Morphisms: we allow identity on each, plus iso between them -/
       inductive BCHom : BoolCat → BoolCat → Type

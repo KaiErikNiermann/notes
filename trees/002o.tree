@@ -4,4 +4,421 @@
 
 \taxon{Definition}
 
-\title{Large and small categories}
+\title{(Essentially/Locally) small categories}
+
+\subtree{
+  \taxon{Definition}
+  \title{Small category}
+  
+  \p{A category #{\mathcal{C}} is called \strong{small} (or #{U}-small) if both the collection of objects #{\mathrm{Ob}(\mathcal{C})} and the collection of morphisms #{\mathrm{Mor}(\mathcal{C})} are sets (i.e. elements of the universe #{U}). In lean where we correspond universes to types this just means that we instatiate the universe levels of morphisms and objects to the same thing, we can see this clearly in the definition of a \cf{SmallCategory} in mathlib.}
+  \codeblock{lean}{
+    abbrev SmallCategory (C : Type u) : Type (u + 1) := Category.{u} C
+  }
+}
+
+\subtree{
+  \taxon{Definition}
+  \title{Locally small}
+  
+  \p{A \strong{locally small} category #{\mathcal{C}} is a category satisfying the following conditions:}
+  \ul{
+    \li{The collection of objects #{\mathrm{Ob}(\mathcal{C})} and morphisms #{\mathrm{Mor}(\mathcal{C})} are classes. [(1)](low-universes-category-theory-2014)}
+    \li{For every pair of objects #{X, Y \in \mathrm{Ob}(\mathcal{C})} the hom-set #{\mathcal{C}(X, Y)} is a \em{set} (or small set) instead of a \em{proper class}.}
+  }
+  \subtree{
+    \title{The lean definition}
+    
+    \p{This one is a little bit more interesting, first let's look at the definition in mathlib:}
+    \codeblock{lean}{
+      class Small (α : Type v) : Prop where
+        /-- If a type is `Small.{w}`, 
+          then there exists an equivalence with some `S : Type w` -/
+        equiv_small : ∃ S : Type w, Nonempty (α ≃ S)
+
+      ...
+      class LocallySmall (C : Type u) [Category.{v} C] : Prop where
+        /-- A locally small category has small hom-types. -/
+        hom_small : ∀ X Y : C, Small.{w} (X ⟶ Y) := by infer_instance
+    }
+    \p{So we can see that in lean a locally small category is defined as a normal category with the added property that for every pair of objects #{X, Y \in \mathrm{Ob}} the hom-type #{X ⟶ Y} is \cf{Small}, which as we can see from the definition of \cf{Small} means that there exists some type \cf{S : Type w} such that there is an equivalence #{α ≃ S}. We can informally correspond to the lean definition as follows:}
+    \ul{
+      \li{Our objects \cf{C : Type u} live in some universe level #{u} which we assoicate with being a class i.e. possibly large collection.}
+      \li{The morphisms between any two objects \cf{X, Y : C} live in some \em{other} universe level #{w} where the equivalence to some type \cf{S : Type w} expresses the notion that the hom-sets are small sets.}
+    } 
+    \p{Honestly I think quite reasonably its fair to ask: wait what how does that represent smallness ? What is \cf{w} even supposed to be? So I think an example is warranted.}
+  }
+  \subtree{
+    \title{Example of a locally small category}
+    
+    \p{This is arguably a bit contrived but let's consider objects as being containers for types in some universe level #{0} i.e. sets. So we can define our objects and morphisms as follows:}
+    \codeblock{lean}{
+      structure TWrapper : Type 1 where
+        carrier : Type 0
+
+      /-- Morphisms are functions - each Hom(A,B) is a set -/
+      def TWHom (A B : TWrapper) : Type 0 := A.carrier → B.carrier
+    }
+    \p{Importantly we can note here that the type of objects \cf{TWrapper : Type 1} lives in universe level #{1} which we can think of as a class of sets. However the morphisms between any two objects \cf{TWHom (A B : TWrapper) : Type 0} live in universe level #{0} which we can think of as small sets. Using this we can define a category instance:}
+    \codeblock{lean}{
+      instance TWrapper.category : Category TWrapper where
+        -- The data
+        Hom     := TWHom
+        id      := fun _ => id
+        comp    := 
+          fun {X Y Z} (f : TWHom X Y) (g : TWHom Y Z) => fun x => g (f x)
+
+        -- The laws
+        id_comp := fun _ => rfl
+        comp_id := fun _ => rfl
+        assoc := fun _ _ _ => rfl
+    }
+    \p{Now we want to define the locally small instance:}
+    \codeblock{lean}{
+      instance TWrapper.locallySmall : LocallySmall.{0} TWrapper where
+        hom_small := fun X Y => ⟨⟨TWHom X Y, ⟨Equiv.refl _⟩⟩⟩
+    }
+    \p{This now answers a few questions that arose earlier:}
+    \ul{
+      \li{We instantiated the universe level of our hom-sets \cf{w} to #{0} which corresponds to small sets.}
+      \li{The equivalence \cf{α ≃ S} in this case is just the identity equivalence \cf{Equiv.refl} since our hom-sets are already small sets. On other words here:
+      \codeblock{lean}{
+        Small.{w} (X ⟶ Y)
+      }
+      We have that \cf{X ⟶ Y} represents our set which exists in universe level #{0}, since we are instantiating \cf{w} to #{0} the \cf{Small} definition is satisfied by the identity equivalence.
+      }
+    }
+    \p{So we can see that in the context of lean a locally small category is just a category where the objects live in some universe level (class) and the hom-sets live in some smaller universe level (set) and we must provide an equivalence showing that the hom-sets are indeed small sets.}
+  }
+}
+
+\subtree{
+  \taxon{Definition}
+  \title{Essentially small}
+  
+  \p{A category #{\mathcal{C}} is called \strong{essentially small} if there exists a small category #{\mathcal{D}} and a functor:}
+  ##{
+    F : \mathcal{D} \to \mathcal{C}
+  }
+  \p{That is \em{fully faithful} and \em{essentially surjective} on objects, i.e. it represents an [equivalence](002x). In other words we call a category essentially small if its \em{isomorphism classes} of objects form a set.}
+  \p{To elaborate a bit more, we say that a functor #{F : C \to D} is an \em{equivalence} if there exists:}
+  \ul{
+    \li{A functor #{G : D \to C} }
+    \li{The [natural isomorphisms](0031):
+      ##{
+        \eta : \text{Id}_C \xrightarrow{\cong} G \circ F \quad \epsilon : F \circ G \xrightarrow{\cong} \text{Id}_D
+      }
+      in other words the natural transformations #{\eta} and #{\epsilon} are isomorphisms. Equivalently using diagrammatic notation we can express this as:
+      ##{
+        \eta : 1_C \xrightarrow{\cong} F ; G \quad \epsilon : G ; F \xrightarrow{\cong} 1_D
+      }
+      in plain english we can see this as saying that the round trip we take by applying #{F} then #{G} (or vice versa) is naturally isomorphic to doing nothing at all (the identify functor).
+    }
+  }
+  \p{In diagrammatic form we can represent this as follows:}
+  \texfig{
+    % https://q.uiver.app/#q=WzAsNixbMiwwLCJDIl0sWzQsMCwiRCJdLFswLDIsIjFfQyJdLFsyLDIsIkY7RyJdLFs2LDIsIjFfRCJdLFs0LDIsIkc7RiJdLFswLDEsIkYiLDAseyJjdXJ2ZSI6LTN9XSxbMSwwLCJHIiwwLHsiY3VydmUiOi0zfV0sWzAsMCwiMV9DIiwwLHsiYW5nbGUiOi05MH1dLFsyLDMsIlxcZXRhIiwwLHsiY3VydmUiOi0zfV0sWzMsMiwiXFxldGFeey0xfSIsMCx7ImN1cnZlIjotM31dLFsxLDEsIjFfRCIsMCx7ImFuZ2xlIjo5MH1dLFs0LDUsIlxcZXBzaWxvbiIsMix7ImN1cnZlIjozfV0sWzUsNCwiXFxlcHNpbG9uXnstMX0iLDIseyJjdXJ2ZSI6M31dLFs0LDUsIlxcY29uZyIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiwzLCJcXGNvbmciLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJhcnJvd2hlYWQifSwiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzYsNywiRjtHIiwyLHsiY3VydmUiOjEsInNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNyw2LCJHO0YiLDIseyJjdXJ2ZSI6MSwic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dXQ==
+    \[\begin{tikzcd}
+      && C && D \\
+      \\
+      {1_C} && {F;G} && {G;F} && {1_D}
+      \arrow["{1_C}", from=1-3, to=1-3, loop, in=145, out=215, distance=10mm]
+      \arrow[""{name=0, anchor=center, inner sep=0}, "F", curve={height=-18pt}, from=1-3, to=1-5]
+      \arrow[""{name=1, anchor=center, inner sep=0}, "G", curve={height=-18pt}, from=1-5, to=1-3]
+      \arrow["{1_D}", from=1-5, to=1-5, loop, in=325, out=35, distance=10mm]
+      \arrow["\eta", curve={height=-18pt}, from=3-1, to=3-3]
+      \arrow["\cong"{description}, dashed, tail reversed, from=3-1, to=3-3]
+      \arrow["{\eta^{-1}}", curve={height=-18pt}, from=3-3, to=3-1]
+      \arrow["{\epsilon^{-1}}"', curve={height=18pt}, from=3-5, to=3-7]
+      \arrow["\epsilon"', curve={height=18pt}, from=3-7, to=3-5]
+      \arrow["\cong"{description}, dashed, tail reversed, from=3-7, to=3-5]
+      \arrow["{F;G}"', curve={height=6pt}, between={0.2}{0.8}, Rightarrow, from=0, to=1]
+      \arrow["{G;F}"', curve={height=6pt}, between={0.2}{0.8}, Rightarrow, from=1, to=0]
+    \end{tikzcd}\]
+  }
+  \p{The main takeaway here being that an essentially small category is one which is equivalent to a small category. Hence the problem of demonstrating a category is essentially small reduces to demonstrating isomorphisms between the unit and counit natural transformations.}
+  \subtree{
+    \title{The lean definition}
+    
+    \p{We can again examine the definition in mathlib:}
+    \codeblock{lean}{
+      /-- A category is `EssentiallySmall.{w}` if there exists
+      an equivalence to some `S : Type w` with `[SmallCategory S]`. -/
+      @[pp_with_univ]
+      class EssentiallySmall (C : Type u) [Category.{v} C] : Prop where
+        /-- An ES category is equivalent to some small category. -/
+        equiv_smallCategory : ∃ (S : Type w) (_ : SmallCategory S), Nonempty (C ≌ S)
+    }
+    \p{We can see quite nicely here how the lean definition corresponds to the informal one. We have our category \cf{C : Type u} living in some universe level #{u} (class) and we require the existence of some small category \cf{S : Type w} living in some smaller universe level #{w} (set) such that there exists an equivalence \cf{C ≌ S}.}
+  }
+  \subtree{
+    \title{Example of an essentially small category}
+    
+    \p{As an example we will take the categories #{\texttt{FinSet}} and #{\texttt{FinOrd}}. Starting with the former, the category of finite sets #{\texttt{FinSet}} is defined as follows:}
+    \codeblock{lean}{
+      /-- Finite sets as a category - objects are Fin n for various n -/
+      structure FinSetObj : Type 1 where
+        n : ℕ
+        carrier : Type 0
+        equiv   : carrier ≃ Fin n  -- witness that carrier has exactly n elements
+
+      /-- Morphisms are functions between the carriers -/
+      def FSHom (A B : FinSetObj) : Type 0 := A.carrier → B.carrier
+
+      /-- First, we need a Category instance -/
+      instance FinSetObj.category : Category FinSetObj where
+        Hom     := FSHom
+        id      := fun _ => id
+        comp    :=
+          fun {X Y Z} (f : FSHom X Y) (g : FSHom Y Z) => fun x => g (f x)
+
+        id_comp := fun _ => rfl
+        comp_id := fun _ => rfl
+        assoc   := fun _ _ _ => rfl
+    }
+    \p{It's defined as the category who's objects are finite sets and who's morphisms are functions between said sets. Here we are defining a custom variant of a finite set object \cf{FinSetObj} which contains:}
+    \ul{
+      \li{A natural number \cf{n : ℕ} representing the cardinality of the set.}
+      \li{A carrier type \cf{carrier : Type 0} representing the actual elements of the set.}
+      \li{An equivalence \cf{equiv : carrier ≃ Fin n} which acts as a witness that the carrier has exactly \cf{n} elements.}
+    }
+    \p{We then define our morphisms as functions between the carrier types of two finite set objects. Finally we provide a category instance in the standard way.}
+    \p{Next we want to define the category of all finite ordinal numbers #{\texttt{FinOrd}}. This is defined as follows:}
+    \codeblock{lean}{
+      /-- The skeleton: the discrete category on ℕ -/
+      abbrev FinSetSkeleton := ℕ
+
+      /-- The skeleton category: 
+        objects are ℕ, morphisms are functions between Fin types -/
+      structure FinSkel : Type 0 where
+        n : ℕ
+
+      instance : SmallCategory FinSkel where
+        Hom   := fun A B => Fin A.n → Fin B.n
+        id    := fun _ => id
+        comp  := fun f g => g ∘ f
+    }
+    \p{In our case we can define the finite ordinals as the skeleton of the finite sets category. So our objects are just natural numbers \cf{n : ℕ} representing the finite ordinals and our morphisms are functions between the corresponding finite sets \cf{Fin n}. Again we provide a small category instance in the standard way.}
+    \p{Now central to the definition of an essentially small category is the existence of an equivalence, in other words we need to functors with a natural transformation witnessing the equivalence. We'll start by defining the functor from the finite ordinals to the finite sets:}
+    \codeblock{lean}{
+      /-- Canonical embedding of FinSkel into FinSetObj -/
+      def skelToFinSetObj : FinSkel ⥤ FinSetObj where
+        obj       := fun A => ⟨A.n, Fin A.n, Equiv.refl _⟩
+        map       := fun f => f
+        map_id    := fun _ => rfl
+        map_comp  := fun _ _ => rfl
+    }
+    \p{We can note here that:}
+    \ul{
+      \li{The object mapping takes a finite ordinal \cf{A : FinSkel} and maps it to the corresponding finite set object with carrier \cf{Fin A.n}. The equivalence is just the identity equivalence since \cf{Fin A.n} obviously has exactly \cf{A.n} elements.}
+      \li{The morphism mapping is just the identity since morphisms in both categories are functions between finite sets.}
+      \li{The functor laws are satisfied by reflexivity.}
+    }
+    \p{The other way around is a little bit more involved, we can construct the functor as follows:}
+    \codeblock{lean}{
+      def finSetObjToSkel : FinSetObj ⥤ FinSkel where
+        obj := fun A => ⟨A.n⟩
+        map := fun {A B} f => B.equiv ∘ f ∘ A.equiv.symm
+        map_id := fun A => by
+          funext x
+          show A.equiv ((id : A.carrier → A.carrier) (A.equiv.symm x)) 
+            = (id : Fin A.n → Fin A.n) x
+
+          simp only [id_eq, Equiv.apply_symm_apply]
+        map_comp := fun {A B C} f g => by
+          funext x
+          show C.equiv (g (f (A.equiv.symm x))) 
+            = (C.equiv ∘ g ∘ B.equiv.symm) ((B.equiv ∘ f ∘ A.equiv.symm) x)
+
+          simp only [Function.comp_apply, Equiv.symm_apply_apply]
+    }
+    \p{Again to break this down by components:}
+    \ul{
+        \li{In the object mapping we are taking in a finite set object \cf{A : FinSetObj} and mapping it to the corresponding finite ordinal represented by the natural number \cf{A.n}.}
+        \li{Our morphism mapping is a bit more complex, since we are going from the category of finite sets our source and target objects \cf{A} and \cf{B} represent the finite set objects. For all pairs of objects the map function demands:
+        \codeblock{lean}{
+          ∀ {X Y : C}, (X ⟶ Y) → ((obj X) ⟶ (obj Y))
+        }
+        we are provided with the set of morphisms \cf{f : A.carrier → B.carrier} and we need to produce a function between the corresponding finite sets \cf{Fin A.n → Fin B.n}. Here we utilize an important property that comes with equivalences: they can be used to transport functions between types. To explain what this means let's consider the isolated example:
+        }
+        \codeblock{lean}{
+          variable (A B : FinSetObj) (f : FinSetObj.category.Hom A B)
+
+          #check B.equiv ∘ f      -- ⇑B.equiv ∘ f : A.carrier → Fin B.n
+          #check f ∘ A.equiv.symm -- f ∘ ⇑A.equiv.symm : Fin A.n → B.carrier
+        }
+        Whats going on here is that the composition coerces the equivalences into functions i.e.
+        \codeblock{lean}{
+          @[simp, norm_cast]
+          lemma _root_.EquivLike.coe_coe {F} [EquivLike F α β] (e : F) :
+              ((e : α ≃ β) : α → β) = e := rfl
+        }
+        Since the equivalence is between the carrier (set) type and the upper bound witness we have the function 
+        \codeblock{lean}{
+          ⇑B.equiv      B.carrier → Fin B.n
+          ⇑A.equiv.symm Fin A.n   → A.carrier
+        }
+        hence composing this with our morphism gives
+        \codeblock{lean}{
+          A.carrier → B.carrier → Fin B.n -- so A.carrier → Fin B.n
+          Fin A.n → A.carrier → B.carrier -- so Fin A.n → B.carrier
+        }
+        and composing these two results in the desired function \cf{Fin A.n → Fin B.n}.
+      \li{Next we want to show that the functor preserves identities. In our case this means the following:
+        \codeblock{lean}{
+          map_id : ∀ (A : FinSetObj), 
+            ⇑A.equiv ∘ 𝟙 A ∘ ⇑A.equiv.symm = 𝟙 { n := A.n }
+        }
+        As our probelm is of the shape 
+        ##{
+          (\forall x, f x = g x)
+        }
+        We can apply the \cf{funext} tactic which reduces the goal to showing that the two sides are equal when applied to an arbitrary input \cf{x}. Our goal then becomes: 
+        \codeblock{lean}{
+          (⇑A.equiv ∘ 𝟙 A ∘ ⇑A.equiv.symm) x = (𝟙 { n := A.n }) x
+        }
+        It might be helpful at this point to take a look at the underlying types: 
+        \codeblock{lean}{
+          ... : Fin { n := A.n }.n → Fin { n := A.n }.n 
+          = 
+          ... :     { n := A.n }   ⟶     { n := A.n }
+        }
+        The purpose of the \cf{show} tactic here is to explicitly specify the goal we want to prove, i.e. create a definitionally equal variant of the goal to replace the current one with, if we look at the goals before and after the show tactic we have:
+        \codeblock{lean}{
+          -- before
+          ⊢ (⇑A.equiv ∘ 𝟙 A ∘ ⇑A.equiv.symm) x = 𝟙 { n := A.n } x
+
+          -- after 
+          ⊢ A.equiv (id (A.equiv.symm x)) = id x
+        }
+        looking at the types of the goal after the \cf{show} tactic we have:
+        \codeblock{lean}{
+          ... : Fin A.n
+          = 
+          ... : Fin A.n
+        }
+        our final two simplifications then do
+        \codeblock{lean}{
+          A.equiv (id (A.equiv.symm x)) = A.equiv (A.equiv.symm x)
+          
+          -- id_eq : ... (a : α), id a = a
+          A.equiv (A.equiv.symm x) = x
+
+          -- apply_symm_apply : ... (e : α ≃ β) (x : β), e (e.symm x) = x
+          x = x
+        }
+        For the sake of completeness I want to go into the \cf{show} tactic a bit more. Startign with the right hand side, after the funext we have: 
+        \codeblock{lean}{
+          𝟙 { n := A.n } x 
+        }
+        The braces here are just syntactic sugar for defining a FinSkel structure inline, so unfolding it we can equivalently display this as:
+        \codeblock{lean}{
+          variable (A : FinSetObj) (x : Fin (FinSkel.mk A.n).n)
+          #check FinSkel.cat.id (FinSkel.mk A.n) x
+        }
+        but what we can notice if we look at the definition of our category is that the arrows between objects are actually arrows between their \cf{n} fields (with the Fin proof) i.e.
+        \codeblock{lean}{
+          fun A B => Fin A.n → Fin B.n
+        }
+        so in reality our identity morphism is actually:
+        \codeblock{lean}{
+          𝟙 { n := A.n } : Fin A.n → Fin A.n
+        }
+        hence applying it to \cf{x} gives us:
+        \codeblock{lean}{
+          (𝟙 { n := A.n }) x = id x
+        }
+        The left hand side follows a similar logic, in that we can again replace the identity morphism on the object with the identity function on the carrier type directly so we have:
+        \codeblock{lean}{
+          (⇑A.equiv ∘ 𝟙 A ∘ ⇑A.equiv.symm) x 
+            -> (⇑A.equiv ∘ id ∘ ⇑A.equiv.symm) x
+        }
+        and then if we avoid the syntactic sugar of function composition we have:
+        \codeblock{lean}{
+          ⇑A.equiv (id (⇑A.equiv.symm x)) 
+        }
+        we can equivalently just automate this step by just prepending \cf{Function.comp} into our simplification steps.
+      }
+      \li{For the case of showing that our functor preserves composition of morphisms we have a similar situation as to the identity case, here just to keep things not dragging on too long i'll just say that again we are more or less following the same logic as before. We are using show to reduce or goal into a form that is easier to reason about, and then we are just simplifying using the properties of equivalences and function composition.}
+    }
+    \p{Moving on we now have two create our natural transformations, here things should now be rather straightforward. In lean we have:}
+    \codeblock{lean}{
+      def unitNatTrans 
+          : 𝟭 FinSetObj ⟶ finSetObjToSkel ⋙ skelToFinSetObj where
+        app := fun A => (A.equiv : A.carrier → Fin A.n)
+        naturality := fun A B f => by
+          funext x
+          show B.equiv (f x) 
+            = (B.equiv ∘ f ∘ A.equiv.symm) (A.equiv x)
+          simp only [Function.comp_apply, Equiv.symm_apply_apply]
+
+      def unitInvNatTrans 
+          : finSetObjToSkel ⋙ skelToFinSetObj ⟶ 𝟭 FinSetObj where
+        app := fun A => (A.equiv.symm : Fin A.n → A.carrier)
+        naturality := fun A B f => by
+          funext x
+          show B.equiv.symm ((B.equiv ∘ f ∘ A.equiv.symm) x) 
+            = f (A.equiv.symm x)
+          simp only [Function.comp_apply, Equiv.symm_apply_apply]
+
+      /-- The unit isomorphism -/
+      def unitIsoFinSetObj : 𝟭 FinSetObj ≅ finSetObjToSkel ⋙ skelToFinSetObj where
+        hom := unitNatTrans
+        inv := unitInvNatTrans
+        hom_inv_id := by
+          ext A
+          funext x
+          show A.equiv.symm (A.equiv x) = x
+          simp only [Equiv.symm_apply_apply]
+        inv_hom_id := by
+          ext A
+          funext x
+          show A.equiv (A.equiv.symm x) = x
+          simp only [Equiv.apply_symm_apply]
+    }
+    \p{in lean composition of functors is denoted by the operator \cf{⋙} so we can see that our unit natural transformation has the correct type. The components of the natural transformation are just given by the equivalences we have in our finite set objects, and the naturality conditions again follow from unfolding the definitions and simplifying.}
+    \codeblock{lean}{
+      /-- Naturality lemma for counit transformations -/
+      lemma counit_naturality {A B : FinSkel} (f : A ⟶ B) :
+        (𝟭 FinSkel).map f ≫ id = id ≫ (skelToFinSetObj ⋙ finSetObjToSkel).map f := by
+        simp only [Functor.id_obj, Functor.comp_obj, skelToFinSetObj, finSetObjToSkel]
+        simp only [Functor.id_map, Functor.comp_map]
+        rfl
+
+      /-- The counit natural transformation: skelToFinSetObj ⋙ finSetObjToSkel → id -/
+      def counitNatTrans : skelToFinSetObj ⋙ finSetObjToSkel ⟶ 𝟭 FinSkel where
+        app := λ _ => id
+        naturality := fun _ _ f => counit_naturality f |>.symm
+
+      /-- The inverse of counit -/
+      def counitInvNatTrans : 𝟭 FinSkel ⟶ skelToFinSetObj ⋙ finSetObjToSkel where
+        app := λ _ => id
+        naturality := fun _ _ f => counit_naturality f
+
+      /-- The counit isomorphism -/
+      def counitIsoFinSkel : skelToFinSetObj ⋙ finSetObjToSkel ≅ 𝟭 FinSkel where
+        hom := counitNatTrans
+        inv := counitInvNatTrans
+        hom_inv_id := by ext A; rfl
+        inv_hom_id := by ext A; rfl
+    }
+    \p{text}
+    \codeblock{lean}{
+      /-- The equivalence between FinSetObj and FinSkel -/
+      def finSetObjEquiv : FinSetObj ≌ FinSkel where
+        functor := finSetObjToSkel
+        inverse := skelToFinSetObj
+        unitIso := unitIsoFinSetObj
+        counitIso := counitIsoFinSkel
+        functor_unitIso_comp := fun A => by
+          funext x
+          show (id : Fin A.n → Fin A.n) (A.equiv (A.equiv.symm x)) = x
+          simp only [id_eq, Equiv.apply_symm_apply]
+
+      /-- Now we show FinSetObj is essentially small.
+          We construct an explicit equivalence with the small category FinSkel. -/
+      instance FinSetObj.essentiallySmall : EssentiallySmall.{0} FinSetObj :=
+        EssentiallySmall.mk' finSetObjEquiv
+
+    }
+  }
+}

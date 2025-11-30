@@ -10,7 +10,9 @@
 
 \p{In the context of [\em{quivers}](002l) a category can be defined as a quiver with a rule saying for how we can compose two edges that fit together to get a new edge. Furthermore, each vertex (object) has an edge starting and ending at that vertex (the identity morphism) an. The classical definition is something like this:}
 
-\p{A \em{category} #{C} consits of:}
+\subtree{
+  \title{The data}
+  \p{A \em{category} #{C} consits of:}
 \ul{
   \li{A collection (or \em{class} [(2)](johnson-yau-2d-categories-2020)) of \strong{objects}, denoted as #{\text{Ob}(C)} or #{C_0}.}
   \li{A collection (or \em{set} [(2)](johnson-yau-2d-categories-2020)) of \strong{morphisms} (or \em{arrows}), denoted #{C_1} or #{C(x, y)} for #{x, y \in \text{Ob}(C)}.
@@ -44,7 +46,10 @@
     Which just expresses the idea that the collection of all morphisms in a category is made up of the morphisms between each pair of objects.
   }
 }
-\p{The above are often called \strong{data} of a category. In addition to this data, a category must satisfy the following \strong{axioms} or (\em{conditions}):}
+}
+\subtree{
+  \title{The axioms}
+  \p{The above are often called \strong{data} of a category. In addition to this data, a category must satisfy the following \strong{axioms} or (\em{conditions}):}
 \ul{
   \li{Morphisms need to be \strong{associative} which means that for every triple of morphisms #{f \in C(w, x)}, #{g \in C(x, y)}, and #{h \in C(y, z)} the following holds:
     ##{
@@ -59,3 +64,12 @@
   }
 }
 
+}
+
+\subtree{
+  \title{Remarks}
+  
+  \ul{
+    \li{A category such as the one described above is often also called a 1-category to distinguish it from higher categories such as 2-categories, n-categories.}
+  }
+}

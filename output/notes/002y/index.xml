@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>11</fr:month>
+      <fr:day>30</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/002y/</fr:uri>
+    <fr:display-uri>002y</fr:display-uri>
+    <fr:route>/notes/002y/</fr:route>
+    <fr:title text="Natural isomorphism">Natural isomorphism</fr:title>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter />
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>11</fr:month>
+              <fr:day>27</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/002o/</fr:uri>
+            <fr:display-uri>002o</fr:display-uri>
+            <fr:route>/notes/002o/</fr:route>
+            <fr:title text="(Essentially/Locally) small categories">(Essentially/Locally) small categories</fr:title>
+            <fr:taxon>Definition</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>27</fr:day>
+                </fr:date>
+                <fr:title text="Small category">Small category</fr:title>
+                <fr:taxon>Definition</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>A category <fr:tex display="inline"><![CDATA[\mathcal {C}]]></fr:tex> is called <html:strong>small</html:strong> (or <fr:tex display="inline"><![CDATA[U]]></fr:tex>-small) if both the collection of objects <fr:tex display="inline"><![CDATA[\mathrm {Ob}(\mathcal {C})]]></fr:tex> and the collection of morphisms <fr:tex display="inline"><![CDATA[\mathrm {Mor}(\mathcal {C})]]></fr:tex> are sets (i.e. elements of the universe <fr:tex display="inline"><![CDATA[U]]></fr:tex>). In lean where we correspond universes to types this just means that we instatiate the universe levels of morphisms and objects to the same thing, we can see this clearly in the definition of a <fr:tex display="inline"><![CDATA[\texttt {SmallCategory}]]></fr:tex> in mathlib.</html:p>
+                <html:pre class="code-block language-lean">
+                  <html:code class="language-lean">
+    abbrev SmallCategory (C : Type u) : Type (u + 1) := Category.{u} C
+  </html:code>
+                </html:pre>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>27</fr:day>
+                </fr:date>
+                <fr:title text="Locally small">Locally small</fr:title>
+                <fr:taxon>Definition</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>A <html:strong>locally small</html:strong> category <fr:tex display="inline"><![CDATA[\mathcal {C}]]></fr:tex> is a category satisfying the following conditions:</html:p>
+                <html:ul><html:li>The collection of objects <fr:tex display="inline"><![CDATA[\mathrm {Ob}(\mathcal {C})]]></fr:tex> and morphisms <fr:tex display="inline"><![CDATA[\mathrm {Mor}(\mathcal {C})]]></fr:tex> are classes. <fr:link href="/notes/low-universes-category-theory-2014/" title="Universes for Category Theory" uri="https://kaierikniermann.github.io/notes/low-universes-category-theory-2014/" display-uri="low-universes-category-theory-2014" type="local">(1)</fr:link></html:li>
+    <html:li>For every pair of objects <fr:tex display="inline"><![CDATA[X, Y \in  \mathrm {Ob}(\mathcal {C})]]></fr:tex> the hom-set <fr:tex display="inline"><![CDATA[\mathcal {C}(X, Y)]]></fr:tex> is a <html:em>set</html:em> (or small set) instead of a <html:em>proper class</html:em>.</html:li></html:ul>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>11</fr:month>
+                      <fr:day>27</fr:day>
+                    </fr:date>
+                    <fr:title text="The lean definition">The lean definition</fr:title>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>This one is a little bit more interesting, first let's look at the definition in mathlib:</html:p>
+                    <html:pre class="code-block language-lean">
+                      <html:code class="language-lean">
+      class Small (α : Type v) : Prop where
+        /-- If a type is `Small.{w}`, 
+          then there exists an equivalence with some `S : Type w` -/
+        equiv_small : ∃ S : Type w, Nonempty (α ≃ S)
+
+      ...
+      class LocallySmall (C : Type u) [Category.{v} C] : Prop where
+        /-- A locally small category has small hom-types. -/
+        hom_small : ∀ X Y : C, Small.{w} (X ⟶ Y) := by infer_instance
+    </html:code>
+                    </html:pre>
+                    <html:p>So we can see that in lean a locally small category is defined as a normal category with the added property that for every pair of objects <fr:tex display="inline"><![CDATA[X, Y \in  \mathrm {Ob}]]></fr:tex> the hom-type <fr:tex display="inline"><![CDATA[X ⟶ Y]]></fr:tex> is <fr:tex display="inline"><![CDATA[\texttt {Small}]]></fr:tex>, which as we can see from the definition of <fr:tex display="inline"><![CDATA[\texttt {Small}]]></fr:tex> means that there exists some type <fr:tex display="inline"><![CDATA[\texttt {S : Type w}]]></fr:tex> such that there is an equivalence <fr:tex display="inline"><![CDATA[α ≃ S]]></fr:tex>. We can informally correspond to the lean definition as follows:</html:p>
+                    <html:ul><html:li>Our objects <fr:tex display="inline"><![CDATA[\texttt {C : Type u}]]></fr:tex> live in some universe level <fr:tex display="inline"><![CDATA[u]]></fr:tex> which we assoicate with being a class i.e. possibly large collection.</html:li>
+      <html:li>The morphisms between any two objects <fr:tex display="inline"><![CDATA[\texttt {X, Y : C}]]></fr:tex> live in some <html:em>other</html:em> universe level <fr:tex display="inline"><![CDATA[w]]></fr:tex> where the equivalence to some type <fr:tex display="inline"><![CDATA[\texttt {S : Type w}]]></fr:tex> expresses the notion that the hom-sets are small sets.</html:li></html:ul>
+                    <html:p>Honestly I think quite reasonably its fair to ask: wait what how does that represent smallness ? What is <fr:tex display="inline"><![CDATA[\texttt {w}]]></fr:tex> even supposed to be? So I think an example is warranted.</html:p>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>11</fr:month>
+                      <fr:day>27</fr:day>
+                    </fr:date>
+                    <fr:title text="Example of a locally small category">Example of a locally small category</fr:title>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>This is arguably a bit contrived but let's consider objects as being containers for types in some universe level <fr:tex display="inline"><![CDATA[0]]></fr:tex> i.e. sets. So we can define our objects and morphisms as follows:</html:p>
+                    <html:pre class="code-block language-lean">
+                      <html:code class="language-lean">
+      structure TWrapper : Type 1 where
+        carrier : Type 0
+
+      /-- Morphisms are functions - each Hom(A,B) is a set -/
+      def TWHom (A B : TWrapper) : Type 0 := A.carrier → B.carrier
+    </html:code>
+                    </html:pre>
+                    <html:p>Importantly we can note here that the type of objects <fr:tex display="inline"><![CDATA[\texttt {TWrapper : Type 1}]]></fr:tex> lives in universe level <fr:tex display="inline"><![CDATA[1]]></fr:tex> which we can think of as a class of sets. However the morphisms between any two objects <fr:tex display="inline"><![CDATA[\texttt {TWHom (A B : TWrapper) : Type 0}]]></fr:tex> live in universe level <fr:tex display="inline"><![CDATA[0]]></fr:tex> which we can think of as small sets. Using this we can define a category instance:</html:p>
+                    <html:pre class="code-block language-lean">
+                      <html:code class="language-lean">
+      instance TWrapper.category : Category TWrapper where
+        -- The data
+        Hom     := TWHom
+        id      := fun _ =&gt; id
+        comp    := 
+          fun {X Y Z} (f : TWHom X Y) (g : TWHom Y Z) =&gt; fun x =&gt; g (f x)
+
+        -- The laws
+        id_comp := fun _ =&gt; rfl
+        comp_id := fun _ =&gt; rfl
+        assoc := fun _ _ _ =&gt; rfl
+    </html:code>
+                    </html:pre>
+                    <html:p>Now we want to define the locally small instance:</html:p>
+                    <html:pre class="code-block language-lean">
+                      <html:code class="language-lean">
+      instance TWrapper.locallySmall : LocallySmall.{0} TWrapper where
+        hom_small := fun X Y =&gt; ⟨⟨TWHom X Y, ⟨Equiv.refl _⟩⟩⟩
+    </html:code>
+                    </html:pre>
+                    <html:p>This now answers a few questions that arose earlier:</html:p>
+                    <html:ul><html:li>We instantiated the universe level of our hom-sets <fr:tex display="inline"><![CDATA[\texttt {w}]]></fr:tex> to <fr:tex display="inline"><![CDATA[0]]></fr:tex> which corresponds to small sets.</html:li>
+      <html:li>The equivalence <fr:tex display="inline"><![CDATA[\texttt {α ≃ S}]]></fr:tex> in this case is just the identity equivalence <fr:tex display="inline"><![CDATA[\texttt {Equiv.refl}]]></fr:tex> since our hom-sets are already small sets. On other words here:
+      <html:pre class="code-block language-lean"><html:code class="language-lean">
+        Small.{w} (X ⟶ Y)
+      </html:code></html:pre>
+      We have that <fr:tex display="inline"><![CDATA[\texttt {X ⟶ Y}]]></fr:tex> represents our set which exists in universe level <fr:tex display="inline"><![CDATA[0]]></fr:tex>, since we are instantiating <fr:tex display="inline"><![CDATA[\texttt {w}]]></fr:tex> to <fr:tex display="inline"><![CDATA[0]]></fr:tex> the <fr:tex display="inline"><![CDATA[\texttt {Small}]]></fr:tex> definition is satisfied by the identity equivalence.
+      </html:li></html:ul>
+                    <html:p>So we can see that in the context of lean a locally small category is just a category where the objects live in some universe level (class) and the hom-sets live in some smaller universe level (set) and we must provide an equivalence showing that the hom-sets are indeed small sets.</html:p>
+                  </fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>27</fr:day>
+                </fr:date>
+                <fr:title text="Essentially small">Essentially small</fr:title>
+                <fr:taxon>Definition</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>A category <fr:tex display="inline"><![CDATA[\mathcal {C}]]></fr:tex> is called <html:strong>essentially small</html:strong> if there exists a small category <fr:tex display="inline"><![CDATA[\mathcal {D}]]></fr:tex> and a functor:</html:p>
+                <fr:tex display="block"><![CDATA[
+    F : \mathcal {D} \to  \mathcal {C}
+  ]]></fr:tex>
+                <html:p>That is <html:em>fully faithful</html:em> and <html:em>essentially surjective</html:em> on objects, i.e. it represents an <fr:link href="/notes/002x/" title="Equivalence" uri="https://kaierikniermann.github.io/notes/002x/" display-uri="002x" type="local">equivalence</fr:link>. In other words we call a category essentially small if its <html:em>isomorphism classes</html:em> of objects form a set.</html:p>
+                <html:p>To elaborate a bit more, we say that a functor <fr:tex display="inline"><![CDATA[F : C \to  D]]></fr:tex> is an <html:em>equivalence</html:em> if there exists:</html:p>
+                <html:ul><html:li>A functor <fr:tex display="inline"><![CDATA[G : D \to  C]]></fr:tex></html:li>
+    <html:li>The <fr:link href="/notes/002y/" title="Natural isomorphism" uri="https://kaierikniermann.github.io/notes/002y/" display-uri="002y" type="local">natural isomorphisms</fr:link></html:li></html:ul>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>11</fr:month>
+                      <fr:day>27</fr:day>
+                    </fr:date>
+                    <fr:title text="The lean definition">The lean definition</fr:title>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>We can again examine the definition in mathlib:</html:p>
+                    <html:pre class="code-block language-lean">
+                      <html:code class="language-lean">
+      /-- A category is `EssentiallySmall.{w}` if there exists
+      an equivalence to some `S : Type w` with `[SmallCategory S]`. -/
+      @[pp_with_univ]
+      class EssentiallySmall (C : Type u) [Category.{v} C] : Prop where
+        /-- An ES category is equivalent to some small category. -/
+        equiv_smallCategory : ∃ (S : Type w) (_ : SmallCategory S), Nonempty (C ≌ S)
+    </html:code>
+                    </html:pre>
+                    <html:p>We can see quite nicely here how the lean definition corresponds to the informal one. We have our category <fr:tex display="inline"><![CDATA[\texttt {C : Type u}]]></fr:tex> living in some universe level <fr:tex display="inline"><![CDATA[u]]></fr:tex> (class) and we require the existence of some small category <fr:tex display="inline"><![CDATA[\texttt {S : Type w}]]></fr:tex> living in some smaller universe level <fr:tex display="inline"><![CDATA[w]]></fr:tex> (set) such that there exists an equivalence <fr:tex display="inline"><![CDATA[\texttt {C ≌ S}]]></fr:tex>.</html:p>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>11</fr:month>
+                      <fr:day>27</fr:day>
+                    </fr:date>
+                    <fr:title text="Example of an essentially small category">Example of an essentially small category</fr:title>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>As an example we will take the categories <fr:tex display="inline"><![CDATA[\texttt {FinSet}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {FinOrd}]]></fr:tex>. Starting with the former, the category of finite sets <fr:tex display="inline"><![CDATA[\texttt {FinSet}]]></fr:tex> is defined as follows:</html:p>
+                    <html:pre class="code-block language-lean">
+                      <html:code class="language-lean">
+      /-- Finite sets as a category - objects are Fin n for various n -/
+      structure FinSetObj : Type 1 where
+        n : ℕ
+        carrier : Type 0
+        equiv   : carrier ≃ Fin n  -- witness that carrier has exactly n elements
+
+      /-- Morphisms are functions between the carriers -/
+      def FSHom (A B : FinSetObj) : Type 0 := A.carrier → B.carrier
+
+      /-- First, we need a Category instance -/
+      instance FinSetObj.category : Category FinSetObj where
+        Hom     := FSHom
+        id      := fun _ =&gt; id
+        comp    :=
+          fun {X Y Z} (f : FSHom X Y) (g : FSHom Y Z) =&gt; fun x =&gt; g (f x)
+
+        id_comp := fun _ =&gt; rfl
+        comp_id := fun _ =&gt; rfl
+        assoc   := fun _ _ _ =&gt; rfl
+    </html:code>
+                    </html:pre>
+                    <html:p>It's defined as the category who's objects are finite sets and who's morphisms are functions between said sets. Here we are defining a custom variant of a finite set object <fr:tex display="inline"><![CDATA[\texttt {FinSetObj}]]></fr:tex> which contains:</html:p>
+                    <html:ul><html:li>A natural number <fr:tex display="inline"><![CDATA[\texttt {n : ℕ}]]></fr:tex> representing the cardinality of the set.</html:li>
+      <html:li>A carrier type <fr:tex display="inline"><![CDATA[\texttt {carrier : Type 0}]]></fr:tex> representing the actual elements of the set.</html:li>
+      <html:li>An equivalence <fr:tex display="inline"><![CDATA[\texttt {equiv : carrier ≃ Fin n}]]></fr:tex> which acts as a witness that the carrier has exactly <fr:tex display="inline"><![CDATA[\texttt {n}]]></fr:tex> elements.</html:li></html:ul>
+                    <html:p>We then define our morphisms as functions between the carrier types of two finite set objects. Finally we provide a category instance in the standard way.</html:p>
+                    <html:p>Next we want to define the category of all finite ordinal numbers <fr:tex display="inline"><![CDATA[\texttt {FinOrd}]]></fr:tex>. This is defined as follows:</html:p>
+                    <html:pre class="code-block language-lean">
+                      <html:code class="language-lean">
+      /-- The skeleton: the discrete category on ℕ -/
+      abbrev FinSetSkeleton := ℕ
+
+      /-- The skeleton category: 
+        objects are ℕ, morphisms are functions between Fin types -/
+      structure FinSkel : Type 0 where
+        n : ℕ
+
+      instance : SmallCategory FinSkel where
+        Hom   := fun A B =&gt; Fin A.n → Fin B.n
+        id    := fun _ =&gt; id
+        comp  := fun f g =&gt; g ∘ f
+    </html:code>
+                    </html:pre>
+                    <html:p>In our case we can define the finite ordinals as the skeleton of the finite sets category. So our objects are just natural numbers <fr:tex display="inline"><![CDATA[\texttt {n : ℕ}]]></fr:tex> representing the finite ordinals and our morphisms are functions between the corresponding finite sets <fr:tex display="inline"><![CDATA[\texttt {Fin n}]]></fr:tex>. Again we provide a small category instance in the standard way.</html:p>
+                  </fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

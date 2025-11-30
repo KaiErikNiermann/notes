@@ -1,0 +1,22 @@
+\date{2025-11-30}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Equivalence}
+
+\p{We say that a functor #{F : C \to D} is an equivalence if and only if it is both [\strong{fully faithful}](002w) and \strong{essentially surjective} meaning that:}
+\ul{
+  \li{To be \em{fully faithful} it means that each function
+  ##{
+    C(X, Y) \to D(F(X), F(Y)) 
+  }
+  on \em{morphism sets} is a bijection.
+  }
+  \li{To be \em{essentially surjective} it means that for each object #{Y \in \mathrm{Ob}(D)} and #{X \in \text{Ob}(C)} there exists an isomorphism:
+  ##{
+    F(X) \xrightarrow{\cong} Y 
+  }
+  }
+}

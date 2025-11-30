@@ -43,7 +43,7 @@
           <fr:mainmatter><html:p>Using BNF notation, the syntax of propositional logic can be defined as follows:</html:p>
  
   
-  <html:figure><fr:resource hash="f7311c991473d9a5721e7e1a00efd38f"><fr:resource-content><html:img src="/notes/f7311c991473d9a5721e7e1a00efd38f.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="004d66fe12d62d626c2e35637d8746f7"><fr:resource-content><html:img src="/notes/004d66fe12d62d626c2e35637d8746f7.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
@@ -54,7 +54,7 @@
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
-  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix}
+  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
 
   % A TikZ style for curved arrows of a fixed height, due to AndréC.
   \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
@@ -516,7 +516,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:mainmatter><html:p>Using BNF notation, the syntax of propositional logic can be defined as follows:</html:p>
  
   
-  <html:figure><fr:resource hash="f7311c991473d9a5721e7e1a00efd38f"><fr:resource-content><html:img src="/notes/f7311c991473d9a5721e7e1a00efd38f.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="004d66fe12d62d626c2e35637d8746f7"><fr:resource-content><html:img src="/notes/004d66fe12d62d626c2e35637d8746f7.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
@@ -527,7 +527,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
-  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix}
+  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
 
   % A TikZ style for curved arrows of a fixed height, due to AndréC.
   \tikzset{curve/.style={settings={#1},to path={(\tikztostart)

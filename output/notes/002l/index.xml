@@ -105,8 +105,19 @@
           <fr:mainmatter>
             <html:p>There are a few ways you can define a <html:em>category</html:em>. In the most basic intuitive sense a category consits of a collection of things called <html:em>objects</html:em> and binary relationships (or transitions) between those objects called <html:em>morphisms</html:em> (or <html:em>arrows</html:em>). We can combine these relationships by <html:em>composing</html:em> them, and for each object there is an <html:em>identity morphism</html:em> that acts as a neutral element for composition. <fr:link href="/notes/nlab-category/" title="category" uri="https://kaierikniermann.github.io/notes/nlab-category/" display-uri="nlab-category" type="local">(1)</fr:link></html:p>
             <html:p>In the context of <fr:link href="/notes/002l/" title="Quiver" uri="https://kaierikniermann.github.io/notes/002l/" display-uri="002l" type="local"><html:em>quivers</html:em></fr:link> a category can be defined as a quiver with a rule saying for how we can compose two edges that fit together to get a new edge. Furthermore, each vertex (object) has an edge starting and ending at that vertex (the identity morphism) an. The classical definition is something like this:</html:p>
-            <html:p>A <html:em>category</html:em> <fr:tex display="inline"><![CDATA[C]]></fr:tex> consits of:</html:p>
-            <html:ul><html:li>A collection (or <html:em>class</html:em> <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(2)</fr:link>) of <html:strong>objects</html:strong>, denoted as <fr:tex display="inline"><![CDATA[\text {Ob}(C)]]></fr:tex> or <fr:tex display="inline"><![CDATA[C_0]]></fr:tex>.</html:li>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>27</fr:day>
+                </fr:date>
+                <fr:title text="The data">The data</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>A <html:em>category</html:em> <fr:tex display="inline"><![CDATA[C]]></fr:tex> consits of:</html:p>
+                <html:ul><html:li>A collection (or <html:em>class</html:em> <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(2)</fr:link>) of <html:strong>objects</html:strong>, denoted as <fr:tex display="inline"><![CDATA[\text {Ob}(C)]]></fr:tex> or <fr:tex display="inline"><![CDATA[C_0]]></fr:tex>.</html:li>
   <html:li>A collection (or <html:em>set</html:em> <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(2)</fr:link>) of <html:strong>morphisms</html:strong> (or <html:em>arrows</html:em>), denoted <fr:tex display="inline"><![CDATA[C_1]]></fr:tex> or <fr:tex display="inline"><![CDATA[C(x, y)]]></fr:tex> for <fr:tex display="inline"><![CDATA[x, y \in  \text {Ob}(C)]]></fr:tex>.
     <html:ul><html:li>For every morphism <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex>, there are two associated objects: the <html:em>source</html:em> (or <html:em>domain</html:em>) <fr:tex display="inline"><![CDATA[x]]></fr:tex> and the <html:em>target</html:em> (or <html:em>codomain</html:em>) <fr:tex display="inline"><![CDATA[y]]></fr:tex>. In standard function notation, we write <fr:tex display="inline"><![CDATA[f: x \to  y]]></fr:tex> where <fr:tex display="inline"><![CDATA[x = \text {dom}(f)]]></fr:tex> and <fr:tex display="inline"><![CDATA[y = \text {cod}(f)]]></fr:tex>. NLab has a nice convention where it denotes the source <fr:tex display="inline"><![CDATA[s]]></fr:tex> of a morphism as <fr:tex display="inline"><![CDATA[s(f)]]></fr:tex> and the target <fr:tex display="inline"><![CDATA[t]]></fr:tex> as <fr:tex display="inline"><![CDATA[t(f)]]></fr:tex>.</html:li>
       <html:li>For every pair of morphisms <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex> and <fr:tex display="inline"><![CDATA[g \in  C(y, z)]]></fr:tex> (s.t. <fr:tex display="inline"><![CDATA[t(f) = s(g)]]></fr:tex> i.e. the morphisms type check), there is a <html:strong>composition</html:strong> morphism <fr:tex display="inline"><![CDATA[g \circ  f \in  C(x, z)]]></fr:tex>. Written out we can denote this as:
@@ -117,7 +128,7 @@
         
  
   
-  <html:figure><fr:resource hash="a1254e8b81c910fff27a40b48d5eabed"><fr:resource-content><html:img src="/notes/a1254e8b81c910fff27a40b48d5eabed.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="a1b158afe1c13bb548661319fcf84bb4"><fr:resource-content><html:img src="/notes/a1b158afe1c13bb548661319fcf84bb4.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
@@ -128,7 +139,7 @@
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
-  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix}
+  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
 
   % A TikZ style for curved arrows of a fixed height, due to AndréC.
   \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
@@ -170,8 +181,21 @@
     ]]></fr:tex>
     Which just expresses the idea that the collection of all morphisms in a category is made up of the morphisms between each pair of objects.
   </html:li></html:ul>
-            <html:p>The above are often called <html:strong>data</html:strong> of a category. In addition to this data, a category must satisfy the following <html:strong>axioms</html:strong> or (<html:em>conditions</html:em>):</html:p>
-            <html:ul><html:li>Morphisms need to be <html:strong>associative</html:strong> which means that for every triple of morphisms <fr:tex display="inline"><![CDATA[f \in  C(w, x)]]></fr:tex>, <fr:tex display="inline"><![CDATA[g \in  C(x, y)]]></fr:tex>, and <fr:tex display="inline"><![CDATA[h \in  C(y, z)]]></fr:tex> the following holds:
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>27</fr:day>
+                </fr:date>
+                <fr:title text="The axioms">The axioms</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>The above are often called <html:strong>data</html:strong> of a category. In addition to this data, a category must satisfy the following <html:strong>axioms</html:strong> or (<html:em>conditions</html:em>):</html:p>
+                <html:ul><html:li>Morphisms need to be <html:strong>associative</html:strong> which means that for every triple of morphisms <fr:tex display="inline"><![CDATA[f \in  C(w, x)]]></fr:tex>, <fr:tex display="inline"><![CDATA[g \in  C(x, y)]]></fr:tex>, and <fr:tex display="inline"><![CDATA[h \in  C(y, z)]]></fr:tex> the following holds:
     <fr:tex display="block"><![CDATA[
       h \circ  (g \circ  f) = (h \circ  g) \circ  f
     ]]></fr:tex></html:li>
@@ -181,6 +205,24 @@
     ]]></fr:tex>
     This is also known as the <html:em>left</html:em> and <html:em>right</html:em> <html:strong>unit laws</html:strong> or just <html:strong>unity</html:strong> in general.
   </html:li></html:ul>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>27</fr:day>
+                </fr:date>
+                <fr:title text="Remarks">Remarks</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:ul>
+                  <html:li>A category such as the one described above is often also called a 1-category to distinguish it from higher categories such as 2-categories, n-categories.</html:li>
+                </html:ul>
+              </fr:mainmatter>
+            </fr:tree>
           </fr:mainmatter>
         </fr:tree>
       </fr:mainmatter>

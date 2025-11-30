@@ -19,7 +19,7 @@
 ]]></fr:tex><html:p>We can draw the (complete) powerset lattice as follows:</html:p>
  
   
-  <html:figure><fr:resource hash="734a5853a3ebff8c45598a4886938c28"><fr:resource-content><html:img src="/notes/734a5853a3ebff8c45598a4886938c28.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="f32251fc342486e45ce0db03ad13d9f0"><fr:resource-content><html:img src="/notes/f32251fc342486e45ce0db03ad13d9f0.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
@@ -30,7 +30,7 @@
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
-  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix}
+  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
 
   % A TikZ style for curved arrows of a fixed height, due to AndréC.
   \tikzset{curve/.style={settings={#1},to path={(\tikztostart)

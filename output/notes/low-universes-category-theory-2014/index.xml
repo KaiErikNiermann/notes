@@ -50,6 +50,475 @@
               <fr:month>11</fr:month>
               <fr:day>27</fr:day>
             </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/002o/</fr:uri>
+            <fr:display-uri>002o</fr:display-uri>
+            <fr:route>/notes/002o/</fr:route>
+            <fr:title text="(Essentially/Locally) small categories">(Essentially/Locally) small categories</fr:title>
+            <fr:taxon>Definition</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>27</fr:day>
+                </fr:date>
+                <fr:title text="Small category">Small category</fr:title>
+                <fr:taxon>Definition</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>A category <fr:tex display="inline"><![CDATA[\mathcal {C}]]></fr:tex> is called <html:strong>small</html:strong> (or <fr:tex display="inline"><![CDATA[U]]></fr:tex>-small) if both the collection of objects <fr:tex display="inline"><![CDATA[\mathrm {Ob}(\mathcal {C})]]></fr:tex> and the collection of morphisms <fr:tex display="inline"><![CDATA[\mathrm {Mor}(\mathcal {C})]]></fr:tex> are sets (i.e. elements of the universe <fr:tex display="inline"><![CDATA[U]]></fr:tex>). In lean where we correspond universes to types this just means that we instatiate the universe levels of morphisms and objects to the same thing, we can see this clearly in the definition of a <fr:tex display="inline"><![CDATA[\texttt {SmallCategory}]]></fr:tex> in mathlib.</html:p>
+                <html:pre class="code-block language-lean">
+                  <html:code class="language-lean">
+    abbrev SmallCategory (C : Type u) : Type (u + 1) := Category.{u} C
+  </html:code>
+                </html:pre>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>27</fr:day>
+                </fr:date>
+                <fr:title text="Locally small">Locally small</fr:title>
+                <fr:taxon>Definition</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>A <html:strong>locally small</html:strong> category <fr:tex display="inline"><![CDATA[\mathcal {C}]]></fr:tex> is a category satisfying the following conditions:</html:p>
+                <html:ul><html:li>The collection of objects <fr:tex display="inline"><![CDATA[\mathrm {Ob}(\mathcal {C})]]></fr:tex> and morphisms <fr:tex display="inline"><![CDATA[\mathrm {Mor}(\mathcal {C})]]></fr:tex> are classes. <fr:link href="/notes/low-universes-category-theory-2014/" title="Universes for Category Theory" uri="https://kaierikniermann.github.io/notes/low-universes-category-theory-2014/" display-uri="low-universes-category-theory-2014" type="local">(1)</fr:link></html:li>
+    <html:li>For every pair of objects <fr:tex display="inline"><![CDATA[X, Y \in  \mathrm {Ob}(\mathcal {C})]]></fr:tex> the hom-set <fr:tex display="inline"><![CDATA[\mathcal {C}(X, Y)]]></fr:tex> is a <html:em>set</html:em> (or small set) instead of a <html:em>proper class</html:em>.</html:li></html:ul>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>11</fr:month>
+                      <fr:day>27</fr:day>
+                    </fr:date>
+                    <fr:title text="The lean definition">The lean definition</fr:title>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>This one is a little bit more interesting, first let's look at the definition in mathlib:</html:p>
+                    <html:pre class="code-block language-lean">
+                      <html:code class="language-lean">
+      class Small (α : Type v) : Prop where
+        /-- If a type is `Small.{w}`, 
+          then there exists an equivalence with some `S : Type w` -/
+        equiv_small : ∃ S : Type w, Nonempty (α ≃ S)
+
+      ...
+      class LocallySmall (C : Type u) [Category.{v} C] : Prop where
+        /-- A locally small category has small hom-types. -/
+        hom_small : ∀ X Y : C, Small.{w} (X ⟶ Y) := by infer_instance
+    </html:code>
+                    </html:pre>
+                    <html:p>So we can see that in lean a locally small category is defined as a normal category with the added property that for every pair of objects <fr:tex display="inline"><![CDATA[X, Y \in  \mathrm {Ob}]]></fr:tex> the hom-type <fr:tex display="inline"><![CDATA[X ⟶ Y]]></fr:tex> is <fr:tex display="inline"><![CDATA[\texttt {Small}]]></fr:tex>, which as we can see from the definition of <fr:tex display="inline"><![CDATA[\texttt {Small}]]></fr:tex> means that there exists some type <fr:tex display="inline"><![CDATA[\texttt {S : Type w}]]></fr:tex> such that there is an equivalence <fr:tex display="inline"><![CDATA[α ≃ S]]></fr:tex>. We can informally correspond to the lean definition as follows:</html:p>
+                    <html:ul><html:li>Our objects <fr:tex display="inline"><![CDATA[\texttt {C : Type u}]]></fr:tex> live in some universe level <fr:tex display="inline"><![CDATA[u]]></fr:tex> which we assoicate with being a class i.e. possibly large collection.</html:li>
+      <html:li>The morphisms between any two objects <fr:tex display="inline"><![CDATA[\texttt {X, Y : C}]]></fr:tex> live in some <html:em>other</html:em> universe level <fr:tex display="inline"><![CDATA[w]]></fr:tex> where the equivalence to some type <fr:tex display="inline"><![CDATA[\texttt {S : Type w}]]></fr:tex> expresses the notion that the hom-sets are small sets.</html:li></html:ul>
+                    <html:p>Honestly I think quite reasonably its fair to ask: wait what how does that represent smallness ? What is <fr:tex display="inline"><![CDATA[\texttt {w}]]></fr:tex> even supposed to be? So I think an example is warranted.</html:p>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>11</fr:month>
+                      <fr:day>27</fr:day>
+                    </fr:date>
+                    <fr:title text="Example of a locally small category">Example of a locally small category</fr:title>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>This is arguably a bit contrived but let's consider objects as being containers for types in some universe level <fr:tex display="inline"><![CDATA[0]]></fr:tex> i.e. sets. So we can define our objects and morphisms as follows:</html:p>
+                    <html:pre class="code-block language-lean">
+                      <html:code class="language-lean">
+      structure TWrapper : Type 1 where
+        carrier : Type 0
+
+      /-- Morphisms are functions - each Hom(A,B) is a set -/
+      def TWHom (A B : TWrapper) : Type 0 := A.carrier → B.carrier
+    </html:code>
+                    </html:pre>
+                    <html:p>Importantly we can note here that the type of objects <fr:tex display="inline"><![CDATA[\texttt {TWrapper : Type 1}]]></fr:tex> lives in universe level <fr:tex display="inline"><![CDATA[1]]></fr:tex> which we can think of as a class of sets. However the morphisms between any two objects <fr:tex display="inline"><![CDATA[\texttt {TWHom (A B : TWrapper) : Type 0}]]></fr:tex> live in universe level <fr:tex display="inline"><![CDATA[0]]></fr:tex> which we can think of as small sets. Using this we can define a category instance:</html:p>
+                    <html:pre class="code-block language-lean">
+                      <html:code class="language-lean">
+      instance TWrapper.category : Category TWrapper where
+        -- The data
+        Hom     := TWHom
+        id      := fun _ =&gt; id
+        comp    := 
+          fun {X Y Z} (f : TWHom X Y) (g : TWHom Y Z) =&gt; fun x =&gt; g (f x)
+
+        -- The laws
+        id_comp := fun _ =&gt; rfl
+        comp_id := fun _ =&gt; rfl
+        assoc := fun _ _ _ =&gt; rfl
+    </html:code>
+                    </html:pre>
+                    <html:p>Now we want to define the locally small instance:</html:p>
+                    <html:pre class="code-block language-lean">
+                      <html:code class="language-lean">
+      instance TWrapper.locallySmall : LocallySmall.{0} TWrapper where
+        hom_small := fun X Y =&gt; ⟨⟨TWHom X Y, ⟨Equiv.refl _⟩⟩⟩
+    </html:code>
+                    </html:pre>
+                    <html:p>This now answers a few questions that arose earlier:</html:p>
+                    <html:ul><html:li>We instantiated the universe level of our hom-sets <fr:tex display="inline"><![CDATA[\texttt {w}]]></fr:tex> to <fr:tex display="inline"><![CDATA[0]]></fr:tex> which corresponds to small sets.</html:li>
+      <html:li>The equivalence <fr:tex display="inline"><![CDATA[\texttt {α ≃ S}]]></fr:tex> in this case is just the identity equivalence <fr:tex display="inline"><![CDATA[\texttt {Equiv.refl}]]></fr:tex> since our hom-sets are already small sets. On other words here:
+      <html:pre class="code-block language-lean"><html:code class="language-lean">
+        Small.{w} (X ⟶ Y)
+      </html:code></html:pre>
+      We have that <fr:tex display="inline"><![CDATA[\texttt {X ⟶ Y}]]></fr:tex> represents our set which exists in universe level <fr:tex display="inline"><![CDATA[0]]></fr:tex>, since we are instantiating <fr:tex display="inline"><![CDATA[\texttt {w}]]></fr:tex> to <fr:tex display="inline"><![CDATA[0]]></fr:tex> the <fr:tex display="inline"><![CDATA[\texttt {Small}]]></fr:tex> definition is satisfied by the identity equivalence.
+      </html:li></html:ul>
+                    <html:p>So we can see that in the context of lean a locally small category is just a category where the objects live in some universe level (class) and the hom-sets live in some smaller universe level (set) and we must provide an equivalence showing that the hom-sets are indeed small sets.</html:p>
+                  </fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>27</fr:day>
+                </fr:date>
+                <fr:title text="Essentially small">Essentially small</fr:title>
+                <fr:taxon>Definition</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter><html:p>A category <fr:tex display="inline"><![CDATA[\mathcal {C}]]></fr:tex> is called <html:strong>essentially small</html:strong> if there exists a small category <fr:tex display="inline"><![CDATA[\mathcal {D}]]></fr:tex> and a functor:</html:p><fr:tex display="block"><![CDATA[
+    F : \mathcal {D} \to  \mathcal {C}
+  ]]></fr:tex><html:p>That is <html:em>fully faithful</html:em> and <html:em>essentially surjective</html:em> on objects, i.e. it represents an <fr:link href="/notes/002x/" title="Equivalence" uri="https://kaierikniermann.github.io/notes/002x/" display-uri="002x" type="local">equivalence</fr:link>. In other words we call a category essentially small if its <html:em>isomorphism classes</html:em> of objects form a set.</html:p><html:p>To elaborate a bit more, we say that a functor <fr:tex display="inline"><![CDATA[F : C \to  D]]></fr:tex> is an <html:em>equivalence</html:em> if there exists:</html:p><html:ul><html:li>A functor <fr:tex display="inline"><![CDATA[G : D \to  C]]></fr:tex></html:li>
+    <html:li>The <fr:link href="/notes/0031/" title="Natural transformation (category theory)" uri="https://kaierikniermann.github.io/notes/0031/" display-uri="0031" type="local">natural isomorphisms</fr:link>:
+      <fr:tex display="block"><![CDATA[
+        \eta  : \text {Id}_C \xrightarrow {\cong } G \circ  F \quad  \epsilon  : F \circ  G \xrightarrow {\cong } \text {Id}_D
+      ]]></fr:tex>
+      in other words the natural transformations <fr:tex display="inline"><![CDATA[\eta ]]></fr:tex> and <fr:tex display="inline"><![CDATA[\epsilon ]]></fr:tex> are isomorphisms. Equivalently using diagrammatic notation we can express this as:
+      <fr:tex display="block"><![CDATA[
+        \eta  : 1_C \xrightarrow {\cong } F ; G \quad  \epsilon  : G ; F \xrightarrow {\cong } 1_D
+      ]]></fr:tex>
+      in plain english we can see this as saying that the round trip we take by applying <fr:tex display="inline"><![CDATA[F]]></fr:tex> then <fr:tex display="inline"><![CDATA[G]]></fr:tex> (or vice versa) is naturally isomorphic to doing nothing at all (the identify functor).
+    </html:li></html:ul><html:p>In diagrammatic form we can represent this as follows:</html:p>
+ 
+  
+  <html:figure><fr:resource hash="98a0f7d2dfd53dceba3fe6c25bef3b16"><fr:resource-content><html:img src="/notes/98a0f7d2dfd53dceba3fe6c25bef3b16.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+   
+  % String-diagram specific extensions live here. Add diagram tweaks without
+ % re-running the full base preamble (to avoid duplicate definitions).
+
+   
+ 
+   \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{amsmath, amsthm, amsfonts}
+  \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
+  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
+
+  % A TikZ style for curved arrows of a fixed height, due to AndréC.
+  \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+        .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+        and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+    \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+  quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+  % A TikZ style for shortening paths without the poor behaviour of `shorten <' and `shorten >'.
+  \tikzset{between/.style n args={2}{/tikz/spath/at end path construction={
+        \tikzset{spath/split at keep middle={current}{#1}{#2}}
+  }}}
+
+  % TikZ arrowhead/tail styles.
+  \tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+  \tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+  \tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+  % TikZ arrow styles.
+  \tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+
+
+  ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
+    \[\begin {tikzcd}
+      && C && D \\
+      \\
+      {1_C} && {F;G} && {G;F} && {1_D}
+      \arrow ["{1_C}", from=1-3, to=1-3, loop, in=145, out=215, distance=10mm]
+      \arrow [""{name=0, anchor=center, inner sep=0}, "F", curve={height=-18pt}, from=1-3, to=1-5]
+      \arrow [""{name=1, anchor=center, inner sep=0}, "G", curve={height=-18pt}, from=1-5, to=1-3]
+      \arrow ["{1_D}", from=1-5, to=1-5, loop, in=325, out=35, distance=10mm]
+      \arrow ["\eta ", curve={height=-18pt}, from=3-1, to=3-3]
+      \arrow ["\cong "{description}, dashed, tail reversed, from=3-1, to=3-3]
+      \arrow ["{\eta ^{-1}}", curve={height=-18pt}, from=3-3, to=3-1]
+      \arrow ["{\epsilon ^{-1}}"', curve={height=18pt}, from=3-5, to=3-7]
+      \arrow ["\epsilon "', curve={height=18pt}, from=3-7, to=3-5]
+      \arrow ["\cong "{description}, dashed, tail reversed, from=3-7, to=3-5]
+      \arrow ["{F;G}"', curve={height=6pt}, between={0.2}{0.8}, Rightarrow, from=0, to=1]
+      \arrow ["{G;F}"', curve={height=6pt}, between={0.2}{0.8}, Rightarrow, from=1, to=0]
+    \end {tikzcd}\]
+  ]]></fr:resource-source></fr:resource></html:figure>
+ 
+<html:p>The main takeaway here being that an essentially small category is one which is equivalent to a small category. Hence the problem of demonstrating a category is essentially small reduces to demonstrating isomorphisms between the unit and counit natural transformations.</html:p><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>27</fr:day></fr:date><fr:title text="The lean definition">The lean definition</fr:title></fr:frontmatter><fr:mainmatter><html:p>We can again examine the definition in mathlib:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+      /-- A category is `EssentiallySmall.{w}` if there exists
+      an equivalence to some `S : Type w` with `[SmallCategory S]`. -/
+      @[pp_with_univ]
+      class EssentiallySmall (C : Type u) [Category.{v} C] : Prop where
+        /-- An ES category is equivalent to some small category. -/
+        equiv_smallCategory : ∃ (S : Type w) (_ : SmallCategory S), Nonempty (C ≌ S)
+    </html:code></html:pre><html:p>We can see quite nicely here how the lean definition corresponds to the informal one. We have our category <fr:tex display="inline"><![CDATA[\texttt {C : Type u}]]></fr:tex> living in some universe level <fr:tex display="inline"><![CDATA[u]]></fr:tex> (class) and we require the existence of some small category <fr:tex display="inline"><![CDATA[\texttt {S : Type w}]]></fr:tex> living in some smaller universe level <fr:tex display="inline"><![CDATA[w]]></fr:tex> (set) such that there exists an equivalence <fr:tex display="inline"><![CDATA[\texttt {C ≌ S}]]></fr:tex>.</html:p></fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>27</fr:day></fr:date><fr:title text="Example of an essentially small category">Example of an essentially small category</fr:title></fr:frontmatter><fr:mainmatter><html:p>As an example we will take the categories <fr:tex display="inline"><![CDATA[\texttt {FinSet}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {FinOrd}]]></fr:tex>. Starting with the former, the category of finite sets <fr:tex display="inline"><![CDATA[\texttt {FinSet}]]></fr:tex> is defined as follows:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+      /-- Finite sets as a category - objects are Fin n for various n -/
+      structure FinSetObj : Type 1 where
+        n : ℕ
+        carrier : Type 0
+        equiv   : carrier ≃ Fin n  -- witness that carrier has exactly n elements
+
+      /-- Morphisms are functions between the carriers -/
+      def FSHom (A B : FinSetObj) : Type 0 := A.carrier → B.carrier
+
+      /-- First, we need a Category instance -/
+      instance FinSetObj.category : Category FinSetObj where
+        Hom     := FSHom
+        id      := fun _ =&gt; id
+        comp    :=
+          fun {X Y Z} (f : FSHom X Y) (g : FSHom Y Z) =&gt; fun x =&gt; g (f x)
+
+        id_comp := fun _ =&gt; rfl
+        comp_id := fun _ =&gt; rfl
+        assoc   := fun _ _ _ =&gt; rfl
+    </html:code></html:pre><html:p>It's defined as the category who's objects are finite sets and who's morphisms are functions between said sets. Here we are defining a custom variant of a finite set object <fr:tex display="inline"><![CDATA[\texttt {FinSetObj}]]></fr:tex> which contains:</html:p><html:ul><html:li>A natural number <fr:tex display="inline"><![CDATA[\texttt {n : ℕ}]]></fr:tex> representing the cardinality of the set.</html:li>
+      <html:li>A carrier type <fr:tex display="inline"><![CDATA[\texttt {carrier : Type 0}]]></fr:tex> representing the actual elements of the set.</html:li>
+      <html:li>An equivalence <fr:tex display="inline"><![CDATA[\texttt {equiv : carrier ≃ Fin n}]]></fr:tex> which acts as a witness that the carrier has exactly <fr:tex display="inline"><![CDATA[\texttt {n}]]></fr:tex> elements.</html:li></html:ul><html:p>We then define our morphisms as functions between the carrier types of two finite set objects. Finally we provide a category instance in the standard way.</html:p><html:p>Next we want to define the category of all finite ordinal numbers <fr:tex display="inline"><![CDATA[\texttt {FinOrd}]]></fr:tex>. This is defined as follows:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+      /-- The skeleton: the discrete category on ℕ -/
+      abbrev FinSetSkeleton := ℕ
+
+      /-- The skeleton category: 
+        objects are ℕ, morphisms are functions between Fin types -/
+      structure FinSkel : Type 0 where
+        n : ℕ
+
+      instance : SmallCategory FinSkel where
+        Hom   := fun A B =&gt; Fin A.n → Fin B.n
+        id    := fun _ =&gt; id
+        comp  := fun f g =&gt; g ∘ f
+    </html:code></html:pre><html:p>In our case we can define the finite ordinals as the skeleton of the finite sets category. So our objects are just natural numbers <fr:tex display="inline"><![CDATA[\texttt {n : ℕ}]]></fr:tex> representing the finite ordinals and our morphisms are functions between the corresponding finite sets <fr:tex display="inline"><![CDATA[\texttt {Fin n}]]></fr:tex>. Again we provide a small category instance in the standard way.</html:p><html:p>Now central to the definition of an essentially small category is the existence of an equivalence, in other words we need to functors with a natural transformation witnessing the equivalence. We'll start by defining the functor from the finite ordinals to the finite sets:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+      /-- Canonical embedding of FinSkel into FinSetObj -/
+      def skelToFinSetObj : FinSkel ⥤ FinSetObj where
+        obj       := fun A =&gt; ⟨A.n, Fin A.n, Equiv.refl _⟩
+        map       := fun f =&gt; f
+        map_id    := fun _ =&gt; rfl
+        map_comp  := fun _ _ =&gt; rfl
+    </html:code></html:pre><html:p>We can note here that:</html:p><html:ul><html:li>The object mapping takes a finite ordinal <fr:tex display="inline"><![CDATA[\texttt {A : FinSkel}]]></fr:tex> and maps it to the corresponding finite set object with carrier <fr:tex display="inline"><![CDATA[\texttt {Fin A.n}]]></fr:tex>. The equivalence is just the identity equivalence since <fr:tex display="inline"><![CDATA[\texttt {Fin A.n}]]></fr:tex> obviously has exactly <fr:tex display="inline"><![CDATA[\texttt {A.n}]]></fr:tex> elements.</html:li>
+      <html:li>The morphism mapping is just the identity since morphisms in both categories are functions between finite sets.</html:li>
+      <html:li>The functor laws are satisfied by reflexivity.</html:li></html:ul><html:p>The other way around is a little bit more involved, we can construct the functor as follows:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+      def finSetObjToSkel : FinSetObj ⥤ FinSkel where
+        obj := fun A =&gt; ⟨A.n⟩
+        map := fun {A B} f =&gt; B.equiv ∘ f ∘ A.equiv.symm
+        map_id := fun A =&gt; by
+          funext x
+          show A.equiv ((id : A.carrier → A.carrier) (A.equiv.symm x)) 
+            = (id : Fin A.n → Fin A.n) x
+
+          simp only [id_eq, Equiv.apply_symm_apply]
+        map_comp := fun {A B C} f g =&gt; by
+          funext x
+          show C.equiv (g (f (A.equiv.symm x))) 
+            = (C.equiv ∘ g ∘ B.equiv.symm) ((B.equiv ∘ f ∘ A.equiv.symm) x)
+
+          simp only [Function.comp_apply, Equiv.symm_apply_apply]
+    </html:code></html:pre><html:p>Again to break this down by components:</html:p><html:ul><html:li>In the object mapping we are taking in a finite set object <fr:tex display="inline"><![CDATA[\texttt {A : FinSetObj}]]></fr:tex> and mapping it to the corresponding finite ordinal represented by the natural number <fr:tex display="inline"><![CDATA[\texttt {A.n}]]></fr:tex>.</html:li>
+        <html:li>Our morphism mapping is a bit more complex, since we are going from the category of finite sets our source and target objects <fr:tex display="inline"><![CDATA[\texttt {A}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {B}]]></fr:tex> represent the finite set objects. For all pairs of objects the map function demands:
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          ∀ {X Y : C}, (X ⟶ Y) → ((obj X) ⟶ (obj Y))
+        </html:code></html:pre>
+        we are provided with the set of morphisms <fr:tex display="inline"><![CDATA[\texttt {f : A.carrier → B.carrier}]]></fr:tex> and we need to produce a function between the corresponding finite sets <fr:tex display="inline"><![CDATA[\texttt {Fin A.n → Fin B.n}]]></fr:tex>. Here we utilize an important property that comes with equivalences: they can be used to transport functions between types. To explain what this means let's consider the isolated example:
+        </html:li>
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          variable (A B : FinSetObj) (f : FinSetObj.category.Hom A B)
+
+          #check B.equiv ∘ f      -- ⇑B.equiv ∘ f : A.carrier → Fin B.n
+          #check f ∘ A.equiv.symm -- f ∘ ⇑A.equiv.symm : Fin A.n → B.carrier
+        </html:code></html:pre>
+        Whats going on here is that the composition coerces the equivalences into functions i.e.
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          @[simp, norm_cast]
+          lemma _root_.EquivLike.coe_coe {F} [EquivLike F α β] (e : F) :
+              ((e : α ≃ β) : α → β) = e := rfl
+        </html:code></html:pre>
+        Since the equivalence is between the carrier (set) type and the upper bound witness we have the function 
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          ⇑B.equiv      B.carrier → Fin B.n
+          ⇑A.equiv.symm Fin A.n   → A.carrier
+        </html:code></html:pre>
+        hence composing this with our morphism gives
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          A.carrier → B.carrier → Fin B.n -- so A.carrier → Fin B.n
+          Fin A.n → A.carrier → B.carrier -- so Fin A.n → B.carrier
+        </html:code></html:pre>
+        and composing these two results in the desired function <fr:tex display="inline"><![CDATA[\texttt {Fin A.n → Fin B.n}]]></fr:tex>.
+      <html:li>Next we want to show that the functor preserves identities. In our case this means the following:
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          map_id : ∀ (A : FinSetObj), 
+            ⇑A.equiv ∘ 𝟙 A ∘ ⇑A.equiv.symm = 𝟙 { n := A.n }
+        </html:code></html:pre>
+        As our probelm is of the shape 
+        <fr:tex display="block"><![CDATA[
+          (\forall  x, f x = g x)
+        ]]></fr:tex>
+        We can apply the <fr:tex display="inline"><![CDATA[\texttt {funext}]]></fr:tex> tactic which reduces the goal to showing that the two sides are equal when applied to an arbitrary input <fr:tex display="inline"><![CDATA[\texttt {x}]]></fr:tex>. Our goal then becomes: 
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          (⇑A.equiv ∘ 𝟙 A ∘ ⇑A.equiv.symm) x = (𝟙 { n := A.n }) x
+        </html:code></html:pre>
+        It might be helpful at this point to take a look at the underlying types: 
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          ... : Fin { n := A.n }.n → Fin { n := A.n }.n 
+          = 
+          ... :     { n := A.n }   ⟶     { n := A.n }
+        </html:code></html:pre>
+        The purpose of the <fr:tex display="inline"><![CDATA[\texttt {show}]]></fr:tex> tactic here is to explicitly specify the goal we want to prove, i.e. create a definitionally equal variant of the goal to replace the current one with, if we look at the goals before and after the show tactic we have:
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          -- before
+          ⊢ (⇑A.equiv ∘ 𝟙 A ∘ ⇑A.equiv.symm) x = 𝟙 { n := A.n } x
+
+          -- after 
+          ⊢ A.equiv (id (A.equiv.symm x)) = id x
+        </html:code></html:pre>
+        looking at the types of the goal after the <fr:tex display="inline"><![CDATA[\texttt {show}]]></fr:tex> tactic we have:
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          ... : Fin A.n
+          = 
+          ... : Fin A.n
+        </html:code></html:pre>
+        our final two simplifications then do
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          A.equiv (id (A.equiv.symm x)) = A.equiv (A.equiv.symm x)
+          
+          -- id_eq : ... (a : α), id a = a
+          A.equiv (A.equiv.symm x) = x
+
+          -- apply_symm_apply : ... (e : α ≃ β) (x : β), e (e.symm x) = x
+          x = x
+        </html:code></html:pre>
+        For the sake of completeness I want to go into the <fr:tex display="inline"><![CDATA[\texttt {show}]]></fr:tex> tactic a bit more. Startign with the right hand side, after the funext we have: 
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          𝟙 { n := A.n } x 
+        </html:code></html:pre>
+        The braces here are just syntactic sugar for defining a FinSkel structure inline, so unfolding it we can equivalently display this as:
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          variable (A : FinSetObj) (x : Fin (FinSkel.mk A.n).n)
+          #check FinSkel.cat.id (FinSkel.mk A.n) x
+        </html:code></html:pre>
+        but what we can notice if we look at the definition of our category is that the arrows between objects are actually arrows between their <fr:tex display="inline"><![CDATA[\texttt {n}]]></fr:tex> fields (with the Fin proof) i.e.
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          fun A B =&gt; Fin A.n → Fin B.n
+        </html:code></html:pre>
+        so in reality our identity morphism is actually:
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          𝟙 { n := A.n } : Fin A.n → Fin A.n
+        </html:code></html:pre>
+        hence applying it to <fr:tex display="inline"><![CDATA[\texttt {x}]]></fr:tex> gives us:
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          (𝟙 { n := A.n }) x = id x
+        </html:code></html:pre>
+        The left hand side follows a similar logic, in that we can again replace the identity morphism on the object with the identity function on the carrier type directly so we have:
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          (⇑A.equiv ∘ 𝟙 A ∘ ⇑A.equiv.symm) x 
+            -&gt; (⇑A.equiv ∘ id ∘ ⇑A.equiv.symm) x
+        </html:code></html:pre>
+        and then if we avoid the syntactic sugar of function composition we have:
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
+          ⇑A.equiv (id (⇑A.equiv.symm x)) 
+        </html:code></html:pre>
+        we can equivalently just automate this step by just prepending <fr:tex display="inline"><![CDATA[\texttt {Function.comp}]]></fr:tex> into our simplification steps.
+      </html:li>
+      <html:li>For the case of showing that our functor preserves composition of morphisms we have a similar situation as to the identity case, here just to keep things not dragging on too long i'll just say that again we are more or less following the same logic as before. We are using show to reduce or goal into a form that is easier to reason about, and then we are just simplifying using the properties of equivalences and function composition.</html:li></html:ul><html:p>Moving on we now have two create our natural transformations, here things should now be rather straightforward. In lean we have:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+      def unitNatTrans 
+          : 𝟭 FinSetObj ⟶ finSetObjToSkel ⋙ skelToFinSetObj where
+        app := fun A =&gt; (A.equiv : A.carrier → Fin A.n)
+        naturality := fun A B f =&gt; by
+          funext x
+          show B.equiv (f x) 
+            = (B.equiv ∘ f ∘ A.equiv.symm) (A.equiv x)
+          simp only [Function.comp_apply, Equiv.symm_apply_apply]
+
+      def unitInvNatTrans 
+          : finSetObjToSkel ⋙ skelToFinSetObj ⟶ 𝟭 FinSetObj where
+        app := fun A =&gt; (A.equiv.symm : Fin A.n → A.carrier)
+        naturality := fun A B f =&gt; by
+          funext x
+          show B.equiv.symm ((B.equiv ∘ f ∘ A.equiv.symm) x) 
+            = f (A.equiv.symm x)
+          simp only [Function.comp_apply, Equiv.symm_apply_apply]
+
+      /-- The unit isomorphism -/
+      def unitIsoFinSetObj : 𝟭 FinSetObj ≅ finSetObjToSkel ⋙ skelToFinSetObj where
+        hom := unitNatTrans
+        inv := unitInvNatTrans
+        hom_inv_id := by
+          ext A
+          funext x
+          show A.equiv.symm (A.equiv x) = x
+          simp only [Equiv.symm_apply_apply]
+        inv_hom_id := by
+          ext A
+          funext x
+          show A.equiv (A.equiv.symm x) = x
+          simp only [Equiv.apply_symm_apply]
+    </html:code></html:pre><html:p>in lean composition of functors is denoted by the operator <fr:tex display="inline"><![CDATA[\texttt {⋙}]]></fr:tex> so we can see that our unit natural transformation has the correct type. The components of the natural transformation are just given by the equivalences we have in our finite set objects, and the naturality conditions again follow from unfolding the definitions and simplifying.</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+      /-- Naturality lemma for counit transformations -/
+      lemma counit_naturality {A B : FinSkel} (f : A ⟶ B) :
+        (𝟭 FinSkel).map f ≫ id = id ≫ (skelToFinSetObj ⋙ finSetObjToSkel).map f := by
+        simp only [Functor.id_obj, Functor.comp_obj, skelToFinSetObj, finSetObjToSkel]
+        simp only [Functor.id_map, Functor.comp_map]
+        rfl
+
+      /-- The counit natural transformation: skelToFinSetObj ⋙ finSetObjToSkel → id -/
+      def counitNatTrans : skelToFinSetObj ⋙ finSetObjToSkel ⟶ 𝟭 FinSkel where
+        app := λ _ =&gt; id
+        naturality := fun _ _ f =&gt; counit_naturality f |&gt;.symm
+
+      /-- The inverse of counit -/
+      def counitInvNatTrans : 𝟭 FinSkel ⟶ skelToFinSetObj ⋙ finSetObjToSkel where
+        app := λ _ =&gt; id
+        naturality := fun _ _ f =&gt; counit_naturality f
+
+      /-- The counit isomorphism -/
+      def counitIsoFinSkel : skelToFinSetObj ⋙ finSetObjToSkel ≅ 𝟭 FinSkel where
+        hom := counitNatTrans
+        inv := counitInvNatTrans
+        hom_inv_id := by ext A; rfl
+        inv_hom_id := by ext A; rfl
+    </html:code></html:pre><html:p>text</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+      /-- The equivalence between FinSetObj and FinSkel -/
+      def finSetObjEquiv : FinSetObj ≌ FinSkel where
+        functor := finSetObjToSkel
+        inverse := skelToFinSetObj
+        unitIso := unitIsoFinSetObj
+        counitIso := counitIsoFinSkel
+        functor_unitIso_comp := fun A =&gt; by
+          funext x
+          show (id : Fin A.n → Fin A.n) (A.equiv (A.equiv.symm x)) = x
+          simp only [id_eq, Equiv.apply_symm_apply]
+
+      /-- Now we show FinSetObj is essentially small.
+          We construct an explicit equivalence with the small category FinSkel. -/
+      instance FinSetObj.essentiallySmall : EssentiallySmall.{0} FinSetObj :=
+        EssentiallySmall.mk' finSetObjEquiv
+
+    </html:code></html:pre></fr:mainmatter></fr:tree></fr:mainmatter>
+            </fr:tree>
+          </fr:mainmatter>
+        </fr:tree>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>11</fr:month>
+              <fr:day>27</fr:day>
+            </fr:date>
             <fr:uri>https://kaierikniermann.github.io/notes/002q/</fr:uri>
             <fr:display-uri>002q</fr:display-uri>
             <fr:route>/notes/002q/</fr:route>

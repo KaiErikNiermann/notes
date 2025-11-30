@@ -1,0 +1,111 @@
+\date{2025-11-30}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Natural transformation (category theory)}
+
+\p{Suppose that #{F, G : C \to D} are two functors, we say that a \strong{natural transformation} which well denote as:}
+##{
+  \theta : F \Rightarrow G
+}
+\p{Consists of a \em{component morphism}:}
+##{
+  \theta_X : F(X) \to G(X) \in D \quad \forall X \in \mathrm{Ob}(C)
+}
+\p{such that the following diagram in #{D} commutes for every morphism #{f : X \to Y \in C}:}
+\texfig{
+  % https://q.uiver.app/#q=WzAsNixbMiwwLCJGKFgpIl0sWzQsMCwiRyhYKSJdLFsyLDIsIkYoWSkiXSxbNCwyLCJHKFkpIl0sWzAsMCwiWCJdLFswLDIsIlkiXSxbMCwxLCJcXHRoZXRhX1giXSxbMCwyLCJGKGYpIiwyXSxbMSwzLCJHKGYpIl0sWzIsMywiXFx0aGV0YV9ZIiwyXSxbNCw1LCJmIl1d
+  \[\begin{tikzcd}
+    X && {F(X)} && {G(X)} \\
+    \\
+    Y && {F(Y)} && {G(Y)}
+    \arrow["f", from=1-1, to=3-1]
+    \arrow["{\theta_X}", from=1-3, to=1-5]
+    \arrow["{F(f)}"', from=1-3, to=3-3]
+    \arrow["{G(f)}", from=1-5, to=3-5]
+    \arrow["{\theta_Y}"', from=3-3, to=3-5]
+  \end{tikzcd}\]
+}
+\p{In other words, we have that the following equality holds in #{D(F(X), G(Y))}:}
+##{
+  G(f) \circ \theta_X = \theta_Y \circ F(f)
+}
+\p{The diagrammatic condition above is often referred to as the \strong{naturality condition} or \strong{naturality square}.}
+\subtree{
+  \title{Natural isomorphism}
+  
+  \p{A natural transformation #{\theta : F \Rightarrow G} is called a \strong{natural isomorphism} if each component morphism #{\theta_X : F(X) \to G(X)} is an isomorphism in #{D}.}
+}
+
+\subtree{
+  \title{Lean representation}
+  
+  \codeblock{lean}{
+    @[ext]
+    structure NatTrans (F G : C ⥤ D) : Type max u₁ v₂ where
+      /-- The component of a natural transformation. -/
+      app : ∀ X : C, F.obj X ⟶ G.obj X
+      /-- The naturality square for a given morphism. -/
+      naturality : ∀ {X Y : C} (f : X ⟶ Y), 
+        F.map f ≫ app Y = app X ≫ G.map f := by cat_disch
+  }
+
+  \p{A nice example shown in the same file:}
+  \codeblock{lean}{
+    example {F G : C ⥤ D} (α : NatTrans F G) {X Y U V : C} 
+          (f : X ⟶ Y) (g : Y ⟶ U) (h : U ⟶ V) :
+        α.app X ≫ G.map f ≫ G.map g ≫ G.map h 
+          = 
+        F.map f ≫ F.map g ≫ F.map h ≫ α.app V := by grind
+  }
+  \p{The diagram this represents can be drawn as follows:}
+  \texfig{
+% https://q.uiver.app/#q=WzAsOCxbMCwwLCJGKFgpIl0sWzIsMCwiRihZKSJdLFs0LDAsIkYoVSkiXSxbNiwwLCJGKFYpIl0sWzAsMiwiRyhYKSJdLFsyLDIsIkcoWSkiXSxbNCwyLCJHKFUpIl0sWzYsMiwiRyhWKSJdLFswLDEsIkYoZikiXSxbMSwyLCJGKGcpIl0sWzIsMywiRihoKSJdLFswLDQsIlxcYWxwaGEoWCkiLDJdLFsxLDUsIlxcYWxwaGEoWSkiLDJdLFsyLDYsIlxcYWxwaGEoVSkiLDJdLFszLDcsIlxcYWxwaGEoVikiLDJdLFs0LDUsIkcoZikiLDJdLFs1LDYsIkcoZykiLDJdLFs2LDcsIkcoaCkiLDJdXQ==
+\[\begin{tikzcd}
+	{F(X)} && {F(Y)} && {F(U)} && {F(V)} \\
+	\\
+	{G(X)} && {G(Y)} && {G(U)} && {G(V)}
+	\arrow["{F(f)}", from=1-1, to=1-3]
+	\arrow["{\alpha(X)}"', from=1-1, to=3-1]
+	\arrow["{F(g)}", from=1-3, to=1-5]
+	\arrow["{\alpha(Y)}"', from=1-3, to=3-3]
+	\arrow["{F(h)}", from=1-5, to=1-7]
+	\arrow["{\alpha(U)}"', from=1-5, to=3-5]
+	\arrow["{\alpha(V)}"', from=1-7, to=3-7]
+	\arrow["{G(f)}"', from=3-1, to=3-3]
+	\arrow["{G(g)}"', from=3-3, to=3-5]
+	\arrow["{G(h)}"', from=3-5, to=3-7]
+\end{tikzcd}\]
+  }
+  \p{This is one of those moments where I think the diagramtic order of composition is really nice as we have a very clean correspondence here:}
+  \texfig{
+    % https://q.uiver.app/#q=WzAsOCxbMCwwLCJGKFgpIl0sWzIsMCwiRihZKSJdLFs0LDAsIkYoVSkiXSxbNiwwLCJGKFYpIl0sWzAsMiwiRyhYKSJdLFsyLDIsIkcoWSkiXSxbNCwyLCJHKFUpIl0sWzYsMiwiRyhWKSJdLFswLDEsIkYoZikiXSxbMSwyLCJGKGcpIl0sWzIsMywiRihoKSJdLFswLDQsIlxcYWxwaGEoWCkiXSxbMSw1LCJcXGFscGhhKFkpIiwyXSxbMiw2LCJcXGFscGhhKFUpIiwyXSxbMyw3LCJcXGFscGhhKFYpIiwyXSxbNCw1LCJHKGYpIiwyXSxbNSw2LCJHKGcpIiwyXSxbNiw3LCJHKGgpIiwyXSxbMCw0LCJcXGFscGhhLmFwcCIsMix7ImN1cnZlIjozLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCw1LCJHLm1hcCBmIiwyLHsiY3VydmUiOjMsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs1LDYsIkcubWFwIGciLDIseyJjdXJ2ZSI6Mywic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzYsNywiRy5tYXAgaCIsMix7ImN1cnZlIjozLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwxLCJGLm1hcCBmIiwwLHsib2Zmc2V0IjotMywiY3VydmUiOi0yLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwyLCJGLm1hcCBnIiwwLHsib2Zmc2V0IjotMywiY3VydmUiOi0yLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiwzLCJGLm1hcCBoIiwwLHsib2Zmc2V0IjotMywiY3VydmUiOi0yLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMyw3LCJhLm1hcCAgViIsMCx7Im9mZnNldCI6LTMsImN1cnZlIjotMiwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+    \[\begin{tikzcd}
+      {F(X)} && {F(Y)} && {F(U)} && {F(V)} \\
+      \\
+      {G(X)} && {G(Y)} && {G(U)} && {G(V)}
+      \arrow["{F(f)}", from=1-1, to=1-3]
+      \arrow["{\texttt{F.map f}}", shift left=3, curve={height=-12pt}, dashed, from=1-1, to=1-3]
+      \arrow["{\alpha(X)}", from=1-1, to=3-1]
+      \arrow["{\alpha.\texttt{app}}"', curve={height=20pt}, dashed, from=1-1, to=3-1]
+      \arrow["{F(g)}", from=1-3, to=1-5]
+      \arrow["{\texttt{F.map g}}", shift left=3, curve={height=-12pt}, dashed, from=1-3, to=1-5]
+      \arrow["{\alpha(Y)}"', from=1-3, to=3-3]
+      \arrow["{F(h)}", from=1-5, to=1-7]
+      \arrow["{\texttt{F.map h}}", shift left=3, curve={height=-12pt}, dashed, from=1-5, to=1-7]
+      \arrow["{\alpha(U)}"', from=1-5, to=3-5]
+      \arrow["{\alpha(V)}"', from=1-7, to=3-7]
+      \arrow["{\alpha.\texttt{app}}", shift left=3, curve={height=-12pt}, dashed, from=1-7, to=3-7]
+      \arrow["{G(f)}"', from=3-1, to=3-3]
+      \arrow["{\texttt{G.map f}}"', curve={height=20pt}, dashed, from=3-1, to=3-3]
+      \arrow["{G(g)}"', from=3-3, to=3-5]
+      \arrow["{\texttt{G.map g}}"', curve={height=20pt}, dashed, from=3-3, to=3-5]
+      \arrow["{G(h)}"', from=3-5, to=3-7]
+      \arrow["{\texttt{G.map h}}"', curve={height=20pt}, dashed, from=3-5, to=3-7]
+    \end{tikzcd}\]
+  }
+  \p{We can see here how the proof of a natural transformation's property amounts to essentially drawing the manner in which the two paths round the diagram start and end at the same place, i.e. proving the diagram commutes.}
+
+}

@@ -1,0 +1,98 @@
+\date{2025-11-29}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Functor}
+
+\subtree{
+  \title{The data}
+  
+  \p{For categories #{C} and #{D}, a \strong{functor} #{F : C \to D} consists of:}
+\ul{
+  \li{An assignment on \em{objects}
+  ##{
+    \text{Ob}(C) \to \text{Ob}(D) \quad X \mapsto F(X)
+  }
+  }
+  \li{An assignment on \em{morphisms}
+  ##{
+    C(X, Y) \to D(F(X), F(Y)) \quad f \mapsto F(f)
+  }
+  equivalently we can denote this explicitly as 
+  ##{
+    F_{X, Y} : \text{Hom}_C(X, Y) \to \text{Hom}_D(F(X), F(Y))
+  }
+  }
+}
+}
+
+\subtree{
+  \title{The axioms}
+  
+  \p{The data must satisfy \strong{composition} and \strong{identity} axioms:}
+  \ul{
+    \li{The equality
+    ##{
+      F(g \circ f) = F(g) \circ F(f)
+    }
+    }
+    \li{For each object #{X \in \text{Ob}(C)} the equality
+    ##{
+      F(\text{id}_X) = \text{id}_{F(X)} \in D(F(X), F(X))
+    }
+    }
+  }
+}
+
+\subtree{
+  \title{Commutative diagram}
+  \p{If we wish to represent the composition axiom diagrammatically we can do so as follows:}
+  \texfig{
+    % https://q.uiver.app/#q=WzAsOCxbMSwwLCJYIl0sWzMsMCwiWSJdLFsxLDIsIkYoWCkiXSxbMywyLCJGKFkpIl0sWzUsMCwiWiJdLFs1LDIsIkYoWikiXSxbMCwwLCJcXHVuZGVybGluZSBDIl0sWzAsMiwiXFx1bmRlcmxpbmUgRCJdLFswLDEsImYiXSxbMCwyXSxbMSwzXSxbMiwzLCJGKGYpIl0sWzEsNCwiZyJdLFszLDUsIkYoZykiXSxbNCw1XSxbMCw0LCJmIDsgZyIsMCx7ImN1cnZlIjotM31dLFsyLDUsIkYoZjtnKSIsMix7ImN1cnZlIjozfV1d
+    \[\begin{tikzcd}
+      {\underline C} & X && Y && Z \\
+      \\
+      {\underline D} & {F(X)} && {F(Y)} && {F(Z)}
+      \arrow["f", from=1-2, to=1-4]
+      \arrow["{f ; g}", curve={height=-18pt}, from=1-2, to=1-6]
+      \arrow[from=1-2, to=3-2]
+      \arrow["g", from=1-4, to=1-6]
+      \arrow[from=1-4, to=3-4]
+      \arrow[from=1-6, to=3-6]
+      \arrow["{F(f)}", from=3-2, to=3-4]
+      \arrow["{F(f;g)}"', curve={height=18pt}, from=3-2, to=3-6]
+      \arrow["{F(g)}", from=3-4, to=3-6]
+    \end{tikzcd}\]
+  }
+}
+
+\subtree{
+  \title{Lean definition}
+  
+  \codeblock{lean}{
+    \startverb
+    structure Functor 
+      (C : Type u₁) [Category.{v₁} C] 
+      (D : Type u₂) [Category.{v₂} D] :
+          Type max v₁ v₂ u₁ u₂ where
+
+        /-- The action of a functor on objects. -/
+        obj : C → D
+        
+        /-- The action of a functor on morphisms. -/
+        map : ∀ {X Y : C}, (X ⟶ Y) → ((obj X) ⟶ (obj Y))
+        
+        /-- A functor preserves identity morphisms. -/
+        map_id : ∀ X : C, map (𝟙 X) = 𝟙 (obj X) := by cat_disch
+        
+        /-- A functor preserves composition. -/
+        map_comp : ∀ {X Y Z : C} (f : X ⟶ Y) (g : Y ⟶ Z), 
+          map (f ≫ g) = map f ≫ map g := by cat_disch
+
+    /-- Notation for a functor between categories. -/
+    scoped [CategoryTheory] infixr:26 " ⥤ " => Functor -- type as \func
+    \stopverb
+  }
+}

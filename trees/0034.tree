@@ -1,0 +1,33 @@
+\date{2025-12-02}
+
+\import{base-macros}
+
+\taxon{Quiz}
+\title{Signatures and Axioms (FOL)}
+
+\p{Consider a theory withthe following signature:}
+##{
+  \Sigma_H  : \{R = \{\texttt{taller}\}, C = F = \emptyset \}
+}
+\p{And the axiom:}
+##{
+  \forall x.\ \forall y.\ (\texttt{taller}(x, y) \to \neg \texttt{taller}(y, x))
+}
+\p{Are the following legal #{\Sigma_H}-formulas?}
+\ol{
+  \li{
+    #{
+      \exists x.\ \forall y.\ (\texttt{taller}(x, z) \land \texttt{taller}(y, w))
+    }
+  }
+  \li{#{
+    \exists x.\ \forall z.\ \texttt{taller}(x, z) \land \texttt{taller}(\text{joe}, \text{tom})
+  }}
+}
+
+\solution{
+  \ol{
+    \li{Yes}
+    \li{No, there are no constants in the signature, so \text{joe} and \text{tom} are not valid terms.}
+  }
+}

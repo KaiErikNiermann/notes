@@ -40,6 +40,7 @@
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
   \stopverb
 }
@@ -48,6 +49,7 @@
   \startverb
   \usepackage{amsmath}
   \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata} 
   \stopverb
 }
 

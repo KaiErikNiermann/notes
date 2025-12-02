@@ -400,12 +400,13 @@
   ]]></fr:tex></html:li></html:ul><html:p>We can define semantic entailment inductively as follows:</html:p>
   
     
-    <fr:resource hash="7d76df6402fa248cef1cb993f01e71c4"><fr:resource-content><html:img src="/notes/7d76df6402fa248cef1cb993f01e71c4.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="2b351294263361b74676193e73f28df6"><fr:resource-content><html:img src="/notes/2b351294263361b74676193e73f28df6.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -490,12 +491,13 @@
           <fr:mainmatter><html:p>In addition to evaluating atomic formulas, we can define the evaluation of complex formulas using logical connectives and quantifiers as follows:</html:p>
   
     
-    <fr:resource hash="4bbff9227924960e09d83dbb75672f38"><fr:resource-content><html:img src="/notes/4bbff9227924960e09d83dbb75672f38.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="991a5113f70cfcb315c0458b8f4dceca"><fr:resource-content><html:img src="/notes/991a5113f70cfcb315c0458b8f4dceca.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -551,12 +553,13 @@
 <html:p>For the proof rules of quantifiers we have two variants depending on whether we are dealing with free or bound variables:</html:p>
   
     
-    <fr:resource hash="69c2a45f3d5bcd081b5ced73ba409422"><fr:resource-content><html:img src="/notes/69c2a45f3d5bcd081b5ced73ba409422.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="bf807f288df79827d7da6707c91abf5b"><fr:resource-content><html:img src="/notes/bf807f288df79827d7da6707c91abf5b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -606,12 +609,13 @@
   <html:li>If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.</html:li></html:ol><html:p>We can express the semantic argument method via the following inference rule:</html:p>
   
     
-    <fr:resource hash="8e12f5872757602f1115263a23e5fbb5"><fr:resource-content><html:img src="/notes/8e12f5872757602f1115263a23e5fbb5.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="3bed6126b85cea6a0873a90457e4404a"><fr:resource-content><html:img src="/notes/3bed6126b85cea6a0873a90457e4404a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -853,12 +857,13 @@
                       <fr:mainmatter><html:p>We can define the semantic inference rules for propositional logic formulas under interpretations as follows inductively, starting with the base cases:</html:p>
   
     
-    <fr:resource hash="a5a95ea75f065bac62d8f084e02ad126"><fr:resource-content><html:img src="/notes/a5a95ea75f065bac62d8f084e02ad126.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="bc85581157219263d09e73cefc44f077"><fr:resource-content><html:img src="/notes/bc85581157219263d09e73cefc44f077.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -888,12 +893,13 @@
 <html:p>Moving on to the inductive case we have</html:p>
   
     
-    <fr:resource hash="3b5f438acb3330ae823f6babb1d4e173"><fr:resource-content><html:img src="/notes/3b5f438acb3330ae823f6babb1d4e173.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="58a9b3ea7d888229eb32dd683687ee6f"><fr:resource-content><html:img src="/notes/58a9b3ea7d888229eb32dd683687ee6f.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -933,12 +939,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
 </html:p>
   
     
-    <fr:resource hash="0ff63e00bc9d68d28f362eb36f5eab30"><fr:resource-content><html:img src="/notes/0ff63e00bc9d68d28f362eb36f5eab30.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="344d6b5968006455b649cbbd2d9404b2"><fr:resource-content><html:img src="/notes/344d6b5968006455b649cbbd2d9404b2.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -1036,12 +1043,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   
   
     
-    <fr:resource hash="9cddcce4cdde6b5a1ce8f4c8e723b423"><fr:resource-content><html:img src="/notes/9cddcce4cdde6b5a1ce8f4c8e723b423.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="fb54c0a5c8917e2450709946ac062854"><fr:resource-content><html:img src="/notes/fb54c0a5c8917e2450709946ac062854.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -2033,12 +2041,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   ]]></fr:tex></html:li></html:ul><html:p>We can define semantic entailment inductively as follows:</html:p>
   
     
-    <fr:resource hash="7d76df6402fa248cef1cb993f01e71c4"><fr:resource-content><html:img src="/notes/7d76df6402fa248cef1cb993f01e71c4.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="2b351294263361b74676193e73f28df6"><fr:resource-content><html:img src="/notes/2b351294263361b74676193e73f28df6.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -2123,12 +2132,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                       <fr:mainmatter><html:p>In addition to evaluating atomic formulas, we can define the evaluation of complex formulas using logical connectives and quantifiers as follows:</html:p>
   
     
-    <fr:resource hash="4bbff9227924960e09d83dbb75672f38"><fr:resource-content><html:img src="/notes/4bbff9227924960e09d83dbb75672f38.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="991a5113f70cfcb315c0458b8f4dceca"><fr:resource-content><html:img src="/notes/991a5113f70cfcb315c0458b8f4dceca.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -2184,12 +2194,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
 <html:p>For the proof rules of quantifiers we have two variants depending on whether we are dealing with free or bound variables:</html:p>
   
     
-    <fr:resource hash="69c2a45f3d5bcd081b5ced73ba409422"><fr:resource-content><html:img src="/notes/69c2a45f3d5bcd081b5ced73ba409422.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="bf807f288df79827d7da6707c91abf5b"><fr:resource-content><html:img src="/notes/bf807f288df79827d7da6707c91abf5b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -2239,12 +2250,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   <html:li>If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.</html:li></html:ol><html:p>We can express the semantic argument method via the following inference rule:</html:p>
   
     
-    <fr:resource hash="8e12f5872757602f1115263a23e5fbb5"><fr:resource-content><html:img src="/notes/8e12f5872757602f1115263a23e5fbb5.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="3bed6126b85cea6a0873a90457e4404a"><fr:resource-content><html:img src="/notes/3bed6126b85cea6a0873a90457e4404a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -2289,6 +2301,725 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
     \end {align*} 
   ]]></fr:tex>
   Since we have <fr:tex display="inline"><![CDATA[p]]></fr:tex> and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction using the Contradiction rule from the semantic argument method. Therefore, our initial assumption that <fr:tex display="inline"><![CDATA[F]]></fr:tex> is not valid must be false. Hence, we conclude that the formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is valid.
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                    </fr:tree>
+                  </fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false" expanded="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>2</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/0032/</fr:uri>
+                <fr:display-uri>0032</fr:display-uri>
+                <fr:route>/notes/0032/</fr:route>
+                <fr:title text="Lecture 4 - First Order Theories">Lecture 4 - First Order Theories</fr:title>
+                <fr:taxon>VU-VFS-2025</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>2</fr:day>
+                    </fr:date>
+                    <fr:title text="Signatures and Axioms">Signatures and Axioms</fr:title>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/0033/</fr:uri>
+                        <fr:display-uri>0033</fr:display-uri>
+                        <fr:route>/notes/0033/</fr:route>
+                        <fr:title text="First Order Theory T">First Order Theory <fr:tex display="inline"><![CDATA[T]]></fr:tex></fr:title>
+                        <fr:taxon>Definition</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+                        <html:p>A <html:em>first order theory</html:em> (FOT) <fr:tex display="inline"><![CDATA[T]]></fr:tex> is defined by two main components:</html:p>
+                        <html:ul><html:li>A <html:em>signature</html:em> <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> of a set of constant, function, and predicate symbols</html:li>
+  <html:li>A set of <html:em>axioms</html:em> <fr:tex display="inline"><![CDATA[\mathcal  A]]></fr:tex> consisting of closed (i.e. no free variables) formulas over the signature <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex></html:li></html:ul>
+                        <html:p>We say that a formula constructed from only from the contents of the signature <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> is a <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex>-formula.</html:p>
+                      </fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/0034/</fr:uri>
+                        <fr:display-uri>0034</fr:display-uri>
+                        <fr:route>/notes/0034/</fr:route>
+                        <fr:title text="Signatures and Axioms (FOL)">Signatures and Axioms (FOL)</fr:title>
+                        <fr:taxon>Quiz</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter><html:p>Consider a theory withthe following signature:</html:p><fr:tex display="block"><![CDATA[
+  \Sigma _H  : \{R = \{\texttt {taller}\}, C = F = \emptyset  \}
+]]></fr:tex><html:p>And the axiom:</html:p><fr:tex display="block"><![CDATA[
+  \forall  x.\ \forall  y.\ (\texttt {taller}(x, y) \to  \neg  \texttt {taller}(y, x))
+]]></fr:tex><html:p>Are the following legal <fr:tex display="inline"><![CDATA[\Sigma _H]]></fr:tex>-formulas?</html:p><html:ol><html:li><fr:tex display="inline"><![CDATA[
+      \exists  x.\ \forall  y.\ (\texttt {taller}(x, z) \land  \texttt {taller}(y, w))
+    ]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[
+    \exists  x.\ \forall  z.\ \texttt {taller}(x, z) \land  \texttt {taller}(\text {joe}, \text {tom})
+  ]]></fr:tex></html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>2</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>Yes</html:li>
+    <html:li>No, there are no constants in the signature, so \text {joe} and \text {tom} are not valid terms.</html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                    </fr:tree>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>2</fr:day>
+                    </fr:date>
+                    <fr:title text="Models of Theories">Models of Theories</fr:title>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/0035/</fr:uri>
+                        <fr:display-uri>0035</fr:display-uri>
+                        <fr:route>/notes/0035/</fr:route>
+                        <fr:title text="Structure &amp; Model of T (FOT)">Structure &amp; Model of <fr:tex display="inline"><![CDATA[T]]></fr:tex> (FOT)</fr:title>
+                        <fr:taxon>Definition</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+                        <html:p>A structure which we denote as:</html:p>
+                        <fr:tex display="block"><![CDATA[
+  M \triangleq  \langle  U, I \rangle 
+]]></fr:tex>
+                        <html:p>Is a <html:strong>model of a theory</html:strong> <fr:tex display="inline"><![CDATA[T]]></fr:tex> (or <fr:tex display="inline"><![CDATA[T]]></fr:tex>-<html:strong>model</html:strong>) iff:</html:p>
+                        <fr:tex display="block"><![CDATA[
+  \forall  A \in  \mathcal  A_T.\ M \vDash  A
+]]></fr:tex>
+                      </fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/0036/</fr:uri>
+                        <fr:display-uri>0036</fr:display-uri>
+                        <fr:route>/notes/0036/</fr:route>
+                        <fr:title text="Models of T_H">Models of <fr:tex display="inline"><![CDATA[T_H]]></fr:tex></fr:title>
+                        <fr:taxon>Quiz</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter><html:p>consider a structure consisting of a universe <fr:tex display="inline"><![CDATA[U]]></fr:tex> and interpretation <fr:tex display="inline"><![CDATA[I]]></fr:tex> as follows:</html:p><fr:tex display="block"><![CDATA[
+  U = \{A, B\} \quad  I = \{\texttt {taller} \mapsto  \{\langle  A, A\rangle , \langle  B, B\rangle \}\}
+]]></fr:tex><html:p>Are the following models of the theory <fr:tex display="inline"><![CDATA[T]]></fr:tex> or not:</html:p><html:ol><html:li>Is <fr:tex display="inline"><![CDATA[\langle  U, I\rangle ]]></fr:tex> a model of <fr:tex display="inline"><![CDATA[T]]></fr:tex></html:li>
+  <html:li>If we change the interpretation to
+    <fr:tex display="block"><![CDATA[
+      I = \{\texttt {taller} \mapsto  \{\langle  A, B\rangle \}\}
+    ]]></fr:tex>
+    is the structure now a model of <fr:tex display="inline"><![CDATA[T]]></fr:tex>?
+  </html:li>
+  <html:li>If we add the following axiom
+    <fr:tex display="block"><![CDATA[
+      \forall  x, y, z.\ (\texttt {taller}(x, y) \land  \texttt {taller}(y, z) \to  \texttt {taller}(x, z))
+    ]]></fr:tex>
+    and we change the interpretation to
+    <fr:tex display="block"><![CDATA[
+      I = \{\texttt {taller} \mapsto  \{\langle  A, B \rangle , \langle  B, C \rangle \}\}
+    ]]></fr:tex>
+    then is the structure a model of <fr:tex display="inline"><![CDATA[T]]></fr:tex>?
+  </html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>2</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:p>As a reminder we are working with the axiom:</html:p>
+  <fr:tex display="block"><![CDATA[
+    \forall  x, y.\ (\texttt {taller}(x, y) \to  \neg  \texttt {taller}(y, x))
+  ]]></fr:tex>
+  <html:ol><html:li>Clearly no, as if we take <fr:tex display="inline"><![CDATA[x = A]]></fr:tex> and <fr:tex display="inline"><![CDATA[y = A]]></fr:tex> we have that both <fr:tex display="inline"><![CDATA[\texttt {taller}(A, A)]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {taller}(A, A)]]></fr:tex> hold, violating the axiom.</html:li>
+    <html:li>Here we are chaning or interpretation to just the relation <fr:tex display="inline"><![CDATA[\texttt {taller}(A, B)]]></fr:tex> holding. In this case the axiom is satisfied as there are no values of <fr:tex display="inline"><![CDATA[x]]></fr:tex> and <fr:tex display="inline"><![CDATA[y]]></fr:tex> such that both <fr:tex display="inline"><![CDATA[\texttt {taller}(x, y)]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {taller}(y, x)]]></fr:tex> hold. So yes this is a model of <fr:tex display="inline"><![CDATA[T]]></fr:tex>.</html:li>
+    <html:li>No, as if we take <fr:tex display="inline"><![CDATA[x = A]]></fr:tex>, <fr:tex display="inline"><![CDATA[y = B]]></fr:tex> and <fr:tex display="inline"><![CDATA[z = C]]></fr:tex> we have that both <fr:tex display="inline"><![CDATA[\texttt {taller}(A, B)]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {taller}(B, C)]]></fr:tex> hold, but <fr:tex display="inline"><![CDATA[\texttt {taller}(A, C)]]></fr:tex> does not hold (so not in our interpretation for the <fr:tex display="inline"><![CDATA[\texttt {taller}]]></fr:tex> relationship), violating the axiom.
+    </html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                    </fr:tree>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>2</fr:day>
+                    </fr:date>
+                    <fr:title text="Satisfiability Modulo T">Satisfiability Modulo <fr:tex display="inline"><![CDATA[T]]></fr:tex></fr:title>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/0037/</fr:uri>
+                        <fr:display-uri>0037</fr:display-uri>
+                        <fr:route>/notes/0037/</fr:route>
+                        <fr:title text="Satisfiable &amp; Valid modulo T">Satisfiable &amp; Valid modulo <fr:tex display="inline"><![CDATA[T]]></fr:tex></fr:title>
+                        <fr:taxon>Definition</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+                        <html:p>We say that a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is <html:strong>satisfiable modulo</html:strong> <fr:tex display="inline"><![CDATA[T]]></fr:tex> iff <html:em>there exists</html:em> a <fr:tex display="inline"><![CDATA[T]]></fr:tex>-model <fr:tex display="inline"><![CDATA[M]]></fr:tex> and a variable assignment <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> such that:</html:p>
+                        <fr:tex display="block"><![CDATA[
+  M, \sigma  \vDash  F
+]]></fr:tex>
+                        <html:p>We say that a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is <html:strong>valid modulo</html:strong> <fr:tex display="inline"><![CDATA[T]]></fr:tex> iff <html:em>forall</html:em> <fr:tex display="inline"><![CDATA[T]]></fr:tex>-models <fr:tex display="inline"><![CDATA[M]]></fr:tex> and all variable assignments <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> we have:</html:p>
+                        <fr:tex display="block"><![CDATA[
+  M, \sigma  \vDash  F
+]]></fr:tex>
+                      </fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/0039/</fr:uri>
+                        <fr:display-uri>0039</fr:display-uri>
+                        <fr:route>/notes/0039/</fr:route>
+                        <fr:title text="FOL Validity vs Valid modulo T">FOL Validity vs Valid modulo <fr:tex display="inline"><![CDATA[T]]></fr:tex></fr:title>
+                        <fr:taxon>Definition</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter><html:p>We can compare the two notions by understanding <html:em>validity in modulo</html:em> <fr:tex display="inline"><![CDATA[T]]></fr:tex> as a restriction of <html:em>validity in FOL</html:em> to only those models that are <fr:tex display="inline"><![CDATA[T]]></fr:tex>-models. So the implication of that is that if a formula is valid (true in all models), then its clearly also valid in the subset/restriction to only <fr:tex display="inline"><![CDATA[T]]></fr:tex>-models. However, the other way around does not hold, since a formula can be true in all <fr:tex display="inline"><![CDATA[T]]></fr:tex>-models, but false in some non-<fr:tex display="inline"><![CDATA[T]]></fr:tex>-model. Hence we have the following:</html:p>
+ 
+  
+  <fr:resource hash="cfe2cf6f814d69d77f9a75a9bc3e1c9c"><fr:resource-content><html:img src="/notes/cfe2cf6f814d69d77f9a75a9bc3e1c9c.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+   
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\[
+  \vDash  F \implies  T \vDash  F  
+\]]]></fr:resource-source></fr:resource>
+ 
+<html:p>But the other way around does not hold in general:</html:p>
+ 
+  
+  <fr:resource hash="1fcae5da143e03fc72c1ee60ad7bc5fc"><fr:resource-content><html:img src="/notes/1fcae5da143e03fc72c1ee60ad7bc5fc.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+   
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\[
+  T \vDash  F \centernot \implies  \vDash  F
+\]]]></fr:resource-source></fr:resource>
+ 
+</fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/0038/</fr:uri>
+                        <fr:display-uri>0038</fr:display-uri>
+                        <fr:route>/notes/0038/</fr:route>
+                        <fr:title text="Satisfiability in FOL vs FOT">Satisfiability in FOL vs FOT</fr:title>
+                        <fr:taxon>Quiz</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter><html:p>Consider some arbitrary first order theory <fr:tex display="inline"><![CDATA[T]]></fr:tex></html:p><html:ol><html:li>If a formula is valid in FOL, then is it also valid in modulo <fr:tex display="inline"><![CDATA[T]]></fr:tex>?</html:li>
+  <html:li>If a formula is valid modulo <fr:tex display="inline"><![CDATA[T]]></fr:tex>, then is it also valid in FOL?</html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>2</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>Yes, if its valid in FOL that means its valid in <html:em>all models</html:em> which includes those models that are <fr:tex display="inline"><![CDATA[T]]></fr:tex>-models. Hence its also valid modulo <fr:tex display="inline"><![CDATA[T]]></fr:tex>.</html:li>
+    <html:li>No, a formula can be valid in all <fr:tex display="inline"><![CDATA[T]]></fr:tex>-models, but false in some non-<fr:tex display="inline"><![CDATA[T]]></fr:tex>-model. Hence its not necessarily valid in FOL.</html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                    </fr:tree>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>2</fr:day>
+                    </fr:date>
+                    <fr:title text="Theory of Equality &amp; Congruence">Theory of Equality &amp; Congruence</fr:title>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/003a/</fr:uri>
+                        <fr:display-uri>003a</fr:display-uri>
+                        <fr:route>/notes/003a/</fr:route>
+                        <fr:title text="Theory of Equality T">Theory of Equality <fr:tex display="inline"><![CDATA[T]]></fr:tex></fr:title>
+                        <fr:taxon>Definition</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+                        <html:p>The <html:strong>theory of equality</html:strong> <fr:tex display="inline"><![CDATA[T_=]]></fr:tex> is a first order theory over the signature <fr:tex display="inline"><![CDATA[\Sigma _=]]></fr:tex> which contains:</html:p>
+                        <fr:tex display="block"><![CDATA[
+  \sigma _= : \{=, s\}
+]]></fr:tex>
+                        <html:p>Where <fr:tex display="inline"><![CDATA[=]]></fr:tex> is a binary relation symbol and <fr:tex display="inline"><![CDATA[s]]></fr:tex> is any constant function or predicate symbol. The axioms of the theory of equality are:</html:p>
+                        <fr:resource hash="91ec0848d003ec436b77f543939afd31">
+                          <fr:resource-content>
+                            <html:img src="/notes/91ec0848d003ec436b77f543939afd31.svg" />
+                          </fr:resource-content>
+                          <fr:resource-source type="latex" part="preamble"><![CDATA[
+  \usepackage {eulervm}
+  \usepackage {amsmath}
+]]></fr:resource-source>
+                          <fr:resource-source type="latex" part="body"><![CDATA[
+    \begin{align*}
+    &\forall x.\ x = x \tag{reflexivity} \\
+    &\forall x, y.\ x = y \to y = x \tag{symmetry} \\
+    &\forall x, y, z.\ (x = y \land y = z) \to x = z \tag{transitivity} \\
+  \end{align*}
+]]></fr:resource-source>
+                        </fr:resource>
+                      </fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/003b/</fr:uri>
+                        <fr:display-uri>003b</fr:display-uri>
+                        <fr:route>/notes/003b/</fr:route>
+                        <fr:title text="Theory of Equality">Theory of Equality</fr:title>
+                        <fr:taxon>Quiz</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter><html:p>Consider the universe:</html:p><fr:tex display="block"><![CDATA[
+  U = \{\alpha , \beta \}
+]]></fr:tex><html:p>which of the following interpetations of <fr:tex display="inline"><![CDATA[=]]></fr:tex> are allowd by the axioms of <fr:tex display="inline"><![CDATA[T_=]]></fr:tex>:</html:p><html:ol><html:li><fr:tex display="inline"><![CDATA[I(=) \triangleq  \{\langle  \alpha , \beta  \rangle , \langle  \beta  \alpha  \rangle \}]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[I(=) \triangleq  \{\langle  \alpha , \alpha  \rangle , \langle  \beta , \beta  \rangle \}]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[I(=) \triangleq  \{\langle  \alpha , \alpha  \rangle , \langle  \alpha , \beta  \rangle , \langle  \beta , \alpha  \rangle , \langle  \beta , \beta  \rangle \}]]></fr:tex></html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>2</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>No, violates reflexivity axiom since neither <fr:tex display="inline"><![CDATA[\alpha  = \alpha ]]></fr:tex> nor <fr:tex display="inline"><![CDATA[\beta  = \beta ]]></fr:tex> are in the interpretation</html:li>
+    <html:li>Yes, satisfies all axioms of equality</html:li>
+    <html:li>Yes, satisfies all axioms of equality</html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/003c/</fr:uri>
+                        <fr:display-uri>003c</fr:display-uri>
+                        <fr:route>/notes/003c/</fr:route>
+                        <fr:title text="(Left &amp; Right) Congruence Relations (FOT)">(Left &amp; Right) Congruence Relations (FOT)</fr:title>
+                        <fr:taxon>Definition</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+                        <html:p>In the most general sense we say that a relation <fr:tex display="inline"><![CDATA[R]]></fr:tex> over a set <fr:tex display="inline"><![CDATA[A]]></fr:tex> is a <html:strong>congruence</html:strong> with respect to a function <fr:tex display="inline"><![CDATA[f : A^n \to  A]]></fr:tex> if for all <fr:tex display="inline"><![CDATA[a_1, \ldots , a_n, b_1, \ldots , b_n \in  A]]></fr:tex> such that <fr:tex display="inline"><![CDATA[a_i\ R\ b_i]]></fr:tex> for all <fr:tex display="inline"><![CDATA[1 \leq  i \leq  n]]></fr:tex> we have:</html:p>
+                        <fr:tex display="block"><![CDATA[
+  f(a_1, \ldots , a_n)\ R\ f(b_1, \ldots , b_n)
+]]></fr:tex>
+                        <html:p>if we denote <fr:tex display="inline"><![CDATA[\overline  x]]></fr:tex> as a vector of elements <fr:tex display="inline"><![CDATA[x_1, \ldots , x_n]]></fr:tex> we can rewrite this more succinctly as:</html:p>
+                        <fr:tex display="block"><![CDATA[
+  \forall  \overline  a, \overline  b \in  A^n.\ (\forall  i.\ a_i\ R\ b_i) \to  f(\overline  a)\ R\ f(\overline  b)
+]]></fr:tex>
+                        <html:p>In the case of first order theories we can then instantiate <fr:tex display="inline"><![CDATA[R]]></fr:tex> with things like equality or other relations defined in the theory. Additionally we can <fr:tex display="inline"><![CDATA[f]]></fr:tex> represent a function or predicate symbol from the signature of the theory. In the case of binary functions or predicates we can also define <html:strong>left</html:strong> and <html:strong>right congruence</html:strong> as follows:</html:p>
+                        <html:ol><html:li>A relation <fr:tex display="inline"><![CDATA[R]]></fr:tex> is a <html:strong>left congruence</html:strong> with respect to a binary function or predicate <fr:tex display="inline"><![CDATA[f : A \times  A \to  A]]></fr:tex> if for all <fr:tex display="inline"><![CDATA[a, b, c \in  A]]></fr:tex> such that <fr:tex display="inline"><![CDATA[a\ R\ b]]></fr:tex> we have:</html:li>
+  <fr:tex display="block"><![CDATA[
+    f(a, c)\ R\ f(b, c)
+  ]]></fr:tex>
+  <html:li>A relation <fr:tex display="inline"><![CDATA[R]]></fr:tex> is a <html:strong>right congruence</html:strong> with respect to a binary function or predicate <fr:tex display="inline"><![CDATA[f : A \times  A \to  A]]></fr:tex> if for all <fr:tex display="inline"><![CDATA[a, b, c \in  A]]></fr:tex> such that <fr:tex display="inline"><![CDATA[a\ R\ b]]></fr:tex> we have:</html:li>
+  <fr:tex display="block"><![CDATA[
+    f(c, a)\ R\ f(c, b)
+  ]]></fr:tex></html:ol>
+                      </fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/003d/</fr:uri>
+                        <fr:display-uri>003d</fr:display-uri>
+                        <fr:route>/notes/003d/</fr:route>
+                        <fr:title text="Function &amp; Predicate congruence">Function &amp; Predicate congruence</fr:title>
+                        <fr:taxon>Quiz</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter><html:p>Consider the universe:</html:p><fr:tex display="block"><![CDATA[
+  U = \{a, b, c\}
+]]></fr:tex><html:p>and the interpretation:</html:p><fr:tex display="block"><![CDATA[
+  I(=) \triangleq  \{\langle  a, a \rangle , \langle  a, b \rangle , \langle  b, a \rangle , \langle  b, b \rangle , \langle  c, c \rangle \}
+]]></fr:tex><html:ol><html:li>Does the interpetation <fr:tex display="inline"><![CDATA[I(=)]]></fr:tex> satisfy the axioms of equality?</html:li>
+  <html:li>Which interpretations for a function <fr:tex display="inline"><![CDATA[f]]></fr:tex> satisfy the axioms of congruence?
+    <html:ol><html:li><fr:tex display="inline"><![CDATA[I(f) \triangleq  \{b \to  a, a \to  c, c \to  c\}]]></fr:tex></html:li>
+      <html:li><fr:tex display="inline"><![CDATA[I(f) \triangleq  \{b \to  b, a \to  b, c \to  b\}]]></fr:tex></html:li>
+      <html:li><fr:tex display="inline"><![CDATA[I(f) \triangleq  \{b \to  a, a \to  b, c \to  c\}]]></fr:tex></html:li></html:ol></html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>2</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>Yes, the interpretation satisfies the axioms of equality</html:li>
+    <html:li>Going through them one by one:
+      <html:ol><html:li>No, because <fr:tex display="inline"><![CDATA[f(a) = c]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = a]]></fr:tex> but <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> yet <fr:tex display="inline"><![CDATA[c\ not\ I(=)\ a]]></fr:tex></html:li> 
+        <html:li>Yes, because <fr:tex display="inline"><![CDATA[f(a) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> thus <fr:tex display="inline"><![CDATA[b\ I(=)\ b]]></fr:tex>, similarly for <fr:tex display="inline"><![CDATA[c]]></fr:tex></html:li>
+        <html:li>Yes, because <fr:tex display="inline"><![CDATA[f(a) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = a]]></fr:tex> and <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> thus <fr:tex display="inline"><![CDATA[b\ I(=)\ a]]></fr:tex>, similarly for <fr:tex display="inline"><![CDATA[c]]></fr:tex></html:li></html:ol></html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                    </fr:tree>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>2</fr:day>
+                    </fr:date>
+                    <fr:title text="Theory of Peano Arithmetic">Theory of Peano Arithmetic</fr:title>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/003e/</fr:uri>
+                        <fr:display-uri>003e</fr:display-uri>
+                        <fr:route>/notes/003e/</fr:route>
+                        <fr:title text="Theory of Peano Arithmetic">Theory of Peano Arithmetic</fr:title>
+                        <fr:taxon>Definition</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+                        <html:p>Peano Arithmetic (PA) is a first order theory over the signature <fr:tex display="inline"><![CDATA[\Sigma _{PA}]]></fr:tex> which contains:</html:p>
+                        <fr:tex display="block"><![CDATA[
+  \Sigma _{PA} : \{0, S, +, \times , =\}
+]]></fr:tex>
+                        <html:p>Where <fr:tex display="inline"><![CDATA[0]]></fr:tex> is a constant symbol representing zero, <fr:tex display="inline"><![CDATA[S]]></fr:tex> is a unary function symbol representing the successor function, <fr:tex display="inline"><![CDATA[+]]></fr:tex> and <fr:tex display="inline"><![CDATA[\times ]]></fr:tex> are binary function symbols representing addition and multiplication respectively, and <fr:tex display="inline"><![CDATA[=]]></fr:tex> is a binary relation symbol representing equality. The axioms of Peano Arithmetic are:</html:p>
+                        <fr:resource hash="38b17d08c8a044cd82fc858e037bbf9f">
+                          <fr:resource-content>
+                            <html:img src="/notes/38b17d08c8a044cd82fc858e037bbf9f.svg" />
+                          </fr:resource-content>
+                          <fr:resource-source type="latex" part="preamble"><![CDATA[
+  \usepackage {eulervm}
+  \usepackage {amsmath}
+]]></fr:resource-source>
+                          <fr:resource-source type="latex" part="body"><![CDATA[
+    \begin{align*}
+    &\forall x.\ S(x) \neq 0 \tag{zero} \\
+    &\forall x, y.\ S(x) = S(y) \to x = y \tag{plus zero} \\
+    &\forall x.\ x + 0 = x \tag{succ} \\
+    &\forall x, y.\ x + S(y) = S(x + y) \tag{plus succ} \\
+    &\forall x.\ x \times 0 = 0 \tag{times zero} \\
+    &\forall x, y.\ x \times S(y) = (x \times y) + x \tag{times succ} \\
+    &\forall P.\ (P(0) \land \forall x.\ (P(x) \to P(S(x)))) \to \forall x.\ P(x) \tag{induction}
+  \end{align*}
+]]></fr:resource-source>
+                        </fr:resource>
+                      </fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/003f/</fr:uri>
+                        <fr:display-uri>003f</fr:display-uri>
+                        <fr:route>/notes/003f/</fr:route>
+                        <fr:title text="Theory of Peano Arithmetic">Theory of Peano Arithmetic</fr:title>
+                        <fr:taxon>Quiz</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter><html:p>Are the following well-formed <fr:tex display="inline"><![CDATA[T_{\text {PA}} formulae?]]></fr:tex></html:p><html:ol><html:li><fr:tex display="inline"><![CDATA[x + y = 1 \land  f(x) = 1 + 1]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\forall  x.\ \exists  y.\ \exists  z.\ x + y = 1\land  z \times  x = 1 + 1]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[2x = y]]></fr:tex></html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>2</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>No, the theory of Peano Arithmetic does not include function symbols like <fr:tex display="inline"><![CDATA[f]]></fr:tex>, nor does it include numerals like <fr:tex display="inline"><![CDATA[1]]></fr:tex> or <fr:tex display="inline"><![CDATA[2]]></fr:tex>. All terms must be constructed using the constant symbol <fr:tex display="inline"><![CDATA[0]]></fr:tex>, the successor function <fr:tex display="inline"><![CDATA[S]]></fr:tex>, and the function symbols <fr:tex display="inline"><![CDATA[+]]></fr:tex> and <fr:tex display="inline"><![CDATA[\times ]]></fr:tex>.</html:li>
+    <html:li>Yes, this is a well-formed formula. It uses only the symbols and constructs allowed in the theory of Peano Arithmetic.</html:li>
+    <html:li>No, this is not a well-formed formula. The expression <fr:tex display="inline"><![CDATA[2x]]></fr:tex> is not a valid term in Peano Arithmetic, as numerals like <fr:tex display="inline"><![CDATA[2]]></fr:tex> are not part of the language. Terms must be built using <fr:tex display="inline"><![CDATA[0]]></fr:tex>, <fr:tex display="inline"><![CDATA[S]]></fr:tex>, <fr:tex display="inline"><![CDATA[+]]></fr:tex>, and <fr:tex display="inline"><![CDATA[\times ]]></fr:tex>. A valid way to express the same idea would be <fr:tex display="inline"><![CDATA[S(S(0)) \times  x = y]]></fr:tex>. Or if we replace <fr:tex display="inline"><![CDATA[S]]></fr:tex> with <fr:tex display="inline"><![CDATA[1]]></fr:tex> then we could do <fr:tex display="inline"><![CDATA[(1 + 1) \times  x = y]]></fr:tex></html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                    </fr:tree>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>2</fr:day>
+                    </fr:date>
+                    <fr:title text="Theory of Rationals &amp; Integers">Theory of Rationals &amp; Integers</fr:title>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/003i/</fr:uri>
+                        <fr:display-uri>003i</fr:display-uri>
+                        <fr:route>/notes/003i/</fr:route>
+                        <fr:title text="Theory of Rationals T_{\mathbb {Q}}">Theory of Rationals <fr:tex display="inline"><![CDATA[T_{\mathbb {Q}}]]></fr:tex></fr:title>
+                        <fr:taxon>Definition</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+                        <html:p>The theory of rationals <fr:tex display="inline"><![CDATA[T_{\mathbb {Q}}]]></fr:tex> is a first-order theory over the signature <fr:tex display="inline"><![CDATA[\Sigma _{\mathbb {Q}}]]></fr:tex> which contains:</html:p>
+                        <fr:tex display="block"><![CDATA[
+  \Sigma _{\mathbb {Q}} : \{0, 1, +, -, =, \geq \}
+]]></fr:tex>
+                        <html:p>(Axioms ommitted for brevity.)</html:p>
+                        <html:p>Some important properties of <fr:tex display="inline"><![CDATA[T_{\mathbb {Q}}]]></fr:tex> are:</html:p>
+                        <html:ul><html:li>Full theory is <html:em>decidable</html:em> but doubly exponential.</html:li>
+  <html:li>Conjunctive quantifier-free fragment is efficiently decidable (polynomial time).</html:li>
+  <html:li><fr:tex display="inline"><![CDATA[T_{\mathbb {Q}}]]></fr:tex> is the basis for arithemtic reasoning in SMT solvers such as Z3.</html:li>
+  <html:li>In practice the <html:em>simplex</html:em> algorithm is used.</html:li></html:ul>
+                      </fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/003h/</fr:uri>
+                        <fr:display-uri>003h</fr:display-uri>
+                        <fr:route>/notes/003h/</fr:route>
+                        <fr:title text="Theory of Presburger Arithmetic">Theory of Presburger Arithmetic</fr:title>
+                        <fr:taxon>Definition</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+                        <html:p>Presburger Arithmetic (PA) is a first order theory over the signature <fr:tex display="inline"><![CDATA[\Sigma _{\mathbb {N}}]]></fr:tex> which contains:</html:p>
+                        <fr:tex display="block"><![CDATA[
+  \Sigma _{\mathbb {N}} : \{0, 1, +, =\}
+]]></fr:tex>
+                        <html:p>Where <fr:tex display="inline"><![CDATA[0]]></fr:tex> and <fr:tex display="inline"><![CDATA[1]]></fr:tex> are constant symbols representing zero and one respectively, <fr:tex display="inline"><![CDATA[+]]></fr:tex> is a binary function symbol representing addition, and <fr:tex display="inline"><![CDATA[=]]></fr:tex> is a binary relation symbol representing equality. The axioms of Presburger Arithmetic are:</html:p>
+                        <fr:resource hash="b2cd095d79c0e49ba09ee38205cc6cdc">
+                          <fr:resource-content>
+                            <html:img src="/notes/b2cd095d79c0e49ba09ee38205cc6cdc.svg" />
+                          </fr:resource-content>
+                          <fr:resource-source type="latex" part="preamble"><![CDATA[
+  \usepackage {eulervm}
+  \usepackage {amsmath}
+]]></fr:resource-source>
+                          <fr:resource-source type="latex" part="body"><![CDATA[
+    \begin{align*}
+    &\forall x.\ \neg(x + 1 = 0) \tag{zero} \\
+    &\forall x.\ x + 0 = x \tag{plus zero} \\
+    &\forall x, y.\ x + 1 = y + 1 \to x = y \tag{plus one} \\
+    &\forall x.\ P(0) \land \forall x.\ (P(x) \to P(x + 1)) \to \forall x.\ P(x) \tag{induction}
+  \end{align*}
+]]></fr:resource-source>
+                        </fr:resource>
+                        <html:p>Some important properties of <fr:tex display="inline"><![CDATA[T_{\mathbb {N}} are]]></fr:tex>:</html:p>
+                        <html:ul><html:li>Validity in <html:em>quantifer-free</html:em> Presburger Arithmetic is decidable.</html:li>
+  <html:li>Validity in <html:em>full</html:em> Presburger Arithmetic is decidable.</html:li>
+  <html:li>Validity in Presburger Arithmetic has a super exponential complexity <fr:tex display="inline"><![CDATA[O(2^{2^n})]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[T_{\mathbb {N}}]]></fr:tex> is <html:em>complete</html:em>, i.e.
+    <fr:tex display="block"><![CDATA[
+      \forall  F.\ T_{\mathbb {N}} \models  F \lor  T_{\mathbb {N}} \models  \neg  F
+    ]]></fr:tex></html:li></html:ul>
+                      </fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/003k/</fr:uri>
+                        <fr:display-uri>003k</fr:display-uri>
+                        <fr:route>/notes/003k/</fr:route>
+                        <fr:title text="Theory of rationals T_{\mathbb {Q}}">Theory of rationals <fr:tex display="inline"><![CDATA[T_{\mathbb {Q}}]]></fr:tex></fr:title>
+                        <fr:taxon>Quiz</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter><html:p>Consider the following formula:</html:p><fr:tex display="block"><![CDATA[
+  \exists  x.\ (1 + 1) x = 1 + 1 + 1
+]]></fr:tex><html:ol><html:li>Is this formula valid in <fr:tex display="inline"><![CDATA[T_{\mathbb {Q}}]]></fr:tex></html:li>
+  <html:li>Is this formula valid in <fr:tex display="inline"><![CDATA[T_{\mathbb {Z}}]]></fr:tex></html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>2</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>Yes, this formula is valid in <fr:tex display="inline"><![CDATA[T_{\mathbb {Q}}]]></fr:tex>. In the theory of rationals, we can find a rational number <fr:tex display="inline"><![CDATA[x = \frac {3}{2}]]></fr:tex> that satisfies the equation <fr:tex display="inline"><![CDATA[(1 + 1) x = 1 + 1 + 1]]></fr:tex>. Therefore, there exists an <fr:tex display="inline"><![CDATA[x]]></fr:tex> in the rationals that makes the equation true.</html:li>
+    <html:li>No, this formula is not valid in <fr:tex display="inline"><![CDATA[T_{\mathbb {Z}}]]></fr:tex>. In the theory of integers, there is no integer <fr:tex display="inline"><![CDATA[x]]></fr:tex> that satisfies the equation <fr:tex display="inline"><![CDATA[(1 + 1) x = 1 + 1 + 1]]></fr:tex>, since <fr:tex display="inline"><![CDATA[\frac {3}{2}]]></fr:tex> is not an integer. Thus, there does not exist an integer <fr:tex display="inline"><![CDATA[x]]></fr:tex> that makes the equation true.</html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                    </fr:tree>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>2</fr:day>
+                    </fr:date>
+                    <fr:title text="Theory of Data structures">Theory of Data structures</fr:title>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/003l/</fr:uri>
+                        <fr:display-uri>003l</fr:display-uri>
+                        <fr:route>/notes/003l/</fr:route>
+                        <fr:title text="Theory of Arrays T_{A}">Theory of Arrays <fr:tex display="inline"><![CDATA[T_{A}]]></fr:tex></fr:title>
+                        <fr:taxon>Definition</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+                        <html:p>The theory of arrays is a first-order theory that models arrays as functions from indices to values. It's signature includes:</html:p>
+                        <fr:tex display="block"><![CDATA[
+  \Sigma _A \triangleq  \{- [ - ], \langle  - \triangleleft  - \rangle , =\}
+]]></fr:tex>
+                        <html:p>where:</html:p>
+                        <html:ul><html:li><fr:tex display="inline"><![CDATA[-[ - ]]]></fr:tex>: read operation, which takes an array and an index and returns the value at that index.</html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\langle  - \triangleleft  - \rangle ]]></fr:tex>: write operation, which takes an array, an index, and a 
+  value, and returns a new array with the value at the specified index updated.</html:li>
+  <html:li><fr:tex display="inline"><![CDATA[=]]></fr:tex>: equality relation, which checks if two arrays are identical.</html:li></html:ul>
+                        <html:p>The axioms of the theory of arrays are:</html:p>
+                        <fr:resource hash="8ff9653ef4ba489edcda34b8856e7a7b">
+                          <fr:resource-content>
+                            <html:img src="/notes/8ff9653ef4ba489edcda34b8856e7a7b.svg" />
+                          </fr:resource-content>
+                          <fr:resource-source type="latex" part="preamble"><![CDATA[
+  \usepackage {eulervm}
+  \usepackage {amsmath}
+]]></fr:resource-source>
+                          <fr:resource-source type="latex" part="body"><![CDATA[
+    \begin{align*}
+    \forall a, i, v.\; [a \langle i \triangleleft v \rangle][i] &= v \quad \tag{Read-Over-Write 1} \\
+    \forall a, i, j, v.\; i \neq j \implies [a \langle i \triangleleft v \rangle][j] &= a[j] \quad \tag{Read-Over-Write 2} \\
+    \forall a, b.\; (\forall i.\; a[i] = b[i]) &\implies a = b \quad \tag{Extensionality}
+  \end{align*}
+]]></fr:resource-source>
+                        </fr:resource>
+                      </fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/003m/</fr:uri>
+                        <fr:display-uri>003m</fr:display-uri>
+                        <fr:route>/notes/003m/</fr:route>
+                        <fr:title text="Theory of arrays T_A">Theory of arrays <fr:tex display="inline"><![CDATA[T_A]]></fr:tex></fr:title>
+                        <fr:taxon>Quiz</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter><html:p>Which of the following formula is valid/satisfiable/unsatisfiable ?</html:p><html:ol><html:li><fr:tex display="inline"><![CDATA[a[3] = 2]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[a \langle  3 \triangleleft  5 \rangle [3] = 5]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[a \langle  3 \triangleleft  5 \rangle [3] = 3]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[a[3] = 2\land  a \langle  3 \triangleleft  5 \rangle [3] = 5]]></fr:tex></html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>2</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>This formula is <html:strong>satisfiable</html:strong>. For example, if we have an array <fr:tex display="inline"><![CDATA[a]]></fr:tex> such that <fr:tex display="inline"><![CDATA[a[3] = 2]]></fr:tex>, then the formula holds true.</html:li>
+    <html:li>This formula is <html:strong>valid</html:strong>. According to the Read-Over-Write axiom, when we write a value to an index in an array and then read from that same index, we get the value we just wrote. So regardless of the initial contents of array <fr:tex display="inline"><![CDATA[a]]></fr:tex>, after performing the write operation <fr:tex display="inline"><![CDATA[a \langle  3 \triangleleft  5 \rangle ]]></fr:tex>, reading from index <fr:tex display="inline"><![CDATA[3]]></fr:tex> will always yield <fr:tex display="inline"><![CDATA[5]]></fr:tex> hence making it always true (valid).</html:li>
+    <html:li>This formula is <html:strong>unsatisfiable</html:strong>. According to the Read-Over-Write axiom, when we write a value to an index in an array and then read from that same index, we get the value we just wrote. Therefore, after performing the write operation <fr:tex display="inline"><![CDATA[a \langle  3 \triangleleft  5 \rangle ]]></fr:tex>, reading from index <fr:tex display="inline"><![CDATA[3]]></fr:tex> will always yield <fr:tex display="inline"><![CDATA[5]]></fr:tex>, making it impossible for it to equal <fr:tex display="inline"><![CDATA[3]]></fr:tex>.</html:li>
+    <html:li>This formula is <html:strong>satisfiable</html:strong>. For example, if we have an array <fr:tex display="inline"><![CDATA[a]]></fr:tex> such that <fr:tex display="inline"><![CDATA[a[3] = 2]]></fr:tex>, then after performing the write operation <fr:tex display="inline"><![CDATA[a \langle  3 \triangleleft  5 \rangle ]]></fr:tex>, reading from index <fr:tex display="inline"><![CDATA[3]]></fr:tex> will yield <fr:tex display="inline"><![CDATA[5]]></fr:tex>. Thus, both parts of the conjunction can be true simultaneously though are not valid in all interpretations.</html:li></html:ol>
 </fr:mainmatter></fr:tree>
  
 </fr:mainmatter>

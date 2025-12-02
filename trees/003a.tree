@@ -1,0 +1,26 @@
+\date{2025-12-02}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Theory of Equality #{T}}
+
+\p{The \strong{theory of equality} #{T_=} is a first order theory over the signature #{\Sigma_=} which contains:}
+##{
+  \sigma_= : \{=, s\}
+}
+\p{Where #{=} is a binary relation symbol and #{s} is any constant function or predicate symbol. The axioms of the theory of equality are:}
+
+\tex{
+  \usepackage{eulervm}
+  \usepackage{amsmath}
+}{
+  \startverb
+  \begin{align*}
+    &\forall x.\ x = x \tag{reflexivity} \\
+    &\forall x, y.\ x = y \to y = x \tag{symmetry} \\
+    &\forall x, y, z.\ (x = y \land y = z) \to x = z \tag{transitivity} \\
+  \end{align*}
+  \stopverb
+}

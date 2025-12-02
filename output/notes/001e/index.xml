@@ -71,12 +71,13 @@
 </html:code></html:pre><html:p>We can equivalently express this definition using the type formation and term intruduction rules:</html:p>
   
     
-    <fr:resource hash="ee6874dc51bdb471c3507a7e53d389ce"><fr:resource-content><html:img src="/notes/ee6874dc51bdb471c3507a7e53d389ce.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="27dec52c5491a90c3646fc97985842f7"><fr:resource-content><html:img src="/notes/27dec52c5491a90c3646fc97985842f7.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}

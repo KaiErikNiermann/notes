@@ -1,0 +1,17 @@
+\date{2025-12-02}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Structure & Model of #{T} (FOT)}
+
+\p{A structure which we denote as:}
+##{
+  M \triangleq \langle U, I \rangle
+}
+\p{Is a \strong{model of a theory} #{T} (or #{T}-\strong{model}) iff:}
+##{
+  \forall A \in \mathcal A_T.\ M \vDash A
+}
+

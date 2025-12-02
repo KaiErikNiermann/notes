@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>2</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/003g/</fr:uri>
+    <fr:display-uri>003g</fr:display-uri>
+    <fr:route>/notes/003g/</fr:route>
+    <fr:title text="Decidability of T_{\text {PA}}">Decidability of <fr:tex display="inline"><![CDATA[T_{\text {PA}}]]></fr:tex></fr:title>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <html:p>Validity in the theory of Peano Arithmetic <fr:tex display="inline"><![CDATA[T_{\text {PA}}]]></fr:tex> is undecidable. This means that there is no algorithm that can determine, for every formula in the language of Peano Arithmetic, whether that formula is valid (i.e., true in all models of <fr:tex display="inline"><![CDATA[T_{\text {PA}}]]></fr:tex>). This result is a consequence of Gödel's incompleteness theorems, which state that any sufficiently powerful and consistent formal system cannot be both complete and decidable. Since Peano Arithmetic is capable of expressing basic arithmetic properties, it falls into this category, leading to the conclusion that its validity problem is undecidable.</html:p>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

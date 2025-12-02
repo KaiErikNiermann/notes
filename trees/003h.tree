@@ -1,0 +1,38 @@
+\date{2025-12-02}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Theory of Presburger Arithmetic}
+
+\p{Presburger Arithmetic (PA) is a first order theory over the signature #{\Sigma_{\N}} which contains:}
+##{
+  \Sigma_{\N} : \{0, 1, +, =\}
+}
+\p{Where #{0} and #{1} are constant symbols representing zero and one respectively, #{+} is a binary function symbol representing addition, and #{=} is a binary relation symbol representing equality. The axioms of Presburger Arithmetic are:}
+\tex{
+  \usepackage{eulervm}
+  \usepackage{amsmath}
+}{
+  \startverb
+  \begin{align*}
+    &\forall x.\ \neg(x + 1 = 0) \tag{zero} \\
+    &\forall x.\ x + 0 = x \tag{plus zero} \\
+    &\forall x, y.\ x + 1 = y + 1 \to x = y \tag{plus one} \\
+    &\forall x.\ P(0) \land \forall x.\ (P(x) \to P(x + 1)) \to \forall x.\ P(x) \tag{induction}
+  \end{align*}
+  \stopverb
+}
+
+\p{Some important properties of #{T_{\N} are}:}
+\ul{
+  \li{Validity in \em{quantifer-free} Presburger Arithmetic is decidable.}
+  \li{Validity in \em{full} Presburger Arithmetic is decidable.}
+  \li{Validity in Presburger Arithmetic has a super exponential complexity #{O(2^{2^n})}}
+  \li{#{T_{\N}} is \em{complete}, i.e.
+    ##{
+      \forall F.\ T_{\N} \models F \lor T_{\N} \models \neg F
+    }
+  }
+}

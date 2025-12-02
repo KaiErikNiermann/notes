@@ -1,0 +1,20 @@
+\date{2025-12-02}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Satisfiability in FOL vs FOT}
+
+\p{Consider some arbitrary first order theory #{T}}
+\ol{
+  \li{If a formula is valid in FOL, then is it also valid in modulo #{T}?}
+  \li{If a formula is valid modulo #{T}, then is it also valid in FOL?}
+}
+
+\solution{
+  \ol{
+    \li{Yes, if its valid in FOL that means its valid in \em{all models} which includes those models that are #{T}-models. Hence its also valid modulo #{T}.}
+    \li{No, a formula can be valid in all #{T}-models, but false in some non-#{T}-model. Hence its not necessarily valid in FOL.}
+  }
+}

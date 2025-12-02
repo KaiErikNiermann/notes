@@ -1,0 +1,40 @@
+\date{2025-12-02}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Function & Predicate congruence}
+
+\p{Consider the universe:}
+##{
+  U = \{a, b, c\}
+}
+\p{and the interpretation:}
+##{
+  I(=) \triangleq \{\langle a, a \rangle, \langle a, b \rangle, \langle b, a \rangle, \langle b, b \rangle, \langle c, c \rangle\}
+}
+
+\ol{
+  \li{Does the interpetation #{I(=)} satisfy the axioms of equality?}
+  \li{Which interpretations for a function #{f} satisfy the axioms of congruence?
+    \ol{
+      \li{#{I(f) \triangleq \{b \to a, a \to c, c \to c\}}}
+      \li{#{I(f) \triangleq \{b \to b, a \to b, c \to b\}}}
+      \li{#{I(f) \triangleq \{b \to a, a \to b, c \to c\}}}
+    }
+  }
+}
+
+\solution{
+  \ol{
+    \li{Yes, the interpretation satisfies the axioms of equality}
+    \li{Going through them one by one:
+      \ol{
+        \li{No, because #{f(a) = c} and #{f(b) = a} but #{a\ I(=)\ b} yet #{c\ not\ I(=)\ a}} 
+        \li{Yes, because #{f(a) = b} and #{f(b) = b} and #{a\ I(=)\ b} thus #{b\ I(=)\ b}, similarly for #{c}}
+        \li{Yes, because #{f(a) = b} and #{f(b) = a} and #{a\ I(=)\ b} thus #{b\ I(=)\ a}, similarly for #{c}}
+      }
+    }
+  }
+}

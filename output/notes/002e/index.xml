@@ -207,12 +207,13 @@
           <fr:mainmatter><html:p>In an abstract sense type universes can be regarded similarly in motivation to <fr:link href="/notes/002q/" title="Grothendieck universe" uri="https://kaierikniermann.github.io/notes/002q/" display-uri="002q" type="local">Grothendieck universes</fr:link> in that they represent a collection (type in this case) of types which are <fr:link href="/notes/002e/" title="Closed set" uri="https://kaierikniermann.github.io/notes/002e/" display-uri="002e" type="local">closed</fr:link> under certain type constructions. There are typically two presentations of type universes either a la Russell or Tarksi, starting with the former we have:</html:p>
   
     
-    <fr:resource hash="fac672ad4746210fb26e2d37d8d2faa1"><fr:resource-content><html:img src="/notes/fac672ad4746210fb26e2d37d8d2faa1.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="fe3dcc257be66198d908d90022e8aabd"><fr:resource-content><html:img src="/notes/fe3dcc257be66198d908d90022e8aabd.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -232,12 +233,13 @@
 
   
     
-    <fr:resource hash="e3c8ced7a1132a74aa4dc8995e4622e3"><fr:resource-content><html:img src="/notes/e3c8ced7a1132a74aa4dc8995e4622e3.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="9b192c24c6d17382c42d01441a95b636"><fr:resource-content><html:img src="/notes/9b192c24c6d17382c42d01441a95b636.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -264,12 +266,13 @@
 
   
     
-    <fr:resource hash="9f003ebd2e436d27f67e123fd29be62e"><fr:resource-content><html:img src="/notes/9f003ebd2e436d27f67e123fd29be62e.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="f52e9724be75e79dfd5aeafe431edfaa"><fr:resource-content><html:img src="/notes/f52e9724be75e79dfd5aeafe431edfaa.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -284,12 +287,13 @@
 
   
     
-    <fr:resource hash="4b34161b37eba403a18f48b511d4edd2"><fr:resource-content><html:img src="/notes/4b34161b37eba403a18f48b511d4edd2.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="25a75a926a9af572ee6c9b6d772f2e5d"><fr:resource-content><html:img src="/notes/25a75a926a9af572ee6c9b6d772f2e5d.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -315,12 +319,13 @@
 
   
     
-    <fr:resource hash="fe133c4bec15bd58097a0b0039c95ee3"><fr:resource-content><html:img src="/notes/fe133c4bec15bd58097a0b0039c95ee3.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="0ba6cdc0abe4ace5fca859a4a2bda9ee"><fr:resource-content><html:img src="/notes/0ba6cdc0abe4ace5fca859a4a2bda9ee.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -341,12 +346,13 @@
 ]]></fr:tex>
   
     
-    <fr:resource hash="fe432502ca02e69447ecfecdd97981e6"><fr:resource-content><html:img src="/notes/fe432502ca02e69447ecfecdd97981e6.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="e7897768c8b4963eda694c61da7802dc"><fr:resource-content><html:img src="/notes/e7897768c8b4963eda694c61da7802dc.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -363,12 +369,13 @@
 
   
     
-    <fr:resource hash="00e41e587f339c2d9588bfc8ed6cd5e0"><fr:resource-content><html:img src="/notes/00e41e587f339c2d9588bfc8ed6cd5e0.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="28b13fbab638de98ad85d6166fc26d27"><fr:resource-content><html:img src="/notes/28b13fbab638de98ad85d6166fc26d27.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -385,12 +392,13 @@
 
   
     
-    <fr:resource hash="3ca93a6407773fa02f87c82ec7e9c8fb"><fr:resource-content><html:img src="/notes/3ca93a6407773fa02f87c82ec7e9c8fb.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="11d681f6f4221a053b1f30e103cf5806"><fr:resource-content><html:img src="/notes/11d681f6f4221a053b1f30e103cf5806.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -408,12 +416,13 @@
 
   
     
-    <fr:resource hash="1b7558eb755dca4033acf3e90e0bb925"><fr:resource-content><html:img src="/notes/1b7558eb755dca4033acf3e90e0bb925.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="2acc4f10d281c50784fc8ad13b2ece7d"><fr:resource-content><html:img src="/notes/2acc4f10d281c50784fc8ad13b2ece7d.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}

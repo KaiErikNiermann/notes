@@ -1,0 +1,16 @@
+\date{2025-12-02}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Satisfiable & Valid modulo #{T}}
+
+\p{We say that a formula #{F} is \strong{satisfiable modulo} #{T} iff \em{there exists} a #{T}-model #{M} and a variable assignment #{\sigma} such that:}
+##{
+  M, \sigma \vDash F
+}
+\p{We say that a formula #{F} is \strong{valid modulo} #{T} iff \em{forall} #{T}-models #{M} and all variable assignments #{\sigma} we have:}
+##{
+  M, \sigma \vDash F
+}

@@ -233,12 +233,13 @@
                   <fr:mainmatter><html:p>We can define the semantic inference rules for propositional logic formulas under interpretations as follows inductively, starting with the base cases:</html:p>
   
     
-    <fr:resource hash="a5a95ea75f065bac62d8f084e02ad126"><fr:resource-content><html:img src="/notes/a5a95ea75f065bac62d8f084e02ad126.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="bc85581157219263d09e73cefc44f077"><fr:resource-content><html:img src="/notes/bc85581157219263d09e73cefc44f077.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -268,12 +269,13 @@
 <html:p>Moving on to the inductive case we have</html:p>
   
     
-    <fr:resource hash="3b5f438acb3330ae823f6babb1d4e173"><fr:resource-content><html:img src="/notes/3b5f438acb3330ae823f6babb1d4e173.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="58a9b3ea7d888229eb32dd683687ee6f"><fr:resource-content><html:img src="/notes/58a9b3ea7d888229eb32dd683687ee6f.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -313,12 +315,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
 </html:p>
   
     
-    <fr:resource hash="0ff63e00bc9d68d28f362eb36f5eab30"><fr:resource-content><html:img src="/notes/0ff63e00bc9d68d28f362eb36f5eab30.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="344d6b5968006455b649cbbd2d9404b2"><fr:resource-content><html:img src="/notes/344d6b5968006455b649cbbd2d9404b2.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -416,12 +419,13 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   
   
     
-    <fr:resource hash="9cddcce4cdde6b5a1ce8f4c8e723b423"><fr:resource-content><html:img src="/notes/9cddcce4cdde6b5a1ce8f4c8e723b423.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="fb54c0a5c8917e2450709946ac062854"><fr:resource-content><html:img src="/notes/fb54c0a5c8917e2450709946ac062854.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}

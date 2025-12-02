@@ -19,12 +19,13 @@
   <html:li>If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.</html:li></html:ol><html:p>We can express the semantic argument method via the following inference rule:</html:p>
   
     
-    <fr:resource hash="8e12f5872757602f1115263a23e5fbb5"><fr:resource-content><html:img src="/notes/8e12f5872757602f1115263a23e5fbb5.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="3bed6126b85cea6a0873a90457e4404a"><fr:resource-content><html:img src="/notes/3bed6126b85cea6a0873a90457e4404a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -452,12 +453,13 @@
   ]]></fr:tex></html:li></html:ul><html:p>We can define semantic entailment inductively as follows:</html:p>
   
     
-    <fr:resource hash="7d76df6402fa248cef1cb993f01e71c4"><fr:resource-content><html:img src="/notes/7d76df6402fa248cef1cb993f01e71c4.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="2b351294263361b74676193e73f28df6"><fr:resource-content><html:img src="/notes/2b351294263361b74676193e73f28df6.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -542,12 +544,13 @@
                   <fr:mainmatter><html:p>In addition to evaluating atomic formulas, we can define the evaluation of complex formulas using logical connectives and quantifiers as follows:</html:p>
   
     
-    <fr:resource hash="4bbff9227924960e09d83dbb75672f38"><fr:resource-content><html:img src="/notes/4bbff9227924960e09d83dbb75672f38.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="991a5113f70cfcb315c0458b8f4dceca"><fr:resource-content><html:img src="/notes/991a5113f70cfcb315c0458b8f4dceca.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -603,12 +606,13 @@
 <html:p>For the proof rules of quantifiers we have two variants depending on whether we are dealing with free or bound variables:</html:p>
   
     
-    <fr:resource hash="69c2a45f3d5bcd081b5ced73ba409422"><fr:resource-content><html:img src="/notes/69c2a45f3d5bcd081b5ced73ba409422.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="bf807f288df79827d7da6707c91abf5b"><fr:resource-content><html:img src="/notes/bf807f288df79827d7da6707c91abf5b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -658,12 +662,13 @@
   <html:li>If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.</html:li></html:ol><html:p>We can express the semantic argument method via the following inference rule:</html:p>
   
     
-    <fr:resource hash="8e12f5872757602f1115263a23e5fbb5"><fr:resource-content><html:img src="/notes/8e12f5872757602f1115263a23e5fbb5.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="3bed6126b85cea6a0873a90457e4404a"><fr:resource-content><html:img src="/notes/3bed6126b85cea6a0873a90457e4404a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}

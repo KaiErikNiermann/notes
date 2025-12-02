@@ -1,0 +1,27 @@
+\date{2025-12-02}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{(Left & Right) Congruence Relations (FOT)}
+
+\p{In the most general sense we say that a relation #{R} over a set #{A} is a \strong{congruence} with respect to a function #{f : A^n \to A} if for all #{a_1, \ldots, a_n, b_1, \ldots, b_n \in A} such that #{a_i\ R\ b_i} for all #{1 \leq i \leq n} we have:}
+##{
+  f(a_1, \ldots, a_n)\ R\ f(b_1, \ldots, b_n)
+}
+\p{if we denote #{\overline x} as a vector of elements #{x_1, \ldots, x_n} we can rewrite this more succinctly as:}
+##{
+  \forall \overline a, \overline b \in A^n.\ (\forall i.\ a_i\ R\ b_i) \to f(\overline a)\ R\ f(\overline b)
+}
+\p{In the case of first order theories we can then instantiate #{R} with things like equality or other relations defined in the theory. Additionally we can #{f} represent a function or predicate symbol from the signature of the theory. In the case of binary functions or predicates we can also define \strong{left} and \strong{right congruence} as follows:}
+\ol{
+  \li{A relation #{R} is a \strong{left congruence} with respect to a binary function or predicate #{f : A \times A \to A} if for all #{a, b, c \in A} such that #{a\ R\ b} we have:}
+  ##{
+    f(a, c)\ R\ f(b, c)
+  }
+  \li{A relation #{R} is a \strong{right congruence} with respect to a binary function or predicate #{f : A \times A \to A} if for all #{a, b, c \in A} such that #{a\ R\ b} we have:}
+  ##{
+    f(c, a)\ R\ f(c, b)
+  }
+}

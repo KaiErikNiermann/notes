@@ -1,0 +1,29 @@
+\date{2025-12-02}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Theory of Peano Arithmetic}
+
+\p{Peano Arithmetic (PA) is a first order theory over the signature #{\Sigma_{PA}} which contains:}
+##{
+  \Sigma_{PA} : \{0, S, +, \times, =\}
+}
+\p{Where #{0} is a constant symbol representing zero, #{S} is a unary function symbol representing the successor function, #{+} and #{\times} are binary function symbols representing addition and multiplication respectively, and #{=} is a binary relation symbol representing equality. The axioms of Peano Arithmetic are:}
+\tex{
+  \usepackage{eulervm}
+  \usepackage{amsmath}
+}{
+  \startverb
+  \begin{align*}
+    &\forall x.\ S(x) \neq 0 \tag{zero} \\
+    &\forall x, y.\ S(x) = S(y) \to x = y \tag{plus zero} \\
+    &\forall x.\ x + 0 = x \tag{succ} \\
+    &\forall x, y.\ x + S(y) = S(x + y) \tag{plus succ} \\
+    &\forall x.\ x \times 0 = 0 \tag{times zero} \\
+    &\forall x, y.\ x \times S(y) = (x \times y) + x \tag{times succ} \\
+    &\forall P.\ (P(0) \land \forall x.\ (P(x) \to P(S(x)))) \to \forall x.\ P(x) \tag{induction}
+  \end{align*}
+  \stopverb
+}

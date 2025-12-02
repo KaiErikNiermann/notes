@@ -613,6 +613,18 @@
     "description": "Fraktur font"
   },
 
+  "Not": {
+    "prefix": ["\\not", "not"],
+    "body": ["\\ \\mathrlap{\\,/}{${1:sym}}\\ "],
+    "description": "Negate a symbol/operator"
+  },
+
+  "lrbrack": {
+    "prefix": ["\\lrbrack", "lrbrack"],
+    "body": ["\\langle ${1:content} \\rangle"],
+    "description": "Left/right double brackets"
+  },
+
   // ============================================================
   // VERBATIM
   // ============================================================

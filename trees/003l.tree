@@ -1,0 +1,32 @@
+\date{2025-12-02}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Theory of Arrays #{T_{A}}}
+
+\p{The theory of arrays is a first-order theory that models arrays as functions from indices to values. It's signature includes:}
+##{
+  \Sigma_A \triangleq \{- [ - ], \langle - \triangleleft - \rangle, =\}
+}
+\p{where:}
+\ul{
+  \li{#{-[ - ]}: read operation, which takes an array and an index and returns the value at that index.}
+  \li{#{\langle - \triangleleft - \rangle}: write operation, which takes an array, an index, and a 
+  value, and returns a new array with the value at the specified index updated.}
+  \li{#{=}: equality relation, which checks if two arrays are identical.}
+}
+\p{The axioms of the theory of arrays are:}
+\tex{
+  \usepackage{eulervm}
+  \usepackage{amsmath}
+}{
+  \startverb
+  \begin{align*}
+    \forall a, i, v.\; [a \langle i \triangleleft v \rangle][i] &= v \quad \tag{Read-Over-Write 1} \\
+    \forall a, i, j, v.\; i \neq j \implies [a \langle i \triangleleft v \rangle][j] &= a[j] \quad \tag{Read-Over-Write 2} \\
+    \forall a, b.\; (\forall i.\; a[i] = b[i]) &\implies a = b \quad \tag{Extensionality}
+  \end{align*}
+  \stopverb
+}

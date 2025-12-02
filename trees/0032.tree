@@ -1,0 +1,53 @@
+\date{2025-12-02}
+
+\import{base-macros}
+
+\taxon{VU-VFS-2025}
+
+\title{Lecture 4 - First Order Theories}
+
+\subtree{
+  \title{Signatures and Axioms}
+  \transclude{0033}
+  \transclude{0034}
+}
+
+\subtree{
+  \title{Models of Theories}
+  \transclude{0035}
+  \transclude{0036}
+}
+
+\subtree{
+  \title{Satisfiability Modulo #{T}}
+  \transclude{0037}
+  \transclude{0039}
+  \transclude{0038}
+}
+
+\subtree{
+  \title{Theory of Equality & Congruence}
+  \transclude{003a}
+  \transclude{003b}
+  \transclude{003c}
+  \transclude{003d}
+}
+
+\subtree{
+  \title{Theory of Peano Arithmetic}
+  \transclude{003e}
+  \transclude{003f}
+}
+
+\subtree{
+  \title{Theory of Rationals & Integers}
+  \transclude{003i}
+  \transclude{003h}
+  \transclude{003k}
+}
+
+\subtree{
+  \title{Theory of Data structures}
+  \transclude{003l}
+  \transclude{003m}
+}

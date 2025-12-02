@@ -17,12 +17,13 @@
   <fr:mainmatter><html:p>The basic form of a rule that describes a subset of a set <fr:tex display="inline"><![CDATA[X]]></fr:tex> is given by:</html:p>
   
     
-    <fr:resource hash="e9b914fb07775cea091352db995ffb17"><fr:resource-content><html:img src="/notes/e9b914fb07775cea091352db995ffb17.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="06b444c679ab007650bad550aebd6fa6"><fr:resource-content><html:img src="/notes/06b444c679ab007650bad550aebd6fa6.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}

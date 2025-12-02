@@ -470,12 +470,13 @@
 </html:code></html:pre><html:p>We can equivalently express this definition using the type formation and term intruduction rules:</html:p>
   
     
-    <fr:resource hash="ee6874dc51bdb471c3507a7e53d389ce"><fr:resource-content><html:img src="/notes/ee6874dc51bdb471c3507a7e53d389ce.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="27dec52c5491a90c3646fc97985842f7"><fr:resource-content><html:img src="/notes/27dec52c5491a90c3646fc97985842f7.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -896,12 +897,13 @@ def eval : Expr -&gt; Nat
   ]]></fr:tex><html:p>In general we can express the hierarchy for any universe level <fr:tex display="inline"><![CDATA[u]]></fr:tex> as follows:</html:p>
   
     
-    <fr:resource hash="97363d87c8b2e5404a4e1bf6f07f35e9"><fr:resource-content><html:img src="/notes/97363d87c8b2e5404a4e1bf6f07f35e9.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="d22c345c7afa48bf314e21f040d4332e"><fr:resource-content><html:img src="/notes/d22c345c7afa48bf314e21f040d4332e.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -926,12 +928,13 @@ def eval : Expr -&gt; Nat
                       <fr:mainmatter><html:p>With the exception of propositions, a type in a universe at level <fr:tex display="inline"><![CDATA[u]]></fr:tex> cannot quantify over types from strictly larger universes unless the whole result is lifted to a larger universe. In the case of types we have:</html:p>
   
     
-    <fr:resource hash="c15d7dcd3dfc7969ca6abfb00e4b660a"><fr:resource-content><html:img src="/notes/c15d7dcd3dfc7969ca6abfb00e4b660a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="d764c9e89e1a835ed3d018e580fe27b4"><fr:resource-content><html:img src="/notes/d764c9e89e1a835ed3d018e580fe27b4.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -961,12 +964,13 @@ def eval : Expr -&gt; Nat
                       <fr:mainmatter><html:p>We can observe that a function type's universe is determined by the universes of its argument and return types. However, in the case of propositions we have a different behavior:</html:p>
   
     
-    <fr:resource hash="176c716094bf49704defc31e9327ab0b"><fr:resource-content><html:img src="/notes/176c716094bf49704defc31e9327ab0b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="120b65d6f240b5db99f27acc7a668d16"><fr:resource-content><html:img src="/notes/120b65d6f240b5db99f27acc7a668d16.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
@@ -1002,12 +1006,13 @@ def eval : Expr -&gt; Nat
                       <fr:mainmatter><html:p>We can combine these two rules to get a more general rule for function types that return types in any universe:</html:p>
   
     
-    <fr:resource hash="121c83caabc5523682d01ae5e8b19e4f"><fr:resource-content><html:img src="/notes/121c83caabc5523682d01ae5e8b19e4f.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="bc08812524e6a16f5f31653540c8a6e2"><fr:resource-content><html:img src="/notes/bc08812524e6a16f5f31653540c8a6e2.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
   \usepackage[scaled=0.92]{inconsolata} 
   \usepackage{mathpartir}
+  \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}

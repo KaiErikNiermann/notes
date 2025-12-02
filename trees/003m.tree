@@ -1,0 +1,24 @@
+\date{2025-12-02}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Theory of arrays #{T_A}}
+
+\p{Which of the following formula is valid/satisfiable/unsatisfiable ?}
+\ol{
+  \li{#{a[3] = 2}}
+  \li{#{a \langle 3 \triangleleft 5 \rangle[3] = 5}}
+  \li{#{a \langle 3 \triangleleft 5 \rangle[3] = 3}}
+  \li{#{a[3] = 2\land a \langle 3 \triangleleft 5 \rangle[3] = 5}}
+}
+
+\solution{
+  \ol{
+    \li{This formula is \strong{satisfiable}. For example, if we have an array #{a} such that #{a[3] = 2}, then the formula holds true.}
+    \li{This formula is \strong{valid}. According to the Read-Over-Write axiom, when we write a value to an index in an array and then read from that same index, we get the value we just wrote. So regardless of the initial contents of array #{a}, after performing the write operation #{a \langle 3 \triangleleft 5 \rangle}, reading from index #{3} will always yield #{5} hence making it always true (valid).}
+    \li{This formula is \strong{unsatisfiable}. According to the Read-Over-Write axiom, when we write a value to an index in an array and then read from that same index, we get the value we just wrote. Therefore, after performing the write operation #{a \langle 3 \triangleleft 5 \rangle}, reading from index #{3} will always yield #{5}, making it impossible for it to equal #{3}.}
+    \li{This formula is \strong{satisfiable}. For example, if we have an array #{a} such that #{a[3] = 2}, then after performing the write operation #{a \langle 3 \triangleleft 5 \rangle}, reading from index #{3} will yield #{5}. Thus, both parts of the conjunction can be true simultaneously though are not valid in all interpretations.}
+  }
+}

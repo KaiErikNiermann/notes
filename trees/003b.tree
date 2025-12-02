@@ -1,0 +1,26 @@
+\date{2025-12-02}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Theory of Equality}
+
+\p{Consider the universe:}
+##{
+  U = \{\alpha, \beta\}
+}
+\p{which of the following interpetations of #{=} are allowd by the axioms of #{T_=}:}
+\ol{
+  \li{#{I(=) \triangleq \{\langle \alpha, \beta \rangle, \langle \beta \alpha \rangle\}}}
+  \li{#{I(=) \triangleq \{\langle \alpha, \alpha \rangle, \langle \beta, \beta \rangle\}}}
+  \li{#{I(=) \triangleq \{\langle \alpha, \alpha \rangle, \langle \alpha, \beta \rangle, \langle \beta, \alpha \rangle, \langle \beta, \beta \rangle\}}}
+}
+
+\solution{
+  \ol{
+    \li{No, violates reflexivity axiom since neither #{\alpha = \alpha} nor #{\beta = \beta} are in the interpretation}
+    \li{Yes, satisfies all axioms of equality}
+    \li{Yes, satisfies all axioms of equality}
+  }
+}

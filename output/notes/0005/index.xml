@@ -17,15 +17,15 @@
   <fr:mainmatter><html:p>Using BNF notation, the syntax of propositional logic can be defined as follows:</html:p>
  
   
-  <html:figure><fr:resource hash="004d66fe12d62d626c2e35637d8746f7"><fr:resource-content><html:img src="/notes/004d66fe12d62d626c2e35637d8746f7.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="e8fe66989c999aaf2a9551442e29166b"><fr:resource-content><html:img src="/notes/e8fe66989c999aaf2a9551442e29166b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
@@ -118,15 +118,15 @@
                   <fr:mainmatter><html:p>Using BNF notation, the syntax of propositional logic can be defined as follows:</html:p>
  
   
-  <html:figure><fr:resource hash="004d66fe12d62d626c2e35637d8746f7"><fr:resource-content><html:img src="/notes/004d66fe12d62d626c2e35637d8746f7.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="e8fe66989c999aaf2a9551442e29166b"><fr:resource-content><html:img src="/notes/e8fe66989c999aaf2a9551442e29166b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
@@ -230,17 +230,21 @@
                     <fr:title text="Semantics">Semantics</fr:title>
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
-                  <fr:mainmatter><html:p>We can define the semantic inference rules for propositional logic formulas under interpretations as follows inductively, starting with the base cases:</html:p>
+                  <fr:mainmatter><html:p>
+  We can define the semantic inference rules for propositional logic formulas under interpretations as follows inductively, starting with the base cases:
+</html:p>
   
     
-    <fr:resource hash="bc85581157219263d09e73cefc44f077"><fr:resource-content><html:img src="/notes/bc85581157219263d09e73cefc44f077.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="028beb2256956745cbd6c6d092a67ec4"><fr:resource-content><html:img src="/notes/028beb2256956745cbd6c6d092a67ec4.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Atom-$\top $]{
@@ -266,17 +270,21 @@
   }
 \end {mathpar}]]></fr:resource-source></fr:resource>
   
-<html:p>Moving on to the inductive case we have</html:p>
+<html:p>
+  Moving on to the inductive case we have
+</html:p>
   
     
-    <fr:resource hash="58a9b3ea7d888229eb32dd683687ee6f"><fr:resource-content><html:img src="/notes/58a9b3ea7d888229eb32dd683687ee6f.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="6b58c468fd4a9e74c51788f18b2ea6bb"><fr:resource-content><html:img src="/notes/6b58c468fd4a9e74c51788f18b2ea6bb.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Neg-$\top $]{
@@ -284,7 +292,7 @@
   }{
     I \not \models  F
   }
-  \and  
+  \and 
   \inferrule *[right=Conj-$\top $]{
     I \models  F_1 \quad  I \models  F_2
   }{
@@ -296,7 +304,7 @@
   }{
     I \models  F_1 \lor  F_2
   }
-  \and  
+  \and 
   \inferrule *[right=Imp-$\top $]{
     I \not \models  F_1 \quad  \text {or} \quad  I \models  F_2
   }{
@@ -311,18 +319,20 @@
 \end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>
-Similarly, the rules for when an interpretation does not satisfy a formula are as follows:
+  Similarly, the rules for when an interpretation does not satisfy a formula are as follows:
 </html:p>
   
     
-    <fr:resource hash="344d6b5968006455b649cbbd2d9404b2"><fr:resource-content><html:img src="/notes/344d6b5968006455b649cbbd2d9404b2.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="6be5095cad00657a1d9244ee3cab2d11"><fr:resource-content><html:img src="/notes/6be5095cad00657a1d9244ee3cab2d11.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Neg-$\bot $]{
@@ -330,7 +340,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     I \models  F
   }
-  \and  
+  \and 
   \inferrule *[right=Conj-$\bot $]{
     I \not \models  F_1 \quad  \text {or} \quad  I \not \models  F_2
   }{
@@ -342,7 +352,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     I \not \models  F_1 \lor  F_2
   }
-  \and  
+  \and 
   \inferrule *[right=Imp-$\bot $]{
     I \models  F_1 \\ I \not \models  F_2
   }{
@@ -419,14 +429,16 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   
   
     
-    <fr:resource hash="fb54c0a5c8917e2450709946ac062854"><fr:resource-content><html:img src="/notes/fb54c0a5c8917e2450709946ac062854.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="4807516d6cf6f2fdc256701b3e189646"><fr:resource-content><html:img src="/notes/4807516d6cf6f2fdc256701b3e189646.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
     \inferrule {

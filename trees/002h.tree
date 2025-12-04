@@ -6,14 +6,20 @@
 
 \title{Syntactic (inference) rule}
 
-\p{The basic form of a rule that describes a subset of a set #{X} is given by:}
+\p{
+  The basic form of a rule that describes a subset of a set #{X} is given by:
+}
 \infrule{
   \inferrule*{
     x_1 \\ \ldots \\ x_n
-  }{
+}{
     x
-  }
 }
-\p{In plain English this can be read as: \em{If #{x_1} to {x_n} are elements of the subset I am defining, then so is #{x}}. Here the elements #{x_1} to #{x_n} are called the \em{premises} of the rule while #{x} is called the \em{conclusion} of the rule.}
+}
+\p{
+  In plain English this can be read as: \em{If #{x_1} to {x_n} are elements of the subset I am defining, then so is #{x}}. Here the elements #{x_1} to #{x_n} are called the \em{premises} of the rule while #{x} is called the \em{conclusion} of the rule.
+}
 
-\p{One potentially helpful perspective for the set theoretic is that the conclusion #{x} can be thought of as a label for the set of premises #{\{x_1, \ldots, x_n\}}}
+\p{
+  One potentially helpful perspective for the set theoretic is that the conclusion #{x} can be thought of as a label for the set of premises #{\{x_1, \ldots, x_n\}}
+}

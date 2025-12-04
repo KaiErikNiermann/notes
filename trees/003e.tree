@@ -6,11 +6,15 @@
 
 \title{Theory of Peano Arithmetic}
 
-\p{Peano Arithmetic (PA) is a first order theory over the signature #{\Sigma_{PA}} which contains:}
+\p{
+  Peano Arithmetic (PA) is a first order theory over the signature #{\Sigma_{PA}} which contains:
+}
 ##{
   \Sigma_{PA} : \{0, S, +, \times, =\}
 }
-\p{Where #{0} is a constant symbol representing zero, #{S} is a unary function symbol representing the successor function, #{+} and #{\times} are binary function symbols representing addition and multiplication respectively, and #{=} is a binary relation symbol representing equality. The axioms of Peano Arithmetic are:}
+\p{
+  Where #{0} is a constant symbol representing zero, #{S} is a unary function symbol representing the successor function, #{+} and #{\times} are binary function symbols representing addition and multiplication respectively, and #{=} is a binary relation symbol representing equality. The axioms of Peano Arithmetic are:
+}
 \tex{
   \usepackage{eulervm}
   \usepackage{amsmath}

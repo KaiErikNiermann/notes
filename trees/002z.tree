@@ -6,4 +6,6 @@
 
 \title{Discrete category}
 
-\p{We say that a category #{C} is a \strong{discrete category} if there are no non-identity morphisms in #{C}, i.e. the only morphisms in #{C} are the identity morphisms for each object in #{C}.}
+\p{
+  We say that a category #{C} is a \strong{discrete category} if there are no non-identity morphisms in #{C}, i.e. the only morphisms in #{C} are the identity morphisms for each object in #{C}.
+}

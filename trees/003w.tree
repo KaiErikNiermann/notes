@@ -1,0 +1,25 @@
+\date{2025-12-04}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Total & Partial function}
+
+\p{
+  Given a function #{f : A \to B} we say that:
+}
+\ul{
+  \li{
+    The function is \strong{partial} if there exists at least one #{a \in A} such that #{f(a)} is undefined. Commonly this is also denoted using the notation:
+    ##{
+      f : A \rightharpoonup B
+    }
+  }
+  \li{
+    The function is \strong{total} if for every #{a \in A}, #{f(a)} is defined. This is commonly denoted using the notation:
+    ##{
+      f : A \to B
+    }
+  }
+}

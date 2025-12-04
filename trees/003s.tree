@@ -1,0 +1,15 @@
+\date{2025-12-04}
+
+\import{base-macros}
+
+\taxon{VU-VFS-2025}
+
+\title{Lecture 5 - Nano & Hoare Logic}
+
+\subtree{
+  \title{Simple Imperative Language Syntax & Semantics}
+
+  \transclude{003t}
+  \transclude{003u}
+  \transclude{003v}
+}

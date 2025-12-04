@@ -132,14 +132,16 @@
   
   
     
-    <fr:resource hash="864dba8f63436598dfcbfbc326e9671d"><fr:resource-content><html:img src="/notes/864dba8f63436598dfcbfbc326e9671d.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="63b338beeb6e34f7b990a23c3e92b73c"><fr:resource-content><html:img src="/notes/63b338beeb6e34f7b990a23c3e92b73c.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
     \inferrule *{
@@ -170,14 +172,16 @@
     
   
     
-    <fr:resource hash="e274686e577682252acb094094c16a90"><fr:resource-content><html:img src="/notes/e274686e577682252acb094094c16a90.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="8ab9294001d8167ff895f88a8c82a4e8"><fr:resource-content><html:img src="/notes/8ab9294001d8167ff895f88a8c82a4e8.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
       \inferrule *{

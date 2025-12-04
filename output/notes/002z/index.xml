@@ -15,7 +15,9 @@
     <fr:taxon>Definition</fr:taxon>
   </fr:frontmatter>
   <fr:mainmatter>
-    <html:p>We say that a category <fr:tex display="inline"><![CDATA[C]]></fr:tex> is a <html:strong>discrete category</html:strong> if there are no non-identity morphisms in <fr:tex display="inline"><![CDATA[C]]></fr:tex>, i.e. the only morphisms in <fr:tex display="inline"><![CDATA[C]]></fr:tex> are the identity morphisms for each object in <fr:tex display="inline"><![CDATA[C]]></fr:tex>.</html:p>
+    <html:p>
+  We say that a category <fr:tex display="inline"><![CDATA[C]]></fr:tex> is a <html:strong>discrete category</html:strong> if there are no non-identity morphisms in <fr:tex display="inline"><![CDATA[C]]></fr:tex>, i.e. the only morphisms in <fr:tex display="inline"><![CDATA[C]]></fr:tex> are the identity morphisms for each object in <fr:tex display="inline"><![CDATA[C]]></fr:tex>.
+</html:p>
   </fr:mainmatter>
   <fr:backmatter>
     <fr:tree show-metadata="false" hidden-when-empty="true">

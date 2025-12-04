@@ -6,12 +6,22 @@
 
 \title{Theory of arrays #{T_A}}
 
-\p{Which of the following formula is valid/satisfiable/unsatisfiable ?}
+\p{
+  Which of the following formula is valid/satisfiable/unsatisfiable ?
+}
 \ol{
-  \li{#{a[3] = 2}}
-  \li{#{a \langle 3 \triangleleft 5 \rangle[3] = 5}}
-  \li{#{a \langle 3 \triangleleft 5 \rangle[3] = 3}}
-  \li{#{a[3] = 2\land a \langle 3 \triangleleft 5 \rangle[3] = 5}}
+  \li{
+    #{a[3] = 2}
+  }
+  \li{
+    #{a \langle 3 \triangleleft 5 \rangle[3] = 5}
+  }
+  \li{
+    #{a \langle 3 \triangleleft 5 \rangle[3] = 3}
+  }
+  \li{
+    #{a[3] = 2\land a \langle 3 \triangleleft 5 \rangle[3] = 5}
+  }
 }
 
 \solution{

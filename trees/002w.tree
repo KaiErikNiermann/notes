@@ -6,77 +6,103 @@
 
 \title{Full and faithful functors}
 
-\p{We consider a [functor](002v) between two [(locally small)](002o) categories #{F : C \to D}. For each pair of objects #{X, Y \in \mathrm{Ob}(C)} the functor induces a function between hom-sets:}
+\p{
+
+  We consider a [functor](002v) between two [(locally small)](002o) categories #{F : C \to D}. For each pair of objects #{X, Y \in \mathrm{Ob}(C)} the functor induces a function between hom-sets:
+}
 ##{
   F_{X, Y} : C(X, Y) \to D(F(X), F(Y))
 }
-\p{We can describe functors based on the properties of these induced functions as follows:}
+\p{
+
+  We can describe functors based on the properties of these induced functions as follows:
+}
 \ul{
-  \li{The functor #{F} is called \strong{faithful} if for every pair of objects #{X, Y \in \mathrm{Ob}(C)} the function #{F_{X, Y}} is injective. We can also denote this as:
-  ##{
+
+  \li{
+
+    The functor #{F} is called \strong{faithful} if for every pair of objects #{X, Y \in \mathrm{Ob}(C)} the function #{F_{X, Y}} is injective. We can also denote this as:
+    ##{
     (x \xrightarrow{f} y) \mapsto (F(x) \xrightarrow{F(f)} F(y))
   }
-  or using the notation of an embedding as:
-  ##{
+    or using the notation of an embedding as:
+    ##{
     C(X, Y) \hookrightarrow D(F(X), F(Y))
   }
-  An important note to make here is that a faithful functor only presereves distinctness of morphisms, so what this means is that:
-  \blockquote{
-    no two different arrows with the same domain and codomain in #{C} are mapped to (or get identified by) the same arrow in #{D}
-  }
-  It \strong{does not} say
-    \ul{
-      \li{different objects in #{C} are mapped to different objects in #{D}.}
-      \li{two morphisms with different domains/codomains in #{C} are mapped to different morphisms in #{D}.}
-  }
-  So in a diagrammatic sense a faithful functor essentially guarantees this:
-  \texfig{
-      % https://q.uiver.app/#q=WzAsNCxbMCwyLCJYIl0sWzIsMiwiWSJdLFsxLDAsIkYoWCkiXSxbMywwLCJGKFkpIl0sWzAsMSwiZiIsMCx7ImN1cnZlIjotM31dLFswLDEsImciLDAseyJjdXJ2ZSI6M31dLFsyLDMsIkYoZikiLDAseyJjdXJ2ZSI6LTN9XSxbMiwzLCJGKGcpIiwwLHsiY3VydmUiOjN9XSxbMSwzLCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwyLCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSw3LCIiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9LCJsZXZlbCI6MSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsNiwiIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfSwibGV2ZWwiOjEsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
-    \[\begin{tikzcd}
-      & {F(X)} && {F(Y)} \\
-      \\
-      X && Y
-      \arrow[""{name=0, anchor=center, inner sep=0}, "{F(f)}", curve={height=-18pt}, from=1-2, to=1-4]
-      \arrow[""{name=1, anchor=center, inner sep=0}, "{F(g)}", curve={height=18pt}, from=1-2, to=1-4]
-      \arrow[dashed, from=3-1, to=1-2]
-      \arrow[""{name=2, anchor=center, inner sep=0}, "f", curve={height=-18pt}, from=3-1, to=3-3]
-      \arrow[""{name=3, anchor=center, inner sep=0}, "g", curve={height=18pt}, from=3-1, to=3-3]
-      \arrow[dashed, from=3-3, to=1-4]
-      \arrow[between={0.2}{0.8}, dashed, from=3, to=1]
-      \arrow[between={0.2}{0.8}, dashed, from=2, to=0]
-    \end{tikzcd}\]
-  }
-  \li{The functor #{F} is called \strong{full} if for every pair of objects #{X, Y \in \mathrm{Ob}(C)} the function #{F_{X, Y}} is surjective. Likewise here its important to note that
-  \blockquote{
-    a full functor only guarantees that any morphism between two objects in the image of #{F} comes from a morphism in #{C}
-  }
-  It \strong{does not} say
-  \ul{
-    \li{every object in #{D} is in the image of #{F}. In other words objects in #{D} outside the image of #{F} may not have any preimage in #{C}.}
-    \li{every morphism with a domain/codomain outside the image of #{F} comes from a morphism in #{C}. Similarly morphisms between objects in the image of #{F} may not have a preimage in #{C}.}
+    An important note to make here is that a faithful functor only presereves distinctness of morphisms, so what this means is that:
+    \blockquote{
+
+      no two different arrows with the same domain and codomain in #{C} are mapped to (or get identified by) the same arrow in #{D}
     }
-  We can again demonstrate this diagrammatically as follows:
-  \texfig{
-    % https://q.uiver.app/#q=WzAsNCxbMCwyLCJYIl0sWzIsMiwiWSJdLFsyLDAsIkYoWCkiXSxbNCwwLCJGKFkpIl0sWzAsMSwiZiJdLFsyLDMsIkYoZikiXSxbMCwyLCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwzLCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCw1LCIiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9LCJsZXZlbCI6MSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
-  \[\begin{tikzcd}
-    && {F(X)} && {F(Y)} \\
-    \\
-    X && Y
-    \arrow[""{name=0, anchor=center, inner sep=0}, "{F(f)}", from=1-3, to=1-5]
-    \arrow[dashed, from=3-1, to=1-3]
-    \arrow[""{name=1, anchor=center, inner sep=0}, "f", from=3-1, to=3-3]
-    \arrow[dashed, from=3-3, to=1-5]
-    \arrow[between={0.2}{0.8}, dashed, from=1, to=0]
-  \end{tikzcd}\]
+    It \strong{does not} say
+    \ul{
+
+      \li{
+
+        different objects in #{C} are mapped to different objects in #{D}.
+      }
+      \li{
+
+        two morphisms with different domains/codomains in #{C} are mapped to different morphisms in #{D}.
+      }
+    }
+    So in a diagrammatic sense a faithful functor essentially guarantees this:
+    \ltexfig{https://q.uiver.app/#q=WzAsNCxbMCwyLCJYIl0sWzIsMiwiWSJdLFsxLDAsIkYoWCkiXSxbMywwLCJGKFkpIl0sWzAsMSwiZiIsMCx7ImN1cnZlIjotM31dLFswLDEsImciLDAseyJjdXJ2ZSI6M31dLFsyLDMsIkYoZikiLDAseyJjdXJ2ZSI6LTN9XSxbMiwzLCJGKGcpIiwwLHsiY3VydmUiOjN9XSxbMSwzLCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwyLCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSw3LCIiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9LCJsZXZlbCI6MSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsNiwiIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfSwibGV2ZWwiOjEsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==}{
+      \[\begin{tikzcd}
+        & {F(X)} && {F(Y)} \\
+        \\
+        X && Y
+        \arrow[""{name=0, anchor=center, inner sep=0}, "{F(f)}", curve={height=-18pt}, from=1-2, to=1-4]
+        \arrow[""{name=1, anchor=center, inner sep=0}, "{F(g)}", curve={height=18pt}, from=1-2, to=1-4]
+        \arrow[dashed, from=3-1, to=1-2]
+        \arrow[""{name=2, anchor=center, inner sep=0}, "f", curve={height=-18pt}, from=3-1, to=3-3]
+        \arrow[""{name=3, anchor=center, inner sep=0}, "g", curve={height=18pt}, from=3-1, to=3-3]
+        \arrow[dashed, from=3-3, to=1-4]
+        \arrow[between={0.2}{0.8}, dashed, from=3, to=1]
+        \arrow[between={0.2}{0.8}, dashed, from=2, to=0]
+        \end{tikzcd}\]
+}
+    \li{
+      The functor #{F} is called \strong{full} if for every pair of objects #{X, Y \in \mathrm{Ob}(C)} the function #{F_{X, Y}} is surjective. Likewise here its important to note that
+      \blockquote{
+
+        a full functor only guarantees that any morphism between two objects in the image of #{F} comes from a morphism in #{C}
+      }
+      It \strong{does not} say
+      \ul{
+        \li{
+          every object in #{D} is in the image of #{F}. In other words objects in #{D} outside the image of #{F} may not have any preimage in #{C}.
+        }
+        \li{
+
+          every morphism with a domain/codomain outside the image of #{F} comes from a morphism in #{C}. Similarly morphisms between objects in the image of #{F} may not have a preimage in #{C}.
+        }
+      }
+      We can again demonstrate this diagrammatically as follows:
+      \texfig{
+        % https://q.uiver.app/#q=WzAsNCxbMCwyLCJYIl0sWzIsMiwiWSJdLFsyLDAsIkYoWCkiXSxbNCwwLCJGKFkpIl0sWzAsMSwiZiJdLFsyLDMsIkYoZikiXSxbMCwyLCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwzLCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCw1LCIiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9LCJsZXZlbCI6MSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+        \[\begin{tikzcd}
+          && {F(X)} && {F(Y)} \\
+          \\
+          X && Y
+          \arrow[""{name=0, anchor=center, inner sep=0}, "{F(f)}", from=1-3, to=1-5]
+          \arrow[dashed, from=3-1, to=1-3]
+          \arrow[""{name=1, anchor=center, inner sep=0}, "f", from=3-1, to=3-3]
+          \arrow[dashed, from=3-3, to=1-5]
+          \arrow[between={0.2}{0.8}, dashed, from=1, to=0]
+          \end{tikzcd}\]
+}
+      The main idea being that a full functor only guarantees that if we have some arrow between two objects in the image (application) of #{F} then there exists some preimage arrow in #{C} that maps to it. But we can have objects and morphisms outside the image of #{F} that do not have any preimage in #{C}.
+    }
+    In other words it \strong{does not mean} the functor is \em{surjective on objects} or \em{morphisms} in general.
   }
-  The main idea being that a full functor only guarantees that if we have some arrow between two objects in the image (application) of #{F} then there exists some preimage arrow in #{C} that maps to it. But we can have objects and morphisms outside the image of #{F} that do not have any preimage in #{C}.
-  }
-  In other words it \strong{does not mean} the functor is \em{surjective on objects} or \em{morphisms} in general.
-  }
-  \li{The functor #{F} is called \strong{fully faithful} if for every pair of objects #{X, Y \in \mathrm{Ob}(C)} the function #{F_{X, Y}} is bijective. We say that a fully faithful functor is necessarily injective on objects up to [isomorphism](002s), that is assuming #{F} is fully faithful then we have:
+
+  \li{
+
+    The functor #{F} is called \strong{fully faithful} if for every pair of objects #{X, Y \in \mathrm{Ob}(C)} the function #{F_{X, Y}} is bijective. We say that a fully faithful functor is necessarily injective on objects up to [isomorphism](002s), that is assuming #{F} is fully faithful then we have:
     ##{
       F(X) \cong F(Y) \implies X \cong Y
     }
-  This means that if two objects in the image of #{F} are isomorphic then their preimages in #{C} must also be isomorphic. In other words what this means is that a fully faithful functor preserves distinctness of objects up to the point of being the same for all practical purposes (i.e. isomorphism).
+    This means that if two objects in the image of #{F} are isomorphic then their preimages in #{C} must also be isomorphic. In other words what this means is that a fully faithful functor preserves distinctness of objects up to the point of being the same for all practical purposes (i.e. isomorphism).
   }
 }

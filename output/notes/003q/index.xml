@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>2</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/003q/</fr:uri>
+    <fr:display-uri>003q</fr:display-uri>
+    <fr:route>/notes/003q/</fr:route>
+    <fr:title text="Extensionality">Extensionality</fr:title>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <html:p>
+  In the most general sense extensionality refers to the principle or idea that we can judge to objects to be equal based on their external properties or behaviors rather than their internal structure or composition. In various fields, extensionality has specific interpretations:
+</html:p>
+    <html:ul><html:li><html:strong>propositional extensionality</html:strong> of predicate states that:
+    <fr:tex display="block"><![CDATA[
+      \forall  P, Q.\ (P \leftrightarrow  Q) \implies  P = Q
+    ]]></fr:tex></html:li>
+  <html:li><html:strong>functional extensionality</html:strong> states that:
+    <fr:tex display="block"><![CDATA[
+      \forall  f, g : A \to  B.\ (\forall  x : A.\ f(x) = g(x)) \implies  f = g
+    ]]></fr:tex></html:li></html:ul>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

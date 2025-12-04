@@ -1,0 +1,25 @@
+\date{2025-12-02}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Extensionality}
+
+\p{
+  In the most general sense extensionality refers to the principle or idea that we can judge to objects to be equal based on their external properties or behaviors rather than their internal structure or composition. In various fields, extensionality has specific interpretations:
+}
+\ul{
+  \li{
+    \strong{propositional extensionality} of predicate states that:
+    ##{
+      \forall P, Q.\ (P \leftrightarrow Q) \implies P = Q
+    }
+  }
+  \li{
+    \strong{functional extensionality} states that:
+    ##{
+      \forall f, g : A \to B.\ (\forall x : A.\ f(x) = g(x)) \implies f = g
+    }
+  }
+}

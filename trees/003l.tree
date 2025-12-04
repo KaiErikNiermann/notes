@@ -6,18 +6,30 @@
 
 \title{Theory of Arrays #{T_{A}}}
 
-\p{The theory of arrays is a first-order theory that models arrays as functions from indices to values. It's signature includes:}
+\p{
+  The theory of arrays is a first-order theory that models arrays as functions from indices to values. It's signature includes:
+}
 ##{
   \Sigma_A \triangleq \{- [ - ], \langle - \triangleleft - \rangle, =\}
 }
-\p{where:}
-\ul{
-  \li{#{-[ - ]}: read operation, which takes an array and an index and returns the value at that index.}
-  \li{#{\langle - \triangleleft - \rangle}: write operation, which takes an array, an index, and a 
-  value, and returns a new array with the value at the specified index updated.}
-  \li{#{=}: equality relation, which checks if two arrays are identical.}
+\p{
+  where:
 }
-\p{The axioms of the theory of arrays are:}
+\ul{
+  \li{
+    #{-[ - ]}: read operation, which takes an array and an index and returns the value at that index.
+  }
+  \li{
+    #{\langle - \triangleleft - \rangle}: write operation, which takes an array, an index, and a
+    value, and returns a new array with the value at the specified index updated.
+  }
+  \li{
+    #{=}: equality relation, which checks if two arrays are identical.
+  }
+}
+\p{
+  The axioms of the theory of arrays are:
+}
 \tex{
   \usepackage{eulervm}
   \usepackage{amsmath}

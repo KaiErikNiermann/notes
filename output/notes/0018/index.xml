@@ -14,31 +14,44 @@
     <fr:title text="Semantic Argument method (FOL)">Semantic Argument method (FOL)</fr:title>
     <fr:taxon>Definition</fr:taxon>
   </fr:frontmatter>
-  <fr:mainmatter><html:p>In first order logic, the <html:em>semantic argument method</html:em> represents a proof by contradiction. The basic idea is as follows:</html:p><html:ol><html:li>We assume that our formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is not valid, i.e., <fr:tex display="inline"><![CDATA[\exists  S, \sigma  \nvDash  F]]></fr:tex></html:li>
-  <html:li>Use the proof rules to derive a contradiction from this assumption.</html:li>
-  <html:li>If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.</html:li></html:ol><html:p>We can express the semantic argument method via the following inference rule:</html:p>
+  <fr:mainmatter><html:p>
+  In first order logic, the <html:em>semantic argument method</html:em> represents a proof by contradiction. The basic idea is as follows:
+</html:p><html:ol><html:li>
+    We assume that our formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is not valid, i.e., <fr:tex display="inline"><![CDATA[\exists  S, \sigma  \nvDash  F]]></fr:tex></html:li>
+  <html:li>
+    Use the proof rules to derive a contradiction from this assumption.
+  </html:li>
+  <html:li>
+    If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.
+  </html:li></html:ol><html:p>
+  We can express the semantic argument method via the following inference rule:
+</html:p>
   
     
-    <fr:resource hash="3bed6126b85cea6a0873a90457e4404a"><fr:resource-content><html:img src="/notes/3bed6126b85cea6a0873a90457e4404a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="2454f17b7350a6508743934c93b962c3"><fr:resource-content><html:img src="/notes/2454f17b7350a6508743934c93b962c3.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
+  \newcommand{\cf}[1]{\texttt{#1}}
+
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Contradiction]{
     S, \sigma  \models  p(s_1, \ldots , s_n) \\
-    S, \sigma  \models  \neg  p(t_1, \ldots , t_n) \\ 
+    S, \sigma  \models  \neg  p(t_1, \ldots , t_n) \\
     \langle  I, \sigma \rangle  (t_1) = \langle  I, \sigma \rangle  (s_1), \ldots , \langle  I, \sigma \rangle  (t_n) = \langle  I, \sigma \rangle  (s_n)
   }{
     S, \sigma  \models  \bot 
   }
 \end {mathpar}]]></fr:resource-source></fr:resource>
   
-<html:p>So the idea here being that if we have a predicate and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction. This allows us to conclude that our initial assumption (that the formula is not valid) must be false, thereby proving the validity of the formula.</html:p></fr:mainmatter>
+<html:p>
+  So the idea here being that if we have a predicate and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction. This allows us to conclude that our initial assumption (that the formula is not valid) must be false, thereby proving the validity of the formula.
+</html:p></fr:mainmatter>
   <fr:backmatter>
     <fr:tree show-metadata="false" hidden-when-empty="true">
       <fr:frontmatter>
@@ -445,22 +458,24 @@
                     <fr:title text="Semantic Entailment \models  (FOL)">Semantic Entailment <fr:tex display="inline"><![CDATA[\models ]]></fr:tex> (FOL)</fr:title>
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
-                  <fr:mainmatter><html:p>We evaluate formulas in first order logic <html:em>under</html:em> a structure which consists of a domain and an interpretation function. In addition, we need a variable assignment to evaluate formulas with free variables. To denote truth under a structure <fr:tex display="inline"><![CDATA[S]]></fr:tex> and variable assignment <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> we write:</html:p><html:ul><html:li><html:strong>True</html:strong>: If a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> evaluates to true under <fr:tex display="inline"><![CDATA[U, I, \sigma ]]></fr:tex> we write <fr:tex display="block"><![CDATA[
-    U, I, \sigma  \models  F
-  ]]></fr:tex></html:li>
-  <html:li><html:strong>False</html:strong>: If a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> evaluates to false under <fr:tex display="inline"><![CDATA[U, I, \sigma ]]></fr:tex> we write <fr:tex display="block"><![CDATA[
-    U, I, \sigma  \nvDash  F
-  ]]></fr:tex></html:li></html:ul><html:p>We can define semantic entailment inductively as follows:</html:p>
+                  <fr:mainmatter><html:p>
+  We evaluate formulas in first order logic <html:em>under</html:em> a structure which consists of a domain and an interpretation function. In addition, we need a variable assignment to evaluate formulas with free variables. To denote truth under a structure <fr:tex display="inline"><![CDATA[S]]></fr:tex> and variable assignment <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> we write:
+</html:p><html:ul><html:li><html:strong>True</html:strong>: If a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> evaluates to true under <fr:tex display="inline"><![CDATA[U, I, \sigma ]]></fr:tex> we write <fr:tex display="block"><![CDATA[U, I, \sigma  \models  F]]></fr:tex></html:li>
+  <html:li><html:strong>False</html:strong>: If a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> evaluates to false under <fr:tex display="inline"><![CDATA[U, I, \sigma ]]></fr:tex> we write <fr:tex display="block"><![CDATA[U, I, \sigma  \nvDash  F]]></fr:tex></html:li></html:ul><html:p>
+  We can define semantic entailment inductively as follows:
+</html:p>
   
     
-    <fr:resource hash="2b351294263361b74676193e73f28df6"><fr:resource-content><html:img src="/notes/2b351294263361b74676193e73f28df6.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="d7624c2c82ab393fab290297f3fd0420"><fr:resource-content><html:img src="/notes/d7624c2c82ab393fab290297f3fd0420.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=True]{}{
@@ -544,14 +559,16 @@
                   <fr:mainmatter><html:p>In addition to evaluating atomic formulas, we can define the evaluation of complex formulas using logical connectives and quantifiers as follows:</html:p>
   
     
-    <fr:resource hash="991a5113f70cfcb315c0458b8f4dceca"><fr:resource-content><html:img src="/notes/991a5113f70cfcb315c0458b8f4dceca.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="2ed6f8116f00585c9a6a6031eb24b377"><fr:resource-content><html:img src="/notes/2ed6f8116f00585c9a6a6031eb24b377.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Not-True]{
@@ -606,14 +623,16 @@
 <html:p>For the proof rules of quantifiers we have two variants depending on whether we are dealing with free or bound variables:</html:p>
   
     
-    <fr:resource hash="bf807f288df79827d7da6707c91abf5b"><fr:resource-content><html:img src="/notes/bf807f288df79827d7da6707c91abf5b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="e31d38f49dbceb637264aba1c17cc280"><fr:resource-content><html:img src="/notes/e31d38f49dbceb637264aba1c17cc280.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=$\forall $-$\top $]{
@@ -657,31 +676,44 @@
                     <fr:title text="Semantic Argument method (FOL)">Semantic Argument method (FOL)</fr:title>
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
-                  <fr:mainmatter><html:p>In first order logic, the <html:em>semantic argument method</html:em> represents a proof by contradiction. The basic idea is as follows:</html:p><html:ol><html:li>We assume that our formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is not valid, i.e., <fr:tex display="inline"><![CDATA[\exists  S, \sigma  \nvDash  F]]></fr:tex></html:li>
-  <html:li>Use the proof rules to derive a contradiction from this assumption.</html:li>
-  <html:li>If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.</html:li></html:ol><html:p>We can express the semantic argument method via the following inference rule:</html:p>
+                  <fr:mainmatter><html:p>
+  In first order logic, the <html:em>semantic argument method</html:em> represents a proof by contradiction. The basic idea is as follows:
+</html:p><html:ol><html:li>
+    We assume that our formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is not valid, i.e., <fr:tex display="inline"><![CDATA[\exists  S, \sigma  \nvDash  F]]></fr:tex></html:li>
+  <html:li>
+    Use the proof rules to derive a contradiction from this assumption.
+  </html:li>
+  <html:li>
+    If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.
+  </html:li></html:ol><html:p>
+  We can express the semantic argument method via the following inference rule:
+</html:p>
   
     
-    <fr:resource hash="3bed6126b85cea6a0873a90457e4404a"><fr:resource-content><html:img src="/notes/3bed6126b85cea6a0873a90457e4404a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="2454f17b7350a6508743934c93b962c3"><fr:resource-content><html:img src="/notes/2454f17b7350a6508743934c93b962c3.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
+  \newcommand{\cf}[1]{\texttt{#1}}
+
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Contradiction]{
     S, \sigma  \models  p(s_1, \ldots , s_n) \\
-    S, \sigma  \models  \neg  p(t_1, \ldots , t_n) \\ 
+    S, \sigma  \models  \neg  p(t_1, \ldots , t_n) \\
     \langle  I, \sigma \rangle  (t_1) = \langle  I, \sigma \rangle  (s_1), \ldots , \langle  I, \sigma \rangle  (t_n) = \langle  I, \sigma \rangle  (s_n)
   }{
     S, \sigma  \models  \bot 
   }
 \end {mathpar}]]></fr:resource-source></fr:resource>
   
-<html:p>So the idea here being that if we have a predicate and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction. This allows us to conclude that our initial assumption (that the formula is not valid) must be false, thereby proving the validity of the formula.</html:p></fr:mainmatter>
+<html:p>
+  So the idea here being that if we have a predicate and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction. This allows us to conclude that our initial assumption (that the formula is not valid) must be false, thereby proving the validity of the formula.
+</html:p></fr:mainmatter>
                 </fr:tree>
                 <fr:tree show-metadata="false">
                   <fr:frontmatter>

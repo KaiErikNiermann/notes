@@ -6,18 +6,22 @@
 
 \title{Semantic Entailment #{\models} (FOL)}
 
-\p{We evaluate formulas in first order logic \em{under} a structure which consists of a domain and an interpretation function. In addition, we need a variable assignment to evaluate formulas with free variables. To denote truth under a structure #{S} and variable assignment #{\sigma} we write:}
-
-\ul{
-  \li{\strong{True}: If a formula #{F} evaluates to true under #{U, I, \sigma} we write ##{
-    U, I, \sigma \models F
-  }}
-  \li{\strong{False}: If a formula #{F} evaluates to false under #{U, I, \sigma} we write ##{
-    U, I, \sigma \nvDash F
-  } }
+\p{
+  We evaluate formulas in first order logic \em{under} a structure which consists of a domain and an interpretation function. In addition, we need a variable assignment to evaluate formulas with free variables. To denote truth under a structure #{S} and variable assignment #{\sigma} we write:
 }
 
-\p{We can define semantic entailment inductively as follows:}
+\ul{
+  \li{
+    \strong{True}: If a formula #{F} evaluates to true under #{U, I, \sigma} we write ##{U, I, \sigma \models F}
+  }
+  \li{
+    \strong{False}: If a formula #{F} evaluates to false under #{U, I, \sigma} we write ##{U, I, \sigma \nvDash F}
+  }
+}
+
+\p{
+  We can define semantic entailment inductively as follows:
+}
 
 \infrule{
   \inferrule*[right=True]{}{

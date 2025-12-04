@@ -38,14 +38,16 @@
   
   
     
-    <fr:resource hash="864dba8f63436598dfcbfbc326e9671d"><fr:resource-content><html:img src="/notes/864dba8f63436598dfcbfbc326e9671d.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="63b338beeb6e34f7b990a23c3e92b73c"><fr:resource-content><html:img src="/notes/63b338beeb6e34f7b990a23c3e92b73c.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
     \inferrule *{
@@ -76,14 +78,16 @@
     
   
     
-    <fr:resource hash="e274686e577682252acb094094c16a90"><fr:resource-content><html:img src="/notes/e274686e577682252acb094094c16a90.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="8ab9294001d8167ff895f88a8c82a4e8"><fr:resource-content><html:img src="/notes/8ab9294001d8167ff895f88a8c82a4e8.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
       \inferrule *{
@@ -263,7 +267,8 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>A <html:em>monotone function</html:em> (or <html:em>monotone map</html:em>) between two preorders <fr:tex display="inline"><![CDATA[(A, \preceq _A)]]></fr:tex> and <fr:tex display="inline"><![CDATA[(B, \preceq _B)]]></fr:tex> is a function <fr:tex display="inline"><![CDATA[f: A \to  B]]></fr:tex> that preserves the order relation. This means that for all elements <fr:tex display="inline"><![CDATA[x, y \in  A]]></fr:tex>, if <fr:tex display="inline"><![CDATA[x \preceq _A y]]></fr:tex>, then it must also hold that <fr:tex display="inline"><![CDATA[f(x) \preceq _B f(y)]]></fr:tex>. In other words, the function <fr:tex display="inline"><![CDATA[f]]></fr:tex> does not reverse the order of elements when mapping them from set <fr:tex display="inline"><![CDATA[A]]></fr:tex> to set <fr:tex display="inline"><![CDATA[B]]></fr:tex>. Formally:<fr:link href="/notes/fong-spivak-seven-sketches-2019/" title="Seven Sketches in Compositionality: An Invitation to Applied Category Theory" uri="https://kaierikniermann.github.io/notes/fong-spivak-seven-sketches-2019/" display-uri="fong-spivak-seven-sketches-2019" type="local">(1)</fr:link></html:p>
+            <html:p>
+  A <html:em>monotone function</html:em> (or <html:em>monotone map</html:em>) between two preorders <fr:tex display="inline"><![CDATA[(A, \preceq _A)]]></fr:tex> and <fr:tex display="inline"><![CDATA[(B, \preceq _B)]]></fr:tex> is a function <fr:tex display="inline"><![CDATA[f: A \to  B]]></fr:tex> that preserves the order relation. This means that for all elements <fr:tex display="inline"><![CDATA[x, y \in  A]]></fr:tex>, if <fr:tex display="inline"><![CDATA[x \preceq _A y]]></fr:tex>, then it must also hold that <fr:tex display="inline"><![CDATA[f(x) \preceq _B f(y)]]></fr:tex>. In other words, the function <fr:tex display="inline"><![CDATA[f]]></fr:tex> does not reverse the order of elements when mapping them from set <fr:tex display="inline"><![CDATA[A]]></fr:tex> to set <fr:tex display="inline"><![CDATA[B]]></fr:tex>. Formally:<fr:link href="/notes/fong-spivak-seven-sketches-2019/" title="Seven Sketches in Compositionality: An Invitation to Applied Category Theory" uri="https://kaierikniermann.github.io/notes/fong-spivak-seven-sketches-2019/" display-uri="fong-spivak-seven-sketches-2019" type="local">(1)</fr:link></html:p>
             <fr:tex display="block"><![CDATA[
   \forall  x, y \in  A.\ x \preceq _A y \implies  f(x) \preceq _B f(y)
 ]]></fr:tex>

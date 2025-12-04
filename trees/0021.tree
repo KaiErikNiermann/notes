@@ -5,16 +5,24 @@
 
 \title{Complete (Strong) Induction}
 
-\p{If we let #{P(0), P(1), \ldots} be a sequence of propositions indexed by the natural numbers, then the principle of \em{complete induction} (also known as \em{strong induction}) states that to prove that all of these propositions are true, it suffices to show that for every natural number #{m}, if all of the propositions #{P(0), P(2), \ldots, P(m)} are true, then #{P(n)} is also true where #{m < n}. In other words, we assume the truth of all previous cases up to #{m} in order to prove the case for #{n}. The schema for the principle of complete induction is as follows [1](bradley2007calculus):}
+\p{
+  If we let #{P(0), P(1), \ldots} be a sequence of propositions indexed by the natural numbers, then the principle of \em{complete induction} (also known as \em{strong induction}) states that to prove that all of these propositions are true, it suffices to show that for every natural number #{m}, if all of the propositions #{P(0), P(2), \ldots, P(m)} are true, then #{P(n)} is also true where #{m < n}. In other words, we assume the truth of all previous cases up to #{m} in order to prove the case for #{n}. The schema for the principle of complete induction is as follows [(1)](bradley2007calculus):
+}
 ##{
   \forall n.\ (\forall m.\ m < n \to P(m)) \to P(n)
 }
-\p{In this formulation the base case is implicitly included since when #{n = 0}, the inner universal quantification #{\forall m.\ m < 0 \to P(m)} is vacuously true hence we prove #{P(0)} directly. We can also state the more classic form of complete induction which explicitly includes the base case as follows:}
+\p{
+  In this formulation the base case is implicitly included since when #{n = 0}, the inner universal quantification #{\forall m.\ m < 0 \to P(m)} is vacuously true hence we prove #{P(0)} directly. We can also state the more classic form of complete induction which explicitly includes the base case as follows:
+}
 ##{
   \forall n.\ (\forall m.\ (m \leq n) \to P(m)) \to P(n + 1)
 }
-\p{Here the base case ends up being:}
+\p{
+  Here the base case ends up being:
+}
 ##{
   ((1 \geq m \leq 1) \to P(1)) \to P(2) \equiv P(1) \to P(2)
 }
-\p{Here our base case similarly is proven directly just by virtue of the rhs implication reducing to #{P(1)}[2](ernst2022introductiontoproof). A note to make here is that conceptually there is no difference between how we proove the base case in complete induction versus ordinary induction.}
+\p{
+  Here our base case similarly is proven directly just by virtue of the rhs implication reducing to #{P(1)}[2](ernst2022introductiontoproof). A note to make here is that conceptually there is no difference between how we proove the base case in complete induction versus ordinary induction.
+}

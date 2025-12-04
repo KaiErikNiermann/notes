@@ -1,0 +1,38 @@
+\date{2025-12-04}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Simple Imperative Language - Syntax}
+
+\p{
+  We define the syntax of a simple imperative programming language, using the followng bnf grammar:
+}
+
+\grammar{
+  \startverb
+    e : Exp ::=
+    | n : number
+    | x : variable
+    | $e_1 + e_2$ : addition
+    | $e_1 - e_2$ : subtraction
+    | $e_1 * e_2$ : multiplication
+    --
+    b : BExp ::=
+    | $\top$ : true
+    | $\bot$ : false
+    | $\neg b$ : negation
+    | $b_1 \land b_2$ : conjunction
+    | $b_1 \lor b_2$ : disjunction
+    | $e_1 = e_2$ : equality
+    | $e_1 \leq e_2$ : less than or equal
+    --
+    s : Stmt ::=
+    | skip : skip
+    | $x \coloneqq e$ : assignment
+    | $s_1 ; s_2$ : sequencing
+    | if $b$ then $s_1$ else $s_2$ : conditional
+    | while $b$ do $s$ : while loop
+  \stopverb
+}

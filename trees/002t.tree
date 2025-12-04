@@ -5,22 +5,30 @@
 \subtree{
   \taxon{Definition}
   \title{Injective, Surjective & Bijective (Sets)}
-  
-  \p{A function #{f : X \to Y} is called \strong{injective} (or \em{one-to-one}) if for every pair of elements #{x_1, x_2 \in X} the following holds:}
+
+  \p{
+    A function #{f : X \to Y} is called \strong{injective} (or \em{one-to-one}) if for every pair of elements #{x_1, x_2 \in X} the following holds:
+  }
   ##{
     f(x_1) = f(x_2) \implies x_1 = x_2
   }
-  \p{A function #{f : X \to Y} is called \strong{surjective} (or \em{onto}) if for every element #{y \in Y} there exists an element #{x \in X} such that:}
+  \p{
+    A function #{f : X \to Y} is called \strong{surjective} (or \em{onto}) if for every element #{y \in Y} there exists an element #{x \in X} such that:
+  }
   ##{
     f(x) = y
   }
-  \p{A function #{f : X \to Y} is called \strong{bijective} if it is both \em{injective} and \em{surjective}. In this case there exists an \strong{inverse function} #{f^{-1} : Y \to X} such that the following hold:}
+  \p{
+    A function #{f : X \to Y} is called \strong{bijective} if it is both \em{injective} and \em{surjective}. In this case there exists an \strong{inverse function} #{f^{-1} : Y \to X} such that the following hold:
+  }
   ##{
     f^{-1}(f(x)) = x
     \quad
     f(f^{-1}(y)) = y
   }
-  \p{In the categorical sense a bijection is just an \strong{isomorphism} in a 0-category (i.e. the category of sets). We can give an equivalent more pedantic definition of bijectivity as follows:}
+  \p{
+    In the categorical sense a bijection is just an \strong{isomorphism} in a 0-category (i.e. the category of sets). We can give an equivalent more pedantic definition of bijectivity as follows:
+  }
   ##{
     \forall y \in Y.\ (f(f^{-1}(y)) = y \land \forall x \in X.\ (f(y) = x \to f^{-1}(x) = y))
   }

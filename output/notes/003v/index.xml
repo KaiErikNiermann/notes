@@ -1,0 +1,1119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>4</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/003v/</fr:uri>
+    <fr:display-uri>003v</fr:display-uri>
+    <fr:route>/notes/003v/</fr:route>
+    <fr:title text="Simple Imperative Language - Evaluation">Simple Imperative Language - Evaluation</fr:title>
+    <fr:taxon>Quiz</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter><html:ol><html:li>
+    What does the following evaluate to?
+    <fr:tex display="block"><![CDATA[
+      \langle  (x := x - 1), \sigma [x \mapsto  2] \rangle 
+    ]]></fr:tex></html:li>
+  <html:li>
+    What does the following evaluate to?
+    <fr:tex display="block"><![CDATA[
+      \langle  \texttt {if } x + 1 \leq  3 \texttt { then } x := x - 1, \sigma [x \mapsto  1] \rangle 
+    ]]></fr:tex></html:li>
+  <html:li>
+    What does the following evaluate to?
+    <fr:tex display="block"><![CDATA[
+      \langle  \texttt {while } (x + 1 \leq  3) \texttt { then } x := x - 1, \sigma [x \mapsto  1] \rangle 
+    ]]></fr:tex></html:li>
+  <html:li>
+    Is the following a <fr:link href="/notes/003w/" title="Total &amp; Partial function" uri="https://kaierikniermann.github.io/notes/003w/" display-uri="003w" type="local">total function</fr:link>?
+    <fr:tex display="block"><![CDATA[
+      \langle  e, \sigma  \rangle  \Downarrow  n
+    ]]></fr:tex></html:li>
+  <html:li>
+    Is the following a <fr:link href="/notes/003w/" title="Total &amp; Partial function" uri="https://kaierikniermann.github.io/notes/003w/" display-uri="003w" type="local">total function</fr:link>?
+    <fr:tex display="block"><![CDATA[
+      \langle  s, \sigma  \rangle  \Downarrow  \sigma '
+    ]]></fr:tex></html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>4</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>Starting in the state <fr:tex display="inline"><![CDATA[x \mapsto  2]]></fr:tex> we evaluate <fr:tex display="inline"><![CDATA[x := x - 1]]></fr:tex> to the state <fr:tex display="inline"><![CDATA[x \mapsto  1]]></fr:tex></html:li>
+    <html:li>Starting in the state <fr:tex display="inline"><![CDATA[x \mapsto  1]]></fr:tex>, we first evaluate the condition <fr:tex display="inline"><![CDATA[x + 1 \leq  3]]></fr:tex>:
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x + 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  2 \\
+        \langle  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  3 \\
+        \langle  2 \leq  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  \texttt {true}
+        \end {align*}
+      ]]></fr:tex>
+      Since the condition evaluates to true, we then evaluate the then-branch <fr:tex display="inline"><![CDATA[x := x - 1]]></fr:tex>:
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x - 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  0 \\
+        \langle  x := 0, \sigma [x \mapsto  1] \rangle  &\Downarrow  \sigma [x \mapsto  0]
+        \end {align*}
+      ]]></fr:tex></html:li>
+    <html:li>We again start by evaluating the condition
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x + 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  2 \\
+        \langle  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  3 \\
+        \langle  2 \leq  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  \texttt {true}
+        \end {align*}
+      ]]></fr:tex>
+      Since we can see that the body of the loop only decreases <fr:tex display="inline"><![CDATA[x]]></fr:tex>, we are stuck in an infinite loop:
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x := x - 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  \sigma [x \mapsto  0] \\
+        \langle  \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1, \sigma [x \mapsto  0] \rangle  &\Downarrow  \sigma [x \mapsto  -1] \\
+        \langle  \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1, \sigma [x \mapsto  -1] \rangle  &\Downarrow  \sigma [x \mapsto  -2] \\
+        &\vdots 
+        \end {align*}
+      ]]></fr:tex></html:li>
+    <html:li>Yes, for every expression <fr:tex display="inline"><![CDATA[e]]></fr:tex> and state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>, there exists a number <fr:tex display="inline"><![CDATA[n]]></fr:tex> such that
+      <fr:tex display="block"><![CDATA[
+        \langle  e, \sigma  \rangle  \Downarrow  n
+      ]]></fr:tex>
+      This follows from the fact that expressions are finite syntax trees built from a finite set of rules, and each rule can be evaluated in a finite number of steps.
+    </html:li>
+    <html:li>No, there exist statements <fr:tex display="inline"><![CDATA[s]]></fr:tex> and states <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> for which there is no resulting state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> such that
+      <fr:tex display="block"><![CDATA[
+        \langle  s, \sigma  \rangle  \Downarrow  \sigma '
+      ]]></fr:tex>
+      For example, consider the while-loop
+      <fr:tex display="block"><![CDATA[
+        \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1
+      ]]></fr:tex>
+      starting from the state <fr:tex display="inline"><![CDATA[\sigma [x \mapsto  1]]]></fr:tex>. As shown in the previous question, this loop does not terminate, and thus there is no resulting state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex>.
+    </html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>12</fr:month>
+              <fr:day>4</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/003s/</fr:uri>
+            <fr:display-uri>003s</fr:display-uri>
+            <fr:route>/notes/003s/</fr:route>
+            <fr:title text="Lecture 5 - Nano &amp; Hoare Logic">Lecture 5 - Nano &amp; Hoare Logic</fr:title>
+            <fr:taxon>VU-VFS-2025</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>4</fr:day>
+                </fr:date>
+                <fr:title text="Simple Imperative Language Syntax &amp; Semantics">Simple Imperative Language Syntax &amp; Semantics</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>4</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/003t/</fr:uri>
+                    <fr:display-uri>003t</fr:display-uri>
+                    <fr:route>/notes/003t/</fr:route>
+                    <fr:title text="Simple Imperative Language - Syntax">Simple Imperative Language - Syntax</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  We define the syntax of a simple imperative programming language, using the followng bnf grammar:
+</html:p>
+  
+    
+    <fr:resource hash="d9358af54b1514c3e8ea6264dd0ad402"><fr:resource-content><html:img src="/notes/d9358af54b1514c3e8ea6264dd0ad402.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+      
+    \usepackage{xcolor}               % color support
+  \definecolor{dkgreen}{rgb}{0,0.6,0}
+  \definecolor{gray}{rgb}{0.5,0.5,0.5}
+  \definecolor{mauve}{rgb}{0.58,0,0.82}
+  \definecolor{brown}{rgb}{0.921, 0.325, 0.078}
+  \definecolor{lightline}{rgb}{0.8,0.8,0.8}
+
+  \usepackage{libertine}
+  \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  % \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+  \usepackage{simplebnf}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
+      \begin {center}
+        \begin {bnf}(
+          prod-delim = {--},
+          or-sym = {},
+          prod-sep = 5pt,
+        )[
+          colspec = {llcll},
+          column{1} = {font=\sffamily },
+          column{2} = {mode=dmath},
+          column{4} = {font=\ttfamily },
+          column{5} = {font=\itshape \color {gray}},
+        ]
+          
+      e : Exp ::=
+    | n : number
+    | x : variable
+    | $e_1 + e_2$ : addition
+    | $e_1 - e_2$ : subtraction
+    | $e_1 * e_2$ : multiplication
+    --
+    b : BExp ::=
+    | $\top$ : true
+    | $\bot$ : false
+    | $\neg b$ : negation
+    | $b_1 \land b_2$ : conjunction
+    | $b_1 \lor b_2$ : disjunction
+    | $e_1 = e_2$ : equality
+    | $e_1 \leq e_2$ : less than or equal
+    --
+    s : Stmt ::=
+    | skip : skip
+    | $x \coloneqq e$ : assignment
+    | $s_1 ; s_2$ : sequencing
+    | if $b$ then $s_1$ else $s_2$ : conditional
+    | while $b$ do $s$ : while loop
+
+        \end {bnf}
+      \end {center}
+    ]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>4</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/003u/</fr:uri>
+                    <fr:display-uri>003u</fr:display-uri>
+                    <fr:route>/notes/003u/</fr:route>
+                    <fr:title text="Simple Imperative Language - Semantics">Simple Imperative Language - Semantics</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>
+  We can divide the environmental big-step semantics of our simple language into three parts:
+</html:p>
+                    <html:ul><html:li><html:strong>Expression evaluation</html:strong>: Describes how arithmetic expressions are evaluated to numbers.
+  </html:li>
+  <html:li><html:strong>Boolean expression evaluation</html:strong>: Describes how boolean expressions are evaluated to boolean values (true/false).
+  </html:li>
+  <html:li><html:strong>Statement execution</html:strong>: Describes how statements are executed, transforming an initial state (environment) into a final state.
+  </html:li></html:ul>
+                    <html:p>
+  The general big-step environmental evalutation rule is denoted as:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \langle  t, \sigma  \rangle  \Downarrow  v
+]]></fr:tex>
+                    <html:p>
+  Here:
+</html:p>
+                    <html:ol><html:li>
+    We have some starting term <fr:tex display="inline"><![CDATA[\texttt {t}]]></fr:tex> (which can be an expression, boolean expression, or statement), along with some state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>.
+  </html:li>
+  <html:li>
+    The evaluation results in some value <fr:tex display="inline"><![CDATA[\texttt {v}]]></fr:tex> (which can be a number, boolean value, or new state).
+  </html:li></html:ol>
+                    <html:p>
+  A quick aside here to deconstruct the term <html:strong>big-step environmental evaluation</html:strong>:
+</html:p>
+                    <html:ul><html:li>
+    We say that this evaluation is <html:strong>big-step</html:strong> as it assumes some arbitrary state of intermediate steps, meaning that within big step semantics we do not care about intermediate computation only about some input expression and the final output value. A simple analogue to make here is that big-step semantics are akin to a teacher asking you to only show ur final answer to a math problem rather than all the steps you took to get there.
+  </html:li>
+  <html:li>
+    We say that this evaluation is <html:strong>environmental</html:strong> (as opposed to being substitution based) as we explicitly keep track of a state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> which maps variables to their values. This is in contrast to substitution based semantics where variable occurrences are replaced directly with their values in expressions.
+  </html:li></html:ul>
+                    <html:p>
+  The state <fr:tex display="inline"><![CDATA[\sigma  : \texttt {String} \to  \mathbb {Z}]]></fr:tex> represents a mapping from variables (commonly strings) to their corresponding values (numbers). We denote the updated state after assigning a value to a variable <fr:tex display="inline"><![CDATA[\texttt {x}]]></fr:tex> as:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \sigma [x \mapsto  n]
+]]></fr:tex>
+                    <html:p>
+  This means that in the new state, the variable <fr:tex display="inline"><![CDATA[\texttt {x}]]></fr:tex> now maps to the number <fr:tex display="inline"><![CDATA[\texttt {n}]]></fr:tex>, while all other variable mappings remain unchanged from the original state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>.
+</html:p>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>4</fr:day>
+                        </fr:date>
+                        <fr:title text="Expression evaluation">Expression evaluation</fr:title>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+  
+    
+    <fr:resource hash="6a4d239ebe747cfb08700219cfa18949"><fr:resource-content><html:img src="/notes/6a4d239ebe747cfb08700219cfa18949.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=E-Num]{
+    }{
+      \langle  n, \sigma  \rangle  \Downarrow  n
+    }
+    \and 
+    \inferrule *[right=E-Var]{
+    }{
+      \langle  x, \sigma  \rangle  \Downarrow  \sigma (x)
+    }
+    \and 
+    \inferrule *[right=E-Add]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 + e_2, \sigma  \rangle  \Downarrow  n_1 + n_2
+    }
+    \and 
+    \inferrule *[right=E-Sub]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 - e_2, \sigma  \rangle  \Downarrow  n_1 - n_2
+    }
+    \and 
+    \inferrule *[right=E-Mul]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 * e_2, \sigma  \rangle  \Downarrow  n_1 * n_2
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>4</fr:day>
+                        </fr:date>
+                        <fr:title text="Boolean expression evaluation">Boolean expression evaluation</fr:title>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+  
+    
+    <fr:resource hash="a16aa0da1d83a5e40e560fb3943d67ea"><fr:resource-content><html:img src="/notes/a16aa0da1d83a5e40e560fb3943d67ea.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=B-True]{
+    }{
+      \langle  \top , \sigma  \rangle  \Downarrow  \texttt {true}
+    }
+    \and 
+    \inferrule *[right=B-False]{
+    }{
+      \langle  \bot , \sigma  \rangle  \Downarrow  \texttt {false}
+    }
+    \and 
+    \inferrule *[right=B-Not]{
+      \langle  b, \sigma  \rangle  \Downarrow  v
+    }{
+      \langle  \neg  b, \sigma  \rangle  \Downarrow  \neg  v
+    }
+    \and 
+    \inferrule *[right=B-And]{
+      \langle  b_1, \sigma  \rangle  \Downarrow  v_1 \\
+      \langle  b_2, \sigma  \rangle  \Downarrow  v_2
+    }{
+      \langle  b_1 \land  b_2, \sigma  \rangle  \Downarrow  v_1 \land  v_2
+    }
+    \and 
+    \inferrule *[right=B-Or]{
+      \langle  b_1, \sigma  \rangle  \Downarrow  v_1 \\
+      \langle  b_2, \sigma  \rangle  \Downarrow  v_2
+    }{
+      \langle  b_1 \lor  b_2, \sigma  \rangle  \Downarrow  v_1 \lor  v_2
+    }
+    \and 
+    \inferrule *[right=B-Eq]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 = e_2, \sigma  \rangle  \Downarrow  (n_1 = n_2)
+    }
+    \and 
+    \inferrule *[right=B-Leq]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 \leq  e_2, \sigma  \rangle  \Downarrow  (n_1 \leq  n_2)
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>4</fr:day>
+                        </fr:date>
+                        <fr:title text="Statement evaluation">Statement evaluation</fr:title>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+  
+    
+    <fr:resource hash="c80b26dde9779d9a29c9fa2cc9590978"><fr:resource-content><html:img src="/notes/c80b26dde9779d9a29c9fa2cc9590978.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=S-Skip]{
+    }{
+      \langle  \texttt {skip}, \sigma  \rangle  \Downarrow  \sigma 
+    }
+    \and 
+    \inferrule *[right=S-Assign]{
+      \langle  e, \sigma  \rangle  \Downarrow  n
+    }{
+      \langle  x \coloneqq  e, \sigma  \rangle  \Downarrow  \sigma [x \mapsto  n]
+    }
+    \and 
+    \inferrule *[right=S-Seq]{
+      \langle  s_1, \sigma  \rangle  \Downarrow  \sigma ' \\
+      \langle  s_2, \sigma ' \rangle  \Downarrow  \sigma ''
+    }{
+      \langle  s_1 ; s_2, \sigma  \rangle  \Downarrow  \sigma ''
+    }
+    \and 
+    \inferrule *[right=S-IfTrue]{
+      \langle  b, \sigma  \rangle  \Downarrow  \texttt {true} \\
+      \langle  s_1, \sigma  \rangle  \Downarrow  \sigma '
+    }{
+      \langle  \texttt {if } b \texttt { then } s_1 \texttt { else } s_2, \sigma  \rangle  \Downarrow  \sigma '
+    }
+    \and 
+    \inferrule *[right=S-IfFalse]{
+      \langle  b, \sigma  \rangle  \Downarrow  \texttt {false} \\
+      \langle  s_2, \sigma  \rangle  \Downarrow  \sigma '
+    }{
+      \langle  \texttt {if } b \texttt { then } s_1 \texttt { else } s_2, \sigma  \rangle  \Downarrow  \sigma '
+    }
+    \and 
+    \inferrule *[right=S-WhileFalse]{
+      \langle  b, \sigma  \rangle  \Downarrow  \texttt {false}
+    }{
+      \langle  \texttt {while } b \texttt { do } s, \sigma  \rangle  \Downarrow  \sigma 
+    }
+    \and 
+    \inferrule *[right=S-WhileTrue]{
+      \langle  b, \sigma  \rangle  \Downarrow  \texttt {true} \\
+      \langle  s, \sigma  \rangle  \Downarrow  \sigma ' \\
+      \langle  \texttt {while } b \texttt { do } s, \sigma ' \rangle  \Downarrow  \sigma ''
+    }{
+      \langle  \texttt {while } b \texttt { do } s, \sigma  \rangle  \Downarrow  \sigma ''
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                    </fr:tree>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>4</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/003v/</fr:uri>
+                    <fr:display-uri>003v</fr:display-uri>
+                    <fr:route>/notes/003v/</fr:route>
+                    <fr:title text="Simple Imperative Language - Evaluation">Simple Imperative Language - Evaluation</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:ol><html:li>
+    What does the following evaluate to?
+    <fr:tex display="block"><![CDATA[
+      \langle  (x := x - 1), \sigma [x \mapsto  2] \rangle 
+    ]]></fr:tex></html:li>
+  <html:li>
+    What does the following evaluate to?
+    <fr:tex display="block"><![CDATA[
+      \langle  \texttt {if } x + 1 \leq  3 \texttt { then } x := x - 1, \sigma [x \mapsto  1] \rangle 
+    ]]></fr:tex></html:li>
+  <html:li>
+    What does the following evaluate to?
+    <fr:tex display="block"><![CDATA[
+      \langle  \texttt {while } (x + 1 \leq  3) \texttt { then } x := x - 1, \sigma [x \mapsto  1] \rangle 
+    ]]></fr:tex></html:li>
+  <html:li>
+    Is the following a <fr:link href="/notes/003w/" title="Total &amp; Partial function" uri="https://kaierikniermann.github.io/notes/003w/" display-uri="003w" type="local">total function</fr:link>?
+    <fr:tex display="block"><![CDATA[
+      \langle  e, \sigma  \rangle  \Downarrow  n
+    ]]></fr:tex></html:li>
+  <html:li>
+    Is the following a <fr:link href="/notes/003w/" title="Total &amp; Partial function" uri="https://kaierikniermann.github.io/notes/003w/" display-uri="003w" type="local">total function</fr:link>?
+    <fr:tex display="block"><![CDATA[
+      \langle  s, \sigma  \rangle  \Downarrow  \sigma '
+    ]]></fr:tex></html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>4</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>Starting in the state <fr:tex display="inline"><![CDATA[x \mapsto  2]]></fr:tex> we evaluate <fr:tex display="inline"><![CDATA[x := x - 1]]></fr:tex> to the state <fr:tex display="inline"><![CDATA[x \mapsto  1]]></fr:tex></html:li>
+    <html:li>Starting in the state <fr:tex display="inline"><![CDATA[x \mapsto  1]]></fr:tex>, we first evaluate the condition <fr:tex display="inline"><![CDATA[x + 1 \leq  3]]></fr:tex>:
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x + 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  2 \\
+        \langle  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  3 \\
+        \langle  2 \leq  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  \texttt {true}
+        \end {align*}
+      ]]></fr:tex>
+      Since the condition evaluates to true, we then evaluate the then-branch <fr:tex display="inline"><![CDATA[x := x - 1]]></fr:tex>:
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x - 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  0 \\
+        \langle  x := 0, \sigma [x \mapsto  1] \rangle  &\Downarrow  \sigma [x \mapsto  0]
+        \end {align*}
+      ]]></fr:tex></html:li>
+    <html:li>We again start by evaluating the condition
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x + 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  2 \\
+        \langle  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  3 \\
+        \langle  2 \leq  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  \texttt {true}
+        \end {align*}
+      ]]></fr:tex>
+      Since we can see that the body of the loop only decreases <fr:tex display="inline"><![CDATA[x]]></fr:tex>, we are stuck in an infinite loop:
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x := x - 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  \sigma [x \mapsto  0] \\
+        \langle  \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1, \sigma [x \mapsto  0] \rangle  &\Downarrow  \sigma [x \mapsto  -1] \\
+        \langle  \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1, \sigma [x \mapsto  -1] \rangle  &\Downarrow  \sigma [x \mapsto  -2] \\
+        &\vdots 
+        \end {align*}
+      ]]></fr:tex></html:li>
+    <html:li>Yes, for every expression <fr:tex display="inline"><![CDATA[e]]></fr:tex> and state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>, there exists a number <fr:tex display="inline"><![CDATA[n]]></fr:tex> such that
+      <fr:tex display="block"><![CDATA[
+        \langle  e, \sigma  \rangle  \Downarrow  n
+      ]]></fr:tex>
+      This follows from the fact that expressions are finite syntax trees built from a finite set of rules, and each rule can be evaluated in a finite number of steps.
+    </html:li>
+    <html:li>No, there exist statements <fr:tex display="inline"><![CDATA[s]]></fr:tex> and states <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> for which there is no resulting state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> such that
+      <fr:tex display="block"><![CDATA[
+        \langle  s, \sigma  \rangle  \Downarrow  \sigma '
+      ]]></fr:tex>
+      For example, consider the while-loop
+      <fr:tex display="block"><![CDATA[
+        \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1
+      ]]></fr:tex>
+      starting from the state <fr:tex display="inline"><![CDATA[\sigma [x \mapsto  1]]]></fr:tex>. As shown in the previous question, this loop does not terminate, and thus there is no resulting state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex>.
+    </html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+          </fr:mainmatter>
+        </fr:tree>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>12</fr:month>
+              <fr:day>2</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/003n/</fr:uri>
+            <fr:display-uri>003n</fr:display-uri>
+            <fr:route>/notes/003n/</fr:route>
+            <fr:title text="Lecture 5 - Nano and Hoare Logic">Lecture 5 - Nano and Hoare Logic</fr:title>
+            <fr:taxon>VU-VFS-2025</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>2</fr:day>
+                </fr:date>
+                <fr:title text="Semantics and Evaluation">Semantics and Evaluation</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>4</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/003t/</fr:uri>
+                    <fr:display-uri>003t</fr:display-uri>
+                    <fr:route>/notes/003t/</fr:route>
+                    <fr:title text="Simple Imperative Language - Syntax">Simple Imperative Language - Syntax</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  We define the syntax of a simple imperative programming language, using the followng bnf grammar:
+</html:p>
+  
+    
+    <fr:resource hash="d9358af54b1514c3e8ea6264dd0ad402"><fr:resource-content><html:img src="/notes/d9358af54b1514c3e8ea6264dd0ad402.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+      
+    \usepackage{xcolor}               % color support
+  \definecolor{dkgreen}{rgb}{0,0.6,0}
+  \definecolor{gray}{rgb}{0.5,0.5,0.5}
+  \definecolor{mauve}{rgb}{0.58,0,0.82}
+  \definecolor{brown}{rgb}{0.921, 0.325, 0.078}
+  \definecolor{lightline}{rgb}{0.8,0.8,0.8}
+
+  \usepackage{libertine}
+  \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  % \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+  \usepackage{simplebnf}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
+      \begin {center}
+        \begin {bnf}(
+          prod-delim = {--},
+          or-sym = {},
+          prod-sep = 5pt,
+        )[
+          colspec = {llcll},
+          column{1} = {font=\sffamily },
+          column{2} = {mode=dmath},
+          column{4} = {font=\ttfamily },
+          column{5} = {font=\itshape \color {gray}},
+        ]
+          
+      e : Exp ::=
+    | n : number
+    | x : variable
+    | $e_1 + e_2$ : addition
+    | $e_1 - e_2$ : subtraction
+    | $e_1 * e_2$ : multiplication
+    --
+    b : BExp ::=
+    | $\top$ : true
+    | $\bot$ : false
+    | $\neg b$ : negation
+    | $b_1 \land b_2$ : conjunction
+    | $b_1 \lor b_2$ : disjunction
+    | $e_1 = e_2$ : equality
+    | $e_1 \leq e_2$ : less than or equal
+    --
+    s : Stmt ::=
+    | skip : skip
+    | $x \coloneqq e$ : assignment
+    | $s_1 ; s_2$ : sequencing
+    | if $b$ then $s_1$ else $s_2$ : conditional
+    | while $b$ do $s$ : while loop
+
+        \end {bnf}
+      \end {center}
+    ]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>4</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/003u/</fr:uri>
+                    <fr:display-uri>003u</fr:display-uri>
+                    <fr:route>/notes/003u/</fr:route>
+                    <fr:title text="Simple Imperative Language - Semantics">Simple Imperative Language - Semantics</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>
+  We can divide the environmental big-step semantics of our simple language into three parts:
+</html:p>
+                    <html:ul><html:li><html:strong>Expression evaluation</html:strong>: Describes how arithmetic expressions are evaluated to numbers.
+  </html:li>
+  <html:li><html:strong>Boolean expression evaluation</html:strong>: Describes how boolean expressions are evaluated to boolean values (true/false).
+  </html:li>
+  <html:li><html:strong>Statement execution</html:strong>: Describes how statements are executed, transforming an initial state (environment) into a final state.
+  </html:li></html:ul>
+                    <html:p>
+  The general big-step environmental evalutation rule is denoted as:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \langle  t, \sigma  \rangle  \Downarrow  v
+]]></fr:tex>
+                    <html:p>
+  Here:
+</html:p>
+                    <html:ol><html:li>
+    We have some starting term <fr:tex display="inline"><![CDATA[\texttt {t}]]></fr:tex> (which can be an expression, boolean expression, or statement), along with some state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>.
+  </html:li>
+  <html:li>
+    The evaluation results in some value <fr:tex display="inline"><![CDATA[\texttt {v}]]></fr:tex> (which can be a number, boolean value, or new state).
+  </html:li></html:ol>
+                    <html:p>
+  A quick aside here to deconstruct the term <html:strong>big-step environmental evaluation</html:strong>:
+</html:p>
+                    <html:ul><html:li>
+    We say that this evaluation is <html:strong>big-step</html:strong> as it assumes some arbitrary state of intermediate steps, meaning that within big step semantics we do not care about intermediate computation only about some input expression and the final output value. A simple analogue to make here is that big-step semantics are akin to a teacher asking you to only show ur final answer to a math problem rather than all the steps you took to get there.
+  </html:li>
+  <html:li>
+    We say that this evaluation is <html:strong>environmental</html:strong> (as opposed to being substitution based) as we explicitly keep track of a state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> which maps variables to their values. This is in contrast to substitution based semantics where variable occurrences are replaced directly with their values in expressions.
+  </html:li></html:ul>
+                    <html:p>
+  The state <fr:tex display="inline"><![CDATA[\sigma  : \texttt {String} \to  \mathbb {Z}]]></fr:tex> represents a mapping from variables (commonly strings) to their corresponding values (numbers). We denote the updated state after assigning a value to a variable <fr:tex display="inline"><![CDATA[\texttt {x}]]></fr:tex> as:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \sigma [x \mapsto  n]
+]]></fr:tex>
+                    <html:p>
+  This means that in the new state, the variable <fr:tex display="inline"><![CDATA[\texttt {x}]]></fr:tex> now maps to the number <fr:tex display="inline"><![CDATA[\texttt {n}]]></fr:tex>, while all other variable mappings remain unchanged from the original state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>.
+</html:p>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>4</fr:day>
+                        </fr:date>
+                        <fr:title text="Expression evaluation">Expression evaluation</fr:title>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+  
+    
+    <fr:resource hash="6a4d239ebe747cfb08700219cfa18949"><fr:resource-content><html:img src="/notes/6a4d239ebe747cfb08700219cfa18949.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=E-Num]{
+    }{
+      \langle  n, \sigma  \rangle  \Downarrow  n
+    }
+    \and 
+    \inferrule *[right=E-Var]{
+    }{
+      \langle  x, \sigma  \rangle  \Downarrow  \sigma (x)
+    }
+    \and 
+    \inferrule *[right=E-Add]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 + e_2, \sigma  \rangle  \Downarrow  n_1 + n_2
+    }
+    \and 
+    \inferrule *[right=E-Sub]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 - e_2, \sigma  \rangle  \Downarrow  n_1 - n_2
+    }
+    \and 
+    \inferrule *[right=E-Mul]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 * e_2, \sigma  \rangle  \Downarrow  n_1 * n_2
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>4</fr:day>
+                        </fr:date>
+                        <fr:title text="Boolean expression evaluation">Boolean expression evaluation</fr:title>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+  
+    
+    <fr:resource hash="a16aa0da1d83a5e40e560fb3943d67ea"><fr:resource-content><html:img src="/notes/a16aa0da1d83a5e40e560fb3943d67ea.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=B-True]{
+    }{
+      \langle  \top , \sigma  \rangle  \Downarrow  \texttt {true}
+    }
+    \and 
+    \inferrule *[right=B-False]{
+    }{
+      \langle  \bot , \sigma  \rangle  \Downarrow  \texttt {false}
+    }
+    \and 
+    \inferrule *[right=B-Not]{
+      \langle  b, \sigma  \rangle  \Downarrow  v
+    }{
+      \langle  \neg  b, \sigma  \rangle  \Downarrow  \neg  v
+    }
+    \and 
+    \inferrule *[right=B-And]{
+      \langle  b_1, \sigma  \rangle  \Downarrow  v_1 \\
+      \langle  b_2, \sigma  \rangle  \Downarrow  v_2
+    }{
+      \langle  b_1 \land  b_2, \sigma  \rangle  \Downarrow  v_1 \land  v_2
+    }
+    \and 
+    \inferrule *[right=B-Or]{
+      \langle  b_1, \sigma  \rangle  \Downarrow  v_1 \\
+      \langle  b_2, \sigma  \rangle  \Downarrow  v_2
+    }{
+      \langle  b_1 \lor  b_2, \sigma  \rangle  \Downarrow  v_1 \lor  v_2
+    }
+    \and 
+    \inferrule *[right=B-Eq]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 = e_2, \sigma  \rangle  \Downarrow  (n_1 = n_2)
+    }
+    \and 
+    \inferrule *[right=B-Leq]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 \leq  e_2, \sigma  \rangle  \Downarrow  (n_1 \leq  n_2)
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>4</fr:day>
+                        </fr:date>
+                        <fr:title text="Statement evaluation">Statement evaluation</fr:title>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+  
+    
+    <fr:resource hash="c80b26dde9779d9a29c9fa2cc9590978"><fr:resource-content><html:img src="/notes/c80b26dde9779d9a29c9fa2cc9590978.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=S-Skip]{
+    }{
+      \langle  \texttt {skip}, \sigma  \rangle  \Downarrow  \sigma 
+    }
+    \and 
+    \inferrule *[right=S-Assign]{
+      \langle  e, \sigma  \rangle  \Downarrow  n
+    }{
+      \langle  x \coloneqq  e, \sigma  \rangle  \Downarrow  \sigma [x \mapsto  n]
+    }
+    \and 
+    \inferrule *[right=S-Seq]{
+      \langle  s_1, \sigma  \rangle  \Downarrow  \sigma ' \\
+      \langle  s_2, \sigma ' \rangle  \Downarrow  \sigma ''
+    }{
+      \langle  s_1 ; s_2, \sigma  \rangle  \Downarrow  \sigma ''
+    }
+    \and 
+    \inferrule *[right=S-IfTrue]{
+      \langle  b, \sigma  \rangle  \Downarrow  \texttt {true} \\
+      \langle  s_1, \sigma  \rangle  \Downarrow  \sigma '
+    }{
+      \langle  \texttt {if } b \texttt { then } s_1 \texttt { else } s_2, \sigma  \rangle  \Downarrow  \sigma '
+    }
+    \and 
+    \inferrule *[right=S-IfFalse]{
+      \langle  b, \sigma  \rangle  \Downarrow  \texttt {false} \\
+      \langle  s_2, \sigma  \rangle  \Downarrow  \sigma '
+    }{
+      \langle  \texttt {if } b \texttt { then } s_1 \texttt { else } s_2, \sigma  \rangle  \Downarrow  \sigma '
+    }
+    \and 
+    \inferrule *[right=S-WhileFalse]{
+      \langle  b, \sigma  \rangle  \Downarrow  \texttt {false}
+    }{
+      \langle  \texttt {while } b \texttt { do } s, \sigma  \rangle  \Downarrow  \sigma 
+    }
+    \and 
+    \inferrule *[right=S-WhileTrue]{
+      \langle  b, \sigma  \rangle  \Downarrow  \texttt {true} \\
+      \langle  s, \sigma  \rangle  \Downarrow  \sigma ' \\
+      \langle  \texttt {while } b \texttt { do } s, \sigma ' \rangle  \Downarrow  \sigma ''
+    }{
+      \langle  \texttt {while } b \texttt { do } s, \sigma  \rangle  \Downarrow  \sigma ''
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                    </fr:tree>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>4</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/003v/</fr:uri>
+                    <fr:display-uri>003v</fr:display-uri>
+                    <fr:route>/notes/003v/</fr:route>
+                    <fr:title text="Simple Imperative Language - Evaluation">Simple Imperative Language - Evaluation</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:ol><html:li>
+    What does the following evaluate to?
+    <fr:tex display="block"><![CDATA[
+      \langle  (x := x - 1), \sigma [x \mapsto  2] \rangle 
+    ]]></fr:tex></html:li>
+  <html:li>
+    What does the following evaluate to?
+    <fr:tex display="block"><![CDATA[
+      \langle  \texttt {if } x + 1 \leq  3 \texttt { then } x := x - 1, \sigma [x \mapsto  1] \rangle 
+    ]]></fr:tex></html:li>
+  <html:li>
+    What does the following evaluate to?
+    <fr:tex display="block"><![CDATA[
+      \langle  \texttt {while } (x + 1 \leq  3) \texttt { then } x := x - 1, \sigma [x \mapsto  1] \rangle 
+    ]]></fr:tex></html:li>
+  <html:li>
+    Is the following a <fr:link href="/notes/003w/" title="Total &amp; Partial function" uri="https://kaierikniermann.github.io/notes/003w/" display-uri="003w" type="local">total function</fr:link>?
+    <fr:tex display="block"><![CDATA[
+      \langle  e, \sigma  \rangle  \Downarrow  n
+    ]]></fr:tex></html:li>
+  <html:li>
+    Is the following a <fr:link href="/notes/003w/" title="Total &amp; Partial function" uri="https://kaierikniermann.github.io/notes/003w/" display-uri="003w" type="local">total function</fr:link>?
+    <fr:tex display="block"><![CDATA[
+      \langle  s, \sigma  \rangle  \Downarrow  \sigma '
+    ]]></fr:tex></html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>4</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>Starting in the state <fr:tex display="inline"><![CDATA[x \mapsto  2]]></fr:tex> we evaluate <fr:tex display="inline"><![CDATA[x := x - 1]]></fr:tex> to the state <fr:tex display="inline"><![CDATA[x \mapsto  1]]></fr:tex></html:li>
+    <html:li>Starting in the state <fr:tex display="inline"><![CDATA[x \mapsto  1]]></fr:tex>, we first evaluate the condition <fr:tex display="inline"><![CDATA[x + 1 \leq  3]]></fr:tex>:
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x + 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  2 \\
+        \langle  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  3 \\
+        \langle  2 \leq  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  \texttt {true}
+        \end {align*}
+      ]]></fr:tex>
+      Since the condition evaluates to true, we then evaluate the then-branch <fr:tex display="inline"><![CDATA[x := x - 1]]></fr:tex>:
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x - 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  0 \\
+        \langle  x := 0, \sigma [x \mapsto  1] \rangle  &\Downarrow  \sigma [x \mapsto  0]
+        \end {align*}
+      ]]></fr:tex></html:li>
+    <html:li>We again start by evaluating the condition
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x + 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  2 \\
+        \langle  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  3 \\
+        \langle  2 \leq  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  \texttt {true}
+        \end {align*}
+      ]]></fr:tex>
+      Since we can see that the body of the loop only decreases <fr:tex display="inline"><![CDATA[x]]></fr:tex>, we are stuck in an infinite loop:
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x := x - 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  \sigma [x \mapsto  0] \\
+        \langle  \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1, \sigma [x \mapsto  0] \rangle  &\Downarrow  \sigma [x \mapsto  -1] \\
+        \langle  \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1, \sigma [x \mapsto  -1] \rangle  &\Downarrow  \sigma [x \mapsto  -2] \\
+        &\vdots 
+        \end {align*}
+      ]]></fr:tex></html:li>
+    <html:li>Yes, for every expression <fr:tex display="inline"><![CDATA[e]]></fr:tex> and state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>, there exists a number <fr:tex display="inline"><![CDATA[n]]></fr:tex> such that
+      <fr:tex display="block"><![CDATA[
+        \langle  e, \sigma  \rangle  \Downarrow  n
+      ]]></fr:tex>
+      This follows from the fact that expressions are finite syntax trees built from a finite set of rules, and each rule can be evaluated in a finite number of steps.
+    </html:li>
+    <html:li>No, there exist statements <fr:tex display="inline"><![CDATA[s]]></fr:tex> and states <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> for which there is no resulting state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> such that
+      <fr:tex display="block"><![CDATA[
+        \langle  s, \sigma  \rangle  \Downarrow  \sigma '
+      ]]></fr:tex>
+      For example, consider the while-loop
+      <fr:tex display="block"><![CDATA[
+        \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1
+      ]]></fr:tex>
+      starting from the state <fr:tex display="inline"><![CDATA[\sigma [x \mapsto  1]]]></fr:tex>. As shown in the previous question, this loop does not terminate, and thus there is no resulting state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex>.
+    </html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>2</fr:day>
+                </fr:date>
+                <fr:title text="Hoare Logic">Hoare Logic</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter />
+            </fr:tree>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>12</fr:month>
+              <fr:day>4</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/003w/</fr:uri>
+            <fr:display-uri>003w</fr:display-uri>
+            <fr:route>/notes/003w/</fr:route>
+            <fr:title text="Total &amp; Partial function">Total &amp; Partial function</fr:title>
+            <fr:taxon>Definition</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <html:p>
+  Given a function <fr:tex display="inline"><![CDATA[f : A \to  B]]></fr:tex> we say that:
+</html:p>
+            <html:ul><html:li>
+    The function is <html:strong>partial</html:strong> if there exists at least one <fr:tex display="inline"><![CDATA[a \in  A]]></fr:tex> such that <fr:tex display="inline"><![CDATA[f(a)]]></fr:tex> is undefined. Commonly this is also denoted using the notation:
+    <fr:tex display="block"><![CDATA[
+      f : A \rightharpoonup  B
+    ]]></fr:tex></html:li>
+  <html:li>
+    The function is <html:strong>total</html:strong> if for every <fr:tex display="inline"><![CDATA[a \in  A]]></fr:tex>, <fr:tex display="inline"><![CDATA[f(a)]]></fr:tex> is defined. This is commonly denoted using the notation:
+    <fr:tex display="block"><![CDATA[
+      f : A \to  B
+    ]]></fr:tex></html:li></html:ul>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

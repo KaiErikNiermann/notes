@@ -6,7 +6,9 @@
 
 \title{Semantics}
 
-\p{We can define the semantic inference rules for propositional logic formulas under interpretations as follows inductively, starting with the base cases:}
+\p{
+  We can define the semantic inference rules for propositional logic formulas under interpretations as follows inductively, starting with the base cases:
+}
 
 \infrule{
   \inferrule*[right=Atom-$\top$]{
@@ -32,7 +34,9 @@
   }
 }
 
-\p{Moving on to the inductive case we have}
+\p{
+  Moving on to the inductive case we have
+}
 
 \infrule{
   \inferrule*[right=Neg-$\top$]{
@@ -40,7 +44,7 @@
   }{
     I \not\models F
   }
-  \and 
+  \and
   \inferrule*[right=Conj-$\top$]{
     I \models F_1 \quad I \models F_2
   }{
@@ -52,7 +56,7 @@
   }{
     I \models F_1 \lor F_2
   }
-  \and 
+  \and
   \inferrule*[right=Imp-$\top$]{
     I \not\models F_1 \quad \text{or} \quad I \models F_2
   }{
@@ -67,7 +71,7 @@
 }
 
 \p{
-Similarly, the rules for when an interpretation does not satisfy a formula are as follows:
+  Similarly, the rules for when an interpretation does not satisfy a formula are as follows:
 }
 
 \infrule{
@@ -76,7 +80,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     I \models F
   }
-  \and 
+  \and
   \inferrule*[right=Conj-$\bot$]{
     I \not\models F_1 \quad \text{or} \quad I \not\models F_2
   }{
@@ -88,7 +92,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     I \not\models F_1 \lor F_2
   }
-  \and 
+  \and
   \inferrule*[right=Imp-$\bot$]{
     I \models F_1 \\ I \not\models F_2
   }{

@@ -64,11 +64,15 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>We say that a binary relation or predicate <fr:tex display="inline"><![CDATA[\prec ]]></fr:tex> over a set <fr:tex display="inline"><![CDATA[S]]></fr:tex> is a <html:em>well-founded relation</html:em> if there does not exist an infinite sequence of elements such that each successive element is less than it's predecessor according to the relation <fr:tex display="inline"><![CDATA[\prec ]]></fr:tex>. Formally this can be expressed as follows <fr:link href="/notes/bradley2007calculus/" title="The Calculus of Computation: Decision Procedures with Applications to Verification" uri="https://kaierikniermann.github.io/notes/bradley2007calculus/" display-uri="bradley2007calculus" type="local">1</fr:link>:</html:p>
+            <html:p>
+  We say that a binary relation or predicate <fr:tex display="inline"><![CDATA[\prec ]]></fr:tex> over a set <fr:tex display="inline"><![CDATA[S]]></fr:tex> is a <html:em>well-founded relation</html:em> if there does not exist an infinite sequence of elements such that each successive element is less than it's predecessor according to the relation <fr:tex display="inline"><![CDATA[\prec ]]></fr:tex>. Formally this can be expressed as follows <fr:link href="/notes/bradley2007calculus/" title="The Calculus of Computation: Decision Procedures with Applications to Verification" uri="https://kaierikniermann.github.io/notes/bradley2007calculus/" display-uri="bradley2007calculus" type="local">1</fr:link>:
+</html:p>
             <fr:tex display="block"><![CDATA[
   \nexists  x_0, x_1, x_2, \ldots  \in  S.\ x_1 \prec  x_0 \land  x_2 \prec  x_1 \land  x_3 \prec  x_2 \land  \ldots 
 ]]></fr:tex>
-            <html:p>In other words each sequence of elements of S that decreases according to the relation <fr:tex display="inline"><![CDATA[\prec ]]></fr:tex> must eventually terminate and cannot continue indefinitely. Another way to express this is that every non-empty subset <fr:tex display="inline"><![CDATA[T \subseteq  S]]></fr:tex> must have a minimal element <fr:tex display="inline"><![CDATA[m \in  T]]></fr:tex> such that there is no other element <fr:tex display="inline"><![CDATA[t \in  T]]></fr:tex> with <fr:tex display="inline"><![CDATA[t \prec  m]]></fr:tex>. Here we can express this as:</html:p>
+            <html:p>
+  In other words each sequence of elements of S that decreases according to the relation <fr:tex display="inline"><![CDATA[\prec ]]></fr:tex> must eventually terminate and cannot continue indefinitely. Another way to express this is that every non-empty subset <fr:tex display="inline"><![CDATA[T \subseteq  S]]></fr:tex> must have a minimal element <fr:tex display="inline"><![CDATA[m \in  T]]></fr:tex> such that there is no other element <fr:tex display="inline"><![CDATA[t \in  T]]></fr:tex> with <fr:tex display="inline"><![CDATA[t \prec  m]]></fr:tex>. Here we can express this as:
+</html:p>
             <fr:tex display="block"><![CDATA[
   (\forall  T \subseteq  S.\ T\ \mathrlap {\,/}{=}\ \emptyset  \implies  \exists  m \in  T.\ \forall  t \in  T.\ \lnot  (t \prec  m))
 ]]></fr:tex>

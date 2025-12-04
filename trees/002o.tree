@@ -401,7 +401,7 @@
         hom_inv_id := by ext A; rfl
         inv_hom_id := by ext A; rfl
     }
-    \p{text}
+    \p{Finally we can define the equivalence and then construct the essentially small instance:}
     \codeblock{lean}{
       /-- The equivalence between FinSetObj and FinSkel -/
       def finSetObjEquiv : FinSetObj ≌ FinSkel where

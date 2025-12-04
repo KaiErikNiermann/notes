@@ -565,18 +565,24 @@ a.slug {
   border: 1px solid rgba(127, 127, 127, 0.4);
   background: var(--bg-color);
   color: var(--text-color);
-  border-radius: 999px;
-  padding: 0.35rem 0.65rem;
-  font-size: 0.9rem;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .theme-toggle__icon {
   display: block;
   line-height: 1;
+  transform: translateY(-1px);
 }
 
 body[data-theme='dark'] .theme-toggle {
@@ -792,6 +798,23 @@ body[data-theme='dark'] img {
 
 figure {
   text-align: center;
+}
+
+/* Clickable quiver diagram links */
+a.quiver-link {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+a.quiver-link:hover {
+  background-color: var(--surface-hover);
+  box-shadow: 0 0 0 4px var(--surface-hover);
+}
+
+a.quiver-link img {
+  cursor: pointer;
 }
 
 figcaption {

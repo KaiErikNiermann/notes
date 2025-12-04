@@ -6,26 +6,38 @@
 
 \title{Structural induction}
 
-\p{Structural induction represents [well-founded induction](0026) applied to the [strict subformula relation](0024). To prove that a property #{P(\phi)} holds for all formulas #{\phi}, it suffices to show that for every formula #{\phi}, if #{P(\psi)} holds for all strict subformulas #{\psi} of #{\phi}, then #{P(\phi)} also holds. Formally, this can be expressed as [(1)](bradley2007calculus):}
+\p{
+  Structural induction represents [well-founded induction](0026) applied to the [strict subformula relation](0024). To prove that a property #{P(\phi)} holds for all formulas #{\phi}, it suffices to show that for every formula #{\phi}, if #{P(\psi)} holds for all strict subformulas #{\psi} of #{\phi}, then #{P(\phi)} also holds. Formally, this can be expressed as [(1)](bradley2007calculus):
+}
 ##{
   (\forall \phi.\ (\forall \psi.\ \psi \prec_{\text{sf}} \phi \to P(\psi)) \to P(\phi)) \to (\forall \phi.\ P(\phi))
-} 
-\p{Often times the discussion of structural induction specifically refers to (abstract) syntax where we define a finite tree with ordered branches as the structure of expressions. In practical terms this means we define an inductive type for the syntax of expressions, and then we can perform structural induction over this inductive type. When discussing SI through the lens of constructors we can rephrase the above principle as follows.}
+}
+\p{
+  Often times the discussion of structural induction specifically refers to (abstract) syntax where we define a finite tree with ordered branches as the structure of expressions. In practical terms this means we define an inductive type for the syntax of expressions, and then we can perform structural induction over this inductive type. When discussing SI through the lens of constructors we can rephrase the above principle as follows.
+}
 
-\p{For any property #{P(e)} of some expression #{e}, to prove that:}
+\p{
+  For any property #{P(e)} of some expression #{e}, to prove that:
+}
 ##{
   \forall e \in \texttt{E}.\ P(e)
 }
-\p{it's sufficient to prove that for each tree constructor #{c} if some arity #{k \geq 0} (takes 0 or more args) that if #{P} holds for all subtrees #{e_1, e_2, \ldots, e_k} then it also holds for the tree constructed by applying #{c} to these subtrees [(2)](sewell-semantics-notes):}
+\p{
+  it's sufficient to prove that for each tree constructor #{c} if some arity #{k \geq 0} (takes 0 or more args) that if #{P} holds for all subtrees #{e_1, e_2, \ldots, e_k} then it also holds for the tree constructed by applying #{c} to these subtrees [(2)](sewell-semantics-notes):
+}
 ##{
   \forall c.\ \forall e_1,\ldots,e_k.\ (P(e_1) \land P(e_2) \land \ldots \land P(e_k)) \to P(c(e_1, e_2, \ldots, e_k)) \to (\forall e \in \texttt{E}.\ P(e))
 }
-\p{We can equivalently express this through a inference rule as follows:}
+\p{
+  We can equivalently express this through a inference rule as follows:
+}
 \infrule{
   \inferrule*{
-    \forall c.\ \forall e_1,\ldots,e_k.\ (P(e_1) \land P(e_2) \land \ldots \land P(e_k)) 
+    \forall c.\ \forall e_1,\ldots,e_k.\ (P(e_1) \land P(e_2) \land \ldots \land P(e_k))
   }{
     P(c(e_1, e_2, \ldots, e_k)) \to \forall e \in \texttt{E}.\ P(e)
   }
 }
-\p{The idea in principle just being that we enumerate through the constructor of the syntax tree and show that if the property holds for all subtrees then it also holds for the tree constructed from them.}
+\p{
+  The idea in principle just being that we enumerate through the constructor of the syntax tree and show that if the property holds for all subtrees then it also holds for the tree constructed from them.
+}

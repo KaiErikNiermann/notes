@@ -9,7 +9,7 @@
   "ocaml.sandbox": {
     "kind": "opam",
     "switch": "coq-switch"
-  }, 
+  },
   "emeraldwalk.runonsave": {
     "commands": [
       {
@@ -18,5 +18,12 @@
         "cmd": "npm run build"
       }
     ]
-  }, 
+  },
+  "files.trimTrailingWhitespace": true,
+  "forester.path": "/root/.opam/coq-switch/bin/forester",
+  "forester.useLSP": true,
+  "[forester]": {
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": true
+  }
 }

@@ -6,11 +6,15 @@
 
 \title{Well-founded Relation}
 
-\p{We say that a binary relation or predicate #{\prec} over a set #{S} is a \em{well-founded relation} if there does not exist an infinite sequence of elements such that each successive element is less than it's predecessor according to the relation #{\prec}. Formally this can be expressed as follows [1](bradley2007calculus):}
+\p{
+  We say that a binary relation or predicate #{\prec} over a set #{S} is a \em{well-founded relation} if there does not exist an infinite sequence of elements such that each successive element is less than it's predecessor according to the relation #{\prec}. Formally this can be expressed as follows [1](bradley2007calculus):
+}
 ##{
   \nexists x_0, x_1, x_2, \ldots \in S.\ x_1 \prec x_0 \land x_2 \prec x_1 \land x_3 \prec x_2 \land \ldots
 }
-\p{In other words each sequence of elements of S that decreases according to the relation #{\prec} must eventually terminate and cannot continue indefinitely. Another way to express this is that every non-empty subset #{T \subseteq S} must have a minimal element #{m \in T} such that there is no other element #{t \in T} with #{t \prec m}. Here we can express this as:}
+\p{
+  In other words each sequence of elements of S that decreases according to the relation #{\prec} must eventually terminate and cannot continue indefinitely. Another way to express this is that every non-empty subset #{T \subseteq S} must have a minimal element #{m \in T} such that there is no other element #{t \in T} with #{t \prec m}. Here we can express this as:
+}
 ##{
   (\forall T \subseteq S.\ T\ \mathrlap{\,/}{=}\ \emptyset \implies \exists m \in T.\ \forall t \in T.\ \lnot (t \prec m))
 }

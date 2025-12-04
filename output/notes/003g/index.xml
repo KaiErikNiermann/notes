@@ -15,7 +15,9 @@
     <fr:taxon>Definition</fr:taxon>
   </fr:frontmatter>
   <fr:mainmatter>
-    <html:p>Validity in the theory of Peano Arithmetic <fr:tex display="inline"><![CDATA[T_{\text {PA}}]]></fr:tex> is undecidable. This means that there is no algorithm that can determine, for every formula in the language of Peano Arithmetic, whether that formula is valid (i.e., true in all models of <fr:tex display="inline"><![CDATA[T_{\text {PA}}]]></fr:tex>). This result is a consequence of Gödel's incompleteness theorems, which state that any sufficiently powerful and consistent formal system cannot be both complete and decidable. Since Peano Arithmetic is capable of expressing basic arithmetic properties, it falls into this category, leading to the conclusion that its validity problem is undecidable.</html:p>
+    <html:p>
+  Validity in the theory of Peano Arithmetic <fr:tex display="inline"><![CDATA[T_{\text {PA}}]]></fr:tex> is undecidable. This means that there is no algorithm that can determine, for every formula in the language of Peano Arithmetic, whether that formula is valid (i.e., true in all models of <fr:tex display="inline"><![CDATA[T_{\text {PA}}]]></fr:tex>). This result is a consequence of Gödel's incompleteness theorems, which state that any sufficiently powerful and consistent formal system cannot be both complete and decidable. Since Peano Arithmetic is capable of expressing basic arithmetic properties, it falls into this category, leading to the conclusion that its validity problem is undecidable.
+</html:p>
   </fr:mainmatter>
   <fr:backmatter>
     <fr:tree show-metadata="false" hidden-when-empty="true">

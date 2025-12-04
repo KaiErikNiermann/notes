@@ -1,0 +1,9 @@
+\date{2025-12-04}
+
+\import{base-macros}
+
+\grammar{
+  \tau : Type ::=
+  | x : variable
+  | n : number
+}

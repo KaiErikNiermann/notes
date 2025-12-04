@@ -80,10 +80,17 @@
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>A <html:em>first order theory</html:em> (FOT) <fr:tex display="inline"><![CDATA[T]]></fr:tex> is defined by two main components:</html:p>
-                    <html:ul><html:li>A <html:em>signature</html:em> <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> of a set of constant, function, and predicate symbols</html:li>
-  <html:li>A set of <html:em>axioms</html:em> <fr:tex display="inline"><![CDATA[\mathcal  A]]></fr:tex> consisting of closed (i.e. no free variables) formulas over the signature <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex></html:li></html:ul>
-                    <html:p>We say that a formula constructed from only from the contents of the signature <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> is a <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex>-formula.</html:p>
+                    <html:p>
+  A <html:em>first order theory</html:em> (FOT) <fr:tex display="inline"><![CDATA[T]]></fr:tex> is defined by two main components:
+</html:p>
+                    <html:ul><html:li>
+    A <html:em>signature</html:em> <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> of a set of constant, function, and predicate symbols
+  </html:li>
+  <html:li>
+    A set of <html:em>axioms</html:em> <fr:tex display="inline"><![CDATA[\mathcal  A]]></fr:tex> consisting of closed (i.e. no free variables) formulas over the signature <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex></html:li></html:ul>
+                    <html:p>
+  We say that a formula constructed from only from the contents of the signature <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> is a <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex>-formula.
+</html:p>
                   </fr:mainmatter>
                 </fr:tree>
                 <fr:tree show-metadata="false">
@@ -262,14 +269,16 @@
                   <fr:mainmatter><html:p>We can compare the two notions by understanding <html:em>validity in modulo</html:em> <fr:tex display="inline"><![CDATA[T]]></fr:tex> as a restriction of <html:em>validity in FOL</html:em> to only those models that are <fr:tex display="inline"><![CDATA[T]]></fr:tex>-models. So the implication of that is that if a formula is valid (true in all models), then its clearly also valid in the subset/restriction to only <fr:tex display="inline"><![CDATA[T]]></fr:tex>-models. However, the other way around does not hold, since a formula can be true in all <fr:tex display="inline"><![CDATA[T]]></fr:tex>-models, but false in some non-<fr:tex display="inline"><![CDATA[T]]></fr:tex>-model. Hence we have the following:</html:p>
  
   
-  <fr:resource hash="cfe2cf6f814d69d77f9a75a9bc3e1c9c"><fr:resource-content><html:img src="/notes/cfe2cf6f814d69d77f9a75a9bc3e1c9c.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <fr:resource hash="e17a21d7370f74a45bdb962c07a32b9d"><fr:resource-content><html:img src="/notes/e17a21d7370f74a45bdb962c07a32b9d.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
   ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\[
   \vDash  F \implies  T \vDash  F  
@@ -278,14 +287,16 @@
 <html:p>But the other way around does not hold in general:</html:p>
  
   
-  <fr:resource hash="1fcae5da143e03fc72c1ee60ad7bc5fc"><fr:resource-content><html:img src="/notes/1fcae5da143e03fc72c1ee60ad7bc5fc.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <fr:resource hash="8bedd6a874fded6390949fd57cbf0d41"><fr:resource-content><html:img src="/notes/8bedd6a874fded6390949fd57cbf0d41.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
   ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\[
   T \vDash  F \centernot \implies  \vDash  F
@@ -448,12 +459,19 @@
                     <fr:title text="Function &amp; Predicate congruence">Function &amp; Predicate congruence</fr:title>
                     <fr:taxon>Quiz</fr:taxon>
                   </fr:frontmatter>
-                  <fr:mainmatter><html:p>Consider the universe:</html:p><fr:tex display="block"><![CDATA[
+                  <fr:mainmatter><html:p>
+  Consider the universe:
+</html:p><fr:tex display="block"><![CDATA[
   U = \{a, b, c\}
-]]></fr:tex><html:p>and the interpretation:</html:p><fr:tex display="block"><![CDATA[
+]]></fr:tex><html:p>
+  and the interpretation:
+</html:p><fr:tex display="block"><![CDATA[
   I(=) \triangleq  \{\langle  a, a \rangle , \langle  a, b \rangle , \langle  b, a \rangle , \langle  b, b \rangle , \langle  c, c \rangle \}
-]]></fr:tex><html:ol><html:li>Does the interpetation <fr:tex display="inline"><![CDATA[I(=)]]></fr:tex> satisfy the axioms of equality?</html:li>
-  <html:li>Which interpretations for a function <fr:tex display="inline"><![CDATA[f]]></fr:tex> satisfy the axioms of congruence?
+]]></fr:tex><html:ol><html:li>
+    Does the interpetation <fr:tex display="inline"><![CDATA[I(=)]]></fr:tex> satisfy the axioms of equality?
+  </html:li>
+  <html:li>
+    Which interpretations for a function <fr:tex display="inline"><![CDATA[f]]></fr:tex> satisfy the axioms of congruence?
     <html:ol><html:li><fr:tex display="inline"><![CDATA[I(f) \triangleq  \{b \to  a, a \to  c, c \to  c\}]]></fr:tex></html:li>
       <html:li><fr:tex display="inline"><![CDATA[I(f) \triangleq  \{b \to  b, a \to  b, c \to  b\}]]></fr:tex></html:li>
       <html:li><fr:tex display="inline"><![CDATA[I(f) \triangleq  \{b \to  a, a \to  b, c \to  c\}]]></fr:tex></html:li></html:ol></html:li></html:ol>
@@ -461,11 +479,17 @@
    
    
    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>2</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
-  <html:ol><html:li>Yes, the interpretation satisfies the axioms of equality</html:li>
-    <html:li>Going through them one by one:
-      <html:ol><html:li>No, because <fr:tex display="inline"><![CDATA[f(a) = c]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = a]]></fr:tex> but <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> yet <fr:tex display="inline"><![CDATA[c\ not\ I(=)\ a]]></fr:tex></html:li> 
-        <html:li>Yes, because <fr:tex display="inline"><![CDATA[f(a) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> thus <fr:tex display="inline"><![CDATA[b\ I(=)\ b]]></fr:tex>, similarly for <fr:tex display="inline"><![CDATA[c]]></fr:tex></html:li>
-        <html:li>Yes, because <fr:tex display="inline"><![CDATA[f(a) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = a]]></fr:tex> and <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> thus <fr:tex display="inline"><![CDATA[b\ I(=)\ a]]></fr:tex>, similarly for <fr:tex display="inline"><![CDATA[c]]></fr:tex></html:li></html:ol></html:li></html:ol>
+  <html:ol><html:li>
+      Yes, the interpretation satisfies the axioms of equality
+    </html:li>
+    <html:li>
+      Going through them one by one:
+      <html:ol><html:li>
+          No, because <fr:tex display="inline"><![CDATA[f(a) = c]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = a]]></fr:tex> but <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> yet <fr:tex display="inline"><![CDATA[c\ not\ I(=)\ a]]></fr:tex></html:li>
+        <html:li>
+          Yes, because <fr:tex display="inline"><![CDATA[f(a) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> thus <fr:tex display="inline"><![CDATA[b\ I(=)\ b]]></fr:tex>, similarly for <fr:tex display="inline"><![CDATA[c]]></fr:tex></html:li>
+        <html:li>
+          Yes, because <fr:tex display="inline"><![CDATA[f(a) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = a]]></fr:tex> and <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> thus <fr:tex display="inline"><![CDATA[b\ I(=)\ a]]></fr:tex>, similarly for <fr:tex display="inline"><![CDATA[c]]></fr:tex></html:li></html:ol></html:li></html:ol>
 </fr:mainmatter></fr:tree>
  
 </fr:mainmatter>
@@ -498,11 +522,15 @@
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>Peano Arithmetic (PA) is a first order theory over the signature <fr:tex display="inline"><![CDATA[\Sigma _{PA}]]></fr:tex> which contains:</html:p>
+                    <html:p>
+  Peano Arithmetic (PA) is a first order theory over the signature <fr:tex display="inline"><![CDATA[\Sigma _{PA}]]></fr:tex> which contains:
+</html:p>
                     <fr:tex display="block"><![CDATA[
   \Sigma _{PA} : \{0, S, +, \times , =\}
 ]]></fr:tex>
-                    <html:p>Where <fr:tex display="inline"><![CDATA[0]]></fr:tex> is a constant symbol representing zero, <fr:tex display="inline"><![CDATA[S]]></fr:tex> is a unary function symbol representing the successor function, <fr:tex display="inline"><![CDATA[+]]></fr:tex> and <fr:tex display="inline"><![CDATA[\times ]]></fr:tex> are binary function symbols representing addition and multiplication respectively, and <fr:tex display="inline"><![CDATA[=]]></fr:tex> is a binary relation symbol representing equality. The axioms of Peano Arithmetic are:</html:p>
+                    <html:p>
+  Where <fr:tex display="inline"><![CDATA[0]]></fr:tex> is a constant symbol representing zero, <fr:tex display="inline"><![CDATA[S]]></fr:tex> is a unary function symbol representing the successor function, <fr:tex display="inline"><![CDATA[+]]></fr:tex> and <fr:tex display="inline"><![CDATA[\times ]]></fr:tex> are binary function symbols representing addition and multiplication respectively, and <fr:tex display="inline"><![CDATA[=]]></fr:tex> is a binary relation symbol representing equality. The axioms of Peano Arithmetic are:
+</html:p>
                     <fr:resource hash="38b17d08c8a044cd82fc858e037bbf9f">
                       <fr:resource-content>
                         <html:img src="/notes/38b17d08c8a044cd82fc858e037bbf9f.svg" />
@@ -608,11 +636,15 @@
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>Presburger Arithmetic (PA) is a first order theory over the signature <fr:tex display="inline"><![CDATA[\Sigma _{\mathbb {N}}]]></fr:tex> which contains:</html:p>
+                    <html:p>
+  Presburger Arithmetic (PA) is a first order theory over the signature <fr:tex display="inline"><![CDATA[\Sigma _{\mathbb {N}}]]></fr:tex> which contains:
+</html:p>
                     <fr:tex display="block"><![CDATA[
   \Sigma _{\mathbb {N}} : \{0, 1, +, =\}
 ]]></fr:tex>
-                    <html:p>Where <fr:tex display="inline"><![CDATA[0]]></fr:tex> and <fr:tex display="inline"><![CDATA[1]]></fr:tex> are constant symbols representing zero and one respectively, <fr:tex display="inline"><![CDATA[+]]></fr:tex> is a binary function symbol representing addition, and <fr:tex display="inline"><![CDATA[=]]></fr:tex> is a binary relation symbol representing equality. The axioms of Presburger Arithmetic are:</html:p>
+                    <html:p>
+  Where <fr:tex display="inline"><![CDATA[0]]></fr:tex> and <fr:tex display="inline"><![CDATA[1]]></fr:tex> are constant symbols representing zero and one respectively, <fr:tex display="inline"><![CDATA[+]]></fr:tex> is a binary function symbol representing addition, and <fr:tex display="inline"><![CDATA[=]]></fr:tex> is a binary relation symbol representing equality. The axioms of Presburger Arithmetic are:
+</html:p>
                     <fr:resource hash="b2cd095d79c0e49ba09ee38205cc6cdc">
                       <fr:resource-content>
                         <html:img src="/notes/b2cd095d79c0e49ba09ee38205cc6cdc.svg" />
@@ -630,10 +662,17 @@
   \end{align*}
 ]]></fr:resource-source>
                     </fr:resource>
-                    <html:p>Some important properties of <fr:tex display="inline"><![CDATA[T_{\mathbb {N}} are]]></fr:tex>:</html:p>
-                    <html:ul><html:li>Validity in <html:em>quantifer-free</html:em> Presburger Arithmetic is decidable.</html:li>
-  <html:li>Validity in <html:em>full</html:em> Presburger Arithmetic is decidable.</html:li>
-  <html:li>Validity in Presburger Arithmetic has a super exponential complexity <fr:tex display="inline"><![CDATA[O(2^{2^n})]]></fr:tex></html:li>
+                    <html:p>
+  Some important properties of <fr:tex display="inline"><![CDATA[T_{\mathbb {N}} are]]></fr:tex>:
+</html:p>
+                    <html:ul><html:li>
+    Validity in <html:em>quantifer-free</html:em> Presburger Arithmetic is decidable.
+  </html:li>
+  <html:li>
+    Validity in <html:em>full</html:em> Presburger Arithmetic is decidable.
+  </html:li>
+  <html:li>
+    Validity in Presburger Arithmetic has a super exponential complexity <fr:tex display="inline"><![CDATA[O(2^{2^n})]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[T_{\mathbb {N}}]]></fr:tex> is <html:em>complete</html:em>, i.e.
     <fr:tex display="block"><![CDATA[
       \forall  F.\ T_{\mathbb {N}} \models  F \lor  T_{\mathbb {N}} \models  \neg  F
@@ -696,16 +735,25 @@
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>The theory of arrays is a first-order theory that models arrays as functions from indices to values. It's signature includes:</html:p>
+                    <html:p>
+  The theory of arrays is a first-order theory that models arrays as functions from indices to values. It's signature includes:
+</html:p>
                     <fr:tex display="block"><![CDATA[
   \Sigma _A \triangleq  \{- [ - ], \langle  - \triangleleft  - \rangle , =\}
 ]]></fr:tex>
-                    <html:p>where:</html:p>
-                    <html:ul><html:li><fr:tex display="inline"><![CDATA[-[ - ]]]></fr:tex>: read operation, which takes an array and an index and returns the value at that index.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[\langle  - \triangleleft  - \rangle ]]></fr:tex>: write operation, which takes an array, an index, and a 
-  value, and returns a new array with the value at the specified index updated.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[=]]></fr:tex>: equality relation, which checks if two arrays are identical.</html:li></html:ul>
-                    <html:p>The axioms of the theory of arrays are:</html:p>
+                    <html:p>
+  where:
+</html:p>
+                    <html:ul><html:li><fr:tex display="inline"><![CDATA[-[ - ]]]></fr:tex>: read operation, which takes an array and an index and returns the value at that index.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\langle  - \triangleleft  - \rangle ]]></fr:tex>: write operation, which takes an array, an index, and a
+    value, and returns a new array with the value at the specified index updated.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[=]]></fr:tex>: equality relation, which checks if two arrays are identical.
+  </html:li></html:ul>
+                    <html:p>
+  The axioms of the theory of arrays are:
+</html:p>
                     <fr:resource hash="8ff9653ef4ba489edcda34b8856e7a7b">
                       <fr:resource-content>
                         <html:img src="/notes/8ff9653ef4ba489edcda34b8856e7a7b.svg" />
@@ -738,7 +786,9 @@
                     <fr:title text="Theory of arrays T_A">Theory of arrays <fr:tex display="inline"><![CDATA[T_A]]></fr:tex></fr:title>
                     <fr:taxon>Quiz</fr:taxon>
                   </fr:frontmatter>
-                  <fr:mainmatter><html:p>Which of the following formula is valid/satisfiable/unsatisfiable ?</html:p><html:ol><html:li><fr:tex display="inline"><![CDATA[a[3] = 2]]></fr:tex></html:li>
+                  <fr:mainmatter><html:p>
+  Which of the following formula is valid/satisfiable/unsatisfiable ?
+</html:p><html:ol><html:li><fr:tex display="inline"><![CDATA[a[3] = 2]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[a \langle  3 \triangleleft  5 \rangle [3] = 5]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[a \langle  3 \triangleleft  5 \rangle [3] = 3]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[a[3] = 2\land  a \langle  3 \triangleleft  5 \rangle [3] = 5]]></fr:tex></html:li></html:ol>

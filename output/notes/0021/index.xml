@@ -15,19 +15,27 @@
     <fr:taxon>Definition</fr:taxon>
   </fr:frontmatter>
   <fr:mainmatter>
-    <html:p>If we let <fr:tex display="inline"><![CDATA[P(0), P(1), \ldots ]]></fr:tex> be a sequence of propositions indexed by the natural numbers, then the principle of <html:em>complete induction</html:em> (also known as <html:em>strong induction</html:em>) states that to prove that all of these propositions are true, it suffices to show that for every natural number <fr:tex display="inline"><![CDATA[m]]></fr:tex>, if all of the propositions <fr:tex display="inline"><![CDATA[P(0), P(2), \ldots , P(m)]]></fr:tex> are true, then <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> is also true where <fr:tex display="inline"><![CDATA[m < n]]></fr:tex>. In other words, we assume the truth of all previous cases up to <fr:tex display="inline"><![CDATA[m]]></fr:tex> in order to prove the case for <fr:tex display="inline"><![CDATA[n]]></fr:tex>. The schema for the principle of complete induction is as follows <fr:link href="/notes/bradley2007calculus/" title="The Calculus of Computation: Decision Procedures with Applications to Verification" uri="https://kaierikniermann.github.io/notes/bradley2007calculus/" display-uri="bradley2007calculus" type="local">1</fr:link>:</html:p>
+    <html:p>
+  If we let <fr:tex display="inline"><![CDATA[P(0), P(1), \ldots ]]></fr:tex> be a sequence of propositions indexed by the natural numbers, then the principle of <html:em>complete induction</html:em> (also known as <html:em>strong induction</html:em>) states that to prove that all of these propositions are true, it suffices to show that for every natural number <fr:tex display="inline"><![CDATA[m]]></fr:tex>, if all of the propositions <fr:tex display="inline"><![CDATA[P(0), P(2), \ldots , P(m)]]></fr:tex> are true, then <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> is also true where <fr:tex display="inline"><![CDATA[m < n]]></fr:tex>. In other words, we assume the truth of all previous cases up to <fr:tex display="inline"><![CDATA[m]]></fr:tex> in order to prove the case for <fr:tex display="inline"><![CDATA[n]]></fr:tex>. The schema for the principle of complete induction is as follows <fr:link href="/notes/bradley2007calculus/" title="The Calculus of Computation: Decision Procedures with Applications to Verification" uri="https://kaierikniermann.github.io/notes/bradley2007calculus/" display-uri="bradley2007calculus" type="local">(1)</fr:link>:
+</html:p>
     <fr:tex display="block"><![CDATA[
   \forall  n.\ (\forall  m.\ m < n \to  P(m)) \to  P(n)
 ]]></fr:tex>
-    <html:p>In this formulation the base case is implicitly included since when <fr:tex display="inline"><![CDATA[n = 0]]></fr:tex>, the inner universal quantification <fr:tex display="inline"><![CDATA[\forall  m.\ m < 0 \to  P(m)]]></fr:tex> is vacuously true hence we prove <fr:tex display="inline"><![CDATA[P(0)]]></fr:tex> directly. We can also state the more classic form of complete induction which explicitly includes the base case as follows:</html:p>
+    <html:p>
+  In this formulation the base case is implicitly included since when <fr:tex display="inline"><![CDATA[n = 0]]></fr:tex>, the inner universal quantification <fr:tex display="inline"><![CDATA[\forall  m.\ m < 0 \to  P(m)]]></fr:tex> is vacuously true hence we prove <fr:tex display="inline"><![CDATA[P(0)]]></fr:tex> directly. We can also state the more classic form of complete induction which explicitly includes the base case as follows:
+</html:p>
     <fr:tex display="block"><![CDATA[
   \forall  n.\ (\forall  m.\ (m \leq  n) \to  P(m)) \to  P(n + 1)
 ]]></fr:tex>
-    <html:p>Here the base case ends up being:</html:p>
+    <html:p>
+  Here the base case ends up being:
+</html:p>
     <fr:tex display="block"><![CDATA[
   ((1 \geq  m \leq  1) \to  P(1)) \to  P(2) \equiv  P(1) \to  P(2)
 ]]></fr:tex>
-    <html:p>Here our base case similarly is proven directly just by virtue of the rhs implication reducing to <fr:tex display="inline"><![CDATA[P(1)]]></fr:tex><fr:link href="/notes/ernst2022introductiontoproof/" title="An Introduction to Proof via Inquiry-Based Learning: “4.3: Complete Induction”" uri="https://kaierikniermann.github.io/notes/ernst2022introductiontoproof/" display-uri="ernst2022introductiontoproof" type="local">2</fr:link>. A note to make here is that conceptually there is no difference between how we proove the base case in complete induction versus ordinary induction.</html:p>
+    <html:p>
+  Here our base case similarly is proven directly just by virtue of the rhs implication reducing to <fr:tex display="inline"><![CDATA[P(1)]]></fr:tex><fr:link href="/notes/ernst2022introductiontoproof/" title="An Introduction to Proof via Inquiry-Based Learning: “4.3: Complete Induction”" uri="https://kaierikniermann.github.io/notes/ernst2022introductiontoproof/" display-uri="ernst2022introductiontoproof" type="local">2</fr:link>. A note to make here is that conceptually there is no difference between how we proove the base case in complete induction versus ordinary induction.
+</html:p>
   </fr:mainmatter>
   <fr:backmatter>
     <fr:tree show-metadata="false" hidden-when-empty="true">

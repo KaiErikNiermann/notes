@@ -206,15 +206,15 @@
     </html:li></html:ul><html:p>In diagrammatic form we can represent this as follows:</html:p>
  
   
-  <html:figure><fr:resource hash="98a0f7d2dfd53dceba3fe6c25bef3b16"><fr:resource-content><html:img src="/notes/98a0f7d2dfd53dceba3fe6c25bef3b16.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="595b66e096bc4adaf62968d1cf4dfcc6"><fr:resource-content><html:img src="/notes/595b66e096bc4adaf62968d1cf4dfcc6.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
@@ -490,7 +490,7 @@
         inv := counitInvNatTrans
         hom_inv_id := by ext A; rfl
         inv_hom_id := by ext A; rfl
-    </html:code></html:pre><html:p>text</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+    </html:code></html:pre><html:p>Finally we can define the equivalence and then construct the essentially small instance:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
       /-- The equivalence between FinSetObj and FinSkel -/
       def finSetObjEquiv : FinSetObj ≌ FinSkel where
         functor := finSetObjToSkel

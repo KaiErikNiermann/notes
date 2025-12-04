@@ -21,15 +21,15 @@
 ]]></fr:tex><html:p>such that the following diagram in <fr:tex display="inline"><![CDATA[D]]></fr:tex> commutes for every morphism <fr:tex display="inline"><![CDATA[f : X \to  Y \in  C]]></fr:tex>:</html:p>
  
   
-  <html:figure><fr:resource hash="0d1e9ef5aca00f04b941298b5a8503eb"><fr:resource-content><html:img src="/notes/0d1e9ef5aca00f04b941298b5a8503eb.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="034c8db443edf4b9340af4241c4e0819"><fr:resource-content><html:img src="/notes/034c8db443edf4b9340af4241c4e0819.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
@@ -88,15 +88,15 @@
   </html:code></html:pre><html:p>The diagram this represents can be drawn as follows:</html:p>
  
   
-  <html:figure><fr:resource hash="b5c316c59f94b83fac86aae92b3b068f"><fr:resource-content><html:img src="/notes/b5c316c59f94b83fac86aae92b3b068f.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="f6382af184877f0ea5c4d9c7aa7a4d5d"><fr:resource-content><html:img src="/notes/f6382af184877f0ea5c4d9c7aa7a4d5d.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
@@ -144,15 +144,15 @@
 <html:p>This is one of those moments where I think the diagramtic order of composition is really nice as we have a very clean correspondence here:</html:p>
  
   
-  <html:figure><fr:resource hash="74776f2b080aa570d957d6cc136a1782"><fr:resource-content><html:img src="/notes/74776f2b080aa570d957d6cc136a1782.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="79adf5ddc7bd9e999d2a10c7f9cfcf99"><fr:resource-content><html:img src="/notes/79adf5ddc7bd9e999d2a10c7f9cfcf99.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
@@ -391,15 +391,15 @@
     </html:li></html:ul><html:p>In diagrammatic form we can represent this as follows:</html:p>
  
   
-  <html:figure><fr:resource hash="98a0f7d2dfd53dceba3fe6c25bef3b16"><fr:resource-content><html:img src="/notes/98a0f7d2dfd53dceba3fe6c25bef3b16.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="595b66e096bc4adaf62968d1cf4dfcc6"><fr:resource-content><html:img src="/notes/595b66e096bc4adaf62968d1cf4dfcc6.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
@@ -675,7 +675,7 @@
         inv := counitInvNatTrans
         hom_inv_id := by ext A; rfl
         inv_hom_id := by ext A; rfl
-    </html:code></html:pre><html:p>text</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+    </html:code></html:pre><html:p>Finally we can define the equivalence and then construct the essentially small instance:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
       /-- The equivalence between FinSetObj and FinSkel -/
       def finSetObjEquiv : FinSetObj ≌ FinSkel where
         functor := finSetObjToSkel

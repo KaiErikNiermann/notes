@@ -1,0 +1,199 @@
+\date{2025-12-04}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Simple Imperative Language - Semantics}
+
+\p{
+  We can divide the environmental big-step semantics of our simple language into three parts:
+}
+\ul{
+  \li{
+    \strong{Expression evaluation}: Describes how arithmetic expressions are evaluated to numbers.
+  }
+  \li{
+    \strong{Boolean expression evaluation}: Describes how boolean expressions are evaluated to boolean values (true/false).
+  }
+  \li{
+    \strong{Statement execution}: Describes how statements are executed, transforming an initial state (environment) into a final state.
+  }
+}
+
+\p{
+  The general big-step environmental evalutation rule is denoted as:
+}
+##{
+  \langle t, \sigma \rangle \Downarrow v
+}
+\p{
+  Here:
+}
+\ol{
+  \li{
+    We have some starting term \cf{t} (which can be an expression, boolean expression, or statement), along with some state #{\sigma}.
+  }
+  \li{
+    The evaluation results in some value \cf{v} (which can be a number, boolean value, or new state).
+  }
+}
+\p{
+  A quick aside here to deconstruct the term \strong{big-step environmental evaluation}:
+}
+\ul{
+  \li{
+    We say that this evaluation is \strong{big-step} as it assumes some arbitrary state of intermediate steps, meaning that within big step semantics we do not care about intermediate computation only about some input expression and the final output value. A simple analogue to make here is that big-step semantics are akin to a teacher asking you to only show ur final answer to a math problem rather than all the steps you took to get there.
+  }
+  \li{
+    We say that this evaluation is \strong{environmental} (as opposed to being substitution based) as we explicitly keep track of a state #{\sigma} which maps variables to their values. This is in contrast to substitution based semantics where variable occurrences are replaced directly with their values in expressions.
+  }
+}
+
+\p{
+  The state #{\sigma : \texttt{String} \to \Z} represents a mapping from variables (commonly strings) to their corresponding values (numbers). We denote the updated state after assigning a value to a variable \cf{x} as:
+}
+##{
+  \sigma[x \mapsto n]
+}
+\p{
+  This means that in the new state, the variable \cf{x} now maps to the number \cf{n}, while all other variable mappings remain unchanged from the original state #{\sigma}.
+}
+
+\subtree{
+  \title{Expression evaluation}
+
+  \infrule{
+    \inferrule*[right=E-Num]{
+    }{
+      \langle n, \sigma \rangle \Downarrow n
+    }
+    \and
+    \inferrule*[right=E-Var]{
+    }{
+      \langle x, \sigma \rangle \Downarrow \sigma(x)
+    }
+    \and
+    \inferrule*[right=E-Add]{
+      \langle e_1, \sigma \rangle \Downarrow n_1 \\
+      \langle e_2, \sigma \rangle \Downarrow n_2
+    }{
+      \langle e_1 + e_2, \sigma \rangle \Downarrow n_1 + n_2
+    }
+    \and
+    \inferrule*[right=E-Sub]{
+      \langle e_1, \sigma \rangle \Downarrow n_1 \\
+      \langle e_2, \sigma \rangle \Downarrow n_2
+    }{
+      \langle e_1 - e_2, \sigma \rangle \Downarrow n_1 - n_2
+    }
+    \and
+    \inferrule*[right=E-Mul]{
+      \langle e_1, \sigma \rangle \Downarrow n_1 \\
+      \langle e_2, \sigma \rangle \Downarrow n_2
+    }{
+      \langle e_1 * e_2, \sigma \rangle \Downarrow n_1 * n_2
+    }
+  }
+}
+
+\subtree{
+  \title{Boolean expression evaluation}
+  \infrule{
+    \inferrule*[right=B-True]{
+    }{
+      \langle \top, \sigma \rangle \Downarrow \cf{true}
+    }
+    \and
+    \inferrule*[right=B-False]{
+    }{
+      \langle \bot, \sigma \rangle \Downarrow \cf{false}
+    }
+    \and
+    \inferrule*[right=B-Not]{
+      \langle b, \sigma \rangle \Downarrow v
+    }{
+      \langle \neg b, \sigma \rangle \Downarrow \neg v
+    }
+    \and
+    \inferrule*[right=B-And]{
+      \langle b_1, \sigma \rangle \Downarrow v_1 \\
+      \langle b_2, \sigma \rangle \Downarrow v_2
+    }{
+      \langle b_1 \land b_2, \sigma \rangle \Downarrow v_1 \land v_2
+    }
+    \and
+    \inferrule*[right=B-Or]{
+      \langle b_1, \sigma \rangle \Downarrow v_1 \\
+      \langle b_2, \sigma \rangle \Downarrow v_2
+    }{
+      \langle b_1 \lor b_2, \sigma \rangle \Downarrow v_1 \lor v_2
+    }
+    \and
+    \inferrule*[right=B-Eq]{
+      \langle e_1, \sigma \rangle \Downarrow n_1 \\
+      \langle e_2, \sigma \rangle \Downarrow n_2
+    }{
+      \langle e_1 = e_2, \sigma \rangle \Downarrow (n_1 = n_2)
+    }
+    \and
+    \inferrule*[right=B-Leq]{
+      \langle e_1, \sigma \rangle \Downarrow n_1 \\
+      \langle e_2, \sigma \rangle \Downarrow n_2
+    }{
+      \langle e_1 \leq e_2, \sigma \rangle \Downarrow (n_1 \leq n_2)
+    }
+  }
+}
+
+\subtree{
+  \title{Statement evaluation}
+
+  \infrule{
+    \inferrule*[right=S-Skip]{
+    }{
+      \langle \cf{skip}, \sigma \rangle \Downarrow \sigma
+    }
+    \and
+    \inferrule*[right=S-Assign]{
+      \langle e, \sigma \rangle \Downarrow n
+    }{
+      \langle x \coloneqq e, \sigma \rangle \Downarrow \sigma[x \mapsto n]
+    }
+    \and
+    \inferrule*[right=S-Seq]{
+      \langle s_1, \sigma \rangle \Downarrow \sigma' \\
+      \langle s_2, \sigma' \rangle \Downarrow \sigma''
+    }{
+      \langle s_1 ; s_2, \sigma \rangle \Downarrow \sigma''
+    }
+    \and
+    \inferrule*[right=S-IfTrue]{
+      \langle b, \sigma \rangle \Downarrow \cf{true} \\
+      \langle s_1, \sigma \rangle \Downarrow \sigma'
+    }{
+      \langle \cf{if } b \cf{ then } s_1 \cf{ else } s_2, \sigma \rangle \Downarrow \sigma'
+    }
+    \and
+    \inferrule*[right=S-IfFalse]{
+      \langle b, \sigma \rangle \Downarrow \cf{false} \\
+      \langle s_2, \sigma \rangle \Downarrow \sigma'
+    }{
+      \langle \cf{if } b \cf{ then } s_1 \cf{ else } s_2, \sigma \rangle \Downarrow \sigma'
+    }
+    \and
+    \inferrule*[right=S-WhileFalse]{
+      \langle b, \sigma \rangle \Downarrow \cf{false}
+    }{
+      \langle \cf{while } b \cf{ do } s, \sigma \rangle \Downarrow \sigma
+    }
+    \and
+    \inferrule*[right=S-WhileTrue]{
+      \langle b, \sigma \rangle \Downarrow \cf{true} \\
+      \langle s, \sigma \rangle \Downarrow \sigma' \\
+      \langle \cf{while } b \cf{ do } s, \sigma' \rangle \Downarrow \sigma''
+    }{
+      \langle \cf{while } b \cf{ do } s, \sigma \rangle \Downarrow \sigma''
+    }
+  }
+}

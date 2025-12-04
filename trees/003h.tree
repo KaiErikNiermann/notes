@@ -6,11 +6,15 @@
 
 \title{Theory of Presburger Arithmetic}
 
-\p{Presburger Arithmetic (PA) is a first order theory over the signature #{\Sigma_{\N}} which contains:}
+\p{
+  Presburger Arithmetic (PA) is a first order theory over the signature #{\Sigma_{\N}} which contains:
+}
 ##{
   \Sigma_{\N} : \{0, 1, +, =\}
 }
-\p{Where #{0} and #{1} are constant symbols representing zero and one respectively, #{+} is a binary function symbol representing addition, and #{=} is a binary relation symbol representing equality. The axioms of Presburger Arithmetic are:}
+\p{
+  Where #{0} and #{1} are constant symbols representing zero and one respectively, #{+} is a binary function symbol representing addition, and #{=} is a binary relation symbol representing equality. The axioms of Presburger Arithmetic are:
+}
 \tex{
   \usepackage{eulervm}
   \usepackage{amsmath}
@@ -25,12 +29,21 @@
   \stopverb
 }
 
-\p{Some important properties of #{T_{\N} are}:}
+\p{
+  Some important properties of #{T_{\N} are}:
+}
 \ul{
-  \li{Validity in \em{quantifer-free} Presburger Arithmetic is decidable.}
-  \li{Validity in \em{full} Presburger Arithmetic is decidable.}
-  \li{Validity in Presburger Arithmetic has a super exponential complexity #{O(2^{2^n})}}
-  \li{#{T_{\N}} is \em{complete}, i.e.
+  \li{
+    Validity in \em{quantifer-free} Presburger Arithmetic is decidable.
+  }
+  \li{
+    Validity in \em{full} Presburger Arithmetic is decidable.
+  }
+  \li{
+    Validity in Presburger Arithmetic has a super exponential complexity #{O(2^{2^n})}
+  }
+  \li{
+    #{T_{\N}} is \em{complete}, i.e.
     ##{
       \forall F.\ T_{\N} \models F \lor T_{\N} \models \neg F
     }

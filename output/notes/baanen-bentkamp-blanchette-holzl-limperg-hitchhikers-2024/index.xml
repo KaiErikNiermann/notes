@@ -91,14 +91,16 @@
   ]]></fr:tex><html:p>In general we can express the hierarchy for any universe level <fr:tex display="inline"><![CDATA[u]]></fr:tex> as follows:</html:p>
   
     
-    <fr:resource hash="d22c345c7afa48bf314e21f040d4332e"><fr:resource-content><html:img src="/notes/d22c345c7afa48bf314e21f040d4332e.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="d94eb728c2b2b4c4d53e790ae8b3c721"><fr:resource-content><html:img src="/notes/d94eb728c2b2b4c4d53e790ae8b3c721.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
     \inferrule *[right=Sort]{
@@ -122,14 +124,16 @@
                   <fr:mainmatter><html:p>With the exception of propositions, a type in a universe at level <fr:tex display="inline"><![CDATA[u]]></fr:tex> cannot quantify over types from strictly larger universes unless the whole result is lifted to a larger universe. In the case of types we have:</html:p>
   
     
-    <fr:resource hash="d764c9e89e1a835ed3d018e580fe27b4"><fr:resource-content><html:img src="/notes/d764c9e89e1a835ed3d018e580fe27b4.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="6421c48de3f29311e497b41a79a808fd"><fr:resource-content><html:img src="/notes/6421c48de3f29311e497b41a79a808fd.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
       \inferrule *[right=ArrowType]{
@@ -158,14 +162,16 @@
                   <fr:mainmatter><html:p>We can observe that a function type's universe is determined by the universes of its argument and return types. However, in the case of propositions we have a different behavior:</html:p>
   
     
-    <fr:resource hash="120b65d6f240b5db99f27acc7a668d16"><fr:resource-content><html:img src="/notes/120b65d6f240b5db99f27acc7a668d16.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="01b9da1304665deaca41d0e69e7e2b67"><fr:resource-content><html:img src="/notes/01b9da1304665deaca41d0e69e7e2b67.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
       \inferrule *[right=ArrowProp]{
@@ -200,14 +206,16 @@
                   <fr:mainmatter><html:p>We can combine these two rules to get a more general rule for function types that return types in any universe:</html:p>
   
     
-    <fr:resource hash="bc08812524e6a16f5f31653540c8a6e2"><fr:resource-content><html:img src="/notes/bc08812524e6a16f5f31653540c8a6e2.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="0701b5f9a243365e0125751bf06c9e91"><fr:resource-content><html:img src="/notes/0701b5f9a243365e0125751bf06c9e91.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
       \inferrule *[right=Arrow]{

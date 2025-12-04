@@ -6,23 +6,35 @@
 
 \title{Semantic Argument method (FOL)}
 
-\p{In first order logic, the \em{semantic argument method} represents a proof by contradiction. The basic idea is as follows:}
-
-\ol{
-  \li{We assume that our formula #{F} is not valid, i.e., #{\exists S, \sigma \nvDash F}}
-  \li{Use the proof rules to derive a contradiction from this assumption.}
-  \li{If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore #{F} must be valid.}
+\p{
+  In first order logic, the \em{semantic argument method} represents a proof by contradiction. The basic idea is as follows:
 }
 
-\p{We can express the semantic argument method via the following inference rule:}
+\ol{
+  \li{
+    We assume that our formula #{F} is not valid, i.e., #{\exists S, \sigma \nvDash F}
+  }
+  \li{
+    Use the proof rules to derive a contradiction from this assumption.
+  }
+  \li{
+    If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore #{F} must be valid.
+  }
+}
+
+\p{
+  We can express the semantic argument method via the following inference rule:
+}
 \infrule{
   \inferrule*[right=Contradiction]{
     S, \sigma \models p(s_1, \ldots, s_n) \\
-    S, \sigma \models \neg p(t_1, \ldots, t_n) \\ 
+    S, \sigma \models \neg p(t_1, \ldots, t_n) \\
     \langle I, \sigma\rangle (t_1) = \langle I, \sigma\rangle (s_1), \ldots, \langle I, \sigma\rangle (t_n) = \langle I, \sigma\rangle (s_n)
   }{
     S, \sigma \models \bot
   }
 }
 
-\p{So the idea here being that if we have a predicate and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction. This allows us to conclude that our initial assumption (that the formula is not valid) must be false, thereby proving the validity of the formula.}
+\p{
+  So the idea here being that if we have a predicate and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction. This allows us to conclude that our initial assumption (that the formula is not valid) must be false, thereby proving the validity of the formula.
+}

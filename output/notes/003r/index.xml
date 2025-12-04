@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>4</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/003r/</fr:uri>
+    <fr:display-uri>003r</fr:display-uri>
+    <fr:route>/notes/003r/</fr:route>
+  </fr:frontmatter>
+  <fr:mainmatter>
+  
+    
+    <fr:resource hash="ab59dacff2de941355ec90879beba5a2"><fr:resource-content><html:img src="/notes/ab59dacff2de941355ec90879beba5a2.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+      
+    \usepackage{xcolor}               % color support
+  \definecolor{dkgreen}{rgb}{0,0.6,0}
+  \definecolor{gray}{rgb}{0.5,0.5,0.5}
+  \definecolor{mauve}{rgb}{0.58,0,0.82}
+  \definecolor{brown}{rgb}{0.921, 0.325, 0.078}
+  \definecolor{lightline}{rgb}{0.8,0.8,0.8}
+
+  \usepackage{libertine}
+  \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  % \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+  \usepackage{simplebnf}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
+      \begin {center}
+        \begin {bnf}(
+          prod-delim = {--},
+          or-sym = {},
+          prod-sep = 5pt,
+        )[
+          colspec = {llcll},
+          column{1} = {font=\sffamily },
+          column{2} = {mode=dmath},
+          column{4} = {font=\ttfamily },
+          column{5} = {font=\itshape \color {gray}},
+        ]
+          
+  \tau  : Type ::=
+  | x : variable
+  | n : number
+
+        \end {bnf}
+      \end {center}
+    ]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

@@ -14,33 +14,47 @@
     <fr:title text="Structural induction">Structural induction</fr:title>
     <fr:taxon>Definition</fr:taxon>
   </fr:frontmatter>
-  <fr:mainmatter><html:p>Structural induction represents <fr:link href="/notes/0026/" title="Well-founded induction" uri="https://kaierikniermann.github.io/notes/0026/" display-uri="0026" type="local">well-founded induction</fr:link> applied to the <fr:link href="/notes/0024/" title="Strict subformula relation" uri="https://kaierikniermann.github.io/notes/0024/" display-uri="0024" type="local">strict subformula relation</fr:link>. To prove that a property <fr:tex display="inline"><![CDATA[P(\phi )]]></fr:tex> holds for all formulas <fr:tex display="inline"><![CDATA[\phi ]]></fr:tex>, it suffices to show that for every formula <fr:tex display="inline"><![CDATA[\phi ]]></fr:tex>, if <fr:tex display="inline"><![CDATA[P(\psi )]]></fr:tex> holds for all strict subformulas <fr:tex display="inline"><![CDATA[\psi ]]></fr:tex> of <fr:tex display="inline"><![CDATA[\phi ]]></fr:tex>, then <fr:tex display="inline"><![CDATA[P(\phi )]]></fr:tex> also holds. Formally, this can be expressed as <fr:link href="/notes/bradley2007calculus/" title="The Calculus of Computation: Decision Procedures with Applications to Verification" uri="https://kaierikniermann.github.io/notes/bradley2007calculus/" display-uri="bradley2007calculus" type="local">(1)</fr:link>:</html:p><fr:tex display="block"><![CDATA[
+  <fr:mainmatter><html:p>
+  Structural induction represents <fr:link href="/notes/0026/" title="Well-founded induction" uri="https://kaierikniermann.github.io/notes/0026/" display-uri="0026" type="local">well-founded induction</fr:link> applied to the <fr:link href="/notes/0024/" title="Strict subformula relation" uri="https://kaierikniermann.github.io/notes/0024/" display-uri="0024" type="local">strict subformula relation</fr:link>. To prove that a property <fr:tex display="inline"><![CDATA[P(\phi )]]></fr:tex> holds for all formulas <fr:tex display="inline"><![CDATA[\phi ]]></fr:tex>, it suffices to show that for every formula <fr:tex display="inline"><![CDATA[\phi ]]></fr:tex>, if <fr:tex display="inline"><![CDATA[P(\psi )]]></fr:tex> holds for all strict subformulas <fr:tex display="inline"><![CDATA[\psi ]]></fr:tex> of <fr:tex display="inline"><![CDATA[\phi ]]></fr:tex>, then <fr:tex display="inline"><![CDATA[P(\phi )]]></fr:tex> also holds. Formally, this can be expressed as <fr:link href="/notes/bradley2007calculus/" title="The Calculus of Computation: Decision Procedures with Applications to Verification" uri="https://kaierikniermann.github.io/notes/bradley2007calculus/" display-uri="bradley2007calculus" type="local">(1)</fr:link>:
+</html:p><fr:tex display="block"><![CDATA[
   (\forall  \phi .\ (\forall  \psi .\ \psi  \prec _{\text {sf}} \phi  \to  P(\psi )) \to  P(\phi )) \to  (\forall  \phi .\ P(\phi ))
-]]></fr:tex><html:p>Often times the discussion of structural induction specifically refers to (abstract) syntax where we define a finite tree with ordered branches as the structure of expressions. In practical terms this means we define an inductive type for the syntax of expressions, and then we can perform structural induction over this inductive type. When discussing SI through the lens of constructors we can rephrase the above principle as follows.</html:p><html:p>For any property <fr:tex display="inline"><![CDATA[P(e)]]></fr:tex> of some expression <fr:tex display="inline"><![CDATA[e]]></fr:tex>, to prove that:</html:p><fr:tex display="block"><![CDATA[
+]]></fr:tex><html:p>
+  Often times the discussion of structural induction specifically refers to (abstract) syntax where we define a finite tree with ordered branches as the structure of expressions. In practical terms this means we define an inductive type for the syntax of expressions, and then we can perform structural induction over this inductive type. When discussing SI through the lens of constructors we can rephrase the above principle as follows.
+</html:p><html:p>
+  For any property <fr:tex display="inline"><![CDATA[P(e)]]></fr:tex> of some expression <fr:tex display="inline"><![CDATA[e]]></fr:tex>, to prove that:
+</html:p><fr:tex display="block"><![CDATA[
   \forall  e \in  \texttt {E}.\ P(e)
-]]></fr:tex><html:p>it's sufficient to prove that for each tree constructor <fr:tex display="inline"><![CDATA[c]]></fr:tex> if some arity <fr:tex display="inline"><![CDATA[k \geq  0]]></fr:tex> (takes 0 or more args) that if <fr:tex display="inline"><![CDATA[P]]></fr:tex> holds for all subtrees <fr:tex display="inline"><![CDATA[e_1, e_2, \ldots , e_k]]></fr:tex> then it also holds for the tree constructed by applying <fr:tex display="inline"><![CDATA[c]]></fr:tex> to these subtrees <fr:link href="/notes/sewell-semantics-notes/" title="Semantics of Programming Languages" uri="https://kaierikniermann.github.io/notes/sewell-semantics-notes/" display-uri="sewell-semantics-notes" type="local">(2)</fr:link>:</html:p><fr:tex display="block"><![CDATA[
+]]></fr:tex><html:p>
+  it's sufficient to prove that for each tree constructor <fr:tex display="inline"><![CDATA[c]]></fr:tex> if some arity <fr:tex display="inline"><![CDATA[k \geq  0]]></fr:tex> (takes 0 or more args) that if <fr:tex display="inline"><![CDATA[P]]></fr:tex> holds for all subtrees <fr:tex display="inline"><![CDATA[e_1, e_2, \ldots , e_k]]></fr:tex> then it also holds for the tree constructed by applying <fr:tex display="inline"><![CDATA[c]]></fr:tex> to these subtrees <fr:link href="/notes/sewell-semantics-notes/" title="Semantics of Programming Languages" uri="https://kaierikniermann.github.io/notes/sewell-semantics-notes/" display-uri="sewell-semantics-notes" type="local">(2)</fr:link>:
+</html:p><fr:tex display="block"><![CDATA[
   \forall  c.\ \forall  e_1,\ldots ,e_k.\ (P(e_1) \land  P(e_2) \land  \ldots  \land  P(e_k)) \to  P(c(e_1, e_2, \ldots , e_k)) \to  (\forall  e \in  \texttt {E}.\ P(e))
-]]></fr:tex><html:p>We can equivalently express this through a inference rule as follows:</html:p>
+]]></fr:tex><html:p>
+  We can equivalently express this through a inference rule as follows:
+</html:p>
   
     
-    <fr:resource hash="a102ca496e33f1dc2a8c1ac405cc25cf"><fr:resource-content><html:img src="/notes/a102ca496e33f1dc2a8c1ac405cc25cf.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="6ecc37a803475062fa37ccc1a7284261"><fr:resource-content><html:img src="/notes/6ecc37a803475062fa37ccc1a7284261.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
+  \newcommand{\cf}[1]{\texttt{#1}}
+
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *{
-    \forall  c.\ \forall  e_1,\ldots ,e_k.\ (P(e_1) \land  P(e_2) \land  \ldots  \land  P(e_k)) 
+    \forall  c.\ \forall  e_1,\ldots ,e_k.\ (P(e_1) \land  P(e_2) \land  \ldots  \land  P(e_k))
   }{
     P(c(e_1, e_2, \ldots , e_k)) \to  \forall  e \in  \texttt {E}.\ P(e)
   }
 \end {mathpar}]]></fr:resource-source></fr:resource>
   
-<html:p>The idea in principle just being that we enumerate through the constructor of the syntax tree and show that if the property holds for all subtrees then it also holds for the tree constructed from them.</html:p></fr:mainmatter>
+<html:p>
+  The idea in principle just being that we enumerate through the constructor of the syntax tree and show that if the property holds for all subtrees then it also holds for the tree constructed from them.
+</html:p></fr:mainmatter>
   <fr:backmatter>
     <fr:tree show-metadata="false" hidden-when-empty="true">
       <fr:frontmatter>

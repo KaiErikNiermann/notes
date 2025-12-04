@@ -55,15 +55,15 @@
         
  
   
-  <html:figure><fr:resource hash="a1b158afe1c13bb548661319fcf84bb4"><fr:resource-content><html:img src="/notes/a1b158afe1c13bb548661319fcf84bb4.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="d8323ce59463aa832587ad5330c42c75"><fr:resource-content><html:img src="/notes/d8323ce59463aa832587ad5330c42c75.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
@@ -470,14 +470,16 @@
 </html:code></html:pre><html:p>We can equivalently express this definition using the type formation and term intruduction rules:</html:p>
   
     
-    <fr:resource hash="27dec52c5491a90c3646fc97985842f7"><fr:resource-content><html:img src="/notes/27dec52c5491a90c3646fc97985842f7.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="0487b5f985a2769da59d29a41689058b"><fr:resource-content><html:img src="/notes/0487b5f985a2769da59d29a41689058b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Form-Nat]{
@@ -500,15 +502,15 @@
   <html:li><fr:tex display="inline"><![CDATA[s : \mathbb {N} \to  \mathbb {N}]]></fr:tex></html:li></html:ul><html:p>such that, given any global element <fr:tex display="inline"><![CDATA[z : 1 \to  X]]></fr:tex> and any morphism <fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex>, there exists a unique morphism <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> such that the following diagram commutes:</html:p>
  
   
-  <html:figure><fr:resource hash="92582dc49da2538abac86319db8d23ab"><fr:resource-content><html:img src="/notes/92582dc49da2538abac86319db8d23ab.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="451ab9726be7ca6a5fa1653caf21d4c5"><fr:resource-content><html:img src="/notes/451ab9726be7ca6a5fa1653caf21d4c5.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
@@ -897,14 +899,16 @@ def eval : Expr -&gt; Nat
   ]]></fr:tex><html:p>In general we can express the hierarchy for any universe level <fr:tex display="inline"><![CDATA[u]]></fr:tex> as follows:</html:p>
   
     
-    <fr:resource hash="d22c345c7afa48bf314e21f040d4332e"><fr:resource-content><html:img src="/notes/d22c345c7afa48bf314e21f040d4332e.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="d94eb728c2b2b4c4d53e790ae8b3c721"><fr:resource-content><html:img src="/notes/d94eb728c2b2b4c4d53e790ae8b3c721.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
     \inferrule *[right=Sort]{
@@ -928,14 +932,16 @@ def eval : Expr -&gt; Nat
                       <fr:mainmatter><html:p>With the exception of propositions, a type in a universe at level <fr:tex display="inline"><![CDATA[u]]></fr:tex> cannot quantify over types from strictly larger universes unless the whole result is lifted to a larger universe. In the case of types we have:</html:p>
   
     
-    <fr:resource hash="d764c9e89e1a835ed3d018e580fe27b4"><fr:resource-content><html:img src="/notes/d764c9e89e1a835ed3d018e580fe27b4.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="6421c48de3f29311e497b41a79a808fd"><fr:resource-content><html:img src="/notes/6421c48de3f29311e497b41a79a808fd.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
       \inferrule *[right=ArrowType]{
@@ -964,14 +970,16 @@ def eval : Expr -&gt; Nat
                       <fr:mainmatter><html:p>We can observe that a function type's universe is determined by the universes of its argument and return types. However, in the case of propositions we have a different behavior:</html:p>
   
     
-    <fr:resource hash="120b65d6f240b5db99f27acc7a668d16"><fr:resource-content><html:img src="/notes/120b65d6f240b5db99f27acc7a668d16.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="01b9da1304665deaca41d0e69e7e2b67"><fr:resource-content><html:img src="/notes/01b9da1304665deaca41d0e69e7e2b67.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
       \inferrule *[right=ArrowProp]{
@@ -1006,14 +1014,16 @@ def eval : Expr -&gt; Nat
                       <fr:mainmatter><html:p>We can combine these two rules to get a more general rule for function types that return types in any universe:</html:p>
   
     
-    <fr:resource hash="bc08812524e6a16f5f31653540c8a6e2"><fr:resource-content><html:img src="/notes/bc08812524e6a16f5f31653540c8a6e2.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="0701b5f9a243365e0125751bf06c9e91"><fr:resource-content><html:img src="/notes/0701b5f9a243365e0125751bf06c9e91.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
       \inferrule *[right=Arrow]{
@@ -1514,15 +1524,15 @@ def eval : Expr -&gt; Nat
         
  
   
-  <html:figure><fr:resource hash="a1b158afe1c13bb548661319fcf84bb4"><fr:resource-content><html:img src="/notes/a1b158afe1c13bb548661319fcf84bb4.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="d8323ce59463aa832587ad5330c42c75"><fr:resource-content><html:img src="/notes/d8323ce59463aa832587ad5330c42c75.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}

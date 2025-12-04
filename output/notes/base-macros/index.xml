@@ -9,7 +9,9 @@
     <fr:title text="Basic macros">Basic macros</fr:title>
   </fr:frontmatter>
   <fr:mainmatter>
-    <html:p>This tree defines the basic notational macros used across my forest.</html:p>
+    <html:p>
+  This tree defines the basic notational macros used across my forest.
+</html:p>
   </fr:mainmatter>
   <fr:backmatter>
     <fr:tree show-metadata="false" hidden-when-empty="true">

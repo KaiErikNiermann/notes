@@ -71,14 +71,16 @@
 </html:code></html:pre><html:p>We can equivalently express this definition using the type formation and term intruduction rules:</html:p>
   
     
-    <fr:resource hash="27dec52c5491a90c3646fc97985842f7"><fr:resource-content><html:img src="/notes/27dec52c5491a90c3646fc97985842f7.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="0487b5f985a2769da59d29a41689058b"><fr:resource-content><html:img src="/notes/0487b5f985a2769da59d29a41689058b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Form-Nat]{
@@ -101,15 +103,15 @@
   <html:li><fr:tex display="inline"><![CDATA[s : \mathbb {N} \to  \mathbb {N}]]></fr:tex></html:li></html:ul><html:p>such that, given any global element <fr:tex display="inline"><![CDATA[z : 1 \to  X]]></fr:tex> and any morphism <fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex>, there exists a unique morphism <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> such that the following diagram commutes:</html:p>
  
   
-  <html:figure><fr:resource hash="92582dc49da2538abac86319db8d23ab"><fr:resource-content><html:img src="/notes/92582dc49da2538abac86319db8d23ab.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="451ab9726be7ca6a5fa1653caf21d4c5"><fr:resource-content><html:img src="/notes/451ab9726be7ca6a5fa1653caf21d4c5.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}

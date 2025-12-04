@@ -1,0 +1,96 @@
+\date{2025-12-04}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Simple Imperative Language - Evaluation}
+
+\ol{
+  \li{
+    What does the following evaluate to?
+    ##{
+      \langle (x := x - 1), \sigma[x \mapsto 2] \rangle
+    }
+  }
+  \li{
+    What does the following evaluate to?
+    ##{
+      \langle \texttt{if } x + 1 \leq 3 \texttt{ then } x := x - 1, \sigma[x \mapsto 1] \rangle
+    }
+  }
+  \li{
+    What does the following evaluate to?
+    ##{
+      \langle \texttt{while } (x + 1 \leq 3) \texttt{ then } x := x - 1, \sigma[x \mapsto 1] \rangle
+    }
+  }
+  \li{
+    Is the following a [total function](003w)?
+    ##{
+      \langle e, \sigma \rangle \Downarrow n
+    }
+  }
+  \li{
+    Is the following a [total function](003w)?
+    ##{
+      \langle s, \sigma \rangle \Downarrow \sigma'
+    }
+  }
+}
+
+\solution{
+  \ol{
+    \li{Starting in the state #{x \mapsto 2} we evaluate #{x := x - 1} to the state #{x \mapsto 1}}
+    \li{Starting in the state #{x \mapsto 1}, we first evaluate the condition #{x + 1 \leq 3}:
+      ##{
+        \begin{align*}
+        \langle x + 1, \sigma[x \mapsto 1] \rangle &\Downarrow 2 \\
+        \langle 3, \sigma[x \mapsto 1] \rangle &\Downarrow 3 \\
+        \langle 2 \leq 3, \sigma[x \mapsto 1] \rangle &\Downarrow \cf{true}
+        \end{align*}
+      }
+      Since the condition evaluates to true, we then evaluate the then-branch #{x := x - 1}:
+      ##{
+        \begin{align*}
+        \langle x - 1, \sigma[x \mapsto 1] \rangle &\Downarrow 0 \\
+        \langle x := 0, \sigma[x \mapsto 1] \rangle &\Downarrow \sigma[x \mapsto 0]
+        \end{align*}
+      }
+    }
+    \li{We again start by evaluating the condition
+      ##{
+        \begin{align*}
+        \langle x + 1, \sigma[x \mapsto 1] \rangle &\Downarrow 2 \\
+        \langle 3, \sigma[x \mapsto 1] \rangle &\Downarrow 3 \\
+        \langle 2 \leq 3, \sigma[x \mapsto 1] \rangle &\Downarrow \cf{true}
+        \end{align*}
+      }
+      Since we can see that the body of the loop only decreases #{x}, we are stuck in an infinite loop:
+      ##{
+        \begin{align*}
+        \langle x := x - 1, \sigma[x \mapsto 1] \rangle &\Downarrow \sigma[x \mapsto 0] \\
+        \langle \texttt{while } (x + 1 \leq 3) \texttt{ do } x := x - 1, \sigma[x \mapsto 0] \rangle &\Downarrow \sigma[x \mapsto -1] \\
+        \langle \texttt{while } (x + 1 \leq 3) \texttt{ do } x := x - 1, \sigma[x \mapsto -1] \rangle &\Downarrow \sigma[x \mapsto -2] \\
+        &\vdots
+        \end{align*}
+      }
+    }
+    \li{Yes, for every expression #{e} and state #{\sigma}, there exists a number #{n} such that
+      ##{
+        \langle e, \sigma \rangle \Downarrow n
+      }
+      This follows from the fact that expressions are finite syntax trees built from a finite set of rules, and each rule can be evaluated in a finite number of steps.
+    }
+    \li{No, there exist statements #{s} and states #{\sigma} for which there is no resulting state #{\sigma'} such that
+      ##{
+        \langle s, \sigma \rangle \Downarrow \sigma'
+      }
+      For example, consider the while-loop
+      ##{
+        \texttt{while } (x + 1 \leq 3) \texttt{ do } x := x - 1
+      }
+      starting from the state #{\sigma[x \mapsto 1]}. As shown in the previous question, this loop does not terminate, and thus there is no resulting state #{\sigma'}.
+    }
+  }
+}

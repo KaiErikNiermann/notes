@@ -6,11 +6,18 @@
 
 \title{First Order Theory #{T}}
 
-\p{A \em{first order theory} (FOT) #{T} is defined by two main components:}
+\p{
+  A \em{first order theory} (FOT) #{T} is defined by two main components:
+}
 \ul{
-  \li{A \em{signature} #{\Sigma} of a set of constant, function, and predicate symbols}
-  \li{A set of \em{axioms} #{\mathcal A} consisting of closed (i.e. no free variables) formulas over the signature #{\Sigma}}
+  \li{
+    A \em{signature} #{\Sigma} of a set of constant, function, and predicate symbols
+  }
+  \li{
+    A set of \em{axioms} #{\mathcal A} consisting of closed (i.e. no free variables) formulas over the signature #{\Sigma}
+  }
 }
 
-\p{We say that a formula constructed from only from the contents of the signature #{\Sigma} is a #{\Sigma}-formula.}
-
+\p{
+  We say that a formula constructed from only from the contents of the signature #{\Sigma} is a #{\Sigma}-formula.
+}

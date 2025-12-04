@@ -6,5 +6,6 @@
 
 \title{Decidability of #{T_{\text{PA}}}}
 
-\p{Validity in the theory of Peano Arithmetic #{T_{\text{PA}}} is undecidable. This means that there is no algorithm that can determine, for every formula in the language of Peano Arithmetic, whether that formula is valid (i.e., true in all models of #{T_{\text{PA}}}). This result is a consequence of Gödel's incompleteness theorems, which state that any sufficiently powerful and consistent formal system cannot be both complete and decidable. Since Peano Arithmetic is capable of expressing basic arithmetic properties, it falls into this category, leading to the conclusion that its validity problem is undecidable.}
-
+\p{
+  Validity in the theory of Peano Arithmetic #{T_{\text{PA}}} is undecidable. This means that there is no algorithm that can determine, for every formula in the language of Peano Arithmetic, whether that formula is valid (i.e., true in all models of #{T_{\text{PA}}}). This result is a consequence of Gödel's incompleteness theorems, which state that any sufficiently powerful and consistent formal system cannot be both complete and decidable. Since Peano Arithmetic is capable of expressing basic arithmetic properties, it falls into this category, leading to the conclusion that its validity problem is undecidable.
+}

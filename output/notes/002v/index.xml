@@ -76,15 +76,15 @@
       <fr:mainmatter><html:p>If we wish to represent the composition axiom diagrammatically we can do so as follows:</html:p>
  
   
-  <html:figure><fr:resource hash="7092010d00737152de80c6470798fdef"><fr:resource-content><html:img src="/notes/7092010d00737152de80c6470798fdef.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="1be3d4f0620782ded632f5328ecda384"><fr:resource-content><html:img src="/notes/1be3d4f0620782ded632f5328ecda384.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
@@ -204,38 +204,54 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>We consider a <fr:link href="/notes/002v/" title="Functor" uri="https://kaierikniermann.github.io/notes/002v/" display-uri="002v" type="local">functor</fr:link> between two <fr:link href="/notes/002o/" title="(Essentially/Locally) small categories" uri="https://kaierikniermann.github.io/notes/002o/" display-uri="002o" type="local">(locally small)</fr:link> categories <fr:tex display="inline"><![CDATA[F : C \to  D]]></fr:tex>. For each pair of objects <fr:tex display="inline"><![CDATA[X, Y \in  \mathrm {Ob}(C)]]></fr:tex> the functor induces a function between hom-sets:</html:p>
+            <html:p>
+
+  We consider a <fr:link href="/notes/002v/" title="Functor" uri="https://kaierikniermann.github.io/notes/002v/" display-uri="002v" type="local">functor</fr:link> between two <fr:link href="/notes/002o/" title="(Essentially/Locally) small categories" uri="https://kaierikniermann.github.io/notes/002o/" display-uri="002o" type="local">(locally small)</fr:link> categories <fr:tex display="inline"><![CDATA[F : C \to  D]]></fr:tex>. For each pair of objects <fr:tex display="inline"><![CDATA[X, Y \in  \mathrm {Ob}(C)]]></fr:tex> the functor induces a function between hom-sets:
+</html:p>
             <fr:tex display="block"><![CDATA[
   F_{X, Y} : C(X, Y) \to  D(F(X), F(Y))
 ]]></fr:tex>
-            <html:p>We can describe functors based on the properties of these induced functions as follows:</html:p>
-            <html:ul><html:li>The functor <fr:tex display="inline"><![CDATA[F]]></fr:tex> is called <html:strong>faithful</html:strong> if for every pair of objects <fr:tex display="inline"><![CDATA[X, Y \in  \mathrm {Ob}(C)]]></fr:tex> the function <fr:tex display="inline"><![CDATA[F_{X, Y}]]></fr:tex> is injective. We can also denote this as:
-  <fr:tex display="block"><![CDATA[
+            <html:p>
+
+  We can describe functors based on the properties of these induced functions as follows:
+</html:p>
+            <html:ul><html:li>
+
+    The functor <fr:tex display="inline"><![CDATA[F]]></fr:tex> is called <html:strong>faithful</html:strong> if for every pair of objects <fr:tex display="inline"><![CDATA[X, Y \in  \mathrm {Ob}(C)]]></fr:tex> the function <fr:tex display="inline"><![CDATA[F_{X, Y}]]></fr:tex> is injective. We can also denote this as:
+    <fr:tex display="block"><![CDATA[
     (x \xrightarrow {f} y) \mapsto  (F(x) \xrightarrow {F(f)} F(y))
   ]]></fr:tex>
-  or using the notation of an embedding as:
-  <fr:tex display="block"><![CDATA[
+    or using the notation of an embedding as:
+    <fr:tex display="block"><![CDATA[
     C(X, Y) \hookrightarrow  D(F(X), F(Y))
   ]]></fr:tex>
-  An important note to make here is that a faithful functor only presereves distinctness of morphisms, so what this means is that:
-  <html:blockquote>
-    no two different arrows with the same domain and codomain in <fr:tex display="inline"><![CDATA[C]]></fr:tex> are mapped to (or get identified by) the same arrow in <fr:tex display="inline"><![CDATA[D]]></fr:tex></html:blockquote>
-  It <html:strong>does not</html:strong> say
-    <html:ul><html:li>different objects in <fr:tex display="inline"><![CDATA[C]]></fr:tex> are mapped to different objects in <fr:tex display="inline"><![CDATA[D]]></fr:tex>.</html:li>
-      <html:li>two morphisms with different domains/codomains in <fr:tex display="inline"><![CDATA[C]]></fr:tex> are mapped to different morphisms in <fr:tex display="inline"><![CDATA[D]]></fr:tex>.</html:li></html:ul>
-  So in a diagrammatic sense a faithful functor essentially guarantees this:
-  
+    An important note to make here is that a faithful functor only presereves distinctness of morphisms, so what this means is that:
+    <html:blockquote>
+
+      no two different arrows with the same domain and codomain in <fr:tex display="inline"><![CDATA[C]]></fr:tex> are mapped to (or get identified by) the same arrow in <fr:tex display="inline"><![CDATA[D]]></fr:tex></html:blockquote>
+    It <html:strong>does not</html:strong> say
+    <html:ul><html:li>
+
+        different objects in <fr:tex display="inline"><![CDATA[C]]></fr:tex> are mapped to different objects in <fr:tex display="inline"><![CDATA[D]]></fr:tex>.
+      </html:li>
+      <html:li>
+
+        two morphisms with different domains/codomains in <fr:tex display="inline"><![CDATA[C]]></fr:tex> are mapped to different morphisms in <fr:tex display="inline"><![CDATA[D]]></fr:tex>.
+      </html:li></html:ul>
+    So in a diagrammatic sense a faithful functor essentially guarantees this:
+    
  
   
-  <html:figure><fr:resource hash="3c4dc80bbc9136da7941557750958d7b"><fr:resource-content><html:img src="/notes/3c4dc80bbc9136da7941557750958d7b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><html:a href="https://q.uiver.app/#q=WzAsNCxbMCwyLCJYIl0sWzIsMiwiWSJdLFsxLDAsIkYoWCkiXSxbMywwLCJGKFkpIl0sWzAsMSwiZiIsMCx7ImN1cnZlIjotM31dLFswLDEsImciLDAseyJjdXJ2ZSI6M31dLFsyLDMsIkYoZikiLDAseyJjdXJ2ZSI6LTN9XSxbMiwzLCJGKGcpIiwwLHsiY3VydmUiOjN9XSxbMSwzLCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwyLCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSw3LCIiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9LCJsZXZlbCI6MSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsNiwiIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfSwibGV2ZWwiOjEsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==" target="_blank" class="quiver-link">
+    <fr:resource hash="9ecc05aa1f9399a1534fb7b3e788fd09"><fr:resource-content><html:img src="/notes/9ecc05aa1f9399a1534fb7b3e788fd09.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
@@ -264,40 +280,48 @@
 
   ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
       \[\begin {tikzcd}
-      & {F(X)} && {F(Y)} \\
-      \\
-      X && Y
-      \arrow [""{name=0, anchor=center, inner sep=0}, "{F(f)}", curve={height=-18pt}, from=1-2, to=1-4]
-      \arrow [""{name=1, anchor=center, inner sep=0}, "{F(g)}", curve={height=18pt}, from=1-2, to=1-4]
-      \arrow [dashed, from=3-1, to=1-2]
-      \arrow [""{name=2, anchor=center, inner sep=0}, "f", curve={height=-18pt}, from=3-1, to=3-3]
-      \arrow [""{name=3, anchor=center, inner sep=0}, "g", curve={height=18pt}, from=3-1, to=3-3]
-      \arrow [dashed, from=3-3, to=1-4]
-      \arrow [between={0.2}{0.8}, dashed, from=3, to=1]
-      \arrow [between={0.2}{0.8}, dashed, from=2, to=0]
-    \end {tikzcd}\]
-  ]]></fr:resource-source></fr:resource></html:figure>
+        & {F(X)} && {F(Y)} \\
+        \\
+        X && Y
+        \arrow [""{name=0, anchor=center, inner sep=0}, "{F(f)}", curve={height=-18pt}, from=1-2, to=1-4]
+        \arrow [""{name=1, anchor=center, inner sep=0}, "{F(g)}", curve={height=18pt}, from=1-2, to=1-4]
+        \arrow [dashed, from=3-1, to=1-2]
+        \arrow [""{name=2, anchor=center, inner sep=0}, "f", curve={height=-18pt}, from=3-1, to=3-3]
+        \arrow [""{name=3, anchor=center, inner sep=0}, "g", curve={height=18pt}, from=3-1, to=3-3]
+        \arrow [dashed, from=3-3, to=1-4]
+        \arrow [between={0.2}{0.8}, dashed, from=3, to=1]
+        \arrow [between={0.2}{0.8}, dashed, from=2, to=0]
+        \end {tikzcd}\]
+]]></fr:resource-source></fr:resource>
+   </html:a></html:figure>
  
 
-  <html:li>The functor <fr:tex display="inline"><![CDATA[F]]></fr:tex> is called <html:strong>full</html:strong> if for every pair of objects <fr:tex display="inline"><![CDATA[X, Y \in  \mathrm {Ob}(C)]]></fr:tex> the function <fr:tex display="inline"><![CDATA[F_{X, Y}]]></fr:tex> is surjective. Likewise here its important to note that
-  <html:blockquote>
-    a full functor only guarantees that any morphism between two objects in the image of <fr:tex display="inline"><![CDATA[F]]></fr:tex> comes from a morphism in <fr:tex display="inline"><![CDATA[C]]></fr:tex></html:blockquote>
-  It <html:strong>does not</html:strong> say
-  <html:ul><html:li>every object in <fr:tex display="inline"><![CDATA[D]]></fr:tex> is in the image of <fr:tex display="inline"><![CDATA[F]]></fr:tex>. In other words objects in <fr:tex display="inline"><![CDATA[D]]></fr:tex> outside the image of <fr:tex display="inline"><![CDATA[F]]></fr:tex> may not have any preimage in <fr:tex display="inline"><![CDATA[C]]></fr:tex>.</html:li>
-    <html:li>every morphism with a domain/codomain outside the image of <fr:tex display="inline"><![CDATA[F]]></fr:tex> comes from a morphism in <fr:tex display="inline"><![CDATA[C]]></fr:tex>. Similarly morphisms between objects in the image of <fr:tex display="inline"><![CDATA[F]]></fr:tex> may not have a preimage in <fr:tex display="inline"><![CDATA[C]]></fr:tex>.</html:li></html:ul>
-  We can again demonstrate this diagrammatically as follows:
-  
+    <html:li>
+      The functor <fr:tex display="inline"><![CDATA[F]]></fr:tex> is called <html:strong>full</html:strong> if for every pair of objects <fr:tex display="inline"><![CDATA[X, Y \in  \mathrm {Ob}(C)]]></fr:tex> the function <fr:tex display="inline"><![CDATA[F_{X, Y}]]></fr:tex> is surjective. Likewise here its important to note that
+      <html:blockquote>
+
+        a full functor only guarantees that any morphism between two objects in the image of <fr:tex display="inline"><![CDATA[F]]></fr:tex> comes from a morphism in <fr:tex display="inline"><![CDATA[C]]></fr:tex></html:blockquote>
+      It <html:strong>does not</html:strong> say
+      <html:ul><html:li>
+          every object in <fr:tex display="inline"><![CDATA[D]]></fr:tex> is in the image of <fr:tex display="inline"><![CDATA[F]]></fr:tex>. In other words objects in <fr:tex display="inline"><![CDATA[D]]></fr:tex> outside the image of <fr:tex display="inline"><![CDATA[F]]></fr:tex> may not have any preimage in <fr:tex display="inline"><![CDATA[C]]></fr:tex>.
+        </html:li>
+        <html:li>
+
+          every morphism with a domain/codomain outside the image of <fr:tex display="inline"><![CDATA[F]]></fr:tex> comes from a morphism in <fr:tex display="inline"><![CDATA[C]]></fr:tex>. Similarly morphisms between objects in the image of <fr:tex display="inline"><![CDATA[F]]></fr:tex> may not have a preimage in <fr:tex display="inline"><![CDATA[C]]></fr:tex>.
+        </html:li></html:ul>
+      We can again demonstrate this diagrammatically as follows:
+      
  
   
-  <html:figure><fr:resource hash="4822221dc346360c2404a132a7356473"><fr:resource-content><html:img src="/notes/4822221dc346360c2404a132a7356473.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="6b7d4b07c61f528b2fbe3b671a7d7e86"><fr:resource-content><html:img src="/notes/6b7d4b07c61f528b2fbe3b671a7d7e86.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
@@ -325,28 +349,31 @@
 
 
   ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
-    \[\begin {tikzcd}
-    && {F(X)} && {F(Y)} \\
-    \\
-    X && Y
-    \arrow [""{name=0, anchor=center, inner sep=0}, "{F(f)}", from=1-3, to=1-5]
-    \arrow [dashed, from=3-1, to=1-3]
-    \arrow [""{name=1, anchor=center, inner sep=0}, "f", from=3-1, to=3-3]
-    \arrow [dashed, from=3-3, to=1-5]
-    \arrow [between={0.2}{0.8}, dashed, from=1, to=0]
-  \end {tikzcd}\]
-  ]]></fr:resource-source></fr:resource></html:figure>
+        \[\begin {tikzcd}
+          && {F(X)} && {F(Y)} \\
+          \\
+          X && Y
+          \arrow [""{name=0, anchor=center, inner sep=0}, "{F(f)}", from=1-3, to=1-5]
+          \arrow [dashed, from=3-1, to=1-3]
+          \arrow [""{name=1, anchor=center, inner sep=0}, "f", from=3-1, to=3-3]
+          \arrow [dashed, from=3-3, to=1-5]
+          \arrow [between={0.2}{0.8}, dashed, from=1, to=0]
+          \end {tikzcd}\]
+]]></fr:resource-source></fr:resource></html:figure>
  
 
-  The main idea being that a full functor only guarantees that if we have some arrow between two objects in the image (application) of <fr:tex display="inline"><![CDATA[F]]></fr:tex> then there exists some preimage arrow in <fr:tex display="inline"><![CDATA[C]]></fr:tex> that maps to it. But we can have objects and morphisms outside the image of <fr:tex display="inline"><![CDATA[F]]></fr:tex> that do not have any preimage in <fr:tex display="inline"><![CDATA[C]]></fr:tex>.
+      The main idea being that a full functor only guarantees that if we have some arrow between two objects in the image (application) of <fr:tex display="inline"><![CDATA[F]]></fr:tex> then there exists some preimage arrow in <fr:tex display="inline"><![CDATA[C]]></fr:tex> that maps to it. But we can have objects and morphisms outside the image of <fr:tex display="inline"><![CDATA[F]]></fr:tex> that do not have any preimage in <fr:tex display="inline"><![CDATA[C]]></fr:tex>.
+    </html:li>
+    In other words it <html:strong>does not mean</html:strong> the functor is <html:em>surjective on objects</html:em> or <html:em>morphisms</html:em> in general.
   </html:li>
-  In other words it <html:strong>does not mean</html:strong> the functor is <html:em>surjective on objects</html:em> or <html:em>morphisms</html:em> in general.
-  </html:li>
-  <html:li>The functor <fr:tex display="inline"><![CDATA[F]]></fr:tex> is called <html:strong>fully faithful</html:strong> if for every pair of objects <fr:tex display="inline"><![CDATA[X, Y \in  \mathrm {Ob}(C)]]></fr:tex> the function <fr:tex display="inline"><![CDATA[F_{X, Y}]]></fr:tex> is bijective. We say that a fully faithful functor is necessarily injective on objects up to <fr:link href="/notes/002s/" title="Isomorphism (morphisms)" uri="https://kaierikniermann.github.io/notes/002s/" display-uri="002s" type="local">isomorphism</fr:link>, that is assuming <fr:tex display="inline"><![CDATA[F]]></fr:tex> is fully faithful then we have:
+
+  <html:li>
+
+    The functor <fr:tex display="inline"><![CDATA[F]]></fr:tex> is called <html:strong>fully faithful</html:strong> if for every pair of objects <fr:tex display="inline"><![CDATA[X, Y \in  \mathrm {Ob}(C)]]></fr:tex> the function <fr:tex display="inline"><![CDATA[F_{X, Y}]]></fr:tex> is bijective. We say that a fully faithful functor is necessarily injective on objects up to <fr:link href="/notes/002s/" title="Isomorphism (morphisms)" uri="https://kaierikniermann.github.io/notes/002s/" display-uri="002s" type="local">isomorphism</fr:link>, that is assuming <fr:tex display="inline"><![CDATA[F]]></fr:tex> is fully faithful then we have:
     <fr:tex display="block"><![CDATA[
       F(X) \cong  F(Y) \implies  X \cong  Y
     ]]></fr:tex>
-  This means that if two objects in the image of <fr:tex display="inline"><![CDATA[F]]></fr:tex> are isomorphic then their preimages in <fr:tex display="inline"><![CDATA[C]]></fr:tex> must also be isomorphic. In other words what this means is that a fully faithful functor preserves distinctness of objects up to the point of being the same for all practical purposes (i.e. isomorphism).
+    This means that if two objects in the image of <fr:tex display="inline"><![CDATA[F]]></fr:tex> are isomorphic then their preimages in <fr:tex display="inline"><![CDATA[C]]></fr:tex> must also be isomorphic. In other words what this means is that a fully faithful functor preserves distinctness of objects up to the point of being the same for all practical purposes (i.e. isomorphism).
   </html:li></html:ul>
           </fr:mainmatter>
         </fr:tree>

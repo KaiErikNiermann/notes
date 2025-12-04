@@ -101,14 +101,16 @@
   
   
     
-    <fr:resource hash="864dba8f63436598dfcbfbc326e9671d"><fr:resource-content><html:img src="/notes/864dba8f63436598dfcbfbc326e9671d.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="63b338beeb6e34f7b990a23c3e92b73c"><fr:resource-content><html:img src="/notes/63b338beeb6e34f7b990a23c3e92b73c.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
     \inferrule *{
@@ -139,14 +141,16 @@
     
   
     
-    <fr:resource hash="e274686e577682252acb094094c16a90"><fr:resource-content><html:img src="/notes/e274686e577682252acb094094c16a90.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="8ab9294001d8167ff895f88a8c82a4e8"><fr:resource-content><html:img src="/notes/8ab9294001d8167ff895f88a8c82a4e8.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
       \inferrule *{
@@ -240,27 +244,34 @@
             <fr:title text="Syntactic (inference) rule">Syntactic (inference) rule</fr:title>
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
-          <fr:mainmatter><html:p>The basic form of a rule that describes a subset of a set <fr:tex display="inline"><![CDATA[X]]></fr:tex> is given by:</html:p>
+          <fr:mainmatter><html:p>
+  The basic form of a rule that describes a subset of a set <fr:tex display="inline"><![CDATA[X]]></fr:tex> is given by:
+</html:p>
   
     
-    <fr:resource hash="06b444c679ab007650bad550aebd6fa6"><fr:resource-content><html:img src="/notes/06b444c679ab007650bad550aebd6fa6.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="06dac01a293c41b9b4031a4a8bad8096"><fr:resource-content><html:img src="/notes/06dac01a293c41b9b4031a4a8bad8096.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
+  \newcommand{\cf}[1]{\texttt{#1}}
+
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *{
     x_1 \\ \ldots  \\ x_n
-  }{
+}{
     x
-  }
+}
 \end {mathpar}]]></fr:resource-source></fr:resource>
   
-<html:p>In plain English this can be read as: <html:em>If <fr:tex display="inline"><![CDATA[x_1]]></fr:tex> to {x_n} are elements of the subset I am defining, then so is <fr:tex display="inline"><![CDATA[x]]></fr:tex></html:em>. Here the elements <fr:tex display="inline"><![CDATA[x_1]]></fr:tex> to <fr:tex display="inline"><![CDATA[x_n]]></fr:tex> are called the <html:em>premises</html:em> of the rule while <fr:tex display="inline"><![CDATA[x]]></fr:tex> is called the <html:em>conclusion</html:em> of the rule.</html:p><html:p>One potentially helpful perspective for the set theoretic is that the conclusion <fr:tex display="inline"><![CDATA[x]]></fr:tex> can be thought of as a label for the set of premises <fr:tex display="inline"><![CDATA[\{x_1, \ldots , x_n\}]]></fr:tex></html:p></fr:mainmatter>
+<html:p>
+  In plain English this can be read as: <html:em>If <fr:tex display="inline"><![CDATA[x_1]]></fr:tex> to {x_n} are elements of the subset I am defining, then so is <fr:tex display="inline"><![CDATA[x]]></fr:tex></html:em>. Here the elements <fr:tex display="inline"><![CDATA[x_1]]></fr:tex> to <fr:tex display="inline"><![CDATA[x_n]]></fr:tex> are called the <html:em>premises</html:em> of the rule while <fr:tex display="inline"><![CDATA[x]]></fr:tex> is called the <html:em>conclusion</html:em> of the rule.
+</html:p><html:p>
+  One potentially helpful perspective for the set theoretic is that the conclusion <fr:tex display="inline"><![CDATA[x]]></fr:tex> can be thought of as a label for the set of premises <fr:tex display="inline"><![CDATA[\{x_1, \ldots , x_n\}]]></fr:tex></html:p></fr:mainmatter>
         </fr:tree>
         <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
           <fr:frontmatter>

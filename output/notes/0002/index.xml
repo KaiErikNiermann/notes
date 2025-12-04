@@ -79,15 +79,15 @@
                   <fr:mainmatter><html:p>Using BNF notation, the syntax of propositional logic can be defined as follows:</html:p>
  
   
-  <html:figure><fr:resource hash="004d66fe12d62d626c2e35637d8746f7"><fr:resource-content><html:img src="/notes/004d66fe12d62d626c2e35637d8746f7.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="e8fe66989c999aaf2a9551442e29166b"><fr:resource-content><html:img src="/notes/e8fe66989c999aaf2a9551442e29166b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
@@ -191,17 +191,21 @@
                     <fr:title text="Semantics">Semantics</fr:title>
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
-                  <fr:mainmatter><html:p>We can define the semantic inference rules for propositional logic formulas under interpretations as follows inductively, starting with the base cases:</html:p>
+                  <fr:mainmatter><html:p>
+  We can define the semantic inference rules for propositional logic formulas under interpretations as follows inductively, starting with the base cases:
+</html:p>
   
     
-    <fr:resource hash="bc85581157219263d09e73cefc44f077"><fr:resource-content><html:img src="/notes/bc85581157219263d09e73cefc44f077.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="028beb2256956745cbd6c6d092a67ec4"><fr:resource-content><html:img src="/notes/028beb2256956745cbd6c6d092a67ec4.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Atom-$\top $]{
@@ -227,17 +231,21 @@
   }
 \end {mathpar}]]></fr:resource-source></fr:resource>
   
-<html:p>Moving on to the inductive case we have</html:p>
+<html:p>
+  Moving on to the inductive case we have
+</html:p>
   
     
-    <fr:resource hash="58a9b3ea7d888229eb32dd683687ee6f"><fr:resource-content><html:img src="/notes/58a9b3ea7d888229eb32dd683687ee6f.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="6b58c468fd4a9e74c51788f18b2ea6bb"><fr:resource-content><html:img src="/notes/6b58c468fd4a9e74c51788f18b2ea6bb.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Neg-$\top $]{
@@ -245,7 +253,7 @@
   }{
     I \not \models  F
   }
-  \and  
+  \and 
   \inferrule *[right=Conj-$\top $]{
     I \models  F_1 \quad  I \models  F_2
   }{
@@ -257,7 +265,7 @@
   }{
     I \models  F_1 \lor  F_2
   }
-  \and  
+  \and 
   \inferrule *[right=Imp-$\top $]{
     I \not \models  F_1 \quad  \text {or} \quad  I \models  F_2
   }{
@@ -272,18 +280,20 @@
 \end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>
-Similarly, the rules for when an interpretation does not satisfy a formula are as follows:
+  Similarly, the rules for when an interpretation does not satisfy a formula are as follows:
 </html:p>
   
     
-    <fr:resource hash="344d6b5968006455b649cbbd2d9404b2"><fr:resource-content><html:img src="/notes/344d6b5968006455b649cbbd2d9404b2.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="6be5095cad00657a1d9244ee3cab2d11"><fr:resource-content><html:img src="/notes/6be5095cad00657a1d9244ee3cab2d11.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Neg-$\bot $]{
@@ -291,7 +301,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     I \models  F
   }
-  \and  
+  \and 
   \inferrule *[right=Conj-$\bot $]{
     I \not \models  F_1 \quad  \text {or} \quad  I \not \models  F_2
   }{
@@ -303,7 +313,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     I \not \models  F_1 \lor  F_2
   }
-  \and  
+  \and 
   \inferrule *[right=Imp-$\bot $]{
     I \models  F_1 \\ I \not \models  F_2
   }{
@@ -380,14 +390,16 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   
   
     
-    <fr:resource hash="fb54c0a5c8917e2450709946ac062854"><fr:resource-content><html:img src="/notes/fb54c0a5c8917e2450709946ac062854.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="4807516d6cf6f2fdc256701b3e189646"><fr:resource-content><html:img src="/notes/4807516d6cf6f2fdc256701b3e189646.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
     \inferrule {
@@ -1370,22 +1382,24 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                     <fr:title text="Semantic Entailment \models  (FOL)">Semantic Entailment <fr:tex display="inline"><![CDATA[\models ]]></fr:tex> (FOL)</fr:title>
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
-                  <fr:mainmatter><html:p>We evaluate formulas in first order logic <html:em>under</html:em> a structure which consists of a domain and an interpretation function. In addition, we need a variable assignment to evaluate formulas with free variables. To denote truth under a structure <fr:tex display="inline"><![CDATA[S]]></fr:tex> and variable assignment <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> we write:</html:p><html:ul><html:li><html:strong>True</html:strong>: If a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> evaluates to true under <fr:tex display="inline"><![CDATA[U, I, \sigma ]]></fr:tex> we write <fr:tex display="block"><![CDATA[
-    U, I, \sigma  \models  F
-  ]]></fr:tex></html:li>
-  <html:li><html:strong>False</html:strong>: If a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> evaluates to false under <fr:tex display="inline"><![CDATA[U, I, \sigma ]]></fr:tex> we write <fr:tex display="block"><![CDATA[
-    U, I, \sigma  \nvDash  F
-  ]]></fr:tex></html:li></html:ul><html:p>We can define semantic entailment inductively as follows:</html:p>
+                  <fr:mainmatter><html:p>
+  We evaluate formulas in first order logic <html:em>under</html:em> a structure which consists of a domain and an interpretation function. In addition, we need a variable assignment to evaluate formulas with free variables. To denote truth under a structure <fr:tex display="inline"><![CDATA[S]]></fr:tex> and variable assignment <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> we write:
+</html:p><html:ul><html:li><html:strong>True</html:strong>: If a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> evaluates to true under <fr:tex display="inline"><![CDATA[U, I, \sigma ]]></fr:tex> we write <fr:tex display="block"><![CDATA[U, I, \sigma  \models  F]]></fr:tex></html:li>
+  <html:li><html:strong>False</html:strong>: If a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> evaluates to false under <fr:tex display="inline"><![CDATA[U, I, \sigma ]]></fr:tex> we write <fr:tex display="block"><![CDATA[U, I, \sigma  \nvDash  F]]></fr:tex></html:li></html:ul><html:p>
+  We can define semantic entailment inductively as follows:
+</html:p>
   
     
-    <fr:resource hash="2b351294263361b74676193e73f28df6"><fr:resource-content><html:img src="/notes/2b351294263361b74676193e73f28df6.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="d7624c2c82ab393fab290297f3fd0420"><fr:resource-content><html:img src="/notes/d7624c2c82ab393fab290297f3fd0420.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=True]{}{
@@ -1469,14 +1483,16 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                   <fr:mainmatter><html:p>In addition to evaluating atomic formulas, we can define the evaluation of complex formulas using logical connectives and quantifiers as follows:</html:p>
   
     
-    <fr:resource hash="991a5113f70cfcb315c0458b8f4dceca"><fr:resource-content><html:img src="/notes/991a5113f70cfcb315c0458b8f4dceca.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="2ed6f8116f00585c9a6a6031eb24b377"><fr:resource-content><html:img src="/notes/2ed6f8116f00585c9a6a6031eb24b377.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Not-True]{
@@ -1531,14 +1547,16 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
 <html:p>For the proof rules of quantifiers we have two variants depending on whether we are dealing with free or bound variables:</html:p>
   
     
-    <fr:resource hash="bf807f288df79827d7da6707c91abf5b"><fr:resource-content><html:img src="/notes/bf807f288df79827d7da6707c91abf5b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="e31d38f49dbceb637264aba1c17cc280"><fr:resource-content><html:img src="/notes/e31d38f49dbceb637264aba1c17cc280.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=$\forall $-$\top $]{
@@ -1582,31 +1600,44 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                     <fr:title text="Semantic Argument method (FOL)">Semantic Argument method (FOL)</fr:title>
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
-                  <fr:mainmatter><html:p>In first order logic, the <html:em>semantic argument method</html:em> represents a proof by contradiction. The basic idea is as follows:</html:p><html:ol><html:li>We assume that our formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is not valid, i.e., <fr:tex display="inline"><![CDATA[\exists  S, \sigma  \nvDash  F]]></fr:tex></html:li>
-  <html:li>Use the proof rules to derive a contradiction from this assumption.</html:li>
-  <html:li>If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.</html:li></html:ol><html:p>We can express the semantic argument method via the following inference rule:</html:p>
+                  <fr:mainmatter><html:p>
+  In first order logic, the <html:em>semantic argument method</html:em> represents a proof by contradiction. The basic idea is as follows:
+</html:p><html:ol><html:li>
+    We assume that our formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is not valid, i.e., <fr:tex display="inline"><![CDATA[\exists  S, \sigma  \nvDash  F]]></fr:tex></html:li>
+  <html:li>
+    Use the proof rules to derive a contradiction from this assumption.
+  </html:li>
+  <html:li>
+    If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.
+  </html:li></html:ol><html:p>
+  We can express the semantic argument method via the following inference rule:
+</html:p>
   
     
-    <fr:resource hash="3bed6126b85cea6a0873a90457e4404a"><fr:resource-content><html:img src="/notes/3bed6126b85cea6a0873a90457e4404a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="2454f17b7350a6508743934c93b962c3"><fr:resource-content><html:img src="/notes/2454f17b7350a6508743934c93b962c3.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
+  \newcommand{\cf}[1]{\texttt{#1}}
+
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Contradiction]{
     S, \sigma  \models  p(s_1, \ldots , s_n) \\
-    S, \sigma  \models  \neg  p(t_1, \ldots , t_n) \\ 
+    S, \sigma  \models  \neg  p(t_1, \ldots , t_n) \\
     \langle  I, \sigma \rangle  (t_1) = \langle  I, \sigma \rangle  (s_1), \ldots , \langle  I, \sigma \rangle  (t_n) = \langle  I, \sigma \rangle  (s_n)
   }{
     S, \sigma  \models  \bot 
   }
 \end {mathpar}]]></fr:resource-source></fr:resource>
   
-<html:p>So the idea here being that if we have a predicate and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction. This allows us to conclude that our initial assumption (that the formula is not valid) must be false, thereby proving the validity of the formula.</html:p></fr:mainmatter>
+<html:p>
+  So the idea here being that if we have a predicate and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction. This allows us to conclude that our initial assumption (that the formula is not valid) must be false, thereby proving the validity of the formula.
+</html:p></fr:mainmatter>
                 </fr:tree>
                 <fr:tree show-metadata="false">
                   <fr:frontmatter>
@@ -1687,10 +1718,17 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>A <html:em>first order theory</html:em> (FOT) <fr:tex display="inline"><![CDATA[T]]></fr:tex> is defined by two main components:</html:p>
-                    <html:ul><html:li>A <html:em>signature</html:em> <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> of a set of constant, function, and predicate symbols</html:li>
-  <html:li>A set of <html:em>axioms</html:em> <fr:tex display="inline"><![CDATA[\mathcal  A]]></fr:tex> consisting of closed (i.e. no free variables) formulas over the signature <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex></html:li></html:ul>
-                    <html:p>We say that a formula constructed from only from the contents of the signature <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> is a <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex>-formula.</html:p>
+                    <html:p>
+  A <html:em>first order theory</html:em> (FOT) <fr:tex display="inline"><![CDATA[T]]></fr:tex> is defined by two main components:
+</html:p>
+                    <html:ul><html:li>
+    A <html:em>signature</html:em> <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> of a set of constant, function, and predicate symbols
+  </html:li>
+  <html:li>
+    A set of <html:em>axioms</html:em> <fr:tex display="inline"><![CDATA[\mathcal  A]]></fr:tex> consisting of closed (i.e. no free variables) formulas over the signature <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex></html:li></html:ul>
+                    <html:p>
+  We say that a formula constructed from only from the contents of the signature <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> is a <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex>-formula.
+</html:p>
                   </fr:mainmatter>
                 </fr:tree>
                 <fr:tree show-metadata="false">
@@ -1869,14 +1907,16 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                   <fr:mainmatter><html:p>We can compare the two notions by understanding <html:em>validity in modulo</html:em> <fr:tex display="inline"><![CDATA[T]]></fr:tex> as a restriction of <html:em>validity in FOL</html:em> to only those models that are <fr:tex display="inline"><![CDATA[T]]></fr:tex>-models. So the implication of that is that if a formula is valid (true in all models), then its clearly also valid in the subset/restriction to only <fr:tex display="inline"><![CDATA[T]]></fr:tex>-models. However, the other way around does not hold, since a formula can be true in all <fr:tex display="inline"><![CDATA[T]]></fr:tex>-models, but false in some non-<fr:tex display="inline"><![CDATA[T]]></fr:tex>-model. Hence we have the following:</html:p>
  
   
-  <fr:resource hash="cfe2cf6f814d69d77f9a75a9bc3e1c9c"><fr:resource-content><html:img src="/notes/cfe2cf6f814d69d77f9a75a9bc3e1c9c.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <fr:resource hash="e17a21d7370f74a45bdb962c07a32b9d"><fr:resource-content><html:img src="/notes/e17a21d7370f74a45bdb962c07a32b9d.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
   ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\[
   \vDash  F \implies  T \vDash  F  
@@ -1885,14 +1925,16 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
 <html:p>But the other way around does not hold in general:</html:p>
  
   
-  <fr:resource hash="1fcae5da143e03fc72c1ee60ad7bc5fc"><fr:resource-content><html:img src="/notes/1fcae5da143e03fc72c1ee60ad7bc5fc.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <fr:resource hash="8bedd6a874fded6390949fd57cbf0d41"><fr:resource-content><html:img src="/notes/8bedd6a874fded6390949fd57cbf0d41.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
   ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\[
   T \vDash  F \centernot \implies  \vDash  F
@@ -2055,12 +2097,19 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                     <fr:title text="Function &amp; Predicate congruence">Function &amp; Predicate congruence</fr:title>
                     <fr:taxon>Quiz</fr:taxon>
                   </fr:frontmatter>
-                  <fr:mainmatter><html:p>Consider the universe:</html:p><fr:tex display="block"><![CDATA[
+                  <fr:mainmatter><html:p>
+  Consider the universe:
+</html:p><fr:tex display="block"><![CDATA[
   U = \{a, b, c\}
-]]></fr:tex><html:p>and the interpretation:</html:p><fr:tex display="block"><![CDATA[
+]]></fr:tex><html:p>
+  and the interpretation:
+</html:p><fr:tex display="block"><![CDATA[
   I(=) \triangleq  \{\langle  a, a \rangle , \langle  a, b \rangle , \langle  b, a \rangle , \langle  b, b \rangle , \langle  c, c \rangle \}
-]]></fr:tex><html:ol><html:li>Does the interpetation <fr:tex display="inline"><![CDATA[I(=)]]></fr:tex> satisfy the axioms of equality?</html:li>
-  <html:li>Which interpretations for a function <fr:tex display="inline"><![CDATA[f]]></fr:tex> satisfy the axioms of congruence?
+]]></fr:tex><html:ol><html:li>
+    Does the interpetation <fr:tex display="inline"><![CDATA[I(=)]]></fr:tex> satisfy the axioms of equality?
+  </html:li>
+  <html:li>
+    Which interpretations for a function <fr:tex display="inline"><![CDATA[f]]></fr:tex> satisfy the axioms of congruence?
     <html:ol><html:li><fr:tex display="inline"><![CDATA[I(f) \triangleq  \{b \to  a, a \to  c, c \to  c\}]]></fr:tex></html:li>
       <html:li><fr:tex display="inline"><![CDATA[I(f) \triangleq  \{b \to  b, a \to  b, c \to  b\}]]></fr:tex></html:li>
       <html:li><fr:tex display="inline"><![CDATA[I(f) \triangleq  \{b \to  a, a \to  b, c \to  c\}]]></fr:tex></html:li></html:ol></html:li></html:ol>
@@ -2068,11 +2117,17 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
    
    
    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>2</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
-  <html:ol><html:li>Yes, the interpretation satisfies the axioms of equality</html:li>
-    <html:li>Going through them one by one:
-      <html:ol><html:li>No, because <fr:tex display="inline"><![CDATA[f(a) = c]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = a]]></fr:tex> but <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> yet <fr:tex display="inline"><![CDATA[c\ not\ I(=)\ a]]></fr:tex></html:li> 
-        <html:li>Yes, because <fr:tex display="inline"><![CDATA[f(a) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> thus <fr:tex display="inline"><![CDATA[b\ I(=)\ b]]></fr:tex>, similarly for <fr:tex display="inline"><![CDATA[c]]></fr:tex></html:li>
-        <html:li>Yes, because <fr:tex display="inline"><![CDATA[f(a) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = a]]></fr:tex> and <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> thus <fr:tex display="inline"><![CDATA[b\ I(=)\ a]]></fr:tex>, similarly for <fr:tex display="inline"><![CDATA[c]]></fr:tex></html:li></html:ol></html:li></html:ol>
+  <html:ol><html:li>
+      Yes, the interpretation satisfies the axioms of equality
+    </html:li>
+    <html:li>
+      Going through them one by one:
+      <html:ol><html:li>
+          No, because <fr:tex display="inline"><![CDATA[f(a) = c]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = a]]></fr:tex> but <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> yet <fr:tex display="inline"><![CDATA[c\ not\ I(=)\ a]]></fr:tex></html:li>
+        <html:li>
+          Yes, because <fr:tex display="inline"><![CDATA[f(a) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> thus <fr:tex display="inline"><![CDATA[b\ I(=)\ b]]></fr:tex>, similarly for <fr:tex display="inline"><![CDATA[c]]></fr:tex></html:li>
+        <html:li>
+          Yes, because <fr:tex display="inline"><![CDATA[f(a) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = a]]></fr:tex> and <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> thus <fr:tex display="inline"><![CDATA[b\ I(=)\ a]]></fr:tex>, similarly for <fr:tex display="inline"><![CDATA[c]]></fr:tex></html:li></html:ol></html:li></html:ol>
 </fr:mainmatter></fr:tree>
  
 </fr:mainmatter>
@@ -2105,11 +2160,15 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>Peano Arithmetic (PA) is a first order theory over the signature <fr:tex display="inline"><![CDATA[\Sigma _{PA}]]></fr:tex> which contains:</html:p>
+                    <html:p>
+  Peano Arithmetic (PA) is a first order theory over the signature <fr:tex display="inline"><![CDATA[\Sigma _{PA}]]></fr:tex> which contains:
+</html:p>
                     <fr:tex display="block"><![CDATA[
   \Sigma _{PA} : \{0, S, +, \times , =\}
 ]]></fr:tex>
-                    <html:p>Where <fr:tex display="inline"><![CDATA[0]]></fr:tex> is a constant symbol representing zero, <fr:tex display="inline"><![CDATA[S]]></fr:tex> is a unary function symbol representing the successor function, <fr:tex display="inline"><![CDATA[+]]></fr:tex> and <fr:tex display="inline"><![CDATA[\times ]]></fr:tex> are binary function symbols representing addition and multiplication respectively, and <fr:tex display="inline"><![CDATA[=]]></fr:tex> is a binary relation symbol representing equality. The axioms of Peano Arithmetic are:</html:p>
+                    <html:p>
+  Where <fr:tex display="inline"><![CDATA[0]]></fr:tex> is a constant symbol representing zero, <fr:tex display="inline"><![CDATA[S]]></fr:tex> is a unary function symbol representing the successor function, <fr:tex display="inline"><![CDATA[+]]></fr:tex> and <fr:tex display="inline"><![CDATA[\times ]]></fr:tex> are binary function symbols representing addition and multiplication respectively, and <fr:tex display="inline"><![CDATA[=]]></fr:tex> is a binary relation symbol representing equality. The axioms of Peano Arithmetic are:
+</html:p>
                     <fr:resource hash="38b17d08c8a044cd82fc858e037bbf9f">
                       <fr:resource-content>
                         <html:img src="/notes/38b17d08c8a044cd82fc858e037bbf9f.svg" />
@@ -2215,11 +2274,15 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>Presburger Arithmetic (PA) is a first order theory over the signature <fr:tex display="inline"><![CDATA[\Sigma _{\mathbb {N}}]]></fr:tex> which contains:</html:p>
+                    <html:p>
+  Presburger Arithmetic (PA) is a first order theory over the signature <fr:tex display="inline"><![CDATA[\Sigma _{\mathbb {N}}]]></fr:tex> which contains:
+</html:p>
                     <fr:tex display="block"><![CDATA[
   \Sigma _{\mathbb {N}} : \{0, 1, +, =\}
 ]]></fr:tex>
-                    <html:p>Where <fr:tex display="inline"><![CDATA[0]]></fr:tex> and <fr:tex display="inline"><![CDATA[1]]></fr:tex> are constant symbols representing zero and one respectively, <fr:tex display="inline"><![CDATA[+]]></fr:tex> is a binary function symbol representing addition, and <fr:tex display="inline"><![CDATA[=]]></fr:tex> is a binary relation symbol representing equality. The axioms of Presburger Arithmetic are:</html:p>
+                    <html:p>
+  Where <fr:tex display="inline"><![CDATA[0]]></fr:tex> and <fr:tex display="inline"><![CDATA[1]]></fr:tex> are constant symbols representing zero and one respectively, <fr:tex display="inline"><![CDATA[+]]></fr:tex> is a binary function symbol representing addition, and <fr:tex display="inline"><![CDATA[=]]></fr:tex> is a binary relation symbol representing equality. The axioms of Presburger Arithmetic are:
+</html:p>
                     <fr:resource hash="b2cd095d79c0e49ba09ee38205cc6cdc">
                       <fr:resource-content>
                         <html:img src="/notes/b2cd095d79c0e49ba09ee38205cc6cdc.svg" />
@@ -2237,10 +2300,17 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   \end{align*}
 ]]></fr:resource-source>
                     </fr:resource>
-                    <html:p>Some important properties of <fr:tex display="inline"><![CDATA[T_{\mathbb {N}} are]]></fr:tex>:</html:p>
-                    <html:ul><html:li>Validity in <html:em>quantifer-free</html:em> Presburger Arithmetic is decidable.</html:li>
-  <html:li>Validity in <html:em>full</html:em> Presburger Arithmetic is decidable.</html:li>
-  <html:li>Validity in Presburger Arithmetic has a super exponential complexity <fr:tex display="inline"><![CDATA[O(2^{2^n})]]></fr:tex></html:li>
+                    <html:p>
+  Some important properties of <fr:tex display="inline"><![CDATA[T_{\mathbb {N}} are]]></fr:tex>:
+</html:p>
+                    <html:ul><html:li>
+    Validity in <html:em>quantifer-free</html:em> Presburger Arithmetic is decidable.
+  </html:li>
+  <html:li>
+    Validity in <html:em>full</html:em> Presburger Arithmetic is decidable.
+  </html:li>
+  <html:li>
+    Validity in Presburger Arithmetic has a super exponential complexity <fr:tex display="inline"><![CDATA[O(2^{2^n})]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[T_{\mathbb {N}}]]></fr:tex> is <html:em>complete</html:em>, i.e.
     <fr:tex display="block"><![CDATA[
       \forall  F.\ T_{\mathbb {N}} \models  F \lor  T_{\mathbb {N}} \models  \neg  F
@@ -2303,16 +2373,25 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>The theory of arrays is a first-order theory that models arrays as functions from indices to values. It's signature includes:</html:p>
+                    <html:p>
+  The theory of arrays is a first-order theory that models arrays as functions from indices to values. It's signature includes:
+</html:p>
                     <fr:tex display="block"><![CDATA[
   \Sigma _A \triangleq  \{- [ - ], \langle  - \triangleleft  - \rangle , =\}
 ]]></fr:tex>
-                    <html:p>where:</html:p>
-                    <html:ul><html:li><fr:tex display="inline"><![CDATA[-[ - ]]]></fr:tex>: read operation, which takes an array and an index and returns the value at that index.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[\langle  - \triangleleft  - \rangle ]]></fr:tex>: write operation, which takes an array, an index, and a 
-  value, and returns a new array with the value at the specified index updated.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[=]]></fr:tex>: equality relation, which checks if two arrays are identical.</html:li></html:ul>
-                    <html:p>The axioms of the theory of arrays are:</html:p>
+                    <html:p>
+  where:
+</html:p>
+                    <html:ul><html:li><fr:tex display="inline"><![CDATA[-[ - ]]]></fr:tex>: read operation, which takes an array and an index and returns the value at that index.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\langle  - \triangleleft  - \rangle ]]></fr:tex>: write operation, which takes an array, an index, and a
+    value, and returns a new array with the value at the specified index updated.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[=]]></fr:tex>: equality relation, which checks if two arrays are identical.
+  </html:li></html:ul>
+                    <html:p>
+  The axioms of the theory of arrays are:
+</html:p>
                     <fr:resource hash="8ff9653ef4ba489edcda34b8856e7a7b">
                       <fr:resource-content>
                         <html:img src="/notes/8ff9653ef4ba489edcda34b8856e7a7b.svg" />
@@ -2345,7 +2424,9 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                     <fr:title text="Theory of arrays T_A">Theory of arrays <fr:tex display="inline"><![CDATA[T_A]]></fr:tex></fr:title>
                     <fr:taxon>Quiz</fr:taxon>
                   </fr:frontmatter>
-                  <fr:mainmatter><html:p>Which of the following formula is valid/satisfiable/unsatisfiable ?</html:p><html:ol><html:li><fr:tex display="inline"><![CDATA[a[3] = 2]]></fr:tex></html:li>
+                  <fr:mainmatter><html:p>
+  Which of the following formula is valid/satisfiable/unsatisfiable ?
+</html:p><html:ol><html:li><fr:tex display="inline"><![CDATA[a[3] = 2]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[a \langle  3 \triangleleft  5 \rangle [3] = 5]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[a \langle  3 \triangleleft  5 \rangle [3] = 3]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[a[3] = 2\land  a \langle  3 \triangleleft  5 \rangle [3] = 5]]></fr:tex></html:li></html:ol>
@@ -2362,6 +2443,488 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
 </fr:mainmatter>
                 </fr:tree>
               </fr:mainmatter>
+            </fr:tree>
+          </fr:mainmatter>
+        </fr:tree>
+        <fr:tree show-metadata="false" expanded="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>12</fr:month>
+              <fr:day>2</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/003n/</fr:uri>
+            <fr:display-uri>003n</fr:display-uri>
+            <fr:route>/notes/003n/</fr:route>
+            <fr:title text="Lecture 5 - Nano and Hoare Logic">Lecture 5 - Nano and Hoare Logic</fr:title>
+            <fr:taxon>VU-VFS-2025</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>2</fr:day>
+                </fr:date>
+                <fr:title text="Semantics and Evaluation">Semantics and Evaluation</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>4</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/003t/</fr:uri>
+                    <fr:display-uri>003t</fr:display-uri>
+                    <fr:route>/notes/003t/</fr:route>
+                    <fr:title text="Simple Imperative Language - Syntax">Simple Imperative Language - Syntax</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  We define the syntax of a simple imperative programming language, using the followng bnf grammar:
+</html:p>
+  
+    
+    <fr:resource hash="d9358af54b1514c3e8ea6264dd0ad402"><fr:resource-content><html:img src="/notes/d9358af54b1514c3e8ea6264dd0ad402.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+      
+    \usepackage{xcolor}               % color support
+  \definecolor{dkgreen}{rgb}{0,0.6,0}
+  \definecolor{gray}{rgb}{0.5,0.5,0.5}
+  \definecolor{mauve}{rgb}{0.58,0,0.82}
+  \definecolor{brown}{rgb}{0.921, 0.325, 0.078}
+  \definecolor{lightline}{rgb}{0.8,0.8,0.8}
+
+  \usepackage{libertine}
+  \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  % \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+  \usepackage{simplebnf}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
+      \begin {center}
+        \begin {bnf}(
+          prod-delim = {--},
+          or-sym = {},
+          prod-sep = 5pt,
+        )[
+          colspec = {llcll},
+          column{1} = {font=\sffamily },
+          column{2} = {mode=dmath},
+          column{4} = {font=\ttfamily },
+          column{5} = {font=\itshape \color {gray}},
+        ]
+          
+      e : Exp ::=
+    | n : number
+    | x : variable
+    | $e_1 + e_2$ : addition
+    | $e_1 - e_2$ : subtraction
+    | $e_1 * e_2$ : multiplication
+    --
+    b : BExp ::=
+    | $\top$ : true
+    | $\bot$ : false
+    | $\neg b$ : negation
+    | $b_1 \land b_2$ : conjunction
+    | $b_1 \lor b_2$ : disjunction
+    | $e_1 = e_2$ : equality
+    | $e_1 \leq e_2$ : less than or equal
+    --
+    s : Stmt ::=
+    | skip : skip
+    | $x \coloneqq e$ : assignment
+    | $s_1 ; s_2$ : sequencing
+    | if $b$ then $s_1$ else $s_2$ : conditional
+    | while $b$ do $s$ : while loop
+
+        \end {bnf}
+      \end {center}
+    ]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>4</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/003u/</fr:uri>
+                    <fr:display-uri>003u</fr:display-uri>
+                    <fr:route>/notes/003u/</fr:route>
+                    <fr:title text="Simple Imperative Language - Semantics">Simple Imperative Language - Semantics</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>
+  We can divide the environmental big-step semantics of our simple language into three parts:
+</html:p>
+                    <html:ul><html:li><html:strong>Expression evaluation</html:strong>: Describes how arithmetic expressions are evaluated to numbers.
+  </html:li>
+  <html:li><html:strong>Boolean expression evaluation</html:strong>: Describes how boolean expressions are evaluated to boolean values (true/false).
+  </html:li>
+  <html:li><html:strong>Statement execution</html:strong>: Describes how statements are executed, transforming an initial state (environment) into a final state.
+  </html:li></html:ul>
+                    <html:p>
+  The general big-step environmental evalutation rule is denoted as:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \langle  t, \sigma  \rangle  \Downarrow  v
+]]></fr:tex>
+                    <html:p>
+  Here:
+</html:p>
+                    <html:ol><html:li>
+    We have some starting term <fr:tex display="inline"><![CDATA[\texttt {t}]]></fr:tex> (which can be an expression, boolean expression, or statement), along with some state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>.
+  </html:li>
+  <html:li>
+    The evaluation results in some value <fr:tex display="inline"><![CDATA[\texttt {v}]]></fr:tex> (which can be a number, boolean value, or new state).
+  </html:li></html:ol>
+                    <html:p>
+  A quick aside here to deconstruct the term <html:strong>big-step environmental evaluation</html:strong>:
+</html:p>
+                    <html:ul><html:li>
+    We say that this evaluation is <html:strong>big-step</html:strong> as it assumes some arbitrary state of intermediate steps, meaning that within big step semantics we do not care about intermediate computation only about some input expression and the final output value. A simple analogue to make here is that big-step semantics are akin to a teacher asking you to only show ur final answer to a math problem rather than all the steps you took to get there.
+  </html:li>
+  <html:li>
+    We say that this evaluation is <html:strong>environmental</html:strong> (as opposed to being substitution based) as we explicitly keep track of a state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> which maps variables to their values. This is in contrast to substitution based semantics where variable occurrences are replaced directly with their values in expressions.
+  </html:li></html:ul>
+                    <html:p>
+  The state <fr:tex display="inline"><![CDATA[\sigma  : \texttt {String} \to  \mathbb {Z}]]></fr:tex> represents a mapping from variables (commonly strings) to their corresponding values (numbers). We denote the updated state after assigning a value to a variable <fr:tex display="inline"><![CDATA[\texttt {x}]]></fr:tex> as:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \sigma [x \mapsto  n]
+]]></fr:tex>
+                    <html:p>
+  This means that in the new state, the variable <fr:tex display="inline"><![CDATA[\texttt {x}]]></fr:tex> now maps to the number <fr:tex display="inline"><![CDATA[\texttt {n}]]></fr:tex>, while all other variable mappings remain unchanged from the original state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>.
+</html:p>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>4</fr:day>
+                        </fr:date>
+                        <fr:title text="Expression evaluation">Expression evaluation</fr:title>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+  
+    
+    <fr:resource hash="6a4d239ebe747cfb08700219cfa18949"><fr:resource-content><html:img src="/notes/6a4d239ebe747cfb08700219cfa18949.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=E-Num]{
+    }{
+      \langle  n, \sigma  \rangle  \Downarrow  n
+    }
+    \and 
+    \inferrule *[right=E-Var]{
+    }{
+      \langle  x, \sigma  \rangle  \Downarrow  \sigma (x)
+    }
+    \and 
+    \inferrule *[right=E-Add]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 + e_2, \sigma  \rangle  \Downarrow  n_1 + n_2
+    }
+    \and 
+    \inferrule *[right=E-Sub]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 - e_2, \sigma  \rangle  \Downarrow  n_1 - n_2
+    }
+    \and 
+    \inferrule *[right=E-Mul]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 * e_2, \sigma  \rangle  \Downarrow  n_1 * n_2
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>4</fr:day>
+                        </fr:date>
+                        <fr:title text="Boolean expression evaluation">Boolean expression evaluation</fr:title>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+  
+    
+    <fr:resource hash="a16aa0da1d83a5e40e560fb3943d67ea"><fr:resource-content><html:img src="/notes/a16aa0da1d83a5e40e560fb3943d67ea.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=B-True]{
+    }{
+      \langle  \top , \sigma  \rangle  \Downarrow  \texttt {true}
+    }
+    \and 
+    \inferrule *[right=B-False]{
+    }{
+      \langle  \bot , \sigma  \rangle  \Downarrow  \texttt {false}
+    }
+    \and 
+    \inferrule *[right=B-Not]{
+      \langle  b, \sigma  \rangle  \Downarrow  v
+    }{
+      \langle  \neg  b, \sigma  \rangle  \Downarrow  \neg  v
+    }
+    \and 
+    \inferrule *[right=B-And]{
+      \langle  b_1, \sigma  \rangle  \Downarrow  v_1 \\
+      \langle  b_2, \sigma  \rangle  \Downarrow  v_2
+    }{
+      \langle  b_1 \land  b_2, \sigma  \rangle  \Downarrow  v_1 \land  v_2
+    }
+    \and 
+    \inferrule *[right=B-Or]{
+      \langle  b_1, \sigma  \rangle  \Downarrow  v_1 \\
+      \langle  b_2, \sigma  \rangle  \Downarrow  v_2
+    }{
+      \langle  b_1 \lor  b_2, \sigma  \rangle  \Downarrow  v_1 \lor  v_2
+    }
+    \and 
+    \inferrule *[right=B-Eq]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 = e_2, \sigma  \rangle  \Downarrow  (n_1 = n_2)
+    }
+    \and 
+    \inferrule *[right=B-Leq]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 \leq  e_2, \sigma  \rangle  \Downarrow  (n_1 \leq  n_2)
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>4</fr:day>
+                        </fr:date>
+                        <fr:title text="Statement evaluation">Statement evaluation</fr:title>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+  
+    
+    <fr:resource hash="c80b26dde9779d9a29c9fa2cc9590978"><fr:resource-content><html:img src="/notes/c80b26dde9779d9a29c9fa2cc9590978.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=S-Skip]{
+    }{
+      \langle  \texttt {skip}, \sigma  \rangle  \Downarrow  \sigma 
+    }
+    \and 
+    \inferrule *[right=S-Assign]{
+      \langle  e, \sigma  \rangle  \Downarrow  n
+    }{
+      \langle  x \coloneqq  e, \sigma  \rangle  \Downarrow  \sigma [x \mapsto  n]
+    }
+    \and 
+    \inferrule *[right=S-Seq]{
+      \langle  s_1, \sigma  \rangle  \Downarrow  \sigma ' \\
+      \langle  s_2, \sigma ' \rangle  \Downarrow  \sigma ''
+    }{
+      \langle  s_1 ; s_2, \sigma  \rangle  \Downarrow  \sigma ''
+    }
+    \and 
+    \inferrule *[right=S-IfTrue]{
+      \langle  b, \sigma  \rangle  \Downarrow  \texttt {true} \\
+      \langle  s_1, \sigma  \rangle  \Downarrow  \sigma '
+    }{
+      \langle  \texttt {if } b \texttt { then } s_1 \texttt { else } s_2, \sigma  \rangle  \Downarrow  \sigma '
+    }
+    \and 
+    \inferrule *[right=S-IfFalse]{
+      \langle  b, \sigma  \rangle  \Downarrow  \texttt {false} \\
+      \langle  s_2, \sigma  \rangle  \Downarrow  \sigma '
+    }{
+      \langle  \texttt {if } b \texttt { then } s_1 \texttt { else } s_2, \sigma  \rangle  \Downarrow  \sigma '
+    }
+    \and 
+    \inferrule *[right=S-WhileFalse]{
+      \langle  b, \sigma  \rangle  \Downarrow  \texttt {false}
+    }{
+      \langle  \texttt {while } b \texttt { do } s, \sigma  \rangle  \Downarrow  \sigma 
+    }
+    \and 
+    \inferrule *[right=S-WhileTrue]{
+      \langle  b, \sigma  \rangle  \Downarrow  \texttt {true} \\
+      \langle  s, \sigma  \rangle  \Downarrow  \sigma ' \\
+      \langle  \texttt {while } b \texttt { do } s, \sigma ' \rangle  \Downarrow  \sigma ''
+    }{
+      \langle  \texttt {while } b \texttt { do } s, \sigma  \rangle  \Downarrow  \sigma ''
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                    </fr:tree>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>4</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/003v/</fr:uri>
+                    <fr:display-uri>003v</fr:display-uri>
+                    <fr:route>/notes/003v/</fr:route>
+                    <fr:title text="Simple Imperative Language - Evaluation">Simple Imperative Language - Evaluation</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:ol><html:li>
+    What does the following evaluate to?
+    <fr:tex display="block"><![CDATA[
+      \langle  (x := x - 1), \sigma [x \mapsto  2] \rangle 
+    ]]></fr:tex></html:li>
+  <html:li>
+    What does the following evaluate to?
+    <fr:tex display="block"><![CDATA[
+      \langle  \texttt {if } x + 1 \leq  3 \texttt { then } x := x - 1, \sigma [x \mapsto  1] \rangle 
+    ]]></fr:tex></html:li>
+  <html:li>
+    What does the following evaluate to?
+    <fr:tex display="block"><![CDATA[
+      \langle  \texttt {while } (x + 1 \leq  3) \texttt { then } x := x - 1, \sigma [x \mapsto  1] \rangle 
+    ]]></fr:tex></html:li>
+  <html:li>
+    Is the following a <fr:link href="/notes/003w/" title="Total &amp; Partial function" uri="https://kaierikniermann.github.io/notes/003w/" display-uri="003w" type="local">total function</fr:link>?
+    <fr:tex display="block"><![CDATA[
+      \langle  e, \sigma  \rangle  \Downarrow  n
+    ]]></fr:tex></html:li>
+  <html:li>
+    Is the following a <fr:link href="/notes/003w/" title="Total &amp; Partial function" uri="https://kaierikniermann.github.io/notes/003w/" display-uri="003w" type="local">total function</fr:link>?
+    <fr:tex display="block"><![CDATA[
+      \langle  s, \sigma  \rangle  \Downarrow  \sigma '
+    ]]></fr:tex></html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>4</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>Starting in the state <fr:tex display="inline"><![CDATA[x \mapsto  2]]></fr:tex> we evaluate <fr:tex display="inline"><![CDATA[x := x - 1]]></fr:tex> to the state <fr:tex display="inline"><![CDATA[x \mapsto  1]]></fr:tex></html:li>
+    <html:li>Starting in the state <fr:tex display="inline"><![CDATA[x \mapsto  1]]></fr:tex>, we first evaluate the condition <fr:tex display="inline"><![CDATA[x + 1 \leq  3]]></fr:tex>:
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x + 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  2 \\
+        \langle  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  3 \\
+        \langle  2 \leq  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  \texttt {true}
+        \end {align*}
+      ]]></fr:tex>
+      Since the condition evaluates to true, we then evaluate the then-branch <fr:tex display="inline"><![CDATA[x := x - 1]]></fr:tex>:
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x - 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  0 \\
+        \langle  x := 0, \sigma [x \mapsto  1] \rangle  &\Downarrow  \sigma [x \mapsto  0]
+        \end {align*}
+      ]]></fr:tex></html:li>
+    <html:li>We again start by evaluating the condition
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x + 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  2 \\
+        \langle  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  3 \\
+        \langle  2 \leq  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  \texttt {true}
+        \end {align*}
+      ]]></fr:tex>
+      Since we can see that the body of the loop only decreases <fr:tex display="inline"><![CDATA[x]]></fr:tex>, we are stuck in an infinite loop:
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x := x - 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  \sigma [x \mapsto  0] \\
+        \langle  \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1, \sigma [x \mapsto  0] \rangle  &\Downarrow  \sigma [x \mapsto  -1] \\
+        \langle  \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1, \sigma [x \mapsto  -1] \rangle  &\Downarrow  \sigma [x \mapsto  -2] \\
+        &\vdots 
+        \end {align*}
+      ]]></fr:tex></html:li>
+    <html:li>Yes, for every expression <fr:tex display="inline"><![CDATA[e]]></fr:tex> and state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>, there exists a number <fr:tex display="inline"><![CDATA[n]]></fr:tex> such that
+      <fr:tex display="block"><![CDATA[
+        \langle  e, \sigma  \rangle  \Downarrow  n
+      ]]></fr:tex>
+      This follows from the fact that expressions are finite syntax trees built from a finite set of rules, and each rule can be evaluated in a finite number of steps.
+    </html:li>
+    <html:li>No, there exist statements <fr:tex display="inline"><![CDATA[s]]></fr:tex> and states <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> for which there is no resulting state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> such that
+      <fr:tex display="block"><![CDATA[
+        \langle  s, \sigma  \rangle  \Downarrow  \sigma '
+      ]]></fr:tex>
+      For example, consider the while-loop
+      <fr:tex display="block"><![CDATA[
+        \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1
+      ]]></fr:tex>
+      starting from the state <fr:tex display="inline"><![CDATA[\sigma [x \mapsto  1]]]></fr:tex>. As shown in the previous question, this loop does not terminate, and thus there is no resulting state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex>.
+    </html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>2</fr:day>
+                </fr:date>
+                <fr:title text="Hoare Logic">Hoare Logic</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter />
             </fr:tree>
           </fr:mainmatter>
         </fr:tree>
@@ -2472,15 +3035,15 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                               <fr:mainmatter><html:p>Using BNF notation, the syntax of propositional logic can be defined as follows:</html:p>
  
   
-  <html:figure><fr:resource hash="004d66fe12d62d626c2e35637d8746f7"><fr:resource-content><html:img src="/notes/004d66fe12d62d626c2e35637d8746f7.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="e8fe66989c999aaf2a9551442e29166b"><fr:resource-content><html:img src="/notes/e8fe66989c999aaf2a9551442e29166b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
@@ -2584,17 +3147,21 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                                 <fr:title text="Semantics">Semantics</fr:title>
                                 <fr:taxon>Definition</fr:taxon>
                               </fr:frontmatter>
-                              <fr:mainmatter><html:p>We can define the semantic inference rules for propositional logic formulas under interpretations as follows inductively, starting with the base cases:</html:p>
+                              <fr:mainmatter><html:p>
+  We can define the semantic inference rules for propositional logic formulas under interpretations as follows inductively, starting with the base cases:
+</html:p>
   
     
-    <fr:resource hash="bc85581157219263d09e73cefc44f077"><fr:resource-content><html:img src="/notes/bc85581157219263d09e73cefc44f077.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="028beb2256956745cbd6c6d092a67ec4"><fr:resource-content><html:img src="/notes/028beb2256956745cbd6c6d092a67ec4.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Atom-$\top $]{
@@ -2620,17 +3187,21 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }
 \end {mathpar}]]></fr:resource-source></fr:resource>
   
-<html:p>Moving on to the inductive case we have</html:p>
+<html:p>
+  Moving on to the inductive case we have
+</html:p>
   
     
-    <fr:resource hash="58a9b3ea7d888229eb32dd683687ee6f"><fr:resource-content><html:img src="/notes/58a9b3ea7d888229eb32dd683687ee6f.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="6b58c468fd4a9e74c51788f18b2ea6bb"><fr:resource-content><html:img src="/notes/6b58c468fd4a9e74c51788f18b2ea6bb.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Neg-$\top $]{
@@ -2638,7 +3209,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     I \not \models  F
   }
-  \and  
+  \and 
   \inferrule *[right=Conj-$\top $]{
     I \models  F_1 \quad  I \models  F_2
   }{
@@ -2650,7 +3221,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     I \models  F_1 \lor  F_2
   }
-  \and  
+  \and 
   \inferrule *[right=Imp-$\top $]{
     I \not \models  F_1 \quad  \text {or} \quad  I \models  F_2
   }{
@@ -2665,18 +3236,20 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
 \end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>
-Similarly, the rules for when an interpretation does not satisfy a formula are as follows:
+  Similarly, the rules for when an interpretation does not satisfy a formula are as follows:
 </html:p>
   
     
-    <fr:resource hash="344d6b5968006455b649cbbd2d9404b2"><fr:resource-content><html:img src="/notes/344d6b5968006455b649cbbd2d9404b2.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="6be5095cad00657a1d9244ee3cab2d11"><fr:resource-content><html:img src="/notes/6be5095cad00657a1d9244ee3cab2d11.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Neg-$\bot $]{
@@ -2684,7 +3257,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     I \models  F
   }
-  \and  
+  \and 
   \inferrule *[right=Conj-$\bot $]{
     I \not \models  F_1 \quad  \text {or} \quad  I \not \models  F_2
   }{
@@ -2696,7 +3269,7 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   }{
     I \not \models  F_1 \lor  F_2
   }
-  \and  
+  \and 
   \inferrule *[right=Imp-$\bot $]{
     I \models  F_1 \\ I \not \models  F_2
   }{
@@ -2773,14 +3346,16 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   
   
     
-    <fr:resource hash="fb54c0a5c8917e2450709946ac062854"><fr:resource-content><html:img src="/notes/fb54c0a5c8917e2450709946ac062854.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="4807516d6cf6f2fdc256701b3e189646"><fr:resource-content><html:img src="/notes/4807516d6cf6f2fdc256701b3e189646.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
     \inferrule {
@@ -3763,22 +4338,24 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                                 <fr:title text="Semantic Entailment \models  (FOL)">Semantic Entailment <fr:tex display="inline"><![CDATA[\models ]]></fr:tex> (FOL)</fr:title>
                                 <fr:taxon>Definition</fr:taxon>
                               </fr:frontmatter>
-                              <fr:mainmatter><html:p>We evaluate formulas in first order logic <html:em>under</html:em> a structure which consists of a domain and an interpretation function. In addition, we need a variable assignment to evaluate formulas with free variables. To denote truth under a structure <fr:tex display="inline"><![CDATA[S]]></fr:tex> and variable assignment <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> we write:</html:p><html:ul><html:li><html:strong>True</html:strong>: If a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> evaluates to true under <fr:tex display="inline"><![CDATA[U, I, \sigma ]]></fr:tex> we write <fr:tex display="block"><![CDATA[
-    U, I, \sigma  \models  F
-  ]]></fr:tex></html:li>
-  <html:li><html:strong>False</html:strong>: If a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> evaluates to false under <fr:tex display="inline"><![CDATA[U, I, \sigma ]]></fr:tex> we write <fr:tex display="block"><![CDATA[
-    U, I, \sigma  \nvDash  F
-  ]]></fr:tex></html:li></html:ul><html:p>We can define semantic entailment inductively as follows:</html:p>
+                              <fr:mainmatter><html:p>
+  We evaluate formulas in first order logic <html:em>under</html:em> a structure which consists of a domain and an interpretation function. In addition, we need a variable assignment to evaluate formulas with free variables. To denote truth under a structure <fr:tex display="inline"><![CDATA[S]]></fr:tex> and variable assignment <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> we write:
+</html:p><html:ul><html:li><html:strong>True</html:strong>: If a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> evaluates to true under <fr:tex display="inline"><![CDATA[U, I, \sigma ]]></fr:tex> we write <fr:tex display="block"><![CDATA[U, I, \sigma  \models  F]]></fr:tex></html:li>
+  <html:li><html:strong>False</html:strong>: If a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> evaluates to false under <fr:tex display="inline"><![CDATA[U, I, \sigma ]]></fr:tex> we write <fr:tex display="block"><![CDATA[U, I, \sigma  \nvDash  F]]></fr:tex></html:li></html:ul><html:p>
+  We can define semantic entailment inductively as follows:
+</html:p>
   
     
-    <fr:resource hash="2b351294263361b74676193e73f28df6"><fr:resource-content><html:img src="/notes/2b351294263361b74676193e73f28df6.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="d7624c2c82ab393fab290297f3fd0420"><fr:resource-content><html:img src="/notes/d7624c2c82ab393fab290297f3fd0420.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=True]{}{
@@ -3862,14 +4439,16 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                               <fr:mainmatter><html:p>In addition to evaluating atomic formulas, we can define the evaluation of complex formulas using logical connectives and quantifiers as follows:</html:p>
   
     
-    <fr:resource hash="991a5113f70cfcb315c0458b8f4dceca"><fr:resource-content><html:img src="/notes/991a5113f70cfcb315c0458b8f4dceca.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="2ed6f8116f00585c9a6a6031eb24b377"><fr:resource-content><html:img src="/notes/2ed6f8116f00585c9a6a6031eb24b377.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Not-True]{
@@ -3924,14 +4503,16 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
 <html:p>For the proof rules of quantifiers we have two variants depending on whether we are dealing with free or bound variables:</html:p>
   
     
-    <fr:resource hash="bf807f288df79827d7da6707c91abf5b"><fr:resource-content><html:img src="/notes/bf807f288df79827d7da6707c91abf5b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="e31d38f49dbceb637264aba1c17cc280"><fr:resource-content><html:img src="/notes/e31d38f49dbceb637264aba1c17cc280.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=$\forall $-$\top $]{
@@ -3975,31 +4556,44 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                                 <fr:title text="Semantic Argument method (FOL)">Semantic Argument method (FOL)</fr:title>
                                 <fr:taxon>Definition</fr:taxon>
                               </fr:frontmatter>
-                              <fr:mainmatter><html:p>In first order logic, the <html:em>semantic argument method</html:em> represents a proof by contradiction. The basic idea is as follows:</html:p><html:ol><html:li>We assume that our formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is not valid, i.e., <fr:tex display="inline"><![CDATA[\exists  S, \sigma  \nvDash  F]]></fr:tex></html:li>
-  <html:li>Use the proof rules to derive a contradiction from this assumption.</html:li>
-  <html:li>If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.</html:li></html:ol><html:p>We can express the semantic argument method via the following inference rule:</html:p>
+                              <fr:mainmatter><html:p>
+  In first order logic, the <html:em>semantic argument method</html:em> represents a proof by contradiction. The basic idea is as follows:
+</html:p><html:ol><html:li>
+    We assume that our formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is not valid, i.e., <fr:tex display="inline"><![CDATA[\exists  S, \sigma  \nvDash  F]]></fr:tex></html:li>
+  <html:li>
+    Use the proof rules to derive a contradiction from this assumption.
+  </html:li>
+  <html:li>
+    If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore <fr:tex display="inline"><![CDATA[F]]></fr:tex> must be valid.
+  </html:li></html:ol><html:p>
+  We can express the semantic argument method via the following inference rule:
+</html:p>
   
     
-    <fr:resource hash="3bed6126b85cea6a0873a90457e4404a"><fr:resource-content><html:img src="/notes/3bed6126b85cea6a0873a90457e4404a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="2454f17b7350a6508743934c93b962c3"><fr:resource-content><html:img src="/notes/2454f17b7350a6508743934c93b962c3.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
 
+  \newcommand{\cf}[1]{\texttt{#1}}
+
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Contradiction]{
     S, \sigma  \models  p(s_1, \ldots , s_n) \\
-    S, \sigma  \models  \neg  p(t_1, \ldots , t_n) \\ 
+    S, \sigma  \models  \neg  p(t_1, \ldots , t_n) \\
     \langle  I, \sigma \rangle  (t_1) = \langle  I, \sigma \rangle  (s_1), \ldots , \langle  I, \sigma \rangle  (t_n) = \langle  I, \sigma \rangle  (s_n)
   }{
     S, \sigma  \models  \bot 
   }
 \end {mathpar}]]></fr:resource-source></fr:resource>
   
-<html:p>So the idea here being that if we have a predicate and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction. This allows us to conclude that our initial assumption (that the formula is not valid) must be false, thereby proving the validity of the formula.</html:p></fr:mainmatter>
+<html:p>
+  So the idea here being that if we have a predicate and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction. This allows us to conclude that our initial assumption (that the formula is not valid) must be false, thereby proving the validity of the formula.
+</html:p></fr:mainmatter>
                             </fr:tree>
                             <fr:tree show-metadata="false">
                               <fr:frontmatter>
@@ -4080,10 +4674,17 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                                 <fr:taxon>Definition</fr:taxon>
                               </fr:frontmatter>
                               <fr:mainmatter>
-                                <html:p>A <html:em>first order theory</html:em> (FOT) <fr:tex display="inline"><![CDATA[T]]></fr:tex> is defined by two main components:</html:p>
-                                <html:ul><html:li>A <html:em>signature</html:em> <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> of a set of constant, function, and predicate symbols</html:li>
-  <html:li>A set of <html:em>axioms</html:em> <fr:tex display="inline"><![CDATA[\mathcal  A]]></fr:tex> consisting of closed (i.e. no free variables) formulas over the signature <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex></html:li></html:ul>
-                                <html:p>We say that a formula constructed from only from the contents of the signature <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> is a <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex>-formula.</html:p>
+                                <html:p>
+  A <html:em>first order theory</html:em> (FOT) <fr:tex display="inline"><![CDATA[T]]></fr:tex> is defined by two main components:
+</html:p>
+                                <html:ul><html:li>
+    A <html:em>signature</html:em> <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> of a set of constant, function, and predicate symbols
+  </html:li>
+  <html:li>
+    A set of <html:em>axioms</html:em> <fr:tex display="inline"><![CDATA[\mathcal  A]]></fr:tex> consisting of closed (i.e. no free variables) formulas over the signature <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex></html:li></html:ul>
+                                <html:p>
+  We say that a formula constructed from only from the contents of the signature <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> is a <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex>-formula.
+</html:p>
                               </fr:mainmatter>
                             </fr:tree>
                             <fr:tree show-metadata="false">
@@ -4262,14 +4863,16 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                               <fr:mainmatter><html:p>We can compare the two notions by understanding <html:em>validity in modulo</html:em> <fr:tex display="inline"><![CDATA[T]]></fr:tex> as a restriction of <html:em>validity in FOL</html:em> to only those models that are <fr:tex display="inline"><![CDATA[T]]></fr:tex>-models. So the implication of that is that if a formula is valid (true in all models), then its clearly also valid in the subset/restriction to only <fr:tex display="inline"><![CDATA[T]]></fr:tex>-models. However, the other way around does not hold, since a formula can be true in all <fr:tex display="inline"><![CDATA[T]]></fr:tex>-models, but false in some non-<fr:tex display="inline"><![CDATA[T]]></fr:tex>-model. Hence we have the following:</html:p>
  
   
-  <fr:resource hash="cfe2cf6f814d69d77f9a75a9bc3e1c9c"><fr:resource-content><html:img src="/notes/cfe2cf6f814d69d77f9a75a9bc3e1c9c.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <fr:resource hash="e17a21d7370f74a45bdb962c07a32b9d"><fr:resource-content><html:img src="/notes/e17a21d7370f74a45bdb962c07a32b9d.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
   ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\[
   \vDash  F \implies  T \vDash  F  
@@ -4278,14 +4881,16 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
 <html:p>But the other way around does not hold in general:</html:p>
  
   
-  <fr:resource hash="1fcae5da143e03fc72c1ee60ad7bc5fc"><fr:resource-content><html:img src="/notes/1fcae5da143e03fc72c1ee60ad7bc5fc.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <fr:resource hash="8bedd6a874fded6390949fd57cbf0d41"><fr:resource-content><html:img src="/notes/8bedd6a874fded6390949fd57cbf0d41.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
   ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\[
   T \vDash  F \centernot \implies  \vDash  F
@@ -4448,12 +5053,19 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                                 <fr:title text="Function &amp; Predicate congruence">Function &amp; Predicate congruence</fr:title>
                                 <fr:taxon>Quiz</fr:taxon>
                               </fr:frontmatter>
-                              <fr:mainmatter><html:p>Consider the universe:</html:p><fr:tex display="block"><![CDATA[
+                              <fr:mainmatter><html:p>
+  Consider the universe:
+</html:p><fr:tex display="block"><![CDATA[
   U = \{a, b, c\}
-]]></fr:tex><html:p>and the interpretation:</html:p><fr:tex display="block"><![CDATA[
+]]></fr:tex><html:p>
+  and the interpretation:
+</html:p><fr:tex display="block"><![CDATA[
   I(=) \triangleq  \{\langle  a, a \rangle , \langle  a, b \rangle , \langle  b, a \rangle , \langle  b, b \rangle , \langle  c, c \rangle \}
-]]></fr:tex><html:ol><html:li>Does the interpetation <fr:tex display="inline"><![CDATA[I(=)]]></fr:tex> satisfy the axioms of equality?</html:li>
-  <html:li>Which interpretations for a function <fr:tex display="inline"><![CDATA[f]]></fr:tex> satisfy the axioms of congruence?
+]]></fr:tex><html:ol><html:li>
+    Does the interpetation <fr:tex display="inline"><![CDATA[I(=)]]></fr:tex> satisfy the axioms of equality?
+  </html:li>
+  <html:li>
+    Which interpretations for a function <fr:tex display="inline"><![CDATA[f]]></fr:tex> satisfy the axioms of congruence?
     <html:ol><html:li><fr:tex display="inline"><![CDATA[I(f) \triangleq  \{b \to  a, a \to  c, c \to  c\}]]></fr:tex></html:li>
       <html:li><fr:tex display="inline"><![CDATA[I(f) \triangleq  \{b \to  b, a \to  b, c \to  b\}]]></fr:tex></html:li>
       <html:li><fr:tex display="inline"><![CDATA[I(f) \triangleq  \{b \to  a, a \to  b, c \to  c\}]]></fr:tex></html:li></html:ol></html:li></html:ol>
@@ -4461,11 +5073,17 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
    
    
    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>2</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
-  <html:ol><html:li>Yes, the interpretation satisfies the axioms of equality</html:li>
-    <html:li>Going through them one by one:
-      <html:ol><html:li>No, because <fr:tex display="inline"><![CDATA[f(a) = c]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = a]]></fr:tex> but <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> yet <fr:tex display="inline"><![CDATA[c\ not\ I(=)\ a]]></fr:tex></html:li> 
-        <html:li>Yes, because <fr:tex display="inline"><![CDATA[f(a) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> thus <fr:tex display="inline"><![CDATA[b\ I(=)\ b]]></fr:tex>, similarly for <fr:tex display="inline"><![CDATA[c]]></fr:tex></html:li>
-        <html:li>Yes, because <fr:tex display="inline"><![CDATA[f(a) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = a]]></fr:tex> and <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> thus <fr:tex display="inline"><![CDATA[b\ I(=)\ a]]></fr:tex>, similarly for <fr:tex display="inline"><![CDATA[c]]></fr:tex></html:li></html:ol></html:li></html:ol>
+  <html:ol><html:li>
+      Yes, the interpretation satisfies the axioms of equality
+    </html:li>
+    <html:li>
+      Going through them one by one:
+      <html:ol><html:li>
+          No, because <fr:tex display="inline"><![CDATA[f(a) = c]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = a]]></fr:tex> but <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> yet <fr:tex display="inline"><![CDATA[c\ not\ I(=)\ a]]></fr:tex></html:li>
+        <html:li>
+          Yes, because <fr:tex display="inline"><![CDATA[f(a) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> thus <fr:tex display="inline"><![CDATA[b\ I(=)\ b]]></fr:tex>, similarly for <fr:tex display="inline"><![CDATA[c]]></fr:tex></html:li>
+        <html:li>
+          Yes, because <fr:tex display="inline"><![CDATA[f(a) = b]]></fr:tex> and <fr:tex display="inline"><![CDATA[f(b) = a]]></fr:tex> and <fr:tex display="inline"><![CDATA[a\ I(=)\ b]]></fr:tex> thus <fr:tex display="inline"><![CDATA[b\ I(=)\ a]]></fr:tex>, similarly for <fr:tex display="inline"><![CDATA[c]]></fr:tex></html:li></html:ol></html:li></html:ol>
 </fr:mainmatter></fr:tree>
  
 </fr:mainmatter>
@@ -4498,11 +5116,15 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                                 <fr:taxon>Definition</fr:taxon>
                               </fr:frontmatter>
                               <fr:mainmatter>
-                                <html:p>Peano Arithmetic (PA) is a first order theory over the signature <fr:tex display="inline"><![CDATA[\Sigma _{PA}]]></fr:tex> which contains:</html:p>
+                                <html:p>
+  Peano Arithmetic (PA) is a first order theory over the signature <fr:tex display="inline"><![CDATA[\Sigma _{PA}]]></fr:tex> which contains:
+</html:p>
                                 <fr:tex display="block"><![CDATA[
   \Sigma _{PA} : \{0, S, +, \times , =\}
 ]]></fr:tex>
-                                <html:p>Where <fr:tex display="inline"><![CDATA[0]]></fr:tex> is a constant symbol representing zero, <fr:tex display="inline"><![CDATA[S]]></fr:tex> is a unary function symbol representing the successor function, <fr:tex display="inline"><![CDATA[+]]></fr:tex> and <fr:tex display="inline"><![CDATA[\times ]]></fr:tex> are binary function symbols representing addition and multiplication respectively, and <fr:tex display="inline"><![CDATA[=]]></fr:tex> is a binary relation symbol representing equality. The axioms of Peano Arithmetic are:</html:p>
+                                <html:p>
+  Where <fr:tex display="inline"><![CDATA[0]]></fr:tex> is a constant symbol representing zero, <fr:tex display="inline"><![CDATA[S]]></fr:tex> is a unary function symbol representing the successor function, <fr:tex display="inline"><![CDATA[+]]></fr:tex> and <fr:tex display="inline"><![CDATA[\times ]]></fr:tex> are binary function symbols representing addition and multiplication respectively, and <fr:tex display="inline"><![CDATA[=]]></fr:tex> is a binary relation symbol representing equality. The axioms of Peano Arithmetic are:
+</html:p>
                                 <fr:resource hash="38b17d08c8a044cd82fc858e037bbf9f">
                                   <fr:resource-content>
                                     <html:img src="/notes/38b17d08c8a044cd82fc858e037bbf9f.svg" />
@@ -4608,11 +5230,15 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                                 <fr:taxon>Definition</fr:taxon>
                               </fr:frontmatter>
                               <fr:mainmatter>
-                                <html:p>Presburger Arithmetic (PA) is a first order theory over the signature <fr:tex display="inline"><![CDATA[\Sigma _{\mathbb {N}}]]></fr:tex> which contains:</html:p>
+                                <html:p>
+  Presburger Arithmetic (PA) is a first order theory over the signature <fr:tex display="inline"><![CDATA[\Sigma _{\mathbb {N}}]]></fr:tex> which contains:
+</html:p>
                                 <fr:tex display="block"><![CDATA[
   \Sigma _{\mathbb {N}} : \{0, 1, +, =\}
 ]]></fr:tex>
-                                <html:p>Where <fr:tex display="inline"><![CDATA[0]]></fr:tex> and <fr:tex display="inline"><![CDATA[1]]></fr:tex> are constant symbols representing zero and one respectively, <fr:tex display="inline"><![CDATA[+]]></fr:tex> is a binary function symbol representing addition, and <fr:tex display="inline"><![CDATA[=]]></fr:tex> is a binary relation symbol representing equality. The axioms of Presburger Arithmetic are:</html:p>
+                                <html:p>
+  Where <fr:tex display="inline"><![CDATA[0]]></fr:tex> and <fr:tex display="inline"><![CDATA[1]]></fr:tex> are constant symbols representing zero and one respectively, <fr:tex display="inline"><![CDATA[+]]></fr:tex> is a binary function symbol representing addition, and <fr:tex display="inline"><![CDATA[=]]></fr:tex> is a binary relation symbol representing equality. The axioms of Presburger Arithmetic are:
+</html:p>
                                 <fr:resource hash="b2cd095d79c0e49ba09ee38205cc6cdc">
                                   <fr:resource-content>
                                     <html:img src="/notes/b2cd095d79c0e49ba09ee38205cc6cdc.svg" />
@@ -4630,10 +5256,17 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   \end{align*}
 ]]></fr:resource-source>
                                 </fr:resource>
-                                <html:p>Some important properties of <fr:tex display="inline"><![CDATA[T_{\mathbb {N}} are]]></fr:tex>:</html:p>
-                                <html:ul><html:li>Validity in <html:em>quantifer-free</html:em> Presburger Arithmetic is decidable.</html:li>
-  <html:li>Validity in <html:em>full</html:em> Presburger Arithmetic is decidable.</html:li>
-  <html:li>Validity in Presburger Arithmetic has a super exponential complexity <fr:tex display="inline"><![CDATA[O(2^{2^n})]]></fr:tex></html:li>
+                                <html:p>
+  Some important properties of <fr:tex display="inline"><![CDATA[T_{\mathbb {N}} are]]></fr:tex>:
+</html:p>
+                                <html:ul><html:li>
+    Validity in <html:em>quantifer-free</html:em> Presburger Arithmetic is decidable.
+  </html:li>
+  <html:li>
+    Validity in <html:em>full</html:em> Presburger Arithmetic is decidable.
+  </html:li>
+  <html:li>
+    Validity in Presburger Arithmetic has a super exponential complexity <fr:tex display="inline"><![CDATA[O(2^{2^n})]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[T_{\mathbb {N}}]]></fr:tex> is <html:em>complete</html:em>, i.e.
     <fr:tex display="block"><![CDATA[
       \forall  F.\ T_{\mathbb {N}} \models  F \lor  T_{\mathbb {N}} \models  \neg  F
@@ -4696,16 +5329,25 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                                 <fr:taxon>Definition</fr:taxon>
                               </fr:frontmatter>
                               <fr:mainmatter>
-                                <html:p>The theory of arrays is a first-order theory that models arrays as functions from indices to values. It's signature includes:</html:p>
+                                <html:p>
+  The theory of arrays is a first-order theory that models arrays as functions from indices to values. It's signature includes:
+</html:p>
                                 <fr:tex display="block"><![CDATA[
   \Sigma _A \triangleq  \{- [ - ], \langle  - \triangleleft  - \rangle , =\}
 ]]></fr:tex>
-                                <html:p>where:</html:p>
-                                <html:ul><html:li><fr:tex display="inline"><![CDATA[-[ - ]]]></fr:tex>: read operation, which takes an array and an index and returns the value at that index.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[\langle  - \triangleleft  - \rangle ]]></fr:tex>: write operation, which takes an array, an index, and a 
-  value, and returns a new array with the value at the specified index updated.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[=]]></fr:tex>: equality relation, which checks if two arrays are identical.</html:li></html:ul>
-                                <html:p>The axioms of the theory of arrays are:</html:p>
+                                <html:p>
+  where:
+</html:p>
+                                <html:ul><html:li><fr:tex display="inline"><![CDATA[-[ - ]]]></fr:tex>: read operation, which takes an array and an index and returns the value at that index.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\langle  - \triangleleft  - \rangle ]]></fr:tex>: write operation, which takes an array, an index, and a
+    value, and returns a new array with the value at the specified index updated.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[=]]></fr:tex>: equality relation, which checks if two arrays are identical.
+  </html:li></html:ul>
+                                <html:p>
+  The axioms of the theory of arrays are:
+</html:p>
                                 <fr:resource hash="8ff9653ef4ba489edcda34b8856e7a7b">
                                   <fr:resource-content>
                                     <html:img src="/notes/8ff9653ef4ba489edcda34b8856e7a7b.svg" />
@@ -4738,7 +5380,9 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
                                 <fr:title text="Theory of arrays T_A">Theory of arrays <fr:tex display="inline"><![CDATA[T_A]]></fr:tex></fr:title>
                                 <fr:taxon>Quiz</fr:taxon>
                               </fr:frontmatter>
-                              <fr:mainmatter><html:p>Which of the following formula is valid/satisfiable/unsatisfiable ?</html:p><html:ol><html:li><fr:tex display="inline"><![CDATA[a[3] = 2]]></fr:tex></html:li>
+                              <fr:mainmatter><html:p>
+  Which of the following formula is valid/satisfiable/unsatisfiable ?
+</html:p><html:ol><html:li><fr:tex display="inline"><![CDATA[a[3] = 2]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[a \langle  3 \triangleleft  5 \rangle [3] = 5]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[a \langle  3 \triangleleft  5 \rangle [3] = 3]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[a[3] = 2\land  a \langle  3 \triangleleft  5 \rangle [3] = 5]]></fr:tex></html:li></html:ol>
@@ -4755,6 +5399,488 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
 </fr:mainmatter>
                             </fr:tree>
                           </fr:mainmatter>
+                        </fr:tree>
+                      </fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false" expanded="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>2</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/003n/</fr:uri>
+                        <fr:display-uri>003n</fr:display-uri>
+                        <fr:route>/notes/003n/</fr:route>
+                        <fr:title text="Lecture 5 - Nano and Hoare Logic">Lecture 5 - Nano and Hoare Logic</fr:title>
+                        <fr:taxon>VU-VFS-2025</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+                        <fr:tree show-metadata="false">
+                          <fr:frontmatter>
+                            <fr:authors />
+                            <fr:date>
+                              <fr:year>2025</fr:year>
+                              <fr:month>12</fr:month>
+                              <fr:day>2</fr:day>
+                            </fr:date>
+                            <fr:title text="Semantics and Evaluation">Semantics and Evaluation</fr:title>
+                          </fr:frontmatter>
+                          <fr:mainmatter>
+                            <fr:tree show-metadata="false">
+                              <fr:frontmatter>
+                                <fr:authors />
+                                <fr:date>
+                                  <fr:year>2025</fr:year>
+                                  <fr:month>12</fr:month>
+                                  <fr:day>4</fr:day>
+                                </fr:date>
+                                <fr:uri>https://kaierikniermann.github.io/notes/003t/</fr:uri>
+                                <fr:display-uri>003t</fr:display-uri>
+                                <fr:route>/notes/003t/</fr:route>
+                                <fr:title text="Simple Imperative Language - Syntax">Simple Imperative Language - Syntax</fr:title>
+                                <fr:taxon>Definition</fr:taxon>
+                              </fr:frontmatter>
+                              <fr:mainmatter><html:p>
+  We define the syntax of a simple imperative programming language, using the followng bnf grammar:
+</html:p>
+  
+    
+    <fr:resource hash="d9358af54b1514c3e8ea6264dd0ad402"><fr:resource-content><html:img src="/notes/d9358af54b1514c3e8ea6264dd0ad402.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+      
+    \usepackage{xcolor}               % color support
+  \definecolor{dkgreen}{rgb}{0,0.6,0}
+  \definecolor{gray}{rgb}{0.5,0.5,0.5}
+  \definecolor{mauve}{rgb}{0.58,0,0.82}
+  \definecolor{brown}{rgb}{0.921, 0.325, 0.078}
+  \definecolor{lightline}{rgb}{0.8,0.8,0.8}
+
+  \usepackage{libertine}
+  \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  % \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+  \usepackage{simplebnf}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
+      \begin {center}
+        \begin {bnf}(
+          prod-delim = {--},
+          or-sym = {},
+          prod-sep = 5pt,
+        )[
+          colspec = {llcll},
+          column{1} = {font=\sffamily },
+          column{2} = {mode=dmath},
+          column{4} = {font=\ttfamily },
+          column{5} = {font=\itshape \color {gray}},
+        ]
+          
+      e : Exp ::=
+    | n : number
+    | x : variable
+    | $e_1 + e_2$ : addition
+    | $e_1 - e_2$ : subtraction
+    | $e_1 * e_2$ : multiplication
+    --
+    b : BExp ::=
+    | $\top$ : true
+    | $\bot$ : false
+    | $\neg b$ : negation
+    | $b_1 \land b_2$ : conjunction
+    | $b_1 \lor b_2$ : disjunction
+    | $e_1 = e_2$ : equality
+    | $e_1 \leq e_2$ : less than or equal
+    --
+    s : Stmt ::=
+    | skip : skip
+    | $x \coloneqq e$ : assignment
+    | $s_1 ; s_2$ : sequencing
+    | if $b$ then $s_1$ else $s_2$ : conditional
+    | while $b$ do $s$ : while loop
+
+        \end {bnf}
+      \end {center}
+    ]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                            </fr:tree>
+                            <fr:tree show-metadata="false">
+                              <fr:frontmatter>
+                                <fr:authors />
+                                <fr:date>
+                                  <fr:year>2025</fr:year>
+                                  <fr:month>12</fr:month>
+                                  <fr:day>4</fr:day>
+                                </fr:date>
+                                <fr:uri>https://kaierikniermann.github.io/notes/003u/</fr:uri>
+                                <fr:display-uri>003u</fr:display-uri>
+                                <fr:route>/notes/003u/</fr:route>
+                                <fr:title text="Simple Imperative Language - Semantics">Simple Imperative Language - Semantics</fr:title>
+                                <fr:taxon>Definition</fr:taxon>
+                              </fr:frontmatter>
+                              <fr:mainmatter>
+                                <html:p>
+  We can divide the environmental big-step semantics of our simple language into three parts:
+</html:p>
+                                <html:ul><html:li><html:strong>Expression evaluation</html:strong>: Describes how arithmetic expressions are evaluated to numbers.
+  </html:li>
+  <html:li><html:strong>Boolean expression evaluation</html:strong>: Describes how boolean expressions are evaluated to boolean values (true/false).
+  </html:li>
+  <html:li><html:strong>Statement execution</html:strong>: Describes how statements are executed, transforming an initial state (environment) into a final state.
+  </html:li></html:ul>
+                                <html:p>
+  The general big-step environmental evalutation rule is denoted as:
+</html:p>
+                                <fr:tex display="block"><![CDATA[
+  \langle  t, \sigma  \rangle  \Downarrow  v
+]]></fr:tex>
+                                <html:p>
+  Here:
+</html:p>
+                                <html:ol><html:li>
+    We have some starting term <fr:tex display="inline"><![CDATA[\texttt {t}]]></fr:tex> (which can be an expression, boolean expression, or statement), along with some state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>.
+  </html:li>
+  <html:li>
+    The evaluation results in some value <fr:tex display="inline"><![CDATA[\texttt {v}]]></fr:tex> (which can be a number, boolean value, or new state).
+  </html:li></html:ol>
+                                <html:p>
+  A quick aside here to deconstruct the term <html:strong>big-step environmental evaluation</html:strong>:
+</html:p>
+                                <html:ul><html:li>
+    We say that this evaluation is <html:strong>big-step</html:strong> as it assumes some arbitrary state of intermediate steps, meaning that within big step semantics we do not care about intermediate computation only about some input expression and the final output value. A simple analogue to make here is that big-step semantics are akin to a teacher asking you to only show ur final answer to a math problem rather than all the steps you took to get there.
+  </html:li>
+  <html:li>
+    We say that this evaluation is <html:strong>environmental</html:strong> (as opposed to being substitution based) as we explicitly keep track of a state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> which maps variables to their values. This is in contrast to substitution based semantics where variable occurrences are replaced directly with their values in expressions.
+  </html:li></html:ul>
+                                <html:p>
+  The state <fr:tex display="inline"><![CDATA[\sigma  : \texttt {String} \to  \mathbb {Z}]]></fr:tex> represents a mapping from variables (commonly strings) to their corresponding values (numbers). We denote the updated state after assigning a value to a variable <fr:tex display="inline"><![CDATA[\texttt {x}]]></fr:tex> as:
+</html:p>
+                                <fr:tex display="block"><![CDATA[
+  \sigma [x \mapsto  n]
+]]></fr:tex>
+                                <html:p>
+  This means that in the new state, the variable <fr:tex display="inline"><![CDATA[\texttt {x}]]></fr:tex> now maps to the number <fr:tex display="inline"><![CDATA[\texttt {n}]]></fr:tex>, while all other variable mappings remain unchanged from the original state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>.
+</html:p>
+                                <fr:tree show-metadata="false">
+                                  <fr:frontmatter>
+                                    <fr:authors />
+                                    <fr:date>
+                                      <fr:year>2025</fr:year>
+                                      <fr:month>12</fr:month>
+                                      <fr:day>4</fr:day>
+                                    </fr:date>
+                                    <fr:title text="Expression evaluation">Expression evaluation</fr:title>
+                                  </fr:frontmatter>
+                                  <fr:mainmatter>
+  
+    
+    <fr:resource hash="6a4d239ebe747cfb08700219cfa18949"><fr:resource-content><html:img src="/notes/6a4d239ebe747cfb08700219cfa18949.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=E-Num]{
+    }{
+      \langle  n, \sigma  \rangle  \Downarrow  n
+    }
+    \and 
+    \inferrule *[right=E-Var]{
+    }{
+      \langle  x, \sigma  \rangle  \Downarrow  \sigma (x)
+    }
+    \and 
+    \inferrule *[right=E-Add]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 + e_2, \sigma  \rangle  \Downarrow  n_1 + n_2
+    }
+    \and 
+    \inferrule *[right=E-Sub]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 - e_2, \sigma  \rangle  \Downarrow  n_1 - n_2
+    }
+    \and 
+    \inferrule *[right=E-Mul]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 * e_2, \sigma  \rangle  \Downarrow  n_1 * n_2
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                                </fr:tree>
+                                <fr:tree show-metadata="false">
+                                  <fr:frontmatter>
+                                    <fr:authors />
+                                    <fr:date>
+                                      <fr:year>2025</fr:year>
+                                      <fr:month>12</fr:month>
+                                      <fr:day>4</fr:day>
+                                    </fr:date>
+                                    <fr:title text="Boolean expression evaluation">Boolean expression evaluation</fr:title>
+                                  </fr:frontmatter>
+                                  <fr:mainmatter>
+  
+    
+    <fr:resource hash="a16aa0da1d83a5e40e560fb3943d67ea"><fr:resource-content><html:img src="/notes/a16aa0da1d83a5e40e560fb3943d67ea.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=B-True]{
+    }{
+      \langle  \top , \sigma  \rangle  \Downarrow  \texttt {true}
+    }
+    \and 
+    \inferrule *[right=B-False]{
+    }{
+      \langle  \bot , \sigma  \rangle  \Downarrow  \texttt {false}
+    }
+    \and 
+    \inferrule *[right=B-Not]{
+      \langle  b, \sigma  \rangle  \Downarrow  v
+    }{
+      \langle  \neg  b, \sigma  \rangle  \Downarrow  \neg  v
+    }
+    \and 
+    \inferrule *[right=B-And]{
+      \langle  b_1, \sigma  \rangle  \Downarrow  v_1 \\
+      \langle  b_2, \sigma  \rangle  \Downarrow  v_2
+    }{
+      \langle  b_1 \land  b_2, \sigma  \rangle  \Downarrow  v_1 \land  v_2
+    }
+    \and 
+    \inferrule *[right=B-Or]{
+      \langle  b_1, \sigma  \rangle  \Downarrow  v_1 \\
+      \langle  b_2, \sigma  \rangle  \Downarrow  v_2
+    }{
+      \langle  b_1 \lor  b_2, \sigma  \rangle  \Downarrow  v_1 \lor  v_2
+    }
+    \and 
+    \inferrule *[right=B-Eq]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 = e_2, \sigma  \rangle  \Downarrow  (n_1 = n_2)
+    }
+    \and 
+    \inferrule *[right=B-Leq]{
+      \langle  e_1, \sigma  \rangle  \Downarrow  n_1 \\
+      \langle  e_2, \sigma  \rangle  \Downarrow  n_2
+    }{
+      \langle  e_1 \leq  e_2, \sigma  \rangle  \Downarrow  (n_1 \leq  n_2)
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                                </fr:tree>
+                                <fr:tree show-metadata="false">
+                                  <fr:frontmatter>
+                                    <fr:authors />
+                                    <fr:date>
+                                      <fr:year>2025</fr:year>
+                                      <fr:month>12</fr:month>
+                                      <fr:day>4</fr:day>
+                                    </fr:date>
+                                    <fr:title text="Statement evaluation">Statement evaluation</fr:title>
+                                  </fr:frontmatter>
+                                  <fr:mainmatter>
+  
+    
+    <fr:resource hash="c80b26dde9779d9a29c9fa2cc9590978"><fr:resource-content><html:img src="/notes/c80b26dde9779d9a29c9fa2cc9590978.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=S-Skip]{
+    }{
+      \langle  \texttt {skip}, \sigma  \rangle  \Downarrow  \sigma 
+    }
+    \and 
+    \inferrule *[right=S-Assign]{
+      \langle  e, \sigma  \rangle  \Downarrow  n
+    }{
+      \langle  x \coloneqq  e, \sigma  \rangle  \Downarrow  \sigma [x \mapsto  n]
+    }
+    \and 
+    \inferrule *[right=S-Seq]{
+      \langle  s_1, \sigma  \rangle  \Downarrow  \sigma ' \\
+      \langle  s_2, \sigma ' \rangle  \Downarrow  \sigma ''
+    }{
+      \langle  s_1 ; s_2, \sigma  \rangle  \Downarrow  \sigma ''
+    }
+    \and 
+    \inferrule *[right=S-IfTrue]{
+      \langle  b, \sigma  \rangle  \Downarrow  \texttt {true} \\
+      \langle  s_1, \sigma  \rangle  \Downarrow  \sigma '
+    }{
+      \langle  \texttt {if } b \texttt { then } s_1 \texttt { else } s_2, \sigma  \rangle  \Downarrow  \sigma '
+    }
+    \and 
+    \inferrule *[right=S-IfFalse]{
+      \langle  b, \sigma  \rangle  \Downarrow  \texttt {false} \\
+      \langle  s_2, \sigma  \rangle  \Downarrow  \sigma '
+    }{
+      \langle  \texttt {if } b \texttt { then } s_1 \texttt { else } s_2, \sigma  \rangle  \Downarrow  \sigma '
+    }
+    \and 
+    \inferrule *[right=S-WhileFalse]{
+      \langle  b, \sigma  \rangle  \Downarrow  \texttt {false}
+    }{
+      \langle  \texttt {while } b \texttt { do } s, \sigma  \rangle  \Downarrow  \sigma 
+    }
+    \and 
+    \inferrule *[right=S-WhileTrue]{
+      \langle  b, \sigma  \rangle  \Downarrow  \texttt {true} \\
+      \langle  s, \sigma  \rangle  \Downarrow  \sigma ' \\
+      \langle  \texttt {while } b \texttt { do } s, \sigma ' \rangle  \Downarrow  \sigma ''
+    }{
+      \langle  \texttt {while } b \texttt { do } s, \sigma  \rangle  \Downarrow  \sigma ''
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                                </fr:tree>
+                              </fr:mainmatter>
+                            </fr:tree>
+                            <fr:tree show-metadata="false">
+                              <fr:frontmatter>
+                                <fr:authors />
+                                <fr:date>
+                                  <fr:year>2025</fr:year>
+                                  <fr:month>12</fr:month>
+                                  <fr:day>4</fr:day>
+                                </fr:date>
+                                <fr:uri>https://kaierikniermann.github.io/notes/003v/</fr:uri>
+                                <fr:display-uri>003v</fr:display-uri>
+                                <fr:route>/notes/003v/</fr:route>
+                                <fr:title text="Simple Imperative Language - Evaluation">Simple Imperative Language - Evaluation</fr:title>
+                                <fr:taxon>Quiz</fr:taxon>
+                              </fr:frontmatter>
+                              <fr:mainmatter><html:ol><html:li>
+    What does the following evaluate to?
+    <fr:tex display="block"><![CDATA[
+      \langle  (x := x - 1), \sigma [x \mapsto  2] \rangle 
+    ]]></fr:tex></html:li>
+  <html:li>
+    What does the following evaluate to?
+    <fr:tex display="block"><![CDATA[
+      \langle  \texttt {if } x + 1 \leq  3 \texttt { then } x := x - 1, \sigma [x \mapsto  1] \rangle 
+    ]]></fr:tex></html:li>
+  <html:li>
+    What does the following evaluate to?
+    <fr:tex display="block"><![CDATA[
+      \langle  \texttt {while } (x + 1 \leq  3) \texttt { then } x := x - 1, \sigma [x \mapsto  1] \rangle 
+    ]]></fr:tex></html:li>
+  <html:li>
+    Is the following a <fr:link href="/notes/003w/" title="Total &amp; Partial function" uri="https://kaierikniermann.github.io/notes/003w/" display-uri="003w" type="local">total function</fr:link>?
+    <fr:tex display="block"><![CDATA[
+      \langle  e, \sigma  \rangle  \Downarrow  n
+    ]]></fr:tex></html:li>
+  <html:li>
+    Is the following a <fr:link href="/notes/003w/" title="Total &amp; Partial function" uri="https://kaierikniermann.github.io/notes/003w/" display-uri="003w" type="local">total function</fr:link>?
+    <fr:tex display="block"><![CDATA[
+      \langle  s, \sigma  \rangle  \Downarrow  \sigma '
+    ]]></fr:tex></html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>4</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>Starting in the state <fr:tex display="inline"><![CDATA[x \mapsto  2]]></fr:tex> we evaluate <fr:tex display="inline"><![CDATA[x := x - 1]]></fr:tex> to the state <fr:tex display="inline"><![CDATA[x \mapsto  1]]></fr:tex></html:li>
+    <html:li>Starting in the state <fr:tex display="inline"><![CDATA[x \mapsto  1]]></fr:tex>, we first evaluate the condition <fr:tex display="inline"><![CDATA[x + 1 \leq  3]]></fr:tex>:
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x + 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  2 \\
+        \langle  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  3 \\
+        \langle  2 \leq  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  \texttt {true}
+        \end {align*}
+      ]]></fr:tex>
+      Since the condition evaluates to true, we then evaluate the then-branch <fr:tex display="inline"><![CDATA[x := x - 1]]></fr:tex>:
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x - 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  0 \\
+        \langle  x := 0, \sigma [x \mapsto  1] \rangle  &\Downarrow  \sigma [x \mapsto  0]
+        \end {align*}
+      ]]></fr:tex></html:li>
+    <html:li>We again start by evaluating the condition
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x + 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  2 \\
+        \langle  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  3 \\
+        \langle  2 \leq  3, \sigma [x \mapsto  1] \rangle  &\Downarrow  \texttt {true}
+        \end {align*}
+      ]]></fr:tex>
+      Since we can see that the body of the loop only decreases <fr:tex display="inline"><![CDATA[x]]></fr:tex>, we are stuck in an infinite loop:
+      <fr:tex display="block"><![CDATA[
+        \begin {align*}
+        \langle  x := x - 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  \sigma [x \mapsto  0] \\
+        \langle  \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1, \sigma [x \mapsto  0] \rangle  &\Downarrow  \sigma [x \mapsto  -1] \\
+        \langle  \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1, \sigma [x \mapsto  -1] \rangle  &\Downarrow  \sigma [x \mapsto  -2] \\
+        &\vdots 
+        \end {align*}
+      ]]></fr:tex></html:li>
+    <html:li>Yes, for every expression <fr:tex display="inline"><![CDATA[e]]></fr:tex> and state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>, there exists a number <fr:tex display="inline"><![CDATA[n]]></fr:tex> such that
+      <fr:tex display="block"><![CDATA[
+        \langle  e, \sigma  \rangle  \Downarrow  n
+      ]]></fr:tex>
+      This follows from the fact that expressions are finite syntax trees built from a finite set of rules, and each rule can be evaluated in a finite number of steps.
+    </html:li>
+    <html:li>No, there exist statements <fr:tex display="inline"><![CDATA[s]]></fr:tex> and states <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> for which there is no resulting state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> such that
+      <fr:tex display="block"><![CDATA[
+        \langle  s, \sigma  \rangle  \Downarrow  \sigma '
+      ]]></fr:tex>
+      For example, consider the while-loop
+      <fr:tex display="block"><![CDATA[
+        \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1
+      ]]></fr:tex>
+      starting from the state <fr:tex display="inline"><![CDATA[\sigma [x \mapsto  1]]]></fr:tex>. As shown in the previous question, this loop does not terminate, and thus there is no resulting state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex>.
+    </html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                            </fr:tree>
+                          </fr:mainmatter>
+                        </fr:tree>
+                        <fr:tree show-metadata="false">
+                          <fr:frontmatter>
+                            <fr:authors />
+                            <fr:date>
+                              <fr:year>2025</fr:year>
+                              <fr:month>12</fr:month>
+                              <fr:day>2</fr:day>
+                            </fr:date>
+                            <fr:title text="Hoare Logic">Hoare Logic</fr:title>
+                          </fr:frontmatter>
+                          <fr:mainmatter />
                         </fr:tree>
                       </fr:mainmatter>
                     </fr:tree>
@@ -4810,14 +5936,16 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
 </html:code></html:pre><html:p>We can equivalently express this definition using the type formation and term intruduction rules:</html:p>
   
     
-    <fr:resource hash="27dec52c5491a90c3646fc97985842f7"><fr:resource-content><html:img src="/notes/27dec52c5491a90c3646fc97985842f7.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="0487b5f985a2769da59d29a41689058b"><fr:resource-content><html:img src="/notes/0487b5f985a2769da59d29a41689058b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
   \inferrule *[right=Form-Nat]{
@@ -4840,15 +5968,15 @@ Similarly, the rules for when an interpretation does not satisfy a formula are a
   <html:li><fr:tex display="inline"><![CDATA[s : \mathbb {N} \to  \mathbb {N}]]></fr:tex></html:li></html:ul><html:p>such that, given any global element <fr:tex display="inline"><![CDATA[z : 1 \to  X]]></fr:tex> and any morphism <fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex>, there exists a unique morphism <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> such that the following diagram commutes:</html:p>
  
   
-  <html:figure><fr:resource hash="92582dc49da2538abac86319db8d23ab"><fr:resource-content><html:img src="/notes/92582dc49da2538abac86319db8d23ab.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="451ab9726be7ca6a5fa1653caf21d4c5"><fr:resource-content><html:img src="/notes/451ab9726be7ca6a5fa1653caf21d4c5.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
@@ -5237,14 +6365,16 @@ def eval : Expr -&gt; Nat
   ]]></fr:tex><html:p>In general we can express the hierarchy for any universe level <fr:tex display="inline"><![CDATA[u]]></fr:tex> as follows:</html:p>
   
     
-    <fr:resource hash="d22c345c7afa48bf314e21f040d4332e"><fr:resource-content><html:img src="/notes/d22c345c7afa48bf314e21f040d4332e.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="d94eb728c2b2b4c4d53e790ae8b3c721"><fr:resource-content><html:img src="/notes/d94eb728c2b2b4c4d53e790ae8b3c721.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
     \inferrule *[right=Sort]{
@@ -5268,14 +6398,16 @@ def eval : Expr -&gt; Nat
                           <fr:mainmatter><html:p>With the exception of propositions, a type in a universe at level <fr:tex display="inline"><![CDATA[u]]></fr:tex> cannot quantify over types from strictly larger universes unless the whole result is lifted to a larger universe. In the case of types we have:</html:p>
   
     
-    <fr:resource hash="d764c9e89e1a835ed3d018e580fe27b4"><fr:resource-content><html:img src="/notes/d764c9e89e1a835ed3d018e580fe27b4.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="6421c48de3f29311e497b41a79a808fd"><fr:resource-content><html:img src="/notes/6421c48de3f29311e497b41a79a808fd.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
       \inferrule *[right=ArrowType]{
@@ -5304,14 +6436,16 @@ def eval : Expr -&gt; Nat
                           <fr:mainmatter><html:p>We can observe that a function type's universe is determined by the universes of its argument and return types. However, in the case of propositions we have a different behavior:</html:p>
   
     
-    <fr:resource hash="120b65d6f240b5db99f27acc7a668d16"><fr:resource-content><html:img src="/notes/120b65d6f240b5db99f27acc7a668d16.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="01b9da1304665deaca41d0e69e7e2b67"><fr:resource-content><html:img src="/notes/01b9da1304665deaca41d0e69e7e2b67.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
       \inferrule *[right=ArrowProp]{
@@ -5346,14 +6480,16 @@ def eval : Expr -&gt; Nat
                           <fr:mainmatter><html:p>We can combine these two rules to get a more general rule for function types that return types in any universe:</html:p>
   
     
-    <fr:resource hash="bc08812524e6a16f5f31653540c8a6e2"><fr:resource-content><html:img src="/notes/bc08812524e6a16f5f31653540c8a6e2.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="0701b5f9a243365e0125751bf06c9e91"><fr:resource-content><html:img src="/notes/0701b5f9a243365e0125751bf06c9e91.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{mathpartir}
   \usepackage{centernot}
   \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
       \inferrule *[right=Arrow]{
@@ -5854,15 +6990,15 @@ def eval : Expr -&gt; Nat
         
  
   
-  <html:figure><fr:resource hash="a1b158afe1c13bb548661319fcf84bb4"><fr:resource-content><html:img src="/notes/a1b158afe1c13bb548661319fcf84bb4.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+  <html:figure><fr:resource hash="d8323ce59463aa832587ad5330c42c75"><fr:resource-content><html:img src="/notes/d8323ce59463aa832587ad5330c42c75.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
    
-  % String-diagram specific extensions live here. Add diagram tweaks without
+   % String-diagram specific extensions live here. Add diagram tweaks without
  % re-running the full base preamble (to avoid duplicate definitions).
 
    
- 
+  
    \usepackage{eulervm}
-  \usepackage[scaled=0.92]{inconsolata} 
+  \usepackage[scaled=0.92]{inconsolata}
   \usepackage{amsmath, amsthm, amsfonts}
   \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
   \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}

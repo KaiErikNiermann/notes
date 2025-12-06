@@ -1,0 +1,27 @@
+\date{2025-12-05}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Hoare triple - total correctness}
+
+\p{The classical [hoare triple](003x) #{\{P\}\ s\ \{Q\}} only captures the notion of \strong{partial correctness}, meaning that if the program terminates, then the postcondition #{Q} holds given that the precondition #{P} held before execution. However, it does not guarantee that the program will terminate. To capture both correctness and termination, we define the \strong{total correctness} Hoare triple denoted as:}
+##{
+  [P]\ s\ [Q]
+}
+\p{The total correctness Hoare triple asserts that:}
+##{
+  \sigma \vDash P \to \exists \sigma'.\ \langle s, \sigma \rangle \Downarrow \sigma' \land \sigma' \vDash Q
+}
+\p{Or equivalently viewing the conditions as assertions on memory states:}
+##{
+  P(\sigma) \to \exists \sigma'.\ \langle s, \sigma \rangle \Downarrow \sigma' \land Q(\sigma')
+}
+\p{The central difference we can observe here is with the usage of a conjunction with the postcondition as opposed to an implication. This means that for total correctness, if the precondition #{P} holds in the initial state #{\sigma}, then there must exist a final state #{\sigma'} such that executing the statement #{s} from #{\sigma} leads to #{\sigma'} \em{and} the postcondition #{Q} holds in that final state. Whereas in the case of partial correctness, if we had non-termination, the postcondition could be vacuously true.}
+
+\p{For the sake of completeness let's also show how we might implement this in lean:}
+\codeblock{lean}{
+  def TotalHoareTriple {P Q : Condition} (c : Stmt) : Prop :=
+    ∀ σ, P σ → ∃ σ', (c, σ) ⇓ₛ σ' ∧ Q σ'
+}

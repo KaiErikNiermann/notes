@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>5</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/0042/</fr:uri>
+    <fr:display-uri>0042</fr:display-uri>
+    <fr:route>/notes/0042/</fr:route>
+    <fr:title text="Syntactic vs Semantic entailment">Syntactic vs Semantic entailment</fr:title>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <html:p>
+  In a very general sense we can distinguish between two kinds of entailment or consequence with most logical systems:
+</html:p>
+    <html:ul><html:li><html:strong>Syntactic entailment</html:strong>, denoted <fr:tex display="inline"><![CDATA[\vdash ]]></fr:tex>, refers to what can be derived using the formal rules and axioms of the system. It is about the manipulation of symbols according to established rules without necessarily considering their meaning. Using the notation of the sequent calculus we can say that given a set of premises <fr:tex display="inline"><![CDATA[\Gamma ]]></fr:tex> and a conclusion <fr:tex display="inline"><![CDATA[\phi ]]></fr:tex>, if we can derive <fr:tex display="inline"><![CDATA[\phi ]]></fr:tex> from <fr:tex display="inline"><![CDATA[\Gamma ]]></fr:tex> using the rules of the system, we write:
+    <fr:tex display="block"><![CDATA[
+      \Gamma  \vdash  \phi 
+    ]]></fr:tex></html:li>
+  <html:li><html:strong>Semantic entailment</html:strong>, denoted <fr:tex display="inline"><![CDATA[\vDash ]]></fr:tex>, is concerned with the truth of statements in all possible interpretations or models. It captures the idea that if the premises are true, then the conclusion must also be true in every model where the premises hold. Using the same notation, we say that <fr:tex display="inline"><![CDATA[\phi ]]></fr:tex> is a semantic consequence of <fr:tex display="inline"><![CDATA[\Gamma ]]></fr:tex> if in every model where all statements in <fr:tex display="inline"><![CDATA[\Gamma ]]></fr:tex> are true, <fr:tex display="inline"><![CDATA[\phi ]]></fr:tex> is also true:
+    <fr:tex display="block"><![CDATA[
+      \Gamma  \vDash  \phi 
+    ]]></fr:tex></html:li></html:ul>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

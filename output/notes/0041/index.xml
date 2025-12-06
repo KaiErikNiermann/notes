@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>5</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/0041/</fr:uri>
+    <fr:display-uri>0041</fr:display-uri>
+    <fr:route>/notes/0041/</fr:route>
+    <fr:title text="Soundness &amp; Completeness - Hoare triples">Soundness &amp; Completeness - Hoare triples</fr:title>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <html:p>In a very general sense if we have a logical or formal system a core idea is that we only want to prove things that are actually true, and conversly if we find something that is true we would want to be able to prove it. This leads to two important properties of formal systems:</html:p>
+    <html:ul><html:li><html:strong>Soundness</html:strong> is the property that everything provable within the system is in fact true, within the context of hoare logic it means that all hoare triples which we can syntactically derive using our inference rules are by implication valid (i.e. true in all interpretations), formally:
+    <fr:tex display="block"><![CDATA[
+      \vdash  \{P\}\ s\ \{Q\} \to  \vDash  \{P\}\ s\ \{Q\}
+    ]]></fr:tex></html:li>
+  <html:li><html:strong>Completeness</html:strong> is the property that everything that is true can be proven within the system, in the context of hoare logic it means that all valid hoare triples can be syntactically derived using our inference rules, formally:
+    <fr:tex display="block"><![CDATA[
+      \vDash  \{P\}\ s\ \{Q\} \to  \vdash  \{P\}\ s\ \{Q\}
+    ]]></fr:tex></html:li></html:ul>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

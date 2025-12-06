@@ -1,0 +1,20 @@
+\date{2025-12-05}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Inference Rule Schema - Hoare logic}
+
+\p{To denote the idea of syntactic consequence / inference within Hoare logic we use the notation:}
+\infrule{
+  \inferrule*[right=Rule-Schema]{
+    \vdash \{P\}\ s_1\ \{Q\} \\ 
+    \ldots \\
+    \vdash \{Q\}\ s_n\ \{R\}
+  }{
+    \vdash \{P\}\ s\ \{R\}
+  }
+}
+\p{Which says that if we can derive the hoare triple #{\{P\}\ s_1\ \{Q\}} and so on up to #{\{Q\}\ s_n\ \{R\}} using the inference rules of Hoare logic, then we can derive the hoare triple #{\{P\}\ s\ \{R\}}.}
+\p{Inference rules without any hypotheses are considered \strong{base cases}.}

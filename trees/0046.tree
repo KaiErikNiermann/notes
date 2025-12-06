@@ -1,0 +1,95 @@
+\date{2025-12-06}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{A hypothetical proof rule}
+
+\p{
+  A friend suggests the following proof rule for assigments:
+}
+##{
+  \vdash \{(x = e) \to Q\}\ x := e\ \{Q\}
+}
+\p{
+  Is the proof rule correct?
+}
+
+\solution{
+  \p{Now let's test out the rule on a particular hoare triple:}
+  ##{
+    \{?\}\ x := 4\ \{y = x\}
+  }
+  \p{To make the hoare triple valid we would have to use the following precondition:}
+  ##{
+    \vdash \{(x = 4) \to y = x\}\ x := 4\ \{y = x\}
+  }
+  \p{but let's now assume the following initial state:}
+  ##{
+    \sigma_1 = \{x \mapsto 3, y \mapsto 1\}
+  }
+  \p{this does correctly entail our precondition, i.e. we have #{\sigma_1 \vDash P} as necessary by virtue of vacous truth, then executing the statement we have:}
+  ##{
+    \langle x := 4, \sigma_1 \rangle \Downarrow \sigma_2
+  }
+  \p{In the new context clearly #{x} is reassigned to 4, thus:}
+  ##{
+    \sigma_2 = \{x \mapsto 4, y \mapsto 1\}
+  }
+  \p{But we can see that clearly #{\sigma_2} violates our postcondition #{Q}, which is to say, #{\sigma_2 \nvDash (y = x)}. The implication of this is that while the hoare triple is derivable it is \em{not} then necessarily also valid, in words this proof rule is unsound.}
+  \p{For completeness let's also provide a proof of soundness. As a reminder soundness states that:}
+  \blockquote{
+    If a hoare triple is derivable using the inference rules of our system, then it is valid (i.e. true in all interpretations.)
+  }
+  \p{Formally we express this as:}
+  ##{
+    \vdash \{P\}\ s\ \{Q\} \to \vDash \{P\}\ s\ \{Q\}
+  }
+  \p{If we instantiate this rule for our hypothetical assignment rule we must demonstrate the following:}
+  ##{
+    \forall \sigma.\ \sigma \vDash (x = e) \to Q \land \exists \sigma'.\ \langle (x := e), \sigma \rangle \Downarrow \sigma' \to \sigma' \vDash Q
+  }
+  \subtree{
+    \taxon{Proof}
+    
+    \p{Let #{\sigma} be the intial state before the assignment #{x := e}. We must show that if #{\sigma \vDash (x = e) \to Q}, then, after executing #{x := e}, the resulting state #{\sigma'} satisfies #{\sigma' \vDash Q} (i.e. is valid for the assertions in the postcondition).}
+    \ul{
+      \li{Before the assignment we have #{\sigma \vDash (x = e) \to Q}, in other words this means that:
+        ##{
+          \sigma(x) = \sigma(e) \to \sigma \vDash  Q
+        }
+        so if the variable #{x} in the intial state evaluates to the same thing as some expression #{e} then our post postcondition is valid for this state.
+      }
+      \li{After the assignment we have a new state #{\sigma'} defined as:
+        ##{
+          \sigma'(x) = \sigma(e)
+        }
+        with everything else being unchanged, which is to say that
+        ##{
+          \forall y.\ y\ \mathrlap{\,/}{=}\ x \land \sigma'(y) = \sigma(y)
+        }
+      }
+      \li{Now we want to check if #{\sigma' \vDash Q} as desired, we proceed by a case analysis on the equality #{\sigma'(x) = \sigma(e)}
+        \ul{
+          \li{\em{Case:} #{\sigma(e) = \sigma(x)}, then by the precondition we have #{\sigma \vDash Q}. Since #{\sigma'} only changes the value of #{x} to #{\sigma(e)}, and #{Q} is satisfied by the intial state #{\sigma} it follows that #{\sigma' \vDash Q}.}
+          \li{\em{Case:} #{\sigma(e) \ \mathrlap{\,/}{=}\ \sigma(x)}, then our precondition becomes vacuously true as the anticident is false. However as the assignment does terminate we do need to ensure that #{Q} holds in the new state #{\sigma'}. However since #{Q} can be arbitrary we cannot guarantee that #{\sigma' \vDash Q}.}
+        }
+      }
+    }
+  }
+  \p{Let's link the proof of soundness back to the example, so in our inital state #{\sigma_1} we have that:}
+  ##{
+    \sigma(x) \ \mathrlap{\,/}{=}\ \sigma(y) \equiv 3 \ \mathrlap{\,/}{=}\ 4
+  }
+  \p{Since this means that the equality #{x = 4} is false we have that implication so the precondition #{P} is true. This corresponds precisely to the second case where #{\sigma(e) \ \mathrlap{\,/}{=}\ \sigma(x)}. The issue we can then see which naturally follows is that in the new state clearly its the case that:}
+  ##{
+    \sigma_2 = \{x \mapsto 4, y \mapsto 1\} \nvDash (x = y)
+  }
+  \p{In other words we had the case where our precondition was vacuously true thus erroneously implying upon termination the arbitrary #{y = x} must also hold. Clearly then this proof rule is incorrect as in the case of a vacuous truth we are able to generate unsound hoare triples.}
+  \p{To compare this with the \em{correct} assignment rule we have:}
+  ##{
+    \vdash \{P[x \mapsto e]\}\ x := e\ \{P\}
+  }
+  \p{we can notice here that by removing the consequent of the logical implication we ensure that if the assertion of x being subsituted / being equal to the expression e \em{before} the execution of the statment doesnt hold, then it correctly means that we indeed cannot suggest that after an assignment our assertion #{P} is somehow correect.}
+}

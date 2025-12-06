@@ -1,0 +1,41 @@
+\date{2025-12-05}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Hoare triple - partial correctness}
+
+\p{The basic unit of reasoning or \em{judgement} of the \strong{partial correctness} of a program is the \strong{Hoare triple} denoted as:}
+##{
+  \{P\}\ s\ \{Q\}
+}
+\p{where:}
+\ul{
+  \li{#{P} represents the \strong{precondition} which must hold true \em{before} the execution of the statement #{s}.}
+  \li{#{Q} represents the \strong{postcondition} which must hold true \em{after} the execution of the statement #{s}, provided that #{P} was true before execution.}
+}
+ 
+\p{If we consider a variable state #{\sigma : \texttt{String} \to \Z} mapping variable names to integer values, then we can define the partial correctness condition of a Hoare triple as follows:}
+##{
+  \sigma \vDash P \to \exists \sigma'.\ \langle s, \sigma \rangle \Downarrow \sigma' \to \sigma' \vDash Q
+}
+\p{What this says is that: if the precondition #{P} holds in the initial state #{\sigma}, and if executing the statement #{s} from that state leads to a new state #{\sigma'}, then the postcondition #{Q} must hold in the new state #{\sigma'}.}
+
+\p{In a more programmatic sense we can understand the pre and postconditions as assertions on the memory state #{\sigma}, in other words they represent a function #{A : (\texttt{String} \to \Z) \to \texttt{Prop}} that evaluates to true or false based on the values of the variables in the state. Thus we can rewrite the Hoare triple condition as:}
+##{
+  P(\sigma) \to \exists \sigma'.\ \langle s, \sigma \rangle \Downarrow \sigma' \to Q(\sigma')
+}
+\p{Or in lean equivalenetly as:}
+\codeblock{lean}{
+  abbrev Condition := Memory -> Prop
+
+  def HoareTriple {P Q : Condition} (c : Stmt) : Prop :=
+    ∀ σ σ', P σ → (c, σ) ⇓ₛ σ' → Q σ'
+}
+\p{A note here is that we are using some custom notation for the big-step semantics relation. The notation #{\Downarrow_s} here simply means the big step evaluation relation for \em{statements}.}
+
+\p{In general for a Hoare triple we denote its validity as:}
+##{
+  \vDash \{P\}\ s\ \{Q\}
+}

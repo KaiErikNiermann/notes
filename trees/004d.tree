@@ -1,0 +1,108 @@
+\date{2025-12-06}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Proving validity with invariants}
+
+\p{
+  Let's consider the statement #{W}:
+}
+\codeblock{python}{
+  while x < n do 
+    x = x + 1
+}
+\p{
+  Answer the following questions:
+}
+\ol{
+  \li{
+    Prove the validity of 
+    ##{
+      \vdash \{x \leq n\}\ W\ \{x \geq n\}
+    }
+    using the loop invariant #{I = x \leq n}
+  } 
+  \li{
+    Would #{\top} also have worked as a loop invariant?
+  }
+  \li{
+    If we changed the post condition to #{x = n}, what would that have changed?
+  }
+}
+
+\solution{
+  \p{As the usual piece of little assistance let's take a look at the while rule}
+  \infrule{
+    \inferrule*[right=While]{
+      \vdash \{I \land b\}\ s\ \{I\}
+    }{
+      \vdash \{I\}\ \cwhile\ b\ \cdo\ s\ \{I \land \neg b\}
+    }
+  }
+  \ol{
+    \li{
+      Here we can try to construct the proof tree first of all, instantiating our rule with the given invariant we have: 
+      \infrule{
+        \inferrule{
+          \{x \leq n \land x < n\}\ x := x + 1\ \{x \leq n\}
+        }{
+          \{x \leq n\}\ W\ \{x \leq n \land \underbrace{x \geq n}_{\neg b}\}   
+        }
+      }
+      Using the assignment rule we then want to prove the antecident here, so 
+      \infrule{
+        \inferrule{}{
+          \{Q[x := x + 1]\}\ x := x + 1\ \{Q\}
+        }
+      }
+      instantiating this with or postcondition #{Q} we have
+      \infrule{
+        \inferrule{}{
+          \{(x \leq n)[x \mapsto x + 1]\}\ s\ \{x \leq n\}
+        }
+      }
+      in other words our precondition becomes
+      ##{
+        (x + 1) \leq n
+      }
+      Therefore the use the assignment rule we want we have to demonstrate
+      ##{
+        (x \leq n \land x < n \to (x + 1) \leq n)
+      }
+      since we have that 
+      ##{
+        x \leq n \land x < n \equiv x < n \to (x + 1) \leq n
+      }
+      we clearly have that 
+      \infrule{
+        \inferrule*[right=Pre-Strength]{
+          \vdash \{x + 1 \leq n\}\ s\ \{x \leq n\} \\ \vDash (x \leq n \land x < n) \to (x + 1) \leq n 
+        }{
+          \vdash \{x \leq n \land x < n\}\ x := x + 1\ \{x \leq n\}
+        }
+      }
+    } 
+    \li{Yes, let's again instantiate our rule
+      \infrule{
+        \inferrule{
+          \{\top \land x < n\}\ x := x + 1\ \{\top\}
+        }{
+          \{\top\}\ W\ \{\top \land x \geq n \}
+        }
+      }
+      since our postcondition for the assignmnet is a tautology, i.e. always valid, it will hold under substitution thus making the assignment trivially valid hence working as a correct loop invariant.
+    }
+    \li{Something we could observe in question (1) is that 
+      \infrule{
+        \inferrule{
+          \{x \leq n\}\ W\ \{\overbrace{x \leq n \land x \geq n}^{x = n}\} \\ \vDash (x = n) \to x \geq n 
+        }{
+          \{x \leq n\}\ W\ \{x \geq n\}
+        }
+      }
+      so this is a bit of a trick question in that with question 1 we are actually just using a postcondition weaking \em{on this postcondition}, hence this is naturally a valid postcondition.
+    }
+  }
+}

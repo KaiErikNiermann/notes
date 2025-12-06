@@ -1,0 +1,14 @@
+\date{2025-12-06}
+
+\import{base-macros}
+
+\taxon{VU-VFS-2025}
+
+\title{Lecture 6 - Hoare logic & Weakest preconditions}
+
+\subtree{
+  \title{Loops & Invariants}
+  \transclude{004c}
+  \transclude{004d}
+  \transclude{004e}
+}

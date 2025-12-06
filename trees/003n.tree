@@ -15,5 +15,27 @@
 
 \subtree{
   \title{Hoare Logic}
+  \transclude{003x}
+  \transclude{003y}
+}
 
+\subtree{
+  \title{Partial vs Total correctness}
+  \transclude{003z}
+  \transclude{0040}
+}
+
+\subtree{
+  \title{Inference rules}
+  \transclude{0043}
+  \transclude{0045}
+  \transclude{0044}
+  \transclude{0046}
+  \transclude{0047}
+}
+
+\subtree{
+  \title{Consequence}
+  \transclude{0048}
+  \transclude{0049}
 }

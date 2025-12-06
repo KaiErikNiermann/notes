@@ -1,0 +1,79 @@
+\date{2025-12-06}
+
+\import{base-macros}
+
+\taxon{Definition} 
+
+\title{Precond. Strengthenting & Postcond. Weakening}
+
+\p{
+  As a reminder in hoare logic we denote the consequence rule as follows:
+}
+\infrule{
+  \inferrule*[right=Consequence]{
+    \vDash P' \to P \\ \vdash \{P\}\ s\ \{Q\} \\ \vDash Q \to Q'
+  }{
+    \vdash \{P'\}\ s\ \{Q'\}
+  }
+}
+\p{
+  On a high level this is quite evidently just transitivity, which is to say that if some assertion #{P'} holds and by implication #{P} holds, and upon successful termination of #{s} we have that #{Q} holds and by implication #{Q'} holds, then we can transitively reason that #{\{P'\}\ s\ \{Q'\}} would also hold for our program #{s}.
+}
+
+\p{
+  What we can do here is decompose this rule into two separate rules:
+}
+\subtree{
+  \title{Precondition strenghtenting}
+
+  \infrule{
+    \inferrule*[right=Pre-Strength]{
+      \vDash P \to P' \\ \vdash \{P'\}\ s\ \{Q\}
+    }{
+      \vdash \{P\}\ s\ \{Q\}
+    }
+  }
+  \p{
+    The idea of strengthening here comes from the fact that the rhs of an implication always \em{at least} denotes a more restrictive or \em{strengthened} condition on the memory state #{\sigma}. So a basic example being clearly:
+  }
+  ##{
+    x > 3 \to x > 2
+  }
+  \p{
+    So if we have that:
+  }
+  ##{
+    \sigma \vDash (x > 3) \to (x > 2) \\ \vdash \{x > 2\}\ s\ \{Q\}
+  }
+  \p{
+    Which is to say that our hoare triple is derivable under the weaker precondition #{x > 2}, then clearly the same hoare triple is also derivable under the stronger pre-condition #{x > 3} as it implies our weaker condition, hence we can derive:
+  }
+  ##{
+    \vdash \{x > 3\}\ s\ \{Q\}
+  }
+  \p{
+    An example program we could take here would be something like:
+  }
+  ##{
+    \{x > 2\}\ \cif\ (x > 2)\ \cthen\ y := 2 \celse\ y := 3\ \{y := 2\}
+  }
+  \p{
+    Clearly here the condition just requires that #{x} is larger then 2, if our precondition asserts that its larger then 3, the #{\cthen} branch executes just the same and our postcondition holds.
+  }
+}
+
+\subtree{
+  \title{Postcondition weakening}
+
+  \infrule{
+    \inferrule*[right=Post-Weaken.]{
+      \vdash \{P\}\ s\ \{Q'\} \\ \vDash Q' \to Q
+    }{
+      \vdash \{P\}\ s\ \{Q\}
+    }
+  }
+
+  \p{
+    On a high level this says that if we can prove some postcondition #{Q'}, we can always relax this condition to something weaker. So in simpler terms if we have the fact that the postcondition #{Q'} holds for some more restrictive state, then we can naturally lessen the ristrictions and have it still hold.
+  }
+}

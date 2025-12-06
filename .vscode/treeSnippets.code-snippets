@@ -507,7 +507,7 @@
 
   "Less Than or Equal": { "prefix": ["\\leq", "\\le"], "body": ["\\leq"], "description": "Less than or equal" },
   "Greater Than or Equal": { "prefix": ["\\geq", "\\ge"], "body": ["\\geq"], "description": "Greater than or equal" },
-  "Not Equal": { "prefix": ["\\neq", "\\ne"], "body": ["\\neq"], "description": "Not equal" },
+  "Not Equal": { "prefix": ["\\neq", "\\ne"], "body": ["\\ \\mathrlap{\\,/}{=}\\"], "description": "Not equal" },
   "Approximately": { "prefix": ["\\approx"], "body": ["\\approx"], "description": "Approximately equal" },
   "Equivalent": { "prefix": ["\\equiv"], "body": ["\\equiv"], "description": "Equivalent/congruent" },
   "Subset": { "prefix": ["\\subset"], "body": ["\\subset"], "description": "Subset" },
@@ -537,6 +537,7 @@
   "Negation": { "prefix": ["\\neg", "\\lnot"], "body": ["\\neg"], "description": "Negation" },
   "And": { "prefix": ["\\land", "\\wedge"], "body": ["\\land"], "description": "Logical and" },
   "Or": { "prefix": ["\\lor", "\\vee"], "body": ["\\lor"], "description": "Logical or" },
+  "Hoare triple": { "prefix": ["\\hoare", "\\ht"], "body": ["\\{$1\\\\}\\ $2\\ \\{$3\\\\}$4"], "description": "hoare triple" },
 
   // ============================================================
   // DELIMITERS

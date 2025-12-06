@@ -1,0 +1,43 @@
+\date{2025-12-05}
+
+\import{base-macros}
+
+\taxon{Definition}  
+
+\title{Hoare triple inference rules - Nano language}
+
+\p{The basic inference rules for the Hoare logic applied to the Nano language are as follows:}
+\infrule{
+  \inferrule*[right=Assignment]{
+  }{
+    \vdash \{P[x \mapsto e]\}\ x := e\ \{P\}
+  }
+  \and
+  \inferrule*[right=Sequence]{
+    \vdash \{P\}\ s_1\ \{Q\} \\
+    \vdash \{Q\}\ s_2\ \{R\}
+  }{
+    \vdash \{P\}\ s_1; s_2\ \{R\}
+  }
+  \and
+  \inferrule*[right=If]{
+    \vdash \{P \land b\}\ s_1\ \{Q\} \\
+    \vdash \{P \land \neg b\}\ s_2\ \{Q\}
+  }{
+    \vdash \{P\}\ \cif\ b\ \cthen\ s_1\ \celse\ s_2\ \{Q\}
+  }
+  \and
+  \inferrule*[right=While]{
+    \vdash \{P \land b\}\ s\ \{P\}
+  }{
+    \vdash \{P\}\ \texttt{while}\ b\ \texttt{do}\ s\ \{P \land \neg b\}
+  }
+  \and 
+  \inferrule*[right=Consequence]{
+    \vDash P' \to P \\
+    \vdash \{P\}\ s\ \{Q\} \\
+    \vDash Q \to Q'
+  }{
+    \vdash \{P'\}\ s\ \{Q'\}
+  }
+}

@@ -1,0 +1,25 @@
+\date{2025-12-05}
+
+\import{base-macros}
+
+\taxon{Definition} 
+
+\title{Syntactic vs Semantic entailment}
+
+\p{
+  In a very general sense we can distinguish between two kinds of entailment or consequence with most logical systems:
+}
+\ul{
+  \li{
+    \strong{Syntactic entailment}, denoted #{\vdash}, refers to what can be derived using the formal rules and axioms of the system. It is about the manipulation of symbols according to established rules without necessarily considering their meaning. Using the notation of the sequent calculus we can say that given a set of premises #{\Gamma} and a conclusion #{\phi}, if we can derive #{\phi} from #{\Gamma} using the rules of the system, we write:
+    ##{
+      \Gamma \vdash \phi
+    }
+  }
+  \li{
+    \strong{Semantic entailment}, denoted #{\vDash}, is concerned with the truth of statements in all possible interpretations or models. It captures the idea that if the premises are true, then the conclusion must also be true in every model where the premises hold. Using the same notation, we say that #{\phi} is a semantic consequence of #{\Gamma} if in every model where all statements in #{\Gamma} are true, #{\phi} is also true:
+    ##{
+      \Gamma \vDash \phi
+    }
+  }
+}

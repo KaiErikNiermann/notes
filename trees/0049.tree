@@ -1,0 +1,41 @@
+\date{2025-12-06}
+
+\import{base-macros}
+
+\taxon{Quiz}  
+
+\title{Postcondition Weakening examples}
+
+\p{Suppose we can prove:}
+##{
+  \{\top\}\ s\ \{x = y \land z = 2\}
+}
+
+\p{using the rule of post-condition weakening, which of the following can we prove?}
+\ol{
+  \li{#{\{\top\}\ s\ \{x = y\}}}
+  \li{#{\{\top\}\ s \ \{z = 2\}}}
+  \li{#{\{\top\}\ s\ \{z > 2\}}}
+  \li{#{\{\top\}\ s\ \{\forall y.\ x = y\}}}
+  \li{#{\{\top\}\ s\ \{\exists y.\ x = y\}}}
+}
+
+\solution{
+  \ol{
+    \li{Yes, this is provable, removing a conjunct is a common way of weakening an expresison as we are removing one condition.}
+    \li{Yes, this is provable, same reasoning as in (1)}
+    \li{This is also provable, more or less same reasoning as before, here we are using the fact that 
+      ##{
+        z = 2 \to z > 0
+      }
+      since obviously #{2 > 0}
+    }
+    \li{No, this is not provable, while removing a conjunct does weaken our postcondition, if we then \em{also} quantify over all #{y} we make an assertion which is \strong{stronger} then what the conjunct says, i.e. that #{x = y} \em{for a specific #{y}}, hence this is not provable.}
+    \li{Yes, this is provable. We have the fact that 
+      ##{
+        a = b \equiv \exists a = b
+      }
+      so clearly this is the same as what we did for (1) just with no desugaring of existential syntax
+    }
+  }
+}

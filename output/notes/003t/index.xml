@@ -1041,7 +1041,634 @@
                 </fr:date>
                 <fr:title text="Hoare Logic">Hoare Logic</fr:title>
               </fr:frontmatter>
-              <fr:mainmatter />
+              <fr:mainmatter>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>5</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/003x/</fr:uri>
+                    <fr:display-uri>003x</fr:display-uri>
+                    <fr:route>/notes/003x/</fr:route>
+                    <fr:title text="Hoare triple - partial correctness">Hoare triple - partial correctness</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>The basic unit of reasoning or <html:em>judgement</html:em> of the <html:strong>partial correctness</html:strong> of a program is the <html:strong>Hoare triple</html:strong> denoted as:</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \{P\}\ s\ \{Q\}
+]]></fr:tex>
+                    <html:p>where:</html:p>
+                    <html:ul><html:li><fr:tex display="inline"><![CDATA[P]]></fr:tex> represents the <html:strong>precondition</html:strong> which must hold true <html:em>before</html:em> the execution of the statement <fr:tex display="inline"><![CDATA[s]]></fr:tex>.</html:li>
+  <html:li><fr:tex display="inline"><![CDATA[Q]]></fr:tex> represents the <html:strong>postcondition</html:strong> which must hold true <html:em>after</html:em> the execution of the statement <fr:tex display="inline"><![CDATA[s]]></fr:tex>, provided that <fr:tex display="inline"><![CDATA[P]]></fr:tex> was true before execution.</html:li></html:ul>
+                    <html:p>If we consider a variable state <fr:tex display="inline"><![CDATA[\sigma  : \texttt {String} \to  \mathbb {Z}]]></fr:tex> mapping variable names to integer values, then we can define the partial correctness condition of a Hoare triple as follows:</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \sigma  \vDash  P \to  \exists  \sigma '.\ \langle  s, \sigma  \rangle  \Downarrow  \sigma ' \to  \sigma ' \vDash  Q
+]]></fr:tex>
+                    <html:p>What this says is that: if the precondition <fr:tex display="inline"><![CDATA[P]]></fr:tex> holds in the initial state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>, and if executing the statement <fr:tex display="inline"><![CDATA[s]]></fr:tex> from that state leads to a new state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex>, then the postcondition <fr:tex display="inline"><![CDATA[Q]]></fr:tex> must hold in the new state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex>.</html:p>
+                    <html:p>In a more programmatic sense we can understand the pre and postconditions as assertions on the memory state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>, in other words they represent a function <fr:tex display="inline"><![CDATA[A : (\texttt {String} \to  \mathbb {Z}) \to  \texttt {Prop}]]></fr:tex> that evaluates to true or false based on the values of the variables in the state. Thus we can rewrite the Hoare triple condition as:</html:p>
+                    <fr:tex display="block"><![CDATA[
+  P(\sigma ) \to  \exists  \sigma '.\ \langle  s, \sigma  \rangle  \Downarrow  \sigma ' \to  Q(\sigma ')
+]]></fr:tex>
+                    <html:p>Or in lean equivalenetly as:</html:p>
+                    <html:pre class="code-block language-lean">
+                      <html:code class="language-lean">
+  abbrev Condition := Memory -&gt; Prop
+
+  def HoareTriple {P Q : Condition} (c : Stmt) : Prop :=
+    ∀ σ σ', P σ → (c, σ) ⇓ₛ σ' → Q σ'
+</html:code>
+                    </html:pre>
+                    <html:p>A note here is that we are using some custom notation for the big-step semantics relation. The notation <fr:tex display="inline"><![CDATA[\Downarrow _s]]></fr:tex> here simply means the big step evaluation relation for <html:em>statements</html:em>.</html:p>
+                    <html:p>In general for a Hoare triple we denote its validity as:</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \vDash  \{P\}\ s\ \{Q\}
+]]></fr:tex>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>5</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/003y/</fr:uri>
+                    <fr:display-uri>003y</fr:display-uri>
+                    <fr:route>/notes/003y/</fr:route>
+                    <fr:title text="Hoare triple evaluation">Hoare triple evaluation</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>Asses the validity of each of the following Hoare triples.</html:p><html:ol><html:li><fr:tex display="inline"><![CDATA[\{x = 0 \}\ x := x + 1\ \{x = 1\}]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\{x = 0 \land  y = 1\}\ x := x + 1\ \{x = 1 \land  y = 2\}]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\{x = 0 \land  y = 1\}\ x := x + 1 \{x = 1 \lor  y = 2\}]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\{x = 0\}\ \texttt {while}\ \top \ \texttt {do}\ x := x + 1\ \{x = 1\}]]></fr:tex></html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>5</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>Valid. If <fr:tex display="inline"><![CDATA[x = 0]]></fr:tex> before execution, then after executing <fr:tex display="inline"><![CDATA[x := x + 1]]></fr:tex>, <fr:tex display="inline"><![CDATA[x]]></fr:tex> will be <fr:tex display="inline"><![CDATA[1]]></fr:tex>.</html:li>
+    <html:li>Invalid. While <fr:tex display="inline"><![CDATA[x]]></fr:tex> will be <fr:tex display="inline"><![CDATA[1]]></fr:tex> after execution, <fr:tex display="inline"><![CDATA[y]]></fr:tex> remains <fr:tex display="inline"><![CDATA[1]]></fr:tex>, so the postcondition <fr:tex display="inline"><![CDATA[y = 2]]></fr:tex> does not hold.</html:li>
+    <html:li>Valid. After execution, <fr:tex display="inline"><![CDATA[x]]></fr:tex> will be <fr:tex display="inline"><![CDATA[1]]></fr:tex>, satisfying the postcondition <fr:tex display="inline"><![CDATA[x = 1 \lor  y = 2]]></fr:tex>.</html:li>
+    <html:li>Valid. The loop runs indefinitely, so the postcondition is vacuously true as the program never terminates.</html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>2</fr:day>
+                </fr:date>
+                <fr:title text="Partial vs Total correctness">Partial vs Total correctness</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>5</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/003z/</fr:uri>
+                    <fr:display-uri>003z</fr:display-uri>
+                    <fr:route>/notes/003z/</fr:route>
+                    <fr:title text="Hoare triple - total correctness">Hoare triple - total correctness</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>The classical <fr:link href="/notes/003x/" title="Hoare triple - partial correctness" uri="https://kaierikniermann.github.io/notes/003x/" display-uri="003x" type="local">hoare triple</fr:link> <fr:tex display="inline"><![CDATA[\{P\}\ s\ \{Q\}]]></fr:tex> only captures the notion of <html:strong>partial correctness</html:strong>, meaning that if the program terminates, then the postcondition <fr:tex display="inline"><![CDATA[Q]]></fr:tex> holds given that the precondition <fr:tex display="inline"><![CDATA[P]]></fr:tex> held before execution. However, it does not guarantee that the program will terminate. To capture both correctness and termination, we define the <html:strong>total correctness</html:strong> Hoare triple denoted as:</html:p>
+                    <fr:tex display="block"><![CDATA[
+  [P]\ s\ [Q]
+]]></fr:tex>
+                    <html:p>The total correctness Hoare triple asserts that:</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \sigma  \vDash  P \to  \exists  \sigma '.\ \langle  s, \sigma  \rangle  \Downarrow  \sigma ' \land  \sigma ' \vDash  Q
+]]></fr:tex>
+                    <html:p>Or equivalently viewing the conditions as assertions on memory states:</html:p>
+                    <fr:tex display="block"><![CDATA[
+  P(\sigma ) \to  \exists  \sigma '.\ \langle  s, \sigma  \rangle  \Downarrow  \sigma ' \land  Q(\sigma ')
+]]></fr:tex>
+                    <html:p>The central difference we can observe here is with the usage of a conjunction with the postcondition as opposed to an implication. This means that for total correctness, if the precondition <fr:tex display="inline"><![CDATA[P]]></fr:tex> holds in the initial state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>, then there must exist a final state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> such that executing the statement <fr:tex display="inline"><![CDATA[s]]></fr:tex> from <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> leads to <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> <html:em>and</html:em> the postcondition <fr:tex display="inline"><![CDATA[Q]]></fr:tex> holds in that final state. Whereas in the case of partial correctness, if we had non-termination, the postcondition could be vacuously true.</html:p>
+                    <html:p>For the sake of completeness let's also show how we might implement this in lean:</html:p>
+                    <html:pre class="code-block language-lean">
+                      <html:code class="language-lean">
+  def TotalHoareTriple {P Q : Condition} (c : Stmt) : Prop :=
+    ∀ σ, P σ → ∃ σ', (c, σ) ⇓ₛ σ' ∧ Q σ'
+</html:code>
+                    </html:pre>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>5</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/0040/</fr:uri>
+                    <fr:display-uri>0040</fr:display-uri>
+                    <fr:route>/notes/0040/</fr:route>
+                    <fr:title text="Understanding hoare triples">Understanding hoare triples</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:ol><html:li>What does <fr:tex display="inline"><![CDATA[\{\top \}\ s\ \{Q\}]]></fr:tex> express?</html:li>
+  <html:li>What about <fr:tex display="inline"><![CDATA[\{P\}\ s\ \{\top \}]]></fr:tex>?</html:li>
+  <html:li>What about <fr:tex display="inline"><![CDATA[[P]\ s\ [\top ]]]></fr:tex>?</html:li>
+  <html:li>When does <fr:tex display="inline"><![CDATA[\{\top \}\ s\ \{\bot \}]]></fr:tex> hold?</html:li>
+  <html:li>When does <fr:tex display="inline"><![CDATA[\{\bot \}\ s\ \{Q\}]]></fr:tex> hold?</html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>5</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>It states that no matter the initial state, if the program <fr:tex display="inline"><![CDATA[s]]></fr:tex> terminates, then the postcondition <fr:tex display="inline"><![CDATA[Q]]></fr:tex> will hold. In other words, all <html:em>terminating states</html:em> end up in or satisfy <fr:tex display="inline"><![CDATA[Q]]></fr:tex>.</html:li>
+    <html:li>It states that if the precondition <fr:tex display="inline"><![CDATA[P]]></fr:tex> holds before execution of <fr:tex display="inline"><![CDATA[s]]></fr:tex>, then after execution (if it terminates), the postcondition will always be true. Since <fr:tex display="inline"><![CDATA[\top ]]></fr:tex> is always true, this Hoare triple is valid for any program <fr:tex display="inline"><![CDATA[s]]></fr:tex> and precondition <fr:tex display="inline"><![CDATA[P]]></fr:tex>.</html:li>
+    <html:li>Since this is a total correctness Hoare triple, it states that if the precondition <fr:tex display="inline"><![CDATA[P]]></fr:tex> holds before execution of <fr:tex display="inline"><![CDATA[s]]></fr:tex>, then the program <fr:tex display="inline"><![CDATA[s]]></fr:tex> will always terminate, regardless of the final state. The postcondition <fr:tex display="inline"><![CDATA[\top ]]></fr:tex> is trivially satisfied since it is always true. In other words we terminate on all states satisfying <fr:tex display="inline"><![CDATA[P]]></fr:tex>.</html:li>
+    <html:li>This Hoare triple holds if and only if the program <fr:tex display="inline"><![CDATA[s]]></fr:tex> <html:em>never terminates</html:em> for any initial state. Since the postcondition is <fr:tex display="inline"><![CDATA[\bot ]]></fr:tex>, which is always false, the only way for the Hoare triple to be valid is if there are no terminating executions of <fr:tex display="inline"><![CDATA[s]]></fr:tex>.</html:li>
+    <html:li>This Hoare triple holds for any program <fr:tex display="inline"><![CDATA[s]]></fr:tex> and postcondition <fr:tex display="inline"><![CDATA[Q]]></fr:tex>, because the precondition <fr:tex display="inline"><![CDATA[\bot ]]></fr:tex> is always false. Since there are no initial states that satisfy <fr:tex display="inline"><![CDATA[\bot ]]></fr:tex>, the implication in the definition of the Hoare triple is vacuously true.</html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>2</fr:day>
+                </fr:date>
+                <fr:title text="Inference rules">Inference rules</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>5</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/0043/</fr:uri>
+                    <fr:display-uri>0043</fr:display-uri>
+                    <fr:route>/notes/0043/</fr:route>
+                    <fr:title text="Inference Rule Schema - Hoare logic">Inference Rule Schema - Hoare logic</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>To denote the idea of syntactic consequence / inference within Hoare logic we use the notation:</html:p>
+  
+    
+    <fr:resource hash="2e12a2e5ca0ca3ffda6781ef9f314039"><fr:resource-content><html:img src="/notes/2e12a2e5ca0ca3ffda6781ef9f314039.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule *[right=Rule-Schema]{
+    \vdash  \{P\}\ s_1\ \{Q\} \\ 
+    \ldots  \\
+    \vdash  \{Q\}\ s_n\ \{R\}
+  }{
+    \vdash  \{P\}\ s\ \{R\}
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>Which says that if we can derive the hoare triple <fr:tex display="inline"><![CDATA[\{P\}\ s_1\ \{Q\}]]></fr:tex> and so on up to <fr:tex display="inline"><![CDATA[\{Q\}\ s_n\ \{R\}]]></fr:tex> using the inference rules of Hoare logic, then we can derive the hoare triple <fr:tex display="inline"><![CDATA[\{P\}\ s\ \{R\}]]></fr:tex>.</html:p><html:p>Inference rules without any hypotheses are considered <html:strong>base cases</html:strong>.</html:p></fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>5</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/0045/</fr:uri>
+                    <fr:display-uri>0045</fr:display-uri>
+                    <fr:route>/notes/0045/</fr:route>
+                    <fr:title text="Hoare logc - assignment proof rule">Hoare logc - assignment proof rule</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:ol><html:li>Consider the assignment <fr:tex display="inline"><![CDATA[x := y]]></fr:tex> and the postcondition <fr:tex display="inline"><![CDATA[x > 2]]></fr:tex>. Whatneeds to hold efore the assignment such that <fr:tex display="inline"><![CDATA[x > 2]]></fr:tex> holds afterwards?</html:li>
+  <html:li>Consider <fr:tex display="inline"><![CDATA[i := i + 1]]></fr:tex> and post-condition <fr:tex display="inline"><![CDATA[i > 10]]></fr:tex>. What do we need to know before the assignment such that i &gt; 10 holds afterwards?</html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>5</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>Let's write this out first as a hoare triple: <fr:tex display="inline"><![CDATA[\{?\}\ x := y\ \{x > 2\}]]></fr:tex>. Without even looking at the assignment rule it should be obvious that if we want <fr:tex display="inline"><![CDATA[x > 2]]></fr:tex> to hold after the assignment, then before the assignment we need <fr:tex display="inline"><![CDATA[y > 2]]></fr:tex>, since after the assignment <fr:tex display="inline"><![CDATA[x]]></fr:tex> will take the value of <fr:tex display="inline"><![CDATA[y]]></fr:tex>. So the hoare triple is valid when we have: <fr:tex display="inline"><![CDATA[\{y > 2\}\ x := y\ \{x > 2\}]]></fr:tex>.</html:li>
+    <html:li>Similarly we write the hoare triple: <fr:tex display="inline"><![CDATA[\{?\}\ i := i + 1\ \{i > 10\}]]></fr:tex>. To ensure that <fr:tex display="inline"><![CDATA[i > 10]]></fr:tex> holds after the assignment, we need to consider what value of <fr:tex display="inline"><![CDATA[i]]></fr:tex> before the assignment will lead to <fr:tex display="inline"><![CDATA[i > 10]]></fr:tex> afterwards. Since we are incrementing <fr:tex display="inline"><![CDATA[i]]></fr:tex> by 1, we need <fr:tex display="inline"><![CDATA[i + 1 > 10]]></fr:tex> before the assignment, so our hoare triple becomes <fr:tex display="inline"><![CDATA[\{i + 1 > 10\}\ i := i + 1 \{i > 10\}]]></fr:tex>.</html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>5</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/0044/</fr:uri>
+                    <fr:display-uri>0044</fr:display-uri>
+                    <fr:route>/notes/0044/</fr:route>
+                    <fr:title text="Hoare triple inference rules - Nano language">Hoare triple inference rules - Nano language</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>The basic inference rules for the Hoare logic applied to the Nano language are as follows:</html:p>
+  
+    
+    <fr:resource hash="ae8a764266248441ae574ce29f32b3a7"><fr:resource-content><html:img src="/notes/ae8a764266248441ae574ce29f32b3a7.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule *[right=Assignment]{
+  }{
+    \vdash  \{P[x \mapsto  e]\}\ x := e\ \{P\}
+  }
+  \and 
+  \inferrule *[right=Sequence]{
+    \vdash  \{P\}\ s_1\ \{Q\} \\
+    \vdash  \{Q\}\ s_2\ \{R\}
+  }{
+    \vdash  \{P\}\ s_1; s_2\ \{R\}
+  }
+  \and 
+  \inferrule *[right=If]{
+    \vdash  \{P \land  b\}\ s_1\ \{Q\} \\
+    \vdash  \{P \land  \neg  b\}\ s_2\ \{Q\}
+  }{
+    \vdash  \{P\}\ \texttt {if}\ b\ \texttt {then}\ s_1\ \texttt {else}\ s_2\ \{Q\}
+  }
+  \and 
+  \inferrule *[right=While]{
+    \vdash  \{P \land  b\}\ s\ \{P\}
+  }{
+    \vdash  \{P\}\ \texttt {while}\ b\ \texttt {do}\ s\ \{P \land  \neg  b\}
+  }
+  \and  
+  \inferrule *[right=Consequence]{
+    \vDash  P' \to  P \\
+    \vdash  \{P\}\ s\ \{Q\} \\
+    \vDash  Q \to  Q'
+  }{
+    \vdash  \{P'\}\ s\ \{Q'\}
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>6</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/0046/</fr:uri>
+                    <fr:display-uri>0046</fr:display-uri>
+                    <fr:route>/notes/0046/</fr:route>
+                    <fr:title text="A hypothetical proof rule">A hypothetical proof rule</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  A friend suggests the following proof rule for assigments:
+</html:p><fr:tex display="block"><![CDATA[
+  \vdash  \{(x = e) \to  Q\}\ x := e\ \{Q\}
+]]></fr:tex><html:p>
+  Is the proof rule correct?
+</html:p>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:p>Now let's test out the rule on a particular hoare triple:</html:p>
+  <fr:tex display="block"><![CDATA[
+    \{?\}\ x := 4\ \{y = x\}
+  ]]></fr:tex>
+  <html:p>To make the hoare triple valid we would have to use the following precondition:</html:p>
+  <fr:tex display="block"><![CDATA[
+    \vdash  \{(x = 4) \to  y = x\}\ x := 4\ \{y = x\}
+  ]]></fr:tex>
+  <html:p>but let's now assume the following initial state:</html:p>
+  <fr:tex display="block"><![CDATA[
+    \sigma _1 = \{x \mapsto  3, y \mapsto  1\}
+  ]]></fr:tex>
+  <html:p>this does correctly entail our precondition, i.e. we have <fr:tex display="inline"><![CDATA[\sigma _1 \vDash  P]]></fr:tex> as necessary by virtue of vacous truth, then executing the statement we have:</html:p>
+  <fr:tex display="block"><![CDATA[
+    \langle  x := 4, \sigma _1 \rangle  \Downarrow  \sigma _2
+  ]]></fr:tex>
+  <html:p>In the new context clearly <fr:tex display="inline"><![CDATA[x]]></fr:tex> is reassigned to 4, thus:</html:p>
+  <fr:tex display="block"><![CDATA[
+    \sigma _2 = \{x \mapsto  4, y \mapsto  1\}
+  ]]></fr:tex>
+  <html:p>But we can see that clearly <fr:tex display="inline"><![CDATA[\sigma _2]]></fr:tex> violates our postcondition <fr:tex display="inline"><![CDATA[Q]]></fr:tex>, which is to say, <fr:tex display="inline"><![CDATA[\sigma _2 \nvDash  (y = x)]]></fr:tex>. The implication of this is that while the hoare triple is derivable it is <html:em>not</html:em> then necessarily also valid, in words this proof rule is unsound.</html:p>
+  <html:p>For completeness let's also provide a proof of soundness. As a reminder soundness states that:</html:p>
+  <html:blockquote>
+    If a hoare triple is derivable using the inference rules of our system, then it is valid (i.e. true in all interpretations.)
+  </html:blockquote>
+  <html:p>Formally we express this as:</html:p>
+  <fr:tex display="block"><![CDATA[
+    \vdash  \{P\}\ s\ \{Q\} \to  \vDash  \{P\}\ s\ \{Q\}
+  ]]></fr:tex>
+  <html:p>If we instantiate this rule for our hypothetical assignment rule we must demonstrate the following:</html:p>
+  <fr:tex display="block"><![CDATA[
+    \forall  \sigma .\ \sigma  \vDash  (x = e) \to  Q \land  \exists  \sigma '.\ \langle  (x := e), \sigma  \rangle  \Downarrow  \sigma ' \to  \sigma ' \vDash  Q
+  ]]></fr:tex>
+  <fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:taxon>Proof</fr:taxon></fr:frontmatter><fr:mainmatter><html:p>Let <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> be the intial state before the assignment <fr:tex display="inline"><![CDATA[x := e]]></fr:tex>. We must show that if <fr:tex display="inline"><![CDATA[\sigma  \vDash  (x = e) \to  Q]]></fr:tex>, then, after executing <fr:tex display="inline"><![CDATA[x := e]]></fr:tex>, the resulting state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> satisfies <fr:tex display="inline"><![CDATA[\sigma ' \vDash  Q]]></fr:tex> (i.e. is valid for the assertions in the postcondition).</html:p><html:ul><html:li>Before the assignment we have <fr:tex display="inline"><![CDATA[\sigma  \vDash  (x = e) \to  Q]]></fr:tex>, in other words this means that:
+        <fr:tex display="block"><![CDATA[
+          \sigma (x) = \sigma (e) \to  \sigma  \vDash   Q
+        ]]></fr:tex>
+        so if the variable <fr:tex display="inline"><![CDATA[x]]></fr:tex> in the intial state evaluates to the same thing as some expression <fr:tex display="inline"><![CDATA[e]]></fr:tex> then our post postcondition is valid for this state.
+      </html:li>
+      <html:li>After the assignment we have a new state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> defined as:
+        <fr:tex display="block"><![CDATA[
+          \sigma '(x) = \sigma (e)
+        ]]></fr:tex>
+        with everything else being unchanged, which is to say that
+        <fr:tex display="block"><![CDATA[
+          \forall  y.\ y\ \mathrlap {\,/}{=}\ x \land  \sigma '(y) = \sigma (y)
+        ]]></fr:tex></html:li>
+      <html:li>Now we want to check if <fr:tex display="inline"><![CDATA[\sigma ' \vDash  Q]]></fr:tex> as desired, we proceed by a case analysis on the equality <fr:tex display="inline"><![CDATA[\sigma '(x) = \sigma (e)]]></fr:tex>
+        <html:ul><html:li><html:em>Case:</html:em> <fr:tex display="inline"><![CDATA[\sigma (e) = \sigma (x)]]></fr:tex>, then by the precondition we have <fr:tex display="inline"><![CDATA[\sigma  \vDash  Q]]></fr:tex>. Since <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> only changes the value of <fr:tex display="inline"><![CDATA[x]]></fr:tex> to <fr:tex display="inline"><![CDATA[\sigma (e)]]></fr:tex>, and <fr:tex display="inline"><![CDATA[Q]]></fr:tex> is satisfied by the intial state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> it follows that <fr:tex display="inline"><![CDATA[\sigma ' \vDash  Q]]></fr:tex>.</html:li>
+          <html:li><html:em>Case:</html:em> <fr:tex display="inline"><![CDATA[\sigma (e) \ \mathrlap {\,/}{=}\ \sigma (x)]]></fr:tex>, then our precondition becomes vacuously true as the anticident is false. However as the assignment does terminate we do need to ensure that <fr:tex display="inline"><![CDATA[Q]]></fr:tex> holds in the new state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex>. However since <fr:tex display="inline"><![CDATA[Q]]></fr:tex> can be arbitrary we cannot guarantee that <fr:tex display="inline"><![CDATA[\sigma ' \vDash  Q]]></fr:tex>.</html:li></html:ul></html:li></html:ul></fr:mainmatter></fr:tree>
+  <html:p>Let's link the proof of soundness back to the example, so in our inital state <fr:tex display="inline"><![CDATA[\sigma _1]]></fr:tex> we have that:</html:p>
+  <fr:tex display="block"><![CDATA[
+    \sigma (x) \ \mathrlap {\,/}{=}\ \sigma (y) \equiv  3 \ \mathrlap {\,/}{=}\ 4
+  ]]></fr:tex>
+  <html:p>Since this means that the equality <fr:tex display="inline"><![CDATA[x = 4]]></fr:tex> is false we have that implication so the precondition <fr:tex display="inline"><![CDATA[P]]></fr:tex> is true. This corresponds precisely to the second case where <fr:tex display="inline"><![CDATA[\sigma (e) \ \mathrlap {\,/}{=}\ \sigma (x)]]></fr:tex>. The issue we can then see which naturally follows is that in the new state clearly its the case that:</html:p>
+  <fr:tex display="block"><![CDATA[
+    \sigma _2 = \{x \mapsto  4, y \mapsto  1\} \nvDash  (x = y)
+  ]]></fr:tex>
+  <html:p>In other words we had the case where our precondition was vacuously true thus erroneously implying upon termination the arbitrary <fr:tex display="inline"><![CDATA[y = x]]></fr:tex> must also hold. Clearly then this proof rule is incorrect as in the case of a vacuous truth we are able to generate unsound hoare triples.</html:p>
+  <html:p>To compare this with the <html:em>correct</html:em> assignment rule we have:</html:p>
+  <fr:tex display="block"><![CDATA[
+    \vdash  \{P[x \mapsto  e]\}\ x := e\ \{P\}
+  ]]></fr:tex>
+  <html:p>we can notice here that by removing the consequent of the logical implication we ensure that if the assertion of x being subsituted / being equal to the expression e <html:em>before</html:em> the execution of the statment doesnt hold, then it correctly means that we indeed cannot suggest that after an assignment our assertion <fr:tex display="inline"><![CDATA[P]]></fr:tex> is somehow correect.</html:p>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>6</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/0047/</fr:uri>
+                    <fr:display-uri>0047</fr:display-uri>
+                    <fr:route>/notes/0047/</fr:route>
+                    <fr:title text="Assesing provability">Assesing provability</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>Using the correct proof rule for assignments, asses which of the hoare truples are provable i.e. valid.</html:p>
+  
+    
+    <fr:resource hash="ad663f7befbaeae2486b4d0e959338be"><fr:resource-content><html:img src="/notes/ad663f7befbaeae2486b4d0e959338be.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule *[right=Assign]{
+  }{
+    \vdash  \{P[x \mapsto  e]\}\ x := e\ \{P\}
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:ol><html:li><fr:tex display="inline"><![CDATA[\{y = 4\}\ x:= 4\ \{y = x\}]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\{x + 1 = n\}\ x := x + 1\ \{x = n\}]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\{y = x\}\ y := 2\ \{y = x\}]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\{z = 3\}\ y := x\ \{z = 3\}]]></fr:tex></html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>Yes, since we have that for any state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> the subtitution
+      <fr:tex display="block"><![CDATA[
+        (y = x)[x \mapsto  4]
+      ]]></fr:tex>
+      holds, thus our precondition holds and upon termination of the assignment clearly our postcondition then holds aswell.
+    </html:li>
+    <html:li>Yes, again we that our post condition says <fr:tex display="inline"><![CDATA[x = n]]></fr:tex> so <fr:tex display="inline"><![CDATA[(x = n)[ n \mapsto  (x + 1)]]]></fr:tex> holds as our precondition is then
+      <fr:tex display="block"><![CDATA[
+        (x + 1 = n)[n \mapsto  (x + 1)] = (x + 1 = x + 1)
+      ]]></fr:tex></html:li>
+    <html:li>No, again using our reasoning we have 
+      <fr:tex display="block"><![CDATA[
+        (y = x)[y \mapsto  2] = 2 = x
+      ]]></fr:tex>
+      but then if we have <fr:tex display="inline"><![CDATA[\sigma  = \{ x \mapsto  3\}]]></fr:tex> we can generate 
+      <fr:tex display="block"><![CDATA[
+        \sigma  \nvDash  (2 = x) \equiv  (2 = 3)
+      ]]></fr:tex></html:li>
+    <html:li>Yes, this is just correct by definition of of a substitution leaving irrelevant variables unaffected.</html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>2</fr:day>
+                </fr:date>
+                <fr:title text="Consequence">Consequence</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>6</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/0048/</fr:uri>
+                    <fr:display-uri>0048</fr:display-uri>
+                    <fr:route>/notes/0048/</fr:route>
+                    <fr:title text="Precond. Strengthenting &amp; Postcond. Weakening">Precond. Strengthenting &amp; Postcond. Weakening</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  As a reminder in hoare logic we denote the consequence rule as follows:
+</html:p>
+  
+    
+    <fr:resource hash="c67b32a98e204fcbe7f95e1ed6f10a3d"><fr:resource-content><html:img src="/notes/c67b32a98e204fcbe7f95e1ed6f10a3d.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule *[right=Consequence]{
+    \vDash  P' \to  P \\ \vdash  \{P\}\ s\ \{Q\} \\ \vDash  Q \to  Q'
+  }{
+    \vdash  \{P'\}\ s\ \{Q'\}
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+  On a high level this is quite evidently just transitivity, which is to say that if some assertion <fr:tex display="inline"><![CDATA[P']]></fr:tex> holds and by implication <fr:tex display="inline"><![CDATA[P]]></fr:tex> holds, and upon successful termination of <fr:tex display="inline"><![CDATA[s]]></fr:tex> we have that <fr:tex display="inline"><![CDATA[Q]]></fr:tex> holds and by implication <fr:tex display="inline"><![CDATA[Q']]></fr:tex> holds, then we can transitively reason that <fr:tex display="inline"><![CDATA[\{P'\}\ s\ \{Q'\}]]></fr:tex> would also hold for our program <fr:tex display="inline"><![CDATA[s]]></fr:tex>.
+</html:p><html:p>
+  What we can do here is decompose this rule into two separate rules:
+</html:p><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:title text="Precondition strenghtenting">Precondition strenghtenting</fr:title></fr:frontmatter><fr:mainmatter>
+  
+    
+    <fr:resource hash="d5f3ee2521e2c4f40c707279150c3182"><fr:resource-content><html:img src="/notes/d5f3ee2521e2c4f40c707279150c3182.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=Pre-Strength]{
+      \vDash  P \to  P' \\ \vdash  \{P'\}\ s\ \{Q\}
+    }{
+      \vdash  \{P\}\ s\ \{Q\}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    The idea of strengthening here comes from the fact that the rhs of an implication always <html:em>at least</html:em> denotes a more restrictive or <html:em>strengthened</html:em> condition on the memory state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>. So a basic example being clearly:
+  </html:p><fr:tex display="block"><![CDATA[
+    x > 3 \to  x > 2
+  ]]></fr:tex><html:p>
+    So if we have that:
+  </html:p><fr:tex display="block"><![CDATA[
+    \sigma  \vDash  (x > 3) \to  (x > 2) \\ \vdash  \{x > 2\}\ s\ \{Q\}
+  ]]></fr:tex><html:p>
+    Which is to say that our hoare triple is derivable under the weaker precondition <fr:tex display="inline"><![CDATA[x > 2]]></fr:tex>, then clearly the same hoare triple is also derivable under the stronger pre-condition <fr:tex display="inline"><![CDATA[x > 3]]></fr:tex> as it implies our weaker condition, hence we can derive:
+  </html:p><fr:tex display="block"><![CDATA[
+    \vdash  \{x > 3\}\ s\ \{Q\}
+  ]]></fr:tex><html:p>
+    An example program we could take here would be something like:
+  </html:p><fr:tex display="block"><![CDATA[
+    \{x > 2\}\ \texttt {if}\ (x > 2)\ \texttt {then}\ y := 2 \texttt {else}\ y := 3\ \{y := 2\}
+  ]]></fr:tex><html:p>
+    Clearly here the condition just requires that <fr:tex display="inline"><![CDATA[x]]></fr:tex> is larger then 2, if our precondition asserts that its larger then 3, the <fr:tex display="inline"><![CDATA[\texttt {then}]]></fr:tex> branch executes just the same and our postcondition holds.
+  </html:p></fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:title text="Postcondition weakening">Postcondition weakening</fr:title></fr:frontmatter><fr:mainmatter>
+  
+    
+    <fr:resource hash="e06442d80aba57a8112249b972a0b377"><fr:resource-content><html:img src="/notes/e06442d80aba57a8112249b972a0b377.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=Post-Weaken.]{
+      \vdash  \{P\}\ s\ \{Q'\} \\ \vDash  Q' \to  Q
+    }{
+      \vdash  \{P\}\ s\ \{Q\}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    On a high level this says that if we can prove some postcondition <fr:tex display="inline"><![CDATA[Q']]></fr:tex>, we can always relax this condition to something weaker. So in simpler terms if we have the fact that the postcondition <fr:tex display="inline"><![CDATA[Q']]></fr:tex> holds for some more restrictive state, then we can naturally lessen the ristrictions and have it still hold.
+  </html:p></fr:mainmatter></fr:tree></fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>6</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/0049/</fr:uri>
+                    <fr:display-uri>0049</fr:display-uri>
+                    <fr:route>/notes/0049/</fr:route>
+                    <fr:title text="Postcondition Weakening examples">Postcondition Weakening examples</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>Suppose we can prove:</html:p><fr:tex display="block"><![CDATA[
+  \{\top \}\ s\ \{x = y \land  z = 2\}
+]]></fr:tex><html:p>using the rule of post-condition weakening, which of the following can we prove?</html:p><html:ol><html:li><fr:tex display="inline"><![CDATA[\{\top \}\ s\ \{x = y\}]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\{\top \}\ s \ \{z = 2\}]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\{\top \}\ s\ \{z > 2\}]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\{\top \}\ s\ \{\forall  y.\ x = y\}]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\{\top \}\ s\ \{\exists  y.\ x = y\}]]></fr:tex></html:li></html:ol>
+ 
+   
+   
+   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>Yes, this is provable, removing a conjunct is a common way of weakening an expresison as we are removing one condition.</html:li>
+    <html:li>Yes, this is provable, same reasoning as in (1)</html:li>
+    <html:li>This is also provable, more or less same reasoning as before, here we are using the fact that 
+      <fr:tex display="block"><![CDATA[
+        z = 2 \to  z > 0
+      ]]></fr:tex>
+      since obviously <fr:tex display="inline"><![CDATA[2 > 0]]></fr:tex></html:li>
+    <html:li>No, this is not provable, while removing a conjunct does weaken our postcondition, if we then <html:em>also</html:em> quantify over all <fr:tex display="inline"><![CDATA[y]]></fr:tex> we make an assertion which is <html:strong>stronger</html:strong> then what the conjunct says, i.e. that <fr:tex display="inline"><![CDATA[x = y]]></fr:tex> <html:em>for a specific <fr:tex display="inline"><![CDATA[y]]></fr:tex></html:em>, hence this is not provable.</html:li>
+    <html:li>Yes, this is provable. We have the fact that 
+      <fr:tex display="block"><![CDATA[
+        a = b \equiv  \exists  a = b
+      ]]></fr:tex>
+      so clearly this is the same as what we did for (1) just with no desugaring of existential syntax
+    </html:li></html:ol>
+</fr:mainmatter></fr:tree>
+ 
+</fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
             </fr:tree>
           </fr:mainmatter>
         </fr:tree>

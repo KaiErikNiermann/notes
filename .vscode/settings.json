@@ -1,29 +1,11 @@
 {
-  "files.watcherExclude": {
-    "**/node_modules/**": true,
-    "**/.git/**": true,
-    "**/dist/**": true,
-    "**/build/**": true,
-    "**/target": true
-  },
-  "ocaml.sandbox": {
-    "kind": "opam",
-    "switch": "coq-switch"
-  },
+  "python.languageServer": "None", 
   "emeraldwalk.runonsave": {
     "commands": [
       {
-        // Run whenever any file is saved
-        "match": ".*",
+        "match": ".*$",
         "cmd": "npm run build"
       }
     ]
-  },
-  "files.trimTrailingWhitespace": true,
-  "forester.path": "/root/.opam/coq-switch/bin/forester",
-  "forester.useLSP": true,
-  "[forester]": {
-    "editor.defaultFormatter": null,
-    "editor.formatOnSave": true
   }
 }

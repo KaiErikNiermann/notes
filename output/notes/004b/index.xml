@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>6</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/004b/</fr:uri>
+    <fr:display-uri>004b</fr:display-uri>
+    <fr:route>/notes/004b/</fr:route>
+    <fr:title text="Loops and Invariants">Loops and Invariants</fr:title>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter><html:p>Let's start off by looking at the hoare logic rule for while loops again:</html:p>
+  
+    
+    <fr:resource hash="5d0658ed396763e9bc8e072cd093a5a6"><fr:resource-content><html:img src="/notes/5d0658ed396763e9bc8e072cd093a5a6.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule *[right=While]{
+    \vdash  \{P \land  b\}\ s\ \{P\}
+  }{
+    \vdash  \{P\}\ \texttt {while}\ b\ \texttt {do}\ s\ \{P \land  \neg  b\}
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>Here we say that <fr:tex display="inline"><![CDATA[P]]></fr:tex> is the <html:strong>invariant</html:strong> also often denoted as <fr:tex display="inline"><![CDATA[I]]></fr:tex>. In plain english the rules says that:</html:p><html:blockquote>
+  if <fr:tex display="inline"><![CDATA[I]]></fr:tex> is a loop invariant, then the condition <fr:tex display="inline"><![CDATA[I \land  \neg  b]]></fr:tex> must hold after the loop terminates
+</html:blockquote><html:p>The essential properties of a loop invariant are that:</html:p><html:ul><html:li><fr:tex display="inline"><![CDATA[I]]></fr:tex> holds <html:em>before</html:em> the loop starts.</html:li>
+  <html:li><fr:tex display="inline"><![CDATA[I]]></fr:tex> holds <html:em>after</html:em> each loop iteration.</html:li></html:ul></fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

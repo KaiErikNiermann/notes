@@ -1,0 +1,21 @@
+\date{2025-12-05}
+
+\import{base-macros}
+
+\taxon{Definition}  
+
+\title{Soundness & Completeness - Hoare triples}
+
+\p{In a very general sense if we have a logical or formal system a core idea is that we only want to prove things that are actually true, and conversly if we find something that is true we would want to be able to prove it. This leads to two important properties of formal systems:}
+\ul{
+  \li{\strong{Soundness} is the property that everything provable within the system is in fact true, within the context of hoare logic it means that all hoare triples which we can syntactically derive using our inference rules are by implication valid (i.e. true in all interpretations), formally:
+    ##{
+      \vdash \{P\}\ s\ \{Q\} \to \vDash \{P\}\ s\ \{Q\}
+    }
+  }
+  \li{\strong{Completeness} is the property that everything that is true can be proven within the system, in the context of hoare logic it means that all valid hoare triples can be syntactically derived using our inference rules, formally:
+    ##{
+      \vDash \{P\}\ s\ \{Q\} \to \vdash \{P\}\ s\ \{Q\}
+    }
+  }
+}

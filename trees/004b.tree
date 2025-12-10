@@ -2,11 +2,13 @@
 
 \import{base-macros}
 
-\taxon{Definition}  
+\taxon{Definition} 
 
 \title{Loops and Invariants}
 
-\p{Let's start off by looking at the hoare logic rule for while loops again:}
+\p{
+  Let's start off by looking at the hoare logic rule for while loops again:
+}
 \infrule{
   \inferrule*[right=While]{
     \vdash \{P \land b\}\ s\ \{P\}
@@ -14,12 +16,20 @@
     \vdash \{P\}\ \cwhile\ b\ \cdo\ s\ \{P \land \neg b\}
   }
 }
-\p{Here we say that #{P} is the \strong{invariant} also often denoted as #{I}. In plain english the rules says that:}
+\p{
+  Here we say that #{P} is the \strong{invariant} also often denoted as #{I}. In plain english the rules says that:
+}
 \blockquote{
   if #{I} is a loop invariant, then the condition #{I \land \neg b} must hold after the loop terminates
 }
-\p{The essential properties of a loop invariant are that:}
+\p{
+  The essential properties of a loop invariant are that:
+}
 \ul{
-  \li{#{I} holds \em{before} the loop starts.}
-  \li{#{I} holds \em{after} each loop iteration.}
+  \li{
+    #{I} holds \em{before} the loop starts.
+  }
+  \li{
+    #{I} holds \em{after} each loop iteration.
+  }
 }

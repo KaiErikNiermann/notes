@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>7</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/004f/</fr:uri>
+    <fr:display-uri>004f</fr:display-uri>
+    <fr:route>/notes/004f/</fr:route>
+    <fr:title text="Invariant">Invariant</fr:title>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <html:p>
+  In the most straightforward sense we say that an invariant is simply:
+</html:p>
+    <html:blockquote>
+  A property that holds at all reachable states of the program
+</html:blockquote>
+    <html:p>
+  Formally we can say if <fr:tex display="inline"><![CDATA[P]]></fr:tex> denotes our property and <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> denotes our set of reachable states then we can say that <fr:tex display="inline"><![CDATA[P]]></fr:tex> is an invariant if:
+</html:p>
+    <fr:tex display="block"><![CDATA[
+  \forall  \sigma , \sigma  \in  \mathcal  R \to  P(\sigma )
+]]></fr:tex>
+    <html:p>
+  An important thing to note here is that an invariant by itself does not need to be checkable or syntactic in any sense, there are <html:strong>no requirements</html:strong> that <fr:tex display="inline"><![CDATA[P]]></fr:tex> must imply after each step. The distinction here is important because we can have something be an invariant though be insufficient as a proof rule.
+</html:p>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>12</fr:month>
+              <fr:day>6</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/004a/</fr:uri>
+            <fr:display-uri>004a</fr:display-uri>
+            <fr:route>/notes/004a/</fr:route>
+            <fr:title text="Lecture 6 - Hoare logic &amp; Weakest preconditions">Lecture 6 - Hoare logic &amp; Weakest preconditions</fr:title>
+            <fr:taxon>VU-VFS-2025</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>6</fr:day>
+                </fr:date>
+                <fr:title text="Loops &amp; Invariants">Loops &amp; Invariants</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>6</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004c/</fr:uri>
+                    <fr:display-uri>004c</fr:display-uri>
+                    <fr:route>/notes/004c/</fr:route>
+                    <fr:title text="Checking valid invariants">Checking valid invariants</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  Consider the following code:
+</html:p><html:pre class="code-block language-python"><html:code class="language-python">
+  i = 0;
+  j = 0;
+  n = 10;
+  while i &lt; n do 
+    i = i + 1;
+    j = i + j
+</html:code></html:pre><html:p>
+  Which of the following is a loop invariant?
+</html:p><html:ol><html:li><fr:tex display="inline"><![CDATA[i \leq  n]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[i < n]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[j \geq  n]]></fr:tex></html:li></html:ol>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>
+      Before the loop <fr:tex display="inline"><![CDATA[i = 0]]></fr:tex> and <fr:tex display="inline"><![CDATA[n = 10]]></fr:tex>, since that means <fr:tex display="inline"><![CDATA[i \leq  n]]></fr:tex> is true we move on to checking it holds true <html:em>after</html:em> each loop iteration. What we can observe is that the loop condition is <fr:tex display="inline"><![CDATA[i < n]]></fr:tex> and during the loop we have <fr:tex display="inline"><![CDATA[i = i + 1]]></fr:tex>, what this suggests is that clearly during the iteratons the invariant holds, additionally when <fr:tex display="inline"><![CDATA[i = 10]]></fr:tex> we have that <fr:tex display="inline"><![CDATA[10 < 0 \to  \bot ]]></fr:tex> hence the invariant also holds upon the termination of the loop, i.e. after the final iteration, thus it's indeed a valid loop invariant.
+    </html:li>
+    <html:li>
+      No, this is not a valid invariant, we can see that its very close to being right, but it doesnt account for the case after the final iteration and before we check the loop condition, i.e. where <fr:tex display="inline"><![CDATA[i = 10]]></fr:tex>, hence its not a valid loop invariant because it does not hold true after each iteration.
+    </html:li>
+    <html:li>
+      No, this is quite easy to see as it immediately fails even before we get into the loop as <fr:tex display="inline"><![CDATA[0 \geq  10 \to  \bot ]]></fr:tex>.
+    </html:li></html:ol>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>6</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004d/</fr:uri>
+                    <fr:display-uri>004d</fr:display-uri>
+                    <fr:route>/notes/004d/</fr:route>
+                    <fr:title text="Proving validity with invariants">Proving validity with invariants</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  Let's consider the statement <fr:tex display="inline"><![CDATA[W]]></fr:tex>:
+</html:p><html:pre class="code-block language-python"><html:code class="language-python">
+  while x &lt; n do 
+    x = x + 1
+</html:code></html:pre><html:p>
+  Answer the following questions:
+</html:p><html:ol><html:li>
+    Prove the validity of 
+    <fr:tex display="block"><![CDATA[
+      \vdash  \{x \leq  n\}\ W\ \{x \geq  n\}
+    ]]></fr:tex>
+    using the loop invariant <fr:tex display="inline"><![CDATA[I = x \leq  n]]></fr:tex></html:li> 
+  <html:li>
+    Would <fr:tex display="inline"><![CDATA[\top ]]></fr:tex> also have worked as a loop invariant?
+  </html:li>
+  <html:li>
+    If we changed the post condition to <fr:tex display="inline"><![CDATA[x = n]]></fr:tex>, what would that have changed?
+  </html:li></html:ol>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:p>
+    As the usual piece of little assistance let's take a look at the while rule
+  </html:p>
+  
+  
+    
+    <fr:resource hash="510feb572ccb159e80172c821612b9ea"><fr:resource-content><html:img src="/notes/510feb572ccb159e80172c821612b9ea.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=While]{
+      \vdash  \{I \land  b\}\ s\ \{I\}
+    }{
+      \vdash  \{I\}\ \texttt {while}\ b\ \texttt {do}\ s\ \{I \land  \neg  b\}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+  <html:ol><html:li>
+      Here we can try to construct the proof tree first of all, instantiating our rule with the given invariant we have: 
+      
+  
+    
+    <fr:resource hash="ff7656998e9e92f8893c373912cba5d0"><fr:resource-content><html:img src="/notes/ff7656998e9e92f8893c373912cba5d0.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+        \inferrule {
+          \{x \leq  n \land  x < n\}\ x := x + 1\ \{x \leq  n\}
+        }{
+          \{x \leq  n\}\ W\ \{x \leq  n \land  \underbrace {x \geq  n}_{\neg  b}\}   
+        }
+      \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+      Using the assignment rule we then want to prove the antecident here, so 
+      
+  
+    
+    <fr:resource hash="20c749146276ffdfaf2c600a94744eee"><fr:resource-content><html:img src="/notes/20c749146276ffdfaf2c600a94744eee.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+        \inferrule {}{
+          \{Q[x := x + 1]\}\ x := x + 1\ \{Q\}
+        }
+      \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+      instantiating this with or postcondition <fr:tex display="inline"><![CDATA[Q]]></fr:tex> we have
+      
+  
+    
+    <fr:resource hash="cd3e0abe522f0573ab42337bb4c40675"><fr:resource-content><html:img src="/notes/cd3e0abe522f0573ab42337bb4c40675.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+        \inferrule {}{
+          \{(x \leq  n)[x \mapsto  x + 1]\}\ s\ \{x \leq  n\}
+        }
+      \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+      in other words our precondition becomes
+      <fr:tex display="block"><![CDATA[
+        (x + 1) \leq  n
+      ]]></fr:tex>
+      Therefore the use the assignment rule we want we have to demonstrate
+      <fr:tex display="block"><![CDATA[
+        (x \leq  n \land  x < n \to  (x + 1) \leq  n)
+      ]]></fr:tex>
+      since we have that 
+      <fr:tex display="block"><![CDATA[
+        x \leq  n \land  x < n \equiv  x < n \to  (x + 1) \leq  n
+      ]]></fr:tex>
+      we clearly have that 
+      
+  
+    
+    <fr:resource hash="dae60e421b8d868a6a576b45d0b301fb"><fr:resource-content><html:img src="/notes/dae60e421b8d868a6a576b45d0b301fb.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+        \inferrule *[right=Pre-Strength]{
+          \vdash  \{x + 1 \leq  n\}\ s\ \{x \leq  n\} \\ \vDash  (x \leq  n \land  x < n) \to  (x + 1) \leq  n 
+        }{
+          \vdash  \{x \leq  n \land  x < n\}\ x := x + 1\ \{x \leq  n\}
+        }
+      \end {mathpar}]]></fr:resource-source></fr:resource></html:li> 
+    <html:li>
+      Yes, let's again instantiate our rule
+      
+  
+    
+    <fr:resource hash="fe8fe062c22fd123b9f0913392bb48d3"><fr:resource-content><html:img src="/notes/fe8fe062c22fd123b9f0913392bb48d3.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+        \inferrule {
+          \{\top  \land  x < n\}\ x := x + 1\ \{\top \}
+        }{
+          \{\top \}\ W\ \{\top  \land  x \geq  n \}
+        }
+      \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+      since our postcondition for the assignmnet is a tautology, i.e. always valid, it will hold under substitution thus making the assignment trivially valid hence working as a correct loop invariant.
+    </html:li>
+    <html:li>
+      Something we could observe in question (1) is that 
+      
+  
+    
+    <fr:resource hash="2dddb0d9a84bb5a9fac365035a048797"><fr:resource-content><html:img src="/notes/2dddb0d9a84bb5a9fac365035a048797.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+        \inferrule {
+          \{x \leq  n\}\ W\ \{\overbrace {x \leq  n \land  x \geq  n}^{x = n}\} \\ \vDash  (x = n) \to  x \geq  n 
+        }{
+          \{x \leq  n\}\ W\ \{x \geq  n\}
+        }
+      \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+      so this is a bit of a trick question in that with question 1 we are actually just using a postcondition weaking <html:em>on this postcondition</html:em>, hence this is naturally a valid postcondition.
+    </html:li></html:ol>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>7</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004f/</fr:uri>
+                    <fr:display-uri>004f</fr:display-uri>
+                    <fr:route>/notes/004f/</fr:route>
+                    <fr:title text="Invariant">Invariant</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>
+  In the most straightforward sense we say that an invariant is simply:
+</html:p>
+                    <html:blockquote>
+  A property that holds at all reachable states of the program
+</html:blockquote>
+                    <html:p>
+  Formally we can say if <fr:tex display="inline"><![CDATA[P]]></fr:tex> denotes our property and <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> denotes our set of reachable states then we can say that <fr:tex display="inline"><![CDATA[P]]></fr:tex> is an invariant if:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \forall  \sigma , \sigma  \in  \mathcal  R \to  P(\sigma )
+]]></fr:tex>
+                    <html:p>
+  An important thing to note here is that an invariant by itself does not need to be checkable or syntactic in any sense, there are <html:strong>no requirements</html:strong> that <fr:tex display="inline"><![CDATA[P]]></fr:tex> must imply after each step. The distinction here is important because we can have something be an invariant though be insufficient as a proof rule.
+</html:p>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>6</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004e/</fr:uri>
+                    <fr:display-uri>004e</fr:display-uri>
+                    <fr:route>/notes/004e/</fr:route>
+                    <fr:title text="Inductive Invariant">Inductive Invariant</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  An inductive invariant is a regular invariant, which is to say that it:
+</html:p><html:blockquote>
+  is a property which holds at all reachable states of the program
+</html:blockquote><html:p>
+  But it has the additional constraint that it must be <fr:link href="/notes/002e/" title="Closed set" uri="https://kaierikniermann.github.io/notes/002e/" display-uri="002e" type="local">closed</fr:link> under the transition relation. In other words if it holds before a step, it must also hold after the step. Formally we say that a property <fr:tex display="inline"><![CDATA[P]]></fr:tex> represents an <html:strong>inductive invariant</html:strong> if:
+</html:p><html:ul><html:li>
+    As a <html:em>base case</html:em> it holds at program initialization
+    <fr:tex display="block"><![CDATA[
+      \texttt {init} \to  P
+    ]]></fr:tex></html:li>
+  <html:li>
+    In the <html:em>inductive step</html:em> we have
+    <fr:tex display="block"><![CDATA[
+      P(\sigma ) \land  (S, \sigma ) \to  \sigma ' \to  P(\sigma ')
+    ]]></fr:tex>
+    in plain English: If the property holds on the state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> and after the <html:em>small step evaluation</html:em> <fr:tex display="inline"><![CDATA[S]]></fr:tex> we land in a new state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> then the property also holds in the new state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex>. 
+  </html:li></html:ul><html:p>
+  If both of the conditions hold then we we automatically have that:
+</html:p><fr:tex display="block"><![CDATA[
+  \sigma  \in  \mathcal  R.\ P(\sigma )
+]]></fr:tex><html:p>
+  Which is to say that these conditions imply an inductive invariant is also an invariant. The prime example where we can see this is in the case of the while loop for hoare logic:
+</html:p>
+  
+    
+    <fr:resource hash="ce0d0a8b1cdc6f924015d66fdf7cfd17"><fr:resource-content><html:img src="/notes/ce0d0a8b1cdc6f924015d66fdf7cfd17.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule *[right=While]{
+    \vdash  \{I \land  b\}\ s\ \{I\}
+  }{
+    \vdash  \{I\}\ \texttt {while}\ b\ \texttt {do}\ s\ \{I \land  \neg  b\}
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+  Here the invariant is represented by the assertion <fr:tex display="inline"><![CDATA[I]]></fr:tex> on the memory state. What this rule says is that:
+</html:p><html:ul><html:li>
+    If the assertion <fr:tex display="inline"><![CDATA[I]]></fr:tex> and the loop guard <fr:tex display="inline"><![CDATA[b]]></fr:tex> hold, and upon termination of <fr:tex display="inline"><![CDATA[s]]></fr:tex> we have that <fr:tex display="inline"><![CDATA[I]]></fr:tex> holds.
+  </html:li>
+  <html:li>
+    Then we can lift the invariant out of the loop and say that it must hold for all loop iterations and upon termination of the loop we clearly have that our loop guard must be false and our invariant should still hold.
+  </html:li></html:ul><html:p>
+  This corresponds precisely to the notion of an <html:em>inductive</html:em> invariant as if we can demonstrate it holding for the execution and termination of a single statement - the base case - then we can derive the inductive case where it holds for all iterations.
+</html:p></fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>7</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004g/</fr:uri>
+                    <fr:display-uri>004g</fr:display-uri>
+                    <fr:route>/notes/004g/</fr:route>
+                    <fr:title text="Finding inductive invariants">Finding inductive invariants</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  Consider the following statement <fr:tex display="inline"><![CDATA[W]]></fr:tex>:
+</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+  while x &lt; n do
+    x := y;
+    y := x + 1 
+</html:code></html:pre><html:p>
+  Say that we wanted to prove the following Hoare triple:
+</html:p><fr:tex display="block"><![CDATA[
+  \{x = 0 \land  y = 1\}\ W\ \{x \geq  0\}
+]]></fr:tex><html:p>
+  What is an inductive invariant <fr:tex display="inline"><![CDATA[I]]></fr:tex> which allows us to prove the triple?
+</html:p>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>7</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:p>
+    For reference lets pull up the while rule again:
+  </html:p>
+  
+  
+    
+    <fr:resource hash="510feb572ccb159e80172c821612b9ea"><fr:resource-content><html:img src="/notes/510feb572ccb159e80172c821612b9ea.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=While]{
+      \vdash  \{I \land  b\}\ s\ \{I\}
+    }{
+      \vdash  \{I\}\ \texttt {while}\ b\ \texttt {do}\ s\ \{I \land  \neg  b\}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+  <html:p>
+    One not entirely unreasonable albiet simple choice is to try out the post condition <fr:tex display="inline"><![CDATA[x \geq  0]]></fr:tex>, its not too uncommon that a valid postcondition - or more often a variant of it - are in fact valid loop invariants. Testing this out it means we would have to prove the body:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    \vdash  \{x \geq  0 \land  x < n\}\ x := y; y := x + 1\ \{x \geq  0\}
+  ]]></fr:tex>
+  <html:p>
+    To see if this is inductive we can try and find a counterexample to demonstrate its not, and indeed we can see that <fr:tex display="inline"><![CDATA[\sigma  = \{y \mapsto  -1000, x \mapsto  1, n \mapsto  2 \}]]></fr:tex> would mean that <fr:tex display="inline"><![CDATA[P(\sigma )]]></fr:tex> would hold, and we could indeed step to a state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> though clearly we have that:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    \sigma ' \ \mathrlap {\,/}{\vDash }\ (x \geq  0)[x \mapsto  -1000]
+  ]]></fr:tex>
+  <html:p>
+    Since we can see here that the unconstrained <fr:tex display="inline"><![CDATA[y]]></fr:tex> is causing is issues lets go with:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    I \triangleq  x \geq  0 \land  y = x + 1
+  ]]></fr:tex>
+  <html:p>
+    Since this ensures that <fr:tex display="inline"><![CDATA[y]]></fr:tex> is correctly related to <fr:tex display="inline"><![CDATA[x]]></fr:tex> it means that we indeed have that
+    <fr:tex display="block"><![CDATA[
+      \sigma  \vDash  I (x := y; y := x + 1, \sigma ) \to  \sigma ' \to  \sigma ' \vDash  I
+    ]]></fr:tex>
+    as desired
+  </html:p>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>6</fr:day>
+                </fr:date>
+                <fr:title text="Arrays">Arrays</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter />
+            </fr:tree>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

@@ -2,19 +2,26 @@
 
 \import{base-macros}
 
-
 \taxon{Quiz}
 
 \title{Hoare logc - assignment proof rule}
 
 \ol{
-  \li{Consider the assignment #{x := y} and the postcondition #{x > 2}. Whatneeds to hold efore the assignment such that #{x > 2} holds afterwards?}
-  \li{Consider #{i := i + 1} and post-condition #{i > 10}. What do we need to know before the assignment such that i > 10 holds afterwards?}
+  \li{
+    Consider the assignment #{x := y} and the postcondition #{x > 2}. Whatneeds to hold efore the assignment such that #{x > 2} holds afterwards?
+  }
+  \li{
+    Consider #{i := i + 1} and post-condition #{i > 10}. What do we need to know before the assignment such that i > 10 holds afterwards?
+  }
 }
 
 \solution{
   \ol{
-    \li{Let's write this out first as a hoare triple: #{\{?\}\ x := y\ \{x > 2\}}. Without even looking at the assignment rule it should be obvious that if we want #{x > 2} to hold after the assignment, then before the assignment we need #{y > 2}, since after the assignment #{x} will take the value of #{y}. So the hoare triple is valid when we have: #{\{y > 2\}\ x := y\ \{x > 2\}}.}
-    \li{Similarly we write the hoare triple: #{\{?\}\ i := i + 1\ \{i > 10\}}. To ensure that #{i > 10} holds after the assignment, we need to consider what value of #{i} before the assignment will lead to #{i > 10} afterwards. Since we are incrementing #{i} by 1, we need #{i + 1 > 10} before the assignment, so our hoare triple becomes #{\{i + 1 > 10\}\ i := i + 1 \{i > 10\}}.}
+    \li{
+      Let's write this out first as a hoare triple: #{\{?\}\ x := y\ \{x > 2\}}. Without even looking at the assignment rule it should be obvious that if we want #{x > 2} to hold after the assignment, then before the assignment we need #{y > 2}, since after the assignment #{x} will take the value of #{y}. So the hoare triple is valid when we have: #{\{y > 2\}\ x := y\ \{x > 2\}}.
+    }
+    \li{
+      Similarly we write the hoare triple: #{\{?\}\ i := i + 1\ \{i > 10\}}. To ensure that #{i > 10} holds after the assignment, we need to consider what value of #{i} before the assignment will lead to #{i > 10} afterwards. Since we are incrementing #{i} by 1, we need #{i + 1 > 10} before the assignment, so our hoare triple becomes #{\{i + 1 > 10\}\ i := i + 1 \{i > 10\}}.
+    }
   }
 }

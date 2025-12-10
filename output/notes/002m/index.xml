@@ -15,8 +15,11 @@
     <fr:taxon>Definition</fr:taxon>
   </fr:frontmatter>
   <fr:mainmatter>
-    <html:p>There are a few ways you can define a <html:em>category</html:em>. In the most basic intuitive sense a category consits of a collection of things called <html:em>objects</html:em> and binary relationships (or transitions) between those objects called <html:em>morphisms</html:em> (or <html:em>arrows</html:em>). We can combine these relationships by <html:em>composing</html:em> them, and for each object there is an <html:em>identity morphism</html:em> that acts as a neutral element for composition. <fr:link href="/notes/nlab-category/" title="category" uri="https://kaierikniermann.github.io/notes/nlab-category/" display-uri="nlab-category" type="local">(1)</fr:link></html:p>
-    <html:p>In the context of <fr:link href="/notes/002l/" title="Quiver" uri="https://kaierikniermann.github.io/notes/002l/" display-uri="002l" type="local"><html:em>quivers</html:em></fr:link> a category can be defined as a quiver with a rule saying for how we can compose two edges that fit together to get a new edge. Furthermore, each vertex (object) has an edge starting and ending at that vertex (the identity morphism) an. The classical definition is something like this:</html:p>
+    <html:p>
+  There are a few ways you can define a <html:em>category</html:em>. In the most basic intuitive sense a category consists of a collection of things called <html:em>objects</html:em> and binary relationships (or transitions) between those objects called <html:em>morphisms</html:em> (or <html:em>arrows</html:em>). We can combine these relationships by <html:em>composing</html:em> them, and for each object there is an <html:em>identity morphism</html:em> that acts as a neutral element for composition. <fr:link href="/notes/nlab-category/" title="category" uri="https://kaierikniermann.github.io/notes/nlab-category/" display-uri="nlab-category" type="local">(1)</fr:link></html:p>
+    <html:p>
+  In the context of <fr:link href="/notes/002l/" title="Quiver" uri="https://kaierikniermann.github.io/notes/002l/" display-uri="002l" type="local"><html:em>quivers</html:em></fr:link> a category can be defined as a quiver with a rule saying for how we can compose two edges that fit together to get a new edge. Furthermore, each vertex (object) has an edge starting and ending at that vertex (the identity morphism). The classical definition is something like this:
+</html:p>
     <fr:tree show-metadata="false">
       <fr:frontmatter>
         <fr:authors />
@@ -28,16 +31,24 @@
         <fr:title text="The data">The data</fr:title>
       </fr:frontmatter>
       <fr:mainmatter>
-        <html:p>A <html:em>category</html:em> <fr:tex display="inline"><![CDATA[C]]></fr:tex> consits of:</html:p>
-        <html:ul><html:li>A collection (or <html:em>class</html:em> <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(2)</fr:link>) of <html:strong>objects</html:strong>, denoted as <fr:tex display="inline"><![CDATA[\text {Ob}(C)]]></fr:tex> or <fr:tex display="inline"><![CDATA[C_0]]></fr:tex>.</html:li>
-  <html:li>A collection (or <html:em>set</html:em> <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(2)</fr:link>) of <html:strong>morphisms</html:strong> (or <html:em>arrows</html:em>), denoted <fr:tex display="inline"><![CDATA[C_1]]></fr:tex> or <fr:tex display="inline"><![CDATA[C(x, y)]]></fr:tex> for <fr:tex display="inline"><![CDATA[x, y \in  \text {Ob}(C)]]></fr:tex>.
-    <html:ul><html:li>For every morphism <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex>, there are two associated objects: the <html:em>source</html:em> (or <html:em>domain</html:em>) <fr:tex display="inline"><![CDATA[x]]></fr:tex> and the <html:em>target</html:em> (or <html:em>codomain</html:em>) <fr:tex display="inline"><![CDATA[y]]></fr:tex>. In standard function notation, we write <fr:tex display="inline"><![CDATA[f: x \to  y]]></fr:tex> where <fr:tex display="inline"><![CDATA[x = \text {dom}(f)]]></fr:tex> and <fr:tex display="inline"><![CDATA[y = \text {cod}(f)]]></fr:tex>. NLab has a nice convention where it denotes the source <fr:tex display="inline"><![CDATA[s]]></fr:tex> of a morphism as <fr:tex display="inline"><![CDATA[s(f)]]></fr:tex> and the target <fr:tex display="inline"><![CDATA[t]]></fr:tex> as <fr:tex display="inline"><![CDATA[t(f)]]></fr:tex>.</html:li>
-      <html:li>For every pair of morphisms <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex> and <fr:tex display="inline"><![CDATA[g \in  C(y, z)]]></fr:tex> (s.t. <fr:tex display="inline"><![CDATA[t(f) = s(g)]]></fr:tex> i.e. the morphisms type check), there is a <html:strong>composition</html:strong> morphism <fr:tex display="inline"><![CDATA[g \circ  f \in  C(x, z)]]></fr:tex>. Written out we can denote this as:
-        <fr:tex display="block"><![CDATA[
-          C(x, y) \times  C(y, z) \to  C(x, z)
-        ]]></fr:tex>
-      in diagramatic order this is often written as <fr:tex display="inline"><![CDATA[f; g]]></fr:tex> we can equivalently use a more graphical notation:
-        
+        <html:p>
+    A <html:em>category</html:em> <fr:tex display="inline"><![CDATA[C]]></fr:tex> consists of:
+  </html:p>
+        <html:ul><html:li>
+      A collection (or <html:em>class</html:em> <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(2)</fr:link>) of <html:strong>objects</html:strong>, denoted as <fr:tex display="inline"><![CDATA[\text {Ob}(C)]]></fr:tex> or <fr:tex display="inline"><![CDATA[C_0]]></fr:tex>.
+    </html:li>
+    <html:li>
+      A collection (or <html:em>set</html:em> <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(2)</fr:link>) of <html:strong>morphisms</html:strong> (or <html:em>arrows</html:em>), denoted <fr:tex display="inline"><![CDATA[C_1]]></fr:tex> or <fr:tex display="inline"><![CDATA[C(x, y)]]></fr:tex> for <fr:tex display="inline"><![CDATA[x, y \in  \text {Ob}(C)]]></fr:tex>.
+      <html:ul><html:li>
+          For every morphism <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex>, there are two associated objects: the <html:em>source</html:em> (or <html:em>domain</html:em>) <fr:tex display="inline"><![CDATA[x]]></fr:tex> and the <html:em>target</html:em> (or <html:em>co-domain</html:em>) <fr:tex display="inline"><![CDATA[y]]></fr:tex>. In standard function notation, we write <fr:tex display="inline"><![CDATA[f: x \to  y]]></fr:tex> where <fr:tex display="inline"><![CDATA[x = \text {dom}(f)]]></fr:tex> and <fr:tex display="inline"><![CDATA[y = \text {cod}(f)]]></fr:tex>. NLab has a nice convention where it denotes the source <fr:tex display="inline"><![CDATA[s]]></fr:tex> of a morphism as <fr:tex display="inline"><![CDATA[s(f)]]></fr:tex> and the target <fr:tex display="inline"><![CDATA[t]]></fr:tex> as <fr:tex display="inline"><![CDATA[t(f)]]></fr:tex>.
+        </html:li>
+        <html:li>
+          For every pair of morphisms <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex> and <fr:tex display="inline"><![CDATA[g \in  C(y, z)]]></fr:tex> (s.t. <fr:tex display="inline"><![CDATA[t(f) = s(g)]]></fr:tex> i.e. the morphisms type check), there is a <html:strong>composition</html:strong> morphism <fr:tex display="inline"><![CDATA[g \circ  f \in  C(x, z)]]></fr:tex>. Written out we can denote this as:
+          <fr:tex display="block"><![CDATA[
+            C(x, y) \times  C(y, z) \to  C(x, z)
+          ]]></fr:tex>
+          in diagrammatic order this is often written as <fr:tex display="inline"><![CDATA[f; g]]></fr:tex> we can equivalently use a more graphical notation:
+          
  
   
   <html:figure><fr:resource hash="d8323ce59463aa832587ad5330c42c75"><fr:resource-content><html:img src="/notes/d8323ce59463aa832587ad5330c42c75.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
@@ -83,16 +94,17 @@
             \arrow ["g", from=1-3, to=1-5]
           \end {tikzcd}\]
         ]]></fr:resource-source></fr:resource></html:figure></html:li>
-      <html:li>For every object <fr:tex display="inline"><![CDATA[x \in  \text {Ob}]]></fr:tex> there is an <html:strong>identity morphism</html:strong>:
-        <fr:tex display="block"><![CDATA[
-          (\text {id}_x : x \to  x) \in  C(x, x)
-        ]]></fr:tex></html:li></html:ul>
-    Note: Some additional notations for morphisms include <fr:tex display="inline"><![CDATA[\text {hom}(x, y)]]></fr:tex>, <fr:tex display="inline"><![CDATA[\text {hom}_C(x, y)]]></fr:tex> or <fr:tex display="inline"><![CDATA[C_1(x, y)]]></fr:tex>. Additionally people use the notation <fr:tex display="inline"><![CDATA[\text {Mor(C)}]]></fr:tex> to denote the following disjoint union
-    <fr:tex display="block"><![CDATA[
-      \text {Mor}(C) = \bigsqcup _{x, y \in  \text {Ob}(C)} C(x, y)
-    ]]></fr:tex>
-    Which just expresses the idea that the collection of all morphisms in a category is made up of the morphisms between each pair of objects.
-  </html:li></html:ul>
+        <html:li>
+          For every object <fr:tex display="inline"><![CDATA[x \in  \text {Ob}]]></fr:tex> there is an <html:strong>identity morphism</html:strong>:
+          <fr:tex display="block"><![CDATA[
+            (\text {id}_x : x \to  x) \in  C(x, x)
+          ]]></fr:tex></html:li></html:ul>
+      Note: Some additional notations for morphisms include <fr:tex display="inline"><![CDATA[\text {hom}(x, y)]]></fr:tex>, <fr:tex display="inline"><![CDATA[\text {hom}_C(x, y)]]></fr:tex> or <fr:tex display="inline"><![CDATA[C_1(x, y)]]></fr:tex>. Additionally, people use the notation <fr:tex display="inline"><![CDATA[\text {Mor(C)}]]></fr:tex> to denote the following disjoint union
+      <fr:tex display="block"><![CDATA[
+        \text {Mor}(C) = \bigsqcup _{x, y \in  \text {Ob}(C)} C(x, y)
+      ]]></fr:tex>
+      Which just expresses the idea that the collection of all morphisms in a category is made up of the morphisms between each pair of objects.
+    </html:li></html:ul>
       </fr:mainmatter>
     </fr:tree>
     <fr:tree show-metadata="false">
@@ -106,17 +118,21 @@
         <fr:title text="The axioms">The axioms</fr:title>
       </fr:frontmatter>
       <fr:mainmatter>
-        <html:p>The above are often called <html:strong>data</html:strong> of a category. In addition to this data, a category must satisfy the following <html:strong>axioms</html:strong> or (<html:em>conditions</html:em>):</html:p>
-        <html:ul><html:li>Morphisms need to be <html:strong>associative</html:strong> which means that for every triple of morphisms <fr:tex display="inline"><![CDATA[f \in  C(w, x)]]></fr:tex>, <fr:tex display="inline"><![CDATA[g \in  C(x, y)]]></fr:tex>, and <fr:tex display="inline"><![CDATA[h \in  C(y, z)]]></fr:tex> the following holds:
-    <fr:tex display="block"><![CDATA[
-      h \circ  (g \circ  f) = (h \circ  g) \circ  f
-    ]]></fr:tex></html:li>
-  <html:li>For each morphism <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex> the identity morphisms act as <html:strong>neutral elements</html:strong> for composition:
-    <fr:tex display="block"><![CDATA[
-      \text {id}_y \circ  f = f = f \circ  \text {id}_x
-    ]]></fr:tex>
-    This is also known as the <html:em>left</html:em> and <html:em>right</html:em> <html:strong>unit laws</html:strong> or just <html:strong>unity</html:strong> in general.
-  </html:li></html:ul>
+        <html:p>
+    The above are often called <html:strong>data</html:strong> of a category. In addition to this data, a category must satisfy the following <html:strong>axioms</html:strong> or (<html:em>conditions</html:em>):
+  </html:p>
+        <html:ul><html:li>
+      Morphisms need to be <html:strong>associative</html:strong> which means that for every triple of morphisms <fr:tex display="inline"><![CDATA[f \in  C(w, x)]]></fr:tex>, <fr:tex display="inline"><![CDATA[g \in  C(x, y)]]></fr:tex>, and <fr:tex display="inline"><![CDATA[h \in  C(y, z)]]></fr:tex> the following holds:
+      <fr:tex display="block"><![CDATA[
+        h \circ  (g \circ  f) = (h \circ  g) \circ  f
+      ]]></fr:tex></html:li>
+    <html:li>
+      For each morphism <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex> the identity morphisms act as <html:strong>neutral elements</html:strong> for composition:
+      <fr:tex display="block"><![CDATA[
+        \text {id}_y \circ  f = f = f \circ  \text {id}_x
+      ]]></fr:tex>
+      This is also known as the <html:em>left</html:em> and <html:em>right</html:em> <html:strong>unit laws</html:strong> or just <html:strong>unity</html:strong> in general.
+    </html:li></html:ul>
       </fr:mainmatter>
     </fr:tree>
     <fr:tree show-metadata="false">
@@ -131,7 +147,9 @@
       </fr:frontmatter>
       <fr:mainmatter>
         <html:ul>
-          <html:li>A category such as the one described above is often also called a 1-category to distinguish it from higher categories such as 2-categories, n-categories.</html:li>
+          <html:li>
+      A category such as the one described above is often also called a 1-category to distinguish it from higher categories such as 2-categories, n-categories.
+    </html:li>
         </html:ul>
       </fr:mainmatter>
     </fr:tree>
@@ -224,8 +242,11 @@
                 <fr:taxon>Definition</fr:taxon>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:p>There are a few ways you can define a <html:em>category</html:em>. In the most basic intuitive sense a category consits of a collection of things called <html:em>objects</html:em> and binary relationships (or transitions) between those objects called <html:em>morphisms</html:em> (or <html:em>arrows</html:em>). We can combine these relationships by <html:em>composing</html:em> them, and for each object there is an <html:em>identity morphism</html:em> that acts as a neutral element for composition. <fr:link href="/notes/nlab-category/" title="category" uri="https://kaierikniermann.github.io/notes/nlab-category/" display-uri="nlab-category" type="local">(1)</fr:link></html:p>
-                <html:p>In the context of <fr:link href="/notes/002l/" title="Quiver" uri="https://kaierikniermann.github.io/notes/002l/" display-uri="002l" type="local"><html:em>quivers</html:em></fr:link> a category can be defined as a quiver with a rule saying for how we can compose two edges that fit together to get a new edge. Furthermore, each vertex (object) has an edge starting and ending at that vertex (the identity morphism) an. The classical definition is something like this:</html:p>
+                <html:p>
+  There are a few ways you can define a <html:em>category</html:em>. In the most basic intuitive sense a category consists of a collection of things called <html:em>objects</html:em> and binary relationships (or transitions) between those objects called <html:em>morphisms</html:em> (or <html:em>arrows</html:em>). We can combine these relationships by <html:em>composing</html:em> them, and for each object there is an <html:em>identity morphism</html:em> that acts as a neutral element for composition. <fr:link href="/notes/nlab-category/" title="category" uri="https://kaierikniermann.github.io/notes/nlab-category/" display-uri="nlab-category" type="local">(1)</fr:link></html:p>
+                <html:p>
+  In the context of <fr:link href="/notes/002l/" title="Quiver" uri="https://kaierikniermann.github.io/notes/002l/" display-uri="002l" type="local"><html:em>quivers</html:em></fr:link> a category can be defined as a quiver with a rule saying for how we can compose two edges that fit together to get a new edge. Furthermore, each vertex (object) has an edge starting and ending at that vertex (the identity morphism). The classical definition is something like this:
+</html:p>
                 <fr:tree show-metadata="false">
                   <fr:frontmatter>
                     <fr:authors />
@@ -237,16 +258,24 @@
                     <fr:title text="The data">The data</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>A <html:em>category</html:em> <fr:tex display="inline"><![CDATA[C]]></fr:tex> consits of:</html:p>
-                    <html:ul><html:li>A collection (or <html:em>class</html:em> <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(2)</fr:link>) of <html:strong>objects</html:strong>, denoted as <fr:tex display="inline"><![CDATA[\text {Ob}(C)]]></fr:tex> or <fr:tex display="inline"><![CDATA[C_0]]></fr:tex>.</html:li>
-  <html:li>A collection (or <html:em>set</html:em> <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(2)</fr:link>) of <html:strong>morphisms</html:strong> (or <html:em>arrows</html:em>), denoted <fr:tex display="inline"><![CDATA[C_1]]></fr:tex> or <fr:tex display="inline"><![CDATA[C(x, y)]]></fr:tex> for <fr:tex display="inline"><![CDATA[x, y \in  \text {Ob}(C)]]></fr:tex>.
-    <html:ul><html:li>For every morphism <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex>, there are two associated objects: the <html:em>source</html:em> (or <html:em>domain</html:em>) <fr:tex display="inline"><![CDATA[x]]></fr:tex> and the <html:em>target</html:em> (or <html:em>codomain</html:em>) <fr:tex display="inline"><![CDATA[y]]></fr:tex>. In standard function notation, we write <fr:tex display="inline"><![CDATA[f: x \to  y]]></fr:tex> where <fr:tex display="inline"><![CDATA[x = \text {dom}(f)]]></fr:tex> and <fr:tex display="inline"><![CDATA[y = \text {cod}(f)]]></fr:tex>. NLab has a nice convention where it denotes the source <fr:tex display="inline"><![CDATA[s]]></fr:tex> of a morphism as <fr:tex display="inline"><![CDATA[s(f)]]></fr:tex> and the target <fr:tex display="inline"><![CDATA[t]]></fr:tex> as <fr:tex display="inline"><![CDATA[t(f)]]></fr:tex>.</html:li>
-      <html:li>For every pair of morphisms <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex> and <fr:tex display="inline"><![CDATA[g \in  C(y, z)]]></fr:tex> (s.t. <fr:tex display="inline"><![CDATA[t(f) = s(g)]]></fr:tex> i.e. the morphisms type check), there is a <html:strong>composition</html:strong> morphism <fr:tex display="inline"><![CDATA[g \circ  f \in  C(x, z)]]></fr:tex>. Written out we can denote this as:
-        <fr:tex display="block"><![CDATA[
-          C(x, y) \times  C(y, z) \to  C(x, z)
-        ]]></fr:tex>
-      in diagramatic order this is often written as <fr:tex display="inline"><![CDATA[f; g]]></fr:tex> we can equivalently use a more graphical notation:
-        
+                    <html:p>
+    A <html:em>category</html:em> <fr:tex display="inline"><![CDATA[C]]></fr:tex> consists of:
+  </html:p>
+                    <html:ul><html:li>
+      A collection (or <html:em>class</html:em> <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(2)</fr:link>) of <html:strong>objects</html:strong>, denoted as <fr:tex display="inline"><![CDATA[\text {Ob}(C)]]></fr:tex> or <fr:tex display="inline"><![CDATA[C_0]]></fr:tex>.
+    </html:li>
+    <html:li>
+      A collection (or <html:em>set</html:em> <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(2)</fr:link>) of <html:strong>morphisms</html:strong> (or <html:em>arrows</html:em>), denoted <fr:tex display="inline"><![CDATA[C_1]]></fr:tex> or <fr:tex display="inline"><![CDATA[C(x, y)]]></fr:tex> for <fr:tex display="inline"><![CDATA[x, y \in  \text {Ob}(C)]]></fr:tex>.
+      <html:ul><html:li>
+          For every morphism <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex>, there are two associated objects: the <html:em>source</html:em> (or <html:em>domain</html:em>) <fr:tex display="inline"><![CDATA[x]]></fr:tex> and the <html:em>target</html:em> (or <html:em>co-domain</html:em>) <fr:tex display="inline"><![CDATA[y]]></fr:tex>. In standard function notation, we write <fr:tex display="inline"><![CDATA[f: x \to  y]]></fr:tex> where <fr:tex display="inline"><![CDATA[x = \text {dom}(f)]]></fr:tex> and <fr:tex display="inline"><![CDATA[y = \text {cod}(f)]]></fr:tex>. NLab has a nice convention where it denotes the source <fr:tex display="inline"><![CDATA[s]]></fr:tex> of a morphism as <fr:tex display="inline"><![CDATA[s(f)]]></fr:tex> and the target <fr:tex display="inline"><![CDATA[t]]></fr:tex> as <fr:tex display="inline"><![CDATA[t(f)]]></fr:tex>.
+        </html:li>
+        <html:li>
+          For every pair of morphisms <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex> and <fr:tex display="inline"><![CDATA[g \in  C(y, z)]]></fr:tex> (s.t. <fr:tex display="inline"><![CDATA[t(f) = s(g)]]></fr:tex> i.e. the morphisms type check), there is a <html:strong>composition</html:strong> morphism <fr:tex display="inline"><![CDATA[g \circ  f \in  C(x, z)]]></fr:tex>. Written out we can denote this as:
+          <fr:tex display="block"><![CDATA[
+            C(x, y) \times  C(y, z) \to  C(x, z)
+          ]]></fr:tex>
+          in diagrammatic order this is often written as <fr:tex display="inline"><![CDATA[f; g]]></fr:tex> we can equivalently use a more graphical notation:
+          
  
   
   <html:figure><fr:resource hash="d8323ce59463aa832587ad5330c42c75"><fr:resource-content><html:img src="/notes/d8323ce59463aa832587ad5330c42c75.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
@@ -292,16 +321,17 @@
             \arrow ["g", from=1-3, to=1-5]
           \end {tikzcd}\]
         ]]></fr:resource-source></fr:resource></html:figure></html:li>
-      <html:li>For every object <fr:tex display="inline"><![CDATA[x \in  \text {Ob}]]></fr:tex> there is an <html:strong>identity morphism</html:strong>:
-        <fr:tex display="block"><![CDATA[
-          (\text {id}_x : x \to  x) \in  C(x, x)
-        ]]></fr:tex></html:li></html:ul>
-    Note: Some additional notations for morphisms include <fr:tex display="inline"><![CDATA[\text {hom}(x, y)]]></fr:tex>, <fr:tex display="inline"><![CDATA[\text {hom}_C(x, y)]]></fr:tex> or <fr:tex display="inline"><![CDATA[C_1(x, y)]]></fr:tex>. Additionally people use the notation <fr:tex display="inline"><![CDATA[\text {Mor(C)}]]></fr:tex> to denote the following disjoint union
-    <fr:tex display="block"><![CDATA[
-      \text {Mor}(C) = \bigsqcup _{x, y \in  \text {Ob}(C)} C(x, y)
-    ]]></fr:tex>
-    Which just expresses the idea that the collection of all morphisms in a category is made up of the morphisms between each pair of objects.
-  </html:li></html:ul>
+        <html:li>
+          For every object <fr:tex display="inline"><![CDATA[x \in  \text {Ob}]]></fr:tex> there is an <html:strong>identity morphism</html:strong>:
+          <fr:tex display="block"><![CDATA[
+            (\text {id}_x : x \to  x) \in  C(x, x)
+          ]]></fr:tex></html:li></html:ul>
+      Note: Some additional notations for morphisms include <fr:tex display="inline"><![CDATA[\text {hom}(x, y)]]></fr:tex>, <fr:tex display="inline"><![CDATA[\text {hom}_C(x, y)]]></fr:tex> or <fr:tex display="inline"><![CDATA[C_1(x, y)]]></fr:tex>. Additionally, people use the notation <fr:tex display="inline"><![CDATA[\text {Mor(C)}]]></fr:tex> to denote the following disjoint union
+      <fr:tex display="block"><![CDATA[
+        \text {Mor}(C) = \bigsqcup _{x, y \in  \text {Ob}(C)} C(x, y)
+      ]]></fr:tex>
+      Which just expresses the idea that the collection of all morphisms in a category is made up of the morphisms between each pair of objects.
+    </html:li></html:ul>
                   </fr:mainmatter>
                 </fr:tree>
                 <fr:tree show-metadata="false">
@@ -315,17 +345,21 @@
                     <fr:title text="The axioms">The axioms</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>The above are often called <html:strong>data</html:strong> of a category. In addition to this data, a category must satisfy the following <html:strong>axioms</html:strong> or (<html:em>conditions</html:em>):</html:p>
-                    <html:ul><html:li>Morphisms need to be <html:strong>associative</html:strong> which means that for every triple of morphisms <fr:tex display="inline"><![CDATA[f \in  C(w, x)]]></fr:tex>, <fr:tex display="inline"><![CDATA[g \in  C(x, y)]]></fr:tex>, and <fr:tex display="inline"><![CDATA[h \in  C(y, z)]]></fr:tex> the following holds:
-    <fr:tex display="block"><![CDATA[
-      h \circ  (g \circ  f) = (h \circ  g) \circ  f
-    ]]></fr:tex></html:li>
-  <html:li>For each morphism <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex> the identity morphisms act as <html:strong>neutral elements</html:strong> for composition:
-    <fr:tex display="block"><![CDATA[
-      \text {id}_y \circ  f = f = f \circ  \text {id}_x
-    ]]></fr:tex>
-    This is also known as the <html:em>left</html:em> and <html:em>right</html:em> <html:strong>unit laws</html:strong> or just <html:strong>unity</html:strong> in general.
-  </html:li></html:ul>
+                    <html:p>
+    The above are often called <html:strong>data</html:strong> of a category. In addition to this data, a category must satisfy the following <html:strong>axioms</html:strong> or (<html:em>conditions</html:em>):
+  </html:p>
+                    <html:ul><html:li>
+      Morphisms need to be <html:strong>associative</html:strong> which means that for every triple of morphisms <fr:tex display="inline"><![CDATA[f \in  C(w, x)]]></fr:tex>, <fr:tex display="inline"><![CDATA[g \in  C(x, y)]]></fr:tex>, and <fr:tex display="inline"><![CDATA[h \in  C(y, z)]]></fr:tex> the following holds:
+      <fr:tex display="block"><![CDATA[
+        h \circ  (g \circ  f) = (h \circ  g) \circ  f
+      ]]></fr:tex></html:li>
+    <html:li>
+      For each morphism <fr:tex display="inline"><![CDATA[f \in  C(x, y)]]></fr:tex> the identity morphisms act as <html:strong>neutral elements</html:strong> for composition:
+      <fr:tex display="block"><![CDATA[
+        \text {id}_y \circ  f = f = f \circ  \text {id}_x
+      ]]></fr:tex>
+      This is also known as the <html:em>left</html:em> and <html:em>right</html:em> <html:strong>unit laws</html:strong> or just <html:strong>unity</html:strong> in general.
+    </html:li></html:ul>
                   </fr:mainmatter>
                 </fr:tree>
                 <fr:tree show-metadata="false">
@@ -340,7 +374,9 @@
                   </fr:frontmatter>
                   <fr:mainmatter>
                     <html:ul>
-                      <html:li>A category such as the one described above is often also called a 1-category to distinguish it from higher categories such as 2-categories, n-categories.</html:li>
+                      <html:li>
+      A category such as the one described above is often also called a 1-category to distinguish it from higher categories such as 2-categories, n-categories.
+    </html:li>
                     </html:ul>
                   </fr:mainmatter>
                 </fr:tree>
@@ -361,13 +397,17 @@
                 <fr:taxon>Definition</fr:taxon>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:p>A morphism <fr:tex display="inline"><![CDATA[f : X \to  Y]]></fr:tex> is called an <html:strong>Isomorphism</html:strong> if there exists a morphism <fr:tex display="inline"><![CDATA[g : Y \to  X]]></fr:tex> such that the following hold <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(1)</fr:link>:</html:p>
+                <html:p>
+  A morphism <fr:tex display="inline"><![CDATA[f : X \to  Y]]></fr:tex> is called an <html:strong>Isomorphism</html:strong> if there exists a morphism <fr:tex display="inline"><![CDATA[g : Y \to  X]]></fr:tex> such that the following hold <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(1)</fr:link>:
+</html:p>
                 <fr:tex display="block"><![CDATA[
   g \circ  f = 1_X
   \quad 
   f \circ  g = 1_Y
 ]]></fr:tex>
-                <html:p>Sometimes an isomorphism is also denoted</html:p>
+                <html:p>
+  Sometimes an isomorphism is also denoted
+</html:p>
                 <fr:tex display="block"><![CDATA[
   X \xrightarrow {\cong } Y
 ]]></fr:tex>
@@ -396,7 +436,9 @@
                     <fr:title text="The data">The data</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>We want to start off by defining the data of our category. On a high level we want to define a category with two objects, <fr:tex display="inline"><![CDATA[\texttt {true}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {false}]]></fr:tex>. Starting with the object representation we have:</html:p>
+                    <html:p>
+      We want to start off by defining the data of our category. On a high level we want to define a category with two objects, <fr:tex display="inline"><![CDATA[\texttt {true}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {false}]]></fr:tex>. Starting with the object representation we have:
+    </html:p>
                     <html:pre class="code-block language-lean">
                       <html:code class="language-lean">
       /-- A wrapper type to make a custom category on Bool -/
@@ -409,7 +451,9 @@
       def BoolCat.ff : BoolCat := ⟨false⟩
     </html:code>
                     </html:pre>
-                    <html:p>Next we want to define the morphisms between these objects. For each pair of objects we express 3 kinds of morphisms: the identity morphism, a morphism from <fr:tex display="inline"><![CDATA[\texttt {false}]]></fr:tex> to <fr:tex display="inline"><![CDATA[\texttt {true}]]></fr:tex>, <fr:tex display="inline"><![CDATA[\texttt {false}]]></fr:tex>from <fr:tex display="inline"><![CDATA[\texttt {true}]]></fr:tex> to <fr:tex display="inline"><![CDATA[\texttt {false}]]></fr:tex>. We can express this in Lean as follows:</html:p>
+                    <html:p>
+      Next we want to define the morphisms between these objects. For each pair of objects we express 3 kinds of morphisms: the identity morphism, a morphism from <fr:tex display="inline"><![CDATA[\texttt {false}]]></fr:tex> to <fr:tex display="inline"><![CDATA[\texttt {true}]]></fr:tex>, <fr:tex display="inline"><![CDATA[\texttt {false}]]></fr:tex>from <fr:tex display="inline"><![CDATA[\texttt {true}]]></fr:tex> to <fr:tex display="inline"><![CDATA[\texttt {false}]]></fr:tex>. We can express this in Lean as follows:
+    </html:p>
                     <html:pre class="code-block language-lean">
                       <html:code class="language-lean">
       /-- Morphisms: we allow identity on each, plus iso between them -/
@@ -419,13 +463,15 @@
         | swapInv : BCHom BoolCat.ff BoolCat.tt
     </html:code>
                     </html:pre>
-                    <html:p>Formally what this describes is a kind of piecewise function:</html:p>
+                    <html:p>
+      Formally what this describes is a kind of piecewise function:
+    </html:p>
                     <fr:tex display="block"><![CDATA[
       \text {f}(x, y) =
       \begin {cases}
-        1_x &: x \to  x & \texttt {if } x = y \\
-        \texttt {swap} &: \text {tt} \to  \text {ff} & \texttt {if } x = \text {tt} \land  y = \text {ff} \\
-        \texttt {swapInv} &: \text {ff} \to  \text {tt} & \texttt {if } x = \text {ff} \land  y = \text {tt} 
+      1_x &: x \to  x & \texttt {if } x = y \\
+      \texttt {swap} &: \text {tt} \to  \text {ff} & \texttt {if } x = \text {tt} \land  y = \text {ff} \\
+      \texttt {swapInv} &: \text {ff} \to  \text {tt} & \texttt {if } x = \text {ff} \land  y = \text {tt}
       \end {cases}
     ]]></fr:tex>
                   </fr:mainmatter>
@@ -441,7 +487,9 @@
                     <fr:title text="Composition and Category instance">Composition and Category instance</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>Now we have some notion of objects and morphisms between them, we can move on to defining composition of morphisms.</html:p>
+                    <html:p>
+      Now we have some notion of objects and morphisms between them, we can move on to defining composition of morphisms.
+    </html:p>
                     <html:pre class="code-block language-lean">
                       <html:code class="language-lean">
       def comp : {X Y Z : BoolCat} → BCHom Y Z → BCHom X Y → BCHom X Z
@@ -451,7 +499,9 @@
         | _, _, _, swap, swapInv =&gt; id _
     </html:code>
                     </html:pre>
-                    <html:p>This defines composition by pattern matching on the possible morphism combinations. Note that we have to explicitly handle the cases where we compose <fr:tex display="inline"><![CDATA[\texttt {swap}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {swapInv}]]></fr:tex> to get the identity morphism on the respective objects. To construct our category we have to provide proofs for the category axioms, namely associativity and identity.</html:p>
+                    <html:p>
+      This defines composition by pattern matching on the possible morphism combinations. Note that we have to explicitly handle the cases where we compose <fr:tex display="inline"><![CDATA[\texttt {swap}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {swapInv}]]></fr:tex> to get the identity morphism on the respective objects. To construct our category we have to provide proofs for the category axioms, namely associativity and identity.
+    </html:p>
                     <html:pre class="code-block language-lean">
                       <html:code class="language-lean">
       @[simp] theorem id_comp' {X Y : BoolCat} (f : BCHom X Y) 
@@ -467,14 +517,16 @@
         cases f &lt;;&gt; cases g &lt;;&gt; cases h &lt;;&gt; rfl
     </html:code>
                     </html:pre>
-                    <html:p>With all this in place we can finally define our category instance:</html:p>
+                    <html:p>
+      With all this in place we can finally define our category instance:
+    </html:p>
                     <html:pre class="code-block language-lean">
                       <html:code class="language-lean">
       instance : Category BoolCat where
         -- The data
         Hom     := BCHom
-        id      := BCHom.id
-        comp    := fun f g =&gt; BCHom.comp g f
+        id      := BCHom. id
+        comp    := fun f g =&gt; BCHom. comp g f
 
         -- Category laws
         id_comp := fun f     =&gt; BCHom.comp_id' f
@@ -495,7 +547,9 @@
                     <fr:title text="Isomorphisms in the Bool category">Isomorphisms in the Bool category</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>Since we clearly see that the morphisms <fr:tex display="inline"><![CDATA[\texttt {swap}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {swapInv}]]></fr:tex> are inverses of each other, we can construct an isomorphism between the two objects <fr:tex display="inline"><![CDATA[\texttt {tt}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {ff}]]></fr:tex> as follows:</html:p>
+                    <html:p>
+      Since we clearly see that the morphisms <fr:tex display="inline"><![CDATA[\texttt {swap}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {swapInv}]]></fr:tex> are inverses of each other, we can construct an isomorphism between the two objects <fr:tex display="inline"><![CDATA[\texttt {tt}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {ff}]]></fr:tex> as follows:
+    </html:p>
                     <html:pre class="code-block language-lean">
                       <html:code class="language-lean">
       def ttFfIso : BoolCat.tt ≅ BoolCat.ff where
@@ -505,7 +559,9 @@
         inv_hom_id := rfl
     </html:code>
                     </html:pre>
-                    <html:p>We can see that lean uses a similar notation for isomorphisms as we do in our notes, namely the <fr:tex display="inline"><![CDATA[\texttt {≅}]]></fr:tex> symbol between the two objects. We can see that an isomorphism consists of a <fr:tex display="inline"><![CDATA[\texttt {hom}]]></fr:tex> and an <fr:tex display="inline"><![CDATA[\texttt {inv}]]></fr:tex> morphism along with proofs that composing them in either order yields the respective identity morphism. In Lean4 its defined as follows:</html:p>
+                    <html:p>
+      We can see that lean uses a similar notation for isomorphism as we do in our notes, namely the <fr:tex display="inline"><![CDATA[\texttt {≅}]]></fr:tex> symbol between the two objects. We can see that an isomorphism consists of a <fr:tex display="inline"><![CDATA[\texttt {hom}]]></fr:tex> and an <fr:tex display="inline"><![CDATA[\texttt {inv}]]></fr:tex> morphism along with proofs that composing them in either order yields the respective identity morphism. In Lean4 its defined as follows:
+    </html:p>
                     <html:pre class="code-block language-lean">
                       <html:code class="language-lean">
       structure Iso {C : Type u} [Category.{v} C] (X Y : C) where
@@ -524,7 +580,9 @@
       infixr:10 " ≅ " =&gt; Iso 
     </html:code>
                     </html:pre>
-                    <html:p>We can check out some of the properties of our isomorphism like so:</html:p>
+                    <html:p>
+      We can check out some properties of our isomorphism like so:
+    </html:p>
                     <html:pre class="code-block language-lean">
                       <html:code class="language-lean">
       -- Verify it's an isomorphism
@@ -533,7 +591,9 @@
       #check ttFfIso.inv       -- BoolCat.ff ⟶ BoolCat.tt
     </html:code>
                     </html:pre>
-                    <html:p>Furthermore we can also show the identity isomorphism <fr:tex display="inline"><![CDATA[tt \cong  tt]]></fr:tex>:</html:p>
+                    <html:p>
+      Furthermore we can also show the identity isomorphism <fr:tex display="inline"><![CDATA[tt \cong  tt]]></fr:tex>:
+    </html:p>
                     <html:pre class="code-block language-lean">
                       <html:code class="language-lean">
       -- Every object is isomorphic to itself (trivially)
@@ -542,7 +602,9 @@
       #check ttSelfIso -- BoolCat.tt ≅ BoolCat.tt
     </html:code>
                     </html:pre>
-                    <html:p>Finally for the sake of completeness we can also demonstrate the isomorphism laws in examples as so:</html:p>
+                    <html:p>
+      Finally for the sake of completeness we can also demonstrate the isomorphism laws in examples as so:
+    </html:p>
                     <html:pre class="code-block language-lean">
                       <html:code class="language-lean">
       -- The isomorphism laws
@@ -589,10 +651,17 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>A <html:em>quiver</html:em> is a collection of <html:strong>edges</html:strong> which may stretch between (ordered) <html:strong>pairs</html:strong> of points called <html:em>vertices</html:em>. Thus making a quiver a kind of graph. In the graph theoretical sense a quiver is a <html:em>directed</html:em> <html:em>pseudo-multigraph</html:em> so breaking that down <fr:link href="/notes/nlab-quiver/" title="quiver" uri="https://kaierikniermann.github.io/notes/nlab-quiver/" display-uri="nlab-quiver" type="local">(1)</fr:link>:</html:p>
-            <html:ul><html:li>It's <html:strong>directed</html:strong> meaning each arrow has a direction associated with it going from a source vertex to a target vertex</html:li>
-  <html:li>It's a <html:strong>pseudograph</html:strong> meaning each pair of verties has some number of edges (including zero) between them, and loops (edges that connect a vertex to itself) are allowed</html:li>
-  <html:li>It's a <html:strong>multigraph</html:strong> which means we constrain the kinds of edges to disallow loops (an edge from a vertex to itself.)
+            <html:p>
+  A <html:em>quiver</html:em> is a collection of <html:strong>edges</html:strong> which may stretch between (ordered) <html:strong>pairs</html:strong> of points called <html:em>vertices</html:em>. Thus making a quiver a kind of graph. In the graph theoretical sense a quiver is a <html:em>directed</html:em> <html:em>pseudo-multigraph</html:em> so breaking that down <fr:link href="/notes/nlab-quiver/" title="quiver" uri="https://kaierikniermann.github.io/notes/nlab-quiver/" display-uri="nlab-quiver" type="local">(1)</fr:link>:
+</html:p>
+            <html:ul><html:li>
+    It's <html:strong>directed</html:strong> meaning each arrow has a direction associated with it going from a source vertex to a target vertex
+  </html:li>
+  <html:li>
+    It's a <html:strong>pseudograph</html:strong> meaning each pair of verties has some number of edges (including zero) between them, and loops (edges that connect a vertex to itself) are allowed
+  </html:li>
+  <html:li>
+    It's a <html:strong>multigraph</html:strong> which means we constrain the kinds of edges to disallow loops (an edge from a vertex to itself.)
   </html:li></html:ul>
             <fr:tree show-metadata="false">
               <fr:frontmatter>
@@ -607,7 +676,9 @@
                 </fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:p>The lean representation of this construct is given as follows:</html:p>
+                <html:p>
+    The lean representation of this construct is given as follows:
+  </html:p>
                 <html:pre class="code-block language-lean">
                   <html:code class="language-lean">
   universe v v₁ v₂ u u₁ u₂

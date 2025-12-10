@@ -15,11 +15,35 @@
     <fr:taxon>Definition</fr:taxon>
   </fr:frontmatter>
   <fr:mainmatter>
-    <html:p>A partial order is just a <fr:link href="/notes/002a/" title="Preorder relation" uri="https://kaierikniermann.github.io/notes/002a/" display-uri="002a" type="local">preorder</fr:link> with an additional property called <html:em>antisymmetry</html:em>. A partial order on a set <fr:tex display="inline"><![CDATA[P]]></fr:tex> is a binary relation <fr:tex display="inline"><![CDATA[\leq ]]></fr:tex> that satisfies the following three properties for all elements <fr:tex display="inline"><![CDATA[a, b, c \in  P]]></fr:tex>:</html:p>
-    <html:ul><html:li><fr:tex display="inline"><![CDATA[a \leq  a]]></fr:tex> (Reflexivity): Every element is related to itself.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[a \leq  b \land  b \leq  c \to  a \leq  c]]></fr:tex> (Transitivity): If an element <fr:tex display="inline"><![CDATA[a]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[b]]></fr:tex>, and <fr:tex display="inline"><![CDATA[b]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[c]]></fr:tex>, then <fr:tex display="inline"><![CDATA[a]]></fr:tex> is also related to <fr:tex display="inline"><![CDATA[c]]></fr:tex>.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[a \leq  b \land  b \leq  a \to  a = b]]></fr:tex> (Antisymmetry): If an element <fr:tex display="inline"><![CDATA[a]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[b]]></fr:tex>, and <fr:tex display="inline"><![CDATA[b]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[a]]></fr:tex>, then <fr:tex display="inline"><![CDATA[a]]></fr:tex> and <fr:tex display="inline"><![CDATA[b]]></fr:tex> must be the same element.</html:li></html:ul>
-    <html:p>More accurately a partial order is a <html:em>reflexive, weak, non-strict partial order</html:em>. Also known as <html:em>skeletal preorder</html:em>. <fr:link href="/notes/fong-spivak-seven-sketches-2019/" title="Seven Sketches in Compositionality: An Invitation to Applied Category Theory" uri="https://kaierikniermann.github.io/notes/fong-spivak-seven-sketches-2019/" display-uri="fong-spivak-seven-sketches-2019" type="local">1</fr:link></html:p>
+    <fr:tree show-metadata="false">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:date>
+          <fr:year>2025</fr:year>
+          <fr:month>11</fr:month>
+          <fr:day>25</fr:day>
+        </fr:date>
+        <fr:title text="Remarks">Remarks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <html:pre class="code-block language-lean">
+          <html:code class="language-lean">
+    some piece of code
+  </html:code>
+        </html:pre>
+      </fr:mainmatter>
+    </fr:tree>
+    <html:p>
+  A partial order is just a <fr:link href="/notes/002a/" title="Preorder relation" uri="https://kaierikniermann.github.io/notes/002a/" display-uri="002a" type="local">preorder</fr:link> with an additional property called <html:em>antisymmetry</html:em>. A partial order on a set <fr:tex display="inline"><![CDATA[P]]></fr:tex> is a binary relation <fr:tex display="inline"><![CDATA[\leq ]]></fr:tex> that satisfies the following three properties for all elements <fr:tex display="inline"><![CDATA[a, b, c \in  P]]></fr:tex>:
+</html:p>
+    <html:ul><html:li><fr:tex display="inline"><![CDATA[a \leq  a]]></fr:tex> (Reflexivity): Every element is related to itself.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[a \leq  b \land  b \leq  c \to  a \leq  c]]></fr:tex> (Transitivity): If an element <fr:tex display="inline"><![CDATA[a]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[b]]></fr:tex>, and <fr:tex display="inline"><![CDATA[b]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[c]]></fr:tex>, then <fr:tex display="inline"><![CDATA[a]]></fr:tex> is also related to <fr:tex display="inline"><![CDATA[c]]></fr:tex>.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[a \leq  b \land  b \leq  a \to  a = b]]></fr:tex> (Antisymmetry): If an element <fr:tex display="inline"><![CDATA[a]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[b]]></fr:tex>, and <fr:tex display="inline"><![CDATA[b]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[a]]></fr:tex>, then <fr:tex display="inline"><![CDATA[a]]></fr:tex> and <fr:tex display="inline"><![CDATA[b]]></fr:tex> must be the same element.
+  </html:li></html:ul>
+    <html:p>
+  More accurately a partial order is a <html:em>reflexive, weak, non-strict partial order</html:em>. Also known as <html:em>skeletal preorder</html:em>. <fr:link href="/notes/fong-spivak-seven-sketches-2019/" title="Seven Sketches in Compositionality: An Invitation to Applied Category Theory" uri="https://kaierikniermann.github.io/notes/fong-spivak-seven-sketches-2019/" display-uri="fong-spivak-seven-sketches-2019" type="local">1</fr:link></html:p>
   </fr:mainmatter>
   <fr:backmatter>
     <fr:tree show-metadata="false" hidden-when-empty="true">
@@ -81,11 +105,14 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>Given a <fr:link href="/notes/002d/" title="Partial order" uri="https://kaierikniermann.github.io/notes/002d/" display-uri="002d" type="local">poset</fr:link> <fr:tex display="inline"><![CDATA[(X, \leq )]]></fr:tex>, we say that the relation <fr:tex display="inline"><![CDATA[\leq ]]></fr:tex> is a <html:em>well-order</html:em> and that <fr:tex display="inline"><![CDATA[X]]></fr:tex> is <html:em>well-ordered</html:em> by <fr:tex display="inline"><![CDATA[\leq ]]></fr:tex> iff. every non-empty subset <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex> has a least element; that is, there exists an element <fr:tex display="inline"><![CDATA[m \in  S]]></fr:tex> such that for all <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[m \leq  s]]></fr:tex>. So, formally we have: <fr:link href="/notes/gallier-cis160-chapter5/" title="Chapter 5: Partial Orders, Lattices, Well-Founded Orderings, Equivalence Relations, Distributive Lattices, Boolean Algebras, Heyting Algebras" uri="https://kaierikniermann.github.io/notes/gallier-cis160-chapter5/" display-uri="gallier-cis160-chapter5" type="local">(1)</fr:link></html:p>
+            <html:p>
+  Given a <fr:link href="/notes/002d/" title="Partial order" uri="https://kaierikniermann.github.io/notes/002d/" display-uri="002d" type="local">poset</fr:link> <fr:tex display="inline"><![CDATA[(X, \leq )]]></fr:tex>, we say that the relation <fr:tex display="inline"><![CDATA[\leq ]]></fr:tex> is a <html:em>well-order</html:em> and that <fr:tex display="inline"><![CDATA[X]]></fr:tex> is <html:em>well-ordered</html:em> by <fr:tex display="inline"><![CDATA[\leq ]]></fr:tex> iff. every non-empty subset <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex> has a least element; that is, there exists an element <fr:tex display="inline"><![CDATA[m \in  S]]></fr:tex> such that for all <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[m \leq  s]]></fr:tex>. So, formally we have: <fr:link href="/notes/gallier-cis160-chapter5/" title="Chapter 5: Partial Orders, Lattices, Well-Founded Orderings, Equivalence Relations, Distributive Lattices, Boolean Algebras, Heyting Algebras" uri="https://kaierikniermann.github.io/notes/gallier-cis160-chapter5/" display-uri="gallier-cis160-chapter5" type="local">(1)</fr:link></html:p>
             <fr:tex display="block"><![CDATA[
   \forall  (S : \mathcal {P}(X)).\ S \neq  \emptyset  \implies  (\exists  m \in  S.\ \forall  s \in  S.\ m \leq  s)
 ]]></fr:tex>
-            <html:p>When X is nonempty, if we pick out any two-element subset, <fr:tex display="inline"><![CDATA[\{a, b\}]]></fr:tex> of <fr:tex display="inline"><![CDATA[X]]></fr:tex>, since the subset must have a least element, either <fr:tex display="inline"><![CDATA[a \leq  b]]></fr:tex> or <fr:tex display="inline"><![CDATA[b \leq  a]]></fr:tex>. Thus, a <html:em>well-order</html:em> is a total order.</html:p>
+            <html:p>
+  When X is nonempty, if we pick out any two-element subset, <fr:tex display="inline"><![CDATA[\{a, b\}]]></fr:tex> of <fr:tex display="inline"><![CDATA[X]]></fr:tex>, since the subset must have a least element, either <fr:tex display="inline"><![CDATA[a \leq  b]]></fr:tex> or <fr:tex display="inline"><![CDATA[b \leq  a]]></fr:tex>. Thus, a <html:em>well-order</html:em> is a total order.
+</html:p>
           </fr:mainmatter>
         </fr:tree>
         <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
@@ -103,13 +130,22 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>A <html:em>complete lattice</html:em> is a <fr:link href="/notes/002d/" title="Partial order" uri="https://kaierikniermann.github.io/notes/002d/" display-uri="002d" type="local">partially ordered set</fr:link> in which all subsets have both a <html:em>greatest lower bound</html:em> (also known as <html:em>infimum</html:em> or <html:em>meet</html:em>) and a <html:em>least upper bound</html:em> (also known as <html:em>supremum</html:em> or <html:em>join</html:em>). This means that for any subset <fr:tex display="inline"><![CDATA[S]]></fr:tex> of the complete lattice <fr:tex display="inline"><![CDATA[L]]></fr:tex>, there exists an element <fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> in <fr:tex display="inline"><![CDATA[L]]></fr:tex> such that: <fr:link href="/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" title="The Hitchhiker’s Guide to Logical Verification (2024 Desktop Edition)" uri="https://kaierikniermann.github.io/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" display-uri="baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024" type="local">(1)</fr:link></html:p>
-            <html:ul><html:li><fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> is a lower bound of <fr:tex display="inline"><![CDATA[S]]></fr:tex>: For all elements <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[\sqcup \ S \leq  s]]></fr:tex>.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> is the greatest of all lower bounds: For any other lower bound <fr:tex display="inline"><![CDATA[b]]></fr:tex> of <fr:tex display="inline"><![CDATA[S]]></fr:tex>, <fr:tex display="inline"><![CDATA[b \leq  \sqcup \ S]]></fr:tex>.</html:li></html:ul>
-            <html:p>Similarly, there exists an element <fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> in <fr:tex display="inline"><![CDATA[L]]></fr:tex> such that:</html:p>
-            <html:ul><html:li><fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> is an upper bound of <fr:tex display="inline"><![CDATA[S]]></fr:tex>: For all elements <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[s \leq  \sqcap \ S]]></fr:tex>.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> is the least of all upper bounds: For any other upper bound <fr:tex display="inline"><![CDATA[b]]></fr:tex> of <fr:tex display="inline"><![CDATA[S]]></fr:tex>, <fr:tex display="inline"><![CDATA[\sqcap \ S \leq  b]]></fr:tex>.</html:li></html:ul>
-            <html:p>In a complete lattice, every subset, including the empty set and the entire set itself, has both a supremum and an infimum within the lattice.</html:p>
+            <html:p>
+  A <html:em>complete lattice</html:em> isss a <fr:link href="/notes/002d/" title="Partial order" uri="https://kaierikniermann.github.io/notes/002d/" display-uri="002d" type="local">partially ordered set</fr:link> in which all subsets have both a <html:em>greatest lower bound</html:em> (also known as <html:em>infimum</html:em> or <html:em>meet</html:em>) and a <html:em>least upper bound</html:em> (also known as <html:em>supremum</html:em> or <html:em>join</html:em>). This means that for any subset <fr:tex display="inline"><![CDATA[S]]></fr:tex> of the complete lattice <fr:tex display="inline"><![CDATA[L]]></fr:tex>, there exists an element <fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> in <fr:tex display="inline"><![CDATA[L]]></fr:tex> such that: <fr:link href="/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" title="The Hitchhiker’s Guide to Logical Verification (2024 Desktop Edition)" uri="https://kaierikniermann.github.io/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" display-uri="baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024" type="local">(1)</fr:link></html:p>
+            <html:ul><html:li><fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> is a lower bound of <fr:tex display="inline"><![CDATA[S]]></fr:tex>: For all elements <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[\sqcup \ S \leq  s]]></fr:tex>.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> is the greatest of all lower bounds: For any other lower bound <fr:tex display="inline"><![CDATA[b]]></fr:tex> of <fr:tex display="inline"><![CDATA[S]]></fr:tex>, <fr:tex display="inline"><![CDATA[b \leq  \sqcup \ S]]></fr:tex>.
+  </html:li></html:ul>
+            <html:p>
+  Similarly, there exists an element <fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> in <fr:tex display="inline"><![CDATA[L]]></fr:tex> such that:
+</html:p>
+            <html:ul><html:li><fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> is an upper bound of <fr:tex display="inline"><![CDATA[S]]></fr:tex>: For all elements <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[s \leq  \sqcap \ S]]></fr:tex>.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> is the least of all upper bounds: For any other upper bound <fr:tex display="inline"><![CDATA[b]]></fr:tex> of <fr:tex display="inline"><![CDATA[S]]></fr:tex>, <fr:tex display="inline"><![CDATA[\sqcap \ S \leq  b]]></fr:tex>.
+  </html:li></html:ul>
+            <html:p>
+  In a complete lattice, every subset, including the empty set and the entire set itself, has both a supremum and an infimum within the lattice.
+</html:p>
           </fr:mainmatter>
         </fr:tree>
       </fr:mainmatter>
@@ -135,10 +171,15 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>A <html:em>preorder relation</html:em> is a binary relation <fr:tex display="inline"><![CDATA[\preceq ]]></fr:tex> on a set <fr:tex display="inline"><![CDATA[S]]></fr:tex> that is both <html:em>reflexive</html:em> and <html:em>transitive</html:em>. This means that for all elements <fr:tex display="inline"><![CDATA[a, b, c \in  S]]></fr:tex>, the following conditions hold:<fr:link href="/notes/fong-spivak-seven-sketches-2019/" title="Seven Sketches in Compositionality: An Invitation to Applied Category Theory" uri="https://kaierikniermann.github.io/notes/fong-spivak-seven-sketches-2019/" display-uri="fong-spivak-seven-sketches-2019" type="local">(1)</fr:link></html:p>
-            <html:ul><html:li><fr:tex display="inline"><![CDATA[x \preceq  x]]></fr:tex> (Reflexivity): Every element is related to itself.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[a \preceq  b \land  b \preceq  c \to  a \preceq  c]]></fr:tex> (Transitivity): If an element <fr:tex display="inline"><![CDATA[a]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[b]]></fr:tex>, and <fr:tex display="inline"><![CDATA[b]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[c]]></fr:tex>, then <fr:tex display="inline"><![CDATA[a]]></fr:tex> is also related to <fr:tex display="inline"><![CDATA[c]]></fr:tex>.</html:li></html:ul>
-            <html:p>We denote the case of <fr:tex display="inline"><![CDATA[x]]></fr:tex> and <fr:tex display="inline"><![CDATA[y]]></fr:tex> being equivalent using the notation <fr:tex display="inline"><![CDATA[\equiv ]]></fr:tex> under the following conditions</html:p>
+            <html:p>
+  A <html:em>preorder relation</html:em> is a binary relation <fr:tex display="inline"><![CDATA[\preceq ]]></fr:tex> on a set <fr:tex display="inline"><![CDATA[S]]></fr:tex> that is both <html:em>reflexive</html:em> and <html:em>transitive</html:em>. This means that for all elements <fr:tex display="inline"><![CDATA[a, b, c \in  S]]></fr:tex>, the following conditions hold:<fr:link href="/notes/fong-spivak-seven-sketches-2019/" title="Seven Sketches in Compositionality: An Invitation to Applied Category Theory" uri="https://kaierikniermann.github.io/notes/fong-spivak-seven-sketches-2019/" display-uri="fong-spivak-seven-sketches-2019" type="local">(1)</fr:link></html:p>
+            <html:ul><html:li><fr:tex display="inline"><![CDATA[x \preceq  x]]></fr:tex> (Reflexivity): Every element is related to itself.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[a \preceq  b \land  b \preceq  c \to  a \preceq  c]]></fr:tex> (Transitivity): If an element <fr:tex display="inline"><![CDATA[a]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[b]]></fr:tex>, and <fr:tex display="inline"><![CDATA[b]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[c]]></fr:tex>, then <fr:tex display="inline"><![CDATA[a]]></fr:tex> is also related to <fr:tex display="inline"><![CDATA[c]]></fr:tex>.
+  </html:li></html:ul>
+            <html:p>
+  We denote the case of <fr:tex display="inline"><![CDATA[x]]></fr:tex> and <fr:tex display="inline"><![CDATA[y]]></fr:tex> being equivalent using the notation <fr:tex display="inline"><![CDATA[\equiv ]]></fr:tex> under the following conditions
+</html:p>
             <fr:tex display="block"><![CDATA[
   x \equiv  y \iff  x \preceq  y \land  y \preceq  x
 ]]></fr:tex>

@@ -2,11 +2,13 @@
 
 \import{base-macros}
 
-\taxon{Definition}  
+\taxon{Definition} 
 
 \title{Hoare triple inference rules - Nano language}
 
-\p{The basic inference rules for the Hoare logic applied to the Nano language are as follows:}
+\p{
+  The basic inference rules for the Hoare logic applied to the Nano language are as follows:
+}
 \infrule{
   \inferrule*[right=Assignment]{
   }{

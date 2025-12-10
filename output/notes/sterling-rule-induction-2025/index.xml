@@ -57,7 +57,8 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>We let <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> denote the set of syntactic rules over some set <fr:tex display="inline"><![CDATA[X]]></fr:tex>. Let <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  X]]></fr:tex> be the closure of <fr:tex display="inline"><![CDATA[X]]></fr:tex> under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words: <fr:link href="/notes/sterling-rule-induction-2025/" title="Theorem. Rule induction" uri="https://kaierikniermann.github.io/notes/sterling-rule-induction-2025/" display-uri="sterling-rule-induction-2025" type="local">(1)</fr:link></html:p>
+            <html:p>
+  We let <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> denote the set of syntactic rules over some set <fr:tex display="inline"><![CDATA[X]]></fr:tex>. Let <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  X]]></fr:tex> be the closure of <fr:tex display="inline"><![CDATA[X]]></fr:tex> under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words: <fr:link href="/notes/sterling-rule-induction-2025/" title="Theorem. Rule induction" uri="https://kaierikniermann.github.io/notes/sterling-rule-induction-2025/" display-uri="sterling-rule-induction-2025" type="local">(1)</fr:link></html:p>
             <fr:tex display="block"><![CDATA[
   (X_\mathcal  R \in  \text {Cl}_\mathcal  R \land  \forall  S \in  \text {Cl}_\mathcal  R \to  X_\mathcal  R \subseteq  S) \equiv  (X_\mathcal  R = \bigcap  \text {Cl}_\mathcal  R)
 ]]></fr:tex>
@@ -71,13 +72,19 @@
                 </fr:date>
                 <fr:title text="Proof of rule induction">Proof of rule induction</fr:title>
               </fr:frontmatter>
-              <fr:mainmatter><html:p>Our proof here is defined in two parts:</html:p><html:ol><html:li><html:strong>Closed</html:strong>: We show that the set <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words, for every rule <fr:tex display="inline"><![CDATA[(x_1, \ldots , x_n) \mapsto  x \in  \mathcal  R]]></fr:tex>, if <fr:tex display="inline"><![CDATA[x_1, \ldots , x_n \in  X_\mathcal  R]]></fr:tex>, then <fr:tex display="inline"><![CDATA[x \in  X_\mathcal  R]]></fr:tex>.</html:li>
-  <html:li><html:strong>Minimal</html:strong>: We show that <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the smallest set closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words, for any set <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex> that is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, we have <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  S]]></fr:tex>.</html:li></html:ol>
- 
-   
-   <fr:tree show-metadata="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>25</fr:day></fr:date><fr:taxon>Proof</fr:taxon></fr:frontmatter><fr:mainmatter>
-  <html:p>We fix an arbitrary rule in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>:</html:p>
+              <fr:mainmatter><html:p>
+    Our proof here is defined in two parts:
+  </html:p><html:ol><html:li><html:strong>Closed</html:strong>: We show that the set <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words, for every rule <fr:tex display="inline"><![CDATA[(x_1, \ldots , x_n) \mapsto  x \in  \mathcal  R]]></fr:tex>, if <fr:tex display="inline"><![CDATA[x_1, \ldots , x_n \in  X_\mathcal  R]]></fr:tex>, then <fr:tex display="inline"><![CDATA[x \in  X_\mathcal  R]]></fr:tex>.
+    </html:li>
+    <html:li><html:strong>Minimal</html:strong>: We show that <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the smallest set closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words, for any set <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex> that is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, we have <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  S]]></fr:tex>.
+    </html:li></html:ol>
   
+    
+    <fr:tree show-metadata="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>25</fr:day></fr:date><fr:taxon>Proof</fr:taxon></fr:frontmatter><fr:mainmatter>
+    <html:p>
+      We fix an arbitrary rule in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>:
+    </html:p>
+    
   
     
     <fr:resource hash="63b338beeb6e34f7b990a23c3e92b73c"><fr:resource-content><html:img src="/notes/63b338beeb6e34f7b990a23c3e92b73c.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
@@ -100,24 +107,36 @@
   \end {mathpar}]]></fr:resource-source></fr:resource>
   
 
-  <html:p>By definition of <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex>, we have that <fr:tex display="inline"><![CDATA[x_1, \ldots , x_n \in  X_\mathcal  R]]></fr:tex>. Since <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, it follows that <fr:tex display="inline"><![CDATA[x \in  X_\mathcal  R]]></fr:tex>. Thus, <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>.</html:p>
-
-  <html:p>Now we want to check that <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the smallest set closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. Let <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex> be an arbitrary set that is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. We need to show that <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  S]]></fr:tex>. We can equivalently state this as:</html:p>
-  <html:blockquote>
-    Forall derivations <fr:tex display="inline"><![CDATA[d]]></fr:tex> generated by rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, the conclusions of <fr:tex display="inline"><![CDATA[d]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.
-  </html:blockquote>
-  <html:p>Or in terms of the height of a derivation as:</html:p>
-  <html:blockquote>
-    Forall derivations <fr:tex display="inline"><![CDATA[d]]></fr:tex> of height <fr:tex display="inline"><![CDATA[h]]></fr:tex> generated by rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, the conclusions of <fr:tex display="inline"><![CDATA[d]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.
-  </html:blockquote>
-  <html:p>We proceed by induction on the height of the derivation <fr:tex display="inline"><![CDATA[d]]></fr:tex>.</html:p>
-  <html:ul><html:li>In the <html:strong>base case</html:strong> any derivation has a height of at least 1, the base case holds vacuously.</html:li>
-    <html:li><html:p>In the <html:strong>inductive case</html:strong> we suppose that the conclusions of every derivation of height less than or equal to <fr:tex display="inline"><![CDATA[k]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>. ; we must prove that the conclusion of any derivation of height <fr:tex display="inline"><![CDATA[k + 1]]></fr:tex> is also in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.</html:p>
-    
     <html:p>
-      Let <fr:tex display="inline"><![CDATA[d]]></fr:tex> be an arbitrary derivation of height <fr:tex display="inline"><![CDATA[k + 1]]></fr:tex>. By definition of derivation height, the last inference in <fr:tex display="inline"><![CDATA[d]]></fr:tex> must be of the form:
+      By definition of <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex>, we have that <fr:tex display="inline"><![CDATA[x_1, \ldots , x_n \in  X_\mathcal  R]]></fr:tex>. Since <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, it follows that <fr:tex display="inline"><![CDATA[x \in  X_\mathcal  R]]></fr:tex>. Thus, <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>.
     </html:p>
-    
+
+    <html:p>
+      Now we want to check that <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the smallest set closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. Let <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex> be an arbitrary set that is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. We need to show that <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  S]]></fr:tex>. We can equivalently state this as:
+    </html:p>
+    <html:blockquote>
+      Forall derivations <fr:tex display="inline"><![CDATA[d]]></fr:tex> generated by rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, the conclusions of <fr:tex display="inline"><![CDATA[d]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.
+    </html:blockquote>
+    <html:p>
+      Or in terms of the height of a derivation as:
+    </html:p>
+    <html:blockquote>
+      Forall derivations <fr:tex display="inline"><![CDATA[d]]></fr:tex> of height <fr:tex display="inline"><![CDATA[h]]></fr:tex> generated by rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, the conclusions of <fr:tex display="inline"><![CDATA[d]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.
+    </html:blockquote>
+    <html:p>
+      We proceed by induction on the height of the derivation <fr:tex display="inline"><![CDATA[d]]></fr:tex>.
+    </html:p>
+    <html:ul><html:li>
+        In the <html:strong>base case</html:strong> any derivation has a height of at least 1, the base case holds vacuously.
+      </html:li>
+      <html:li><html:p>
+          In the <html:strong>inductive case</html:strong> we suppose that the conclusions of every derivation of height less than or equal to <fr:tex display="inline"><![CDATA[k]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>. ; we must prove that the conclusion of any derivation of height <fr:tex display="inline"><![CDATA[k + 1]]></fr:tex> is also in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.
+        </html:p>
+
+        <html:p>
+          Let <fr:tex display="inline"><![CDATA[d]]></fr:tex> be an arbitrary derivation of height <fr:tex display="inline"><![CDATA[k + 1]]></fr:tex>. By definition of derivation height, the last inference in <fr:tex display="inline"><![CDATA[d]]></fr:tex> must be of the form:
+        </html:p>
+        
   
     
     <fr:resource hash="8ab9294001d8167ff895f88a8c82a4e8"><fr:resource-content><html:img src="/notes/8ab9294001d8167ff895f88a8c82a4e8.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
@@ -140,10 +159,14 @@
     \end {mathpar}]]></fr:resource-source></fr:resource>
   
 
-    <html:p>where each sub-derivation <fr:tex display="inline"><![CDATA[d_i]]></fr:tex> has height less than or equal to <fr:tex display="inline"><![CDATA[k]]></fr:tex>. By the inductive hypothesis, the conclusions of each sub-derivation <fr:tex display="inline"><![CDATA[d_i]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>. Since <fr:tex display="inline"><![CDATA[S]]></fr:tex> is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, it follows that the conclusion <fr:tex display="inline"><![CDATA[x]]></fr:tex> of the derivation <fr:tex display="inline"><![CDATA[d]]></fr:tex> is also in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.</html:p></html:li></html:ul>
-  <html:p>Thus, by induction, we have shown that for all derivations <fr:tex display="inline"><![CDATA[d]]></fr:tex> generated by rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, the conclusions of <fr:tex display="inline"><![CDATA[d]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>. Therefore, <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  S]]></fr:tex>.</html:p>
-</fr:mainmatter></fr:tree>
- 
+        <html:p>
+          where each sub-derivation <fr:tex display="inline"><![CDATA[d_i]]></fr:tex> has height less than or equal to <fr:tex display="inline"><![CDATA[k]]></fr:tex>. By the inductive hypothesis, the conclusions of each sub-derivation <fr:tex display="inline"><![CDATA[d_i]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>. Since <fr:tex display="inline"><![CDATA[S]]></fr:tex> is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, it follows that the conclusion <fr:tex display="inline"><![CDATA[x]]></fr:tex> of the derivation <fr:tex display="inline"><![CDATA[d]]></fr:tex> is also in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.
+        </html:p></html:li></html:ul>
+    <html:p>
+      Thus, by induction, we have shown that for all derivations <fr:tex display="inline"><![CDATA[d]]></fr:tex> generated by rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, the conclusions of <fr:tex display="inline"><![CDATA[d]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>. Therefore, <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  S]]></fr:tex>.
+    </html:p>
+  </fr:mainmatter></fr:tree>
+  
 </fr:mainmatter>
             </fr:tree>
             <fr:tree show-metadata="false">
@@ -157,15 +180,21 @@
                 <fr:title text="Tarski's fixpoint view">Tarski's fixpoint view</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:p>Another way we can view what this proof establishes is in terms of the <fr:link href="/notes/0029/" title="Monotone function" uri="https://kaierikniermann.github.io/notes/0029/" display-uri="0029" type="local">monotone function</fr:link> <fr:tex display="inline"><![CDATA[f_\mathcal  R: \mathcal  P(X) \to  \mathcal  P(X)]]></fr:tex> induced by the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, <fr:link href="/notes/002i/" title="Closure of a syntactic rule" uri="https://kaierikniermann.github.io/notes/002i/" display-uri="002i" type="local">defined as</fr:link>:</html:p>
+                <html:p>
+    Another way we can view what this proof establishes is in terms of the <fr:link href="/notes/0029/" title="Monotone function" uri="https://kaierikniermann.github.io/notes/0029/" display-uri="0029" type="local">monotone function</fr:link> <fr:tex display="inline"><![CDATA[f_\mathcal  R: \mathcal  P(X) \to  \mathcal  P(X)]]></fr:tex> induced by the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, <fr:link href="/notes/002i/" title="Closure of a syntactic rule" uri="https://kaierikniermann.github.io/notes/002i/" display-uri="002i" type="local">defined as</fr:link>:
+  </html:p>
                 <fr:tex display="block"><![CDATA[
-  f_\mathcal  R(S) = \bigcup _{r \in  \mathcal  R} f_r(S)
-]]></fr:tex>
-                <html:p>The main fact this proof establishes is that the closure <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the <fr:link href="/notes/002b/" title="Tarski's Theorem" uri="https://kaierikniermann.github.io/notes/002b/" display-uri="002b" type="local">least fixed point</fr:link> of the function <fr:tex display="inline"><![CDATA[f_\mathcal  R]]></fr:tex>, meaning that:</html:p>
+    f_\mathcal  R(S) = \bigcup _{r \in  \mathcal  R} f_r(S)
+  ]]></fr:tex>
+                <html:p>
+    The main fact this proof establishes is that the closure <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the <fr:link href="/notes/002b/" title="Tarski's Theorem" uri="https://kaierikniermann.github.io/notes/002b/" display-uri="002b" type="local">least fixed point</fr:link> of the function <fr:tex display="inline"><![CDATA[f_\mathcal  R]]></fr:tex>, meaning that:
+  </html:p>
                 <fr:tex display="block"><![CDATA[
-  f_\mathcal  R(X_\mathcal  R) = X_\mathcal  R \land  \forall  S.\ f_\mathcal  R(S) \subseteq  S \implies  X_\mathcal  R \subseteq  S
-]]></fr:tex>
-                <html:p>In other words <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the smallest set of premises and conclusions that is <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">closed under</fr:link> the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. Naturally every other set <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">closed under</fr:link> the rules must contain at least the members of <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> (but possibly more).</html:p>
+    f_\mathcal  R(X_\mathcal  R) = X_\mathcal  R \land  \forall  S.\ f_\mathcal  R(S) \subseteq  S \implies  X_\mathcal  R \subseteq  S
+  ]]></fr:tex>
+                <html:p>
+    In other words <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the smallest set of premises and conclusions that is <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">closed under</fr:link> the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. Naturally every other set <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">closed under</fr:link> the rules must contain at least the members of <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> (but possibly more).
+  </html:p>
               </fr:mainmatter>
             </fr:tree>
           </fr:mainmatter>

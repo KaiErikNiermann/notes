@@ -15,7 +15,9 @@
     <fr:taxon>Definition</fr:taxon>
   </fr:frontmatter>
   <fr:mainmatter>
-    <html:p>In a very general sense if we have a logical or formal system a core idea is that we only want to prove things that are actually true, and conversly if we find something that is true we would want to be able to prove it. This leads to two important properties of formal systems:</html:p>
+    <html:p>
+  In a very general sense if we have a logical or formal system a core idea is that we only want to prove things that are actually true, and conversely if we find something that is true we would want to be able to prove it. This leads to two important properties of formal systems:
+</html:p>
     <html:ul><html:li><html:strong>Soundness</html:strong> is the property that everything provable within the system is in fact true, within the context of hoare logic it means that all hoare triples which we can syntactically derive using our inference rules are by implication valid (i.e. true in all interpretations), formally:
     <fr:tex display="block"><![CDATA[
       \vdash  \{P\}\ s\ \{Q\} \to  \vDash  \{P\}\ s\ \{Q\}

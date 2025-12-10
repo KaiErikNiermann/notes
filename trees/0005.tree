@@ -4,7 +4,9 @@
 
 \title{Syntax}
 
-\p{Using BNF notation, the syntax of propositional logic can be defined as follows:}
+\p{
+  Using BNF notation, the syntax of propositional logic can be defined as follows:
+}
 
 \texfig{
   \begin{align*}

@@ -15,13 +15,22 @@
     <fr:taxon>Definition</fr:taxon>
   </fr:frontmatter>
   <fr:mainmatter>
-    <html:p>A <html:em>complete lattice</html:em> is a <fr:link href="/notes/002d/" title="Partial order" uri="https://kaierikniermann.github.io/notes/002d/" display-uri="002d" type="local">partially ordered set</fr:link> in which all subsets have both a <html:em>greatest lower bound</html:em> (also known as <html:em>infimum</html:em> or <html:em>meet</html:em>) and a <html:em>least upper bound</html:em> (also known as <html:em>supremum</html:em> or <html:em>join</html:em>). This means that for any subset <fr:tex display="inline"><![CDATA[S]]></fr:tex> of the complete lattice <fr:tex display="inline"><![CDATA[L]]></fr:tex>, there exists an element <fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> in <fr:tex display="inline"><![CDATA[L]]></fr:tex> such that: <fr:link href="/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" title="The Hitchhiker’s Guide to Logical Verification (2024 Desktop Edition)" uri="https://kaierikniermann.github.io/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" display-uri="baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024" type="local">(1)</fr:link></html:p>
-    <html:ul><html:li><fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> is a lower bound of <fr:tex display="inline"><![CDATA[S]]></fr:tex>: For all elements <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[\sqcup \ S \leq  s]]></fr:tex>.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> is the greatest of all lower bounds: For any other lower bound <fr:tex display="inline"><![CDATA[b]]></fr:tex> of <fr:tex display="inline"><![CDATA[S]]></fr:tex>, <fr:tex display="inline"><![CDATA[b \leq  \sqcup \ S]]></fr:tex>.</html:li></html:ul>
-    <html:p>Similarly, there exists an element <fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> in <fr:tex display="inline"><![CDATA[L]]></fr:tex> such that:</html:p>
-    <html:ul><html:li><fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> is an upper bound of <fr:tex display="inline"><![CDATA[S]]></fr:tex>: For all elements <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[s \leq  \sqcap \ S]]></fr:tex>.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> is the least of all upper bounds: For any other upper bound <fr:tex display="inline"><![CDATA[b]]></fr:tex> of <fr:tex display="inline"><![CDATA[S]]></fr:tex>, <fr:tex display="inline"><![CDATA[\sqcap \ S \leq  b]]></fr:tex>.</html:li></html:ul>
-    <html:p>In a complete lattice, every subset, including the empty set and the entire set itself, has both a supremum and an infimum within the lattice.</html:p>
+    <html:p>
+  A <html:em>complete lattice</html:em> isss a <fr:link href="/notes/002d/" title="Partial order" uri="https://kaierikniermann.github.io/notes/002d/" display-uri="002d" type="local">partially ordered set</fr:link> in which all subsets have both a <html:em>greatest lower bound</html:em> (also known as <html:em>infimum</html:em> or <html:em>meet</html:em>) and a <html:em>least upper bound</html:em> (also known as <html:em>supremum</html:em> or <html:em>join</html:em>). This means that for any subset <fr:tex display="inline"><![CDATA[S]]></fr:tex> of the complete lattice <fr:tex display="inline"><![CDATA[L]]></fr:tex>, there exists an element <fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> in <fr:tex display="inline"><![CDATA[L]]></fr:tex> such that: <fr:link href="/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" title="The Hitchhiker’s Guide to Logical Verification (2024 Desktop Edition)" uri="https://kaierikniermann.github.io/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" display-uri="baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024" type="local">(1)</fr:link></html:p>
+    <html:ul><html:li><fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> is a lower bound of <fr:tex display="inline"><![CDATA[S]]></fr:tex>: For all elements <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[\sqcup \ S \leq  s]]></fr:tex>.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> is the greatest of all lower bounds: For any other lower bound <fr:tex display="inline"><![CDATA[b]]></fr:tex> of <fr:tex display="inline"><![CDATA[S]]></fr:tex>, <fr:tex display="inline"><![CDATA[b \leq  \sqcup \ S]]></fr:tex>.
+  </html:li></html:ul>
+    <html:p>
+  Similarly, there exists an element <fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> in <fr:tex display="inline"><![CDATA[L]]></fr:tex> such that:
+</html:p>
+    <html:ul><html:li><fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> is an upper bound of <fr:tex display="inline"><![CDATA[S]]></fr:tex>: For all elements <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[s \leq  \sqcap \ S]]></fr:tex>.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> is the least of all upper bounds: For any other upper bound <fr:tex display="inline"><![CDATA[b]]></fr:tex> of <fr:tex display="inline"><![CDATA[S]]></fr:tex>, <fr:tex display="inline"><![CDATA[\sqcap \ S \leq  b]]></fr:tex>.
+  </html:li></html:ul>
+    <html:p>
+  In a complete lattice, every subset, including the empty set and the entire set itself, has both a supremum and an infimum within the lattice.
+</html:p>
   </fr:mainmatter>
   <fr:backmatter>
     <fr:tree show-metadata="false" hidden-when-empty="true">
@@ -152,12 +161,12 @@
   </html:p><html:ul><html:li>
       If we take any two subsets on the same level, such as <fr:tex display="inline"><![CDATA[\{\{a\}, \{b\}\}]]></fr:tex> then <html:em>two move up a level</html:em> we take the union of the sets, so:
       <fr:tex display="block"><![CDATA[
-      \{a\} \cup  \{b\} \to  \{a, b\}
-    ]]></fr:tex>
+        \{a\} \cup  \{b\} \to  \{a, b\}
+      ]]></fr:tex>
       Conversly if we wish to <html:em>move down a level</html:em> we take the intersection of the two sets, so for the same pair
       <fr:tex display="block"><![CDATA[
-      \{a\} \cap  \{b\} \to  \{\}
-    ]]></fr:tex>
+        \{a\} \cap  \{b\} \to  \{\}
+      ]]></fr:tex>
       <html:li>
         Each level expresses the different powersets of <fr:tex display="inline"><![CDATA[X]]></fr:tex> with a given cardinality. So the bottom level is the powerset of cardinality 0 (i.e. the empty set), the next level up is the powerset of cardinality 1 (i.e. the singletons), then cardinality 2 and finally cardinality 3 at the top level which is just the set <fr:tex display="inline"><![CDATA[X]]></fr:tex> itself.
       </html:li>
@@ -212,7 +221,8 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>We define a set <fr:tex display="inline"><![CDATA[X]]></fr:tex>, let <fr:tex display="inline"><![CDATA[\mathcal  L(X)]]></fr:tex> be the <fr:link href="/notes/002c/" title="Complete Lattice" uri="https://kaierikniermann.github.io/notes/002c/" display-uri="002c" type="local">complete lattice</fr:link> of all subsets of <fr:tex display="inline"><![CDATA[X]]></fr:tex> ordered by inclusion. A function <fr:tex display="inline"><![CDATA[f: \mathcal  L(X) \to  \mathcal  L(X)]]></fr:tex> is said to be <fr:link href="/notes/0029/" title="Monotone function" uri="https://kaierikniermann.github.io/notes/0029/" display-uri="0029" type="local"><html:em>monotone</html:em></fr:link> in this instance if it preserves inclusion which is to say that the following holds: <fr:link href="/notes/harper-tarski-fixed-point-2025/" title="Tarski’s Fixed Point Theorem*" uri="https://kaierikniermann.github.io/notes/harper-tarski-fixed-point-2025/" display-uri="harper-tarski-fixed-point-2025" type="local">(1)</fr:link></html:p>
+            <html:p>
+  We define a set <fr:tex display="inline"><![CDATA[X]]></fr:tex>, let <fr:tex display="inline"><![CDATA[\mathcal  L(X)]]></fr:tex> be the <fr:link href="/notes/002c/" title="Complete Lattice" uri="https://kaierikniermann.github.io/notes/002c/" display-uri="002c" type="local">complete lattice</fr:link> of all subsets of <fr:tex display="inline"><![CDATA[X]]></fr:tex> ordered by inclusion. A function <fr:tex display="inline"><![CDATA[f: \mathcal  L(X) \to  \mathcal  L(X)]]></fr:tex> is said to be <fr:link href="/notes/0029/" title="Monotone function" uri="https://kaierikniermann.github.io/notes/0029/" display-uri="0029" type="local"><html:em>monotone</html:em></fr:link> in this instance if it preserves inclusion which is to say that the following holds: <fr:link href="/notes/harper-tarski-fixed-point-2025/" title="Tarski’s Fixed Point Theorem*" uri="https://kaierikniermann.github.io/notes/harper-tarski-fixed-point-2025/" display-uri="harper-tarski-fixed-point-2025" type="local">(1)</fr:link></html:p>
             <fr:tex display="block"><![CDATA[
   A \subseteq  B \subseteq  X \implies  f(A) \subseteq  f(B)
 ]]></fr:tex>
@@ -227,11 +237,21 @@
                 <fr:title text="Pre-and-post fixed point">Pre-and-post fixed point</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:p>For a monotone function <fr:tex display="inline"><![CDATA[f]]></fr:tex> a <html:em>pre-fixed point</html:em> of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is a subset <fr:tex display="inline"><![CDATA[A \subseteq  X]]></fr:tex> such that <fr:tex display="inline"><![CDATA[f(A) \subseteq  A]]></fr:tex>. Similarly, a <html:em>post-fixed point</html:em> of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is a subset <fr:tex display="inline"><![CDATA[B \subseteq  X]]></fr:tex> such that <fr:tex display="inline"><![CDATA[B \subseteq  f(B)]]></fr:tex>.</html:p>
-                <html:p>Conceptually the idea here is that the pre-fixed points are those sets in <fr:tex display="inline"><![CDATA[X]]></fr:tex> where the function <fr:tex display="inline"><![CDATA[f]]></fr:tex> maps to <html:em>at most</html:em> all members in <fr:tex display="inline"><![CDATA[A]]></fr:tex>. Conversly the post-fixed points represents the subset where at least all members of the set are mapped to by other members of the same set. Another way to describe it would be that the pre-fixed points represent a closed or <html:em>under-approximation</html:em> of the function <fr:tex display="inline"><![CDATA[f]]></fr:tex> while the post-fixed points represent an consistent or <html:em>over-approximation</html:em> of the function.</html:p>
-                <html:p>A pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is also said to be <fr:tex display="inline"><![CDATA[f]]></fr:tex>-closed and a post-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is said to be <fr:tex display="inline"><![CDATA[f]]></fr:tex>-consistent.</html:p>
-                <html:p>A <html:em>least pre-fixed point</html:em> of a monotone <fr:tex display="inline"><![CDATA[f]]></fr:tex> is the <html:em>smallest</html:em> subset <fr:tex display="inline"><![CDATA[A \subseteq  X]]></fr:tex> such that <fr:tex display="inline"><![CDATA[f(A) \subseteq  A]]></fr:tex>, denoted by <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex>. Similarly, a <html:em>greatest post-fixed point</html:em> of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is the <html:em>largest</html:em> subset <fr:tex display="inline"><![CDATA[B \subseteq  X]]></fr:tex> such that <fr:tex display="inline"><![CDATA[B \subseteq  f(B)]]></fr:tex>, denoted by <fr:tex display="inline"><![CDATA[\nu  f]]></fr:tex>.</html:p>
-                <html:p>Every monotone function <fr:tex display="inline"><![CDATA[f]]></fr:tex> has a unique least pre-fixed point and a unique greatest post-fixed point given by the following equations:</html:p>
+                <html:p>
+    For a monotone function <fr:tex display="inline"><![CDATA[f]]></fr:tex> a <html:em>pre-fixed point</html:em> of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is a subset <fr:tex display="inline"><![CDATA[A \subseteq  X]]></fr:tex> such that <fr:tex display="inline"><![CDATA[f(A) \subseteq  A]]></fr:tex>. Similarly, a <html:em>post-fixed point</html:em> of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is a subset <fr:tex display="inline"><![CDATA[B \subseteq  X]]></fr:tex> such that <fr:tex display="inline"><![CDATA[B \subseteq  f(B)]]></fr:tex>.
+  </html:p>
+                <html:p>
+    Conceptually the idea here is that the prefixed points are those sets in <fr:tex display="inline"><![CDATA[X]]></fr:tex> where the function <fr:tex display="inline"><![CDATA[f]]></fr:tex> maps to <html:em>at most</html:em> all members in <fr:tex display="inline"><![CDATA[A]]></fr:tex>. Conversely, the post-fixed points represent the subset where at least all members of the set are mapped to by other members of the same set. Another way to describe it would be that the pre-fixed points represent a closed or <html:em>under-approximation</html:em> of the function <fr:tex display="inline"><![CDATA[f]]></fr:tex> while the post-fixed points represent a consistent or <html:em>over-approximation</html:em> of the function.
+  </html:p>
+                <html:p>
+    A pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is also said to be <fr:tex display="inline"><![CDATA[f]]></fr:tex>-closed and a post-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is said to be <fr:tex display="inline"><![CDATA[f]]></fr:tex>-consistent.
+  </html:p>
+                <html:p>
+    A <html:em>least pre-fixed point</html:em> of a monotone <fr:tex display="inline"><![CDATA[f]]></fr:tex> is the <html:em>smallest</html:em> subset <fr:tex display="inline"><![CDATA[A \subseteq  X]]></fr:tex> such that <fr:tex display="inline"><![CDATA[f(A) \subseteq  A]]></fr:tex>, denoted by <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex>. Similarly, a <html:em>greatest post-fixed point</html:em> of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is the <html:em>largest</html:em> subset <fr:tex display="inline"><![CDATA[B \subseteq  X]]></fr:tex> such that <fr:tex display="inline"><![CDATA[B \subseteq  f(B)]]></fr:tex>, denoted by <fr:tex display="inline"><![CDATA[\nu  f]]></fr:tex>.
+  </html:p>
+                <html:p>
+    Every monotone function <fr:tex display="inline"><![CDATA[f]]></fr:tex> has a unique least pre-fixed point and a unique greatest post-fixed point given by the following equations:
+  </html:p>
                 <fr:tex display="block"><![CDATA[
     \begin {align*}
       \mu  f & = \bigcap  \{ A \subseteq  X \mid  f(A) \subseteq  A \} \\
@@ -240,7 +260,9 @@
   ]]></fr:tex>
               </fr:mainmatter>
             </fr:tree>
-            <html:p>Of note here is that the least pre-fixed point here corresponds to the closure of the function <fr:tex display="inline"><![CDATA[f]]></fr:tex>. That is to say that it is the smallest set which is closed under the function <fr:tex display="inline"><![CDATA[f]]></fr:tex>. Conversely, the greatest post-fixed point corresponds to the consistency of the function <fr:tex display="inline"><![CDATA[f]]></fr:tex>, being the largest set which is consistent with respect to <fr:tex display="inline"><![CDATA[f]]></fr:tex>.</html:p>
+            <html:p>
+  Of note here is that the least pre-fixed point here corresponds to the closure of the function <fr:tex display="inline"><![CDATA[f]]></fr:tex>. That is to say that it is the smallest set which is closed under the function <fr:tex display="inline"><![CDATA[f]]></fr:tex>. Conversely, the greatest post-fixed point corresponds to the consistency of the function <fr:tex display="inline"><![CDATA[f]]></fr:tex>, being the largest set which is consistent with respect to <fr:tex display="inline"><![CDATA[f]]></fr:tex>.
+</html:p>
             <fr:tree show-metadata="false">
               <fr:frontmatter>
                 <fr:authors />
@@ -251,32 +273,58 @@
                 </fr:date>
                 <fr:title text="Lambek's lemma">Lambek's lemma</fr:title>
               </fr:frontmatter>
-              <fr:mainmatter><html:p>One thing we can observe is that <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> is contained in all pre-fixed points of <fr:tex display="inline"><![CDATA[f]]></fr:tex>, by virtue of being the intersection, i.e. closure for all pre-fixed points. Furthermore we have that <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> is itself a pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex></html:p><fr:tex display="block"><![CDATA[
+              <fr:mainmatter><html:p>
+    One thing we can observe is that <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> is contained in all pre-fixed points of <fr:tex display="inline"><![CDATA[f]]></fr:tex>, by virtue of being the intersection, i.e. closure for all pre-fixed points. Furthermore, we have that <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> is itself a pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex></html:p><fr:tex display="block"><![CDATA[
     f(\mu  f) \subseteq  \mu  f
-  ]]></fr:tex><html:p>and it is thereby the least pre-fixed point. To see this we note that if:</html:p><fr:tex display="block"><![CDATA[
+  ]]></fr:tex><html:p>
+    and it is thereby the least pre-fixed point. To see this we note that if:
+  </html:p><fr:tex display="block"><![CDATA[
     f(A ) \subseteq  A \to  f(\mu  f) \subseteq  A
   ]]></fr:tex>
     
-    <fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>25</fr:day></fr:date><fr:title text="Explanation">Explanation</fr:title></fr:frontmatter><fr:mainmatter><html:p>So the idea here is again that since <fr:tex display="inline"><![CDATA[A]]></fr:tex> is a pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex>, by definition we have that <fr:tex display="inline"><![CDATA[f(A) \subseteq  A]]></fr:tex>. The implication here is that if we apply <fr:tex display="inline"><![CDATA[f]]></fr:tex> to our closure, the resulting set must still be within <fr:tex display="inline"><![CDATA[A]]></fr:tex> since again we definitially cannot have that <fr:tex display="inline"><![CDATA[f]]></fr:tex> maps outside of <fr:tex display="inline"><![CDATA[A]]></fr:tex> so even if we constrain ourselves to some smaller set <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> it doesnt negate the fact that <fr:tex display="inline"><![CDATA[f]]></fr:tex> still cannot map outside of <fr:tex display="inline"><![CDATA[A]]></fr:tex>.</html:p></fr:mainmatter></fr:tree>
-  <html:p>But by definition of <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> we have that</html:p><fr:tex display="block"><![CDATA[
+    <fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>25</fr:day></fr:date><fr:title text="Explanation">Explanation</fr:title></fr:frontmatter><fr:mainmatter><html:p>
+        So the idea here is again that since <fr:tex display="inline"><![CDATA[A]]></fr:tex> is a pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex>, by definition we have that <fr:tex display="inline"><![CDATA[f(A) \subseteq  A]]></fr:tex>. The implication here is that if we apply <fr:tex display="inline"><![CDATA[f]]></fr:tex> to our closure, the resulting set must still be within <fr:tex display="inline"><![CDATA[A]]></fr:tex> since again we definitionally cannot have that <fr:tex display="inline"><![CDATA[f]]></fr:tex> maps outside <fr:tex display="inline"><![CDATA[A]]></fr:tex> so even if we constrain ourselves to some smaller set <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> it doesn't negate the fact that <fr:tex display="inline"><![CDATA[f]]></fr:tex> still cannot map outside <fr:tex display="inline"><![CDATA[A]]></fr:tex>.
+      </html:p></fr:mainmatter></fr:tree>
+  <html:p>
+    But by definition of <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> we have that
+  </html:p><fr:tex display="block"><![CDATA[
     \mu  f \subseteq  A
   ]]></fr:tex>
     
-    <fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>25</fr:day></fr:date><fr:title text="Explanation">Explanation</fr:title></fr:frontmatter><fr:mainmatter><html:p>This is more or less just restating the definition of <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> as the intersection of all pre-fixed points of <fr:tex display="inline"><![CDATA[f]]></fr:tex>, which includes <fr:tex display="inline"><![CDATA[A]]></fr:tex>.</html:p></fr:mainmatter></fr:tree>
-  <html:p>Thus by monotonicity of <fr:tex display="inline"><![CDATA[f]]></fr:tex> we have the following as required</html:p><fr:tex display="block"><![CDATA[
+    <fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>25</fr:day></fr:date><fr:title text="Explanation">Explanation</fr:title></fr:frontmatter><fr:mainmatter><html:p>
+        This is more or less just restating the definition of <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> as the intersection of all pre-fixed points of <fr:tex display="inline"><![CDATA[f]]></fr:tex>, which includes <fr:tex display="inline"><![CDATA[A]]></fr:tex>.
+      </html:p></fr:mainmatter></fr:tree>
+  <html:p>
+    Thus by monotonicity of <fr:tex display="inline"><![CDATA[f]]></fr:tex> we have the following as required
+  </html:p><fr:tex display="block"><![CDATA[
     f(\mu  f) \subseteq  f(A) \subseteq  A
-  ]]></fr:tex><html:p>Additionally we have</html:p><fr:tex display="block"><![CDATA[
+  ]]></fr:tex><html:p>
+    Additionally we have
+  </html:p><fr:tex display="block"><![CDATA[
     f(f(\mu  f)) \subseteq  f(\mu  f)
-  ]]></fr:tex><html:p>Which is to reiterate that <fr:tex display="inline"><![CDATA[f(\mu  f)]]></fr:tex> is itself a pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex>. Therefore we have that</html:p><fr:tex display="block"><![CDATA[
+  ]]></fr:tex><html:p>
+    Which is to reiterate that <fr:tex display="inline"><![CDATA[f(\mu  f)]]></fr:tex> is itself a pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex>. Therefore, we have that
+  </html:p><fr:tex display="block"><![CDATA[
     \mu  f \subseteq  f(\mu  f)
   ]]></fr:tex>
     
-    <fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>25</fr:day></fr:date><fr:title text="Explanation">Explanation</fr:title></fr:frontmatter><fr:mainmatter><html:p>What this says at a high level; or what it implies given the above condition; is that the application of the monotone operator to the closure set <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> doesnt shrink the set any further, in other words its operation stabilizes at this set such that each member in this set maps precisely to some other member in the set not more (i.e. outside as that would mean its not closed) and not less (as that would imply its not minimal). </html:p><fr:tex display="block"><![CDATA[
+    <fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>25</fr:day></fr:date><fr:title text="Explanation">Explanation</fr:title></fr:frontmatter><fr:mainmatter><html:p>
+        What this says at a high level; or what it implies given the above condition; is that the application of the monotone operator to the closure set <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> doesn't shrink the set any further, in other words its operation stabilizes at this set such that each member in this set maps precisely to some other member in the set not more (i.e. outside as that would mean it's not closed) and not less (as that would imply it's not minimal).
+      </html:p><fr:tex display="block"><![CDATA[
         f(\mu  f) \subseteq  \mu  f
-      ]]></fr:tex><html:p>What this says at a high level; or what it implies given the above condition; is that the application of the monotone operator to the closure set <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> doesnt shrink the set any further, in other words its operation stabilizes at this set such that each member in this set maps precisely to some other member in the set not more (i.e. outside as that would mean its not closed) and not less (as that would imply its not minimal). A question I had here was:</html:p><html:blockquote>
+      ]]></fr:tex><html:p>
+        What this says at a high level; or what it implies given the above condition; is that the application of the monotone operator to the closure set <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> doesn't shrink the set any further, in other words its operation stabilizes at this set such that each member in this set maps precisely to some other member in the set not more (i.e. outside as that would mean it's not closed) and not less (as that would imply it's not minimal). A question I had here was:
+      </html:p><html:blockquote>
         But why does this actually happen?
-      </html:blockquote><html:p>A nice perspective to have firstly is seeing the the set <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> here as a <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">generating set</fr:link> for the function <fr:tex display="inline"><![CDATA[f]]></fr:tex>. In other words if we view the function <fr:tex display="inline"><![CDATA[f]]></fr:tex> as a set of rules which generate new members in the set from existing members, then the closure <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> represents the most precise set of members which can be generated by these rules without introducing any extraneous members.</html:p><html:p>The effect of this is that because the members in <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> are precisely those which can be generated by the rules in <fr:tex display="inline"><![CDATA[f]]></fr:tex>, applying <fr:tex display="inline"><![CDATA[f]]></fr:tex> to this set will simply regenerate the same members, hence why we have that <fr:tex display="inline"><![CDATA[\mu  f \subseteq  f(\mu  f)]]></fr:tex> since all the members in <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> already correspond to members generated by the members of <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> under the rules of <fr:tex display="inline"><![CDATA[f]]></fr:tex></html:p><html:p>Furthermore, since we are working in the context of a complete lattice, as we take the intersection of more and more closed subsets under <fr:tex display="inline"><![CDATA[f]]></fr:tex> we eventually reach a point where if we take some further intersection (move down more) we end up losing the closed property, but if we move up (i.e. take the union of more closed sets) we end up introducing extraneous members which violate the minimality property, hence the idea that we stablize at this set i.e. we are a <fr:link href="/notes/0028/" title="Fixpoint" uri="https://kaierikniermann.github.io/notes/0028/" display-uri="0028" type="local"><html:em>fixed point</html:em></fr:link> on the lattice under the operator.</html:p></fr:mainmatter></fr:tree>
-  <html:p>The implication of this being that the closure <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> is a <fr:link href="/notes/0028/" title="Fixpoint" uri="https://kaierikniermann.github.io/notes/0028/" display-uri="0028" type="local"><html:em>fixed point</html:em></fr:link> of <fr:tex display="inline"><![CDATA[f]]></fr:tex>, and, because any fixed point is a pre-fixed point, it is the least pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex>. A dual argument shows that the greatest post-fixed point <fr:tex display="inline"><![CDATA[\nu  f]]></fr:tex> is also a fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex>. This result is known as <html:em>Lambek's lemma</html:em> in Category theory.</html:p></fr:mainmatter>
+      </html:blockquote><html:p>
+        A nice perspective to have firstly is seeing the set <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> here as a <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">generating set</fr:link> for the function <fr:tex display="inline"><![CDATA[f]]></fr:tex>. In other words if we view the function <fr:tex display="inline"><![CDATA[f]]></fr:tex> as a set of rules which generate new members in the set from existing members, then the closure <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> represents the most precise set of members which can be generated by these rules without introducing any extraneous members.
+      </html:p><html:p>
+        The effect of this is that because the members in <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> are precisely those which can be generated by the rules in <fr:tex display="inline"><![CDATA[f]]></fr:tex>, applying <fr:tex display="inline"><![CDATA[f]]></fr:tex> to this set will simply regenerate the same members, hence why we have that <fr:tex display="inline"><![CDATA[\mu  f \subseteq  f(\mu  f)]]></fr:tex> since all the members in <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> already correspond to members generated by the members of <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> under the rules of <fr:tex display="inline"><![CDATA[f]]></fr:tex></html:p><html:p>
+        Furthermore, since we are working in the context of a complete lattice, as we take the intersection of more and more closed subsets under <fr:tex display="inline"><![CDATA[f]]></fr:tex> we eventually reach a point where if we take some further intersection (move down more) we end up losing the closed property, but if we move up (i.e. take the union of more closed sets) we end up introducing extraneous members which violate the minimalism property, hence the idea that we stabilize at this set i.e. we are a <fr:link href="/notes/0028/" title="Fixpoint" uri="https://kaierikniermann.github.io/notes/0028/" display-uri="0028" type="local"><html:em>fixed point</html:em></fr:link> on the lattice under the operator.
+      </html:p></fr:mainmatter></fr:tree>
+  <html:p>
+    The implication of this being that the closure <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> is a <fr:link href="/notes/0028/" title="Fixpoint" uri="https://kaierikniermann.github.io/notes/0028/" display-uri="0028" type="local"><html:em>fixed point</html:em></fr:link> of <fr:tex display="inline"><![CDATA[f]]></fr:tex>, and, because any fixed point is a pre-fixed point, it is the least pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex>. A dual argument shows that the greatest post-fixed point <fr:tex display="inline"><![CDATA[\nu  f]]></fr:tex> is also a fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex>. This result is known as <html:em>Lambek's lemma</html:em> in Category theory.
+  </html:p></fr:mainmatter>
             </fr:tree>
           </fr:mainmatter>
         </fr:tree>
@@ -303,11 +351,35 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>A partial order is just a <fr:link href="/notes/002a/" title="Preorder relation" uri="https://kaierikniermann.github.io/notes/002a/" display-uri="002a" type="local">preorder</fr:link> with an additional property called <html:em>antisymmetry</html:em>. A partial order on a set <fr:tex display="inline"><![CDATA[P]]></fr:tex> is a binary relation <fr:tex display="inline"><![CDATA[\leq ]]></fr:tex> that satisfies the following three properties for all elements <fr:tex display="inline"><![CDATA[a, b, c \in  P]]></fr:tex>:</html:p>
-            <html:ul><html:li><fr:tex display="inline"><![CDATA[a \leq  a]]></fr:tex> (Reflexivity): Every element is related to itself.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[a \leq  b \land  b \leq  c \to  a \leq  c]]></fr:tex> (Transitivity): If an element <fr:tex display="inline"><![CDATA[a]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[b]]></fr:tex>, and <fr:tex display="inline"><![CDATA[b]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[c]]></fr:tex>, then <fr:tex display="inline"><![CDATA[a]]></fr:tex> is also related to <fr:tex display="inline"><![CDATA[c]]></fr:tex>.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[a \leq  b \land  b \leq  a \to  a = b]]></fr:tex> (Antisymmetry): If an element <fr:tex display="inline"><![CDATA[a]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[b]]></fr:tex>, and <fr:tex display="inline"><![CDATA[b]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[a]]></fr:tex>, then <fr:tex display="inline"><![CDATA[a]]></fr:tex> and <fr:tex display="inline"><![CDATA[b]]></fr:tex> must be the same element.</html:li></html:ul>
-            <html:p>More accurately a partial order is a <html:em>reflexive, weak, non-strict partial order</html:em>. Also known as <html:em>skeletal preorder</html:em>. <fr:link href="/notes/fong-spivak-seven-sketches-2019/" title="Seven Sketches in Compositionality: An Invitation to Applied Category Theory" uri="https://kaierikniermann.github.io/notes/fong-spivak-seven-sketches-2019/" display-uri="fong-spivak-seven-sketches-2019" type="local">1</fr:link></html:p>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>25</fr:day>
+                </fr:date>
+                <fr:title text="Remarks">Remarks</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:pre class="code-block language-lean">
+                  <html:code class="language-lean">
+    some piece of code
+  </html:code>
+                </html:pre>
+              </fr:mainmatter>
+            </fr:tree>
+            <html:p>
+  A partial order is just a <fr:link href="/notes/002a/" title="Preorder relation" uri="https://kaierikniermann.github.io/notes/002a/" display-uri="002a" type="local">preorder</fr:link> with an additional property called <html:em>antisymmetry</html:em>. A partial order on a set <fr:tex display="inline"><![CDATA[P]]></fr:tex> is a binary relation <fr:tex display="inline"><![CDATA[\leq ]]></fr:tex> that satisfies the following three properties for all elements <fr:tex display="inline"><![CDATA[a, b, c \in  P]]></fr:tex>:
+</html:p>
+            <html:ul><html:li><fr:tex display="inline"><![CDATA[a \leq  a]]></fr:tex> (Reflexivity): Every element is related to itself.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[a \leq  b \land  b \leq  c \to  a \leq  c]]></fr:tex> (Transitivity): If an element <fr:tex display="inline"><![CDATA[a]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[b]]></fr:tex>, and <fr:tex display="inline"><![CDATA[b]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[c]]></fr:tex>, then <fr:tex display="inline"><![CDATA[a]]></fr:tex> is also related to <fr:tex display="inline"><![CDATA[c]]></fr:tex>.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[a \leq  b \land  b \leq  a \to  a = b]]></fr:tex> (Antisymmetry): If an element <fr:tex display="inline"><![CDATA[a]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[b]]></fr:tex>, and <fr:tex display="inline"><![CDATA[b]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[a]]></fr:tex>, then <fr:tex display="inline"><![CDATA[a]]></fr:tex> and <fr:tex display="inline"><![CDATA[b]]></fr:tex> must be the same element.
+  </html:li></html:ul>
+            <html:p>
+  More accurately a partial order is a <html:em>reflexive, weak, non-strict partial order</html:em>. Also known as <html:em>skeletal preorder</html:em>. <fr:link href="/notes/fong-spivak-seven-sketches-2019/" title="Seven Sketches in Compositionality: An Invitation to Applied Category Theory" uri="https://kaierikniermann.github.io/notes/fong-spivak-seven-sketches-2019/" display-uri="fong-spivak-seven-sketches-2019" type="local">1</fr:link></html:p>
           </fr:mainmatter>
         </fr:tree>
       </fr:mainmatter>

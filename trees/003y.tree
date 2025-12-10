@@ -6,20 +6,38 @@
 
 \title{Hoare triple evaluation}
 
-\p{Asses the validity of each of the following Hoare triples.}
+\p{
+  Asses the validity of each of the following Hoare triples.
+}
 
 \ol{
-  \li{#{\{x = 0 \}\ x := x + 1\ \{x = 1\}}}
-  \li{#{\{x = 0 \land y = 1\}\ x := x + 1\ \{x = 1 \land y = 2\}}}
-  \li{#{\{x = 0 \land y = 1\}\ x := x + 1 \{x = 1 \lor y = 2\}}}
-  \li{#{\{x = 0\}\ \texttt{while}\ \top\ \texttt{do}\ x := x + 1\ \{x = 1\}}}
+  \li{
+    #{\{x = 0 \}\ x := x + 1\ \{x = 1\}}
+  }
+  \li{
+    #{\{x = 0 \land y = 1\}\ x := x + 1\ \{x = 1 \land y = 2\}}
+  }
+  \li{
+    #{\{x = 0 \land y = 1\}\ x := x + 1 \{x = 1 \lor y = 2\}}
+  }
+  \li{
+    #{\{x = 0\}\ \texttt{while}\ \top\ \texttt{do}\ x := x + 1\ \{x = 1\}}
+  }
 }
 
 \solution{
   \ol{
-    \li{Valid. If #{x = 0} before execution, then after executing #{x := x + 1}, #{x} will be #{1}.}
-    \li{Invalid. While #{x} will be #{1} after execution, #{y} remains #{1}, so the postcondition #{y = 2} does not hold.}
-    \li{Valid. After execution, #{x} will be #{1}, satisfying the postcondition #{x = 1 \lor y = 2}.}
-    \li{Valid. The loop runs indefinitely, so the postcondition is vacuously true as the program never terminates.}
+    \li{
+      Valid. If #{x = 0} before execution, then after executing #{x := x + 1}, #{x} will be #{1}.
+    }
+    \li{
+      Invalid. While #{x} will be #{1} after execution, #{y} remains #{1}, so the post-condition #{y = 2} does not hold.
+    }
+    \li{
+      Valid. After execution, #{x} will be #{1}, satisfying the post-condition #{x = 1 \lor y = 2}.
+    }
+    \li{
+      Valid. The loop runs indefinitely, so the post-condition is vacuously true as the program never terminates.
+    }
   }
 }

@@ -6,10 +6,15 @@
 
 \title{Closed set}
 
-\p{We define a subset of a given set to be \em{closed} under some operation on the larget set if preforming that operation on a member of the \em{subset} always produces a member of the same subset. Formally we can say that:}
+\p{
+  We define a subset of a given set to be \em{closed} under some operation on the larget set if preforming that operation on a member of the \em{subset} always produces a member of the same subset. Formally we can say that:
+}
 \ul{
-  \li{Given some \strong{set operation} #{f : X^n \to X}}
-  \li{A subset #{S \subseteq X} is \strong{closed} under the operation #{f} if
+  \li{
+    Given some \strong{set operation} #{f : X^n \to X}
+  }
+  \li{
+    A subset #{S \subseteq X} is \strong{closed} under the operation #{f} if
     ##{
       \forall x_1, x_2, \ldots, x_n \in S.\ f(x_1, x_2, \ldots, x_n) \in S
     }

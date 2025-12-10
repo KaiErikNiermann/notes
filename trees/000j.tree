@@ -6,11 +6,12 @@
 
 \title{Eliminating Implications and Biconditionals}
 
-\p{To eliminate implications (#{\to}) and biconditionals (#{\leftrightarrow}) from a formula #{F}, we can use the following equivalences:}
+\p{
+  To eliminate implications (#{\to}) and biconditionals (#{\leftrightarrow}) from a formula #{F}, we can use the following equivalences:
+}
 ##{
   \begin{align*}
-    p \to q &\equiv \neg p \lor q \\
-    p \leftrightarrow q &\equiv (p \land q) \lor (\neg p \land \neg q)
+  p \to q &\equiv \neg p \lor q \\
+  p \leftrightarrow q &\equiv (p \land q) \lor (\neg p \land \neg q)
   \end{align*}
 }
-

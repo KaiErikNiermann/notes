@@ -15,11 +15,15 @@
     <fr:taxon>Example</fr:taxon>
   </fr:frontmatter>
   <fr:mainmatter>
-    <html:p>A classic example of a <fr:link href="/notes/0022/" title="Well-founded Relation" uri="https://kaierikniermann.github.io/notes/0022/" display-uri="0022" type="local">well-founded relation</fr:link> is the standard less-than relation <fr:tex display="inline"><![CDATA[<]]></fr:tex> defined over the set of natural numbers <fr:tex display="inline"><![CDATA[\mathbb {N} = \{0, 1, 2, 3, \ldots \}]]></fr:tex>. To see why, consider any sequence of natural numbers <fr:tex display="inline"><![CDATA[n_0, n_1, n_2, \ldots ]]></fr:tex> such that each successive number is less than its predecessor according to the relation <fr:tex display="inline"><![CDATA[<]]></fr:tex>:</html:p>
+    <html:p>
+  A classic example of a <fr:link href="/notes/0022/" title="Well-founded Relation" uri="https://kaierikniermann.github.io/notes/0022/" display-uri="0022" type="local">well-founded relation</fr:link> is the standard less-than relation <fr:tex display="inline"><![CDATA[<]]></fr:tex> defined over the set of natural numbers <fr:tex display="inline"><![CDATA[\mathbb {N} = \{0, 1, 2, 3, \ldots \}]]></fr:tex>. To see why, consider any sequence of natural numbers <fr:tex display="inline"><![CDATA[n_0, n_1, n_2, \ldots ]]></fr:tex> such that each successive number is less than its predecessor according to the relation <fr:tex display="inline"><![CDATA[<]]></fr:tex>:
+</html:p>
     <fr:tex display="block"><![CDATA[
   n_1 < n_0,\quad  n_2 < n_1,\quad  n_3 < n_2,\quad  \ldots 
 ]]></fr:tex>
-    <html:p>Since the natural numbers are well-ordered, there is a smallest natural number, which is <fr:tex display="inline"><![CDATA[0]]></fr:tex>. Therefore, any decreasing sequence of natural numbers must eventually reach <fr:tex display="inline"><![CDATA[0]]></fr:tex> and cannot continue indefinitely. This means that there cannot exist an infinite sequence of natural numbers where each successive number is less than its predecessor.</html:p>
+    <html:p>
+  Since the natural numbers are well-ordered, there is a smallest natural number, which is <fr:tex display="inline"><![CDATA[0]]></fr:tex>. Therefore, any decreasing sequence of natural numbers must eventually reach <fr:tex display="inline"><![CDATA[0]]></fr:tex> and cannot continue indefinitely. This means that there cannot exist an infinite sequence of natural numbers where each successive number is less than its predecessor.
+</html:p>
   </fr:mainmatter>
   <fr:backmatter>
     <fr:tree show-metadata="false" hidden-when-empty="true">

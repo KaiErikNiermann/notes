@@ -69,7 +69,9 @@
                 <fr:taxon>Definition</fr:taxon>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:p>A category <fr:tex display="inline"><![CDATA[\mathcal {C}]]></fr:tex> is called <html:strong>small</html:strong> (or <fr:tex display="inline"><![CDATA[U]]></fr:tex>-small) if both the collection of objects <fr:tex display="inline"><![CDATA[\mathrm {Ob}(\mathcal {C})]]></fr:tex> and the collection of morphisms <fr:tex display="inline"><![CDATA[\mathrm {Mor}(\mathcal {C})]]></fr:tex> are sets (i.e. elements of the universe <fr:tex display="inline"><![CDATA[U]]></fr:tex>). In lean where we correspond universes to types this just means that we instatiate the universe levels of morphisms and objects to the same thing, we can see this clearly in the definition of a <fr:tex display="inline"><![CDATA[\texttt {SmallCategory}]]></fr:tex> in mathlib.</html:p>
+                <html:p>
+    A category <fr:tex display="inline"><![CDATA[\mathcal {C}]]></fr:tex> is called <html:strong>small</html:strong> (or <fr:tex display="inline"><![CDATA[U]]></fr:tex>-small) if both the collection of objects <fr:tex display="inline"><![CDATA[\mathrm {Ob}(\mathcal {C})]]></fr:tex> and the collection of morphisms <fr:tex display="inline"><![CDATA[\mathrm {Mor}(\mathcal {C})]]></fr:tex> are sets (i.e. elements of the universe <fr:tex display="inline"><![CDATA[U]]></fr:tex>). In lean where we correspond universes to types this just means that we instatiate the universe levels of morphisms and objects to the same thing, we can see this clearly in the definition of a <fr:tex display="inline"><![CDATA[\texttt {SmallCategory}]]></fr:tex> in mathlib.
+  </html:p>
                 <html:pre class="code-block language-lean">
                   <html:code class="language-lean">
     abbrev SmallCategory (C : Type u) : Type (u + 1) := Category.{u} C
@@ -89,9 +91,14 @@
                 <fr:taxon>Definition</fr:taxon>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:p>A <html:strong>locally small</html:strong> category <fr:tex display="inline"><![CDATA[\mathcal {C}]]></fr:tex> is a category satisfying the following conditions:</html:p>
-                <html:ul><html:li>The collection of objects <fr:tex display="inline"><![CDATA[\mathrm {Ob}(\mathcal {C})]]></fr:tex> and morphisms <fr:tex display="inline"><![CDATA[\mathrm {Mor}(\mathcal {C})]]></fr:tex> are classes. <fr:link href="/notes/low-universes-category-theory-2014/" title="Universes for Category Theory" uri="https://kaierikniermann.github.io/notes/low-universes-category-theory-2014/" display-uri="low-universes-category-theory-2014" type="local">(1)</fr:link></html:li>
-    <html:li>For every pair of objects <fr:tex display="inline"><![CDATA[X, Y \in  \mathrm {Ob}(\mathcal {C})]]></fr:tex> the hom-set <fr:tex display="inline"><![CDATA[\mathcal {C}(X, Y)]]></fr:tex> is a <html:em>set</html:em> (or small set) instead of a <html:em>proper class</html:em>.</html:li></html:ul>
+                <html:p>
+    A <html:strong>locally small</html:strong> category <fr:tex display="inline"><![CDATA[\mathcal {C}]]></fr:tex> is a category satisfying the following conditions:
+  </html:p>
+                <html:ul><html:li>
+      The collection of objects <fr:tex display="inline"><![CDATA[\mathrm {Ob}(\mathcal {C})]]></fr:tex> and morphisms <fr:tex display="inline"><![CDATA[\mathrm {Mor}(\mathcal {C})]]></fr:tex> are classes. <fr:link href="/notes/low-universes-category-theory-2014/" title="Universes for Category Theory" uri="https://kaierikniermann.github.io/notes/low-universes-category-theory-2014/" display-uri="low-universes-category-theory-2014" type="local">(1)</fr:link></html:li>
+    <html:li>
+      For every pair of objects <fr:tex display="inline"><![CDATA[X, Y \in  \mathrm {Ob}(\mathcal {C})]]></fr:tex> the hom-set <fr:tex display="inline"><![CDATA[\mathcal {C}(X, Y)]]></fr:tex> is a <html:em>set</html:em> (or small set) instead of a <html:em>proper class</html:em>.
+    </html:li></html:ul>
                 <fr:tree show-metadata="false">
                   <fr:frontmatter>
                     <fr:authors />
@@ -103,7 +110,9 @@
                     <fr:title text="The lean definition">The lean definition</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>This one is a little bit more interesting, first let's look at the definition in mathlib:</html:p>
+                    <html:p>
+      This one is a little bit more interesting, first let's look at the definition in mathlib:
+    </html:p>
                     <html:pre class="code-block language-lean">
                       <html:code class="language-lean">
       class Small (α : Type v) : Prop where
@@ -117,10 +126,18 @@
         hom_small : ∀ X Y : C, Small.{w} (X ⟶ Y) := by infer_instance
     </html:code>
                     </html:pre>
-                    <html:p>So we can see that in lean a locally small category is defined as a normal category with the added property that for every pair of objects <fr:tex display="inline"><![CDATA[X, Y \in  \mathrm {Ob}]]></fr:tex> the hom-type <fr:tex display="inline"><![CDATA[X ⟶ Y]]></fr:tex> is <fr:tex display="inline"><![CDATA[\texttt {Small}]]></fr:tex>, which as we can see from the definition of <fr:tex display="inline"><![CDATA[\texttt {Small}]]></fr:tex> means that there exists some type <fr:tex display="inline"><![CDATA[\texttt {S : Type w}]]></fr:tex> such that there is an equivalence <fr:tex display="inline"><![CDATA[α ≃ S]]></fr:tex>. We can informally correspond to the lean definition as follows:</html:p>
-                    <html:ul><html:li>Our objects <fr:tex display="inline"><![CDATA[\texttt {C : Type u}]]></fr:tex> live in some universe level <fr:tex display="inline"><![CDATA[u]]></fr:tex> which we assoicate with being a class i.e. possibly large collection.</html:li>
-      <html:li>The morphisms between any two objects <fr:tex display="inline"><![CDATA[\texttt {X, Y : C}]]></fr:tex> live in some <html:em>other</html:em> universe level <fr:tex display="inline"><![CDATA[w]]></fr:tex> where the equivalence to some type <fr:tex display="inline"><![CDATA[\texttt {S : Type w}]]></fr:tex> expresses the notion that the hom-sets are small sets.</html:li></html:ul>
-                    <html:p>Honestly I think quite reasonably its fair to ask: wait what how does that represent smallness ? What is <fr:tex display="inline"><![CDATA[\texttt {w}]]></fr:tex> even supposed to be? So I think an example is warranted.</html:p>
+                    <html:p>
+      So we can see that in lean a locally small category is defined as a normal category with the added property that for every pair of objects <fr:tex display="inline"><![CDATA[X, Y \in  \mathrm {Ob}]]></fr:tex> the hom-type <fr:tex display="inline"><![CDATA[X ⟶ Y]]></fr:tex> is <fr:tex display="inline"><![CDATA[\texttt {Small}]]></fr:tex>, which as we can see from the definition of <fr:tex display="inline"><![CDATA[\texttt {Small}]]></fr:tex> means that there exists some type <fr:tex display="inline"><![CDATA[\texttt {S : Type w}]]></fr:tex> such that there is an equivalence <fr:tex display="inline"><![CDATA[α ≃ S]]></fr:tex>. We can informally correspond to the lean definition as follows:
+    </html:p>
+                    <html:ul><html:li>
+        Our objects <fr:tex display="inline"><![CDATA[\texttt {C : Type u}]]></fr:tex> live in some universe level <fr:tex display="inline"><![CDATA[u]]></fr:tex> which we assoicate with being a class i.e. possibly large collection.
+      </html:li>
+      <html:li>
+        The morphisms between any two objects <fr:tex display="inline"><![CDATA[\texttt {X, Y : C}]]></fr:tex> live in some <html:em>other</html:em> universe level <fr:tex display="inline"><![CDATA[w]]></fr:tex> where the equivalence to some type <fr:tex display="inline"><![CDATA[\texttt {S : Type w}]]></fr:tex> expresses the notion that the hom-sets are small sets.
+      </html:li></html:ul>
+                    <html:p>
+      Honestly I think quite reasonably its fair to ask: wait what how does that represent smallness ? What is <fr:tex display="inline"><![CDATA[\texttt {w}]]></fr:tex> even supposed to be? So I think an example is warranted.
+    </html:p>
                   </fr:mainmatter>
                 </fr:tree>
                 <fr:tree show-metadata="false">
@@ -134,7 +151,9 @@
                     <fr:title text="Example of a locally small category">Example of a locally small category</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>This is arguably a bit contrived but let's consider objects as being containers for types in some universe level <fr:tex display="inline"><![CDATA[0]]></fr:tex> i.e. sets. So we can define our objects and morphisms as follows:</html:p>
+                    <html:p>
+      This is arguably a bit contrived but let's consider objects as being containers for types in some universe level <fr:tex display="inline"><![CDATA[0]]></fr:tex> i.e. sets. So we can define our objects and morphisms as follows:
+    </html:p>
                     <html:pre class="code-block language-lean">
                       <html:code class="language-lean">
       structure TWrapper : Type 1 where
@@ -144,7 +163,9 @@
       def TWHom (A B : TWrapper) : Type 0 := A.carrier → B.carrier
     </html:code>
                     </html:pre>
-                    <html:p>Importantly we can note here that the type of objects <fr:tex display="inline"><![CDATA[\texttt {TWrapper : Type 1}]]></fr:tex> lives in universe level <fr:tex display="inline"><![CDATA[1]]></fr:tex> which we can think of as a class of sets. However the morphisms between any two objects <fr:tex display="inline"><![CDATA[\texttt {TWHom (A B : TWrapper) : Type 0}]]></fr:tex> live in universe level <fr:tex display="inline"><![CDATA[0]]></fr:tex> which we can think of as small sets. Using this we can define a category instance:</html:p>
+                    <html:p>
+      Importantly we can note here that the type of objects <fr:tex display="inline"><![CDATA[\texttt {TWrapper : Type 1}]]></fr:tex> lives in universe level <fr:tex display="inline"><![CDATA[1]]></fr:tex> which we can think of as a class of sets. However the morphisms between any two objects <fr:tex display="inline"><![CDATA[\texttt {TWHom (A B : TWrapper) : Type 0}]]></fr:tex> live in universe level <fr:tex display="inline"><![CDATA[0]]></fr:tex> which we can think of as small sets. Using this we can define a category instance:
+    </html:p>
                     <html:pre class="code-block language-lean">
                       <html:code class="language-lean">
       instance TWrapper.category : Category TWrapper where
@@ -160,22 +181,31 @@
         assoc := fun _ _ _ =&gt; rfl
     </html:code>
                     </html:pre>
-                    <html:p>Now we want to define the locally small instance:</html:p>
+                    <html:p>
+      Now we want to define the locally small instance:
+    </html:p>
                     <html:pre class="code-block language-lean">
                       <html:code class="language-lean">
       instance TWrapper.locallySmall : LocallySmall.{0} TWrapper where
         hom_small := fun X Y =&gt; ⟨⟨TWHom X Y, ⟨Equiv.refl _⟩⟩⟩
     </html:code>
                     </html:pre>
-                    <html:p>This now answers a few questions that arose earlier:</html:p>
-                    <html:ul><html:li>We instantiated the universe level of our hom-sets <fr:tex display="inline"><![CDATA[\texttt {w}]]></fr:tex> to <fr:tex display="inline"><![CDATA[0]]></fr:tex> which corresponds to small sets.</html:li>
-      <html:li>The equivalence <fr:tex display="inline"><![CDATA[\texttt {α ≃ S}]]></fr:tex> in this case is just the identity equivalence <fr:tex display="inline"><![CDATA[\texttt {Equiv.refl}]]></fr:tex> since our hom-sets are already small sets. On other words here:
-      <html:pre class="code-block language-lean"><html:code class="language-lean">
+                    <html:p>
+      This now answers a few questions that arose earlier:
+    </html:p>
+                    <html:ul><html:li>
+        We instantiated the universe level of our hom-sets <fr:tex display="inline"><![CDATA[\texttt {w}]]></fr:tex> to <fr:tex display="inline"><![CDATA[0]]></fr:tex> which corresponds to small sets.
+      </html:li>
+      <html:li>
+        The equivalence <fr:tex display="inline"><![CDATA[\texttt {α ≃ S}]]></fr:tex> in this case is just the identity equivalence <fr:tex display="inline"><![CDATA[\texttt {Equiv.refl}]]></fr:tex> since our hom-sets are already small sets. On other words here:
+        <html:pre class="code-block language-lean"><html:code class="language-lean">
         Small.{w} (X ⟶ Y)
       </html:code></html:pre>
-      We have that <fr:tex display="inline"><![CDATA[\texttt {X ⟶ Y}]]></fr:tex> represents our set which exists in universe level <fr:tex display="inline"><![CDATA[0]]></fr:tex>, since we are instantiating <fr:tex display="inline"><![CDATA[\texttt {w}]]></fr:tex> to <fr:tex display="inline"><![CDATA[0]]></fr:tex> the <fr:tex display="inline"><![CDATA[\texttt {Small}]]></fr:tex> definition is satisfied by the identity equivalence.
+        We have that <fr:tex display="inline"><![CDATA[\texttt {X ⟶ Y}]]></fr:tex> represents our set which exists in universe level <fr:tex display="inline"><![CDATA[0]]></fr:tex>, since we are instantiating <fr:tex display="inline"><![CDATA[\texttt {w}]]></fr:tex> to <fr:tex display="inline"><![CDATA[0]]></fr:tex> the <fr:tex display="inline"><![CDATA[\texttt {Small}]]></fr:tex> definition is satisfied by the identity equivalence.
       </html:li></html:ul>
-                    <html:p>So we can see that in the context of lean a locally small category is just a category where the objects live in some universe level (class) and the hom-sets live in some smaller universe level (set) and we must provide an equivalence showing that the hom-sets are indeed small sets.</html:p>
+                    <html:p>
+      So we can see that in the context of lean a locally small category is just a category where the objects live in some universe level (class) and the hom-sets live in some smaller universe level (set) and we must provide an equivalence showing that the hom-sets are indeed small sets.
+    </html:p>
                   </fr:mainmatter>
                 </fr:tree>
               </fr:mainmatter>
@@ -191,10 +221,18 @@
                 <fr:title text="Essentially small">Essentially small</fr:title>
                 <fr:taxon>Definition</fr:taxon>
               </fr:frontmatter>
-              <fr:mainmatter><html:p>A category <fr:tex display="inline"><![CDATA[\mathcal {C}]]></fr:tex> is called <html:strong>essentially small</html:strong> if there exists a small category <fr:tex display="inline"><![CDATA[\mathcal {D}]]></fr:tex> and a functor:</html:p><fr:tex display="block"><![CDATA[
+              <fr:mainmatter><html:p>
+    A category <fr:tex display="inline"><![CDATA[\mathcal {C}]]></fr:tex> is called <html:strong>essentially small</html:strong> if there exists a small category <fr:tex display="inline"><![CDATA[\mathcal {D}]]></fr:tex> and a functor:
+  </html:p><fr:tex display="block"><![CDATA[
     F : \mathcal {D} \to  \mathcal {C}
-  ]]></fr:tex><html:p>That is <html:em>fully faithful</html:em> and <html:em>essentially surjective</html:em> on objects, i.e. it represents an <fr:link href="/notes/002x/" title="Equivalence" uri="https://kaierikniermann.github.io/notes/002x/" display-uri="002x" type="local">equivalence</fr:link>. In other words we call a category essentially small if its <html:em>isomorphism classes</html:em> of objects form a set.</html:p><html:p>To elaborate a bit more, we say that a functor <fr:tex display="inline"><![CDATA[F : C \to  D]]></fr:tex> is an <html:em>equivalence</html:em> if there exists:</html:p><html:ul><html:li>A functor <fr:tex display="inline"><![CDATA[G : D \to  C]]></fr:tex></html:li>
-    <html:li>The <fr:link href="/notes/0031/" title="Natural transformation (category theory)" uri="https://kaierikniermann.github.io/notes/0031/" display-uri="0031" type="local">natural isomorphisms</fr:link>:
+  ]]></fr:tex><html:p>
+    That is <html:em>fully faithful</html:em> and <html:em>essentially surjective</html:em> on objects, i.e. it represents an <fr:link href="/notes/002x/" title="Equivalence" uri="https://kaierikniermann.github.io/notes/002x/" display-uri="002x" type="local">equivalence</fr:link>. In other words we call a category essentially small if its <html:em>isomorphism classes</html:em> of objects form a set.
+  </html:p><html:p>
+    To elaborate a bit more, we say that a functor <fr:tex display="inline"><![CDATA[F : C \to  D]]></fr:tex> is an <html:em>equivalence</html:em> if there exists:
+  </html:p><html:ul><html:li>
+      A functor <fr:tex display="inline"><![CDATA[G : D \to  C]]></fr:tex></html:li>
+    <html:li>
+      The <fr:link href="/notes/0031/" title="Natural transformation (category theory)" uri="https://kaierikniermann.github.io/notes/0031/" display-uri="0031" type="local">natural isomorphisms</fr:link>:
       <fr:tex display="block"><![CDATA[
         \eta  : \text {Id}_C \xrightarrow {\cong } G \circ  F \quad  \epsilon  : F \circ  G \xrightarrow {\cong } \text {Id}_D
       ]]></fr:tex>
@@ -203,7 +241,9 @@
         \eta  : 1_C \xrightarrow {\cong } F ; G \quad  \epsilon  : G ; F \xrightarrow {\cong } 1_D
       ]]></fr:tex>
       in plain english we can see this as saying that the round trip we take by applying <fr:tex display="inline"><![CDATA[F]]></fr:tex> then <fr:tex display="inline"><![CDATA[G]]></fr:tex> (or vice versa) is naturally isomorphic to doing nothing at all (the identify functor).
-    </html:li></html:ul><html:p>In diagrammatic form we can represent this as follows:</html:p>
+    </html:li></html:ul><html:p>
+    In diagrammatic form we can represent this as follows:
+  </html:p>
  
   
   <html:figure><fr:resource hash="595b66e096bc4adaf62968d1cf4dfcc6"><fr:resource-content><html:img src="/notes/595b66e096bc4adaf62968d1cf4dfcc6.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
@@ -261,14 +301,22 @@
     \end {tikzcd}\]
   ]]></fr:resource-source></fr:resource></html:figure>
  
-<html:p>The main takeaway here being that an essentially small category is one which is equivalent to a small category. Hence the problem of demonstrating a category is essentially small reduces to demonstrating isomorphisms between the unit and counit natural transformations.</html:p><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>27</fr:day></fr:date><fr:title text="The lean definition">The lean definition</fr:title></fr:frontmatter><fr:mainmatter><html:p>We can again examine the definition in mathlib:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+<html:p>
+    The main takeaway here being that an essentially small category is one which is equivalent to a small category. Hence the problem of demonstrating a category is essentially small reduces to demonstrating isomorphisms between the unit and counit natural transformations.
+  </html:p><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>27</fr:day></fr:date><fr:title text="The lean definition">The lean definition</fr:title></fr:frontmatter><fr:mainmatter><html:p>
+      We can again examine the definition in mathlib:
+    </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
       /-- A category is `EssentiallySmall.{w}` if there exists
       an equivalence to some `S : Type w` with `[SmallCategory S]`. -/
       @[pp_with_univ]
       class EssentiallySmall (C : Type u) [Category.{v} C] : Prop where
         /-- An ES category is equivalent to some small category. -/
         equiv_smallCategory : ∃ (S : Type w) (_ : SmallCategory S), Nonempty (C ≌ S)
-    </html:code></html:pre><html:p>We can see quite nicely here how the lean definition corresponds to the informal one. We have our category <fr:tex display="inline"><![CDATA[\texttt {C : Type u}]]></fr:tex> living in some universe level <fr:tex display="inline"><![CDATA[u]]></fr:tex> (class) and we require the existence of some small category <fr:tex display="inline"><![CDATA[\texttt {S : Type w}]]></fr:tex> living in some smaller universe level <fr:tex display="inline"><![CDATA[w]]></fr:tex> (set) such that there exists an equivalence <fr:tex display="inline"><![CDATA[\texttt {C ≌ S}]]></fr:tex>.</html:p></fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>27</fr:day></fr:date><fr:title text="Example of an essentially small category">Example of an essentially small category</fr:title></fr:frontmatter><fr:mainmatter><html:p>As an example we will take the categories <fr:tex display="inline"><![CDATA[\texttt {FinSet}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {FinOrd}]]></fr:tex>. Starting with the former, the category of finite sets <fr:tex display="inline"><![CDATA[\texttt {FinSet}]]></fr:tex> is defined as follows:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+    </html:code></html:pre><html:p>
+      We can see quite nicely here how the lean definition corresponds to the informal one. We have our category <fr:tex display="inline"><![CDATA[\texttt {C : Type u}]]></fr:tex> living in some universe level <fr:tex display="inline"><![CDATA[u]]></fr:tex> (class) and we require the existence of some small category <fr:tex display="inline"><![CDATA[\texttt {S : Type w}]]></fr:tex> living in some smaller universe level <fr:tex display="inline"><![CDATA[w]]></fr:tex> (set) such that there exists an equivalence <fr:tex display="inline"><![CDATA[\texttt {C ≌ S}]]></fr:tex>.
+    </html:p></fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>27</fr:day></fr:date><fr:title text="Example of an essentially small category">Example of an essentially small category</fr:title></fr:frontmatter><fr:mainmatter><html:p>
+      As an example we will take the categories <fr:tex display="inline"><![CDATA[\texttt {FinSet}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {FinOrd}]]></fr:tex>. Starting with the former, the category of finite sets <fr:tex display="inline"><![CDATA[\texttt {FinSet}]]></fr:tex> is defined as follows:
+    </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
       /-- Finite sets as a category - objects are Fin n for various n -/
       structure FinSetObj : Type 1 where
         n : ℕ
@@ -288,9 +336,21 @@
         id_comp := fun _ =&gt; rfl
         comp_id := fun _ =&gt; rfl
         assoc   := fun _ _ _ =&gt; rfl
-    </html:code></html:pre><html:p>It's defined as the category who's objects are finite sets and who's morphisms are functions between said sets. Here we are defining a custom variant of a finite set object <fr:tex display="inline"><![CDATA[\texttt {FinSetObj}]]></fr:tex> which contains:</html:p><html:ul><html:li>A natural number <fr:tex display="inline"><![CDATA[\texttt {n : ℕ}]]></fr:tex> representing the cardinality of the set.</html:li>
-      <html:li>A carrier type <fr:tex display="inline"><![CDATA[\texttt {carrier : Type 0}]]></fr:tex> representing the actual elements of the set.</html:li>
-      <html:li>An equivalence <fr:tex display="inline"><![CDATA[\texttt {equiv : carrier ≃ Fin n}]]></fr:tex> which acts as a witness that the carrier has exactly <fr:tex display="inline"><![CDATA[\texttt {n}]]></fr:tex> elements.</html:li></html:ul><html:p>We then define our morphisms as functions between the carrier types of two finite set objects. Finally we provide a category instance in the standard way.</html:p><html:p>Next we want to define the category of all finite ordinal numbers <fr:tex display="inline"><![CDATA[\texttt {FinOrd}]]></fr:tex>. This is defined as follows:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+    </html:code></html:pre><html:p>
+      It's defined as the category who's objects are finite sets and who's morphisms are functions between said sets. Here we are defining a custom variant of a finite set object <fr:tex display="inline"><![CDATA[\texttt {FinSetObj}]]></fr:tex> which contains:
+    </html:p><html:ul><html:li>
+        A natural number <fr:tex display="inline"><![CDATA[\texttt {n : ℕ}]]></fr:tex> representing the cardinality of the set.
+      </html:li>
+      <html:li>
+        A carrier type <fr:tex display="inline"><![CDATA[\texttt {carrier : Type 0}]]></fr:tex> representing the actual elements of the set.
+      </html:li>
+      <html:li>
+        An equivalence <fr:tex display="inline"><![CDATA[\texttt {equiv : carrier ≃ Fin n}]]></fr:tex> which acts as a witness that the carrier has exactly <fr:tex display="inline"><![CDATA[\texttt {n}]]></fr:tex> elements.
+      </html:li></html:ul><html:p>
+      We then define our morphisms as functions between the carrier types of two finite set objects. Finally we provide a category instance in the standard way.
+    </html:p><html:p>
+      Next we want to define the category of all finite ordinal numbers <fr:tex display="inline"><![CDATA[\texttt {FinOrd}]]></fr:tex>. This is defined as follows:
+    </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
       /-- The skeleton: the discrete category on ℕ -/
       abbrev FinSetSkeleton := ℕ
 
@@ -303,16 +363,30 @@
         Hom   := fun A B =&gt; Fin A.n → Fin B.n
         id    := fun _ =&gt; id
         comp  := fun f g =&gt; g ∘ f
-    </html:code></html:pre><html:p>In our case we can define the finite ordinals as the skeleton of the finite sets category. So our objects are just natural numbers <fr:tex display="inline"><![CDATA[\texttt {n : ℕ}]]></fr:tex> representing the finite ordinals and our morphisms are functions between the corresponding finite sets <fr:tex display="inline"><![CDATA[\texttt {Fin n}]]></fr:tex>. Again we provide a small category instance in the standard way.</html:p><html:p>Now central to the definition of an essentially small category is the existence of an equivalence, in other words we need to functors with a natural transformation witnessing the equivalence. We'll start by defining the functor from the finite ordinals to the finite sets:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+    </html:code></html:pre><html:p>
+      In our case we can define the finite ordinals as the skeleton of the finite sets category. So our objects are just natural numbers <fr:tex display="inline"><![CDATA[\texttt {n : ℕ}]]></fr:tex> representing the finite ordinals and our morphisms are functions between the corresponding finite sets <fr:tex display="inline"><![CDATA[\texttt {Fin n}]]></fr:tex>. Again we provide a small category instance in the standard way.
+    </html:p><html:p>
+      Now central to the definition of an essentially small category is the existence of an equivalence, in other words we need to functors with a natural transformation witnessing the equivalence. We'll start by defining the functor from the finite ordinals to the finite sets:
+    </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
       /-- Canonical embedding of FinSkel into FinSetObj -/
       def skelToFinSetObj : FinSkel ⥤ FinSetObj where
         obj       := fun A =&gt; ⟨A.n, Fin A.n, Equiv.refl _⟩
         map       := fun f =&gt; f
         map_id    := fun _ =&gt; rfl
         map_comp  := fun _ _ =&gt; rfl
-    </html:code></html:pre><html:p>We can note here that:</html:p><html:ul><html:li>The object mapping takes a finite ordinal <fr:tex display="inline"><![CDATA[\texttt {A : FinSkel}]]></fr:tex> and maps it to the corresponding finite set object with carrier <fr:tex display="inline"><![CDATA[\texttt {Fin A.n}]]></fr:tex>. The equivalence is just the identity equivalence since <fr:tex display="inline"><![CDATA[\texttt {Fin A.n}]]></fr:tex> obviously has exactly <fr:tex display="inline"><![CDATA[\texttt {A.n}]]></fr:tex> elements.</html:li>
-      <html:li>The morphism mapping is just the identity since morphisms in both categories are functions between finite sets.</html:li>
-      <html:li>The functor laws are satisfied by reflexivity.</html:li></html:ul><html:p>The other way around is a little bit more involved, we can construct the functor as follows:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+    </html:code></html:pre><html:p>
+      We can note here that:
+    </html:p><html:ul><html:li>
+        The object mapping takes a finite ordinal <fr:tex display="inline"><![CDATA[\texttt {A : FinSkel}]]></fr:tex> and maps it to the corresponding finite set object with carrier <fr:tex display="inline"><![CDATA[\texttt {Fin A.n}]]></fr:tex>. The equivalence is just the identity equivalence since <fr:tex display="inline"><![CDATA[\texttt {Fin A.n}]]></fr:tex> obviously has exactly <fr:tex display="inline"><![CDATA[\texttt {A.n}]]></fr:tex> elements.
+      </html:li>
+      <html:li>
+        The morphism mapping is just the identity since morphisms in both categories are functions between finite sets.
+      </html:li>
+      <html:li>
+        The functor laws are satisfied by reflexivity.
+      </html:li></html:ul><html:p>
+      The other way around is a little bit more involved, we can construct the functor as follows:
+    </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
       def finSetObjToSkel : FinSetObj ⥤ FinSkel where
         obj := fun A =&gt; ⟨A.n⟩
         map := fun {A B} f =&gt; B.equiv ∘ f ∘ A.equiv.symm
@@ -328,37 +402,43 @@
             = (C.equiv ∘ g ∘ B.equiv.symm) ((B.equiv ∘ f ∘ A.equiv.symm) x)
 
           simp only [Function.comp_apply, Equiv.symm_apply_apply]
-    </html:code></html:pre><html:p>Again to break this down by components:</html:p><html:ul><html:li>In the object mapping we are taking in a finite set object <fr:tex display="inline"><![CDATA[\texttt {A : FinSetObj}]]></fr:tex> and mapping it to the corresponding finite ordinal represented by the natural number <fr:tex display="inline"><![CDATA[\texttt {A.n}]]></fr:tex>.</html:li>
-        <html:li>Our morphism mapping is a bit more complex, since we are going from the category of finite sets our source and target objects <fr:tex display="inline"><![CDATA[\texttt {A}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {B}]]></fr:tex> represent the finite set objects. For all pairs of objects the map function demands:
+    </html:code></html:pre><html:p>
+      Again to break this down by components:
+    </html:p><html:ul><html:li>
+        In the object mapping we are taking in a finite set object <fr:tex display="inline"><![CDATA[\texttt {A : FinSetObj}]]></fr:tex> and mapping it to the corresponding finite ordinal represented by the natural number <fr:tex display="inline"><![CDATA[\texttt {A.n}]]></fr:tex>.
+      </html:li>
+      <html:li>
+        Our morphism mapping is a bit more complex, since we are going from the category of finite sets our source and target objects <fr:tex display="inline"><![CDATA[\texttt {A}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {B}]]></fr:tex> represent the finite set objects. For all pairs of objects the map function demands:
         <html:pre class="code-block language-lean"><html:code class="language-lean">
           ∀ {X Y : C}, (X ⟶ Y) → ((obj X) ⟶ (obj Y))
         </html:code></html:pre>
         we are provided with the set of morphisms <fr:tex display="inline"><![CDATA[\texttt {f : A.carrier → B.carrier}]]></fr:tex> and we need to produce a function between the corresponding finite sets <fr:tex display="inline"><![CDATA[\texttt {Fin A.n → Fin B.n}]]></fr:tex>. Here we utilize an important property that comes with equivalences: they can be used to transport functions between types. To explain what this means let's consider the isolated example:
-        </html:li>
-        <html:pre class="code-block language-lean"><html:code class="language-lean">
+      </html:li>
+      <html:pre class="code-block language-lean"><html:code class="language-lean">
           variable (A B : FinSetObj) (f : FinSetObj.category.Hom A B)
 
           #check B.equiv ∘ f      -- ⇑B.equiv ∘ f : A.carrier → Fin B.n
           #check f ∘ A.equiv.symm -- f ∘ ⇑A.equiv.symm : Fin A.n → B.carrier
         </html:code></html:pre>
-        Whats going on here is that the composition coerces the equivalences into functions i.e.
-        <html:pre class="code-block language-lean"><html:code class="language-lean">
+      Whats going on here is that the composition coerces the equivalences into functions i.e.
+      <html:pre class="code-block language-lean"><html:code class="language-lean">
           @[simp, norm_cast]
           lemma _root_.EquivLike.coe_coe {F} [EquivLike F α β] (e : F) :
               ((e : α ≃ β) : α → β) = e := rfl
         </html:code></html:pre>
-        Since the equivalence is between the carrier (set) type and the upper bound witness we have the function 
-        <html:pre class="code-block language-lean"><html:code class="language-lean">
+      Since the equivalence is between the carrier (set) type and the upper bound witness we have the function 
+      <html:pre class="code-block language-lean"><html:code class="language-lean">
           ⇑B.equiv      B.carrier → Fin B.n
           ⇑A.equiv.symm Fin A.n   → A.carrier
         </html:code></html:pre>
-        hence composing this with our morphism gives
-        <html:pre class="code-block language-lean"><html:code class="language-lean">
+      hence composing this with our morphism gives
+      <html:pre class="code-block language-lean"><html:code class="language-lean">
           A.carrier → B.carrier → Fin B.n -- so A.carrier → Fin B.n
           Fin A.n → A.carrier → B.carrier -- so Fin A.n → B.carrier
         </html:code></html:pre>
-        and composing these two results in the desired function <fr:tex display="inline"><![CDATA[\texttt {Fin A.n → Fin B.n}]]></fr:tex>.
-      <html:li>Next we want to show that the functor preserves identities. In our case this means the following:
+      and composing these two results in the desired function <fr:tex display="inline"><![CDATA[\texttt {Fin A.n → Fin B.n}]]></fr:tex>.
+      <html:li>
+        Next we want to show that the functor preserves identities. In our case this means the following:
         <html:pre class="code-block language-lean"><html:code class="language-lean">
           map_id : ∀ (A : FinSetObj), 
             ⇑A.equiv ∘ 𝟙 A ∘ ⇑A.equiv.symm = 𝟙 { n := A.n }
@@ -433,7 +513,11 @@
         </html:code></html:pre>
         we can equivalently just automate this step by just prepending <fr:tex display="inline"><![CDATA[\texttt {Function.comp}]]></fr:tex> into our simplification steps.
       </html:li>
-      <html:li>For the case of showing that our functor preserves composition of morphisms we have a similar situation as to the identity case, here just to keep things not dragging on too long i'll just say that again we are more or less following the same logic as before. We are using show to reduce or goal into a form that is easier to reason about, and then we are just simplifying using the properties of equivalences and function composition.</html:li></html:ul><html:p>Moving on we now have two create our natural transformations, here things should now be rather straightforward. In lean we have:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+      <html:li>
+        For the case of showing that our functor preserves composition of morphisms we have a similar situation as to the identity case, here just to keep things not dragging on too long i'll just say that again we are more or less following the same logic as before. We are using show to reduce or goal into a form that is easier to reason about, and then we are just simplifying using the properties of equivalences and function composition.
+      </html:li></html:ul><html:p>
+      Moving on we now have two create our natural transformations, here things should now be rather straightforward. In lean we have:
+    </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
       def unitNatTrans 
           : 𝟭 FinSetObj ⟶ finSetObjToSkel ⋙ skelToFinSetObj where
         app := fun A =&gt; (A.equiv : A.carrier → Fin A.n)
@@ -466,7 +550,9 @@
           funext x
           show A.equiv (A.equiv.symm x) = x
           simp only [Equiv.apply_symm_apply]
-    </html:code></html:pre><html:p>in lean composition of functors is denoted by the operator <fr:tex display="inline"><![CDATA[\texttt {⋙}]]></fr:tex> so we can see that our unit natural transformation has the correct type. The components of the natural transformation are just given by the equivalences we have in our finite set objects, and the naturality conditions again follow from unfolding the definitions and simplifying.</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+    </html:code></html:pre><html:p>
+      in lean composition of functors is denoted by the operator <fr:tex display="inline"><![CDATA[\texttt {⋙}]]></fr:tex> so we can see that our unit natural transformation has the correct type. The components of the natural transformation are just given by the equivalences we have in our finite set objects, and the naturality conditions again follow from unfolding the definitions and simplifying.
+    </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
       /-- Naturality lemma for counit transformations -/
       lemma counit_naturality {A B : FinSkel} (f : A ⟶ B) :
         (𝟭 FinSkel).map f ≫ id = id ≫ (skelToFinSetObj ⋙ finSetObjToSkel).map f := by
@@ -490,7 +576,9 @@
         inv := counitInvNatTrans
         hom_inv_id := by ext A; rfl
         inv_hom_id := by ext A; rfl
-    </html:code></html:pre><html:p>Finally we can define the equivalence and then construct the essentially small instance:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+    </html:code></html:pre><html:p>
+      Finally we can define the equivalence and then construct the essentially small instance:
+    </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
       /-- The equivalence between FinSetObj and FinSkel -/
       def finSetObjEquiv : FinSetObj ≌ FinSkel where
         functor := finSetObjToSkel
@@ -537,8 +625,12 @@
                 <fr:title text="Motivation">Motivation</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:p>In set theory (along with other theories which consider collections of stuff) there is an issue which you try to talk about the <html:em>collection of collections</html:em>, as it gives rise to certain paradoxes by the recursive nature of it. One way out is to consider a hierarchy of notions of collections, where a "collection of collections" is not in fact considered a "collection" itself but rather some notion of a higher increment of collection. </html:p>
-                <html:p>This is the idea behind <html:em>universes</html:em>, where the universe is a collection of all set's which intuitively can be thought of as a "set of all sets" but is not itself a set but one increment above it in the hierarchy.</html:p>
+                <html:p>
+    In set theory (along with other theories which consider collections of stuff) there is an issue which you try to talk about the <html:em>collection of collections</html:em>, as it gives rise to certain paradoxes by the recursive nature of it. One way out is to consider a hierarchy of notions of collections, where a "collection of collections" is not in fact considered a "collection" itself but rather some notion of a higher increment of collection.
+  </html:p>
+                <html:p>
+    This is the idea behind <html:em>universes</html:em>, where the universe is a collection of all set's which intuitively can be thought of as a "set of all sets" but is not itself a set but one increment above it in the hierarchy.
+  </html:p>
               </fr:mainmatter>
             </fr:tree>
             <fr:tree show-metadata="false">
@@ -552,29 +644,47 @@
                 <fr:title text="Definition">Definition</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:p>A <html:em>Grothendieck universe</html:em> is a set (in ZFC) <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> with the following properties <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(1)</fr:link>:</html:p>
-                <html:ol><html:li>( <html:em>transitivity</html:em> ) If <fr:tex display="inline"><![CDATA[x \in  \mathcal  U]]></fr:tex> and <fr:tex display="inline"><![CDATA[y \in  x]]></fr:tex>, then <fr:tex display="inline"><![CDATA[y \in  \mathcal  U]]></fr:tex>.</html:li>
-  <html:li>( <html:em>power set</html:em> ) If <fr:tex display="inline"><![CDATA[x \in  \mathcal  U]]></fr:tex>, then <fr:tex display="inline"><![CDATA[\mathcal  P(x) \in  \mathcal  U]]></fr:tex> where <fr:tex display="inline"><![CDATA[\mathcal  P(x)]]></fr:tex> is the powerset (set of all subsets) of <fr:tex display="inline"><![CDATA[x]]></fr:tex>.</html:li>
-  <html:li>( <html:em>unions</html:em> ) If <fr:tex display="inline"><![CDATA[I \in  \mathcal  U]]></fr:tex> and <fr:tex display="inline"><![CDATA[x_i \in  \mathcal  U]]></fr:tex> for each <fr:tex display="inline"><![CDATA[i \in  I]]></fr:tex>, then the union
-  <fr:tex display="block"><![CDATA[
-    \bigcup  _{i \in  I} x_i \in  \mathcal  U
-  ]]></fr:tex></html:li>
-  <html:li>(<html:em> natural numbers </html:em>) The set of natural numbers <fr:tex display="inline"><![CDATA[\mathbb {N} \in  \mathcal  U]]></fr:tex>.</html:li></html:ol>
-                <html:p>Additional properties of <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> can be enumerated as follows:</html:p>
-                <html:ul><html:li>If <fr:tex display="inline"><![CDATA[x, y \in  \mathcal  U]]></fr:tex> then <fr:tex display="inline"><![CDATA[\{x, y\} \in  \mathcal  U]]></fr:tex>.</html:li>
-  <html:li>If <fr:tex display="inline"><![CDATA[x \in  \mathcal  U]]></fr:tex> and <fr:tex display="inline"><![CDATA[y \subset  x]]></fr:tex>, then <fr:tex display="inline"><![CDATA[y \in  \mathcal  U]]></fr:tex>.</html:li>
-  <html:li>If <fr:tex display="inline"><![CDATA[I \in  \mathcal  U]]></fr:tex> and <fr:tex display="inline"><![CDATA[x_i \in  \mathcal  U]]></fr:tex> for each <fr:tex display="inline"><![CDATA[i \in  I]]></fr:tex>, we have the <html:strong>cartesian product</html:strong>:
-  <fr:tex display="block"><![CDATA[
-    \prod _{i \in  I} x_i \in  \mathcal  U
-  ]]></fr:tex></html:li>
-  <html:li>If <fr:tex display="inline"><![CDATA[I \in  \mathcal  U]]></fr:tex> and <fr:tex display="inline"><![CDATA[x_i \in  \mathcal  U]]></fr:tex> for each <fr:tex display="inline"><![CDATA[i \in  I]]></fr:tex>, we have the <html:strong>disjoint union</html:strong>:
-  <fr:tex display="block"><![CDATA[\coprod _{i \in  I} x_i \in  \mathcal  U
-    
-  ]]></fr:tex>
-  <html:li>If <fr:tex display="inline"><![CDATA[x, y \in  \mathcal  U]]></fr:tex>, then the <html:strong>function set</html:strong> from <fr:tex display="inline"><![CDATA[x]]></fr:tex> to <fr:tex display="inline"><![CDATA[y]]></fr:tex> is also in <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex>:
-  <fr:tex display="block"><![CDATA[
-    y^x = \{ f : x \to  y \} \in  \mathcal  U
-  ]]></fr:tex></html:li></html:li></html:ul>
+                <html:p>
+    A <html:em>Grothendieck universe</html:em> is a set (in ZFC) <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> with the following properties <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(1)</fr:link>:
+  </html:p>
+                <html:ol><html:li>
+      (<html:em>transitivity</html:em>) If <fr:tex display="inline"><![CDATA[x \in  \mathcal  U]]></fr:tex> and <fr:tex display="inline"><![CDATA[y \in  x]]></fr:tex>, then <fr:tex display="inline"><![CDATA[y \in  \mathcal  U]]></fr:tex>.
+    </html:li>
+    <html:li>
+      (<html:em>power set</html:em>) If <fr:tex display="inline"><![CDATA[x \in  \mathcal  U]]></fr:tex>, then <fr:tex display="inline"><![CDATA[\mathcal  P(x) \in  \mathcal  U]]></fr:tex> where <fr:tex display="inline"><![CDATA[\mathcal  P(x)]]></fr:tex> is the powerset (set of all subsets) of <fr:tex display="inline"><![CDATA[x]]></fr:tex>.
+    </html:li>
+    <html:li>
+      (<html:em>unions</html:em>) If <fr:tex display="inline"><![CDATA[I \in  \mathcal  U]]></fr:tex> and <fr:tex display="inline"><![CDATA[x_i \in  \mathcal  U]]></fr:tex> for each <fr:tex display="inline"><![CDATA[i \in  I]]></fr:tex>, then the union
+      <fr:tex display="block"><![CDATA[
+        \bigcup  _{i \in  I} x_i \in  \mathcal  U
+      ]]></fr:tex></html:li>
+    <html:li>
+      (<html:em>natural numbers</html:em>) The set of natural numbers <fr:tex display="inline"><![CDATA[\mathbb {N} \in  \mathcal  U]]></fr:tex>.
+    </html:li></html:ol>
+                <html:p>
+    Additional properties of <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> can be enumerated as follows:
+  </html:p>
+                <html:ul><html:li>
+      If <fr:tex display="inline"><![CDATA[x, y \in  \mathcal  U]]></fr:tex> then <fr:tex display="inline"><![CDATA[\{x, y\} \in  \mathcal  U]]></fr:tex>.
+    </html:li>
+    <html:li>
+      If <fr:tex display="inline"><![CDATA[x \in  \mathcal  U]]></fr:tex> and <fr:tex display="inline"><![CDATA[y \subset  x]]></fr:tex>, then <fr:tex display="inline"><![CDATA[y \in  \mathcal  U]]></fr:tex>.
+    </html:li>
+    <html:li>
+      If <fr:tex display="inline"><![CDATA[I \in  \mathcal  U]]></fr:tex> and <fr:tex display="inline"><![CDATA[x_i \in  \mathcal  U]]></fr:tex> for each <fr:tex display="inline"><![CDATA[i \in  I]]></fr:tex>, we have the <html:strong>cartesian product</html:strong>:
+      <fr:tex display="block"><![CDATA[
+        \prod _{i \in  I} x_i \in  \mathcal  U
+      ]]></fr:tex></html:li>
+    <html:li>
+      If <fr:tex display="inline"><![CDATA[I \in  \mathcal  U]]></fr:tex> and <fr:tex display="inline"><![CDATA[x_i \in  \mathcal  U]]></fr:tex> for each <fr:tex display="inline"><![CDATA[i \in  I]]></fr:tex>, we have the <html:strong>disjoint union</html:strong>:
+      <fr:tex display="block"><![CDATA[\coprod _{i \in  I} x_i \in  \mathcal  U
+
+      ]]></fr:tex>
+      <html:li>
+        If <fr:tex display="inline"><![CDATA[x, y \in  \mathcal  U]]></fr:tex>, then the <html:strong>function set</html:strong> from <fr:tex display="inline"><![CDATA[x]]></fr:tex> to <fr:tex display="inline"><![CDATA[y]]></fr:tex> is also in <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex>:
+        <fr:tex display="block"><![CDATA[
+          y^x = \{ f : x \to  y \} \in  \mathcal  U
+        ]]></fr:tex></html:li></html:li></html:ul>
               </fr:mainmatter>
             </fr:tree>
             <fr:tree show-metadata="false">
@@ -588,19 +698,27 @@
                 <fr:title text="An aside on classes and sets">An aside on classes and sets</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:p>In a very general sense a <html:strong>class</html:strong> is any collection of sets defined by a property that all its members share. So we can express it it as a predicate on some universe <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex>:</html:p>
+                <html:p>
+    In a very general sense a <html:strong>class</html:strong> is any collection of sets defined by a property that all its members share. So we can express it it as a predicate on some universe <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex>:
+  </html:p>
                 <fr:tex display="block"><![CDATA[
     A : \mathcal  U \to  \texttt {Prop}
   ]]></fr:tex>
-                <html:p>As an example in the case of an unsorted set theory (such as ZFC) in which all objects are sets, we define a class <fr:tex display="inline"><![CDATA[C]]></fr:tex> as a proposition or truth value in the context of some free variable <fr:tex display="inline"><![CDATA[A]]></fr:tex>, the notation used in <fr:link href="/notes/nlab-class/" title="class" uri="https://kaierikniermann.github.io/notes/nlab-class/" display-uri="nlab-class" type="local">(5)</fr:link> is:</html:p>
+                <html:p>
+    As an example in the case of an unsorted set theory (such as ZFC) in which all objects are sets, we define a class <fr:tex display="inline"><![CDATA[C]]></fr:tex> as a proposition or truth value in the context of some free variable <fr:tex display="inline"><![CDATA[A]]></fr:tex>, the notation used in <fr:link href="/notes/nlab-class/" title="class" uri="https://kaierikniermann.github.io/notes/nlab-class/" display-uri="nlab-class" type="local">(5)</fr:link> is:
+  </html:p>
                 <fr:tex display="block"><![CDATA[
     \Gamma , A \mid  \phi  \vdash  C : \texttt {Prop}
   ]]></fr:tex>
-                <html:p>This expresses that in the context of assumptions <fr:tex display="inline"><![CDATA[\Gamma ]]></fr:tex> extended with the variable <fr:tex display="inline"><![CDATA[A]]></fr:tex> the proposition <fr:tex display="inline"><![CDATA[\phi ]]></fr:tex> defines a class <fr:tex display="inline"><![CDATA[C]]></fr:tex>. A more classical, albiet probably less formal, way to read this might be:</html:p>
+                <html:p>
+    This expresses that in the context of assumptions <fr:tex display="inline"><![CDATA[\Gamma ]]></fr:tex> extended with the variable <fr:tex display="inline"><![CDATA[A]]></fr:tex> the proposition <fr:tex display="inline"><![CDATA[\phi ]]></fr:tex> defines a class <fr:tex display="inline"><![CDATA[C]]></fr:tex>. A more classical, albiet probably less formal, way to read this might be:
+  </html:p>
                 <fr:tex display="block"><![CDATA[
     C = \{ x \in  \mathcal  U \mid  \phi (x)\}
   ]]></fr:tex>
-                <html:p>Furthermore we say that a class <fr:tex display="inline"><![CDATA[X]]></fr:tex> is a <html:em>set</html:em> if and only if there exists a class <fr:tex display="inline"><![CDATA[Y \in  \mathcal  U]]></fr:tex> such that <fr:tex display="inline"><![CDATA[X \in  Y]]></fr:tex>. A <html:strong>proper class</html:strong> is a class which is not a set <fr:link href="/notes/low-universes-category-theory-2014/" title="Universes for Category Theory" uri="https://kaierikniermann.github.io/notes/low-universes-category-theory-2014/" display-uri="low-universes-category-theory-2014" type="local">(6)</fr:link>. </html:p>
+                <html:p>
+    Furthermore we say that a class <fr:tex display="inline"><![CDATA[X]]></fr:tex> is a <html:em>set</html:em> if and only if there exists a class <fr:tex display="inline"><![CDATA[Y \in  \mathcal  U]]></fr:tex> such that <fr:tex display="inline"><![CDATA[X \in  Y]]></fr:tex>. A <html:strong>proper class</html:strong> is a class which is not a set <fr:link href="/notes/low-universes-category-theory-2014/" title="Universes for Category Theory" uri="https://kaierikniermann.github.io/notes/low-universes-category-theory-2014/" display-uri="low-universes-category-theory-2014" type="local">(6)</fr:link>.
+  </html:p>
               </fr:mainmatter>
             </fr:tree>
             <fr:tree show-metadata="false">
@@ -614,15 +732,27 @@
                 <fr:title text="Axiom of Universes">Axiom of Universes</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:p>The common theme amongst these properties is that the aim to express <fr:link href="/notes/002e/" title="Closed set" uri="https://kaierikniermann.github.io/notes/002e/" display-uri="002e" type="local"><html:em>closure</html:em></fr:link> of the set <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> under various standard set-theoretic operations. This allows us to treat <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> as a <html:em>universe</html:em> of sets in which we can carry out normal set-theoretic constructions without leaving the universe.</html:p>
-                <html:p>The <html:em>Axiom of Universes</html:em> is the general convention which is adopted in category theory and other fields which states that for every set <fr:tex display="inline"><![CDATA[x]]></fr:tex> there exists a Grothendieck universe <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> such that <fr:tex display="inline"><![CDATA[x \in  \mathcal  U]]></fr:tex>.</html:p>
-                <html:p>An <html:em>element</html:em> of <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> is by convention called a <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex>-<html:strong>small set</html:strong> or simply a <html:em>small set</html:em> when the universe is clear from context or apparently also just a <html:em>set</html:em> <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(1)</fr:link>.</html:p>
-                <html:p>A subset of <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> is called <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex>-<html:strong>moderate</html:strong> or simply <html:em>moderate</html:em> when the universe is clear from context.</html:p>
-                <html:p>The general line of reasoning, at least in ZFC is that for every set <fr:tex display="inline"><![CDATA[x]]></fr:tex> we assume there exists a Grothendieck universe <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> such that <fr:tex display="inline"><![CDATA[x \in  \mathcal  U]]></fr:tex>. Accordinly for every universe <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> there exists a larger universe <fr:tex display="inline"><![CDATA[\mathcal  U']]></fr:tex> such that <fr:tex display="inline"><![CDATA[\mathcal  U \in  \mathcal  U']]></fr:tex>, and therefore also <fr:tex display="inline"><![CDATA[U \subseteq  U']]></fr:tex>. Thus under this assumption with have the guarantee of a hierarchy of universes <fr:link href="/notes/streicher-intro-category-logic-2003/" title="Introduction to Category Theory and Categorical Logic" uri="https://kaierikniermann.github.io/notes/streicher-intro-category-logic-2003/" display-uri="streicher-intro-category-logic-2003" type="local">(4)</fr:link>:</html:p>
+                <html:p>
+    The common theme amongst these properties is that the aim to express <fr:link href="/notes/002e/" title="Closed set" uri="https://kaierikniermann.github.io/notes/002e/" display-uri="002e" type="local"><html:em>closure</html:em></fr:link> of the set <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> under various standard set-theoretic operations. This allows us to treat <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> as a <html:em>universe</html:em> of sets in which we can carry out normal set-theoretic constructions without leaving the universe.
+  </html:p>
+                <html:p>
+    The <html:em>Axiom of Universes</html:em> is the general convention which is adopted in category theory and other fields which states that for every set <fr:tex display="inline"><![CDATA[x]]></fr:tex> there exists a Grothendieck universe <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> such that <fr:tex display="inline"><![CDATA[x \in  \mathcal  U]]></fr:tex>.
+  </html:p>
+                <html:p>
+    An <html:em>element</html:em> of <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> is by convention called a <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex>-<html:strong>small set</html:strong> or simply a <html:em>small set</html:em> when the universe is clear from context or apparently also just a <html:em>set</html:em> <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(1)</fr:link>.
+  </html:p>
+                <html:p>
+    A subset of <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> is called <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex>-<html:strong>moderate</html:strong> or simply <html:em>moderate</html:em> when the universe is clear from context.
+  </html:p>
+                <html:p>
+    The general line of reasoning, at least in ZFC is that for every set <fr:tex display="inline"><![CDATA[x]]></fr:tex> we assume there exists a Grothendieck universe <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> such that <fr:tex display="inline"><![CDATA[x \in  \mathcal  U]]></fr:tex>. Accordinly for every universe <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> there exists a larger universe <fr:tex display="inline"><![CDATA[\mathcal  U']]></fr:tex> such that <fr:tex display="inline"><![CDATA[\mathcal  U \in  \mathcal  U']]></fr:tex>, and therefore also <fr:tex display="inline"><![CDATA[U \subseteq  U']]></fr:tex>. Thus under this assumption with have the guarantee of a hierarchy of universes <fr:link href="/notes/streicher-intro-category-logic-2003/" title="Introduction to Category Theory and Categorical Logic" uri="https://kaierikniermann.github.io/notes/streicher-intro-category-logic-2003/" display-uri="streicher-intro-category-logic-2003" type="local">(4)</fr:link>:
+  </html:p>
                 <fr:tex display="block"><![CDATA[
     \mathcal  U_0 \in  \mathcal  U_1 \in  \mathcal  U_2 \in  \cdots 
   ]]></fr:tex>
-                <html:p>Which are also <html:em>cumulative</html:em> in the sense that</html:p>
+                <html:p>
+    Which are also <html:em>cumulative</html:em> in the sense that
+  </html:p>
                 <fr:tex display="block"><![CDATA[
     \mathcal  U_0 \subseteq  \mathcal  U_1 \subseteq  \mathcal  U_2 \subseteq  \cdots 
   ]]></fr:tex>
@@ -639,21 +769,40 @@
                 <fr:title text="Remarks">Remarks</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:ul><html:li><html:p>An additional point made in <fr:link href="/notes/nlab-grothendieck-universe/" title="Grothendieck universe" uri="https://kaierikniermann.github.io/notes/nlab-grothendieck-universe/" display-uri="nlab-grothendieck-universe" type="local">(2)</fr:link> is that <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> denotes a <html:em>pure set</html:em>, that is, all elements of <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> are sets and there are no urelements (elements which are not sets). Formally we say that a set <fr:tex display="inline"><![CDATA[x]]></fr:tex> is pure if for every finite sequence or chain <fr:link href="/notes/nlab-pure-set/" title="pure set" uri="https://kaierikniermann.github.io/notes/nlab-pure-set/" display-uri="nlab-pure-set" type="local">(3)</fr:link>:</html:p>
-  <fr:tex display="block"><![CDATA[
-    x_0 = x \in  x_1 \in  x_2 \in  \cdots  \in  x_n
-  ]]></fr:tex>
-  <html:p>each <fr:tex display="inline"><![CDATA[x_i]]></fr:tex> is a set. Another way this is intuitively thought of is that every object reachable from <fr:tex display="inline"><![CDATA[x]]></fr:tex> by finitely many membership steps is also a set.</html:p>
+                <html:pre class="code-block language-lean">
+                  <html:code class="language-lean">
+    some piece of code
+  </html:code>
+                </html:pre>
+                <html:ul><html:li><html:p>
+        An additional point made in <fr:link href="/notes/nlab-grothendieck-universe/" title="Grothendieck universe" uri="https://kaierikniermann.github.io/notes/nlab-grothendieck-universe/" display-uri="nlab-grothendieck-universe" type="local">(2)</fr:link> is that <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> denotes a <html:em>pure set</html:em>, that is, all elements of <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> are sets and there are no urelements (elements which are not sets). Formally we say that a set <fr:tex display="inline"><![CDATA[x]]></fr:tex> is pure if for every finite sequence or chain <fr:link href="/notes/nlab-pure-set/" title="pure set" uri="https://kaierikniermann.github.io/notes/nlab-pure-set/" display-uri="nlab-pure-set" type="local">(3)</fr:link>:
+      </html:p>
+      <fr:tex display="block"><![CDATA[
+        x_0 = x \in  x_1 \in  x_2 \in  \cdots  \in  x_n
+      ]]></fr:tex>
+      <html:p>
+        each <fr:tex display="inline"><![CDATA[x_i]]></fr:tex> is a set. Another way this is intuitively thought of is that every object reachable from <fr:tex display="inline"><![CDATA[x]]></fr:tex> by finitely many membership steps is also a set.
+      </html:p>
 
-  <html:p>Since we are typically working in the context of ZFC set theory which only allows for sets as elements, all sets are pure by default hence the distinction is sometimes omitted. Theories such as ZFA (Zermelo-Fraenkel set theory with atoms) allow for urelements which do not qualify as sets but can be members of sets.</html:p></html:li>
-    <html:li><html:p>The <html:em>countable set</html:em> property is sometimes <fr:link href="/notes/levy-formulating-categorical-classes-2018/" title="Formulating Categorical Concepts with Classes" uri="https://kaierikniermann.github.io/notes/levy-formulating-categorical-classes-2018/" display-uri="levy-formulating-categorical-classes-2018" type="local">(7)</fr:link> also replaces with</html:p>
+      <html:p>
+        Since we are typically working in the context of ZFC set theory which only allows for sets as elements, all sets are pure by default hence the distinction is sometimes omitted. Theories such as ZFA (Zermelo-Fraenkel set theory with atoms) allow for urelements which do not qualify as sets but can be members of sets.
+      </html:p></html:li>
+    <html:li><html:p>
+        The <html:em>countable set</html:em> property is sometimes <fr:link href="/notes/levy-formulating-categorical-classes-2018/" title="Formulating Categorical Concepts with Classes" uri="https://kaierikniermann.github.io/notes/levy-formulating-categorical-classes-2018/" display-uri="levy-formulating-categorical-classes-2018" type="local">(7)</fr:link> also replaces with
+      </html:p>
       <fr:tex display="block"><![CDATA[
         \emptyset  \in  \mathcal  U \quad  \text { or } \quad   \omega  \in  \mathcal  U
       ]]></fr:tex>
-      <html:p>Where <fr:tex display="inline"><![CDATA[\omega ]]></fr:tex> is the set of all finite (von Neumann) ordinals.</html:p></html:li>
-    <html:li><html:p>Subset's of <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> seem to have a somewhat confusing naming convention. So nlab says they are called <html:em>moderate</html:em> though this is sometimes also overloaded with the ambiguous term <html:em>large</html:em>. They mention that under the assumption that <html:em>set</html:em> is equivalent to <html:em>small set</html:em> then <html:em>moderate</html:em> clearly aligns with <html:em>proper classes</html:em> (as those are definitionally distinct from sets). I assume the convention taken in at least <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(1)</fr:link> is that they use they essentially use the term <html:em>class</html:em> to mean <html:em>proper class</html:em> and by implication <html:em>moderate set</html:em> relative to some universe.</html:p>
-    
-    <html:p>My assumption is that people use <html:em>class</html:em> and <html:em>proper class</html:em> interchangeably mainly because a proper class actually refers to an object distinct from a set, whereas a class can make it ambiguous whether you mean a set (which is a class) or a proper class (which is not a set).</html:p></html:li></html:ul>
+      <html:p>
+        Where <fr:tex display="inline"><![CDATA[\omega ]]></fr:tex> is the set of all finite (von Neumann) ordinals.
+      </html:p></html:li>
+    <html:li><html:p>
+        Subset's of <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> seem to have a somewhat confusing naming convention. So nlab says they are called <html:em>moderate</html:em> though this is sometimes also overloaded with the ambiguous term <html:em>large</html:em>. They mention that under the assumption that <html:em>set</html:em> is equivalent to <html:em>small set</html:em> then <html:em>moderate</html:em> clearly aligns with <html:em>proper classes</html:em> (as those are definitionally distinct from sets). I assume the convention taken in at least <fr:link href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories" uri="https://kaierikniermann.github.io/notes/johnson-yau-2d-categories-2020/" display-uri="johnson-yau-2d-categories-2020" type="local">(1)</fr:link> is that they use they essentially use the term <html:em>class</html:em> to mean <html:em>proper class</html:em> and by implication <html:em>moderate set</html:em> relative to some universe.
+      </html:p>
+
+      <html:p>
+        My assumption is that people use <html:em>class</html:em> and <html:em>proper class</html:em> interchangeably mainly because a proper class actually refers to an object distinct from a set, whereas a class can make it ambiguous whether you mean a set (which is a class) or a proper class (which is not a set).
+      </html:p></html:li></html:ul>
               </fr:mainmatter>
             </fr:tree>
           </fr:mainmatter>

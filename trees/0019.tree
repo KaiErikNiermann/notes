@@ -6,21 +6,25 @@
 
 \title{Semantic Argument method (FOL)}
 
-\p{Consider the following formula:}
+\p{
+  Consider the following formula:
+}
 ##{
   F \triangleq (\forall x.\ p(x)) \to (\forall y.\ p(y))
 }
 
-\p{Using the semantic argument method, determine whether the formula #{F} is valid.}
+\p{
+  Using the semantic argument method, determine whether the formula #{F} is valid.
+}
 
 \solution{
   We begin by assuming that #{\exists S, \sigma \nvDash F}
   ##{
     \begin{align*}
-      & S, \sigma \nvDash (\forall x.\ p(x)) \to (\forall y.\ p(y)) \\
-      & \therefore S, \sigma \models \forall x.\ p(x) \land S, \sigma \nvDash \forall y.\ p(y) \\ 
-      & \therefore S, \sigma \models \forall x.\ p(x) \land S, \sigma \models \neg \forall y.\ p(y) \\ 
-    \end{align*} 
+    & S, \sigma \nvDash (\forall x.\ p(x)) \to (\forall y.\ p(y)) \\
+    & \therefore S, \sigma \models \forall x.\ p(x) \land S, \sigma \nvDash \forall y.\ p(y) \\
+    & \therefore S, \sigma \models \forall x.\ p(x) \land S, \sigma \models \neg \forall y.\ p(y) \\
+    \end{align*}
   }
   Since we have #{p} and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction using the Contradiction rule from the semantic argument method. Therefore, our initial assumption that #{F} is not valid must be false. Hence, we conclude that the formula #{F} is valid.
 }

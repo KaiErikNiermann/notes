@@ -85,15 +85,14 @@
 \def\to-prop{#{\mathsf{toProp}}}
 \def\to-prop-unit{#{\eta_{\mathsf{prop}}}}
 
-
 \def\proof[body]{
- \scope{
-   \put\transclude/toc{false}
-   \subtree{
-     \taxon{Proof}
-     \body
-   }
- }
+  \scope{
+    \put\transclude/toc{false}
+    \subtree{
+      \taxon{Proof}
+      \body
+    }
+  }
 }
 
 \def\citek[uid]{\let\escape[x]{\x}[\escape{[\uid]}](\uid)}

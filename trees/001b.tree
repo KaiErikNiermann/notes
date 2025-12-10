@@ -6,412 +6,547 @@
 
 \title{Understanding recursors with Lean4}
 
+\date{2025-11-23}
+
+\import{base-macros}
+
+\taxon{Blog}
+
+\title{Understanding recursors with Lean4}
+
 \subtree{
   \title{The recursor for natural numbers}
-  \p{Before we define recursors, let's first introduce the idea of an inductive type. We'll do this by examining how lean defines natural numbers.}
-
-\codeblock{lean}{
-  inductive Nat where
-  | zero : Nat
-  | succ (n : Nat) : Nat
-}
-
-\p{The idea here being that we can construct natural numbers by either using the constructor \code{zero} to get \code{0}, or by applying the constructor \code{succ} to an existing natural number to get its successor. For example, we can construct \code{3} as follows:}
-
-\codeblock{lean}{
-  def three : Nat := Nat.succ (Nat.succ (Nat.succ Nat.zero))
-}
-
-\p{We can equivalently express this definition using the type formation and term intruduction rules:}
-
-\infrule{
-  \inferrule*[right=Form-Nat]{
-  }{
-    \N : \texttt{type}
+  \p{
+    Before we define recursors, let's first introduce the idea of an inductive type. We'll do this by examining how lean defines natural numbers.
   }
-  \and 
-  \inferrule*[right=Intro-Zero]{}{
-    0 : \N
-  }
-  \and
-  \inferrule*[right=Intro-Succ]{
-    n : \N
-  }{
-    \texttt{succ}\ n : \N
+
+  \codeblock{lean}{
+    inductive Nat where
+    | zero : Nat
+    | succ (n : Nat) : Nat
   }
 }
 
-\p{While this explanation for inductive types usually gives most people I think enough intuition to understand the basic notions of how to use them to construct something like natural numbers, I think it kind of misses the deeper idea of what an inductive type and by extension a recursor really is. To attempt to explain this we'll take a look into some of the categorical semantics behind inductive types.}
+\subtree{
+  \title{The recursor for natural numbers}
+  \p{
+    Before we define recursors, let's first introduce the idea of an inductive type. We'll do this by examining how lean defines natural numbers.
+  }
 
-\transclude{001c}
+  \codeblock{lean}{
+    inductive Nat where
+    | zero : Nat
+    | succ (n : Nat) : Nat
+  }
 
-\p{While at first this definition seems a bit needlessly abstract, it actually captures what the inductive type of natural numbers really is. The basic thing to recognize is that the two morphisms (just think of them as functions for now) in reality don't have anything to do with natural numbers directly. Instead they act as a kind of blueprint for how we can use the properties or constraints of natural numbers to make anything. Here on a high level we can describe the two functions / constructors as follows:} 
+  \p{
+    The idea here being that we can construct natural numbers by either using the constructor \code{zero} to get \code{0}, or by applying the constructor \code{succ} to an existing natural number to get its successor. For example, we can construct \code{3} as follows:
+  }
 
-\ul{
-  \li{#{0 : 1 \to \N} - The represents the abstract idea of having some starting point or base case. Within natural numbers this is represented by \code{0}, but in reality it denote an abstract concept of having a starting point.}
-  \li{#{s : \N \to \N} - This represents the abstract idea of being able to build upon existing things to create new things. Within natural numbers this is represented by the successor function.}
-}
+  \codeblock{lean}{
+    def three : Nat := Nat.succ (Nat.succ (Nat.succ Nat.zero))
+  }
 
-\p{Now this might quite fairly still seem a bit confusing and abstract. How can we \em{use properties} to \em{make anything?}. To describe this more formally lets constrain ourselves to the category of sets, #{\mathbf{Set}}. If you are unfamiliar with category theory its sufficient to think of this as just a collection of all kinds of sets and functions between them.}
-
-\transclude{001e}
-
-\p{So in plain english what this is saying is that given any set #{X} where we have some starting point #{x \in X} and some way of building upon existing elements of #{X} (the function #{f : X \to X}), we can use the properties of natural numbers to create a unique function #{u : \N \to X} that maps natural numbers to elements of #{X} in a way that respects our starting point and building function. A natural next question to have might be }
-
-\blockquote{
-  But what does it mean to \em{respect} the starting point and building function?
-}
-
-\p{Here I'd fast say intuitively you can just imagine construct which has some notion of a start and some way of building upon existing things. For example let's imagine the following graph:}
-
-##{
-  a \to b \to c \to d \to e \to \ldots
-}
-
-\p{Clearly here with have:}
-\ul{
-  \li{\strong{Starting point}: Our start here is the node #{a}.}
-  \li{\strong{Building function}: Our building function i.e. successor mechanism here is just following the arrows to the next node.}
-}
-
-\p{So our two morphisms then are:}
-\ul{
-  \li{#{x : 1 \to X} where #{x} maps to #{a}.}
-  \li{#{f : X \to X} where #{f} maps each node to the next node along the arrow. That is
-    \codeblock{lean}{
-      f(a) = b
-      f(b) = c
-      f(c) = d
-      f(d) = e
-      ...
+  \p{
+    We can equivalently express this definition using the type formation and term introduction rules:
+  }
+  % ltex: off
+  \infrule{
+    \inferrule*[right=Form-Nat]{}{
+      \N : \texttt{type}
+    }
+    \and 
+    \inferrule*[right=Intro-Zero]{}{
+      0 : \N
+    }
+    \and
+    \inferrule*[right=Intro-Succ]{
+      n : \N
+    }{
+      \texttt{succ}\ n : \N
     }
   }
-}
-
-\p{Creating a minimal replica of this in Lean we could do something like:}
-\codeblock{lean}{
-  inductive Node where
-  | start : Node           -- this will play the role of “a”
-  | next  : Node → Node   
-
-  def succNode (v : Node) : Node :=
-    Node.next v
-
-  def natToNode : ℕ → Node
-    | 0       => Node.start
-    | n + 1   => succNode (natToNode n)
-}
-
-\p{So we can see our function #{u : \N \to X} here is represented by \code{natToNode}. Where the function maps \code{0} to \code{a} and each successor natural number to the next node along the arrow.}
-
-\p{Something you might notice here is that if our \code{natToNode} function is replaced by just an identity, i.e.:}
-\codeblock{lean}{
-  def natToNat : ℕ → ℕ
-    | 0       => 0
-    | n + 1   => n + 1
-}
-\p{Then we get just the natural numbers themselves as defined by their properties. This is precisely what's expressed by the earlier commuative diagram we say. The two arrows:}
-##{
-  1 \xrightarrow{0} \N
-  \quad \text{ and } \quad \N \xrightarrow{s} \N
-}
-\p{Are just the natural numbers defined by their properties. So in a sense the natural numbers are the most basic instantiation of their own properties. So now a fair thing to wonder is:}
-\blockquote{
-  So what does this have to do with recursers?
-}
-\p{Well the key insight here is that our functions \code{natToNat} and \code{natToNode} both \em{are our recursers} for the natural numbers. A recursor is just a function that allows us to define functions \em{out of} an inductive type by specifying how to handle each constructor of the inductive type. So equivalently we can express our recursor for natural numbers as:}
-\codeblock{lean}{
-  def recNat {C : Type} (z : C) (s : C → C) : ℕ → C
-    | 0       => z
-    | n + 1   => s (recNat z s n)
-}
-\p{If we examine the actual type signature generated by \code{#check Nat.rec} we have:}
-
-\codeblock{lean}{
-  «Nat».rec.{u} 
-  {motive : ℕ → Sort u} 
-  (zero : motive «Nat».zero)
-  (succ : (n : ℕ) 
-    → motive n 
-    → motive n.succ) 
-  (t : ℕ) : motive t
-}
-
-\p{In our examples above we can see that the \code{motive} is just the type we are mapping to (either #{\N} or #{X}), the \code{zero} is our starting point (either \code{0} or \code{a}) and the \code{succ} is our building function (either the successor function or following the arrows). So using the recursor we can rewrite our earlier \code{natToNat} and \code{natToNode} functions as:}
-
-\codeblock{lean}{
-  def natToNat : ℕ → ℕ :=
-    Nat.rec 
-      0                 -- | 0     => 0
-      (fun n => n + 1)  -- | n + 1 => n + 1
-
-  def natToNode : ℕ → Node :=
-    Nat.rec 
-      Node.start            -- | 0     => Node.start
-      (fun n => succNode n) -- | n + 1 => succNode (natToNode n)
-}
-}
-
-\p{This for the most part covers the basic idea of recursors for the sake of breviety I won't go into more instances of recursors for other inductive types though conceptually they work the same way. You specify how to handle each constructor of the inductive type and the recursor gives you a function that maps from the inductive type to whatever type you specified.}
-
-\subtree{
-  \title{The connection to induction}
-  \p{A very important property of recursors emerges when we make the motive dependent. To elabroate on what that means let's first consider the situation of simple stepwise induction.}
-
-\transclude{001f}
-
-\p{Something we can notice here just by superficial observation alone is that this seems to look an awful lot like the recursor for natural numbers we defined earlier. In fact it \em{is} an application of the recursor for natural numbers for the \em{dependent} motive #{P : \N \to \texttt{Prop}.}. To make this a little more concrete let's define a simple property over natural numbers:}
-\codeblock{lean}{
-  def P (n : ℕ) : Prop := n + 0 = n
-}
-\p{Now its important to note that in an abstract sense this is no different then any other function from natural numbers to some type. The dependency comes into play when we try to use the recursor i.e. the properties of naturals with this motive.}
-
-\codeblock{lean}{
-  def natToProp (n : ℕ) : (P n) :=
-    Nat.rec
-      (motive := P)
-      (by simp [P])                    -- base case: P 0
-      (fun n ih => by simp [P])        -- inductive step: P n → P (n+1)
-      n
-}
-
-\p{A few things we can observe here:}
-\ul{
-  \li{The recursor here represents a \em{dependent} function, which is to say that the return type of the function depends on the input value. Contrasing this to the earlier case where the return type was always just #{\N} or #{X}.}
-  \li{\strong{Base case} - Importantly here as opposed to providing a function that returns some value of type #{C} for the base case, we instead provide a proof that the property #{P(0)} holds.}
-  \li{\strong{Inductive step} - Similarly for the inductive step we provide a function that takes an arbitrary natural number #{n} and a proof that #{P(n)} holds (the inductive hypothesis) and returns a proof that #{P(n + 1)} holds.}
-}
-\p{If we view this through the lens of the Curry-Howard correspondence it quite nicely illustrates how our proof here is just a program which constructs witnesses (valid proofs) for each natural number that the property #{P(n)} holds. In the same way that our earlier recursor provided elements on the correct type, this dependent recursor provides proofs on the correct property. As this application of a recursor to a proposition represents said proposition being true for all natural numbers, we can equivalently use this within a theorem.}
-
-\codeblock{lean}{
-  theorem add_zero (n : ℕ) : n + 0 = n := natToProp n
-}
-}
-
-\subtree{
-  \title{Case Study: Evaluating arithmetic expressions}
-  \p{As a little kind of case study I want to give an example of an inductive type (and its recursor) that most people become familiar with; in a sense; as early as primary school: the operational semantics of binary operators. We'll start by defining some of the basic syntax for arithmetic expressions:}
-\codeblock{lean}{
-  inductive BinOp where 
-  | add : BinOp
-  | sub : BinOp
-  | mul : BinOp
-  | div : BinOp
-
-  inductive Expr where
-  | const : ℕ → Expr
-  | binop : BinOp → Expr → Expr → Expr
-}
-\p{So here we have defined a simple language of arithmetic expressions consisting of natural number constants and binary operations. This provides us with the means to construct expressions like:}
-\codeblock{lean}{
-  #check Expr.binop BinOp.add (Expr.const 10) (Expr.const 20)
-}
-\p{If we want to actually define the semantics of how to evaluate these expression we'll need to define a set of rewrite rules that describe how we can take an expression and reduce it to a value i.e. evaluate it. To evaluate an expression we want to traverse the expression tree and whenever we encounter a binary operation with two constant operands we want to apply the operation and replace the entire sub-expression with the resulting constant. We express this as 3 rewrite rules:}
-\ul{
-  \li{\strong{Left Evaluation}: If the left operand of a binary operation can be reduced, then we reduce it.}
-  \li{\strong{Right Evaluation}: If the left operand is a constant and the right operand can be reduced, then we reduce the right operand.}
-  \li{\strong{Operation Evaluation}: If both operands are constants, we apply the binary operation and replace the entire sub-expression with the resulting constant.}
-}
-\codeblock{lean}{
-  def eval_op : BinOp → (Nat → Nat → Nat)
-  | .add => Nat.add
-  | .sub => Nat.sub
-  | .mul => Nat.mul
-  | .div => Nat.div
-
-  inductive Step : Expr -> Expr -> Prop
-  | ST_BinOp1 (op : BinOp)
-      (e₁ e₁' e₂ : Expr)   
-      (h : Step e₁ e₁') :  
-      Step (Expr.binop op e₁ e₂) 
-           (Expr.binop op e₁' e₂)
-  | ST_BinOp2 (op : BinOp) 
-      (v₁ : Nat) 
-      (e₂ e₂' : Expr) 
-      (h : Step e₂ e₂') :
-      Step (Expr.binop op (Expr.const v₁) e₂) 
-           (Expr.binop op (Expr.const v₁) e₂')
-  | ST_BinOpConst (op : BinOp) (v₁ v₂ : Nat) :
-      Step (Expr.binop op (Expr.const v₁) (Expr.const v₂)) 
-           (Expr.const (eval_op op v₁ v₂))
-}
-
-\p{Since expressions can naturally require multiple evaluations steps it makes sense to define a multi-step evaluation relation as the reflexive transitive closure of the single step evaluation relation defined above. This we can define as:}
-
-\codeblock{lean}{
-  abbrev MultiStep := Relation.ReflTransGen Step
-
-  -- helper notation to express multi-step evaluation
-  notation:50 e " ->ⁿ " e' =>  MultiStep e e'
-}
-
-\p{Let's also define a small helper syntax and macro to make it easier to write arithmetic expressions:}
-
-\scope{
-  \put\transclude/expanded{false}
-\subtree{
-  \title{A small arithmetic expression grammar}
-  \codeblock{lean}{
-declare_syntax_cat arithTm
-
--- atoms
-syntax num                      : arithTm
-syntax "(" arithTm ")"          : arithTm
-
--- multiplicative level (higher precedence)
-syntax:70 arithTm:70 "*" arithTm:71 : arithTm
-syntax:70 arithTm:70 "/" arithTm:71 : arithTm
-
--- additive level (lower precedence)
-syntax:60 arithTm:60 "+" arithTm:61 : arithTm
-syntax:60 arithTm:60 "-" arithTm:61 : arithTm
-
-syntax "ex{" arithTm "}" : term
-
-macro_rules
-  -- numerals
-  | `(ex{ $n:num }) =>
-      `(Expr.const $n)
-
-  -- parentheses
-  | `(ex{ ($t:arithTm) }) =>
-      `(ex{$t})
-
-  -- addition
-  | `(ex{ $e₁:arithTm + $e₂:arithTm }) =>
-      `(Expr.binop BinOp.add (ex{$e₁}) (ex{$e₂}))
-
-  -- subtraction
-  | `(ex{ $e₁:arithTm - $e₂:arithTm }) =>
-      `(Expr.binop BinOp.sub (ex{$e₁}) (ex{$e₂}))
-
-  -- multiplication
-  | `(ex{ $e₁:arithTm * $e₂:arithTm }) =>
-      `(Expr.binop BinOp.mul (ex{$e₁}) (ex{$e₂}))
-
-  -- division
-  | `(ex{ $e₁:arithTm / $e₂:arithTm }) =>
-      `(Expr.binop BinOp.div (ex{$e₁}) (ex{$e₂}))
+  % ltex: on
+  \p{
+    While this explanation for inductive types usually gives most people I think enough intuition to understand the basic notions of how to use them to construct something like natural numbers, I think it kind of misses the deeper idea of what an inductive type and by extension a recursor really is. To attempt to explain this we'll take a look into some categorical semantics behind inductive types.
   }
-}
-}
 
-\subtree{
-  \title{Describing arithmetic evaluation}
-  \p{Now say that we wanted to evaluate the expression #{((2 * 3) + 4)} on a high level what we would do is rewrite the multiplication to #{6 + 4} and then rewrite that to #{10}. Expressing this in lean we have:}
-\codeblock{lean}{
-  example : -- ((2 * 3) + 4) ->ⁿ 10
-  ex{ ((2 * 3) + 4) } ->ⁿ ex{ 10 } :=
-    .trans (rw_lhs (rw_const .mul 2 3)) (rw_const .add 6 4)
-}
-\p{Here we say that the expression #{((2 * 3) + 4)} after multiple steps evaluates to #{10} by first rewriting the left hand side multiplication to #{6 + 4} and then rewriting that to #{10}. And we chain these operations together using the \code{.trans} constructor of the multi-step evaluation relation. Now the question becomes, how do we define these rewrite steps? Intuitively we can imagine evaluation as being described by the following sort of graph} 
-\codeblock{lean}{
- +(lhs [op] rhs) 
- |
- +-+(rw_lhs) ->ⁿ lhs' [op] rhs    (1) reduce lhs some number of steps
-   | 
-   +-+(rw_rhs) ->ⁿ lhs [op] rhs'  (2) reduce rhs some number of steps
-     |
-     +- (rw_const) -> value       (3) reduce both to a constant value
-}
-\p{The idea of each rule being that:}
-\ul{
-  \li{\strong{rw_lhs}: If the left hand side can be reduced some number of steps we can reduce it while keeping the right hand side the same. This corresponds to the \code{ST_BinOp1} rule defined earlier.}
-  \li{\strong{rw_rhs}: If the left hand side is a constant we can reduce the right hand side some number of steps while keeping the left hand side the same. This corresponds to the \code{ST_BinOp2} rule defined earlier.}
-  \li{\strong{rw_const}: If both sides are constants we can apply the binary operation and reduce the entire expression to a single constant value. This corresponds to the \code{ST_BinOpConst} rule defined earlier.}
-}
-\p{As these rules are defined over the structure of multi-step evaluation our implementation of them will naturally be in terms of the inductive structure of a multistep relationship:}
+  \transclude{001c}
 
-\codeblock{lean}{
-lemma rw_lhs (lhs_rw : lhs ->ⁿ lhs') :
-  (lhs [op] rhs) ->ⁿ (lhs' [op] rhs) :=
-match lhs_rw with
-| .refl       => .refl
-| .tail S₁ S₂ => (rw_lhs S₁).tail (.ST_BinOp1 S₂)
+  \p{
+    While at first this definition seems a bit needlessly abstract, it actually captures what the inductive type of natural numbers really is. The basic thing to recognize is that the two morphisms (just think of them as functions for now) in reality don't have anything to do with natural numbers directly. Instead, they act as a kind of blueprint for how we can use the properties or constraints of natural numbers to make anything. Here on a high level we can describe the two functions / constructors as follows:
+  } 
 
-lemma rw_rhs (rhs_rw : rhs ->ⁿ rhs') :
-  ((.const lhs) [op] rhs) ->ⁿ ((.const lhs) [op] rhs') :=
-match rhs_rw with
-| .refl       => .refl
-| .tail S₁ S₂ => (rw_rhs S₁).tail (.ST_BinOp2 S₂)
+  \ul{
+    \li{
+      #{0 : 1 \to \N} - The represents the abstract idea of having some starting point or base case. Within natural numbers this is represented by \code{0}, but in reality it denotes an abstract concept of having a starting point.
+    }
+    \li{
+      #{s : \N \to \N} - This represents the abstract idea of being able to build upon existing things to create new things. Within natural numbers this is represented by the successor function.
+    }
+  }
 
-lemma rw_const (op : BinOp) (lhs rhs : Nat) :
-  ((.const lhs) [op] (.const rhs)) ->ⁿ .const (eval_op op lhs rhs) :=
-.single (.ST_BinOpConst op lhs rhs)
-}
+  \p{
+    Now this might quite fairly still seem a bit confusing and abstract. How can we \em{use properties} to \em{make anything?}. To describe this more formally lets constrain ourselves to the category of sets, #{\mathbf{Set}}. If you are unfamiliar with category theory it's sufficient to think of this as just a collection of all kinds of sets and functions between them.
+  }
 
-\p{Alternatively we can specify the left and right rewrite rules using the recursor or or head induction principle for multi-step evaluation:}
-\codeblock{lean}{
-lemma rw_rhs' (rhs_rw : rhs ->ⁿ rhs') :
-  ((.const lhs) [op] rhs) ->ⁿ ((.const lhs) [op] rhs') :=
-.rec
-  (refl := .refl)
-  (tail := by
-    intro _ _ _ hcb ih
-    exact ih.tail (.ST_BinOp2 hcb)
-  ) rhs_rw
+  \transclude{001e}
 
-lemma rw_rhs'' (rhs_rw : rhs ->ⁿ rhs') :
-  ((.const lhs) [op] rhs) ->ⁿ ((.const lhs) [op] rhs') :=
-.head_induction_on
-  (refl := .refl)
-  (head := by
-    intro _ _ hac _ ih
-    exact ih.head (.ST_BinOp2 hac)
-  ) rhs_rw
-}
-\p{The motive function here is inferred by Lean via the Lemma, which allos us to avoid having to explicitly specify it. Other then this we can see that the recursors again simply correspond to providing methods to describe what to do for each of the constructors.}
-}
+  \p{
+    So in plain English what this is saying is that given any set #{X} where we have some starting point #{x \in X} and some way of building upon existing elements of #{X} (the function #{f : X \to X}), we can use the properties of natural numbers to create a unique function #{u : \N \to X} that maps natural numbers to elements of #{X} in a way that respects our starting point and building function. A natural next question to have might be
+  }
 
-\subtree{
-  \title{Recursors describe usage}
-  \p{So at this point you might I think fairly ask yourself:}
-\blockquote{
-  Wait why are you spending so much time on this random example for recursors?
-}
+  \blockquote{
+    But what does it mean to \em{respect} the starting point and building function?
+  }
 
-\p{The main reason is that to me it provides one of the most grounded direct examples of what it means for a recursor function to \em{eliminate} a term of an inductive type. In general in type theory we say that \em{term elimination} represents the natural deduction rules for \em{how to use} terms of a given type. Applied to our example we can see that these recursors precisely correspond to the rules of how we evaluate i.e. \em{use} arithmetic expressions.}
+  \p{
+    Here I'd fast say intuitively you can just imagine construct which has some notion of a start and some way of building upon existing things. For example let's imagine the following graph:
+  }
 
-\p{Each rewrite rule describes how we can take an expression and reduce it step by step until we reach a final value. So in a sense the recursor here \em{eliminates} the expression by providing a systematic way to break it down into its constituent parts and evaluate it. This is precisely the essence of what recursors do in type theory; they provide a way to systematically deconstruct and utilize terms of inductive types according to their defined structure and properties.}
-}
+  ##{
+    a \to b \to c \to d \to e \to \ldots
+  }
 
-\subtree{
-  \title{Proving correct evaluation}
-  \p{One of the wonderful things we then naturally get from these recusors is that we can use them to describe how a correct evaluation works. So given our evaluation function:}
-\codeblock{lean}{
-@[simp]
-def eval : Expr -> Nat
-  | Expr.const n => n
-  | Expr.binop op e₁ e₂ =>
-      let v₁ := eval e₁
-      let v₂ := eval e₂
-      eval_op op v₁ v₂
-}
-\p{We can use the recursors describing the rewrite rules to show that this evaluation function for our expressions both yields a constant and that we have some sequence of reduction steps (application of rewrite rules) to get to said constant. Or expressed formally:}
-\codeblock{lean}{
-  (e : Expr) : -- for any expression e
-    (∃ v : Nat), -- there exists a value v
-      (eval e = v) ∧ (e ->ⁿ (.const v))
-      -- such that eval e = v and e reduces to the constant v
-}
-\p{The proof of this statement works by induction on the structure of the expression \code{e} if our expression represents a constant then the proof is trivial as we can just take the value of the constant itself. If our expression represents a binary operation then same as we showed for the concrete example we just apply our recursors to first rewrite the lhs, then the rhs and finally apply the operation to get the final constant value. In full the proof looks like:}
-\codeblock{lean}{
-  theorem eval_correct (e : Expr) :
-  ∃ v : Nat, (eval e = v) ∧ (e ->ⁿ (.const v)) := by
-  induction e with
-  | const n => exists n
-  | binop op lhs rhs eval_lhs eval_rhs =>
-    rcases eval_lhs with ⟨lhs_v, ⟨rhs_is_v, lhs_rw⟩⟩
-    rcases eval_rhs with ⟨rhs_v, ⟨lhs_is_v, rhs_rw⟩⟩
-    simp [rhs_is_v, lhs_is_v]
+  \p{
+    Clearly here with have:
+  }
+  \ul{
+    \li{
+      \strong{Starting point}: Our start here is the node #{a}.
+    }
+    \li{
+      \strong{Building function}: Our building function i.e. successor mechanism here is just following the arrows to the next node.
+    }
+  }
 
-    exact
-      (rw_lhs lhs_rw).trans (
-        (rw_rhs rhs_rw).trans (
-          rw_const op lhs_v rhs_v
-        )
-      )
-}
-\p{In other words our proof for describing that our evaluation function is correct amounts to essentially simulating or describing quite literally how the evaluation works step by step using the recursors we defined earlier. To see precisely how \code{rcases} works here I'd recommend to paste the code into a Lean environment and examine the types of each of the intermediate values.}
-}
-}
+  \p{
+    So our two morphisms then are:
+  }
+  \ul{
+    \li{
+      #{x : 1 \to X} where #{x} maps to #{a}.
+    }
+    \li{
+      #{f : X \to X} where #{f} maps each node to the next node along the arrow. That is
+      \codeblock{lean}{
+        f(a) = b
+        f(b) = c
+        f(c) = d
+        f(d) = e
+        ...
+      }
+    }
+  }
+
+  \p{
+    Creating a minimal replica of this in Lean we could do something like:
+  }
+  \codeblock{lean}{
+    inductive Node where
+    | start : Node           -- this will play the role of “a”
+    | next  : Node → Node
+
+    def succNode (v : Node) : Node :=
+      Node. next v
+
+    def natToNode : ℕ → Node
+      | 0       => Node.start
+      | n + 1   => succNode (natToNode n)
+  }
+
+  \p{
+    So we can see our function #{u : \N \to X} here is represented by \code{natToNode}. Where the function maps \code{0} to \code{a} and each successor natural number to the next node along the arrow.
+  }
+
+  \p{
+    Something you might notice here is that if our \code{natToNode} function is replaced by just an identity, i.e.:
+  }
+  \codeblock{lean}{
+    def natToNat : ℕ → ℕ
+      | 0       => 0
+      | n + 1   => n + 1
+  }
+  \p{
+    Then we get just the natural numbers themselves as defined by their properties. This is precisely what's expressed by the earlier commutative diagram we say. The two arrows:
+  }
+  ##{
+    1 \xrightarrow{0} \N
+    \quad \text{ and } \quad \N \xrightarrow{s} \N
+  }
+  \p{
+    Are just the natural numbers defined by their properties. So in a sense the natural numbers are the most basic instantiation of their own properties. So now a fair thing to wonder is:
+  }
+  \blockquote{
+    So what does this have to do with recursers?
+  }
+  \p{
+    Well the key insight here is that our functions \code{natToNat} and \code{natToNode} both \em{are our recursers} for the natural numbers. A recursor is just a function that allows us to define functions \em{out of} an inductive type by specifying how to handle each constructor of the inductive type. So equivalently we can express our recursor for natural numbers as:
+  }
+  \codeblock{lean}{
+    def recNat {C : Type} (z : C) (s : C → C) : ℕ → C
+      | 0       => z
+      | n + 1   => s (recNat z s n)
+  }
+  \p{
+    If we examine the actual type signature generated by \code{#check Nat.rec} we have:
+    }
+
+    \codeblock{lean}{
+      «Nat».rec.{u}
+      {motive : ℕ → Sort u}
+      (zero : motive «Nat».zero)
+      (succ : (n : ℕ)
+        → motive n
+        → motive n.succ)
+      (t : ℕ) : motive t
+    }
+
+    \p{
+      In our examples above we can see that the \code{motive} is just the type we are mapping to (either #{\N} or #{X}), the \code{zero} is our starting point (either \code{0} or \code{a}) and the \code{succ} is our building function (either the successor function or following the arrows). So using the recursor we can rewrite our earlier \code{natToNat} and \code{natToNode} functions as:
+    }
+
+    \codeblock{lean}{
+      def natToNat : ℕ → ℕ :=
+        Nat.rec
+          0                 -- | 0     => 0
+          (fun n => n + 1)  -- | n + 1 => n + 1
+
+      def natToNode : ℕ → Node :=
+        Nat.rec
+          Node.start            -- | 0     => Node.start
+          (fun n => succNode n) -- | n + 1 => succNode (natToNode n)
+    }
+  }
+
+  \p{
+    This for the most part covers the basic idea of recursors for the sake of brevity I won't go into more instances of recursors for other inductive types though conceptually they work the same way. You specify how to handle each constructor of the inductive type and the recursor gives you a function that maps from the inductive type to whatever type you specified.
+  }
+
+  \subtree{
+    \title{The connection to induction}
+    \p{
+      A very important property of recursors emerges when we make the motive dependent. To elaborate on what that means let's first consider the situation of simple stepwise induction.
+    }
+
+    \transclude{001f}
+
+    \p{
+      Something we can notice here just by superficial observation alone is that this seems to look an awful lot like the recursor for natural numbers we defined earlier. In fact, it \em{is} an application of the recursor for natural numbers for the \em{dependent} motive #{P : \N \to \texttt{Prop}.}. To make this a little more concrete let's define a simple property over natural numbers:
+    }
+    \codeblock{lean}{
+      def P (n : ℕ) : Prop := n + 0 = n
+    }
+    \p{
+      Now its important to note that in an abstract sense this is no different from any other function from natural numbers to some type. The dependency comes into play when we try to use the recursor i.e. the properties of naturals with this motive.
+    }
+
+    \codeblock{lean}{
+      def natToProp (n : ℕ) : (P n) :=
+        Nat.rec
+          (motive := P)
+          (by simp [P])                    -- base case: P 0
+          (fun n ih => by simp [P])        -- inductive step: P n → P (n+1)
+          n
+    }
+
+    \p{
+      A few things we can observe here:
+    }
+    \ul{
+      \li{
+        The recursor here represents a \em{dependent} function, which is to say that the return type of the function depends on the input value. Contrasting this to the earlier case where the return type was always just #{\N} or #{X}.
+      }
+      \li{
+        \strong{Base case} - Importantly here as opposed to providing a function that returns some value of type #{C} for the base case, we instead provide a proof that the property #{P(0)} holds.
+      }
+      \li{
+        \strong{Inductive step} - Similarly for the inductive step we provide a function that takes an arbitrary natural number #{n} and a proof that #{P(n)} holds (the inductive hypothesis) and returns a proof that #{P(n + 1)} holds.
+      }
+    }
+    \p{
+      If we view this through the lens of the Curry-Howard correspondence it quite nicely illustrates how our proof here is just a program which constructs witnesses (valid proofs) for each natural number that the property #{P(n)} holds. In the same way that our earlier recursor provided elements on the correct type, this dependent recursor provides proofs on the correct property. As this application of a recursor to a proposition represents said proposition being true for all natural numbers, we can equivalently use this within a theorem.
+    }
+
+    \codeblock{lean}{
+      theorem add_zero (n : ℕ) : n + 0 = n := natToProp n
+    }
+  }
+
+  \subtree{
+    \title{Case Study: Evaluating arithmetic expressions}
+    \p{
+      As a little kind of case study I want to give an example of an inductive type (and its recursor) that most people become familiar with; in a sense; as early as primary school: the operational semantics of binary operators. We'll start by defining some basic syntax for arithmetic expressions:
+    }
+    \codeblock{lean}{
+      inductive BinOp where
+      | add : BinOp
+      | sub : BinOp
+      | mul : BinOp
+      | div : BinOp
+
+      inductive Expr where
+      | const : ℕ → Expr
+      | binop : BinOp → Expr → Expr → Expr
+    }
+    \p{
+      So here we have defined a simple language of arithmetic expressions consisting of natural number constants and binary operations. This provides us with the means to construct expressions like:
+    }
+    \codeblock{lean}{
+      #check Expr.binop BinOp.add (Expr.const 10) (Expr.const 20)
+    }
+    \p{
+      If we want to actually define the semantics of how to evaluate these expressions we'll need to define a set of rewrite rules that describe how we can take an expression and reduce it to a value i.e. evaluate it. To evaluate an expression we want to traverse the expression tree and whenever we encounter a binary operation with two constant operands we want to apply the operation and replace the entire sub-expression with the resulting constant. We express this as 3 rewrite rules:
+    }
+    \ul{
+      \li{
+        \strong{Left Evaluation}: If the left operand of a binary operation can be reduced, then we reduce it.
+      }
+      \li{
+        \strong{Right Evaluation}: If the left operand is a constant and the right operand can be reduced, then we reduce the right operand.
+      }
+      \li{
+        \strong{Operation Evaluation}: If both operands are constants, we apply the binary operation and replace the entire sub-expression with the resulting constant.
+      }
+    }
+    \codeblock{lean}{
+      def eval_op : BinOp → (Nat → Nat → Nat)
+      | .add => Nat.add
+      | .sub => Nat.sub
+      | .mul => Nat.mul
+      | .div => Nat.div
+
+      inductive Step : Expr -> Expr -> Prop
+      | ST_BinOp1 (op : BinOp)
+          (e₁ e₁' e₂ : Expr)
+          (h : Step e₁ e₁') :
+          Step (Expr.binop op e₁ e₂)
+               (Expr.binop op e₁' e₂)
+      | ST_BinOp2 (op : BinOp)
+          (v₁ : Nat)
+          (e₂ e₂' : Expr)
+          (h : Step e₂ e₂') :
+          Step (Expr.binop op (Expr.const v₁) e₂)
+               (Expr.binop op (Expr.const v₁) e₂')
+      | ST_BinOpConst (op : BinOp) (v₁ v₂ : Nat) :
+          Step (Expr.binop op (Expr.const v₁) (Expr.const v₂))
+               (Expr.const (eval_op op v₁ v₂))
+    }
+
+    \p{
+      Since expressions can naturally require multiple evaluations steps it makes sense to define a multistep evaluation relation as the reflexive transitive closure of the single step evaluation relation defined above. This we can define as:
+    }
+
+    \codeblock{lean}{
+      abbrev MultiStep := Relation.ReflTransGen Step
+
+      -- helper notation to express multi-step evaluation
+      notation:50 e " ->ⁿ " e' =>  MultiStep e e'
+    }
+
+    \p{
+      Let's also define a small helper syntax and macro to make it easier to write arithmetic expressions:
+    }
+
+    \scope{
+      \put\transclude/expanded{false}
+      \subtree{
+        \title{A small arithmetic expression grammar}
+        % ltex: off
+        \codeblock{lean}{
+          declare_syntax_cat arithTm
+
+          -- atoms
+          syntax num                      : arithTm
+          syntax "(" arithTm ")"          : arithTm
+
+          -- multiplicative level (higher precedence)
+          syntax:70 arithTm:70 "*" arithTm:71 : arithTm
+          syntax:70 arithTm:70 "/" arithTm:71 : arithTm
+
+          -- additive level (lower precedence)
+          syntax:60 arithTm:60 "+" arithTm:61 : arithTm
+          syntax:60 arithTm:60 "-" arithTm:61 : arithTm
+
+          syntax "ex{" arithTm "}" : term
+
+          macro_rules
+            -- numerals
+            | `(ex{ $n:num }) =>
+                `(Expr.const $n)
+
+            -- parentheses
+            | `(ex{ ($t:arithTm) }) =>
+                `(ex{$t})
+
+            -- addition
+            | `(ex{ $e₁:arithTm + $e₂:arithTm }) =>
+                `(Expr.binop BinOp.add (ex{$e₁}) (ex{$e₂}))
+
+            -- subtraction
+            | `(ex{ $e₁:arithTm - $e₂:arithTm }) =>
+                `(Expr.binop BinOp.sub (ex{$e₁}) (ex{$e₂}))
+
+            -- multiplication
+            | `(ex{ $e₁:arithTm * $e₂:arithTm }) =>
+                `(Expr.binop BinOp.mul (ex{$e₁}) (ex{$e₂}))
+
+            -- division
+            | `(ex{ $e₁:arithTm / $e₂:arithTm }) =>
+                `(Expr.binop BinOp.div (ex{$e₁}) (ex{$e₂}))
+        }
+        % ltex: on
+      }
+    }
+
+    \subtree{
+      \title{Describing arithmetic evaluation}
+      \p{
+        Now say that we wanted to evaluate the expression #{((2 * 3) + 4)} on a high level what we would do is rewrite the multiplication to #{6 + 4} and then rewrite that to #{10}. Expressing this in lean we have:
+      }
+      \codeblock{lean}{
+        example : -- ((2 * 3) + 4) ->ⁿ 10
+        ex{ ((2 * 3) + 4) } ->ⁿ ex{ 10 } :=
+          .trans (rw_lhs (rw_const .mul 2 3)) (rw_const .add 6 4)
+      }
+      \p{
+        Here we say that the expression #{((2 * 3) + 4)} after multiple steps evaluates to #{10} by first rewriting the left hand side multiplication to #{6 + 4} and then rewriting that to #{10}. And we chain these operations together using the \code{.trans} constructor of the multi-step evaluation relation. Now the question becomes, how do we define these rewrite steps? Intuitively we can imagine evaluation as being described by the following sort of graph
+      } 
+      \codeblock{lean}{
+        +(lhs [op] rhs)
+        |
+        +-+(rw_lhs) ->ⁿ lhs' [op] rhs    (1) reduce lhs some number of steps
+          |
+          +-+(rw_rhs) ->ⁿ lhs [op] rhs'  (2) reduce rhs some number of steps
+            |
+            +- (rw_const) -> value       (3) reduce both to a constant value
+      }
+      \p{
+        The idea of each rule being that:
+      }
+      \ul{
+        \li{
+          \strong{rw_lhs}: If the left hand side can be reduced some number of steps we can reduce it while keeping the right hand side the same. This corresponds to the \code{ST_BinOp1} rule defined earlier.
+        }
+        \li{
+          \strong{rw_rhs}: If the left hand side is a constant we can reduce the right hand side some number of steps while keeping the left hand side the same. This corresponds to the \code{ST_BinOp2} rule defined earlier.
+        }
+        \li{
+          \strong{rw_const}: If both sides are constants we can apply the binary operation and reduce the entire expression to a single constant value. This corresponds to the \code{ST_BinOpConst} rule defined earlier.
+        }
+      }
+      \p{
+        As these rules are defined over the structure of multi-step evaluation our implementation of them will naturally be in terms of the inductive structure of a multistep relationship:
+      }
+
+      \codeblock{lean}{
+        lemma rw_lhs (lhs_rw : lhs ->ⁿ lhs') :
+          (lhs [op] rhs) ->ⁿ (lhs' [op] rhs) :=
+        match lhs_rw with
+        | .refl       => .refl
+        | .tail S₁ S₂ => (rw_lhs S₁).tail (.ST_BinOp1 S₂)
+
+        lemma rw_rhs (rhs_rw : rhs ->ⁿ rhs') :
+          ((.const lhs) [op] rhs) ->ⁿ ((.const lhs) [op] rhs') :=
+        match rhs_rw with
+        | .refl       => .refl
+        | .tail S₁ S₂ => (rw_rhs S₁).tail (.ST_BinOp2 S₂)
+
+        lemma rw_const (op : BinOp) (lhs rhs : Nat) :
+          ((.const lhs) [op] (.const rhs)) ->ⁿ .const (eval_op op lhs rhs) :=
+        .single (.ST_BinOpConst op lhs rhs)
+      }
+
+      \p{
+        Alternatively we can specify the left and right rewrite rules using the recursor or or head induction principle for multi-step evaluation:
+      }
+      \codeblock{lean}{
+        lemma rw_rhs' (rhs_rw : rhs ->ⁿ rhs') :
+          ((.const lhs) [op] rhs) ->ⁿ ((.const lhs) [op] rhs') :=
+        .rec
+          (refl := .refl)
+          (tail := by
+            intro _ _ _ hcb ih
+            exact ih.tail (.ST_BinOp2 hcb)
+          ) rhs_rw
+
+        lemma rw_rhs'' (rhs_rw : rhs ->ⁿ rhs') :
+          ((.const lhs) [op] rhs) ->ⁿ ((.const lhs) [op] rhs') :=
+        .head_induction_on
+          (refl := .refl)
+          (head := by
+            intro _ _ hac _ ih
+            exact ih.head (.ST_BinOp2 hac)
+          ) rhs_rw
+      }
+      \p{
+        The motive function here is inferred by Lean via the Lemma, which allos us to avoid having to explicitly specify it. Other than this we can see that the recursors again simply correspond to providing methods to describe what to do for each of the constructors.
+      }
+    }
+
+    \subtree{
+      \title{Recursors describe usage}
+      \p{
+        So at this point you might, I think fairly ask yourself:
+      }
+      \blockquote{
+        Wait why are you spending so much time on this random example for recursors?
+      }
+
+      \p{
+        The main reason is that to me it provides one of the most grounded direct examples of what it means for a recursor function to \em{eliminate} a term of an inductive type. In general in type theory we say that \em{term elimination} represents the natural deduction rules for \em{how to use} terms of a given type. Applied to our example we can see that these recursors precisely correspond to the rules of how we evaluate i.e. \em{use} arithmetic expressions.
+      }
+
+      \p{
+        Each rewrite rule describes how we can take an expression and reduce it step by step until we reach a final value. So in a sense the recursor here \em{eliminates} the expression by providing a systematic way to break it down into its constituent parts and evaluate it. This is precisely the essence of what recursors do in type theory; they provide a way to systematically deconstruct and utilize terms of inductive types according to their defined structure and properties.
+      }
+    }
+
+    \subtree{
+      \title{Proving correct evaluation}
+      \p{
+        One of the wonderful things we then naturally get from these recursors is that we can use them to describe how a correct evaluation works. So given our evaluation function:
+      }
+      \codeblock{lean}{
+        @[simp]
+        def eval : Expr -> Nat
+          | Expr.const n => n
+          | Expr.binop op e₁ e₂ =>
+              let v₁ := eval e₁
+              let v₂ := eval e₂
+              eval_op op v₁ v₂
+      }
+      \p{
+        We can use the recursors describing the rewrite rules to show that this evaluation function for our expressions both yields a constant and that we have some sequence of reduction steps (application of rewrite rules) to get to said constant. Or expressed formally:
+      }
+      \codeblock{lean}{
+        (e : Expr) : -- for any expression e
+          (∃ v : Nat), -- there exists a value v
+            (eval e = v) ∧ (e ->ⁿ (.const v))
+            -- such that eval e = v and e reduces to the constant v
+      }
+      \p{
+        The proof of this statement works by induction on the structure of the expression \code{e} if our expression represents a constant then the proof is trivial as we can just take the value of the constant itself. If our expression represents a binary operation then same as we showed for the concrete example we just apply our recursors to first rewrite the lhs, then the rhs and finally apply the operation to get the final constant value. In full the proof looks like:
+      }
+      \codeblock{lean}{
+        theorem eval_correct (e : Expr) :
+        ∃ v : Nat, (eval e = v) ∧ (e ->ⁿ (.const v)) := by
+        induction e with
+        | const n => exists n
+        | binop op lhs rhs eval_lhs eval_rhs =>
+          rcases eval_lhs with ⟨lhs_v, ⟨rhs_is_v, lhs_rw⟩⟩
+          rcases eval_rhs with ⟨rhs_v, ⟨lhs_is_v, rhs_rw⟩⟩
+          simp [rhs_is_v, lhs_is_v]
+
+          exact
+            (rw_lhs lhs_rw).trans (
+              (rw_rhs rhs_rw).trans (
+                rw_const op lhs_v rhs_v
+              )
+            )
+      } 
+      \p{
+        In other words our proof for describing that our evaluation function is correct amounts to essentially simulating or describing quite literally how the evaluation works step by step using the recursors we defined earlier. To see precisely how \code{rcases} works here I'd recommend to paste the code into a Lean environment and examine the types of each of the intermediate values.
+      }
+    }
+  }

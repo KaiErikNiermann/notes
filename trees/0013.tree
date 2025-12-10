@@ -5,15 +5,29 @@
 
 \title{Structures and Variable Assignments (FOL)}
 
-\p{A \strong{structure} #{\mathcal{M}} for a first-order language #{\mathcal{L}} consists of:}
+\p{
+  A \strong{structure} #{\mathcal{M}} for a first-order language #{\mathcal{L}} consists of:
+}
 \ul{
-  \li{A non-empty domain #{D}, which is the set of objects that the variables can refer to.}
-  \li{An interpretation function #{I} that assigns meanings to the non-logical symbols in #{\mathcal{L}}:}
+  \li{
+    A non-empty domain #{D}, which is the set of objects that the variables can refer to.
+  }
+  \li{
+    An interpretation function #{I} that assigns meanings to the non-logical symbols in #{\mathcal{L}}:
+  }
   \ul{
-    \li{For each constant symbol #{c} in #{\mathcal{L}}, #{I(c)} is an element of #{D}.}
-    \li{For each n-ary function symbol #{f} in #{\mathcal{L}}, #{I(f)} is a function from #{D^n} to #{D}.}
-    \li{For each n-ary predicate symbol #{P} in #{\mathcal{L}}, #{I(P)} is a subset of #{D^n}.}
+    \li{
+      For each constant symbol #{c} in #{\mathcal{L}}, #{I(c)} is an element of #{D}.
+    }
+    \li{
+      For each n-ary function symbol #{f} in #{\mathcal{L}}, #{I(f)} is a function from #{D^n} to #{D}.
+    }
+    \li{
+      For each n-ary predicate symbol #{P} in #{\mathcal{L}}, #{I(P)} is a subset of #{D^n}.
+    }
   }
 }
 
-\p{A \strong{variable assignment} #{\sigma} for a structure #{S} is a function that assigns each variable to an element of the domain #{D} of the structure. That is, for each variable #{x}, #{\sigma(x) \in D}.}
+\p{
+  A \strong{variable assignment} #{\sigma} for a structure #{S} is a function that assigns each variable to an element of the domain #{D} of the structure. That is, for each variable #{x}, #{\sigma(x) \in D}.
+}

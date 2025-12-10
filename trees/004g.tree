@@ -1,0 +1,63 @@
+\date{2025-12-07}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Finding inductive invariants}
+
+\p{
+  Consider the following statement #{W}:
+}
+\codeblock{lean}{
+  while x < n do
+    x := y;
+    y := x + 1 
+}
+\p{
+  Say that we wanted to prove the following Hoare triple:
+}
+##{
+  \{x = 0 \land y = 1\}\ W\ \{x \geq 0\}
+}
+\p{
+  What is an inductive invariant #{I} which allows us to prove the triple?
+}
+
+\solution{
+  \p{
+    For reference lets pull up the while rule again:
+  }
+  \infrule{
+    \inferrule*[right=While]{
+      \vdash \{I \land b\}\ s\ \{I\}
+    }{
+      \vdash \{I\}\ \cwhile\ b\ \cdo\ s\ \{I \land \neg b\}
+    }
+  }
+  \p{
+    One not entirely unreasonable albiet simple choice is to try out the post condition #{x \geq 0}, its not too uncommon that a valid postcondition - or more often a variant of it - are in fact valid loop invariants. Testing this out it means we would have to prove the body:
+  }
+  ##{
+    \vdash \{x \geq 0 \land x < n\}\ x := y; y := x + 1\ \{x \geq 0\}
+  }
+  \p{
+    To see if this is inductive we can try and find a counterexample to demonstrate its not, and indeed we can see that #{\sigma = \{y \mapsto -1000, x \mapsto 1, n \mapsto 2 \}} would mean that #{P(\sigma)} would hold, and we could indeed step to a state #{\sigma'} though clearly we have that:
+  }
+  ##{
+    \sigma' \ \mathrlap{\,/}{\vDash}\ (x \geq 0)[x \mapsto -1000]
+  }
+  \p{
+    Since we can see here that the unconstrained #{y} is causing is issues lets go with:
+  }
+  ##{
+    I \triangleq x \geq 0 \land y = x + 1
+  }
+  \p{
+    Since this ensures that #{y} is correctly related to #{x} it means that we indeed have that
+    ##{
+      \sigma \vDash I (x := y; y := x + 1, \sigma) \to \sigma' \to \sigma' \vDash I
+    }
+    as desired
+  }
+}

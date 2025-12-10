@@ -5,7 +5,9 @@
 \taxon{Definition}
 \title{Equisatisfiability}
 
-\p{Two formulas are said to be \strong{equisatisfiable} if either both formulas are satisfiable or both are unsatisfiable. In other words, there exists an assignment of truth values to the variables that makes one formula true if and only if there exists; not necessarily the same assignment; that makes the other formula true. Equisatisfiability is a weaker condition than logical equivalence, as equisatisfiable formulas may not have the same truth values under all assignments, but they share the same satisfiability status.}
+\p{
+  Two formulas are said to be \strong{equisatisfiable} if either both formulas are satisfiable or both are unsatisfiable. In other words, there exists an assignment of truth values to the variables that makes one formula true if and only if there exists; not necessarily the same assignment; that makes the other formula true. Equisatisfiability is a weaker condition than logical equivalence, as equisatisfiable formulas may not have the same truth values under all assignments, but they share the same satisfiability status.
+}
 
 ##{
   \texttt{equisat}(F, G) \iff (\exists I.\ I \models F) \iff (\exists J.\ J \models G)

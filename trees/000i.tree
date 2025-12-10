@@ -7,14 +7,21 @@
 \title{Comparing Normal Forms}
 
 \ol{
-  \li{\strong{Is a formula that is DNF also in NNF?}}
-  \li{\strong{How can we check the satisfiability of a formula in DNF?}}
+  \li{
+    \strong{Is a formula that is DNF also in NNF?}
+  }
+  \li{
+    \strong{How can we check the satisfiability of a formula in DNF?}
+  }
 }
 
 \solution{
   \ol{
-    \li{Yes. As we are restricted to the same set of connectives in both DNF and NNF, and since DNF also only applies negations to literals, any formula in DNF is also in NNF.}
-    \li{A formula in DNF is satisfiable if at least one of its clauses is satisfiable. Since each clause is a conjunction of literals, a clause is satisfiable if none of its literals contradict each other (i.e., it does not contain both a variable and its negation). Thus, to check the satisfiability of a DNF formula, we can examine each clause individually and see if there exists at least one clause where all literals can be true simultaneously.}
+    \li{
+      Yes. As we are restricted to the same set of connectives in both DNF and NNF, and since DNF also only applies negations to literals, any formula in DNF is also in NNF.
+    }
+    \li{
+      A formula in DNF is satisfiable if at least one of its clauses is satisfiable. Since each clause is a conjunction of literals, a clause is satisfiable if none of its literals contradict each other (i.e., it does not contain both a variable and its negation). Thus, to check the satisfiability of a DNF formula, we can examine each clause individually and see if there exists at least one clause where all literals can be true simultaneously.
+    }
   }
 }
-

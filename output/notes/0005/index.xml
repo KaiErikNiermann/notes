@@ -14,7 +14,9 @@
     <fr:title text="Syntax">Syntax</fr:title>
     <fr:taxon>Definition</fr:taxon>
   </fr:frontmatter>
-  <fr:mainmatter><html:p>Using BNF notation, the syntax of propositional logic can be defined as follows:</html:p>
+  <fr:mainmatter><html:p>
+  Using BNF notation, the syntax of propositional logic can be defined as follows:
+</html:p>
  
   
   <html:figure><fr:resource hash="e8fe66989c999aaf2a9551442e29166b"><fr:resource-content><html:img src="/notes/e8fe66989c999aaf2a9551442e29166b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
@@ -115,7 +117,9 @@
                     <fr:title text="Syntax">Syntax</fr:title>
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
-                  <fr:mainmatter><html:p>Using BNF notation, the syntax of propositional logic can be defined as follows:</html:p>
+                  <fr:mainmatter><html:p>
+  Using BNF notation, the syntax of propositional logic can be defined as follows:
+</html:p>
  
   
   <html:figure><fr:resource hash="e8fe66989c999aaf2a9551442e29166b"><fr:resource-content><html:img src="/notes/e8fe66989c999aaf2a9551442e29166b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
@@ -181,11 +185,11 @@
   <html:li><html:strong>Is <fr:tex display="inline"><![CDATA[p]]></fr:tex> a literal?</html:strong></html:li>
   <html:li><html:strong>Is <fr:tex display="inline"><![CDATA[p]]></fr:tex> a formula?</html:strong></html:li>
   <html:li><html:strong>What about <fr:tex display="inline"><![CDATA[\neg  p]]></fr:tex>?</html:strong></html:li>
-  <html:li><html:strong>What about <fr:tex display="inline"><![CDATA[\neg  \neg  p]]></fr:tex>? </html:strong></html:li></html:ol>
- 
-   
-   
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:li><html:strong>What about <fr:tex display="inline"><![CDATA[\neg  \neg  p]]></fr:tex>?</html:strong></html:li></html:ol>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li>
       Yes, <fr:tex display="inline"><![CDATA[p]]></fr:tex> is an atom.
     </html:li>
@@ -200,7 +204,7 @@
     <html:li><fr:tex display="inline"><![CDATA[\neg  \neg  p]]></fr:tex> is a formula, since the inner negation <fr:tex display="inline"><![CDATA[\neg  p]]></fr:tex> is a literal and any additional negation applied promotes it to a formula. In other words only <html:em>negated atoms</html:em> are literals but <html:em>negated literals</html:em> are formulas. This is especially important when we later discuss Negation Normal Form (NNF). 
     </html:li></html:ol>
 </fr:mainmatter></fr:tree>
- 
+  
 </fr:mainmatter>
                 </fr:tree>
               </fr:mainmatter>
@@ -377,16 +381,25 @@
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>We define an interpretation as a function which maps propositional variables in a formula to truth values, so formally</html:p>
+                    <html:p>
+  We define an interpretation as a function which maps propositional variables in a formula to truth values, so formally
+</html:p>
                     <fr:tex display="block"><![CDATA[
   I : \texttt {Var} \to  \{\top , \bot \}
 ]]></fr:tex>
-                    <html:p>We can <html:em>evaluate</html:em> a formula <html:em>under</html:em> an interpretation <fr:tex display="inline"><![CDATA[I]]></fr:tex> by substituting each propositional variable with its corresponding truth value given by <fr:tex display="inline"><![CDATA[I]]></fr:tex>. Naturally under different kinds of interpretations formulas can evaluate to different truth values. We can create a classifcation of formulas based on how many interpretations evaluate them to true or false.</html:p>
-                    <html:ol><html:li><html:strong>satisfiable</html:strong>: A formula is satisfiable if there exists at least one interpretation under which it evaluates to true.</html:li>
-  <html:li><html:strong>unsatisfying</html:strong>: A formula is unsatisfying if there exists at least one interpretation under which it evaluates to false.</html:li>
-  <html:li><html:strong>tautology</html:strong>: A formula is a tautology if it evaluates to true under every possible interpretation.</html:li>
-  <html:li><html:strong>contradiction</html:strong>: A formula is a contradiction if it evaluates to false under every possible interpretation.</html:li>
-  <html:li><html:strong>contingent</html:strong>: A formula is contingent if it is satisfiable and unsatisfying, i.e., there exists at least one interpretation under which it evaluates to true and at least one interpretation under which it evaluates to false.</html:li></html:ol>
+                    <html:p>
+  We can <html:em>evaluate</html:em> a formula <html:em>under</html:em> an interpretation <fr:tex display="inline"><![CDATA[I]]></fr:tex> by substituting each propositional variable with its corresponding truth value given by <fr:tex display="inline"><![CDATA[I]]></fr:tex>. Naturally under different kinds of interpretations formulas can evaluate to different truth values. We can create a classifcation of formulas based on how many interpretations evaluate them to true or false.
+</html:p>
+                    <html:ol><html:li><html:strong>satisfiable</html:strong>: A formula is satisfiable if there exists at least one interpretation under which it evaluates to true.
+  </html:li>
+  <html:li><html:strong>unsatisfying</html:strong>: A formula is unsatisfying if there exists at least one interpretation under which it evaluates to false.
+  </html:li>
+  <html:li><html:strong>tautology</html:strong>: A formula is a tautology if it evaluates to true under every possible interpretation.
+  </html:li>
+  <html:li><html:strong>contradiction</html:strong>: A formula is a contradiction if it evaluates to false under every possible interpretation.
+  </html:li>
+  <html:li><html:strong>contingent</html:strong>: A formula is contingent if it is satisfiable and unsatisfying, i.e., there exists at least one interpretation under which it evaluates to true and at least one interpretation under which it evaluates to false.
+  </html:li></html:ol>
                   </fr:mainmatter>
                 </fr:tree>
                 <fr:tree show-metadata="false">
@@ -421,10 +434,10 @@
   ]]></fr:tex>
   under the same interpretation?
 </html:strong>
- 
-   
-   
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   Theres two main ways you can usually approach questions like this, the more drawn out operational way and then just going by observation more or less. Starting out with the more pedantic approach we can try to construct a proof tree for the formula under the given interpretation. So considering the first formula we have: 
   
   
@@ -468,11 +481,15 @@
   
 
 
-  <html:p>So we can see that the interpretation does not satisfy the formula. In other words for this assignment the formula does not hold true. Given that this is a somewhat simple formula we could also just see this by observation, i.e. </html:p>
+  <html:p>
+    So we can see that the interpretation does not satisfy the formula. In other words for this assignment the formula does not hold true. Given that this is a somewhat simple formula we could also just see this by observation, i.e.
+  </html:p>
   <fr:tex display="block"><![CDATA[
     \underbrace {\neg  p}_{\texttt {False}} \land  \underbrace {q}_{\texttt {False}} \equiv  \bot 
   ]]></fr:tex>
-  <html:p>For the second formula lets just go with the simpler approach again, so we have</html:p>
+  <html:p>
+    For the second formula lets just go with the simpler approach again, so we have
+  </html:p>
   <fr:resource hash="f4ab80a835ec37191d2964edcfdc39a1"><fr:resource-content><html:img src="/notes/f4ab80a835ec37191d2964edcfdc39a1.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
     \usepackage {amsmath}
     \usepackage {eulervm}
@@ -489,9 +506,11 @@
     }
   ]]></fr:resource-source></fr:resource>
 
-  <html:p>So in this case the formula is satisfied by the interpretation.</html:p>
+  <html:p>
+    So in this case the formula is satisfied by the interpretation.
+  </html:p>
 </fr:mainmatter></fr:tree>
- 
+  
 </fr:mainmatter>
                 </fr:tree>
                 <fr:tree show-metadata="false">
@@ -511,22 +530,36 @@
                   <fr:mainmatter><html:strong>Are the following formulas sat., unsat., or valid?</html:strong><html:ol><html:li><fr:tex display="inline"><![CDATA[(p\land  q) \to  \neg  p]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[(p \land  q) \to  (p \lor  \neg  q)]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[(p \to  (q \to  r)) \land  \neg ((p \land  q) \to  r)]]></fr:tex></html:li></html:ol>
- 
-   
-   
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   As a reminder lets recap the definitions:
-  <html:ul><html:li>A formula is <html:strong>satisfiable</html:strong> if there exists at least one combination of true/false assignments to its variables that makes the formula true.</html:li>
-    <html:li>A formula is <html:strong>unsatisfiable</html:strong> if there is no combination of true/false assignments to its variables that makes the formula true (i.e., it is always false).</html:li>
-    <html:li>A formula is <html:strong>valid</html:strong> (or a tautology) if it is true under all possible combinations of true/false assignments to its variables.</html:li></html:ul>
-  <html:p>Now we can analyze each formula:</html:p>
-  <html:ol><html:li>For the lhs to be true both p and q must be true. However if p is true then <fr:tex display="inline"><![CDATA[\neg  p]]></fr:tex> is false, making the implication false. If p is false then the then the implication is vacuously true regardless of what we set q to. Thus this formula is satisfiable (e.g., when p is false) but not valid (e.g., when p and q are true).</html:li>
-    <html:li>If both p and q are true then the lhs is true and so is the rhs by virtue of p being true. If p is false then the implication is vacuously true regardless of q. If q is false then the rhs is true regardless of p. Thus this formula is valid as it is true for all combinations of truth values for p and q.</html:li>
-    <html:li>The first part <fr:tex display="inline"><![CDATA[(p \to  (q \to  r))]]></fr:tex> is true unless p is true and either q or r is false. The second part <fr:tex display="inline"><![CDATA[\neg ((p \land  q) \to  r)]]></fr:tex> is true when p and q are true but r is false. Thus we can satisfy the entire formula by setting p and q to true and r to false. However if we set p to false then the first part is vacuously true but the second part becomes false. Thus this formula is satisfiable (e.g., when p and q are true and r is false) but not valid (e.g., when p is false).</html:li></html:ol>
+  <html:ul><html:li>
+      A formula is <html:strong>satisfiable</html:strong> if there exists at least one combination of true/false assignments to its variables that makes the formula true.
+    </html:li>
+    <html:li>
+      A formula is <html:strong>unsatisfiable</html:strong> if there is no combination of true/false assignments to its variables that makes the formula true (i.e., it is always false).
+    </html:li>
+    <html:li>
+      A formula is <html:strong>valid</html:strong> (or a tautology) if it is true under all possible combinations of true/false assignments to its variables.
+    </html:li></html:ul>
+  <html:p>
+    Now we can analyze each formula:
+  </html:p>
+  <html:ol><html:li>
+      For the lhs to be true both p and q must be true. However, if p is true then <fr:tex display="inline"><![CDATA[\neg  p]]></fr:tex> is false, making the implication false. If p is false then the implication is vacuously true regardless of what we set q to. Thus, this formula is satisfiable (e.g., when p is false) but not valid (e.g., when p and q are true).
+    </html:li>
+    <html:li>
+      If both p and q are true then the lhs is true and so is the rhs by virtue of p being true. If p is false then the implication is vacuously true regardless of q. If q is false then the rhs is true regardless of p. Thus, this formula is valid as it is true for all combinations of truth values for p and q.
+    </html:li>
+    <html:li>
+      The first part <fr:tex display="inline"><![CDATA[(p \to  (q \to  r))]]></fr:tex> is true unless p is true and either q or r is false. The second part <fr:tex display="inline"><![CDATA[\neg ((p \land  q) \to  r)]]></fr:tex> is true when p and q are true but r is false. Thus we can satisfy the entire formula by setting p and q to true and r to false. However, if we set p to false then the first part is vacuously true, but the second part becomes false. Thus, this formula is falsifiable (e.g., when p and q are true and r is false) but not valid (e.g., when p is false).
+    </html:li></html:ol>
 
   If you want to be absolutely sure about these kinds of questions constructing truth tables is always a good idea, albeit a bit tedious for formulas with many variables so just doing a bit of analysis like above is usually sufficient
 </fr:mainmatter></fr:tree>
- 
+  
 </fr:mainmatter>
                 </fr:tree>
               </fr:mainmatter>

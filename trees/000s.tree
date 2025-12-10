@@ -6,39 +6,50 @@
 
 \title{Tseytin's Transformation}
 
-\p{Tseytin's transformation is a method used in propositional logic to convert any given formula into an equisatisfiable formula in [Conjunctive Normal Form (CNF)](000n). The key idea behind Tseytin's transformation is to introduce new variables to represent subformulas of the original formula, thereby avoiding [an exponential increase in size](000m) that can occur with naive CNF conversion methods. There are two key properties of Tseytin's for a formula #{F} and its Tseytin transformation #{F'}:}
-
-\ol{
-  \li{\strong{unsatisfiability:} #{F} is unsatisfiable if and only if #{F'} is unsatisfiable.}
-  \li{\strong{model correspondence:} For every satisfying assignment (model) of #{F'}, there exists a corresponding satisfying assignment of #{F}, and vice versa, when restricted to the original variables of #{F}.}
+\p{
+  Tseytin's transformation is a method used in propositional logic to convert any given formula into an equisatisfiable formula in [Conjunctive Normal Form (CNF)](000n). The key idea behind Tseytin's transformation is to introduce new variables to represent subformulas of the original formula, thereby avoiding [an exponential increase in size](000m) that can occur with naive CNF conversion methods. There are two key properties of Tseytin's for a formula #{F} and its Tseytin transformation #{F'}:
 }
 
-\p{To demonstrate how it works lets consider the following formula}
+\ol{
+  \li{
+    \strong{unsatisfiability:} #{F} is unsatisfiable if and only if #{F'} is unsatisfiable.
+  }
+  \li{
+    \strong{model correspondence:} For every satisfying assignment (model) of #{F'}, there exists a corresponding satisfying assignment of #{F}, and vice versa, when restricted to the original variables of #{F}.
+  }
+}
+
+\p{
+  To demonstrate how it works lets consider the following formula
+}
 ##{
   \phi = ((p \lor q ) \land r) \to (\neg s)
 }
 \ol{
-  \li{\strong{Subformula identification:} Identify the subformulas of #{\phi} and assign a new variable to each subformula. For our example, we can identify the following subformulas and assign new variables:
+  \li{
+    \strong{Subformula identification:} Identify the subformulas of #{\phi} and assign a new variable to each subformula. For our example, we can identify the following subformulas and assign new variables:
     ##{
       \begin{align*}
-      & \neg s \\ 
+      & \neg s \\
       & p \lor q \\
       & (p \lor q) \land r \\
       & ((p \lor q) \land r) \to (\neg s)
       \end{align*}
     }
   }
-  \li{\strong{Variable assignment:} Assign new variables to each subformula:
+  \li{
+    \strong{Variable assignment:} Assign new variables to each subformula:
     ##{
       \begin{align*}
-      & x_1 \text{ for } \neg s \\ 
+      & x_1 \text{ for } \neg s \\
       & x_2 \text{ for } p \lor q \\
       & x_3 \text{ for } (p \lor q) \land r \\
       & x_4 \text{ for } ((p \lor q) \land r) \to (\neg s)
       \end{align*}
     }
   }
-  \li{\strong{Equivalence clauses:} For each subformula, create clauses that enforce the equivalence between the new variable and the subformula it represents. For our example, we would create the following clauses:
+  \li{
+    \strong{Equivalence clauses:} For each subformula, create clauses that enforce the equivalence between the new variable and the subformula it represents. For our example, we would create the following clauses:
     ##{
       \begin{align*}
       & (x_1 \leftrightarrow \neg s) \\
@@ -48,17 +59,19 @@
       \end{align*}
     }
   }
-  \li{\strong{Conjunct of clauses:} Combine all the equivalence clauses into a single formula in CNF. The final formula #{\phi'} will be the conjunction of all these clauses along with the clause that asserts the truth of the variable representing the entire formula (in this case, #{x_4}):
+  \li{
+    \strong{Conjunct of clauses:} Combine all the equivalence clauses into a single formula in CNF. The final formula #{\phi'} will be the conjunction of all these clauses along with the clause that asserts the truth of the variable representing the entire formula (in this case, #{x_4}):
     ##{
       \phi' = (x_1 \leftrightarrow \neg s) \land (x_2 \leftrightarrow (p \lor q)) \land (x_3 \leftrightarrow (x_2 \land r)) \land (x_4 \leftrightarrow (x_3 \to x_1)) \land x_4
     }
   }
-  \li{\strong{Conversion to CNF:} Finally, convert the combined formula into CNF using standard techniques (like distributing disjunctions over conjunctions). The resulting formula will be in CNF and equisatisfiable to the original formula #{\phi}. For example if we consider the clause 
+  \li{
+    \strong{Conversion to CNF:} Finally, convert the combined formula into CNF using standard techniques (like distributing disjunctions over conjunctions). The resulting formula will be in CNF and equisatisfiable to the original formula #{\phi}. For example if we consider the clause 
     ##{
       x_2 \leftrightarrow (p \lor q)
     } this can be converted to CNF as
     ##{
       (x_2 \lor \neg p) \land (x_2 \lor \neg q) \land (\neg x_2 \lor p \lor q)
-    }  
+    } 
   }
 }

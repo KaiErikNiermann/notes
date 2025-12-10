@@ -409,12 +409,14 @@
     <fr:tex display="block"><![CDATA[
       \langle  s, \sigma  \rangle  \Downarrow  \sigma '
     ]]></fr:tex></html:li></html:ol>
- 
-   
-   
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>4</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
-  <html:ol><html:li>Starting in the state <fr:tex display="inline"><![CDATA[x \mapsto  2]]></fr:tex> we evaluate <fr:tex display="inline"><![CDATA[x := x - 1]]></fr:tex> to the state <fr:tex display="inline"><![CDATA[x \mapsto  1]]></fr:tex></html:li>
-    <html:li>Starting in the state <fr:tex display="inline"><![CDATA[x \mapsto  1]]></fr:tex>, we first evaluate the condition <fr:tex display="inline"><![CDATA[x + 1 \leq  3]]></fr:tex>:
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>4</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>
+      Starting in the state <fr:tex display="inline"><![CDATA[x \mapsto  2]]></fr:tex> we evaluate <fr:tex display="inline"><![CDATA[x := x - 1]]></fr:tex> to the state <fr:tex display="inline"><![CDATA[x \mapsto  1]]></fr:tex></html:li>
+    <html:li>
+      Starting in the state <fr:tex display="inline"><![CDATA[x \mapsto  1]]></fr:tex>, we first evaluate the condition <fr:tex display="inline"><![CDATA[x + 1 \leq  3]]></fr:tex>:
       <fr:tex display="block"><![CDATA[
         \begin {align*}
         \langle  x + 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  2 \\
@@ -429,7 +431,8 @@
         \langle  x := 0, \sigma [x \mapsto  1] \rangle  &\Downarrow  \sigma [x \mapsto  0]
         \end {align*}
       ]]></fr:tex></html:li>
-    <html:li>We again start by evaluating the condition
+    <html:li>
+      We again start by evaluating the condition
       <fr:tex display="block"><![CDATA[
         \begin {align*}
         \langle  x + 1, \sigma [x \mapsto  1] \rangle  &\Downarrow  2 \\
@@ -446,13 +449,15 @@
         &\vdots 
         \end {align*}
       ]]></fr:tex></html:li>
-    <html:li>Yes, for every expression <fr:tex display="inline"><![CDATA[e]]></fr:tex> and state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>, there exists a number <fr:tex display="inline"><![CDATA[n]]></fr:tex> such that
+    <html:li>
+      Yes, for every expression <fr:tex display="inline"><![CDATA[e]]></fr:tex> and state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>, there exists a number <fr:tex display="inline"><![CDATA[n]]></fr:tex> such that
       <fr:tex display="block"><![CDATA[
         \langle  e, \sigma  \rangle  \Downarrow  n
       ]]></fr:tex>
       This follows from the fact that expressions are finite syntax trees built from a finite set of rules, and each rule can be evaluated in a finite number of steps.
     </html:li>
-    <html:li>No, there exist statements <fr:tex display="inline"><![CDATA[s]]></fr:tex> and states <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> for which there is no resulting state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> such that
+    <html:li>
+      No, there exist statements <fr:tex display="inline"><![CDATA[s]]></fr:tex> and states <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> for which there is no resulting state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> such that
       <fr:tex display="block"><![CDATA[
         \langle  s, \sigma  \rangle  \Downarrow  \sigma '
       ]]></fr:tex>
@@ -463,7 +468,7 @@
       starting from the state <fr:tex display="inline"><![CDATA[\sigma [x \mapsto  1]]]></fr:tex>. As shown in the previous question, this loop does not terminate, and thus there is no resulting state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex>.
     </html:li></html:ol>
 </fr:mainmatter></fr:tree>
- 
+  
 </fr:mainmatter>
         </fr:tree>
       </fr:mainmatter>

@@ -3,7 +3,6 @@
 \taxon{VU-VFS-2025}
 \title{Lecture 1 - Propositional Logic}
 
-
 \subtree{
   \title{Syntax}
   \transclude{0005}

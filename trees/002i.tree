@@ -6,30 +6,46 @@
 
 \title{Closure of a [syntactic rule](002h)}
 
-\p{A [syntactic rule](002h) on a set #{X} expresses a closure condition (or [operator](002f)) on the subsets of #{X}, which is to say on the elements of the powerset #{\mathcal{P}}. In particular we can say that for a particular subset #{S \in \mathcal{P}(X)}, we have that:}
+\p{
+  A [syntactic rule](002h) on a set #{X} expresses a closure condition (or [operator](002f)) on the subsets of #{X}, which is to say on the elements of the power set #{\mathcal{P}}. In particular, we can say that for a particular subset #{S \in \mathcal{P}(X)}, we have that:
+}
 ##{
   \{S \subseteq X \mid x_1,\ldots,x_n \in S \to x \in S\}
 }
-\p{When we have a set #{\mathcal R} denoting a set of [rules](002h) over #{X}, we will write:}
+\p{
+  When we have a set #{\mathcal R} denoting a set of [rules](002h) over #{X}, we will write:
+}
 ##{
   \text{Cl}_\mathcal R \in \mathcal P(X)
 }
-\p{to denote the intersection of the closure conditions expressed by each rule in #{\mathcal R}. In other words, the set of subsets of #{X} that are closed under all the rules in #{\mathcal R}. Intuitively this set denotes all set's which satisfy the premises of the rule and hence can derive the conclusion. A particular rule #{r \in \mathcal R} is said to determine a monotone function #{f_r: \mathcal P(X) \to \mathcal P(X)} such that for any subset #{S \subseteq X}, we have that:}
+\p{
+  to denote the intersection of the closure conditions expressed by each rule in #{\mathcal R}. In other words, the set of subsets of #{X} that are closed under all the rules in #{\mathcal R}. Intuitively this set denotes all set's which satisfy the premises of the rule and hence can derive the conclusion. A particular rule #{r \in \mathcal R} is said to determine a monotone function #{f_r: \mathcal P(X) \to \mathcal P(X)} such that for any subset #{S \subseteq X}, we have that:
+}
 ##{
   f_r(S) = \{x \in X \mid x_1, \ldots, x_n \in S\}
 }
-\p{What this function expresses is that if we know the assertions #{x_1} to #{x_n} are true (are in #{S}) then we can additionally conclude #{x} is true. A more pedantic equivalent version of this function is:}
+\p{
+  What this function expresses is that if we know the assertions #{x_1} to #{x_n} are true (are in #{S}) then we can additionally conclude #{x} is true. A more pedantic equivalent version of this function is:
+}
 ##{
   f_r(S) = S \cup \{x \in X \mid x_1, \ldots, x_n \in S\}
 }
-\p{There seems to be a general tendency to prefer the first version as it emphasizes the idea of the derivation of new conclusions from premises, however the second version is what's pedantically accurate in that we are accumulating the conclusion #{x} into the set #{S} based on the existing premises.}
-\p{Furthermore we have that the set #{\mathcal R} of rules induces a monotone function that collectively closes up under each rule in the set as follows:}
+\p{
+  There seems to be a general tendency to prefer the first version as it emphasizes the idea of the derivation of new conclusions from premises, however the second version is what's pedantically accurate in that we are accumulating the conclusion #{x} into the set #{S} based on the existing premises.
+}
+\p{
+  Furthermore we have that the set #{\mathcal R} of rules induces a monotone function that collectively closes up under each rule in the set as follows:
+}
 ##{
   f_\mathcal R(S) = \bigcup_{r \in \mathcal R} f_r(S)
 }
-\p{What this function expresses is that for any subset #{S \subseteq X}, we can apply each rule in #{\mathcal R} to #{S} and take the union of all the resulting sets. This gives us the smallest superset of #{S} closed under #{\mathcal R}. Intuitively it expresses all derivable conclusions #{x} from premises #{x_1, \ldots, x_n} in #{S} according to the rules in #{\mathcal R}. In other words it corresponds to the idea of enumerating all rules for our given set #{S} and seeing if we can add any new conclusions to #{S} based on the premises already in #{S}.}
+\p{
+  What this function expresses is that for any subset #{S \subseteq X}, we can apply each rule in #{\mathcal R} to #{S} and take the union of all the resulting sets. This gives us the smallest superset of #{S} closed under #{\mathcal R}. Intuitively it expresses all derivable conclusions #{x} from premises #{x_1, \ldots, x_n} in #{S} according to the rules in #{\mathcal R}. In other words it corresponds to the idea of enumerating all rules for our given set #{S} and seeing if we can add any new conclusions to #{S} based on the premises already in #{S}.
+}
 
-\p{The [closure](002f) of the set #{X} under the rules in #{\mathcal R}, denoted by #{X_\mathcal R}, is then defined as the least fixpoint (or [least pre-fixed point](002b)) of the function #{f_\mathcal R}:}
+\p{
+  The [closure](002f) of the set #{X} under the rules in #{\mathcal R}, denoted by #{X_\mathcal R}, is then defined as the least fixpoint (or [least pre-fixed point](002b)) of the function #{f_\mathcal R}:
+}
 ##{
   \mu f_\mathcal R = \bigcap\ \{ S \subseteq X \mid f_\mathcal R(S) \subseteq S \}
 }

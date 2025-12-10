@@ -6,20 +6,28 @@
 
 \title{Models of #{T_H}}
 
-\p{consider a structure consisting of a universe #{U} and interpretation #{I} as follows:}
+\p{
+  consider a structure consisting of a universe #{U} and interpretation #{I} as follows:
+}
 ##{
   U = \{A, B\} \quad I = \{\texttt{taller} \mapsto \{\langle A, A\rangle, \langle B, B\rangle\}\}
 }
-\p{Are the following models of the theory #{T} or not:}
+\p{
+  Are the following models of the theory #{T} or not:
+}
 \ol{
-  \li{Is #{\langle U, I\rangle} a model of #{T}}
-  \li{If we change the interpretation to
+  \li{
+    Is #{\langle U, I\rangle} a model of #{T}
+  }
+  \li{
+    If we change the interpretation to
     ##{
       I = \{\texttt{taller} \mapsto \{\langle A, B\rangle\}\}
     }
     is the structure now a model of #{T}?
   }
-  \li{If we add the following axiom
+  \li{
+    If we add the following axiom
     ##{
       \forall x, y, z.\ (\texttt{taller}(x, y) \land \texttt{taller}(y, z) \to \texttt{taller}(x, z))
     }
@@ -32,14 +40,21 @@
 }
 
 \solution{
-  \p{As a reminder we are working with the axiom:}
+  \p{
+    As a reminder we are working with the axiom:
+  }
   ##{
     \forall x, y.\ (\texttt{taller}(x, y) \to \neg \texttt{taller}(y, x))
   }
   \ol{
-    \li{Clearly no, as if we take #{x = A} and #{y = A} we have that both #{\texttt{taller}(A, A)} and #{\texttt{taller}(A, A)} hold, violating the axiom.}
-    \li{Here we are chaning or interpretation to just the relation #{\texttt{taller}(A, B)} holding. In this case the axiom is satisfied as there are no values of #{x} and #{y} such that both #{\texttt{taller}(x, y)} and #{\texttt{taller}(y, x)} hold. So yes this is a model of #{T}.}
-    \li{No, as if we take #{x = A}, #{y = B} and #{z = C} we have that both #{\texttt{taller}(A, B)} and #{\texttt{taller}(B, C)} hold, but #{\texttt{taller}(A, C)} does not hold (so not in our interpretation for the #{\texttt{taller}} relationship), violating the axiom.
+    \li{
+      Clearly no, as if we take #{x = A} and #{y = A} we have that both #{\texttt{taller}(A, A)} and #{\texttt{taller}(A, A)} hold, violating the axiom.
+    }
+    \li{
+      Here we are chaning or interpretation to just the relation #{\texttt{taller}(A, B)} holding. In this case the axiom is satisfied as there are no values of #{x} and #{y} such that both #{\texttt{taller}(x, y)} and #{\texttt{taller}(y, x)} hold. So yes this is a model of #{T}.
+    }
+    \li{
+      No, as if we take #{x = A}, #{y = B} and #{z = C} we have that both #{\texttt{taller}(A, B)} and #{\texttt{taller}(B, C)} hold, but #{\texttt{taller}(A, C)} does not hold (so not in our interpretation for the #{\texttt{taller}} relationship), violating the axiom.
     } 
   }
 }

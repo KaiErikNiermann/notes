@@ -8,47 +8,57 @@
 
 \subtree{
   \title{The data}
-  
-  \p{For categories #{C} and #{D}, a \strong{functor} #{F : C \to D} consists of:}
-\ul{
-  \li{An assignment on \em{objects}
-  ##{
-    \text{Ob}(C) \to \text{Ob}(D) \quad X \mapsto F(X)
+
+  \p{
+    For categories #{C} and #{D}, a \strong{functor} #{F : C \to D} consists of:
   }
+  \ul{
+    \li{
+      An assignment on \em{objects}
+      ##{
+        \text{Ob}(C) \to \text{Ob}(D) \quad X \mapsto F(X)
+      }
+    }
+    \li{
+      An assignment on \em{morphisms}
+      ##{
+        C(X, Y) \to D(F(X), F(Y)) \quad f \mapsto F(f)
+      }
+      equivalently we can denote this explicitly as 
+      ##{
+        F_{X, Y} : \text{Hom}_C(X, Y) \to \text{Hom}_D(F(X), F(Y))
+      }
+    }
   }
-  \li{An assignment on \em{morphisms}
-  ##{
-    C(X, Y) \to D(F(X), F(Y)) \quad f \mapsto F(f)
-  }
-  equivalently we can denote this explicitly as 
-  ##{
-    F_{X, Y} : \text{Hom}_C(X, Y) \to \text{Hom}_D(F(X), F(Y))
-  }
-  }
-}
 }
 
 \subtree{
   \title{The axioms}
-  
-  \p{The data must satisfy \strong{composition} and \strong{identity} axioms:}
+
+  \p{
+    The data must satisfy \strong{composition} and \strong{identity} axioms:
+  }
   \ul{
-    \li{The equality
-    ##{
-      F(g \circ f) = F(g) \circ F(f)
+    \li{
+      The equality
+      ##{
+        F(g \circ f) = F(g) \circ F(f)
+      }
     }
-    }
-    \li{For each object #{X \in \text{Ob}(C)} the equality
-    ##{
-      F(\text{id}_X) = \text{id}_{F(X)} \in D(F(X), F(X))
-    }
+    \li{
+      For each object #{X \in \text{Ob}(C)} the equality
+      ##{
+        F(\text{id}_X) = \text{id}_{F(X)} \in D(F(X), F(X))
+      }
     }
   }
 }
 
 \subtree{
   \title{Commutative diagram}
-  \p{If we wish to represent the composition axiom diagrammatically we can do so as follows:}
+  \p{
+    If we wish to represent the composition axiom diagrammatically we can do so as follows:
+  }
   \texfig{
     % https://q.uiver.app/#q=WzAsOCxbMSwwLCJYIl0sWzMsMCwiWSJdLFsxLDIsIkYoWCkiXSxbMywyLCJGKFkpIl0sWzUsMCwiWiJdLFs1LDIsIkYoWikiXSxbMCwwLCJcXHVuZGVybGluZSBDIl0sWzAsMiwiXFx1bmRlcmxpbmUgRCJdLFswLDEsImYiXSxbMCwyXSxbMSwzXSxbMiwzLCJGKGYpIl0sWzEsNCwiZyJdLFszLDUsIkYoZykiXSxbNCw1XSxbMCw0LCJmIDsgZyIsMCx7ImN1cnZlIjotM31dLFsyLDUsIkYoZjtnKSIsMix7ImN1cnZlIjozfV1d
     \[\begin{tikzcd}
@@ -70,7 +80,7 @@
 
 \subtree{
   \title{Lean definition}
-  
+
   \codeblock{lean}{
     \startverb
     structure Functor 

@@ -6,12 +6,16 @@
 
 \title{Disjunctive Normal Form (DNF)}
 
-\p{A formula #{F} is in Disjunctive Normal Form (DNF) if it is a disjunction of one or more conjunctions of one or more literals. In other words, #{F} can be expressed as a series of clauses connected by disjunctions (#{\lor}), where each clause is a series of literals connected by conjunctions (#{\land}). A literal is either a propositional variable or its negation.}
+\p{
+  A formula #{F} is in Disjunctive Normal Form (DNF) if it is a disjunction of one or more conjunctions of one or more literals. In other words, #{F} can be expressed as a series of clauses connected by disjunctions (#{\lor}), where each clause is a series of literals connected by conjunctions (#{\land}). A literal is either a propositional variable or its negation.
+}
 
 ##{
   F = C_1 \lor C_2 \lor ... \lor C_n
 }
-\p{Where each clause #{C_i} is of the form:}
+\p{
+  Where each clause #{C_i} is of the form:
+}
 ##{
   C_i = L_{i1} \land L_{i2} \land ... \land L_{im}
 }

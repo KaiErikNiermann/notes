@@ -15,24 +15,32 @@
     <fr:taxon>Definition</fr:taxon>
   </fr:frontmatter>
   <fr:mainmatter>
-    <html:p>In algebra a <html:em>monoid</html:em> is a collection (a set) of elements equipped with a binary operation (multiplication) which has the properties of being associative and having a unit (identity) element. Formally, we say tht it is a set <fr:tex display="inline"><![CDATA[M]]></fr:tex> equipped with the structure <fr:link href="/notes/002n/" title="Monoid (algebra)" uri="https://kaierikniermann.github.io/notes/002n/" display-uri="002n" type="local">(1)</fr:link>:</html:p>
-    <html:ul><html:li>A <html:strong>binary operation</html:strong> (or <html:em>multiplication</html:em>) map from the cartesian product of the set with itself to itself, that is:
-  <fr:tex display="block"><![CDATA[
-    (-) \cdot  (-) : M \times  M \to  M
-  ]]></fr:tex></html:li>
-  <html:li>A <html:strong>neutral</html:strong> (or <html:em>identity</html:em>) <html:strong>element</html:strong> 
-  <fr:tex display="block"><![CDATA[
-    1 \in  M
-  ]]></fr:tex></html:li></html:ul>
-    <html:p>Such that the following properties hold:</html:p>
-    <html:ul><html:li>The elements are <html:strong>associative</html:strong> w.r.t the operation, that is:
-  <fr:tex display="block"><![CDATA[
-    \forall  x, y, z \in  M \vdash  (x \cdot  y) \cdot  z = x \cdot  (y \cdot  z)
-  ]]></fr:tex></html:li>
-  <html:li>Composition with the identity element is a <html:strong>unit</html:strong>, that is:
-  <fr:tex display="block"><![CDATA[
-    \forall  x \in  M \vdash  1 \cdot  x = x = x \cdot  1
-  ]]></fr:tex></html:li></html:ul>
+    <html:p>
+  In algebra a <html:em>monoid</html:em> is a collection (a set) of elements equipped with a binary operation (multiplication) which has the properties of being associative and having a unit (identity) element. Formally, we say that it is a set <fr:tex display="inline"><![CDATA[M]]></fr:tex> equipped with the structure <fr:link href="/notes/002n/" title="Monoid (algebra)" uri="https://kaierikniermann.github.io/notes/002n/" display-uri="002n" type="local">(1)</fr:link>:
+</html:p>
+    <html:ul><html:li>
+    A <html:strong>binary operation</html:strong> (or <html:em>multiplication</html:em>) map from the Cartesian product of the set with itself to itself, that is:
+    <fr:tex display="block"><![CDATA[
+      (-) \cdot  (-) : M \times  M \to  M
+    ]]></fr:tex></html:li>
+  <html:li>
+    A <html:strong>neutral</html:strong> (or <html:em>identity</html:em>) <html:strong>element</html:strong> 
+    <fr:tex display="block"><![CDATA[
+      1 \in  M
+    ]]></fr:tex></html:li></html:ul>
+    <html:p>
+  Such that the following properties hold:
+</html:p>
+    <html:ul><html:li>
+    The elements are <html:strong>associative</html:strong> w.r.t the operation, that is:
+    <fr:tex display="block"><![CDATA[
+      \forall  x, y, z \in  M \vdash  (x \cdot  y) \cdot  z = x \cdot  (y \cdot  z)
+    ]]></fr:tex></html:li>
+  <html:li>
+    Composition with the identity element is a <html:strong>unit</html:strong>, that is:
+    <fr:tex display="block"><![CDATA[
+      \forall  x \in  M \vdash  1 \cdot  x = x = x \cdot  1
+    ]]></fr:tex></html:li></html:ul>
   </fr:mainmatter>
   <fr:backmatter>
     <fr:tree show-metadata="false" hidden-when-empty="true">
@@ -70,24 +78,32 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>In algebra a <html:em>monoid</html:em> is a collection (a set) of elements equipped with a binary operation (multiplication) which has the properties of being associative and having a unit (identity) element. Formally, we say tht it is a set <fr:tex display="inline"><![CDATA[M]]></fr:tex> equipped with the structure <fr:link href="/notes/002n/" title="Monoid (algebra)" uri="https://kaierikniermann.github.io/notes/002n/" display-uri="002n" type="local">(1)</fr:link>:</html:p>
-            <html:ul><html:li>A <html:strong>binary operation</html:strong> (or <html:em>multiplication</html:em>) map from the cartesian product of the set with itself to itself, that is:
-  <fr:tex display="block"><![CDATA[
-    (-) \cdot  (-) : M \times  M \to  M
-  ]]></fr:tex></html:li>
-  <html:li>A <html:strong>neutral</html:strong> (or <html:em>identity</html:em>) <html:strong>element</html:strong> 
-  <fr:tex display="block"><![CDATA[
-    1 \in  M
-  ]]></fr:tex></html:li></html:ul>
-            <html:p>Such that the following properties hold:</html:p>
-            <html:ul><html:li>The elements are <html:strong>associative</html:strong> w.r.t the operation, that is:
-  <fr:tex display="block"><![CDATA[
-    \forall  x, y, z \in  M \vdash  (x \cdot  y) \cdot  z = x \cdot  (y \cdot  z)
-  ]]></fr:tex></html:li>
-  <html:li>Composition with the identity element is a <html:strong>unit</html:strong>, that is:
-  <fr:tex display="block"><![CDATA[
-    \forall  x \in  M \vdash  1 \cdot  x = x = x \cdot  1
-  ]]></fr:tex></html:li></html:ul>
+            <html:p>
+  In algebra a <html:em>monoid</html:em> is a collection (a set) of elements equipped with a binary operation (multiplication) which has the properties of being associative and having a unit (identity) element. Formally, we say that it is a set <fr:tex display="inline"><![CDATA[M]]></fr:tex> equipped with the structure <fr:link href="/notes/002n/" title="Monoid (algebra)" uri="https://kaierikniermann.github.io/notes/002n/" display-uri="002n" type="local">(1)</fr:link>:
+</html:p>
+            <html:ul><html:li>
+    A <html:strong>binary operation</html:strong> (or <html:em>multiplication</html:em>) map from the Cartesian product of the set with itself to itself, that is:
+    <fr:tex display="block"><![CDATA[
+      (-) \cdot  (-) : M \times  M \to  M
+    ]]></fr:tex></html:li>
+  <html:li>
+    A <html:strong>neutral</html:strong> (or <html:em>identity</html:em>) <html:strong>element</html:strong> 
+    <fr:tex display="block"><![CDATA[
+      1 \in  M
+    ]]></fr:tex></html:li></html:ul>
+            <html:p>
+  Such that the following properties hold:
+</html:p>
+            <html:ul><html:li>
+    The elements are <html:strong>associative</html:strong> w.r.t the operation, that is:
+    <fr:tex display="block"><![CDATA[
+      \forall  x, y, z \in  M \vdash  (x \cdot  y) \cdot  z = x \cdot  (y \cdot  z)
+    ]]></fr:tex></html:li>
+  <html:li>
+    Composition with the identity element is a <html:strong>unit</html:strong>, that is:
+    <fr:tex display="block"><![CDATA[
+      \forall  x \in  M \vdash  1 \cdot  x = x = x \cdot  1
+    ]]></fr:tex></html:li></html:ul>
           </fr:mainmatter>
         </fr:tree>
       </fr:mainmatter>
@@ -113,24 +129,32 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>In algebra a <html:em>monoid</html:em> is a collection (a set) of elements equipped with a binary operation (multiplication) which has the properties of being associative and having a unit (identity) element. Formally, we say tht it is a set <fr:tex display="inline"><![CDATA[M]]></fr:tex> equipped with the structure <fr:link href="/notes/002n/" title="Monoid (algebra)" uri="https://kaierikniermann.github.io/notes/002n/" display-uri="002n" type="local">(1)</fr:link>:</html:p>
-            <html:ul><html:li>A <html:strong>binary operation</html:strong> (or <html:em>multiplication</html:em>) map from the cartesian product of the set with itself to itself, that is:
-  <fr:tex display="block"><![CDATA[
-    (-) \cdot  (-) : M \times  M \to  M
-  ]]></fr:tex></html:li>
-  <html:li>A <html:strong>neutral</html:strong> (or <html:em>identity</html:em>) <html:strong>element</html:strong> 
-  <fr:tex display="block"><![CDATA[
-    1 \in  M
-  ]]></fr:tex></html:li></html:ul>
-            <html:p>Such that the following properties hold:</html:p>
-            <html:ul><html:li>The elements are <html:strong>associative</html:strong> w.r.t the operation, that is:
-  <fr:tex display="block"><![CDATA[
-    \forall  x, y, z \in  M \vdash  (x \cdot  y) \cdot  z = x \cdot  (y \cdot  z)
-  ]]></fr:tex></html:li>
-  <html:li>Composition with the identity element is a <html:strong>unit</html:strong>, that is:
-  <fr:tex display="block"><![CDATA[
-    \forall  x \in  M \vdash  1 \cdot  x = x = x \cdot  1
-  ]]></fr:tex></html:li></html:ul>
+            <html:p>
+  In algebra a <html:em>monoid</html:em> is a collection (a set) of elements equipped with a binary operation (multiplication) which has the properties of being associative and having a unit (identity) element. Formally, we say that it is a set <fr:tex display="inline"><![CDATA[M]]></fr:tex> equipped with the structure <fr:link href="/notes/002n/" title="Monoid (algebra)" uri="https://kaierikniermann.github.io/notes/002n/" display-uri="002n" type="local">(1)</fr:link>:
+</html:p>
+            <html:ul><html:li>
+    A <html:strong>binary operation</html:strong> (or <html:em>multiplication</html:em>) map from the Cartesian product of the set with itself to itself, that is:
+    <fr:tex display="block"><![CDATA[
+      (-) \cdot  (-) : M \times  M \to  M
+    ]]></fr:tex></html:li>
+  <html:li>
+    A <html:strong>neutral</html:strong> (or <html:em>identity</html:em>) <html:strong>element</html:strong> 
+    <fr:tex display="block"><![CDATA[
+      1 \in  M
+    ]]></fr:tex></html:li></html:ul>
+            <html:p>
+  Such that the following properties hold:
+</html:p>
+            <html:ul><html:li>
+    The elements are <html:strong>associative</html:strong> w.r.t the operation, that is:
+    <fr:tex display="block"><![CDATA[
+      \forall  x, y, z \in  M \vdash  (x \cdot  y) \cdot  z = x \cdot  (y \cdot  z)
+    ]]></fr:tex></html:li>
+  <html:li>
+    Composition with the identity element is a <html:strong>unit</html:strong>, that is:
+    <fr:tex display="block"><![CDATA[
+      \forall  x \in  M \vdash  1 \cdot  x = x = x \cdot  1
+    ]]></fr:tex></html:li></html:ul>
           </fr:mainmatter>
         </fr:tree>
       </fr:mainmatter>

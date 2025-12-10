@@ -9,19 +9,39 @@
 \strong{Which of the following are syntactically valid formulas in first order logic?}
 
 \ol{
-  \li{#{f(x)}}
-  \li{#{p(x)}}
-  \li{#{p(f(x))}}
-  \li{#{p(p(x))}}
-  \li{#{p(f(f(x)))}}
+  \li{
+    #{f(x)}
+  }
+  \li{
+    #{p(x)}
+  }
+  \li{
+    #{p(f(x))}
+  }
+  \li{
+    #{p(p(x))}
+  }
+  \li{
+    #{p(f(f(x)))}
+  }
 }
 
 \solution{
   \ol{
-    \li{#{f(x)}: \em{Invalid}, as #{f} is a function symbol and cannot stand alone as a formula.}
-    \li{#{p(x)}: \em{Valid}, as #{p} is a relation symbol applied to the term #{x}.}
-    \li{#{p(f(x))}: \em{Valid}, as #{f(x)} is a term and #{p} is a relation symbol applied to that term.}
-    \li{#{p(p(x))}: \em{Invalid}, as #{p(x)} is a formula, not a term, and cannot be an argument to #{p}.}
-    \li{#{p(f(f(x)))}: \em{Valid}, as #{f(x)} is a term, and applying #{f} again yields another term, which can be an argument to #{p}.}
+    \li{
+      #{f(x)}: \em{Invalid}, as #{f} is a function symbol and cannot stand alone as a formula.
+    }
+    \li{
+      #{p(x)}: \em{Valid}, as #{p} is a relation symbol applied to the term #{x}.
+    }
+    \li{
+      #{p(f(x))}: \em{Valid}, as #{f(x)} is a term and #{p} is a relation symbol applied to that term.
+    }
+    \li{
+      #{p(p(x))}: \em{Invalid}, as #{p(x)} is a formula, not a term, and cannot be an argument to #{p}.
+    }
+    \li{
+      #{p(f(f(x)))}: \em{Valid}, as #{f(x)} is a term, and applying #{f} again yields another term, which can be an argument to #{p}.
+    }
   }
 }

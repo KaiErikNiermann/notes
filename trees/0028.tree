@@ -6,8 +6,12 @@
 
 \title{Fixpoint}
 
-\p{A \em{fixpoint} (or \em{fixed point}) of a function #{f: S \to S} is an element #{x \in S} such that applying the function #{f} to #{x} returns #{x} itself. In other words, #{x} is a fixpoint of #{f} if the following condition holds: [(1)](baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024)}
+\p{
+  A \em{fixpoint} (or \em{fixed point}) of a function #{f: S \to S} is an element #{x \in S} such that applying the function #{f} to #{x} returns #{x} itself. In other words, #{x} is a fixpoint of #{f} if the following condition holds: [(1)](baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024)
+}
 ##{
   f(x) = x
 }
-\p{This means that when you input #{x} into the function #{f}, the output is the same as the input.}
+\p{
+  This means that when you input #{x} into the function #{f}, the output is the same as the input.
+}

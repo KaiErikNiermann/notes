@@ -12,7 +12,9 @@
 ##{
   F = C_1 \land C_2 \land ... \land C_n
 }
-\p{Where each clause #{C_i} is of the form:}
+\p{
+  Where each clause #{C_i} is of the form:
+}
 ##{
   C_i = L_{i1} \lor L_{i2} \lor ... \lor L_{im}
 }

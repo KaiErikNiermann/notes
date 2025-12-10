@@ -20,8 +20,8 @@
 </html:p>
     <fr:tex display="block"><![CDATA[
   \begin {align*}
-    \neg  (p \land  q) &\equiv  \neg  p \lor  \neg  q \\
-    \neg  (p \lor  q) &\equiv  \neg  p \land  \neg  q
+  \neg  (p \land  q) &\equiv  \neg  p \lor  \neg  q \\
+  \neg  (p \lor  q) &\equiv  \neg  p \land  \neg  q
   \end {align*}
 ]]></fr:tex>
   </fr:mainmatter>
@@ -61,7 +61,9 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>A formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is in Negation Normal Form (NNF) if the negation operator <fr:tex display="inline"><![CDATA[\neg ]]></fr:tex> is onyl applied to literlas (i.e., propositional variables or their negations), and the only other allowed operators are conjunction <fr:tex display="inline"><![CDATA[\land ]]></fr:tex> and disjunction <fr:tex display="inline"><![CDATA[\lor ]]></fr:tex>. A nice way to think about it is that we can never have the case where we need to apply <fr:link href="/notes/000g/" title="De Morgan's Laws" uri="https://kaierikniermann.github.io/notes/000g/" display-uri="000g" type="local">De Morgan's laws</fr:link> to push negations further down the formula tree. So all negations come pre-distributed to the literals.</html:p>
+            <html:p>
+  A formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is in Negation Normal Form (NNF) if the negation operator <fr:tex display="inline"><![CDATA[\neg ]]></fr:tex> is only applied to literals (i.e., propositional variables or their negations), and the only other allowed operators are conjunction <fr:tex display="inline"><![CDATA[\land ]]></fr:tex> and disjunction <fr:tex display="inline"><![CDATA[\lor ]]></fr:tex>. A nice way to think about it is that we can never have the case where we need to apply <fr:link href="/notes/000g/" title="De Morgan's Laws" uri="https://kaierikniermann.github.io/notes/000g/" display-uri="000g" type="local">De Morgan's laws</fr:link> to push negations further down the formula tree. So all negations come pre-distributed to the literals.
+</html:p>
           </fr:mainmatter>
         </fr:tree>
         <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
@@ -84,21 +86,32 @@
   <html:li><fr:tex display="inline"><![CDATA[\neg  (p \land  q) \equiv  \neg  p \lor  \neg  q]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[p \equiv  p \lor  q]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[\neg  \neg  p \equiv  p]]></fr:tex></html:li></html:ol>
- 
-   
-   
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
-  <html:ol><html:li>True. Both sides are always false.</html:li>
-    <html:li>True. Both sides are always true.</html:li>
-    <html:li>False. Left side is always false, right side is always true.</html:li>
-    <html:li>True. This is <fr:link href="/notes/000g/" title="De Morgan's Laws" uri="https://kaierikniermann.github.io/notes/000g/" display-uri="000g" type="local">De Morgan's law</fr:link>. Good to remember 
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>
+      True. Both sides are always false.
+    </html:li>
+    <html:li>
+      True. Both sides are always true.
+    </html:li>
+    <html:li>
+      False. Left side is always false, right side is always true.
+    </html:li>
+    <html:li>
+      True. This is <fr:link href="/notes/000g/" title="De Morgan's Laws" uri="https://kaierikniermann.github.io/notes/000g/" display-uri="000g" type="local">De Morgan's law</fr:link>. Good to remember 
       <fr:tex display="block"><![CDATA[
         \neg  (p \land  q) \equiv  \neg  p \lor  \neg  q
       ]]></fr:tex></html:li>
-    <html:li>False. Left side is true when p is true, right side is true when either p or q is true.</html:li>
-    <html:li>True. Double negation elimination.</html:li></html:ol>
+    <html:li>
+      False. Left side is true when p is true, right side is true when either p or q is true.
+    </html:li>
+    <html:li>
+      True. Double negation elimination.
+    </html:li></html:ol>
 </fr:mainmatter></fr:tree>
- 
+  
 </fr:mainmatter>
         </fr:tree>
       </fr:mainmatter>

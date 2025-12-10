@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>7</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/004h/</fr:uri>
+    <fr:display-uri>004h</fr:display-uri>
+    <fr:route>/notes/004h/</fr:route>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter><html:p>
+  We can incorporate arrays into Hoare logic by extending the derivation rules with the theory of arrays <fr:tex display="inline"><![CDATA[T_{\text {A}}]]></fr:tex>, they key inference rule we add is as follows:
+</html:p>
+  
+    
+    <fr:resource hash="8d7e406aeaeb61bc19b9c3860b4a6c4d"><fr:resource-content><html:img src="/notes/8d7e406aeaeb61bc19b9c3860b4a6c4d.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule *[right=ArrayAssgn]{}{
+    \vdash  \{Q[a \mapsto  a\langle  e_1 \lhd  e_2 \rangle ]\}\ a[e_1] := e_2\ \{Q\}
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+  Conceptually this is similar to the semantics of the assignment rule. In that we are saying if our assertion <fr:tex display="inline"><![CDATA[Q]]></fr:tex> holds under the substition:
+</html:p><fr:tex display="block"><![CDATA[
+  a \mapsto  a \langle  e_1 \lhd  e_2 \rangle 
+]]></fr:tex><html:p>
+  which says that the array <fr:tex display="inline"><![CDATA[a]]></fr:tex> corresponds to the <html:strong>subtituted array</html:strong> (NOT element) where in the substituted array the value at the position <fr:tex display="inline"><![CDATA[e_1]]></fr:tex> is set to the expression <fr:tex display="inline"><![CDATA[e_2]]></fr:tex>.
+</html:p><html:p>
+  Then after the assignment the condition holds by itself. Again on a high level this just says that if we want some assertion on the memory to hold after an array assignment - for the hoare triple to be valid - we have to make sure that this same condition can hold under the case where the array is substituted by itself with the positions altered.
+</html:p></fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

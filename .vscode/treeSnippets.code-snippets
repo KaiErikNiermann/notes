@@ -515,6 +515,8 @@
   "Subset or Equal": { "prefix": ["\\subseteq"], "body": ["\\subseteq"], "description": "Subset or equal" },
   "Element Of": { "prefix": ["\\in"], "body": ["\\in"], "description": "Element of" },
   "Not Element Of": { "prefix": ["\\notin"], "body": ["\\notin"], "description": "Not element of" },
+  "Left triangle": { "prefix": ["\\trileft", "\\lhd"], "body": ["\\lhd"], "description": "Left triangle" },
+  "Right triangle": { "prefix": ["\\triright", "\\rhd"], "body": ["\\rhd"], "description": "right triangle" },
 
   // ============================================================
   // ARROWS

@@ -6,11 +6,15 @@
 
 \title{Theory of Equality #{T}}
 
-\p{The \strong{theory of equality} #{T_=} is a first order theory over the signature #{\Sigma_=} which contains:}
+\p{
+  The \strong{theory of equality} #{T_=} is a first order theory over the signature #{\Sigma_=} which contains:
+}
 ##{
   \sigma_= : \{=, s\}
 }
-\p{Where #{=} is a binary relation symbol and #{s} is any constant function or predicate symbol. The axioms of the theory of equality are:}
+\p{
+  Where #{=} is a binary relation symbol and #{s} is any constant function or predicate symbol. The axioms of the theory of equality are:
+}
 
 \tex{
   \usepackage{eulervm}

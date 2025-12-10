@@ -13,7 +13,9 @@
   \title{The category}
   \subtree{
     \title{The data}
-    \p{We want to start off by defining the data of our category. On a high level we want to define a category with two objects, \cf{true} and \cf{false}. Starting with the object representation we have:}
+    \p{
+      We want to start off by defining the data of our category. On a high level we want to define a category with two objects, \cf{true} and \cf{false}. Starting with the object representation we have:
+    }
     \codeblock{lean}{
       /-- A wrapper type to make a custom category on Bool -/
       structure BoolCat : Type where
@@ -24,7 +26,9 @@
       def BoolCat.tt : BoolCat := ⟨true⟩
       def BoolCat.ff : BoolCat := ⟨false⟩
     }
-    \p{Next we want to define the morphisms between these objects. For each pair of objects we express 3 kinds of morphisms: the identity morphism, a morphism from \cf{false} to \cf{true}, \cf{false}from \cf{true} to \cf{false}. We can express this in Lean as follows:}
+    \p{
+      Next we want to define the morphisms between these objects. For each pair of objects we express 3 kinds of morphisms: the identity morphism, a morphism from \cf{false} to \cf{true}, \cf{false}from \cf{true} to \cf{false}. We can express this in Lean as follows:
+    }
     \codeblock{lean}{
       /-- Morphisms: we allow identity on each, plus iso between them -/
       inductive BCHom : BoolCat → BoolCat → Type
@@ -32,19 +36,23 @@
         | swap : BCHom BoolCat.tt BoolCat.ff
         | swapInv : BCHom BoolCat.ff BoolCat.tt
     }
-    \p{Formally what this describes is a kind of piecewise function:}
+    \p{
+      Formally what this describes is a kind of piecewise function:
+    }
     ##{
       \text{f}(x, y) =
       \begin{cases}
-        1_x &: x \to x & \texttt{if } x = y \\
-        \texttt{swap} &: \text{tt} \to \text{ff} & \texttt{if } x = \text{tt} \land y = \text{ff} \\
-        \texttt{swapInv} &: \text{ff} \to \text{tt} & \texttt{if } x = \text{ff} \land y = \text{tt} 
+      1_x &: x \to x & \texttt{if } x = y \\
+      \texttt{swap} &: \text{tt} \to \text{ff} & \texttt{if } x = \text{tt} \land y = \text{ff} \\
+      \texttt{swapInv} &: \text{ff} \to \text{tt} & \texttt{if } x = \text{ff} \land y = \text{tt}
       \end{cases}
     }
   }
   \subtree{
     \title{Composition and Category instance}
-    \p{Now we have some notion of objects and morphisms between them, we can move on to defining composition of morphisms.}
+    \p{
+      Now we have some notion of objects and morphisms between them, we can move on to defining composition of morphisms.
+    }
     \codeblock{lean}{
       def comp : {X Y Z : BoolCat} → BCHom Y Z → BCHom X Y → BCHom X Z
         | _, _, _, id _, f => f
@@ -52,7 +60,9 @@
         | _, _, _, swapInv, swap => id _
         | _, _, _, swap, swapInv => id _
     }
-    \p{This defines composition by pattern matching on the possible morphism combinations. Note that we have to explicitly handle the cases where we compose \cf{swap} and \cf{swapInv} to get the identity morphism on the respective objects. To construct our category we have to provide proofs for the category axioms, namely associativity and identity.}
+    \p{
+      This defines composition by pattern matching on the possible morphism combinations. Note that we have to explicitly handle the cases where we compose \cf{swap} and \cf{swapInv} to get the identity morphism on the respective objects. To construct our category we have to provide proofs for the category axioms, namely associativity and identity.
+    }
     \codeblock{lean}{
       @[simp] theorem id_comp' {X Y : BoolCat} (f : BCHom X Y) 
           : comp (id Y) f = f := by
@@ -66,13 +76,15 @@
           comp h (comp g f) = comp (comp h g) f := by
         cases f <;> cases g <;> cases h <;> rfl
     }
-    \p{With all this in place we can finally define our category instance:}
+    \p{
+      With all this in place we can finally define our category instance:
+    }
     \codeblock{lean}{
       instance : Category BoolCat where
         -- The data
         Hom     := BCHom
-        id      := BCHom.id
-        comp    := fun f g => BCHom.comp g f
+        id      := BCHom. id
+        comp    := fun f g => BCHom. comp g f
 
         -- Category laws
         id_comp := fun f     => BCHom.comp_id' f
@@ -82,7 +94,9 @@
   }
   \subtree{
     \title{Isomorphisms in the Bool category}
-    \p{Since we clearly see that the morphisms \cf{swap} and \cf{swapInv} are inverses of each other, we can construct an isomorphism between the two objects \cf{tt} and \cf{ff} as follows:}
+    \p{
+      Since we clearly see that the morphisms \cf{swap} and \cf{swapInv} are inverses of each other, we can construct an isomorphism between the two objects \cf{tt} and \cf{ff} as follows:
+    }
     \codeblock{lean}{
       def ttFfIso : BoolCat.tt ≅ BoolCat.ff where
         hom := BCHom.swap
@@ -90,7 +104,9 @@
         hom_inv_id := rfl
         inv_hom_id := rfl
     }
-    \p{We can see that lean uses a similar notation for isomorphisms as we do in our notes, namely the \cf{≅} symbol between the two objects. We can see that an isomorphism consists of a \cf{hom} and an \cf{inv} morphism along with proofs that composing them in either order yields the respective identity morphism. In Lean4 its defined as follows:}
+    \p{
+      We can see that lean uses a similar notation for isomorphism as we do in our notes, namely the \cf{≅} symbol between the two objects. We can see that an isomorphism consists of a \cf{hom} and an \cf{inv} morphism along with proofs that composing them in either order yields the respective identity morphism. In Lean4 its defined as follows:
+    }
     \codeblock{lean}{
       structure Iso {C : Type u} [Category.{v} C] (X Y : C) where
         /-- The forward direction of an isomorphism. -/
@@ -107,21 +123,27 @@
       /-- Notation for an isomorphism in a category. -/
       infixr:10 " ≅ " => Iso 
     }
-    \p{We can check out some of the properties of our isomorphism like so:}
+    \p{
+      We can check out some properties of our isomorphism like so:
+    }
     \codeblock{lean}{
       -- Verify it's an isomorphism
       #check ttFfIso           -- BoolCat.tt ≅ BoolCat.ff
       #check ttFfIso.hom       -- BoolCat.tt ⟶ BoolCat.ff
       #check ttFfIso.inv       -- BoolCat.ff ⟶ BoolCat.tt
     }
-    \p{Furthermore we can also show the identity isomorphism #{tt \cong tt}:}
+    \p{
+      Furthermore we can also show the identity isomorphism #{tt \cong tt}:
+    }
     \codeblock{lean}{
       -- Every object is isomorphic to itself (trivially)
       def ttSelfIso : BoolCat.tt ≅ BoolCat.tt := Iso.refl _
 
       #check ttSelfIso -- BoolCat.tt ≅ BoolCat.tt
     }
-    \p{Finally for the sake of completeness we can also demonstrate the isomorphism laws in examples as so:}
+    \p{
+      Finally for the sake of completeness we can also demonstrate the isomorphism laws in examples as so:
+    }
     \codeblock{lean}{
       -- The isomorphism laws
       example : ttFfIso.hom ≫ ttFfIso.inv = 𝟙 BoolCat.tt 

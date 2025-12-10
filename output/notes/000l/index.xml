@@ -14,13 +14,15 @@
     <fr:title text="Converting to DNF">Converting to DNF</fr:title>
     <fr:taxon>Quiz</fr:taxon>
   </fr:frontmatter>
-  <fr:mainmatter><html:p>Convert the following formula into Disjunctive Normal Form (DNF):</html:p><fr:tex display="block"><![CDATA[
+  <fr:mainmatter><html:p>
+  Convert the following formula into Disjunctive Normal Form (DNF):
+</html:p><fr:tex display="block"><![CDATA[
   (q \lor  \neg  \neg  p) \land  (\neg  r \to  s)
 ]]></fr:tex>
- 
-   
-   
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <fr:resource hash="0ed774c5f98ccbf4fe2a8d866cb96b0e"><fr:resource-content><html:img src="/notes/0ed774c5f98ccbf4fe2a8d866cb96b0e.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
     \usepackage {amsmath}
     \usepackage {eulervm}
@@ -36,7 +38,7 @@
     }
   ]]></fr:resource-source></fr:resource>
 </fr:mainmatter></fr:tree>
- 
+  
 </fr:mainmatter>
   <fr:backmatter>
     <fr:tree show-metadata="false" hidden-when-empty="true">
@@ -121,21 +123,32 @@
   <html:li><fr:tex display="inline"><![CDATA[\neg  (p \land  q) \equiv  \neg  p \lor  \neg  q]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[p \equiv  p \lor  q]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[\neg  \neg  p \equiv  p]]></fr:tex></html:li></html:ol>
- 
-   
-   
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
-  <html:ol><html:li>True. Both sides are always false.</html:li>
-    <html:li>True. Both sides are always true.</html:li>
-    <html:li>False. Left side is always false, right side is always true.</html:li>
-    <html:li>True. This is <fr:link href="/notes/000g/" title="De Morgan's Laws" uri="https://kaierikniermann.github.io/notes/000g/" display-uri="000g" type="local">De Morgan's law</fr:link>. Good to remember 
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>
+      True. Both sides are always false.
+    </html:li>
+    <html:li>
+      True. Both sides are always true.
+    </html:li>
+    <html:li>
+      False. Left side is always false, right side is always true.
+    </html:li>
+    <html:li>
+      True. This is <fr:link href="/notes/000g/" title="De Morgan's Laws" uri="https://kaierikniermann.github.io/notes/000g/" display-uri="000g" type="local">De Morgan's law</fr:link>. Good to remember 
       <fr:tex display="block"><![CDATA[
         \neg  (p \land  q) \equiv  \neg  p \lor  \neg  q
       ]]></fr:tex></html:li>
-    <html:li>False. Left side is true when p is true, right side is true when either p or q is true.</html:li>
-    <html:li>True. Double negation elimination.</html:li></html:ol>
+    <html:li>
+      False. Left side is true when p is true, right side is true when either p or q is true.
+    </html:li>
+    <html:li>
+      True. Double negation elimination.
+    </html:li></html:ol>
 </fr:mainmatter></fr:tree>
- 
+  
 </fr:mainmatter>
                 </fr:tree>
               </fr:mainmatter>
@@ -166,7 +179,9 @@
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>A formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is in Negation Normal Form (NNF) if the negation operator <fr:tex display="inline"><![CDATA[\neg ]]></fr:tex> is onyl applied to literlas (i.e., propositional variables or their negations), and the only other allowed operators are conjunction <fr:tex display="inline"><![CDATA[\land ]]></fr:tex> and disjunction <fr:tex display="inline"><![CDATA[\lor ]]></fr:tex>. A nice way to think about it is that we can never have the case where we need to apply <fr:link href="/notes/000g/" title="De Morgan's Laws" uri="https://kaierikniermann.github.io/notes/000g/" display-uri="000g" type="local">De Morgan's laws</fr:link> to push negations further down the formula tree. So all negations come pre-distributed to the literals.</html:p>
+                    <html:p>
+  A formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is in Negation Normal Form (NNF) if the negation operator <fr:tex display="inline"><![CDATA[\neg ]]></fr:tex> is only applied to literals (i.e., propositional variables or their negations), and the only other allowed operators are conjunction <fr:tex display="inline"><![CDATA[\land ]]></fr:tex> and disjunction <fr:tex display="inline"><![CDATA[\lor ]]></fr:tex>. A nice way to think about it is that we can never have the case where we need to apply <fr:link href="/notes/000g/" title="De Morgan's Laws" uri="https://kaierikniermann.github.io/notes/000g/" display-uri="000g" type="local">De Morgan's laws</fr:link> to push negations further down the formula tree. So all negations come pre-distributed to the literals.
+</html:p>
                   </fr:mainmatter>
                 </fr:tree>
                 <fr:tree show-metadata="false">
@@ -187,16 +202,24 @@
   <html:li><fr:tex display="inline"><![CDATA[p \lor  (\neg  q  \land  (r \lor  \neg  s))]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[p \lor  (\neg  q \land  \neg  (\neg  r \land  s))]]></fr:tex></html:li>
   <html:li><fr:tex display="inline"><![CDATA[p \lor  (\neg  q \land  (\neg  \neg  r \lor  \neg  s)) ]]></fr:tex></html:li></html:ol>
- 
-   
-   
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
-  <html:ol><html:li>No. The implication operator <fr:tex display="inline"><![CDATA[\to ]]></fr:tex> is not allowed in NNF.</html:li>
-    <html:li>Yes. Negations are only applied to literals, and only <fr:tex display="inline"><![CDATA[\land ]]></fr:tex> and <fr:tex display="inline"><![CDATA[\lor ]]></fr:tex> are used.</html:li>
-    <html:li>No. The negation operator <fr:tex display="inline"><![CDATA[\neg ]]></fr:tex> is applied to a non-literal formula <fr:tex display="inline"><![CDATA[(\neg  r \land  s)]]></fr:tex>.</html:li>
-    <html:li>No. The double negation <fr:tex display="inline"><![CDATA[\neg  \neg  r]]></fr:tex> is not allowed in NNF. Important to remember since that can trip you up.</html:li></html:ol>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>
+      No. The implication operator <fr:tex display="inline"><![CDATA[\to ]]></fr:tex> is not allowed in NNF.
+    </html:li>
+    <html:li>
+      Yes. Negations are only applied to literals, and only <fr:tex display="inline"><![CDATA[\land ]]></fr:tex> and <fr:tex display="inline"><![CDATA[\lor ]]></fr:tex> are used.
+    </html:li>
+    <html:li>
+      No. The negation operator <fr:tex display="inline"><![CDATA[\neg ]]></fr:tex> is applied to a non-literal formula <fr:tex display="inline"><![CDATA[(\neg  r \land  s)]]></fr:tex>.
+    </html:li>
+    <html:li>
+      No. The double negation <fr:tex display="inline"><![CDATA[\neg  \neg  r]]></fr:tex> is not allowed in NNF. Important to remember since that can trip you up.
+    </html:li></html:ol>
 </fr:mainmatter></fr:tree>
- 
+  
 </fr:mainmatter>
                 </fr:tree>
               </fr:mainmatter>
@@ -227,11 +250,13 @@
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>The distributive law of conjunction over disjunction states that for any formulas <fr:tex display="inline"><![CDATA[F]]></fr:tex>, <fr:tex display="inline"><![CDATA[G]]></fr:tex>, and <fr:tex display="inline"><![CDATA[H]]></fr:tex>, the following equivalence holds:</html:p>
+                    <html:p>
+  The distributive law of conjunction over disjunction states that for any formulas <fr:tex display="inline"><![CDATA[F]]></fr:tex>, <fr:tex display="inline"><![CDATA[G]]></fr:tex>, and <fr:tex display="inline"><![CDATA[H]]></fr:tex>, the following equivalence holds:
+</html:p>
                     <fr:tex display="block"><![CDATA[
   \begin {align*}
-    F \land  (G \lor  H) &\equiv  (F \land  G) \lor  (F \land  H) \\
-    (F \lor  G) \land  H &\equiv  (F \land  H) \lor  (G \land  H)
+  F \land  (G \lor  H) &\equiv  (F \land  G) \lor  (F \land  H) \\
+  (F \lor  G) \land  H &\equiv  (F \land  H) \lor  (G \land  H)
   \end {align*}
 ]]></fr:tex>
                   </fr:mainmatter>
@@ -251,11 +276,13 @@
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>To eliminate implications (<fr:tex display="inline"><![CDATA[\to ]]></fr:tex>) and biconditionals (<fr:tex display="inline"><![CDATA[\leftrightarrow ]]></fr:tex>) from a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex>, we can use the following equivalences:</html:p>
+                    <html:p>
+  To eliminate implications (<fr:tex display="inline"><![CDATA[\to ]]></fr:tex>) and biconditionals (<fr:tex display="inline"><![CDATA[\leftrightarrow ]]></fr:tex>) from a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex>, we can use the following equivalences:
+</html:p>
                     <fr:tex display="block"><![CDATA[
   \begin {align*}
-    p \to  q &\equiv  \neg  p \lor  q \\
-    p \leftrightarrow  q &\equiv  (p \land  q) \lor  (\neg  p \land  \neg  q)
+  p \to  q &\equiv  \neg  p \lor  q \\
+  p \leftrightarrow  q &\equiv  (p \land  q) \lor  (\neg  p \land  \neg  q)
   \end {align*}
 ]]></fr:tex>
                   </fr:mainmatter>
@@ -275,11 +302,15 @@
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>A formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is in Disjunctive Normal Form (DNF) if it is a disjunction of one or more conjunctions of one or more literals. In other words, <fr:tex display="inline"><![CDATA[F]]></fr:tex> can be expressed as a series of clauses connected by disjunctions (<fr:tex display="inline"><![CDATA[\lor ]]></fr:tex>), where each clause is a series of literals connected by conjunctions (<fr:tex display="inline"><![CDATA[\land ]]></fr:tex>). A literal is either a propositional variable or its negation.</html:p>
+                    <html:p>
+  A formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> is in Disjunctive Normal Form (DNF) if it is a disjunction of one or more conjunctions of one or more literals. In other words, <fr:tex display="inline"><![CDATA[F]]></fr:tex> can be expressed as a series of clauses connected by disjunctions (<fr:tex display="inline"><![CDATA[\lor ]]></fr:tex>), where each clause is a series of literals connected by conjunctions (<fr:tex display="inline"><![CDATA[\land ]]></fr:tex>). A literal is either a propositional variable or its negation.
+</html:p>
                     <fr:tex display="block"><![CDATA[
   F = C_1 \lor  C_2 \lor  ... \lor  C_n
 ]]></fr:tex>
-                    <html:p>Where each clause <fr:tex display="inline"><![CDATA[C_i]]></fr:tex> is of the form:</html:p>
+                    <html:p>
+  Where each clause <fr:tex display="inline"><![CDATA[C_i]]></fr:tex> is of the form:
+</html:p>
                     <fr:tex display="block"><![CDATA[
   C_i = L_{i1} \land  L_{i2} \land  ... \land  L_{im}
 ]]></fr:tex>
@@ -299,13 +330,15 @@
                     <fr:title text="Converting to DNF">Converting to DNF</fr:title>
                     <fr:taxon>Quiz</fr:taxon>
                   </fr:frontmatter>
-                  <fr:mainmatter><html:p>Convert the following formula into Disjunctive Normal Form (DNF):</html:p><fr:tex display="block"><![CDATA[
+                  <fr:mainmatter><html:p>
+  Convert the following formula into Disjunctive Normal Form (DNF):
+</html:p><fr:tex display="block"><![CDATA[
   (q \lor  \neg  \neg  p) \land  (\neg  r \to  s)
 ]]></fr:tex>
- 
-   
-   
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <fr:resource hash="0ed774c5f98ccbf4fe2a8d866cb96b0e"><fr:resource-content><html:img src="/notes/0ed774c5f98ccbf4fe2a8d866cb96b0e.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
     \usepackage {amsmath}
     \usepackage {eulervm}
@@ -321,7 +354,7 @@
     }
   ]]></fr:resource-source></fr:resource>
 </fr:mainmatter></fr:tree>
- 
+  
 </fr:mainmatter>
                 </fr:tree>
               </fr:mainmatter>
@@ -352,7 +385,9 @@
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>Two formulas are said to be <html:strong>equisatisfiable</html:strong> if either both formulas are satisfiable or both are unsatisfiable. In other words, there exists an assignment of truth values to the variables that makes one formula true if and only if there exists; not necessarily the same assignment; that makes the other formula true. Equisatisfiability is a weaker condition than logical equivalence, as equisatisfiable formulas may not have the same truth values under all assignments, but they share the same satisfiability status.</html:p>
+                    <html:p>
+  Two formulas are said to be <html:strong>equisatisfiable</html:strong> if either both formulas are satisfiable or both are unsatisfiable. In other words, there exists an assignment of truth values to the variables that makes one formula true if and only if there exists; not necessarily the same assignment; that makes the other formula true. Equisatisfiability is a weaker condition than logical equivalence, as equisatisfiable formulas may not have the same truth values under all assignments, but they share the same satisfiability status.
+</html:p>
                     <fr:tex display="block"><![CDATA[
   \texttt {equisat}(F, G) \iff  (\exists  I.\ I \models  F) \iff  (\exists  J.\ J \models  G)
 ]]></fr:tex>
@@ -372,16 +407,18 @@
                     <fr:title text="Equisatisfiability">Equisatisfiability</fr:title>
                     <fr:taxon>Quiz</fr:taxon>
                   </fr:frontmatter>
-                  <fr:mainmatter><html:p>If a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> and <fr:tex display="inline"><![CDATA[G]]></fr:tex> are equisatisfiable, then are they equivalent?</html:p>
- 
-   
-   
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+                  <fr:mainmatter><html:p>
+  If a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> and <fr:tex display="inline"><![CDATA[G]]></fr:tex> are equisatisfiable, then are they equivalent?
+</html:p>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   No. We can answer this in a few different ways. In the most direct sense they are just definitionally not the same thing, in that equivalence requires that both formulas have the same truth value under all interpretations, whereas equisatisfiability only requires that both formulas have <html:em>a</html:em> satisfying interpretation or both be unsatisfiable.
 
-  Another way to see it is that in an abstract sense equivalence describes an object-level relationship between formulas, whereas equisatisfiability describes a meta-level relationship about the existence of satisfying interpretations. Thus they are fundamentally different kinds of relationships.
+  Another way to see it is that in an abstract sense equivalence describes an object-level relationship between formulas, whereas equisatisfiability describes a meta-level relationship about the existence of satisfying interpretations. Thus, they are fundamentally different kinds of relationships.
 </fr:mainmatter></fr:tree>
- 
+  
 </fr:mainmatter>
                 </fr:tree>
               </fr:mainmatter>
@@ -418,7 +455,9 @@
                     <fr:tex display="block"><![CDATA[
   F = C_1 \land  C_2 \land  ... \land  C_n
 ]]></fr:tex>
-                    <html:p>Where each clause <fr:tex display="inline"><![CDATA[C_i]]></fr:tex> is of the form:</html:p>
+                    <html:p>
+  Where each clause <fr:tex display="inline"><![CDATA[C_i]]></fr:tex> is of the form:
+</html:p>
                     <fr:tex display="block"><![CDATA[
   C_i = L_{i1} \lor  L_{i2} \lor  ... \lor  L_{im}
 ]]></fr:tex>
@@ -459,17 +498,23 @@
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>Tseytin's transformation is a method used in propositional logic to convert any given formula into an equisatisfiable formula in <fr:link href="/notes/000n/" title="Conjunctive Normal Form (CNF)" uri="https://kaierikniermann.github.io/notes/000n/" display-uri="000n" type="local">Conjunctive Normal Form (CNF)</fr:link>. The key idea behind Tseytin's transformation is to introduce new variables to represent subformulas of the original formula, thereby avoiding <fr:link href="/notes/000m/" title="Exponential Blow up problem" uri="https://kaierikniermann.github.io/notes/000m/" display-uri="000m" type="local">an exponential increase in size</fr:link> that can occur with naive CNF conversion methods. There are two key properties of Tseytin's for a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> and its Tseytin transformation <fr:tex display="inline"><![CDATA[F']]></fr:tex>:</html:p>
-                    <html:ol><html:li><html:strong>unsatisfiability:</html:strong> <fr:tex display="inline"><![CDATA[F]]></fr:tex> is unsatisfiable if and only if <fr:tex display="inline"><![CDATA[F']]></fr:tex> is unsatisfiable.</html:li>
-  <html:li><html:strong>model correspondence:</html:strong> For every satisfying assignment (model) of <fr:tex display="inline"><![CDATA[F']]></fr:tex>, there exists a corresponding satisfying assignment of <fr:tex display="inline"><![CDATA[F]]></fr:tex>, and vice versa, when restricted to the original variables of <fr:tex display="inline"><![CDATA[F]]></fr:tex>.</html:li></html:ol>
-                    <html:p>To demonstrate how it works lets consider the following formula</html:p>
+                    <html:p>
+  Tseytin's transformation is a method used in propositional logic to convert any given formula into an equisatisfiable formula in <fr:link href="/notes/000n/" title="Conjunctive Normal Form (CNF)" uri="https://kaierikniermann.github.io/notes/000n/" display-uri="000n" type="local">Conjunctive Normal Form (CNF)</fr:link>. The key idea behind Tseytin's transformation is to introduce new variables to represent subformulas of the original formula, thereby avoiding <fr:link href="/notes/000m/" title="Exponential Blow up problem" uri="https://kaierikniermann.github.io/notes/000m/" display-uri="000m" type="local">an exponential increase in size</fr:link> that can occur with naive CNF conversion methods. There are two key properties of Tseytin's for a formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> and its Tseytin transformation <fr:tex display="inline"><![CDATA[F']]></fr:tex>:
+</html:p>
+                    <html:ol><html:li><html:strong>unsatisfiability:</html:strong> <fr:tex display="inline"><![CDATA[F]]></fr:tex> is unsatisfiable if and only if <fr:tex display="inline"><![CDATA[F']]></fr:tex> is unsatisfiable.
+  </html:li>
+  <html:li><html:strong>model correspondence:</html:strong> For every satisfying assignment (model) of <fr:tex display="inline"><![CDATA[F']]></fr:tex>, there exists a corresponding satisfying assignment of <fr:tex display="inline"><![CDATA[F]]></fr:tex>, and vice versa, when restricted to the original variables of <fr:tex display="inline"><![CDATA[F]]></fr:tex>.
+  </html:li></html:ol>
+                    <html:p>
+  To demonstrate how it works lets consider the following formula
+</html:p>
                     <fr:tex display="block"><![CDATA[
   \phi  = ((p \lor  q ) \land  r) \to  (\neg  s)
 ]]></fr:tex>
                     <html:ol><html:li><html:strong>Subformula identification:</html:strong> Identify the subformulas of <fr:tex display="inline"><![CDATA[\phi ]]></fr:tex> and assign a new variable to each subformula. For our example, we can identify the following subformulas and assign new variables:
     <fr:tex display="block"><![CDATA[
       \begin {align*}
-      & \neg  s \\ 
+      & \neg  s \\
       & p \lor  q \\
       & (p \lor  q) \land  r \\
       & ((p \lor  q) \land  r) \to  (\neg  s)
@@ -478,7 +523,7 @@
   <html:li><html:strong>Variable assignment:</html:strong> Assign new variables to each subformula:
     <fr:tex display="block"><![CDATA[
       \begin {align*}
-      & x_1 \text { for } \neg  s \\ 
+      & x_1 \text { for } \neg  s \\
       & x_2 \text { for } p \lor  q \\
       & x_3 \text { for } (p \lor  q) \land  r \\
       & x_4 \text { for } ((p \lor  q) \land  r) \to  (\neg  s)
@@ -520,14 +565,18 @@
                     <fr:title text="Tseytin's Transformation">Tseytin's Transformation</fr:title>
                     <fr:taxon>Quiz</fr:taxon>
                   </fr:frontmatter>
-                  <fr:mainmatter><html:p>Lets consider the following formula</html:p><fr:tex display="block"><![CDATA[
+                  <fr:mainmatter><html:p>
+  Lets consider the following formula
+</html:p><fr:tex display="block"><![CDATA[
   F \triangleq  (p \land  q) \lor  (p \land  \neg  r \land  s)
-]]></fr:tex><html:p>Using Tseytin's transformation, convert the formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> into an equisatisfiable formula in CNF.</html:p>
- 
-   
-   
-   <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
-  For the sake of breavity, lets skip assume the subformula extraction is already done and we created the following equivalence clauses:
+]]></fr:tex><html:p>
+  Using Tseytin's transformation, convert the formula <fr:tex display="inline"><![CDATA[F]]></fr:tex> into an equisatisfiable formula in CNF.
+</html:p>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>22</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  For the sake of brevity, let's skip assume the subformula extraction is already done, and we created the following equivalence clauses:
   <fr:tex display="block"><![CDATA[
     \begin {align*}
     F_1 &\triangleq  t_1 \leftrightarrow  (\neg  r \land  s) \\
@@ -541,7 +590,7 @@
     F' \triangleq  F_1 \land  F_2 \land  F_3 \land  F_4 \land  t_4
   ]]></fr:tex>
 </fr:mainmatter></fr:tree>
- 
+  
 </fr:mainmatter>
                 </fr:tree>
               </fr:mainmatter>

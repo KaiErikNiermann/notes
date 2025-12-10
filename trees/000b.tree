@@ -4,7 +4,6 @@
 \taxon{VU-VFS-2025}
 \title{Lecture 2 - Normal Forms & DPLL}
 
-
 \subtree{
   \title{Formula Equivalence}
   \transclude{000c}

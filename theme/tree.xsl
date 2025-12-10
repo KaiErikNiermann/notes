@@ -12,7 +12,7 @@
     <html xmlns="http://www.w3.org/1999/xhtml" data-base-url="{/f:tree/@base-url}">
       <head>
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/png" href="{/f:tree/@base-url}favicon.png" />
+        <link rel="icon" type="image/svg+xml" href="{/f:tree/@base-url}notes-icon.svg" />
         <link rel="stylesheet" href="{/f:tree/@base-url}style.css" />
         <link rel="stylesheet" href="{/f:tree/@base-url}katex.min.css" />
         <script type="text/javascript">

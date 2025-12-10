@@ -33,7 +33,9 @@
 }
 
 \solution{
-  \p{As the usual piece of little assistance let's take a look at the while rule}
+  \p{
+    As the usual piece of little assistance let's take a look at the while rule
+  }
   \infrule{
     \inferrule*[right=While]{
       \vdash \{I \land b\}\ s\ \{I\}
@@ -84,7 +86,8 @@
         }
       }
     } 
-    \li{Yes, let's again instantiate our rule
+    \li{
+      Yes, let's again instantiate our rule
       \infrule{
         \inferrule{
           \{\top \land x < n\}\ x := x + 1\ \{\top\}
@@ -94,7 +97,8 @@
       }
       since our postcondition for the assignmnet is a tautology, i.e. always valid, it will hold under substitution thus making the assignment trivially valid hence working as a correct loop invariant.
     }
-    \li{Something we could observe in question (1) is that 
+    \li{
+      Something we could observe in question (1) is that 
       \infrule{
         \inferrule{
           \{x \leq n\}\ W\ \{\overbrace{x \leq n \land x \geq n}^{x = n}\} \\ \vDash (x = n) \to x \geq n 

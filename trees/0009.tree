@@ -19,8 +19,12 @@
 }
 
 \ol{
-  \li{#{I \models F}}
-  \li{#{I \nvDash F}}
+  \li{
+    #{I \models F}
+  }
+  \li{
+    #{I \nvDash F}
+  }
 }
 
 \strong{
@@ -59,11 +63,15 @@
     }
   }
 
-  \p{So we can see that the interpretation does not satisfy the formula. In other words for this assignment the formula does not hold true. Given that this is a somewhat simple formula we could also just see this by observation, i.e. }
+  \p{
+    So we can see that the interpretation does not satisfy the formula. In other words for this assignment the formula does not hold true. Given that this is a somewhat simple formula we could also just see this by observation, i.e.
+  }
   ##{
     \underbrace{\neg p}_{\texttt{False}} \land \underbrace{q}_{\texttt{False}} \equiv \bot
   }
-  \p{For the second formula lets just go with the simpler approach again, so we have}
+  \p{
+    For the second formula lets just go with the simpler approach again, so we have
+  }
   \tex{
     \usepackage{amsmath}
     \usepackage{eulervm}
@@ -82,5 +90,7 @@
     \stopverb
   }
 
-  \p{So in this case the formula is satisfied by the interpretation.}
+  \p{
+    So in this case the formula is satisfied by the interpretation.
+  }
 }

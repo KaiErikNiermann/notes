@@ -7,19 +7,39 @@
 \title{Understanding hoare triples}
 
 \ol{
-  \li{What does #{\{\top\}\ s\ \{Q\}} express?}
-  \li{What about #{\{P\}\ s\ \{\top\}}?}
-  \li{What about #{[P]\ s\ [\top]}?}
-  \li{When does #{\{\top\}\ s\ \{\bot\}} hold?}
-  \li{When does #{\{\bot\}\ s\ \{Q\}} hold?}
+  \li{
+    What does #{\{\top\}\ s\ \{Q\}} express?
+  }
+  \li{
+    What about #{\{P\}\ s\ \{\top\}}?
+  }
+  \li{
+    What about #{[P]\ s\ [\top]}?
+  }
+  \li{
+    When does #{\{\top\}\ s\ \{\bot\}} hold?
+  }
+  \li{
+    When does #{\{\bot\}\ s\ \{Q\}} hold?
+  }
 }
 
 \solution{
   \ol{
-    \li{It states that no matter the initial state, if the program #{s} terminates, then the postcondition #{Q} will hold. In other words, all \em{terminating states} end up in or satisfy #{Q}.}
-    \li{It states that if the precondition #{P} holds before execution of #{s}, then after execution (if it terminates), the postcondition will always be true. Since #{\top} is always true, this Hoare triple is valid for any program #{s} and precondition #{P}.}
-    \li{Since this is a total correctness Hoare triple, it states that if the precondition #{P} holds before execution of #{s}, then the program #{s} will always terminate, regardless of the final state. The postcondition #{\top} is trivially satisfied since it is always true. In other words we terminate on all states satisfying #{P}.}
-    \li{This Hoare triple holds if and only if the program #{s} \em{never terminates} for any initial state. Since the postcondition is #{\bot}, which is always false, the only way for the Hoare triple to be valid is if there are no terminating executions of #{s}.}
-    \li{This Hoare triple holds for any program #{s} and postcondition #{Q}, because the precondition #{\bot} is always false. Since there are no initial states that satisfy #{\bot}, the implication in the definition of the Hoare triple is vacuously true.}
+    \li{
+      It states that no matter the initial state, if the program #{s} terminates, then the postcondition #{Q} will hold. In other words, all \em{terminating states} end up in or satisfy #{Q}.
+    }
+    \li{
+      It states that if the precondition #{P} holds before execution of #{s}, then after execution (if it terminates), the postcondition will always be true. Since #{\top} is always true, this Hoare triple is valid for any program #{s} and precondition #{P}.
+    }
+    \li{
+      Since this is a total correctness Hoare triple, it states that if the precondition #{P} holds before execution of #{s}, then the program #{s} will always terminate, regardless of the final state. The postcondition #{\top} is trivially satisfied since it is always true. In other words we terminate on all states satisfying #{P}.
+    }
+    \li{
+      This Hoare triple holds if and only if the program #{s} \em{never terminates} for any initial state. Since the postcondition is #{\bot}, which is always false, the only way for the Hoare triple to be valid is if there are no terminating executions of #{s}.
+    }
+    \li{
+      This Hoare triple holds for any program #{s} and postcondition #{Q}, because the precondition #{\bot} is always false. Since there are no initial states that satisfy #{\bot}, the implication in the definition of the Hoare triple is vacuously true.
+    }
   }
 }

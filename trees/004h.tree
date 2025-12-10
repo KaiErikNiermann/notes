@@ -1,0 +1,26 @@
+\date{2025-12-07}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\p{
+  We can incorporate arrays into Hoare logic by extending the derivation rules with the theory of arrays #{T_{\text{A}}}, they key inference rule we add is as follows:
+}
+\infrule{
+  \inferrule*[right=ArrayAssgn]{}{
+    \vdash \{Q[a \mapsto a\langle e_1 \lhd e_2 \rangle]\}\ a[e_1] := e_2\ \{Q\}
+  }
+}
+\p{
+  Conceptually this is similar to the semantics of the assignment rule. In that we are saying if our assertion #{Q} holds under the substition:
+}
+##{
+  a \mapsto a \langle e_1 \lhd e_2 \rangle
+}
+\p{
+  which says that the array #{a} corresponds to the \strong{subtituted array} (NOT element) where in the substituted array the value at the position #{e_1} is set to the expression #{e_2}.
+}
+\p{
+  Then after the assignment the condition holds by itself. Again on a high level this just says that if we want some assertion on the memory to hold after an array assignment - for the hoare triple to be valid - we have to make sure that this same condition can hold under the case where the array is substituted by itself with the positions altered.
+}

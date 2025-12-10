@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "lastScan": "2025-12-02T22:32:52.696Z",
+  "version": 2,
+  "lastScan": "2025-12-09T18:07:04.703Z",
   "macros": [
     "Bern",
     "Beta",
@@ -124,6 +124,7 @@
     "floors",
     "given",
     "gl",
+    "grammar",
     "hom",
     "hr",
     "iblock",
@@ -192,5 +193,9 @@
     "vs",
     "vvrt",
     "with-delim"
+  ],
+  "subtreeMacros": [
+    "proof",
+    "solution"
   ]
 }

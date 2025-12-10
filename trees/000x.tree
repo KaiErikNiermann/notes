@@ -6,13 +6,21 @@
 
 \title{FOL - Quantifiers and Scoping}
 
-\p{For quantifiers:}
+\p{
+  For quantifiers:
+}
 ##{
   \forall x.\ F \quad \exists x.\ F
 }
-\p{Each variable occuring within the formula #{F} known as the \em{scope} is either:}
+\p{
+  Each variable occurring within the formula #{F} known as the \em{scope} is either:
+}
 
 \ul{
-  \li{\strong{bound}: if it is within the scope of a quantifier that binds it. E.g., in #{\forall x.\ P(x, y)}, the variable #{x} is bound.}
-  \li{\strong{free}: if it is not bound by any quantifier within the formula. E.g., in #{\forall x.\ P(x, y)}, the variable #{y} is free.}
+  \li{
+    \strong{bound}: if it is within the scope of a quantifier that binds it. E.g., in #{\forall x.\ P(x, y)}, the variable #{x} is bound.
+  }
+  \li{
+    \strong{free}: if it is not bound by any quantifier within the formula. E.g., in #{\forall x.\ P(x, y)}, the variable #{y} is free.
+  }
 }

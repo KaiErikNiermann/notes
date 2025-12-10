@@ -5,7 +5,9 @@
 \taxon{Quiz}
 
 \title{Converting to DNF}
-\p{Convert the following formula into Disjunctive Normal Form (DNF):}
+\p{
+  Convert the following formula into Disjunctive Normal Form (DNF):
+}
 ##{
   (q \lor \neg \neg p) \land (\neg r \to s)
 }

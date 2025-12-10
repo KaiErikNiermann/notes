@@ -6,11 +6,15 @@
 
 \title{FOL Validity vs Valid modulo #{T}}
 
-\p{We can compare the two notions by understanding \em{validity in modulo} #{T} as a restriction of \em{validity in FOL} to only those models that are #{T}-models. So the implication of that is that if a formula is valid (true in all models), then its clearly also valid in the subset/restriction to only #{T}-models. However, the other way around does not hold, since a formula can be true in all #{T}-models, but false in some non-#{T}-model. Hence we have the following:}
+\p{
+  We can compare the two notions by understanding \em{validity in modulo} #{T} as a restriction of \em{validity in FOL} to only those models that are #{T}-models. So the implication of that is that if a formula is valid (true in all models), then its clearly also valid in the subset/restriction to only #{T}-models. However, the other way around does not hold, since a formula can be true in all #{T}-models, but false in some non-#{T}-model. Hence we have the following:
+}
 \texmath{
   \vDash F \implies T \vDash F  
 }
-\p{But the other way around does not hold in general:}
+\p{
+  But the other way around does not hold in general:
+}
 \texmath{
   T \vDash F \centernot\implies \vDash F
 }

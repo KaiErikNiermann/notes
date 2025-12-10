@@ -6,15 +6,21 @@
 
 \title{Natural transformation (category theory)}
 
-\p{Suppose that #{F, G : C \to D} are two functors, we say that a \strong{natural transformation} which well denote as:}
+\p{
+  Suppose that #{F, G : C \to D} are two functors, we say that a \strong{natural transformation} which well denote as:
+}
 ##{
   \theta : F \Rightarrow G
 }
-\p{Consists of a \em{component morphism}:}
+\p{
+  Consists of a \em{component morphism}:
+}
 ##{
   \theta_X : F(X) \to G(X) \in D \quad \forall X \in \mathrm{Ob}(C)
 }
-\p{such that the following diagram in #{D} commutes for every morphism #{f : X \to Y \in C}:}
+\p{
+  such that the following diagram in #{D} commutes for every morphism #{f : X \to Y \in C}:
+}
 \texfig{
   % https://q.uiver.app/#q=WzAsNixbMiwwLCJGKFgpIl0sWzQsMCwiRyhYKSJdLFsyLDIsIkYoWSkiXSxbNCwyLCJHKFkpIl0sWzAsMCwiWCJdLFswLDIsIlkiXSxbMCwxLCJcXHRoZXRhX1giXSxbMCwyLCJGKGYpIiwyXSxbMSwzLCJHKGYpIl0sWzIsMywiXFx0aGV0YV9ZIiwyXSxbNCw1LCJmIl1d
   \[\begin{tikzcd}
@@ -28,20 +34,26 @@
     \arrow["{\theta_Y}"', from=3-3, to=3-5]
   \end{tikzcd}\]
 }
-\p{In other words, we have that the following equality holds in #{D(F(X), G(Y))}:}
+\p{
+  In other words, we have that the following equality holds in #{D(F(X), G(Y))}:
+}
 ##{
   G(f) \circ \theta_X = \theta_Y \circ F(f)
 }
-\p{The diagrammatic condition above is often referred to as the \strong{naturality condition} or \strong{naturality square}.}
+\p{
+  The diagrammatic condition above is often referred to as the \strong{naturality condition} or \strong{naturality square}.
+}
 \subtree{
   \title{Natural isomorphism}
-  
-  \p{A natural transformation #{\theta : F \Rightarrow G} is called a \strong{natural isomorphism} if each component morphism #{\theta_X : F(X) \to G(X)} is an isomorphism in #{D}.}
+
+  \p{
+    A natural transformation #{\theta : F \Rightarrow G} is called a \strong{natural isomorphism} if each component morphism #{\theta_X : F(X) \to G(X)} is an isomorphism in #{D}.
+  }
 }
 
 \subtree{
   \title{Lean representation}
-  
+
   \codeblock{lean}{
     @[ext]
     structure NatTrans (F G : C ⥤ D) : Type max u₁ v₂ where
@@ -52,7 +64,9 @@
         F.map f ≫ app Y = app X ≫ G.map f := by cat_disch
   }
 
-  \p{A nice example shown in the same file:}
+  \p{
+    A nice example shown in the same file:
+  }
   \codeblock{lean}{
     example {F G : C ⥤ D} (α : NatTrans F G) {X Y U V : C} 
           (f : X ⟶ Y) (g : Y ⟶ U) (h : U ⟶ V) :
@@ -60,7 +74,9 @@
           = 
         F.map f ≫ F.map g ≫ F.map h ≫ α.app V := by grind
   }
-  \p{The diagram this represents can be drawn as follows:}
+  \p{
+    The diagram this represents can be drawn as follows:
+  }
   \texfig{
 % https://q.uiver.app/#q=WzAsOCxbMCwwLCJGKFgpIl0sWzIsMCwiRihZKSJdLFs0LDAsIkYoVSkiXSxbNiwwLCJGKFYpIl0sWzAsMiwiRyhYKSJdLFsyLDIsIkcoWSkiXSxbNCwyLCJHKFUpIl0sWzYsMiwiRyhWKSJdLFswLDEsIkYoZikiXSxbMSwyLCJGKGcpIl0sWzIsMywiRihoKSJdLFswLDQsIlxcYWxwaGEoWCkiLDJdLFsxLDUsIlxcYWxwaGEoWSkiLDJdLFsyLDYsIlxcYWxwaGEoVSkiLDJdLFszLDcsIlxcYWxwaGEoVikiLDJdLFs0LDUsIkcoZikiLDJdLFs1LDYsIkcoZykiLDJdLFs2LDcsIkcoaCkiLDJdXQ==
 \[\begin{tikzcd}
@@ -79,7 +95,9 @@
 	\arrow["{G(h)}"', from=3-5, to=3-7]
 \end{tikzcd}\]
   }
-  \p{This is one of those moments where I think the diagramtic order of composition is really nice as we have a very clean correspondence here:}
+  \p{
+    This is one of those moments where I think the diagramtic order of composition is really nice as we have a very clean correspondence here:
+  }
   \texfig{
     % https://q.uiver.app/#q=WzAsOCxbMCwwLCJGKFgpIl0sWzIsMCwiRihZKSJdLFs0LDAsIkYoVSkiXSxbNiwwLCJGKFYpIl0sWzAsMiwiRyhYKSJdLFsyLDIsIkcoWSkiXSxbNCwyLCJHKFUpIl0sWzYsMiwiRyhWKSJdLFswLDEsIkYoZikiXSxbMSwyLCJGKGcpIl0sWzIsMywiRihoKSJdLFswLDQsIlxcYWxwaGEoWCkiXSxbMSw1LCJcXGFscGhhKFkpIiwyXSxbMiw2LCJcXGFscGhhKFUpIiwyXSxbMyw3LCJcXGFscGhhKFYpIiwyXSxbNCw1LCJHKGYpIiwyXSxbNSw2LCJHKGcpIiwyXSxbNiw3LCJHKGgpIiwyXSxbMCw0LCJcXGFscGhhLmFwcCIsMix7ImN1cnZlIjozLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCw1LCJHLm1hcCBmIiwyLHsiY3VydmUiOjMsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs1LDYsIkcubWFwIGciLDIseyJjdXJ2ZSI6Mywic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzYsNywiRy5tYXAgaCIsMix7ImN1cnZlIjozLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwxLCJGLm1hcCBmIiwwLHsib2Zmc2V0IjotMywiY3VydmUiOi0yLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwyLCJGLm1hcCBnIiwwLHsib2Zmc2V0IjotMywiY3VydmUiOi0yLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiwzLCJGLm1hcCBoIiwwLHsib2Zmc2V0IjotMywiY3VydmUiOi0yLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMyw3LCJhLm1hcCAgViIsMCx7Im9mZnNldCI6LTMsImN1cnZlIjotMiwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
     \[\begin{tikzcd}
@@ -106,6 +124,8 @@
       \arrow["{\texttt{G.map h}}"', curve={height=20pt}, dashed, from=3-5, to=3-7]
     \end{tikzcd}\]
   }
-  \p{We can see here how the proof of a natural transformation's property amounts to essentially drawing the manner in which the two paths round the diagram start and end at the same place, i.e. proving the diagram commutes.}
+  \p{
+    We can see here how the proof of a natural transformation's property amounts to essentially drawing the manner in which the two paths round the diagram start and end at the same place, i.e. proving the diagram commutes.
+  }
 
 }

@@ -6,7 +6,9 @@
 
 \title{Checking valid invariants}
 
-\p{Consider the following code:}
+\p{
+  Consider the following code:
+}
 \codeblock{python}{
   i = 0;
   j = 0;
@@ -15,18 +17,31 @@
     i = i + 1;
     j = i + j
 }
-\p{Which of the following is a loop invariant?}
-\ol{
-  \li{#{i \leq n}}
-  \li{#{i < n}}
-  \li{#{j \geq n}}
+\p{
+  Which of the following is a loop invariant?
 }
-
+\ol{
+  \li{
+    #{i \leq n}
+  }
+  \li{
+    #{i < n}
+  }
+  \li{
+    #{j \geq n}
+  }
+}
 
 \solution{
   \ol{
-    \li{Before the loop #{i = 0} and #{n = 10}, since that means #{i \leq n} is true we move on to checking it holds true \em{after} each loop iteration. What we can observe is that the loop condition is #{i < n} and during the loop we have #{i = i + 1}, what this suggests is that clearly during the iteratons the invariant holds, additionally when #{i = 10} we have that #{10 < 0 \to \bot} hence the invariant also holds upon the termination of the loop, i.e. after the final iteration, thus it's indeed a valid loop invariant.}
-    \li{No, this is not a valid invariant, we can see that its very close to being right, but it doesnt account for the case after the final iteration and before we check the loop condition, i.e. where #{i = 10}, hence its not a valid loop invariant because it does not hold true after each iteration.}
-    \li{No, this is quite easy to see as it immediately fails even before we get into the loop as #{0 \geq 10 \to \bot}.}
+    \li{
+      Before the loop #{i = 0} and #{n = 10}, since that means #{i \leq n} is true we move on to checking it holds true \em{after} each loop iteration. What we can observe is that the loop condition is #{i < n} and during the loop we have #{i = i + 1}, what this suggests is that clearly during the iteratons the invariant holds, additionally when #{i = 10} we have that #{10 < 0 \to \bot} hence the invariant also holds upon the termination of the loop, i.e. after the final iteration, thus it's indeed a valid loop invariant.
+    }
+    \li{
+      No, this is not a valid invariant, we can see that its very close to being right, but it doesnt account for the case after the final iteration and before we check the loop condition, i.e. where #{i = 10}, hence its not a valid loop invariant because it does not hold true after each iteration.
+    }
+    \li{
+      No, this is quite easy to see as it immediately fails even before we get into the loop as #{0 \geq 10 \to \bot}.
+    }
   }
 }

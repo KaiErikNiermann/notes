@@ -6,10 +6,12 @@
 
 \title{Distributing Conjunction}
 
-\p{The distributive law of conjunction over disjunction states that for any formulas #{F}, #{G}, and #{H}, the following equivalence holds:}
+\p{
+  The distributive law of conjunction over disjunction states that for any formulas #{F}, #{G}, and #{H}, the following equivalence holds:
+}
 ##{
   \begin{align*}
-    F \land (G \lor H) &\equiv (F \land G) \lor (F \land H) \\
-    (F \lor G) \land H &\equiv (F \land H) \lor (G \land H)
+  F \land (G \lor H) &\equiv (F \land G) \lor (F \land H) \\
+  (F \lor G) \land H &\equiv (F \land H) \lor (G \land H)
   \end{align*}
 }

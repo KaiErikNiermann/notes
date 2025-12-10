@@ -8,25 +8,48 @@
 \strong{Which of the following equivalences hold?}
 
 \ol{
-  \li{#{\bot \equiv \bot}}
-  \li{#{\top \equiv \top}}
-  \li{#{\neg \top \equiv \neg \bot}}
-  \li{#{\neg (p \land q) \equiv \neg p \lor \neg q}}
-  \li{#{p \equiv p \lor q}}
-  \li{#{\neg \neg p \equiv p}}
+  \li{
+    #{\bot \equiv \bot}
+  }
+  \li{
+    #{\top \equiv \top}
+  }
+  \li{
+    #{\neg \top \equiv \neg \bot}
+  }
+  \li{
+    #{\neg (p \land q) \equiv \neg p \lor \neg q}
+  }
+  \li{
+    #{p \equiv p \lor q}
+  }
+  \li{
+    #{\neg \neg p \equiv p}
+  }
 }
 
 \solution{
   \ol{
-    \li{True. Both sides are always false.}
-    \li{True. Both sides are always true.}
-    \li{False. Left side is always false, right side is always true.}
-    \li{True. This is [De Morgan's law](000g). Good to remember 
+    \li{
+      True. Both sides are always false.
+    }
+    \li{
+      True. Both sides are always true.
+    }
+    \li{
+      False. Left side is always false, right side is always true.
+    }
+    \li{
+      True. This is [De Morgan's law](000g). Good to remember 
       ##{
         \neg (p \land q) \equiv \neg p \lor \neg q
       }
     }
-    \li{False. Left side is true when p is true, right side is true when either p or q is true.}
-    \li{True. Double negation elimination.}
+    \li{
+      False. Left side is true when p is true, right side is true when either p or q is true.
+    }
+    \li{
+      True. Double negation elimination.
+    }
   }
 }

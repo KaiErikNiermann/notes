@@ -6,14 +6,18 @@
 
 \title{Tseytin's Transformation}
 
-\p{Lets consider the following formula}
+\p{
+  Lets consider the following formula
+}
 ##{
   F \triangleq (p \land q) \lor (p \land \neg r \land s)
 }
-\p{Using Tseytin's transformation, convert the formula #{F} into an equisatisfiable formula in CNF.}
+\p{
+  Using Tseytin's transformation, convert the formula #{F} into an equisatisfiable formula in CNF.
+}
 
 \solution{
-  For the sake of breavity, lets skip assume the subformula extraction is already done and we created the following equivalence clauses:
+  For the sake of brevity, let's skip assume the subformula extraction is already done, and we created the following equivalence clauses:
   ##{
     \begin{align*}
     F_1 &\triangleq t_1 \leftrightarrow (\neg r \land s) \\

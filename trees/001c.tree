@@ -6,16 +6,23 @@
 
 \title{Natural Number Object (NNO)}
 
-\p{We assume that #{\mathcal L} is a category with a [terminal object](001d) #{1}. This category has a \em{natural number object} (NNO) if there exists an object #{\N} together with two morphisms:}
-\ul{
-  \li{#{0 : 1 \to \N}}
-  \li{#{s : \N \to \N}}
+\p{
+  We assume that #{\mathcal L} is a category with a [terminal object](001d) #{1}. This category has a \em{natural number object} (NNO) if there exists an object #{\N} together with two morphisms:
 }
-\p{such that, given any global element #{z : 1 \to X} and any morphism #{f : X \to X}, there exists a unique morphism #{u : \N \to X} such that the following diagram commutes:}
+\ul{
+  \li{
+    #{0 : 1 \to \N}
+  }
+  \li{
+    #{s : \N \to \N}
+  }
+}
+\p{
+  such that, given any global element #{z : 1 \to X} and any morphism #{f : X \to X}, there exists a unique morphism #{u : \N \to X} such that the following diagram commutes:
+}
 \texfig{
   \begin{tikzcd}
     1 \arrow[r, "0"] \arrow[dr, "z"'] & \N \arrow[d, "u"] \arrow[r, "s"] & \N \arrow[d, "u"] \\
     & X \arrow[r, "f"'] & X
   \end{tikzcd}
 }
-

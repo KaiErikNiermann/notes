@@ -5,11 +5,13 @@
 
 \title{Natural Number Object (NNO) in Set}
 
-\p{In the category \strong{Set}, the natural number object (NNO) can be represented by the set of natural numbers #{\N = \{0, 1, 2, 3, \ldots\}}. If we take some arbitrary other set #{X} with some point #{x : 1 \to X} (which can be identified with an element of #{X}) and some function #{f : X \to X}, we can define a unique function #{u : \N \to X} as follows:}
+\p{
+  In the category \strong{Set}, the natural number object (NNO) can be represented by the set of natural numbers #{\N = \{0, 1, 2, 3, \ldots\}}. If we take some arbitrary other set #{X} with some point #{x : 1 \to X} (which can be identified with an element of #{X}) and some function #{f : X \to X}, we can define a unique function #{u : \N \to X} as follows:
+}
 
 ##{
   u(n) = \begin{cases}
-    x & \text{if } n = 0 \\
-    f^n(x) & \text{if } n \geq 0
+  x & \text{if } n = 0 \\
+  f^n(x) & \text{if } n \geq 0
   \end{cases}
 }

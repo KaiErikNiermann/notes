@@ -6,7 +6,9 @@
 
 \title{Well-founded induction}
 
-\p{Well founded induction describes the generalized induction principle to any [well-founded relation](0022) #{\prec}. Given a set #{S} with a well-founded relation #{\prec}, to prove that a property #{P(x)} holds for all elements #{x \in S}, it suffices to show that for every element #{x \in S}, if #{P(y)} holds for all elements #{y \in S} such that #{y \prec x}, then #{P(x)} also holds. Formally, this can be expressed as:}
+\p{
+  Well founded induction describes the generalized induction principle to any [well-founded relation](0022) #{\prec}. Given a set #{S} with a well-founded relation #{\prec}, to prove that a property #{P(x)} holds for all elements #{x \in S}, it suffices to show that for every element #{x \in S}, if #{P(y)} holds for all elements #{y \in S} such that #{y \prec x}, then #{P(x)} also holds. Formally, this can be expressed as:
+}
 ##{
   (\forall x \in S.\ (\forall y \in S.\ y \prec x \to P(y)) \to P(x)) \to (\forall x \in S.\ P(x))
 }

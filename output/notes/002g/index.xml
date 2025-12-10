@@ -84,12 +84,12 @@
   </html:p><html:ul><html:li>
       If we take any two subsets on the same level, such as <fr:tex display="inline"><![CDATA[\{\{a\}, \{b\}\}]]></fr:tex> then <html:em>two move up a level</html:em> we take the union of the sets, so:
       <fr:tex display="block"><![CDATA[
-      \{a\} \cup  \{b\} \to  \{a, b\}
-    ]]></fr:tex>
+        \{a\} \cup  \{b\} \to  \{a, b\}
+      ]]></fr:tex>
       Conversly if we wish to <html:em>move down a level</html:em> we take the intersection of the two sets, so for the same pair
       <fr:tex display="block"><![CDATA[
-      \{a\} \cap  \{b\} \to  \{\}
-    ]]></fr:tex>
+        \{a\} \cap  \{b\} \to  \{\}
+      ]]></fr:tex>
       <html:li>
         Each level expresses the different powersets of <fr:tex display="inline"><![CDATA[X]]></fr:tex> with a given cardinality. So the bottom level is the powerset of cardinality 0 (i.e. the empty set), the next level up is the powerset of cardinality 1 (i.e. the singletons), then cardinality 2 and finally cardinality 3 at the top level which is just the set <fr:tex display="inline"><![CDATA[X]]></fr:tex> itself.
       </html:li>
@@ -171,13 +171,22 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>A <html:em>complete lattice</html:em> is a <fr:link href="/notes/002d/" title="Partial order" uri="https://kaierikniermann.github.io/notes/002d/" display-uri="002d" type="local">partially ordered set</fr:link> in which all subsets have both a <html:em>greatest lower bound</html:em> (also known as <html:em>infimum</html:em> or <html:em>meet</html:em>) and a <html:em>least upper bound</html:em> (also known as <html:em>supremum</html:em> or <html:em>join</html:em>). This means that for any subset <fr:tex display="inline"><![CDATA[S]]></fr:tex> of the complete lattice <fr:tex display="inline"><![CDATA[L]]></fr:tex>, there exists an element <fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> in <fr:tex display="inline"><![CDATA[L]]></fr:tex> such that: <fr:link href="/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" title="The Hitchhiker’s Guide to Logical Verification (2024 Desktop Edition)" uri="https://kaierikniermann.github.io/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" display-uri="baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024" type="local">(1)</fr:link></html:p>
-            <html:ul><html:li><fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> is a lower bound of <fr:tex display="inline"><![CDATA[S]]></fr:tex>: For all elements <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[\sqcup \ S \leq  s]]></fr:tex>.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> is the greatest of all lower bounds: For any other lower bound <fr:tex display="inline"><![CDATA[b]]></fr:tex> of <fr:tex display="inline"><![CDATA[S]]></fr:tex>, <fr:tex display="inline"><![CDATA[b \leq  \sqcup \ S]]></fr:tex>.</html:li></html:ul>
-            <html:p>Similarly, there exists an element <fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> in <fr:tex display="inline"><![CDATA[L]]></fr:tex> such that:</html:p>
-            <html:ul><html:li><fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> is an upper bound of <fr:tex display="inline"><![CDATA[S]]></fr:tex>: For all elements <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[s \leq  \sqcap \ S]]></fr:tex>.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> is the least of all upper bounds: For any other upper bound <fr:tex display="inline"><![CDATA[b]]></fr:tex> of <fr:tex display="inline"><![CDATA[S]]></fr:tex>, <fr:tex display="inline"><![CDATA[\sqcap \ S \leq  b]]></fr:tex>.</html:li></html:ul>
-            <html:p>In a complete lattice, every subset, including the empty set and the entire set itself, has both a supremum and an infimum within the lattice.</html:p>
+            <html:p>
+  A <html:em>complete lattice</html:em> isss a <fr:link href="/notes/002d/" title="Partial order" uri="https://kaierikniermann.github.io/notes/002d/" display-uri="002d" type="local">partially ordered set</fr:link> in which all subsets have both a <html:em>greatest lower bound</html:em> (also known as <html:em>infimum</html:em> or <html:em>meet</html:em>) and a <html:em>least upper bound</html:em> (also known as <html:em>supremum</html:em> or <html:em>join</html:em>). This means that for any subset <fr:tex display="inline"><![CDATA[S]]></fr:tex> of the complete lattice <fr:tex display="inline"><![CDATA[L]]></fr:tex>, there exists an element <fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> in <fr:tex display="inline"><![CDATA[L]]></fr:tex> such that: <fr:link href="/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" title="The Hitchhiker’s Guide to Logical Verification (2024 Desktop Edition)" uri="https://kaierikniermann.github.io/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" display-uri="baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024" type="local">(1)</fr:link></html:p>
+            <html:ul><html:li><fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> is a lower bound of <fr:tex display="inline"><![CDATA[S]]></fr:tex>: For all elements <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[\sqcup \ S \leq  s]]></fr:tex>.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\sqcup \ S]]></fr:tex> is the greatest of all lower bounds: For any other lower bound <fr:tex display="inline"><![CDATA[b]]></fr:tex> of <fr:tex display="inline"><![CDATA[S]]></fr:tex>, <fr:tex display="inline"><![CDATA[b \leq  \sqcup \ S]]></fr:tex>.
+  </html:li></html:ul>
+            <html:p>
+  Similarly, there exists an element <fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> in <fr:tex display="inline"><![CDATA[L]]></fr:tex> such that:
+</html:p>
+            <html:ul><html:li><fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> is an upper bound of <fr:tex display="inline"><![CDATA[S]]></fr:tex>: For all elements <fr:tex display="inline"><![CDATA[s \in  S]]></fr:tex>, <fr:tex display="inline"><![CDATA[s \leq  \sqcap \ S]]></fr:tex>.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\sqcap \ S]]></fr:tex> is the least of all upper bounds: For any other upper bound <fr:tex display="inline"><![CDATA[b]]></fr:tex> of <fr:tex display="inline"><![CDATA[S]]></fr:tex>, <fr:tex display="inline"><![CDATA[\sqcap \ S \leq  b]]></fr:tex>.
+  </html:li></html:ul>
+            <html:p>
+  In a complete lattice, every subset, including the empty set and the entire set itself, has both a supremum and an infimum within the lattice.
+</html:p>
           </fr:mainmatter>
         </fr:tree>
       </fr:mainmatter>

@@ -6,10 +6,29 @@
 
 \title{Partial order}
 
-\p{A partial order is just a [preorder](002a) with an additional property called \em{antisymmetry}. A partial order on a set #{P} is a binary relation #{\leq} that satisfies the following three properties for all elements #{a, b, c \in P}:}
-\ul{
-  \li{#{a \leq a} (Reflexivity): Every element is related to itself.}
-  \li{#{a \leq b \land b \leq c \to a \leq c} (Transitivity): If an element #{a} is related to #{b}, and #{b} is related to #{c}, then #{a} is also related to #{c}.}
-  \li{#{a \leq b \land b \leq a \to a = b} (Antisymmetry): If an element #{a} is related to #{b}, and #{b} is related to #{a}, then #{a} and #{b} must be the same element.}
+\subtree{
+  \title{Remarks}
+
+  \codeblock{lean}
+  {
+    some piece of code
+  }
 }
-\p{More accurately a partial order is a \em{reflexive, weak, non-strict partial order}. Also known as \em{skeletal preorder}. [1](fong-spivak-seven-sketches-2019)}
+
+\p{
+  A partial order is just a [preorder](002a) with an additional property called \em{antisymmetry}. A partial order on a set #{P} is a binary relation #{\leq} that satisfies the following three properties for all elements #{a, b, c \in P}:
+}
+\ul{
+  \li{
+    #{a \leq a} (Reflexivity): Every element is related to itself.
+  }
+  \li{
+    #{a \leq b \land b \leq c \to a \leq c} (Transitivity): If an element #{a} is related to #{b}, and #{b} is related to #{c}, then #{a} is also related to #{c}.
+  }
+  \li{
+    #{a \leq b \land b \leq a \to a = b} (Antisymmetry): If an element #{a} is related to #{b}, and #{b} is related to #{a}, then #{a} and #{b} must be the same element.
+  }
+}
+\p{
+  More accurately a partial order is a \em{reflexive, weak, non-strict partial order}. Also known as \em{skeletal preorder}. [1](fong-spivak-seven-sketches-2019)
+}

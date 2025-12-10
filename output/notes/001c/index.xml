@@ -14,8 +14,12 @@
     <fr:title text="Natural Number Object (NNO)">Natural Number Object (NNO)</fr:title>
     <fr:taxon>Definition</fr:taxon>
   </fr:frontmatter>
-  <fr:mainmatter><html:p>We assume that <fr:tex display="inline"><![CDATA[\mathcal  L]]></fr:tex> is a category with a <fr:link href="/notes/001d/" title="Terminal Object (Category Theory)" uri="https://kaierikniermann.github.io/notes/001d/" display-uri="001d" type="local">terminal object</fr:link> <fr:tex display="inline"><![CDATA[1]]></fr:tex>. This category has a <html:em>natural number object</html:em> (NNO) if there exists an object <fr:tex display="inline"><![CDATA[\mathbb {N}]]></fr:tex> together with two morphisms:</html:p><html:ul><html:li><fr:tex display="inline"><![CDATA[0 : 1 \to  \mathbb {N}]]></fr:tex></html:li>
-  <html:li><fr:tex display="inline"><![CDATA[s : \mathbb {N} \to  \mathbb {N}]]></fr:tex></html:li></html:ul><html:p>such that, given any global element <fr:tex display="inline"><![CDATA[z : 1 \to  X]]></fr:tex> and any morphism <fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex>, there exists a unique morphism <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> such that the following diagram commutes:</html:p>
+  <fr:mainmatter><html:p>
+  We assume that <fr:tex display="inline"><![CDATA[\mathcal  L]]></fr:tex> is a category with a <fr:link href="/notes/001d/" title="Terminal Object (Category Theory)" uri="https://kaierikniermann.github.io/notes/001d/" display-uri="001d" type="local">terminal object</fr:link> <fr:tex display="inline"><![CDATA[1]]></fr:tex>. This category has a <html:em>natural number object</html:em> (NNO) if there exists an object <fr:tex display="inline"><![CDATA[\mathbb {N}]]></fr:tex> together with two morphisms:
+</html:p><html:ul><html:li><fr:tex display="inline"><![CDATA[0 : 1 \to  \mathbb {N}]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[s : \mathbb {N} \to  \mathbb {N}]]></fr:tex></html:li></html:ul><html:p>
+  such that, given any global element <fr:tex display="inline"><![CDATA[z : 1 \to  X]]></fr:tex> and any morphism <fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex>, there exists a unique morphism <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> such that the following diagram commutes:
+</html:p>
  
   
   <html:figure><fr:resource hash="451ab9726be7ca6a5fa1653caf21d4c5"><fr:resource-content><html:img src="/notes/451ab9726be7ca6a5fa1653caf21d4c5.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
@@ -83,6 +87,11 @@
               <fr:month>11</fr:month>
               <fr:day>23</fr:day>
             </fr:date>
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>11</fr:month>
+              <fr:day>23</fr:day>
+            </fr:date>
             <fr:uri>https://kaierikniermann.github.io/notes/001b/</fr:uri>
             <fr:display-uri>001b</fr:display-uri>
             <fr:route>/notes/001b/</fr:route>
@@ -98,18 +107,57 @@
                   <fr:month>11</fr:month>
                   <fr:day>23</fr:day>
                 </fr:date>
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>23</fr:day>
+                </fr:date>
                 <fr:title text="The recursor for natural numbers">The recursor for natural numbers</fr:title>
               </fr:frontmatter>
-              <fr:mainmatter><html:p>Before we define recursors, let's first introduce the idea of an inductive type. We'll do this by examining how lean defines natural numbers.</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-  inductive Nat where
-  | zero : Nat
-  | succ (n : Nat) : Nat
-</html:code></html:pre><html:p>The idea here being that we can construct natural numbers by either using the constructor <html:code>zero</html:code> to get <html:code>0</html:code>, or by applying the constructor <html:code>succ</html:code> to an existing natural number to get its successor. For example, we can construct <html:code>3</html:code> as follows:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-  def three : Nat := Nat.succ (Nat.succ (Nat.succ Nat.zero))
-</html:code></html:pre><html:p>We can equivalently express this definition using the type formation and term intruduction rules:</html:p>
+              <fr:mainmatter>
+                <html:p>
+    Before we define recursors, let's first introduce the idea of an inductive type. We'll do this by examining how lean defines natural numbers.
+  </html:p>
+                <html:pre class="code-block language-lean">
+                  <html:code class="language-lean">
+    inductive Nat where
+    | zero : Nat
+    | succ (n : Nat) : Nat
+  </html:code>
+                </html:pre>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>23</fr:day>
+                </fr:date>
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>23</fr:day>
+                </fr:date>
+                <fr:title text="The recursor for natural numbers">The recursor for natural numbers</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter><html:p>
+    Before we define recursors, let's first introduce the idea of an inductive type. We'll do this by examining how lean defines natural numbers.
+  </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+    inductive Nat where
+    | zero : Nat
+    | succ (n : Nat) : Nat
+  </html:code></html:pre><html:p>
+    The idea here being that we can construct natural numbers by either using the constructor <html:code>zero</html:code> to get <html:code>0</html:code>, or by applying the constructor <html:code>succ</html:code> to an existing natural number to get its successor. For example, we can construct <html:code>3</html:code> as follows:
+  </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+    def three : Nat := Nat.succ (Nat.succ (Nat.succ Nat.zero))
+  </html:code></html:pre><html:p>
+    We can equivalently express this definition using the type formation and term introduction rules:
+  </html:p>
   
     
-    <fr:resource hash="0487b5f985a2769da59d29a41689058b"><fr:resource-content><html:img src="/notes/0487b5f985a2769da59d29a41689058b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+    <fr:resource hash="c76ba9ca452e4efa0a2374728195a21a"><fr:resource-content><html:img src="/notes/c76ba9ca452e4efa0a2374728195a21a.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
      
     \usepackage{eulervm}
   \usepackage{mathtools}
@@ -121,24 +169,29 @@
   \newcommand{\cf}[1]{\texttt{#1}}
 
     ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
-  \inferrule *[right=Form-Nat]{
-  }{
-    \mathbb {N} : \texttt {type}
-  }
-  \and  
-  \inferrule *[right=Intro-Zero]{}{
-    0 : \mathbb {N}
-  }
-  \and 
-  \inferrule *[right=Intro-Succ]{
-    n : \mathbb {N}
-  }{
-    \texttt {succ}\ n : \mathbb {N}
-  }
-\end {mathpar}]]></fr:resource-source></fr:resource>
+    \inferrule *[right=Form-Nat]{}{
+      \mathbb {N} : \texttt {type}
+    }
+    \and  
+    \inferrule *[right=Intro-Zero]{}{
+      0 : \mathbb {N}
+    }
+    \and 
+    \inferrule *[right=Intro-Succ]{
+      n : \mathbb {N}
+    }{
+      \texttt {succ}\ n : \mathbb {N}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
   
-<html:p>While this explanation for inductive types usually gives most people I think enough intuition to understand the basic notions of how to use them to construct something like natural numbers, I think it kind of misses the deeper idea of what an inductive type and by extension a recursor really is. To attempt to explain this we'll take a look into some of the categorical semantics behind inductive types.</html:p><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:uri>https://kaierikniermann.github.io/notes/001c/</fr:uri><fr:display-uri>001c</fr:display-uri><fr:route>/notes/001c/</fr:route><fr:title text="Natural Number Object (NNO)">Natural Number Object (NNO)</fr:title><fr:taxon>Definition</fr:taxon></fr:frontmatter><fr:mainmatter><html:p>We assume that <fr:tex display="inline"><![CDATA[\mathcal  L]]></fr:tex> is a category with a <fr:link href="/notes/001d/" title="Terminal Object (Category Theory)" uri="https://kaierikniermann.github.io/notes/001d/" display-uri="001d" type="local">terminal object</fr:link> <fr:tex display="inline"><![CDATA[1]]></fr:tex>. This category has a <html:em>natural number object</html:em> (NNO) if there exists an object <fr:tex display="inline"><![CDATA[\mathbb {N}]]></fr:tex> together with two morphisms:</html:p><html:ul><html:li><fr:tex display="inline"><![CDATA[0 : 1 \to  \mathbb {N}]]></fr:tex></html:li>
-  <html:li><fr:tex display="inline"><![CDATA[s : \mathbb {N} \to  \mathbb {N}]]></fr:tex></html:li></html:ul><html:p>such that, given any global element <fr:tex display="inline"><![CDATA[z : 1 \to  X]]></fr:tex> and any morphism <fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex>, there exists a unique morphism <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> such that the following diagram commutes:</html:p>
+<html:p>
+    While this explanation for inductive types usually gives most people I think enough intuition to understand the basic notions of how to use them to construct something like natural numbers, I think it kind of misses the deeper idea of what an inductive type and by extension a recursor really is. To attempt to explain this we'll take a look into some categorical semantics behind inductive types.
+  </html:p><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:uri>https://kaierikniermann.github.io/notes/001c/</fr:uri><fr:display-uri>001c</fr:display-uri><fr:route>/notes/001c/</fr:route><fr:title text="Natural Number Object (NNO)">Natural Number Object (NNO)</fr:title><fr:taxon>Definition</fr:taxon></fr:frontmatter><fr:mainmatter><html:p>
+  We assume that <fr:tex display="inline"><![CDATA[\mathcal  L]]></fr:tex> is a category with a <fr:link href="/notes/001d/" title="Terminal Object (Category Theory)" uri="https://kaierikniermann.github.io/notes/001d/" display-uri="001d" type="local">terminal object</fr:link> <fr:tex display="inline"><![CDATA[1]]></fr:tex>. This category has a <html:em>natural number object</html:em> (NNO) if there exists an object <fr:tex display="inline"><![CDATA[\mathbb {N}]]></fr:tex> together with two morphisms:
+</html:p><html:ul><html:li><fr:tex display="inline"><![CDATA[0 : 1 \to  \mathbb {N}]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[s : \mathbb {N} \to  \mathbb {N}]]></fr:tex></html:li></html:ul><html:p>
+  such that, given any global element <fr:tex display="inline"><![CDATA[z : 1 \to  X]]></fr:tex> and any morphism <fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex>, there exists a unique morphism <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> such that the following diagram commutes:
+</html:p>
  
   
   <html:figure><fr:resource hash="451ab9726be7ca6a5fa1653caf21d4c5"><fr:resource-content><html:img src="/notes/451ab9726be7ca6a5fa1653caf21d4c5.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
@@ -183,70 +236,107 @@
   \end {tikzcd}
 ]]></fr:resource-source></fr:resource></html:figure>
  
-</fr:mainmatter></fr:tree><html:p>While at first this definition seems a bit needlessly abstract, it actually captures what the inductive type of natural numbers really is. The basic thing to recognize is that the two morphisms (just think of them as functions for now) in reality don't have anything to do with natural numbers directly. Instead they act as a kind of blueprint for how we can use the properties or constraints of natural numbers to make anything. Here on a high level we can describe the two functions / constructors as follows:</html:p><html:ul><html:li><fr:tex display="inline"><![CDATA[0 : 1 \to  \mathbb {N}]]></fr:tex> - The represents the abstract idea of having some starting point or base case. Within natural numbers this is represented by <html:code>0</html:code>, but in reality it denote an abstract concept of having a starting point.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[s : \mathbb {N} \to  \mathbb {N}]]></fr:tex> - This represents the abstract idea of being able to build upon existing things to create new things. Within natural numbers this is represented by the successor function.</html:li></html:ul><html:p>Now this might quite fairly still seem a bit confusing and abstract. How can we <html:em>use properties</html:em> to <html:em>make anything?</html:em>. To describe this more formally lets constrain ourselves to the category of sets, <fr:tex display="inline"><![CDATA[\mathbf {Set}]]></fr:tex>. If you are unfamiliar with category theory its sufficient to think of this as just a collection of all kinds of sets and functions between them.</html:p><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:uri>https://kaierikniermann.github.io/notes/001e/</fr:uri><fr:display-uri>001e</fr:display-uri><fr:route>/notes/001e/</fr:route><fr:title text="Natural Number Object (NNO) in Set">Natural Number Object (NNO) in Set</fr:title><fr:taxon>Example</fr:taxon></fr:frontmatter><fr:mainmatter><html:p>In the category <html:strong>Set</html:strong>, the natural number object (NNO) can be represented by the set of natural numbers <fr:tex display="inline"><![CDATA[\mathbb {N} = \{0, 1, 2, 3, \ldots \}]]></fr:tex>. If we take some arbitrary other set <fr:tex display="inline"><![CDATA[X]]></fr:tex> with some point <fr:tex display="inline"><![CDATA[x : 1 \to  X]]></fr:tex> (which can be identified with an element of <fr:tex display="inline"><![CDATA[X]]></fr:tex>) and some function <fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex>, we can define a unique function <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> as follows:</html:p><fr:tex display="block"><![CDATA[
+</fr:mainmatter></fr:tree><html:p>
+    While at first this definition seems a bit needlessly abstract, it actually captures what the inductive type of natural numbers really is. The basic thing to recognize is that the two morphisms (just think of them as functions for now) in reality don't have anything to do with natural numbers directly. Instead, they act as a kind of blueprint for how we can use the properties or constraints of natural numbers to make anything. Here on a high level we can describe the two functions / constructors as follows:
+  </html:p><html:ul><html:li><fr:tex display="inline"><![CDATA[0 : 1 \to  \mathbb {N}]]></fr:tex> - The represents the abstract idea of having some starting point or base case. Within natural numbers this is represented by <html:code>0</html:code>, but in reality it denotes an abstract concept of having a starting point.
+    </html:li>
+    <html:li><fr:tex display="inline"><![CDATA[s : \mathbb {N} \to  \mathbb {N}]]></fr:tex> - This represents the abstract idea of being able to build upon existing things to create new things. Within natural numbers this is represented by the successor function.
+    </html:li></html:ul><html:p>
+    Now this might quite fairly still seem a bit confusing and abstract. How can we <html:em>use properties</html:em> to <html:em>make anything?</html:em>. To describe this more formally lets constrain ourselves to the category of sets, <fr:tex display="inline"><![CDATA[\mathbf {Set}]]></fr:tex>. If you are unfamiliar with category theory it's sufficient to think of this as just a collection of all kinds of sets and functions between them.
+  </html:p><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:uri>https://kaierikniermann.github.io/notes/001e/</fr:uri><fr:display-uri>001e</fr:display-uri><fr:route>/notes/001e/</fr:route><fr:title text="Natural Number Object (NNO) in Set">Natural Number Object (NNO) in Set</fr:title><fr:taxon>Example</fr:taxon></fr:frontmatter><fr:mainmatter><html:p>
+  In the category <html:strong>Set</html:strong>, the natural number object (NNO) can be represented by the set of natural numbers <fr:tex display="inline"><![CDATA[\mathbb {N} = \{0, 1, 2, 3, \ldots \}]]></fr:tex>. If we take some arbitrary other set <fr:tex display="inline"><![CDATA[X]]></fr:tex> with some point <fr:tex display="inline"><![CDATA[x : 1 \to  X]]></fr:tex> (which can be identified with an element of <fr:tex display="inline"><![CDATA[X]]></fr:tex>) and some function <fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex>, we can define a unique function <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> as follows:
+</html:p><fr:tex display="block"><![CDATA[
   u(n) = \begin {cases}
-    x & \text {if } n = 0 \\
-    f^n(x) & \text {if } n \geq  0
+  x & \text {if } n = 0 \\
+  f^n(x) & \text {if } n \geq  0
   \end {cases}
-]]></fr:tex></fr:mainmatter></fr:tree><html:p>So in plain english what this is saying is that given any set <fr:tex display="inline"><![CDATA[X]]></fr:tex> where we have some starting point <fr:tex display="inline"><![CDATA[x \in  X]]></fr:tex> and some way of building upon existing elements of <fr:tex display="inline"><![CDATA[X]]></fr:tex> (the function <fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex>), we can use the properties of natural numbers to create a unique function <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> that maps natural numbers to elements of <fr:tex display="inline"><![CDATA[X]]></fr:tex> in a way that respects our starting point and building function. A natural next question to have might be </html:p><html:blockquote>
-  But what does it mean to <html:em>respect</html:em> the starting point and building function?
-</html:blockquote><html:p>Here I'd fast say intuitively you can just imagine construct which has some notion of a start and some way of building upon existing things. For example let's imagine the following graph:</html:p><fr:tex display="block"><![CDATA[
-  a \to  b \to  c \to  d \to  e \to  \ldots 
-]]></fr:tex><html:p>Clearly here with have:</html:p><html:ul><html:li><html:strong>Starting point</html:strong>: Our start here is the node <fr:tex display="inline"><![CDATA[a]]></fr:tex>.</html:li>
-  <html:li><html:strong>Building function</html:strong>: Our building function i.e. successor mechanism here is just following the arrows to the next node.</html:li></html:ul><html:p>So our two morphisms then are:</html:p><html:ul><html:li><fr:tex display="inline"><![CDATA[x : 1 \to  X]]></fr:tex> where <fr:tex display="inline"><![CDATA[x]]></fr:tex> maps to <fr:tex display="inline"><![CDATA[a]]></fr:tex>.</html:li>
-  <html:li><fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex> where <fr:tex display="inline"><![CDATA[f]]></fr:tex> maps each node to the next node along the arrow. That is
-    <html:pre class="code-block language-lean"><html:code class="language-lean">
-      f(a) = b
-      f(b) = c
-      f(c) = d
-      f(d) = e
-      ...
-    </html:code></html:pre></html:li></html:ul><html:p>Creating a minimal replica of this in Lean we could do something like:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-  inductive Node where
-  | start : Node           -- this will play the role of “a”
-  | next  : Node → Node   
+]]></fr:tex></fr:mainmatter></fr:tree><html:p>
+    So in plain English what this is saying is that given any set <fr:tex display="inline"><![CDATA[X]]></fr:tex> where we have some starting point <fr:tex display="inline"><![CDATA[x \in  X]]></fr:tex> and some way of building upon existing elements of <fr:tex display="inline"><![CDATA[X]]></fr:tex> (the function <fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex>), we can use the properties of natural numbers to create a unique function <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> that maps natural numbers to elements of <fr:tex display="inline"><![CDATA[X]]></fr:tex> in a way that respects our starting point and building function. A natural next question to have might be
+  </html:p><html:blockquote>
+    But what does it mean to <html:em>respect</html:em> the starting point and building function?
+  </html:blockquote><html:p>
+    Here I'd fast say intuitively you can just imagine construct which has some notion of a start and some way of building upon existing things. For example let's imagine the following graph:
+  </html:p><fr:tex display="block"><![CDATA[
+    a \to  b \to  c \to  d \to  e \to  \ldots 
+  ]]></fr:tex><html:p>
+    Clearly here with have:
+  </html:p><html:ul><html:li><html:strong>Starting point</html:strong>: Our start here is the node <fr:tex display="inline"><![CDATA[a]]></fr:tex>.
+    </html:li>
+    <html:li><html:strong>Building function</html:strong>: Our building function i.e. successor mechanism here is just following the arrows to the next node.
+    </html:li></html:ul><html:p>
+    So our two morphisms then are:
+  </html:p><html:ul><html:li><fr:tex display="inline"><![CDATA[x : 1 \to  X]]></fr:tex> where <fr:tex display="inline"><![CDATA[x]]></fr:tex> maps to <fr:tex display="inline"><![CDATA[a]]></fr:tex>.
+    </html:li>
+    <html:li><fr:tex display="inline"><![CDATA[f : X \to  X]]></fr:tex> where <fr:tex display="inline"><![CDATA[f]]></fr:tex> maps each node to the next node along the arrow. That is
+      <html:pre class="code-block language-lean"><html:code class="language-lean">
+        f(a) = b
+        f(b) = c
+        f(c) = d
+        f(d) = e
+        ...
+      </html:code></html:pre></html:li></html:ul><html:p>
+    Creating a minimal replica of this in Lean we could do something like:
+  </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+    inductive Node where
+    | start : Node           -- this will play the role of “a”
+    | next  : Node → Node
 
-  def succNode (v : Node) : Node :=
-    Node.next v
+    def succNode (v : Node) : Node :=
+      Node. next v
 
-  def natToNode : ℕ → Node
-    | 0       =&gt; Node.start
-    | n + 1   =&gt; succNode (natToNode n)
-</html:code></html:pre><html:p>So we can see our function <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> here is represented by <html:code>natToNode</html:code>. Where the function maps <html:code>0</html:code> to <html:code>a</html:code> and each successor natural number to the next node along the arrow.</html:p><html:p>Something you might notice here is that if our <html:code>natToNode</html:code> function is replaced by just an identity, i.e.:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-  def natToNat : ℕ → ℕ
-    | 0       =&gt; 0
-    | n + 1   =&gt; n + 1
-</html:code></html:pre><html:p>Then we get just the natural numbers themselves as defined by their properties. This is precisely what's expressed by the earlier commuative diagram we say. The two arrows:</html:p><fr:tex display="block"><![CDATA[
-  1 \xrightarrow {0} \mathbb {N}
-  \quad  \text { and } \quad  \mathbb {N} \xrightarrow {s} \mathbb {N}
-]]></fr:tex><html:p>Are just the natural numbers defined by their properties. So in a sense the natural numbers are the most basic instantiation of their own properties. So now a fair thing to wonder is:</html:p><html:blockquote>
-  So what does this have to do with recursers?
-</html:blockquote><html:p>Well the key insight here is that our functions <html:code>natToNat</html:code> and <html:code>natToNode</html:code> both <html:em>are our recursers</html:em> for the natural numbers. A recursor is just a function that allows us to define functions <html:em>out of</html:em> an inductive type by specifying how to handle each constructor of the inductive type. So equivalently we can express our recursor for natural numbers as:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-  def recNat {C : Type} (z : C) (s : C → C) : ℕ → C
-    | 0       =&gt; z
-    | n + 1   =&gt; s (recNat z s n)
-</html:code></html:pre><html:p>If we examine the actual type signature generated by <html:code>#check Nat.rec</html:code> we have:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-  «Nat».rec.{u} 
-  {motive : ℕ → Sort u} 
-  (zero : motive «Nat».zero)
-  (succ : (n : ℕ) 
-    → motive n 
-    → motive n.succ) 
-  (t : ℕ) : motive t
-</html:code></html:pre><html:p>In our examples above we can see that the <html:code>motive</html:code> is just the type we are mapping to (either <fr:tex display="inline"><![CDATA[\mathbb {N}]]></fr:tex> or <fr:tex display="inline"><![CDATA[X]]></fr:tex>), the <html:code>zero</html:code> is our starting point (either <html:code>0</html:code> or <html:code>a</html:code>) and the <html:code>succ</html:code> is our building function (either the successor function or following the arrows). So using the recursor we can rewrite our earlier <html:code>natToNat</html:code> and <html:code>natToNode</html:code> functions as:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-  def natToNat : ℕ → ℕ :=
-    Nat.rec 
-      0                 -- | 0     =&gt; 0
-      (fun n =&gt; n + 1)  -- | n + 1 =&gt; n + 1
+    def natToNode : ℕ → Node
+      | 0       =&gt; Node.start
+      | n + 1   =&gt; succNode (natToNode n)
+  </html:code></html:pre><html:p>
+    So we can see our function <fr:tex display="inline"><![CDATA[u : \mathbb {N} \to  X]]></fr:tex> here is represented by <html:code>natToNode</html:code>. Where the function maps <html:code>0</html:code> to <html:code>a</html:code> and each successor natural number to the next node along the arrow.
+  </html:p><html:p>
+    Something you might notice here is that if our <html:code>natToNode</html:code> function is replaced by just an identity, i.e.:
+  </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+    def natToNat : ℕ → ℕ
+      | 0       =&gt; 0
+      | n + 1   =&gt; n + 1
+  </html:code></html:pre><html:p>
+    Then we get just the natural numbers themselves as defined by their properties. This is precisely what's expressed by the earlier commutative diagram we say. The two arrows:
+  </html:p><fr:tex display="block"><![CDATA[
+    1 \xrightarrow {0} \mathbb {N}
+    \quad  \text { and } \quad  \mathbb {N} \xrightarrow {s} \mathbb {N}
+  ]]></fr:tex><html:p>
+    Are just the natural numbers defined by their properties. So in a sense the natural numbers are the most basic instantiation of their own properties. So now a fair thing to wonder is:
+  </html:p><html:blockquote>
+    So what does this have to do with recursers?
+  </html:blockquote><html:p>
+    Well the key insight here is that our functions <html:code>natToNat</html:code> and <html:code>natToNode</html:code> both <html:em>are our recursers</html:em> for the natural numbers. A recursor is just a function that allows us to define functions <html:em>out of</html:em> an inductive type by specifying how to handle each constructor of the inductive type. So equivalently we can express our recursor for natural numbers as:
+  </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+    def recNat {C : Type} (z : C) (s : C → C) : ℕ → C
+      | 0       =&gt; z
+      | n + 1   =&gt; s (recNat z s n)
+  </html:code></html:pre><html:p>
+    If we examine the actual type signature generated by <html:code>#check Nat.rec</html:code> we have:
+    </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+      «Nat».rec.{u}
+      {motive : ℕ → Sort u}
+      (zero : motive «Nat».zero)
+      (succ : (n : ℕ)
+        → motive n
+        → motive n.succ)
+      (t : ℕ) : motive t
+    </html:code></html:pre><html:p>
+      In our examples above we can see that the <html:code>motive</html:code> is just the type we are mapping to (either <fr:tex display="inline"><![CDATA[\mathbb {N}]]></fr:tex> or <fr:tex display="inline"><![CDATA[X]]></fr:tex>), the <html:code>zero</html:code> is our starting point (either <html:code>0</html:code> or <html:code>a</html:code>) and the <html:code>succ</html:code> is our building function (either the successor function or following the arrows). So using the recursor we can rewrite our earlier <html:code>natToNat</html:code> and <html:code>natToNode</html:code> functions as:
+    </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+      def natToNat : ℕ → ℕ :=
+        Nat.rec
+          0                 -- | 0     =&gt; 0
+          (fun n =&gt; n + 1)  -- | n + 1 =&gt; n + 1
 
-  def natToNode : ℕ → Node :=
-    Nat.rec 
-      Node.start            -- | 0     =&gt; Node.start
-      (fun n =&gt; succNode n) -- | n + 1 =&gt; succNode (natToNode n)
-</html:code></html:pre></fr:mainmatter>
+      def natToNode : ℕ → Node :=
+        Nat.rec
+          Node.start            -- | 0     =&gt; Node.start
+          (fun n =&gt; succNode n) -- | n + 1 =&gt; succNode (natToNode n)
+    </html:code></html:pre></fr:mainmatter>
             </fr:tree>
-            <html:p>This for the most part covers the basic idea of recursors for the sake of breviety I won't go into more instances of recursors for other inductive types though conceptually they work the same way. You specify how to handle each constructor of the inductive type and the recursor gives you a function that maps from the inductive type to whatever type you specified.</html:p>
+            <html:p>
+    This for the most part covers the basic idea of recursors for the sake of brevity I won't go into more instances of recursors for other inductive types though conceptually they work the same way. You specify how to handle each constructor of the inductive type and the recursor gives you a function that maps from the inductive type to whatever type you specified.
+  </html:p>
             <fr:tree show-metadata="false">
               <fr:frontmatter>
                 <fr:authors />
@@ -255,10 +345,17 @@
                   <fr:month>11</fr:month>
                   <fr:day>23</fr:day>
                 </fr:date>
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>23</fr:day>
+                </fr:date>
                 <fr:title text="The connection to induction">The connection to induction</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:p>A very important property of recursors emerges when we make the motive dependent. To elabroate on what that means let's first consider the situation of simple stepwise induction.</html:p>
+                <html:p>
+      A very important property of recursors emerges when we make the motive dependent. To elaborate on what that means let's first consider the situation of simple stepwise induction.
+    </html:p>
                 <fr:tree show-metadata="false">
                   <fr:frontmatter>
                     <fr:authors />
@@ -274,41 +371,59 @@
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
-                    <html:p>Stepwise (mathematical/natural/ordinary) induction is a proof technique used to establish the truth of a statement <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> for all natural numbers <fr:tex display="inline"><![CDATA[n \in  \mathbb {N}]]></fr:tex>. The process involves two main steps:</html:p>
-                    <html:ol><html:li><html:strong>Base Case:</html:strong> Prove that the statement <fr:tex display="inline"><![CDATA[P(0)]]></fr:tex> is true.</html:li>
-  <html:li><html:strong>Inductive Step:</html:strong> Assume that the statement <fr:tex display="inline"><![CDATA[P(k)]]></fr:tex> is true for some arbitrary natural number <fr:tex display="inline"><![CDATA[k \in  \mathbb {N}]]></fr:tex> (this assumption is called the <html:em>inductive hypothesis</html:em>). Then, using this assumption, prove that the statement <fr:tex display="inline"><![CDATA[P(k + 1)]]></fr:tex> is also true.</html:li></html:ol>
-                    <html:p>If both the base case and the inductive step are successfully proven, we can conclude that the statement <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> holds for all natural numbers <fr:tex display="inline"><![CDATA[n \in  \mathbb {N}]]></fr:tex>. The concise formulation of this can be given by the induction principle.</html:p>
+                    <html:p>
+  Stepwise (mathematical/natural/ordinary) induction is a proof technique used to establish the truth of a statement <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> for all natural numbers <fr:tex display="inline"><![CDATA[n \in  \mathbb {N}]]></fr:tex>. The process involves two main steps:
+</html:p>
+                    <html:ol><html:li><html:strong>Base Case:</html:strong> Prove that the statement <fr:tex display="inline"><![CDATA[P(0)]]></fr:tex> is true.
+  </html:li>
+  <html:li><html:strong>Inductive Step:</html:strong> Assume that the statement <fr:tex display="inline"><![CDATA[P(k)]]></fr:tex> is true for some arbitrary natural number <fr:tex display="inline"><![CDATA[k \in  \mathbb {N}]]></fr:tex> (this assumption is called the <html:em>inductive hypothesis</html:em>). Then, using this assumption, prove that the statement <fr:tex display="inline"><![CDATA[P(k + 1)]]></fr:tex> is also true.
+  </html:li></html:ol>
+                    <html:p>
+  If both the base case and the inductive step are successfully proven, we can conclude that the statement <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> holds for all natural numbers <fr:tex display="inline"><![CDATA[n \in  \mathbb {N}]]></fr:tex>. The concise formulation of this can be given by the induction principle.
+</html:p>
                     <fr:tex display="block"><![CDATA[
   (P(0) \land  \forall  k \in  \mathbb {N}.\ (P(k) \to  P(k + 1))) \to  \forall  n \in  \mathbb {N}.\ P(n)
 ]]></fr:tex>
                   </fr:mainmatter>
                 </fr:tree>
-                <html:p>Something we can notice here just by superficial observation alone is that this seems to look an awful lot like the recursor for natural numbers we defined earlier. In fact it <html:em>is</html:em> an application of the recursor for natural numbers for the <html:em>dependent</html:em> motive <fr:tex display="inline"><![CDATA[P : \mathbb {N} \to  \texttt {Prop}.]]></fr:tex>. To make this a little more concrete let's define a simple property over natural numbers:</html:p>
+                <html:p>
+      Something we can notice here just by superficial observation alone is that this seems to look an awful lot like the recursor for natural numbers we defined earlier. In fact, it <html:em>is</html:em> an application of the recursor for natural numbers for the <html:em>dependent</html:em> motive <fr:tex display="inline"><![CDATA[P : \mathbb {N} \to  \texttt {Prop}.]]></fr:tex>. To make this a little more concrete let's define a simple property over natural numbers:
+    </html:p>
                 <html:pre class="code-block language-lean">
                   <html:code class="language-lean">
-  def P (n : ℕ) : Prop := n + 0 = n
-</html:code>
+      def P (n : ℕ) : Prop := n + 0 = n
+    </html:code>
                 </html:pre>
-                <html:p>Now its important to note that in an abstract sense this is no different then any other function from natural numbers to some type. The dependency comes into play when we try to use the recursor i.e. the properties of naturals with this motive.</html:p>
+                <html:p>
+      Now its important to note that in an abstract sense this is no different from any other function from natural numbers to some type. The dependency comes into play when we try to use the recursor i.e. the properties of naturals with this motive.
+    </html:p>
                 <html:pre class="code-block language-lean">
                   <html:code class="language-lean">
-  def natToProp (n : ℕ) : (P n) :=
-    Nat.rec
-      (motive := P)
-      (by simp [P])                    -- base case: P 0
-      (fun n ih =&gt; by simp [P])        -- inductive step: P n → P (n+1)
-      n
-</html:code>
+      def natToProp (n : ℕ) : (P n) :=
+        Nat.rec
+          (motive := P)
+          (by simp [P])                    -- base case: P 0
+          (fun n ih =&gt; by simp [P])        -- inductive step: P n → P (n+1)
+          n
+    </html:code>
                 </html:pre>
-                <html:p>A few things we can observe here:</html:p>
-                <html:ul><html:li>The recursor here represents a <html:em>dependent</html:em> function, which is to say that the return type of the function depends on the input value. Contrasing this to the earlier case where the return type was always just <fr:tex display="inline"><![CDATA[\mathbb {N}]]></fr:tex> or <fr:tex display="inline"><![CDATA[X]]></fr:tex>.</html:li>
-  <html:li><html:strong>Base case</html:strong> - Importantly here as opposed to providing a function that returns some value of type <fr:tex display="inline"><![CDATA[C]]></fr:tex> for the base case, we instead provide a proof that the property <fr:tex display="inline"><![CDATA[P(0)]]></fr:tex> holds.</html:li>
-  <html:li><html:strong>Inductive step</html:strong> - Similarly for the inductive step we provide a function that takes an arbitrary natural number <fr:tex display="inline"><![CDATA[n]]></fr:tex> and a proof that <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> holds (the inductive hypothesis) and returns a proof that <fr:tex display="inline"><![CDATA[P(n + 1)]]></fr:tex> holds.</html:li></html:ul>
-                <html:p>If we view this through the lens of the Curry-Howard correspondence it quite nicely illustrates how our proof here is just a program which constructs witnesses (valid proofs) for each natural number that the property <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> holds. In the same way that our earlier recursor provided elements on the correct type, this dependent recursor provides proofs on the correct property. As this application of a recursor to a proposition represents said proposition being true for all natural numbers, we can equivalently use this within a theorem.</html:p>
+                <html:p>
+      A few things we can observe here:
+    </html:p>
+                <html:ul><html:li>
+        The recursor here represents a <html:em>dependent</html:em> function, which is to say that the return type of the function depends on the input value. Contrasting this to the earlier case where the return type was always just <fr:tex display="inline"><![CDATA[\mathbb {N}]]></fr:tex> or <fr:tex display="inline"><![CDATA[X]]></fr:tex>.
+      </html:li>
+      <html:li><html:strong>Base case</html:strong> - Importantly here as opposed to providing a function that returns some value of type <fr:tex display="inline"><![CDATA[C]]></fr:tex> for the base case, we instead provide a proof that the property <fr:tex display="inline"><![CDATA[P(0)]]></fr:tex> holds.
+      </html:li>
+      <html:li><html:strong>Inductive step</html:strong> - Similarly for the inductive step we provide a function that takes an arbitrary natural number <fr:tex display="inline"><![CDATA[n]]></fr:tex> and a proof that <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> holds (the inductive hypothesis) and returns a proof that <fr:tex display="inline"><![CDATA[P(n + 1)]]></fr:tex> holds.
+      </html:li></html:ul>
+                <html:p>
+      If we view this through the lens of the Curry-Howard correspondence it quite nicely illustrates how our proof here is just a program which constructs witnesses (valid proofs) for each natural number that the property <fr:tex display="inline"><![CDATA[P(n)]]></fr:tex> holds. In the same way that our earlier recursor provided elements on the correct type, this dependent recursor provides proofs on the correct property. As this application of a recursor to a proposition represents said proposition being true for all natural numbers, we can equivalently use this within a theorem.
+    </html:p>
                 <html:pre class="code-block language-lean">
                   <html:code class="language-lean">
-  theorem add_zero (n : ℕ) : n + 0 = n := natToProp n
-</html:code>
+      theorem add_zero (n : ℕ) : n + 0 = n := natToProp n
+    </html:code>
                 </html:pre>
               </fr:mainmatter>
             </fr:tree>
@@ -320,173 +435,220 @@
                   <fr:month>11</fr:month>
                   <fr:day>23</fr:day>
                 </fr:date>
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>11</fr:month>
+                  <fr:day>23</fr:day>
+                </fr:date>
                 <fr:title text="Case Study: Evaluating arithmetic expressions">Case Study: Evaluating arithmetic expressions</fr:title>
               </fr:frontmatter>
-              <fr:mainmatter><html:p>As a little kind of case study I want to give an example of an inductive type (and its recursor) that most people become familiar with; in a sense; as early as primary school: the operational semantics of binary operators. We'll start by defining some of the basic syntax for arithmetic expressions:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-  inductive BinOp where 
-  | add : BinOp
-  | sub : BinOp
-  | mul : BinOp
-  | div : BinOp
+              <fr:mainmatter><html:p>
+      As a little kind of case study I want to give an example of an inductive type (and its recursor) that most people become familiar with; in a sense; as early as primary school: the operational semantics of binary operators. We'll start by defining some basic syntax for arithmetic expressions:
+    </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+      inductive BinOp where
+      | add : BinOp
+      | sub : BinOp
+      | mul : BinOp
+      | div : BinOp
 
-  inductive Expr where
-  | const : ℕ → Expr
-  | binop : BinOp → Expr → Expr → Expr
-</html:code></html:pre><html:p>So here we have defined a simple language of arithmetic expressions consisting of natural number constants and binary operations. This provides us with the means to construct expressions like:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-  #check Expr.binop BinOp.add (Expr.const 10) (Expr.const 20)
-</html:code></html:pre><html:p>If we want to actually define the semantics of how to evaluate these expression we'll need to define a set of rewrite rules that describe how we can take an expression and reduce it to a value i.e. evaluate it. To evaluate an expression we want to traverse the expression tree and whenever we encounter a binary operation with two constant operands we want to apply the operation and replace the entire sub-expression with the resulting constant. We express this as 3 rewrite rules:</html:p><html:ul><html:li><html:strong>Left Evaluation</html:strong>: If the left operand of a binary operation can be reduced, then we reduce it.</html:li>
-  <html:li><html:strong>Right Evaluation</html:strong>: If the left operand is a constant and the right operand can be reduced, then we reduce the right operand.</html:li>
-  <html:li><html:strong>Operation Evaluation</html:strong>: If both operands are constants, we apply the binary operation and replace the entire sub-expression with the resulting constant.</html:li></html:ul><html:pre class="code-block language-lean"><html:code class="language-lean">
-  def eval_op : BinOp → (Nat → Nat → Nat)
-  | .add =&gt; Nat.add
-  | .sub =&gt; Nat.sub
-  | .mul =&gt; Nat.mul
-  | .div =&gt; Nat.div
+      inductive Expr where
+      | const : ℕ → Expr
+      | binop : BinOp → Expr → Expr → Expr
+    </html:code></html:pre><html:p>
+      So here we have defined a simple language of arithmetic expressions consisting of natural number constants and binary operations. This provides us with the means to construct expressions like:
+    </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+      #check Expr.binop BinOp.add (Expr.const 10) (Expr.const 20)
+    </html:code></html:pre><html:p>
+      If we want to actually define the semantics of how to evaluate these expressions we'll need to define a set of rewrite rules that describe how we can take an expression and reduce it to a value i.e. evaluate it. To evaluate an expression we want to traverse the expression tree and whenever we encounter a binary operation with two constant operands we want to apply the operation and replace the entire sub-expression with the resulting constant. We express this as 3 rewrite rules:
+    </html:p><html:ul><html:li><html:strong>Left Evaluation</html:strong>: If the left operand of a binary operation can be reduced, then we reduce it.
+      </html:li>
+      <html:li><html:strong>Right Evaluation</html:strong>: If the left operand is a constant and the right operand can be reduced, then we reduce the right operand.
+      </html:li>
+      <html:li><html:strong>Operation Evaluation</html:strong>: If both operands are constants, we apply the binary operation and replace the entire sub-expression with the resulting constant.
+      </html:li></html:ul><html:pre class="code-block language-lean"><html:code class="language-lean">
+      def eval_op : BinOp → (Nat → Nat → Nat)
+      | .add =&gt; Nat.add
+      | .sub =&gt; Nat.sub
+      | .mul =&gt; Nat.mul
+      | .div =&gt; Nat.div
 
-  inductive Step : Expr -&gt; Expr -&gt; Prop
-  | ST_BinOp1 (op : BinOp)
-      (e₁ e₁' e₂ : Expr)   
-      (h : Step e₁ e₁') :  
-      Step (Expr.binop op e₁ e₂) 
-           (Expr.binop op e₁' e₂)
-  | ST_BinOp2 (op : BinOp) 
-      (v₁ : Nat) 
-      (e₂ e₂' : Expr) 
-      (h : Step e₂ e₂') :
-      Step (Expr.binop op (Expr.const v₁) e₂) 
-           (Expr.binop op (Expr.const v₁) e₂')
-  | ST_BinOpConst (op : BinOp) (v₁ v₂ : Nat) :
-      Step (Expr.binop op (Expr.const v₁) (Expr.const v₂)) 
-           (Expr.const (eval_op op v₁ v₂))
-</html:code></html:pre><html:p>Since expressions can naturally require multiple evaluations steps it makes sense to define a multi-step evaluation relation as the reflexive transitive closure of the single step evaluation relation defined above. This we can define as:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-  abbrev MultiStep := Relation.ReflTransGen Step
+      inductive Step : Expr -&gt; Expr -&gt; Prop
+      | ST_BinOp1 (op : BinOp)
+          (e₁ e₁' e₂ : Expr)
+          (h : Step e₁ e₁') :
+          Step (Expr.binop op e₁ e₂)
+               (Expr.binop op e₁' e₂)
+      | ST_BinOp2 (op : BinOp)
+          (v₁ : Nat)
+          (e₂ e₂' : Expr)
+          (h : Step e₂ e₂') :
+          Step (Expr.binop op (Expr.const v₁) e₂)
+               (Expr.binop op (Expr.const v₁) e₂')
+      | ST_BinOpConst (op : BinOp) (v₁ v₂ : Nat) :
+          Step (Expr.binop op (Expr.const v₁) (Expr.const v₂))
+               (Expr.const (eval_op op v₁ v₂))
+    </html:code></html:pre><html:p>
+      Since expressions can naturally require multiple evaluations steps it makes sense to define a multistep evaluation relation as the reflexive transitive closure of the single step evaluation relation defined above. This we can define as:
+    </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+      abbrev MultiStep := Relation.ReflTransGen Step
 
-  -- helper notation to express multi-step evaluation
-  notation:50 e " -&gt;ⁿ " e' =&gt;  MultiStep e e'
-</html:code></html:pre><html:p>Let's also define a small helper syntax and macro to make it easier to write arithmetic expressions:</html:p>
-  
-<fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="A small arithmetic expression grammar">A small arithmetic expression grammar</fr:title></fr:frontmatter><fr:mainmatter><html:pre class="code-block language-lean"><html:code class="language-lean">
-declare_syntax_cat arithTm
+      -- helper notation to express multi-step evaluation
+      notation:50 e " -&gt;ⁿ " e' =&gt;  MultiStep e e'
+    </html:code></html:pre><html:p>
+      Let's also define a small helper syntax and macro to make it easier to write arithmetic expressions:
+    </html:p>
+      
+      <fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="A small arithmetic expression grammar">A small arithmetic expression grammar</fr:title></fr:frontmatter><fr:mainmatter><html:pre class="code-block language-lean"><html:code class="language-lean">
+          declare_syntax_cat arithTm
 
--- atoms
-syntax num                      : arithTm
-syntax "(" arithTm ")"          : arithTm
+          -- atoms
+          syntax num                      : arithTm
+          syntax "(" arithTm ")"          : arithTm
 
--- multiplicative level (higher precedence)
-syntax:70 arithTm:70 "*" arithTm:71 : arithTm
-syntax:70 arithTm:70 "/" arithTm:71 : arithTm
+          -- multiplicative level (higher precedence)
+          syntax:70 arithTm:70 "*" arithTm:71 : arithTm
+          syntax:70 arithTm:70 "/" arithTm:71 : arithTm
 
--- additive level (lower precedence)
-syntax:60 arithTm:60 "+" arithTm:61 : arithTm
-syntax:60 arithTm:60 "-" arithTm:61 : arithTm
+          -- additive level (lower precedence)
+          syntax:60 arithTm:60 "+" arithTm:61 : arithTm
+          syntax:60 arithTm:60 "-" arithTm:61 : arithTm
 
-syntax "ex{" arithTm "}" : term
+          syntax "ex{" arithTm "}" : term
 
-macro_rules
-  -- numerals
-  | `(ex{ $n:num }) =&gt;
-      `(Expr.const $n)
+          macro_rules
+            -- numerals
+            | `(ex{ $n:num }) =&gt;
+                `(Expr.const $n)
 
-  -- parentheses
-  | `(ex{ ($t:arithTm) }) =&gt;
-      `(ex{$t})
+            -- parentheses
+            | `(ex{ ($t:arithTm) }) =&gt;
+                `(ex{$t})
 
-  -- addition
-  | `(ex{ $e₁:arithTm + $e₂:arithTm }) =&gt;
-      `(Expr.binop BinOp.add (ex{$e₁}) (ex{$e₂}))
+            -- addition
+            | `(ex{ $e₁:arithTm + $e₂:arithTm }) =&gt;
+                `(Expr.binop BinOp.add (ex{$e₁}) (ex{$e₂}))
 
-  -- subtraction
-  | `(ex{ $e₁:arithTm - $e₂:arithTm }) =&gt;
-      `(Expr.binop BinOp.sub (ex{$e₁}) (ex{$e₂}))
+            -- subtraction
+            | `(ex{ $e₁:arithTm - $e₂:arithTm }) =&gt;
+                `(Expr.binop BinOp.sub (ex{$e₁}) (ex{$e₂}))
 
-  -- multiplication
-  | `(ex{ $e₁:arithTm * $e₂:arithTm }) =&gt;
-      `(Expr.binop BinOp.mul (ex{$e₁}) (ex{$e₂}))
+            -- multiplication
+            | `(ex{ $e₁:arithTm * $e₂:arithTm }) =&gt;
+                `(Expr.binop BinOp.mul (ex{$e₁}) (ex{$e₂}))
 
-  -- division
-  | `(ex{ $e₁:arithTm / $e₂:arithTm }) =&gt;
-      `(Expr.binop BinOp.div (ex{$e₁}) (ex{$e₂}))
-  </html:code></html:pre></fr:mainmatter></fr:tree>
-<fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Describing arithmetic evaluation">Describing arithmetic evaluation</fr:title></fr:frontmatter><fr:mainmatter><html:p>Now say that we wanted to evaluate the expression <fr:tex display="inline"><![CDATA[((2 * 3) + 4)]]></fr:tex> on a high level what we would do is rewrite the multiplication to <fr:tex display="inline"><![CDATA[6 + 4]]></fr:tex> and then rewrite that to <fr:tex display="inline"><![CDATA[10]]></fr:tex>. Expressing this in lean we have:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-  example : -- ((2 * 3) + 4) -&gt;ⁿ 10
-  ex{ ((2 * 3) + 4) } -&gt;ⁿ ex{ 10 } :=
-    .trans (rw_lhs (rw_const .mul 2 3)) (rw_const .add 6 4)
-</html:code></html:pre><html:p>Here we say that the expression <fr:tex display="inline"><![CDATA[((2 * 3) + 4)]]></fr:tex> after multiple steps evaluates to <fr:tex display="inline"><![CDATA[10]]></fr:tex> by first rewriting the left hand side multiplication to <fr:tex display="inline"><![CDATA[6 + 4]]></fr:tex> and then rewriting that to <fr:tex display="inline"><![CDATA[10]]></fr:tex>. And we chain these operations together using the <html:code>.trans</html:code> constructor of the multi-step evaluation relation. Now the question becomes, how do we define these rewrite steps? Intuitively we can imagine evaluation as being described by the following sort of graph</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
- +(lhs [op] rhs) 
- |
- +-+(rw_lhs) -&gt;ⁿ lhs' [op] rhs    (1) reduce lhs some number of steps
-   | 
-   +-+(rw_rhs) -&gt;ⁿ lhs [op] rhs'  (2) reduce rhs some number of steps
-     |
-     +- (rw_const) -&gt; value       (3) reduce both to a constant value
-</html:code></html:pre><html:p>The idea of each rule being that:</html:p><html:ul><html:li><html:strong>rw_lhs</html:strong>: If the left hand side can be reduced some number of steps we can reduce it while keeping the right hand side the same. This corresponds to the <html:code>ST_BinOp1</html:code> rule defined earlier.</html:li>
-  <html:li><html:strong>rw_rhs</html:strong>: If the left hand side is a constant we can reduce the right hand side some number of steps while keeping the left hand side the same. This corresponds to the <html:code>ST_BinOp2</html:code> rule defined earlier.</html:li>
-  <html:li><html:strong>rw_const</html:strong>: If both sides are constants we can apply the binary operation and reduce the entire expression to a single constant value. This corresponds to the <html:code>ST_BinOpConst</html:code> rule defined earlier.</html:li></html:ul><html:p>As these rules are defined over the structure of multi-step evaluation our implementation of them will naturally be in terms of the inductive structure of a multistep relationship:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-lemma rw_lhs (lhs_rw : lhs -&gt;ⁿ lhs') :
-  (lhs [op] rhs) -&gt;ⁿ (lhs' [op] rhs) :=
-match lhs_rw with
-| .refl       =&gt; .refl
-| .tail S₁ S₂ =&gt; (rw_lhs S₁).tail (.ST_BinOp1 S₂)
+            -- division
+            | `(ex{ $e₁:arithTm / $e₂:arithTm }) =&gt;
+                `(Expr.binop BinOp.div (ex{$e₁}) (ex{$e₂}))
+        </html:code></html:pre></fr:mainmatter></fr:tree>
+    <fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Describing arithmetic evaluation">Describing arithmetic evaluation</fr:title></fr:frontmatter><fr:mainmatter><html:p>
+        Now say that we wanted to evaluate the expression <fr:tex display="inline"><![CDATA[((2 * 3) + 4)]]></fr:tex> on a high level what we would do is rewrite the multiplication to <fr:tex display="inline"><![CDATA[6 + 4]]></fr:tex> and then rewrite that to <fr:tex display="inline"><![CDATA[10]]></fr:tex>. Expressing this in lean we have:
+      </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+        example : -- ((2 * 3) + 4) -&gt;ⁿ 10
+        ex{ ((2 * 3) + 4) } -&gt;ⁿ ex{ 10 } :=
+          .trans (rw_lhs (rw_const .mul 2 3)) (rw_const .add 6 4)
+      </html:code></html:pre><html:p>
+        Here we say that the expression <fr:tex display="inline"><![CDATA[((2 * 3) + 4)]]></fr:tex> after multiple steps evaluates to <fr:tex display="inline"><![CDATA[10]]></fr:tex> by first rewriting the left hand side multiplication to <fr:tex display="inline"><![CDATA[6 + 4]]></fr:tex> and then rewriting that to <fr:tex display="inline"><![CDATA[10]]></fr:tex>. And we chain these operations together using the <html:code>.trans</html:code> constructor of the multi-step evaluation relation. Now the question becomes, how do we define these rewrite steps? Intuitively we can imagine evaluation as being described by the following sort of graph
+      </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+        +(lhs [op] rhs)
+        |
+        +-+(rw_lhs) -&gt;ⁿ lhs' [op] rhs    (1) reduce lhs some number of steps
+          |
+          +-+(rw_rhs) -&gt;ⁿ lhs [op] rhs'  (2) reduce rhs some number of steps
+            |
+            +- (rw_const) -&gt; value       (3) reduce both to a constant value
+      </html:code></html:pre><html:p>
+        The idea of each rule being that:
+      </html:p><html:ul><html:li><html:strong>rw_lhs</html:strong>: If the left hand side can be reduced some number of steps we can reduce it while keeping the right hand side the same. This corresponds to the <html:code>ST_BinOp1</html:code> rule defined earlier.
+        </html:li>
+        <html:li><html:strong>rw_rhs</html:strong>: If the left hand side is a constant we can reduce the right hand side some number of steps while keeping the left hand side the same. This corresponds to the <html:code>ST_BinOp2</html:code> rule defined earlier.
+        </html:li>
+        <html:li><html:strong>rw_const</html:strong>: If both sides are constants we can apply the binary operation and reduce the entire expression to a single constant value. This corresponds to the <html:code>ST_BinOpConst</html:code> rule defined earlier.
+        </html:li></html:ul><html:p>
+        As these rules are defined over the structure of multi-step evaluation our implementation of them will naturally be in terms of the inductive structure of a multistep relationship:
+      </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+        lemma rw_lhs (lhs_rw : lhs -&gt;ⁿ lhs') :
+          (lhs [op] rhs) -&gt;ⁿ (lhs' [op] rhs) :=
+        match lhs_rw with
+        | .refl       =&gt; .refl
+        | .tail S₁ S₂ =&gt; (rw_lhs S₁).tail (.ST_BinOp1 S₂)
 
-lemma rw_rhs (rhs_rw : rhs -&gt;ⁿ rhs') :
-  ((.const lhs) [op] rhs) -&gt;ⁿ ((.const lhs) [op] rhs') :=
-match rhs_rw with
-| .refl       =&gt; .refl
-| .tail S₁ S₂ =&gt; (rw_rhs S₁).tail (.ST_BinOp2 S₂)
+        lemma rw_rhs (rhs_rw : rhs -&gt;ⁿ rhs') :
+          ((.const lhs) [op] rhs) -&gt;ⁿ ((.const lhs) [op] rhs') :=
+        match rhs_rw with
+        | .refl       =&gt; .refl
+        | .tail S₁ S₂ =&gt; (rw_rhs S₁).tail (.ST_BinOp2 S₂)
 
-lemma rw_const (op : BinOp) (lhs rhs : Nat) :
-  ((.const lhs) [op] (.const rhs)) -&gt;ⁿ .const (eval_op op lhs rhs) :=
-.single (.ST_BinOpConst op lhs rhs)
-</html:code></html:pre><html:p>Alternatively we can specify the left and right rewrite rules using the recursor or or head induction principle for multi-step evaluation:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-lemma rw_rhs' (rhs_rw : rhs -&gt;ⁿ rhs') :
-  ((.const lhs) [op] rhs) -&gt;ⁿ ((.const lhs) [op] rhs') :=
-.rec
-  (refl := .refl)
-  (tail := by
-    intro _ _ _ hcb ih
-    exact ih.tail (.ST_BinOp2 hcb)
-  ) rhs_rw
+        lemma rw_const (op : BinOp) (lhs rhs : Nat) :
+          ((.const lhs) [op] (.const rhs)) -&gt;ⁿ .const (eval_op op lhs rhs) :=
+        .single (.ST_BinOpConst op lhs rhs)
+      </html:code></html:pre><html:p>
+        Alternatively we can specify the left and right rewrite rules using the recursor or or head induction principle for multi-step evaluation:
+      </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+        lemma rw_rhs' (rhs_rw : rhs -&gt;ⁿ rhs') :
+          ((.const lhs) [op] rhs) -&gt;ⁿ ((.const lhs) [op] rhs') :=
+        .rec
+          (refl := .refl)
+          (tail := by
+            intro _ _ _ hcb ih
+            exact ih.tail (.ST_BinOp2 hcb)
+          ) rhs_rw
 
-lemma rw_rhs'' (rhs_rw : rhs -&gt;ⁿ rhs') :
-  ((.const lhs) [op] rhs) -&gt;ⁿ ((.const lhs) [op] rhs') :=
-.head_induction_on
-  (refl := .refl)
-  (head := by
-    intro _ _ hac _ ih
-    exact ih.head (.ST_BinOp2 hac)
-  ) rhs_rw
-</html:code></html:pre><html:p>The motive function here is inferred by Lean via the Lemma, which allos us to avoid having to explicitly specify it. Other then this we can see that the recursors again simply correspond to providing methods to describe what to do for each of the constructors.</html:p></fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Recursors describe usage">Recursors describe usage</fr:title></fr:frontmatter><fr:mainmatter><html:p>So at this point you might I think fairly ask yourself:</html:p><html:blockquote>
-  Wait why are you spending so much time on this random example for recursors?
-</html:blockquote><html:p>The main reason is that to me it provides one of the most grounded direct examples of what it means for a recursor function to <html:em>eliminate</html:em> a term of an inductive type. In general in type theory we say that <html:em>term elimination</html:em> represents the natural deduction rules for <html:em>how to use</html:em> terms of a given type. Applied to our example we can see that these recursors precisely correspond to the rules of how we evaluate i.e. <html:em>use</html:em> arithmetic expressions.</html:p><html:p>Each rewrite rule describes how we can take an expression and reduce it step by step until we reach a final value. So in a sense the recursor here <html:em>eliminates</html:em> the expression by providing a systematic way to break it down into its constituent parts and evaluate it. This is precisely the essence of what recursors do in type theory; they provide a way to systematically deconstruct and utilize terms of inductive types according to their defined structure and properties.</html:p></fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Proving correct evaluation">Proving correct evaluation</fr:title></fr:frontmatter><fr:mainmatter><html:p>One of the wonderful things we then naturally get from these recusors is that we can use them to describe how a correct evaluation works. So given our evaluation function:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-@[simp]
-def eval : Expr -&gt; Nat
-  | Expr.const n =&gt; n
-  | Expr.binop op e₁ e₂ =&gt;
-      let v₁ := eval e₁
-      let v₂ := eval e₂
-      eval_op op v₁ v₂
-</html:code></html:pre><html:p>We can use the recursors describing the rewrite rules to show that this evaluation function for our expressions both yields a constant and that we have some sequence of reduction steps (application of rewrite rules) to get to said constant. Or expressed formally:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-  (e : Expr) : -- for any expression e
-    (∃ v : Nat), -- there exists a value v
-      (eval e = v) ∧ (e -&gt;ⁿ (.const v))
-      -- such that eval e = v and e reduces to the constant v
-</html:code></html:pre><html:p>The proof of this statement works by induction on the structure of the expression <html:code>e</html:code> if our expression represents a constant then the proof is trivial as we can just take the value of the constant itself. If our expression represents a binary operation then same as we showed for the concrete example we just apply our recursors to first rewrite the lhs, then the rhs and finally apply the operation to get the final constant value. In full the proof looks like:</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
-  theorem eval_correct (e : Expr) :
-  ∃ v : Nat, (eval e = v) ∧ (e -&gt;ⁿ (.const v)) := by
-  induction e with
-  | const n =&gt; exists n
-  | binop op lhs rhs eval_lhs eval_rhs =&gt;
-    rcases eval_lhs with ⟨lhs_v, ⟨rhs_is_v, lhs_rw⟩⟩
-    rcases eval_rhs with ⟨rhs_v, ⟨lhs_is_v, rhs_rw⟩⟩
-    simp [rhs_is_v, lhs_is_v]
+        lemma rw_rhs'' (rhs_rw : rhs -&gt;ⁿ rhs') :
+          ((.const lhs) [op] rhs) -&gt;ⁿ ((.const lhs) [op] rhs') :=
+        .head_induction_on
+          (refl := .refl)
+          (head := by
+            intro _ _ hac _ ih
+            exact ih.head (.ST_BinOp2 hac)
+          ) rhs_rw
+      </html:code></html:pre><html:p>
+        The motive function here is inferred by Lean via the Lemma, which allos us to avoid having to explicitly specify it. Other than this we can see that the recursors again simply correspond to providing methods to describe what to do for each of the constructors.
+      </html:p></fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Recursors describe usage">Recursors describe usage</fr:title></fr:frontmatter><fr:mainmatter><html:p>
+        So at this point you might, I think fairly ask yourself:
+      </html:p><html:blockquote>
+        Wait why are you spending so much time on this random example for recursors?
+      </html:blockquote><html:p>
+        The main reason is that to me it provides one of the most grounded direct examples of what it means for a recursor function to <html:em>eliminate</html:em> a term of an inductive type. In general in type theory we say that <html:em>term elimination</html:em> represents the natural deduction rules for <html:em>how to use</html:em> terms of a given type. Applied to our example we can see that these recursors precisely correspond to the rules of how we evaluate i.e. <html:em>use</html:em> arithmetic expressions.
+      </html:p><html:p>
+        Each rewrite rule describes how we can take an expression and reduce it step by step until we reach a final value. So in a sense the recursor here <html:em>eliminates</html:em> the expression by providing a systematic way to break it down into its constituent parts and evaluate it. This is precisely the essence of what recursors do in type theory; they provide a way to systematically deconstruct and utilize terms of inductive types according to their defined structure and properties.
+      </html:p></fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Proving correct evaluation">Proving correct evaluation</fr:title></fr:frontmatter><fr:mainmatter><html:p>
+        One of the wonderful things we then naturally get from these recursors is that we can use them to describe how a correct evaluation works. So given our evaluation function:
+      </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+        @[simp]
+        def eval : Expr -&gt; Nat
+          | Expr.const n =&gt; n
+          | Expr.binop op e₁ e₂ =&gt;
+              let v₁ := eval e₁
+              let v₂ := eval e₂
+              eval_op op v₁ v₂
+      </html:code></html:pre><html:p>
+        We can use the recursors describing the rewrite rules to show that this evaluation function for our expressions both yields a constant and that we have some sequence of reduction steps (application of rewrite rules) to get to said constant. Or expressed formally:
+      </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+        (e : Expr) : -- for any expression e
+          (∃ v : Nat), -- there exists a value v
+            (eval e = v) ∧ (e -&gt;ⁿ (.const v))
+            -- such that eval e = v and e reduces to the constant v
+      </html:code></html:pre><html:p>
+        The proof of this statement works by induction on the structure of the expression <html:code>e</html:code> if our expression represents a constant then the proof is trivial as we can just take the value of the constant itself. If our expression represents a binary operation then same as we showed for the concrete example we just apply our recursors to first rewrite the lhs, then the rhs and finally apply the operation to get the final constant value. In full the proof looks like:
+      </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+        theorem eval_correct (e : Expr) :
+        ∃ v : Nat, (eval e = v) ∧ (e -&gt;ⁿ (.const v)) := by
+        induction e with
+        | const n =&gt; exists n
+        | binop op lhs rhs eval_lhs eval_rhs =&gt;
+          rcases eval_lhs with ⟨lhs_v, ⟨rhs_is_v, lhs_rw⟩⟩
+          rcases eval_rhs with ⟨rhs_v, ⟨lhs_is_v, rhs_rw⟩⟩
+          simp [rhs_is_v, lhs_is_v]
 
-    exact
-      (rw_lhs lhs_rw).trans (
-        (rw_rhs rhs_rw).trans (
-          rw_const op lhs_v rhs_v
-        )
-      )
-</html:code></html:pre><html:p>In other words our proof for describing that our evaluation function is correct amounts to essentially simulating or describing quite literally how the evaluation works step by step using the recursors we defined earlier. To see precisely how <html:code>rcases</html:code> works here I'd recommend to paste the code into a Lean environment and examine the types of each of the intermediate values.</html:p></fr:mainmatter></fr:tree></fr:mainmatter>
+          exact
+            (rw_lhs lhs_rw).trans (
+              (rw_rhs rhs_rw).trans (
+                rw_const op lhs_v rhs_v
+              )
+            )
+      </html:code></html:pre><html:p>
+        In other words our proof for describing that our evaluation function is correct amounts to essentially simulating or describing quite literally how the evaluation works step by step using the recursors we defined earlier. To see precisely how <html:code>rcases</html:code> works here I'd recommend to paste the code into a Lean environment and examine the types of each of the intermediate values.
+      </html:p></fr:mainmatter></fr:tree></fr:mainmatter>
             </fr:tree>
           </fr:mainmatter>
         </fr:tree>
@@ -520,7 +682,9 @@ def eval : Expr -&gt; Nat
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>In category theory, a <html:em>terminal object</html:em> (or <html:em>final object</html:em>) in a category <fr:tex display="inline"><![CDATA[\mathcal  C]]></fr:tex> is an object <fr:tex display="inline"><![CDATA[T]]></fr:tex> such that for every object <fr:tex display="inline"><![CDATA[X]]></fr:tex> in <fr:tex display="inline"><![CDATA[\mathcal  C]]></fr:tex>, there exists a unique morphism <fr:tex display="inline"><![CDATA[f : X \to  T]]></fr:tex>. In other words, a terminal object is an object that can be reached from any other object in the category via a unique morphism.</html:p>
+            <html:p>
+  In category theory, a <html:em>terminal object</html:em> (or <html:em>final object</html:em>) in a category <fr:tex display="inline"><![CDATA[\mathcal  C]]></fr:tex> is an object <fr:tex display="inline"><![CDATA[T]]></fr:tex> such that for every object <fr:tex display="inline"><![CDATA[X]]></fr:tex> in <fr:tex display="inline"><![CDATA[\mathcal  C]]></fr:tex>, there exists a unique morphism <fr:tex display="inline"><![CDATA[f : X \to  T]]></fr:tex>. In other words, a terminal object is an object that can be reached from any other object in the category via a unique morphism.
+</html:p>
           </fr:mainmatter>
         </fr:tree>
       </fr:mainmatter>

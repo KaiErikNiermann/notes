@@ -6,7 +6,9 @@
 
 \title{Type Universes}
 
-\p{In an abstract sense type universes can be regarded similarly in motivation to [Grothendieck universes](002q) in that they represent a collection (type in this case) of types which are [closed](002e) under certain type constructions. There are typically two presentations of type universes either a la Russell or Tarksi, starting with the former we have:}
+\p{
+  In an abstract sense type universes can be regarded similarly in motivation to [Grothendieck universes](002q) in that they represent a collection (type in this case) of types which are [closed](002e) under certain type constructions. There are typically two presentations of type universes either a la Russell or Tarksi, starting with the former we have:
+}
 \infrule{
   \inferrule*[right=Universe-Form]{
     \Gamma\ \texttt{ctx}

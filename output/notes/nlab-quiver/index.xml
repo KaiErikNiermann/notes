@@ -56,10 +56,17 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>A <html:em>quiver</html:em> is a collection of <html:strong>edges</html:strong> which may stretch between (ordered) <html:strong>pairs</html:strong> of points called <html:em>vertices</html:em>. Thus making a quiver a kind of graph. In the graph theoretical sense a quiver is a <html:em>directed</html:em> <html:em>pseudo-multigraph</html:em> so breaking that down <fr:link href="/notes/nlab-quiver/" title="quiver" uri="https://kaierikniermann.github.io/notes/nlab-quiver/" display-uri="nlab-quiver" type="local">(1)</fr:link>:</html:p>
-            <html:ul><html:li>It's <html:strong>directed</html:strong> meaning each arrow has a direction associated with it going from a source vertex to a target vertex</html:li>
-  <html:li>It's a <html:strong>pseudograph</html:strong> meaning each pair of verties has some number of edges (including zero) between them, and loops (edges that connect a vertex to itself) are allowed</html:li>
-  <html:li>It's a <html:strong>multigraph</html:strong> which means we constrain the kinds of edges to disallow loops (an edge from a vertex to itself.)
+            <html:p>
+  A <html:em>quiver</html:em> is a collection of <html:strong>edges</html:strong> which may stretch between (ordered) <html:strong>pairs</html:strong> of points called <html:em>vertices</html:em>. Thus making a quiver a kind of graph. In the graph theoretical sense a quiver is a <html:em>directed</html:em> <html:em>pseudo-multigraph</html:em> so breaking that down <fr:link href="/notes/nlab-quiver/" title="quiver" uri="https://kaierikniermann.github.io/notes/nlab-quiver/" display-uri="nlab-quiver" type="local">(1)</fr:link>:
+</html:p>
+            <html:ul><html:li>
+    It's <html:strong>directed</html:strong> meaning each arrow has a direction associated with it going from a source vertex to a target vertex
+  </html:li>
+  <html:li>
+    It's a <html:strong>pseudograph</html:strong> meaning each pair of verties has some number of edges (including zero) between them, and loops (edges that connect a vertex to itself) are allowed
+  </html:li>
+  <html:li>
+    It's a <html:strong>multigraph</html:strong> which means we constrain the kinds of edges to disallow loops (an edge from a vertex to itself.)
   </html:li></html:ul>
             <fr:tree show-metadata="false">
               <fr:frontmatter>
@@ -74,7 +81,9 @@
                 </fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:p>The lean representation of this construct is given as follows:</html:p>
+                <html:p>
+    The lean representation of this construct is given as follows:
+  </html:p>
                 <html:pre class="code-block language-lean">
                   <html:code class="language-lean">
   universe v v₁ v₂ u u₁ u₂

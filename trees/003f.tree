@@ -6,17 +6,31 @@
 
 \title{Theory of Peano Arithmetic}
 
-\p{Are the following well-formed #{T_{\text{PA}} formulae?}}
+\p{
+  Are the following well-formed #{T_{\text{PA}} formulae?}
+}
 \ol{
-  \li{#{x + y = 1 \land f(x) = 1 + 1}}
-  \li{#{\forall x.\ \exists y.\ \exists z.\ x + y = 1\land z \times x = 1 + 1}}
-  \li{#{2x = y}}
+  \li{
+    #{x + y = 1 \land f(x) = 1 + 1}
+  }
+  \li{
+    #{\forall x.\ \exists y.\ \exists z.\ x + y = 1\land z \times x = 1 + 1}
+  }
+  \li{
+    #{2x = y}
+  }
 }
 
 \solution{
   \ol{
-    \li{No, the theory of Peano Arithmetic does not include function symbols like #{f}, nor does it include numerals like #{1} or #{2}. All terms must be constructed using the constant symbol #{0}, the successor function #{S}, and the function symbols #{+} and #{\times}.}
-    \li{Yes, this is a well-formed formula. It uses only the symbols and constructs allowed in the theory of Peano Arithmetic.}
-    \li{No, this is not a well-formed formula. The expression #{2x} is not a valid term in Peano Arithmetic, as numerals like #{2} are not part of the language. Terms must be built using #{0}, #{S}, #{+}, and #{\times}. A valid way to express the same idea would be #{S(S(0)) \times x = y}. Or if we replace #{S} with #{1} then we could do #{(1 + 1) \times x = y}}
+    \li{
+      No, the theory of Peano Arithmetic does not include function symbols like #{f}, nor does it include numerals like #{1} or #{2}. All terms must be constructed using the constant symbol #{0}, the successor function #{S}, and the function symbols #{+} and #{\times}.
+    }
+    \li{
+      Yes, this is a well-formed formula. It uses only the symbols and constructs allowed in the theory of Peano Arithmetic.
+    }
+    \li{
+      No, this is not a well-formed formula. The expression #{2x} is not a valid term in Peano Arithmetic, as numerals like #{2} are not part of the language. Terms must be built using #{0}, #{S}, #{+}, and #{\times}. A valid way to express the same idea would be #{S(S(0)) \times x = y}. Or if we replace #{S} with #{1} then we could do #{(1 + 1) \times x = y}
+    }
   }
 }

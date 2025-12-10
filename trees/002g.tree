@@ -47,12 +47,12 @@
     \li{
       If we take any two subsets on the same level, such as #{\{\{a\}, \{b\}\}} then \em{two move up a level} we take the union of the sets, so:
       ##{
-      \{a\} \cup \{b\} \to \{a, b\}
-    }
+        \{a\} \cup \{b\} \to \{a, b\}
+      }
       Conversly if we wish to \em{move down a level} we take the intersection of the two sets, so for the same pair
       ##{
-      \{a\} \cap \{b\} \to \{\}
-    }
+        \{a\} \cap \{b\} \to \{\}
+      }
       \li{
         Each level expresses the different powersets of #{X} with a given cardinality. So the bottom level is the powerset of cardinality 0 (i.e. the empty set), the next level up is the powerset of cardinality 1 (i.e. the singletons), then cardinality 2 and finally cardinality 3 at the top level which is just the set #{X} itself.
       }

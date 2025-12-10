@@ -6,15 +6,29 @@
 
 \title{Theory of Rationals #{T_{\Q}}}
 
-\p{The theory of rationals #{T_{\Q}} is a first-order theory over the signature #{\Sigma_{\Q}} which contains:}
+\p{
+  The theory of rationals #{T_{\Q}} is a first-order theory over the signature #{\Sigma_{\Q}} which contains:
+}
 ##{
   \Sigma_{\Q} : \{0, 1, +, -, =, \geq\}
 }
-\p{(Axioms ommitted for brevity.)}
-\p{Some important properties of #{T_{\Q}} are:}
+\p{
+  (Axioms ommitted for brevity.)
+}
+\p{
+  Some important properties of #{T_{\Q}} are:
+}
 \ul{
-  \li{Full theory is \em{decidable} but doubly exponential.}
-  \li{Conjunctive quantifier-free fragment is efficiently decidable (polynomial time).}
-  \li{#{T_{\Q}} is the basis for arithemtic reasoning in SMT solvers such as Z3.}
-  \li{In practice the \em{simplex} algorithm is used.}
+  \li{
+    Full theory is \em{decidable} but doubly exponential.
+  }
+  \li{
+    Conjunctive quantifier-free fragment is efficiently decidable (polynomial time).
+  }
+  \li{
+    #{T_{\Q}} is the basis for arithemtic reasoning in SMT solvers such as Z3.
+  }
+  \li{
+    In practice the \em{simplex} algorithm is used.
+  }
 }

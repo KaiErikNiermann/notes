@@ -2,9 +2,61 @@
 
 \import{base-macros}
 
-
-\taxon{Definition}  
+\taxon{Definition} 
 
 \title{Inductive Invariant}
 
-
+\p{
+  An inductive invariant is a regular invariant, which is to say that it:
+}
+\blockquote{
+  is a property which holds at all reachable states of the program
+}
+\p{
+  But it has the additional constraint that it must be [closed](002e) under the transition relation. In other words if it holds before a step, it must also hold after the step. Formally we say that a property #{P} represents an \strong{inductive invariant} if:
+}
+\ul{
+  \li{
+    As a \em{base case} it holds at program initialization
+    ##{
+      \texttt{init} \to P
+    }
+  }
+  \li{
+    In the \em{inductive step} we have
+    ##{
+      P(\sigma) \land (S, \sigma) \to \sigma' \to P(\sigma')
+    }
+    in plain English: If the property holds on the state #{\sigma} and after the \em{small step evaluation} #{S} we land in a new state #{\sigma'} then the property also holds in the new state #{\sigma'}. 
+  }
+}
+\p{
+  If both of the conditions hold then we we automatically have that:
+}
+##{
+  \sigma \in \mathcal R.\ P(\sigma)
+}
+\p{
+  Which is to say that these conditions imply an inductive invariant is also an invariant. The prime example where we can see this is in the case of the while loop for hoare logic:
+}
+\infrule{
+  \inferrule*[right=While]{
+    \vdash \{I \land b\}\ s\ \{I\}
+  }{
+    \vdash \{I\}\ \cwhile\ b\ \cdo\ s\ \{I \land \neg b\}
+  }
+}
+\p{
+  Here the invariant is represented by the assertion #{I} on the memory state. What this rule says is that:
+}
+\ul{
+  \li{
+    If the assertion #{I} and the loop guard #{b} hold, and upon termination of #{s} we have that #{I} holds.
+  }
+  \li{
+    Then we can lift the invariant out of the loop and say that it must hold for all loop iterations and upon termination of the loop we clearly have that our loop guard must be false and our invariant should still hold.
+  }
+}
+\p{
+  This corresponds precisely to the notion of an \em{inductive} invariant as if we can demonstrate it holding for the execution and termination of a single statement - the base case - then we can derive the inductive case where it holds for all iterations.
+}

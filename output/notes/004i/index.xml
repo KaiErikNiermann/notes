@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>7</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/004i/</fr:uri>
+    <fr:display-uri>004i</fr:display-uri>
+    <fr:route>/notes/004i/</fr:route>
+    <fr:title text="A hypothetical array inference rule">A hypothetical array inference rule</fr:title>
+    <fr:taxon>Quiz</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter><html:p>
+  Say we want to add arrays to our programming language, and we come up with the following inference rule to reason about assignments:
+</html:p>
+  
+    
+    <fr:resource hash="ac752829cdc3421250a0155d7991fa94"><fr:resource-content><html:img src="/notes/ac752829cdc3421250a0155d7991fa94.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule {}{
+    \vdash  \{Q[a[e_1] \mapsto  e_2]\}\ a[e_1] := e_2\ \{Q\}
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+  Is this rule correct?
+</html:p>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>7</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:p>
+    There are a few ways we can answer this, starting in with the most pedantic let's construct the proof tree and then see if we can come up with a counter example, we consider the following hoare triple:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    \{i = 1\}\ a[i] := 3; a[1] := 2\ \{a[i] = 3\}
+  ]]></fr:tex>
+  <html:p>
+    By the sequence and precondition strengthening rule we have that
+  </html:p>
+  
+  
+    
+    <fr:resource hash="40b0fd9b78430a73fece6d0c9349d8be"><fr:resource-content><html:img src="/notes/40b0fd9b78430a73fece6d0c9349d8be.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule {
+      \vdash  \{i = 1 \to  3 = 3\}\ a[i] := 3\ \{a[i] = 3\} \\ 
+      \vdash  \{a[i] = 3\}\ a[1] = 2\ \{a[i] = 3\}
+    }{
+      \vdash  \{i = 1\}\ a[i] := 3; a[1] := 2\ \{a[i] = 3\}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+  <html:p>
+    Of note here we are deriving <fr:tex display="inline"><![CDATA[i = 1]]></fr:tex> through the following implications:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    Q[a[i] \mapsto  3] \equiv  (a[i] = 3)[a[i] \mapsto  3] \equiv  (3 = 3) \equiv  \top 
+  ]]></fr:tex>
+  <html:p>
+    Where we know that <fr:tex display="inline"><![CDATA[i = 1 \to  \top ]]></fr:tex> so we can use precondition strengthening to use <fr:tex display="inline"><![CDATA[i = 1]]></fr:tex> as our precondition since it implies something we've already syntactically demonstrated to be provable.
+  </html:p>
+  <html:p>
+    Clearly we have that the first assignment in the sequence holds by the naive assignment, same for for the second assigment <fr:tex display="inline"><![CDATA[a[1] = 2]]></fr:tex> since it precondition reduces to the tautology <fr:tex display="inline"><![CDATA[\top ]]></fr:tex>, so the final rule is then derivable. But we can obviously see that it erroneously assumes that <fr:tex display="inline"><![CDATA[i]]></fr:tex> represents some kind of distinct index but we can see that in the second assignment its alised by the constant index <fr:tex display="inline"><![CDATA[1]]></fr:tex> which means that while we can derive the rule it is <html:em>not semantically valid</html:em> hence unsound.
+  </html:p>
+  <html:p>
+    To compare this with the correct rule we have that:
+  </html:p>
+  
+  
+    
+    <fr:resource hash="395f1fa21ead978e4709be636110ea8e"><fr:resource-content><html:img src="/notes/395f1fa21ead978e4709be636110ea8e.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule {
+    }{
+      \vdash  \{Q[a \mapsto  a \langle  e_1 \lhd  e_2 \rangle ]\}\ a[e_1] := e_2\ \{Q\}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+  <html:p>
+    Now again let's try to derive the hoare triple we want to prove correct:
+  </html:p>
+  
+  
+    
+    <fr:resource hash="389e6242b715dad6f6b3a142c523e5d5"><fr:resource-content><html:img src="/notes/389e6242b715dad6f6b3a142c523e5d5.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule {
+      \vdash  \{i = 1\}\ a[i] := 3\ \{R\} \\
+      \vdash  \{R\}\ a[1] := 3\ \{a[i] := 3\}
+    }{
+      \vdash  \{i = 1\}\ a[i] := 3; a[1] := 2\ \{a[i] = 3\}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+  <html:p>
+    To derive we want to find some assertion <fr:tex display="inline"><![CDATA[R]]></fr:tex>, applying the correct assignment rule to the second assignment we define <fr:tex display="inline"><![CDATA[R]]></fr:tex> as.
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    R \equiv  (a[i] := 3)[a \mapsto  a \langle  1 \lhd  2 \rangle ]
+  ]]></fr:tex>
+  <html:p>
+    we can think of this as defining the function:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    a'(j) = \begin {cases}
+    2 & \texttt {if}\ j = 1
+    a(j) & \text {otherwise}
+  ]]></fr:tex>
+  <html:p>
+    we can then do a case split on the equality <fr:tex display="inline"><![CDATA[i = 1]]></fr:tex> using our defined function
+  </html:p>
+  <html:ol><html:li>
+      If <fr:tex display="inline"><![CDATA[i = 1]]></fr:tex> then we have
+      <fr:tex display="block"><![CDATA[
+        a'[i] = a[1] = 2 \to  a'[i] = 3 \equiv  2 = 3 \equiv  \bot 
+      ]]></fr:tex></html:li>
+    <html:li>
+      If <fr:tex display="inline"><![CDATA[i \ \mathrlap {\,/}{=}\ 1]]></fr:tex> we have
+      <fr:tex display="block"><![CDATA[
+        a'[i] = a[i] \to  a'[i] = 3 \equiv  a[i] = 3
+      ]]></fr:tex></html:li></html:ol>
+  <html:p>
+    Since it clearly must be the case that <fr:tex display="inline"><![CDATA[i \ \mathrlap {\,/}{=}\ 1]]></fr:tex> it implies that our assertion <fr:tex display="inline"><![CDATA[R]]></fr:tex> is equivalent to:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    R \equiv  (i \ \mathrlap {\,/}{=}\ 1\land  a[i] = 3)
+  ]]></fr:tex>
+  <html:p>
+    Now testing this rule on the first hoare triple:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    \{i = 1\}\ a[i] := 3\ \{i \ \mathrlap {\,/}{=}\ 1\land  a[i] = 3\}
+  ]]></fr:tex>
+  <html:p>
+    By the assignment rule we must somehow be able to derive <fr:tex display="inline"><![CDATA[i = 1]]></fr:tex> from the following:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    R[a \mapsto  a \langle  i \lhd  3 \rangle ]
+  ]]></fr:tex>
+  <html:p>
+    substituting in our <fr:tex display="inline"><![CDATA[R]]></fr:tex> we get
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    (i \ \mathrlap {\,/}{=}\ 1\land  a[i] = 3)[a \mapsto  a \langle  i \lhd  3 \rangle ]
+  ]]></fr:tex>
+  <html:p>
+    after a reduction we have
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    (i \ \mathrlap {\,/}{=}\ 1 \land  \underbrace {(a \langle  i \lhd  3 \rangle [i] = 3)}_{\top })
+  ]]></fr:tex>
+  <html:p>
+    simplifying this we get
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    (i \neq  1)
+  ]]></fr:tex>
+  <html:p>
+    Which is where the crux of our issue lies, the precondition of our Hoare triple was <fr:tex display="inline"><![CDATA[i = 1]]></fr:tex>, but clearly here to derive our sequence of assignments we must have that i is not 1, hence this hoare triple is not derivable as its also clearly not valid.
+  </html:p>
+  <html:p>
+    A simpler approach at establishing the same idea is by just directly working backwards
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    \begin {align}
+    a \langle  1 \lhd  2 \rangle [i] & = 3 \\
+    a \langle  i \lhd  3 \rangle  \langle  1 \lhd  2 \rangle [i] & = 3
+    \end {align}
+  ]]></fr:tex>
+  <html:p>
+    so first we substitute <fr:tex display="inline"><![CDATA[a]]></fr:tex> for the assignment <fr:tex display="inline"><![CDATA[a[1] := 2]]></fr:tex>, then we update it for the assignment <fr:tex display="inline"><![CDATA[a[i] := 3]]></fr:tex>, then our precondition would imply that:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    i = 1 \to  a \langle  i \lhd  3 \rangle  \langle  1 \lhd  2 \rangle [i] = 3
+  ]]></fr:tex>
+  <html:p>
+    We indeed cannot derive the triple with the precondition, as it should be trivially apparent that if <fr:tex display="inline"><![CDATA[i = 1]]></fr:tex> after overwriting with <fr:tex display="inline"><![CDATA[a[1] = 2]]></fr:tex> we clearly cannot have <fr:tex display="inline"><![CDATA[a[1] = 3]]></fr:tex>.
+  </html:p>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

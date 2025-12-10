@@ -5,11 +5,21 @@
 \title{Evaluating Syntax}
 
 \ol{
-  \li{\strong{Is #{p} an atom?}}
-  \li{\strong{Is #{p} a literal?}}
-  \li{\strong{Is #{p} a formula?}}
-  \li{\strong{What about #{\neg p}?}}
-  \li{\strong{What about #{\neg \neg p}? }}
+  \li{
+    \strong{Is #{p} an atom?}
+  }
+  \li{
+    \strong{Is #{p} a literal?}
+  }
+  \li{
+    \strong{Is #{p} a formula?}
+  }
+  \li{
+    \strong{What about #{\neg p}?}
+  }
+  \li{
+    \strong{What about #{\neg \neg p}?}
+  }
 }
 
 \solution{
@@ -31,4 +41,3 @@
     }
   }
 }
-

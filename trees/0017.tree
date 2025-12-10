@@ -6,7 +6,9 @@
 
 \title{Connectives and Quantifiers (FOL)}
 
-\p{In addition to evaluating atomic formulas, we can define the evaluation of complex formulas using logical connectives and quantifiers as follows:}
+\p{
+  In addition to evaluating atomic formulas, we can define the evaluation of complex formulas using logical connectives and quantifiers as follows:
+}
 
 \infrule{
   \inferrule*[right=Not-True]{
@@ -58,7 +60,9 @@
   }
 }
 
-\p{For the proof rules of quantifiers we have two variants depending on whether we are dealing with free or bound variables:}
+\p{
+  For the proof rules of quantifiers we have two variants depending on whether we are dealing with free or bound variables:
+}
 
 \infrule{
   \inferrule*[right=$\forall$-$\top$]{

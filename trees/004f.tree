@@ -1,0 +1,23 @@
+\date{2025-12-07}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Invariant}
+
+\p{
+  In the most straightforward sense we say that an invariant is simply:
+}
+\blockquote{
+  A property that holds at all reachable states of the program
+}
+\p{
+  Formally we can say if #{P} denotes our property and #{\mathcal R} denotes our set of reachable states then we can say that #{P} is an invariant if:
+}
+##{
+  \forall \sigma, \sigma \in \mathcal R \to P(\sigma)
+}
+\p{
+  An important thing to note here is that an invariant by itself does not need to be checkable or syntactic in any sense, there are \strong{no requirements} that #{P} must imply after each step. The distinction here is important because we can have something be an invariant though be insufficient as a proof rule.
+}

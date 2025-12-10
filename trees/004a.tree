@@ -2,7 +2,7 @@
 
 \import{base-macros}
 
-\taxon{VU-VFS-2025}
+\taxon{VU-VFS-2025} 
 
 \title{Lecture 6 - Hoare logic & Weakest preconditions}
 
@@ -10,5 +10,12 @@
   \title{Loops & Invariants}
   \transclude{004c}
   \transclude{004d}
+  \transclude{004f}
   \transclude{004e}
+  \transclude{004g}
+}
+
+\subtree{
+  \title{Arrays}
+
 }

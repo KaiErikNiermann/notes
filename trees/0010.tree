@@ -6,11 +6,15 @@
 
 \title{FOL - Closed, Open, and Ground Formulas}
 
-\p{Consider the following formula}
+\p{
+  Consider the following formula
+}
 ##{
   \forall y.\ ((\forall x.\ p(x))) \to (\exists x.\ q(x, y))
 }
-\p{Is this formula closed, open, or ground?}
+\p{
+  Is this formula closed, open, or ground?
+}
 
 \solution{
   This formula is a \strong{closed formula} because all variables within the formula are bound by quantifiers. The variable #{y} is bound by the quantifier #{\forall y}, and both occurrences of #{x} are bound by their respective quantifiers #{\forall x} and #{\exists x}. There are no free variables in this formula. 
@@ -19,5 +23,5 @@
   ##{
     p(a, f(b)) \to q(c)
   }
-  We can see here that there are no variables at all; #{a}, #{b}, and #{c} are not bound by any quantifiers, hence the formula is ground since we arent substituting/quantifying over any variables.
+  We can see here that there are no variables at all; #{a}, #{b}, and #{c} are not bound by any quantifiers, hence the formula is ground since we aren't substituting/quantifying over any variables.
 }

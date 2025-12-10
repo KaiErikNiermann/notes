@@ -12,9 +12,9 @@
 \infrule{
   \inferrule*{
     x_1 \\ \ldots \\ x_n
-}{
+  }{
     x
-}
+  }
 }
 \p{
   In plain English this can be read as: \em{If #{x_1} to {x_n} are elements of the subset I am defining, then so is #{x}}. Here the elements #{x_1} to #{x_n} are called the \em{premises} of the rule while #{x} is called the \em{conclusion} of the rule.

@@ -10,7 +10,7 @@
 }
 ##{
   \begin{align*}
-    \neg (p \land q) &\equiv \neg p \lor \neg q \\
-    \neg (p \lor q) &\equiv \neg p \land \neg q
+  \neg (p \land q) &\equiv \neg p \lor \neg q \\
+  \neg (p \lor q) &\equiv \neg p \land \neg q
   \end{align*}
 }

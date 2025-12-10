@@ -82,13 +82,13 @@
 }
 
 \def\proof[body]{
- \scope{
-   \put\transclude/toc{false}
-   \subtree{
-     \taxon{Proof}
-     \body
-   }
- }
+  \scope{
+    \put\transclude/toc{false}
+    \subtree{
+      \taxon{Proof}
+      \body
+    }
+  }
 }
 
 \def\grammar[body]{
@@ -117,14 +117,14 @@
 }
 
 \def\solution[body]{
- \scope{
-   \put\transclude/toc{false}
-   \put\transclude/expanded{false}
-   \subtree{
-     \taxon{Solution}
-     \body
-   }
- }
+  \scope{
+    \put\transclude/toc{false}
+    \put\transclude/expanded{false}
+    \subtree{
+      \taxon{Solution}
+      \body
+    }
+  }
 }
 
 \def\Con[arg1]{#{\mathsf{\arg1}}}

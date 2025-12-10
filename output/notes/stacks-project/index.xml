@@ -57,7 +57,9 @@
             <fr:taxon>Note</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>This short entry demonstrates how to cite the new reference created from the BibTeX pipeline. See <fr:link href="/notes/stacks-project/" title="The Stacks project" uri="https://kaierikniermann.github.io/notes/stacks-project/" display-uri="stacks-project" type="local">The Stacks Project</fr:link> for the full bibliographic details.</html:p>
+            <html:p>
+  This short entry demonstrates how to cite the new reference created from the BibTeX pipeline. See <fr:link href="/notes/stacks-project/" title="The Stacks project" uri="https://kaierikniermann.github.io/notes/stacks-project/" display-uri="stacks-project" type="local">The Stacks Project</fr:link> for the full bibliographic details.
+</html:p>
           </fr:mainmatter>
         </fr:tree>
       </fr:mainmatter>

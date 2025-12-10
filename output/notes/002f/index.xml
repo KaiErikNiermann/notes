@@ -15,20 +15,27 @@
     <fr:taxon>Definition</fr:taxon>
   </fr:frontmatter>
   <fr:mainmatter>
-    <html:p>A <html:em>closure operator</html:em> on a set <fr:tex display="inline"><![CDATA[S]]></fr:tex> is a function <fr:tex display="inline"><![CDATA[\text {Cl} : \mathcal  P(S) \to  \mathcal  P(S)]]></fr:tex> from the powerset of <fr:tex display="inline"><![CDATA[S]]></fr:tex> to itself that satisfies the following three properties for all subsets <fr:tex display="inline"><![CDATA[A, B \subseteq  S]]></fr:tex>:</html:p>
-    <html:ul><html:li>The operator is <html:strong>extensive</html:strong> meaning that the closure of a set always contains the set itself:
+    <html:p>
+  A <html:em>closure operator</html:em> on a set <fr:tex display="inline"><![CDATA[S]]></fr:tex> is a function <fr:tex display="inline"><![CDATA[\text {Cl} : \mathcal  P(S) \to  \mathcal  P(S)]]></fr:tex> from the powerset of <fr:tex display="inline"><![CDATA[S]]></fr:tex> to itself that satisfies the following three properties for all subsets <fr:tex display="inline"><![CDATA[A, B \subseteq  S]]></fr:tex>:
+</html:p>
+    <html:ul><html:li>
+    The operator is <html:strong>extensive</html:strong> meaning that the closure of a set always contains the set itself:
     <fr:tex display="block"><![CDATA[
       A \subseteq  \text {Cl}(A)
     ]]></fr:tex></html:li>
-  <html:li>The operator is <html:strong>idempotent</html:strong> meaning that applying the closure operator twice is the same as applying it once:
+  <html:li>
+    The operator is <html:strong>idempotent</html:strong> meaning that applying the closure operator twice is the same as applying it once:
     <fr:tex display="block"><![CDATA[
       \text {Cl}(\text {Cl}(A)) = \text {Cl}(A)
     ]]></fr:tex></html:li>
-  <html:li>The operator is <html:strong>monotone</html:strong> meaning that if one set is a subset of another, then the closure of the first set is a subset of the closure of the second set:
+  <html:li>
+    The operator is <html:strong>monotone</html:strong> meaning that if one set is a subset of another, then the closure of the first set is a subset of the closure of the second set:
     <fr:tex display="block"><![CDATA[
       A \subseteq  B \implies  \text {Cl}(A) \subseteq  \text {Cl}(B)
     ]]></fr:tex></html:li></html:ul>
-    <html:p>We say that the <html:em>closure of a subset</html:em> is the result of the closure operator beingapplied to that subset. The closure of this subset under some operation is the <html:em>smallest superset</html:em> of the subset which is closed (i.e., remains within the superset when the operation is applied). It's also sometimes called the <html:em>span</html:em> (such as in linear algebra), <html:em>generated set</html:em>, or <html:em>hull</html:em>.</html:p>
+    <html:p>
+  We say that the <html:em>closure of a subset</html:em> is the result of the closure operator beingapplied to that subset. The closure of this subset under some operation is the <html:em>smallest superset</html:em> of the subset which is closed (i.e., remains within the superset when the operation is applied). It's also sometimes called the <html:em>span</html:em> (such as in linear algebra), <html:em>generated set</html:em>, or <html:em>hull</html:em>.
+</html:p>
   </fr:mainmatter>
   <fr:backmatter>
     <fr:tree show-metadata="false" hidden-when-empty="true">
@@ -66,29 +73,45 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>A <fr:link href="/notes/002h/" title="Syntactic (inference) rule" uri="https://kaierikniermann.github.io/notes/002h/" display-uri="002h" type="local">syntactic rule</fr:link> on a set <fr:tex display="inline"><![CDATA[X]]></fr:tex> expresses a closure condition (or <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">operator</fr:link>) on the subsets of <fr:tex display="inline"><![CDATA[X]]></fr:tex>, which is to say on the elements of the powerset <fr:tex display="inline"><![CDATA[\mathcal {P}]]></fr:tex>. In particular we can say that for a particular subset <fr:tex display="inline"><![CDATA[S \in  \mathcal {P}(X)]]></fr:tex>, we have that:</html:p>
+            <html:p>
+  A <fr:link href="/notes/002h/" title="Syntactic (inference) rule" uri="https://kaierikniermann.github.io/notes/002h/" display-uri="002h" type="local">syntactic rule</fr:link> on a set <fr:tex display="inline"><![CDATA[X]]></fr:tex> expresses a closure condition (or <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">operator</fr:link>) on the subsets of <fr:tex display="inline"><![CDATA[X]]></fr:tex>, which is to say on the elements of the power set <fr:tex display="inline"><![CDATA[\mathcal {P}]]></fr:tex>. In particular, we can say that for a particular subset <fr:tex display="inline"><![CDATA[S \in  \mathcal {P}(X)]]></fr:tex>, we have that:
+</html:p>
             <fr:tex display="block"><![CDATA[
   \{S \subseteq  X \mid  x_1,\ldots ,x_n \in  S \to  x \in  S\}
 ]]></fr:tex>
-            <html:p>When we have a set <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> denoting a set of <fr:link href="/notes/002h/" title="Syntactic (inference) rule" uri="https://kaierikniermann.github.io/notes/002h/" display-uri="002h" type="local">rules</fr:link> over <fr:tex display="inline"><![CDATA[X]]></fr:tex>, we will write:</html:p>
+            <html:p>
+  When we have a set <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> denoting a set of <fr:link href="/notes/002h/" title="Syntactic (inference) rule" uri="https://kaierikniermann.github.io/notes/002h/" display-uri="002h" type="local">rules</fr:link> over <fr:tex display="inline"><![CDATA[X]]></fr:tex>, we will write:
+</html:p>
             <fr:tex display="block"><![CDATA[
   \text {Cl}_\mathcal  R \in  \mathcal  P(X)
 ]]></fr:tex>
-            <html:p>to denote the intersection of the closure conditions expressed by each rule in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words, the set of subsets of <fr:tex display="inline"><![CDATA[X]]></fr:tex> that are closed under all the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. Intuitively this set denotes all set's which satisfy the premises of the rule and hence can derive the conclusion. A particular rule <fr:tex display="inline"><![CDATA[r \in  \mathcal  R]]></fr:tex> is said to determine a monotone function <fr:tex display="inline"><![CDATA[f_r: \mathcal  P(X) \to  \mathcal  P(X)]]></fr:tex> such that for any subset <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex>, we have that:</html:p>
+            <html:p>
+  to denote the intersection of the closure conditions expressed by each rule in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words, the set of subsets of <fr:tex display="inline"><![CDATA[X]]></fr:tex> that are closed under all the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. Intuitively this set denotes all set's which satisfy the premises of the rule and hence can derive the conclusion. A particular rule <fr:tex display="inline"><![CDATA[r \in  \mathcal  R]]></fr:tex> is said to determine a monotone function <fr:tex display="inline"><![CDATA[f_r: \mathcal  P(X) \to  \mathcal  P(X)]]></fr:tex> such that for any subset <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex>, we have that:
+</html:p>
             <fr:tex display="block"><![CDATA[
   f_r(S) = \{x \in  X \mid  x_1, \ldots , x_n \in  S\}
 ]]></fr:tex>
-            <html:p>What this function expresses is that if we know the assertions <fr:tex display="inline"><![CDATA[x_1]]></fr:tex> to <fr:tex display="inline"><![CDATA[x_n]]></fr:tex> are true (are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>) then we can additionally conclude <fr:tex display="inline"><![CDATA[x]]></fr:tex> is true. A more pedantic equivalent version of this function is:</html:p>
+            <html:p>
+  What this function expresses is that if we know the assertions <fr:tex display="inline"><![CDATA[x_1]]></fr:tex> to <fr:tex display="inline"><![CDATA[x_n]]></fr:tex> are true (are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>) then we can additionally conclude <fr:tex display="inline"><![CDATA[x]]></fr:tex> is true. A more pedantic equivalent version of this function is:
+</html:p>
             <fr:tex display="block"><![CDATA[
   f_r(S) = S \cup  \{x \in  X \mid  x_1, \ldots , x_n \in  S\}
 ]]></fr:tex>
-            <html:p>There seems to be a general tendency to prefer the first version as it emphasizes the idea of the derivation of new conclusions from premises, however the second version is what's pedantically accurate in that we are accumulating the conclusion <fr:tex display="inline"><![CDATA[x]]></fr:tex> into the set <fr:tex display="inline"><![CDATA[S]]></fr:tex> based on the existing premises.</html:p>
-            <html:p>Furthermore we have that the set <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> of rules induces a monotone function that collectively closes up under each rule in the set as follows:</html:p>
+            <html:p>
+  There seems to be a general tendency to prefer the first version as it emphasizes the idea of the derivation of new conclusions from premises, however the second version is what's pedantically accurate in that we are accumulating the conclusion <fr:tex display="inline"><![CDATA[x]]></fr:tex> into the set <fr:tex display="inline"><![CDATA[S]]></fr:tex> based on the existing premises.
+</html:p>
+            <html:p>
+  Furthermore we have that the set <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> of rules induces a monotone function that collectively closes up under each rule in the set as follows:
+</html:p>
             <fr:tex display="block"><![CDATA[
   f_\mathcal  R(S) = \bigcup _{r \in  \mathcal  R} f_r(S)
 ]]></fr:tex>
-            <html:p>What this function expresses is that for any subset <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex>, we can apply each rule in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> to <fr:tex display="inline"><![CDATA[S]]></fr:tex> and take the union of all the resulting sets. This gives us the smallest superset of <fr:tex display="inline"><![CDATA[S]]></fr:tex> closed under <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. Intuitively it expresses all derivable conclusions <fr:tex display="inline"><![CDATA[x]]></fr:tex> from premises <fr:tex display="inline"><![CDATA[x_1, \ldots , x_n]]></fr:tex> in <fr:tex display="inline"><![CDATA[S]]></fr:tex> according to the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words it corresponds to the idea of enumerating all rules for our given set <fr:tex display="inline"><![CDATA[S]]></fr:tex> and seeing if we can add any new conclusions to <fr:tex display="inline"><![CDATA[S]]></fr:tex> based on the premises already in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.</html:p>
-            <html:p>The <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">closure</fr:link> of the set <fr:tex display="inline"><![CDATA[X]]></fr:tex> under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, denoted by <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex>, is then defined as the least fixpoint (or <fr:link href="/notes/002b/" title="Tarski's Theorem" uri="https://kaierikniermann.github.io/notes/002b/" display-uri="002b" type="local">least pre-fixed point</fr:link>) of the function <fr:tex display="inline"><![CDATA[f_\mathcal  R]]></fr:tex>:</html:p>
+            <html:p>
+  What this function expresses is that for any subset <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex>, we can apply each rule in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> to <fr:tex display="inline"><![CDATA[S]]></fr:tex> and take the union of all the resulting sets. This gives us the smallest superset of <fr:tex display="inline"><![CDATA[S]]></fr:tex> closed under <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. Intuitively it expresses all derivable conclusions <fr:tex display="inline"><![CDATA[x]]></fr:tex> from premises <fr:tex display="inline"><![CDATA[x_1, \ldots , x_n]]></fr:tex> in <fr:tex display="inline"><![CDATA[S]]></fr:tex> according to the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words it corresponds to the idea of enumerating all rules for our given set <fr:tex display="inline"><![CDATA[S]]></fr:tex> and seeing if we can add any new conclusions to <fr:tex display="inline"><![CDATA[S]]></fr:tex> based on the premises already in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.
+</html:p>
+            <html:p>
+  The <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">closure</fr:link> of the set <fr:tex display="inline"><![CDATA[X]]></fr:tex> under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, denoted by <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex>, is then defined as the least fixpoint (or <fr:link href="/notes/002b/" title="Tarski's Theorem" uri="https://kaierikniermann.github.io/notes/002b/" display-uri="002b" type="local">least pre-fixed point</fr:link>) of the function <fr:tex display="inline"><![CDATA[f_\mathcal  R]]></fr:tex>:
+</html:p>
             <fr:tex display="block"><![CDATA[
   \mu  f_\mathcal  R = \bigcap \ \{ S \subseteq  X \mid  f_\mathcal  R(S) \subseteq  S \}
 ]]></fr:tex>
@@ -109,7 +132,8 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>We let <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> denote the set of syntactic rules over some set <fr:tex display="inline"><![CDATA[X]]></fr:tex>. Let <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  X]]></fr:tex> be the closure of <fr:tex display="inline"><![CDATA[X]]></fr:tex> under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words: <fr:link href="/notes/sterling-rule-induction-2025/" title="Theorem. Rule induction" uri="https://kaierikniermann.github.io/notes/sterling-rule-induction-2025/" display-uri="sterling-rule-induction-2025" type="local">(1)</fr:link></html:p>
+            <html:p>
+  We let <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> denote the set of syntactic rules over some set <fr:tex display="inline"><![CDATA[X]]></fr:tex>. Let <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  X]]></fr:tex> be the closure of <fr:tex display="inline"><![CDATA[X]]></fr:tex> under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words: <fr:link href="/notes/sterling-rule-induction-2025/" title="Theorem. Rule induction" uri="https://kaierikniermann.github.io/notes/sterling-rule-induction-2025/" display-uri="sterling-rule-induction-2025" type="local">(1)</fr:link></html:p>
             <fr:tex display="block"><![CDATA[
   (X_\mathcal  R \in  \text {Cl}_\mathcal  R \land  \forall  S \in  \text {Cl}_\mathcal  R \to  X_\mathcal  R \subseteq  S) \equiv  (X_\mathcal  R = \bigcap  \text {Cl}_\mathcal  R)
 ]]></fr:tex>
@@ -123,13 +147,19 @@
                 </fr:date>
                 <fr:title text="Proof of rule induction">Proof of rule induction</fr:title>
               </fr:frontmatter>
-              <fr:mainmatter><html:p>Our proof here is defined in two parts:</html:p><html:ol><html:li><html:strong>Closed</html:strong>: We show that the set <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words, for every rule <fr:tex display="inline"><![CDATA[(x_1, \ldots , x_n) \mapsto  x \in  \mathcal  R]]></fr:tex>, if <fr:tex display="inline"><![CDATA[x_1, \ldots , x_n \in  X_\mathcal  R]]></fr:tex>, then <fr:tex display="inline"><![CDATA[x \in  X_\mathcal  R]]></fr:tex>.</html:li>
-  <html:li><html:strong>Minimal</html:strong>: We show that <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the smallest set closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words, for any set <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex> that is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, we have <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  S]]></fr:tex>.</html:li></html:ol>
- 
-   
-   <fr:tree show-metadata="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>25</fr:day></fr:date><fr:taxon>Proof</fr:taxon></fr:frontmatter><fr:mainmatter>
-  <html:p>We fix an arbitrary rule in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>:</html:p>
+              <fr:mainmatter><html:p>
+    Our proof here is defined in two parts:
+  </html:p><html:ol><html:li><html:strong>Closed</html:strong>: We show that the set <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words, for every rule <fr:tex display="inline"><![CDATA[(x_1, \ldots , x_n) \mapsto  x \in  \mathcal  R]]></fr:tex>, if <fr:tex display="inline"><![CDATA[x_1, \ldots , x_n \in  X_\mathcal  R]]></fr:tex>, then <fr:tex display="inline"><![CDATA[x \in  X_\mathcal  R]]></fr:tex>.
+    </html:li>
+    <html:li><html:strong>Minimal</html:strong>: We show that <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the smallest set closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. In other words, for any set <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex> that is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, we have <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  S]]></fr:tex>.
+    </html:li></html:ol>
   
+    
+    <fr:tree show-metadata="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>25</fr:day></fr:date><fr:taxon>Proof</fr:taxon></fr:frontmatter><fr:mainmatter>
+    <html:p>
+      We fix an arbitrary rule in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>:
+    </html:p>
+    
   
     
     <fr:resource hash="63b338beeb6e34f7b990a23c3e92b73c"><fr:resource-content><html:img src="/notes/63b338beeb6e34f7b990a23c3e92b73c.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
@@ -152,24 +182,36 @@
   \end {mathpar}]]></fr:resource-source></fr:resource>
   
 
-  <html:p>By definition of <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex>, we have that <fr:tex display="inline"><![CDATA[x_1, \ldots , x_n \in  X_\mathcal  R]]></fr:tex>. Since <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, it follows that <fr:tex display="inline"><![CDATA[x \in  X_\mathcal  R]]></fr:tex>. Thus, <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>.</html:p>
-
-  <html:p>Now we want to check that <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the smallest set closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. Let <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex> be an arbitrary set that is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. We need to show that <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  S]]></fr:tex>. We can equivalently state this as:</html:p>
-  <html:blockquote>
-    Forall derivations <fr:tex display="inline"><![CDATA[d]]></fr:tex> generated by rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, the conclusions of <fr:tex display="inline"><![CDATA[d]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.
-  </html:blockquote>
-  <html:p>Or in terms of the height of a derivation as:</html:p>
-  <html:blockquote>
-    Forall derivations <fr:tex display="inline"><![CDATA[d]]></fr:tex> of height <fr:tex display="inline"><![CDATA[h]]></fr:tex> generated by rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, the conclusions of <fr:tex display="inline"><![CDATA[d]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.
-  </html:blockquote>
-  <html:p>We proceed by induction on the height of the derivation <fr:tex display="inline"><![CDATA[d]]></fr:tex>.</html:p>
-  <html:ul><html:li>In the <html:strong>base case</html:strong> any derivation has a height of at least 1, the base case holds vacuously.</html:li>
-    <html:li><html:p>In the <html:strong>inductive case</html:strong> we suppose that the conclusions of every derivation of height less than or equal to <fr:tex display="inline"><![CDATA[k]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>. ; we must prove that the conclusion of any derivation of height <fr:tex display="inline"><![CDATA[k + 1]]></fr:tex> is also in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.</html:p>
-    
     <html:p>
-      Let <fr:tex display="inline"><![CDATA[d]]></fr:tex> be an arbitrary derivation of height <fr:tex display="inline"><![CDATA[k + 1]]></fr:tex>. By definition of derivation height, the last inference in <fr:tex display="inline"><![CDATA[d]]></fr:tex> must be of the form:
+      By definition of <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex>, we have that <fr:tex display="inline"><![CDATA[x_1, \ldots , x_n \in  X_\mathcal  R]]></fr:tex>. Since <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, it follows that <fr:tex display="inline"><![CDATA[x \in  X_\mathcal  R]]></fr:tex>. Thus, <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>.
     </html:p>
-    
+
+    <html:p>
+      Now we want to check that <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the smallest set closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. Let <fr:tex display="inline"><![CDATA[S \subseteq  X]]></fr:tex> be an arbitrary set that is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. We need to show that <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  S]]></fr:tex>. We can equivalently state this as:
+    </html:p>
+    <html:blockquote>
+      Forall derivations <fr:tex display="inline"><![CDATA[d]]></fr:tex> generated by rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, the conclusions of <fr:tex display="inline"><![CDATA[d]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.
+    </html:blockquote>
+    <html:p>
+      Or in terms of the height of a derivation as:
+    </html:p>
+    <html:blockquote>
+      Forall derivations <fr:tex display="inline"><![CDATA[d]]></fr:tex> of height <fr:tex display="inline"><![CDATA[h]]></fr:tex> generated by rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, the conclusions of <fr:tex display="inline"><![CDATA[d]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.
+    </html:blockquote>
+    <html:p>
+      We proceed by induction on the height of the derivation <fr:tex display="inline"><![CDATA[d]]></fr:tex>.
+    </html:p>
+    <html:ul><html:li>
+        In the <html:strong>base case</html:strong> any derivation has a height of at least 1, the base case holds vacuously.
+      </html:li>
+      <html:li><html:p>
+          In the <html:strong>inductive case</html:strong> we suppose that the conclusions of every derivation of height less than or equal to <fr:tex display="inline"><![CDATA[k]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>. ; we must prove that the conclusion of any derivation of height <fr:tex display="inline"><![CDATA[k + 1]]></fr:tex> is also in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.
+        </html:p>
+
+        <html:p>
+          Let <fr:tex display="inline"><![CDATA[d]]></fr:tex> be an arbitrary derivation of height <fr:tex display="inline"><![CDATA[k + 1]]></fr:tex>. By definition of derivation height, the last inference in <fr:tex display="inline"><![CDATA[d]]></fr:tex> must be of the form:
+        </html:p>
+        
   
     
     <fr:resource hash="8ab9294001d8167ff895f88a8c82a4e8"><fr:resource-content><html:img src="/notes/8ab9294001d8167ff895f88a8c82a4e8.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
@@ -192,10 +234,14 @@
     \end {mathpar}]]></fr:resource-source></fr:resource>
   
 
-    <html:p>where each sub-derivation <fr:tex display="inline"><![CDATA[d_i]]></fr:tex> has height less than or equal to <fr:tex display="inline"><![CDATA[k]]></fr:tex>. By the inductive hypothesis, the conclusions of each sub-derivation <fr:tex display="inline"><![CDATA[d_i]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>. Since <fr:tex display="inline"><![CDATA[S]]></fr:tex> is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, it follows that the conclusion <fr:tex display="inline"><![CDATA[x]]></fr:tex> of the derivation <fr:tex display="inline"><![CDATA[d]]></fr:tex> is also in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.</html:p></html:li></html:ul>
-  <html:p>Thus, by induction, we have shown that for all derivations <fr:tex display="inline"><![CDATA[d]]></fr:tex> generated by rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, the conclusions of <fr:tex display="inline"><![CDATA[d]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>. Therefore, <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  S]]></fr:tex>.</html:p>
-</fr:mainmatter></fr:tree>
- 
+        <html:p>
+          where each sub-derivation <fr:tex display="inline"><![CDATA[d_i]]></fr:tex> has height less than or equal to <fr:tex display="inline"><![CDATA[k]]></fr:tex>. By the inductive hypothesis, the conclusions of each sub-derivation <fr:tex display="inline"><![CDATA[d_i]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>. Since <fr:tex display="inline"><![CDATA[S]]></fr:tex> is closed under the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, it follows that the conclusion <fr:tex display="inline"><![CDATA[x]]></fr:tex> of the derivation <fr:tex display="inline"><![CDATA[d]]></fr:tex> is also in <fr:tex display="inline"><![CDATA[S]]></fr:tex>.
+        </html:p></html:li></html:ul>
+    <html:p>
+      Thus, by induction, we have shown that for all derivations <fr:tex display="inline"><![CDATA[d]]></fr:tex> generated by rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, the conclusions of <fr:tex display="inline"><![CDATA[d]]></fr:tex> are in <fr:tex display="inline"><![CDATA[S]]></fr:tex>. Therefore, <fr:tex display="inline"><![CDATA[X_\mathcal  R \subseteq  S]]></fr:tex>.
+    </html:p>
+  </fr:mainmatter></fr:tree>
+  
 </fr:mainmatter>
             </fr:tree>
             <fr:tree show-metadata="false">
@@ -209,15 +255,21 @@
                 <fr:title text="Tarski's fixpoint view">Tarski's fixpoint view</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:p>Another way we can view what this proof establishes is in terms of the <fr:link href="/notes/0029/" title="Monotone function" uri="https://kaierikniermann.github.io/notes/0029/" display-uri="0029" type="local">monotone function</fr:link> <fr:tex display="inline"><![CDATA[f_\mathcal  R: \mathcal  P(X) \to  \mathcal  P(X)]]></fr:tex> induced by the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, <fr:link href="/notes/002i/" title="Closure of a syntactic rule" uri="https://kaierikniermann.github.io/notes/002i/" display-uri="002i" type="local">defined as</fr:link>:</html:p>
+                <html:p>
+    Another way we can view what this proof establishes is in terms of the <fr:link href="/notes/0029/" title="Monotone function" uri="https://kaierikniermann.github.io/notes/0029/" display-uri="0029" type="local">monotone function</fr:link> <fr:tex display="inline"><![CDATA[f_\mathcal  R: \mathcal  P(X) \to  \mathcal  P(X)]]></fr:tex> induced by the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>, <fr:link href="/notes/002i/" title="Closure of a syntactic rule" uri="https://kaierikniermann.github.io/notes/002i/" display-uri="002i" type="local">defined as</fr:link>:
+  </html:p>
                 <fr:tex display="block"><![CDATA[
-  f_\mathcal  R(S) = \bigcup _{r \in  \mathcal  R} f_r(S)
-]]></fr:tex>
-                <html:p>The main fact this proof establishes is that the closure <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the <fr:link href="/notes/002b/" title="Tarski's Theorem" uri="https://kaierikniermann.github.io/notes/002b/" display-uri="002b" type="local">least fixed point</fr:link> of the function <fr:tex display="inline"><![CDATA[f_\mathcal  R]]></fr:tex>, meaning that:</html:p>
+    f_\mathcal  R(S) = \bigcup _{r \in  \mathcal  R} f_r(S)
+  ]]></fr:tex>
+                <html:p>
+    The main fact this proof establishes is that the closure <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the <fr:link href="/notes/002b/" title="Tarski's Theorem" uri="https://kaierikniermann.github.io/notes/002b/" display-uri="002b" type="local">least fixed point</fr:link> of the function <fr:tex display="inline"><![CDATA[f_\mathcal  R]]></fr:tex>, meaning that:
+  </html:p>
                 <fr:tex display="block"><![CDATA[
-  f_\mathcal  R(X_\mathcal  R) = X_\mathcal  R \land  \forall  S.\ f_\mathcal  R(S) \subseteq  S \implies  X_\mathcal  R \subseteq  S
-]]></fr:tex>
-                <html:p>In other words <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the smallest set of premises and conclusions that is <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">closed under</fr:link> the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. Naturally every other set <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">closed under</fr:link> the rules must contain at least the members of <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> (but possibly more).</html:p>
+    f_\mathcal  R(X_\mathcal  R) = X_\mathcal  R \land  \forall  S.\ f_\mathcal  R(S) \subseteq  S \implies  X_\mathcal  R \subseteq  S
+  ]]></fr:tex>
+                <html:p>
+    In other words <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> is the smallest set of premises and conclusions that is <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">closed under</fr:link> the rules in <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex>. Naturally every other set <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">closed under</fr:link> the rules must contain at least the members of <fr:tex display="inline"><![CDATA[X_\mathcal  R]]></fr:tex> (but possibly more).
+  </html:p>
               </fr:mainmatter>
             </fr:tree>
           </fr:mainmatter>
@@ -237,7 +289,8 @@
             <fr:taxon>Definition</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter>
-            <html:p>We define a set <fr:tex display="inline"><![CDATA[X]]></fr:tex>, let <fr:tex display="inline"><![CDATA[\mathcal  L(X)]]></fr:tex> be the <fr:link href="/notes/002c/" title="Complete Lattice" uri="https://kaierikniermann.github.io/notes/002c/" display-uri="002c" type="local">complete lattice</fr:link> of all subsets of <fr:tex display="inline"><![CDATA[X]]></fr:tex> ordered by inclusion. A function <fr:tex display="inline"><![CDATA[f: \mathcal  L(X) \to  \mathcal  L(X)]]></fr:tex> is said to be <fr:link href="/notes/0029/" title="Monotone function" uri="https://kaierikniermann.github.io/notes/0029/" display-uri="0029" type="local"><html:em>monotone</html:em></fr:link> in this instance if it preserves inclusion which is to say that the following holds: <fr:link href="/notes/harper-tarski-fixed-point-2025/" title="Tarski’s Fixed Point Theorem*" uri="https://kaierikniermann.github.io/notes/harper-tarski-fixed-point-2025/" display-uri="harper-tarski-fixed-point-2025" type="local">(1)</fr:link></html:p>
+            <html:p>
+  We define a set <fr:tex display="inline"><![CDATA[X]]></fr:tex>, let <fr:tex display="inline"><![CDATA[\mathcal  L(X)]]></fr:tex> be the <fr:link href="/notes/002c/" title="Complete Lattice" uri="https://kaierikniermann.github.io/notes/002c/" display-uri="002c" type="local">complete lattice</fr:link> of all subsets of <fr:tex display="inline"><![CDATA[X]]></fr:tex> ordered by inclusion. A function <fr:tex display="inline"><![CDATA[f: \mathcal  L(X) \to  \mathcal  L(X)]]></fr:tex> is said to be <fr:link href="/notes/0029/" title="Monotone function" uri="https://kaierikniermann.github.io/notes/0029/" display-uri="0029" type="local"><html:em>monotone</html:em></fr:link> in this instance if it preserves inclusion which is to say that the following holds: <fr:link href="/notes/harper-tarski-fixed-point-2025/" title="Tarski’s Fixed Point Theorem*" uri="https://kaierikniermann.github.io/notes/harper-tarski-fixed-point-2025/" display-uri="harper-tarski-fixed-point-2025" type="local">(1)</fr:link></html:p>
             <fr:tex display="block"><![CDATA[
   A \subseteq  B \subseteq  X \implies  f(A) \subseteq  f(B)
 ]]></fr:tex>
@@ -252,11 +305,21 @@
                 <fr:title text="Pre-and-post fixed point">Pre-and-post fixed point</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:p>For a monotone function <fr:tex display="inline"><![CDATA[f]]></fr:tex> a <html:em>pre-fixed point</html:em> of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is a subset <fr:tex display="inline"><![CDATA[A \subseteq  X]]></fr:tex> such that <fr:tex display="inline"><![CDATA[f(A) \subseteq  A]]></fr:tex>. Similarly, a <html:em>post-fixed point</html:em> of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is a subset <fr:tex display="inline"><![CDATA[B \subseteq  X]]></fr:tex> such that <fr:tex display="inline"><![CDATA[B \subseteq  f(B)]]></fr:tex>.</html:p>
-                <html:p>Conceptually the idea here is that the pre-fixed points are those sets in <fr:tex display="inline"><![CDATA[X]]></fr:tex> where the function <fr:tex display="inline"><![CDATA[f]]></fr:tex> maps to <html:em>at most</html:em> all members in <fr:tex display="inline"><![CDATA[A]]></fr:tex>. Conversly the post-fixed points represents the subset where at least all members of the set are mapped to by other members of the same set. Another way to describe it would be that the pre-fixed points represent a closed or <html:em>under-approximation</html:em> of the function <fr:tex display="inline"><![CDATA[f]]></fr:tex> while the post-fixed points represent an consistent or <html:em>over-approximation</html:em> of the function.</html:p>
-                <html:p>A pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is also said to be <fr:tex display="inline"><![CDATA[f]]></fr:tex>-closed and a post-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is said to be <fr:tex display="inline"><![CDATA[f]]></fr:tex>-consistent.</html:p>
-                <html:p>A <html:em>least pre-fixed point</html:em> of a monotone <fr:tex display="inline"><![CDATA[f]]></fr:tex> is the <html:em>smallest</html:em> subset <fr:tex display="inline"><![CDATA[A \subseteq  X]]></fr:tex> such that <fr:tex display="inline"><![CDATA[f(A) \subseteq  A]]></fr:tex>, denoted by <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex>. Similarly, a <html:em>greatest post-fixed point</html:em> of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is the <html:em>largest</html:em> subset <fr:tex display="inline"><![CDATA[B \subseteq  X]]></fr:tex> such that <fr:tex display="inline"><![CDATA[B \subseteq  f(B)]]></fr:tex>, denoted by <fr:tex display="inline"><![CDATA[\nu  f]]></fr:tex>.</html:p>
-                <html:p>Every monotone function <fr:tex display="inline"><![CDATA[f]]></fr:tex> has a unique least pre-fixed point and a unique greatest post-fixed point given by the following equations:</html:p>
+                <html:p>
+    For a monotone function <fr:tex display="inline"><![CDATA[f]]></fr:tex> a <html:em>pre-fixed point</html:em> of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is a subset <fr:tex display="inline"><![CDATA[A \subseteq  X]]></fr:tex> such that <fr:tex display="inline"><![CDATA[f(A) \subseteq  A]]></fr:tex>. Similarly, a <html:em>post-fixed point</html:em> of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is a subset <fr:tex display="inline"><![CDATA[B \subseteq  X]]></fr:tex> such that <fr:tex display="inline"><![CDATA[B \subseteq  f(B)]]></fr:tex>.
+  </html:p>
+                <html:p>
+    Conceptually the idea here is that the prefixed points are those sets in <fr:tex display="inline"><![CDATA[X]]></fr:tex> where the function <fr:tex display="inline"><![CDATA[f]]></fr:tex> maps to <html:em>at most</html:em> all members in <fr:tex display="inline"><![CDATA[A]]></fr:tex>. Conversely, the post-fixed points represent the subset where at least all members of the set are mapped to by other members of the same set. Another way to describe it would be that the pre-fixed points represent a closed or <html:em>under-approximation</html:em> of the function <fr:tex display="inline"><![CDATA[f]]></fr:tex> while the post-fixed points represent a consistent or <html:em>over-approximation</html:em> of the function.
+  </html:p>
+                <html:p>
+    A pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is also said to be <fr:tex display="inline"><![CDATA[f]]></fr:tex>-closed and a post-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is said to be <fr:tex display="inline"><![CDATA[f]]></fr:tex>-consistent.
+  </html:p>
+                <html:p>
+    A <html:em>least pre-fixed point</html:em> of a monotone <fr:tex display="inline"><![CDATA[f]]></fr:tex> is the <html:em>smallest</html:em> subset <fr:tex display="inline"><![CDATA[A \subseteq  X]]></fr:tex> such that <fr:tex display="inline"><![CDATA[f(A) \subseteq  A]]></fr:tex>, denoted by <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex>. Similarly, a <html:em>greatest post-fixed point</html:em> of <fr:tex display="inline"><![CDATA[f]]></fr:tex> is the <html:em>largest</html:em> subset <fr:tex display="inline"><![CDATA[B \subseteq  X]]></fr:tex> such that <fr:tex display="inline"><![CDATA[B \subseteq  f(B)]]></fr:tex>, denoted by <fr:tex display="inline"><![CDATA[\nu  f]]></fr:tex>.
+  </html:p>
+                <html:p>
+    Every monotone function <fr:tex display="inline"><![CDATA[f]]></fr:tex> has a unique least pre-fixed point and a unique greatest post-fixed point given by the following equations:
+  </html:p>
                 <fr:tex display="block"><![CDATA[
     \begin {align*}
       \mu  f & = \bigcap  \{ A \subseteq  X \mid  f(A) \subseteq  A \} \\
@@ -265,7 +328,9 @@
   ]]></fr:tex>
               </fr:mainmatter>
             </fr:tree>
-            <html:p>Of note here is that the least pre-fixed point here corresponds to the closure of the function <fr:tex display="inline"><![CDATA[f]]></fr:tex>. That is to say that it is the smallest set which is closed under the function <fr:tex display="inline"><![CDATA[f]]></fr:tex>. Conversely, the greatest post-fixed point corresponds to the consistency of the function <fr:tex display="inline"><![CDATA[f]]></fr:tex>, being the largest set which is consistent with respect to <fr:tex display="inline"><![CDATA[f]]></fr:tex>.</html:p>
+            <html:p>
+  Of note here is that the least pre-fixed point here corresponds to the closure of the function <fr:tex display="inline"><![CDATA[f]]></fr:tex>. That is to say that it is the smallest set which is closed under the function <fr:tex display="inline"><![CDATA[f]]></fr:tex>. Conversely, the greatest post-fixed point corresponds to the consistency of the function <fr:tex display="inline"><![CDATA[f]]></fr:tex>, being the largest set which is consistent with respect to <fr:tex display="inline"><![CDATA[f]]></fr:tex>.
+</html:p>
             <fr:tree show-metadata="false">
               <fr:frontmatter>
                 <fr:authors />
@@ -276,32 +341,58 @@
                 </fr:date>
                 <fr:title text="Lambek's lemma">Lambek's lemma</fr:title>
               </fr:frontmatter>
-              <fr:mainmatter><html:p>One thing we can observe is that <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> is contained in all pre-fixed points of <fr:tex display="inline"><![CDATA[f]]></fr:tex>, by virtue of being the intersection, i.e. closure for all pre-fixed points. Furthermore we have that <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> is itself a pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex></html:p><fr:tex display="block"><![CDATA[
+              <fr:mainmatter><html:p>
+    One thing we can observe is that <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> is contained in all pre-fixed points of <fr:tex display="inline"><![CDATA[f]]></fr:tex>, by virtue of being the intersection, i.e. closure for all pre-fixed points. Furthermore, we have that <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> is itself a pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex></html:p><fr:tex display="block"><![CDATA[
     f(\mu  f) \subseteq  \mu  f
-  ]]></fr:tex><html:p>and it is thereby the least pre-fixed point. To see this we note that if:</html:p><fr:tex display="block"><![CDATA[
+  ]]></fr:tex><html:p>
+    and it is thereby the least pre-fixed point. To see this we note that if:
+  </html:p><fr:tex display="block"><![CDATA[
     f(A ) \subseteq  A \to  f(\mu  f) \subseteq  A
   ]]></fr:tex>
     
-    <fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>25</fr:day></fr:date><fr:title text="Explanation">Explanation</fr:title></fr:frontmatter><fr:mainmatter><html:p>So the idea here is again that since <fr:tex display="inline"><![CDATA[A]]></fr:tex> is a pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex>, by definition we have that <fr:tex display="inline"><![CDATA[f(A) \subseteq  A]]></fr:tex>. The implication here is that if we apply <fr:tex display="inline"><![CDATA[f]]></fr:tex> to our closure, the resulting set must still be within <fr:tex display="inline"><![CDATA[A]]></fr:tex> since again we definitially cannot have that <fr:tex display="inline"><![CDATA[f]]></fr:tex> maps outside of <fr:tex display="inline"><![CDATA[A]]></fr:tex> so even if we constrain ourselves to some smaller set <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> it doesnt negate the fact that <fr:tex display="inline"><![CDATA[f]]></fr:tex> still cannot map outside of <fr:tex display="inline"><![CDATA[A]]></fr:tex>.</html:p></fr:mainmatter></fr:tree>
-  <html:p>But by definition of <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> we have that</html:p><fr:tex display="block"><![CDATA[
+    <fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>25</fr:day></fr:date><fr:title text="Explanation">Explanation</fr:title></fr:frontmatter><fr:mainmatter><html:p>
+        So the idea here is again that since <fr:tex display="inline"><![CDATA[A]]></fr:tex> is a pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex>, by definition we have that <fr:tex display="inline"><![CDATA[f(A) \subseteq  A]]></fr:tex>. The implication here is that if we apply <fr:tex display="inline"><![CDATA[f]]></fr:tex> to our closure, the resulting set must still be within <fr:tex display="inline"><![CDATA[A]]></fr:tex> since again we definitionally cannot have that <fr:tex display="inline"><![CDATA[f]]></fr:tex> maps outside <fr:tex display="inline"><![CDATA[A]]></fr:tex> so even if we constrain ourselves to some smaller set <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> it doesn't negate the fact that <fr:tex display="inline"><![CDATA[f]]></fr:tex> still cannot map outside <fr:tex display="inline"><![CDATA[A]]></fr:tex>.
+      </html:p></fr:mainmatter></fr:tree>
+  <html:p>
+    But by definition of <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> we have that
+  </html:p><fr:tex display="block"><![CDATA[
     \mu  f \subseteq  A
   ]]></fr:tex>
     
-    <fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>25</fr:day></fr:date><fr:title text="Explanation">Explanation</fr:title></fr:frontmatter><fr:mainmatter><html:p>This is more or less just restating the definition of <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> as the intersection of all pre-fixed points of <fr:tex display="inline"><![CDATA[f]]></fr:tex>, which includes <fr:tex display="inline"><![CDATA[A]]></fr:tex>.</html:p></fr:mainmatter></fr:tree>
-  <html:p>Thus by monotonicity of <fr:tex display="inline"><![CDATA[f]]></fr:tex> we have the following as required</html:p><fr:tex display="block"><![CDATA[
+    <fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>25</fr:day></fr:date><fr:title text="Explanation">Explanation</fr:title></fr:frontmatter><fr:mainmatter><html:p>
+        This is more or less just restating the definition of <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> as the intersection of all pre-fixed points of <fr:tex display="inline"><![CDATA[f]]></fr:tex>, which includes <fr:tex display="inline"><![CDATA[A]]></fr:tex>.
+      </html:p></fr:mainmatter></fr:tree>
+  <html:p>
+    Thus by monotonicity of <fr:tex display="inline"><![CDATA[f]]></fr:tex> we have the following as required
+  </html:p><fr:tex display="block"><![CDATA[
     f(\mu  f) \subseteq  f(A) \subseteq  A
-  ]]></fr:tex><html:p>Additionally we have</html:p><fr:tex display="block"><![CDATA[
+  ]]></fr:tex><html:p>
+    Additionally we have
+  </html:p><fr:tex display="block"><![CDATA[
     f(f(\mu  f)) \subseteq  f(\mu  f)
-  ]]></fr:tex><html:p>Which is to reiterate that <fr:tex display="inline"><![CDATA[f(\mu  f)]]></fr:tex> is itself a pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex>. Therefore we have that</html:p><fr:tex display="block"><![CDATA[
+  ]]></fr:tex><html:p>
+    Which is to reiterate that <fr:tex display="inline"><![CDATA[f(\mu  f)]]></fr:tex> is itself a pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex>. Therefore, we have that
+  </html:p><fr:tex display="block"><![CDATA[
     \mu  f \subseteq  f(\mu  f)
   ]]></fr:tex>
     
-    <fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>25</fr:day></fr:date><fr:title text="Explanation">Explanation</fr:title></fr:frontmatter><fr:mainmatter><html:p>What this says at a high level; or what it implies given the above condition; is that the application of the monotone operator to the closure set <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> doesnt shrink the set any further, in other words its operation stabilizes at this set such that each member in this set maps precisely to some other member in the set not more (i.e. outside as that would mean its not closed) and not less (as that would imply its not minimal). </html:p><fr:tex display="block"><![CDATA[
+    <fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>25</fr:day></fr:date><fr:title text="Explanation">Explanation</fr:title></fr:frontmatter><fr:mainmatter><html:p>
+        What this says at a high level; or what it implies given the above condition; is that the application of the monotone operator to the closure set <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> doesn't shrink the set any further, in other words its operation stabilizes at this set such that each member in this set maps precisely to some other member in the set not more (i.e. outside as that would mean it's not closed) and not less (as that would imply it's not minimal).
+      </html:p><fr:tex display="block"><![CDATA[
         f(\mu  f) \subseteq  \mu  f
-      ]]></fr:tex><html:p>What this says at a high level; or what it implies given the above condition; is that the application of the monotone operator to the closure set <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> doesnt shrink the set any further, in other words its operation stabilizes at this set such that each member in this set maps precisely to some other member in the set not more (i.e. outside as that would mean its not closed) and not less (as that would imply its not minimal). A question I had here was:</html:p><html:blockquote>
+      ]]></fr:tex><html:p>
+        What this says at a high level; or what it implies given the above condition; is that the application of the monotone operator to the closure set <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> doesn't shrink the set any further, in other words its operation stabilizes at this set such that each member in this set maps precisely to some other member in the set not more (i.e. outside as that would mean it's not closed) and not less (as that would imply it's not minimal). A question I had here was:
+      </html:p><html:blockquote>
         But why does this actually happen?
-      </html:blockquote><html:p>A nice perspective to have firstly is seeing the the set <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> here as a <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">generating set</fr:link> for the function <fr:tex display="inline"><![CDATA[f]]></fr:tex>. In other words if we view the function <fr:tex display="inline"><![CDATA[f]]></fr:tex> as a set of rules which generate new members in the set from existing members, then the closure <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> represents the most precise set of members which can be generated by these rules without introducing any extraneous members.</html:p><html:p>The effect of this is that because the members in <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> are precisely those which can be generated by the rules in <fr:tex display="inline"><![CDATA[f]]></fr:tex>, applying <fr:tex display="inline"><![CDATA[f]]></fr:tex> to this set will simply regenerate the same members, hence why we have that <fr:tex display="inline"><![CDATA[\mu  f \subseteq  f(\mu  f)]]></fr:tex> since all the members in <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> already correspond to members generated by the members of <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> under the rules of <fr:tex display="inline"><![CDATA[f]]></fr:tex></html:p><html:p>Furthermore, since we are working in the context of a complete lattice, as we take the intersection of more and more closed subsets under <fr:tex display="inline"><![CDATA[f]]></fr:tex> we eventually reach a point where if we take some further intersection (move down more) we end up losing the closed property, but if we move up (i.e. take the union of more closed sets) we end up introducing extraneous members which violate the minimality property, hence the idea that we stablize at this set i.e. we are a <fr:link href="/notes/0028/" title="Fixpoint" uri="https://kaierikniermann.github.io/notes/0028/" display-uri="0028" type="local"><html:em>fixed point</html:em></fr:link> on the lattice under the operator.</html:p></fr:mainmatter></fr:tree>
-  <html:p>The implication of this being that the closure <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> is a <fr:link href="/notes/0028/" title="Fixpoint" uri="https://kaierikniermann.github.io/notes/0028/" display-uri="0028" type="local"><html:em>fixed point</html:em></fr:link> of <fr:tex display="inline"><![CDATA[f]]></fr:tex>, and, because any fixed point is a pre-fixed point, it is the least pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex>. A dual argument shows that the greatest post-fixed point <fr:tex display="inline"><![CDATA[\nu  f]]></fr:tex> is also a fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex>. This result is known as <html:em>Lambek's lemma</html:em> in Category theory.</html:p></fr:mainmatter>
+      </html:blockquote><html:p>
+        A nice perspective to have firstly is seeing the set <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> here as a <fr:link href="/notes/002f/" title="Closure operator" uri="https://kaierikniermann.github.io/notes/002f/" display-uri="002f" type="local">generating set</fr:link> for the function <fr:tex display="inline"><![CDATA[f]]></fr:tex>. In other words if we view the function <fr:tex display="inline"><![CDATA[f]]></fr:tex> as a set of rules which generate new members in the set from existing members, then the closure <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> represents the most precise set of members which can be generated by these rules without introducing any extraneous members.
+      </html:p><html:p>
+        The effect of this is that because the members in <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> are precisely those which can be generated by the rules in <fr:tex display="inline"><![CDATA[f]]></fr:tex>, applying <fr:tex display="inline"><![CDATA[f]]></fr:tex> to this set will simply regenerate the same members, hence why we have that <fr:tex display="inline"><![CDATA[\mu  f \subseteq  f(\mu  f)]]></fr:tex> since all the members in <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> already correspond to members generated by the members of <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> under the rules of <fr:tex display="inline"><![CDATA[f]]></fr:tex></html:p><html:p>
+        Furthermore, since we are working in the context of a complete lattice, as we take the intersection of more and more closed subsets under <fr:tex display="inline"><![CDATA[f]]></fr:tex> we eventually reach a point where if we take some further intersection (move down more) we end up losing the closed property, but if we move up (i.e. take the union of more closed sets) we end up introducing extraneous members which violate the minimalism property, hence the idea that we stabilize at this set i.e. we are a <fr:link href="/notes/0028/" title="Fixpoint" uri="https://kaierikniermann.github.io/notes/0028/" display-uri="0028" type="local"><html:em>fixed point</html:em></fr:link> on the lattice under the operator.
+      </html:p></fr:mainmatter></fr:tree>
+  <html:p>
+    The implication of this being that the closure <fr:tex display="inline"><![CDATA[\mu  f]]></fr:tex> is a <fr:link href="/notes/0028/" title="Fixpoint" uri="https://kaierikniermann.github.io/notes/0028/" display-uri="0028" type="local"><html:em>fixed point</html:em></fr:link> of <fr:tex display="inline"><![CDATA[f]]></fr:tex>, and, because any fixed point is a pre-fixed point, it is the least pre-fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex>. A dual argument shows that the greatest post-fixed point <fr:tex display="inline"><![CDATA[\nu  f]]></fr:tex> is also a fixed point of <fr:tex display="inline"><![CDATA[f]]></fr:tex>. This result is known as <html:em>Lambek's lemma</html:em> in Category theory.
+  </html:p></fr:mainmatter>
             </fr:tree>
           </fr:mainmatter>
         </fr:tree>

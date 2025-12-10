@@ -1,0 +1,12 @@
+recursors
+recursor
+ltex
+infrule
+inferrule
+Intro-Succ
+xrightarrow
+recursers
+simp
+BinOp
+Expr
+binop

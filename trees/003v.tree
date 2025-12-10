@@ -41,8 +41,11 @@
 
 \solution{
   \ol{
-    \li{Starting in the state #{x \mapsto 2} we evaluate #{x := x - 1} to the state #{x \mapsto 1}}
-    \li{Starting in the state #{x \mapsto 1}, we first evaluate the condition #{x + 1 \leq 3}:
+    \li{
+      Starting in the state #{x \mapsto 2} we evaluate #{x := x - 1} to the state #{x \mapsto 1}
+    }
+    \li{
+      Starting in the state #{x \mapsto 1}, we first evaluate the condition #{x + 1 \leq 3}:
       ##{
         \begin{align*}
         \langle x + 1, \sigma[x \mapsto 1] \rangle &\Downarrow 2 \\
@@ -58,7 +61,8 @@
         \end{align*}
       }
     }
-    \li{We again start by evaluating the condition
+    \li{
+      We again start by evaluating the condition
       ##{
         \begin{align*}
         \langle x + 1, \sigma[x \mapsto 1] \rangle &\Downarrow 2 \\
@@ -76,13 +80,15 @@
         \end{align*}
       }
     }
-    \li{Yes, for every expression #{e} and state #{\sigma}, there exists a number #{n} such that
+    \li{
+      Yes, for every expression #{e} and state #{\sigma}, there exists a number #{n} such that
       ##{
         \langle e, \sigma \rangle \Downarrow n
       }
       This follows from the fact that expressions are finite syntax trees built from a finite set of rules, and each rule can be evaluated in a finite number of steps.
     }
-    \li{No, there exist statements #{s} and states #{\sigma} for which there is no resulting state #{\sigma'} such that
+    \li{
+      No, there exist statements #{s} and states #{\sigma} for which there is no resulting state #{\sigma'} such that
       ##{
         \langle s, \sigma \rangle \Downarrow \sigma'
       }

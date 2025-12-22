@@ -1,0 +1,59 @@
+\date{2025-12-16}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Finding recursive Horn clauses}
+
+\p{
+  Is the following set of horn clauses recursive?
+}
+
+\ol{
+  \li{
+    ##{
+      \begin{align}
+        q(x) \land r(x) &\to p(x) \\
+        p(x) \land (x < n) &\to \bot
+      \end{align}
+    }
+  }
+  \li{
+    ##{
+      \begin{align}
+        q(x) \land r(x) &\to p(x) \\
+        p(x) \land (x > 0) &\to r(x) \\
+        p(x) \land (x < n) &\to \bot
+      \end{align}
+    }
+  }
+}
+
+\solution{
+  \ol{
+    \li{
+      No, we can draw the dependency graph as follows
+      \ltexfig{https://q.uiver.app/#q=WzAsMyxbMSwwLCJwIl0sWzAsMSwicSJdLFsyLDEsInIiXSxbMSwwXSxbMiwwXV0=}{
+        \[\begin{tikzcd}
+          & p \\
+          q && r
+          \arrow[from=2-1, to=1-2]
+          \arrow[from=2-3, to=1-2]
+        \end{tikzcd}\]
+      }
+    }
+    \li{
+      Yes, because the head #{p} depends on the query #{r} and vv. again as a graph we can draw it as follows
+      \ltexfig{https://q.uiver.app/#q=WzAsMyxbMSwwLCJwIl0sWzAsMSwicSJdLFsyLDEsInIiXSxbMSwwXSxbMiwwXSxbMCwyLCIiLDIseyJvZmZzZXQiOi0yLCJjdXJ2ZSI6LTJ9XV0=}{
+        \[\begin{tikzcd}
+          & p \\
+          q && r
+          \arrow[shift left=2, curve={height=-12pt}, from=1-2, to=2-3]
+          \arrow[from=2-1, to=1-2]
+          \arrow[from=2-3, to=1-2]
+        \end{tikzcd}\]
+      }  
+    }
+  }
+}

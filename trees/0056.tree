@@ -1,0 +1,121 @@
+\date{2025-12-17}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{[Weakest preconditions](004k) and [Horn clauses](004v)}
+
+\subtree{
+  \title{A motivating example}
+  \p{
+    Let's consider the following Hoare triple:
+  }
+  ##{
+    \vdash \{x > 0\}\ y := x;z := x + y\ \{z > 0\}
+  }
+  \p{
+    In order to prove that the triple is valid we would apply the rule of composition (or sequencing)
+  }
+  \infrule{
+    \inferrule{
+      \vdash \{P\}\ s_1\ \{R\} \\
+      \vdash \{R\}\ s_2\ \{Q\}
+    }{
+      \vdash \{P\}\ s_1; s_2\ \{Q\}
+    }
+  }
+  \p{
+    We know intuitively that what this means is we have to find an assertion #{r} on the memory state such that 
+  }
+  ##{
+    \vdash \{x > 0\}\ y := x\ \{r(x, y, z)\} \land \vdash \{r(x, y, z)\}\ z := x + y\ \{z > 0\}
+  }
+  \p{
+    So the predicate / relation #{r} represents some assertion over the variables in our state #{\sigma}. The natural question then becomes what is this predicate? The natural approach that could be taken here is to use the weakest precondition approach.
+  }
+  ##{
+    \begin{align}
+      \cf{wp}(y := x,\ \cf{wp}(z := x + y,\ z > 0)) &\equiv \\
+      \cf{wp}(y := x,\ (z > 0)[z \mapsto x + y]) &\equiv \\
+      \cf{wp}(y := x,\ x + y > 0)
+    \end{align}
+  }
+  \p{
+    an equivalent way we can write this is 
+  }
+  ##{
+    \begin{align}
+      \forall \sigma,\sigma'.\ (x > 0 \land y = x)(\sigma) \to (s_1, \sigma) \Downarrow \sigma' &\to q(x, y, z)(\sigma') \\
+      \forall \sigma,\sigma'.\ (q(x, y, z) \land z' = x + y) \to (s_2, \sigma) \Downarrow \sigma' &\to (z' > 0)(\sigma)
+    \end{align}
+  }
+  \p{
+    The important observation to make here is that if the Hoare triple is valid, we must have a solution for our relation #{q(x, y, z)}. Since our reasoning is furthermore predicated on the successful execution of the two statements, and we can implicitly assume we are reasoning over memory states let's simplify the above equations.
+  }
+  ##{
+    \begin{align}
+      (x > 0 \land y = x) &\to q(x, y, z) \\
+      (q(x, y, z) \land z' = x + y) &\to z' > 0
+    \end{align}
+  }
+  \p{
+    Now let's see if we can verify our earlier solution #{q(x, y, z) \triangleq x + y > 0}
+  }
+  ##{
+    \begin{align}
+      x > 0 \land y = x &\to x + y > 0 \\
+      x + y > 0 \land z' = x + y &\to z' > 0
+    \end{align}
+  }
+  \p{
+    Clearly we can see both implications hold thus our earlier solution is indeed valid.
+  }
+}
+
+\subtree{
+  \title{The rules}
+  \p{
+    We'll enumerate the rules as a list:
+  }
+  \ul{
+    \li{
+      For \em{assignment}:
+      ##{
+        \cf{wp}(x := e, p(\overline x)) \triangleq p(\overline x)[x \mapsto e]
+      }
+    }
+    \li{
+      For \em{sequential composition}:
+      ##{
+        \cf{wp}(s_1;s_2, p(\overline x)) \triangleq \cf{wp}(s_1, \cf{wp}(s_2, p(\overline x)))
+      }
+    }
+    \li{
+      For \em{if statements}:
+      ##{
+        \cf{wp}(\cf{if}\ b\cf{then}\ s_1\ \cf{else}\ s_2, p(\overline x)) \triangleq q(\overline x)
+      }
+      with the constraints 
+      ##{
+        \begin{align}
+          q(\overline x) \land b &\to \cf{wp}(s_1, p(\overline x)) \\ 
+          q(\overline x) \land \neg b &\to \cf{wp}(s_2, p(\overline x))
+        \end{align}
+      } 
+    }
+    \li{
+      For \em{while loops}: 
+      ##{
+        \cf{wp}(\cf{while}\ b\ \cf{do}\ s, p(\overline x)) \triangleq q(\overline x)
+      }
+      with the constriants
+      ##{
+        \begin{align}
+          q(\overline x) \land b &\to \cf{wp}(s, q(\overline x)) \\
+          q(\overline x) \land \neg b &\to p(\overline x)
+        \end{align}
+      }
+    }
+  }
+}

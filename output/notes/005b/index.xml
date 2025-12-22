@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>19</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/005b/</fr:uri>
+    <fr:display-uri>005b</fr:display-uri>
+    <fr:route>/notes/005b/</fr:route>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <fr:tree show-metadata="false">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:date>
+          <fr:year>2025</fr:year>
+          <fr:month>12</fr:month>
+          <fr:day>19</fr:day>
+        </fr:date>
+        <fr:title text="Pre-preamble">Pre-preamble</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <html:p>
+    So we have a universe <fr:tex display="inline"><![CDATA[U]]></fr:tex> or also <fr:tex display="inline"><![CDATA[M]]></fr:tex> or even <fr:tex display="inline"><![CDATA[D]]></fr:tex>, but idk none of the syntax matters it's more or less just a collection of I suppose a <html:em>set</html:em> of things.
+  </html:p>
+        <html:p>
+    Now then we have predicate variables, often denoted with a capital letter, which range over the members of our universe of things and express a truth value. In other words:
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    P : U^k \to  \texttt {Prop}
+  ]]></fr:tex>
+        <html:p>
+    The idea then is that we have formulas, commonly denoted with greek letters as to differentiate themselves from predicate variables, these formulas consist of logical connectives, quantifiers, interpreted predicates and so on, a simple example.
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \phi  (P) = x > 0 \land  P(x)
+  ]]></fr:tex>
+        <html:p>
+    A possible interpretation of this is that our predicate variable <fr:tex display="inline"><![CDATA[P]]></fr:tex> represents the set of all <fr:tex display="inline"><![CDATA[x \in  U]]></fr:tex> such that <fr:tex display="inline"><![CDATA[x \geq  0]]></fr:tex>, applying this interpretation our resulting formula becomes
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \phi  = x > 0 \land  x \geq  0
+  ]]></fr:tex>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:date>
+          <fr:year>2025</fr:year>
+          <fr:month>12</fr:month>
+          <fr:day>19</fr:day>
+        </fr:date>
+        <fr:title text="Preamble">Preamble</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <html:p>
+    An <fr:tex display="inline"><![CDATA[\mathcal  L]]></fr:tex>-structure is a pair <fr:tex display="inline"><![CDATA[\mathcal  M = (M, I)]]></fr:tex>, where:
+  </html:p>
+        <html:ul><html:li><fr:tex display="inline"><![CDATA[M]]></fr:tex> is a set
+    </html:li>
+    <html:li><fr:tex display="inline"><![CDATA[I]]></fr:tex> is an interpretation of <fr:tex display="inline"><![CDATA[L]]></fr:tex>, i.e.
+      <html:ul><html:li><fr:tex display="inline"><![CDATA[I(P) \subseteq  M^k]]></fr:tex> for any <fr:tex display="inline"><![CDATA[k]]></fr:tex>-ary predicate symbol <fr:tex display="inline"><![CDATA[P \in  \mathcal  L]]></fr:tex></html:li>
+        <html:li><fr:tex display="inline"><![CDATA[I(f) : M^k \to  M]]></fr:tex> for any <fr:tex display="inline"><![CDATA[k]]></fr:tex>-ary function symbol <fr:tex display="inline"><![CDATA[f \in  \mathcal  L]]></fr:tex></html:li></html:ul></html:li></html:ul>
+        <html:p>
+    An <html:em>environment</html:em> is an interpretation of free variables by elements of the structure. So for some environment <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>, a variable <fr:tex display="inline"><![CDATA[x, m \in  M]]></fr:tex> we define:
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \sigma [x \mapsto  m] \equiv  \sigma [x \mapsto  m] (x) = m
+  ]]></fr:tex>
+        <html:p>
+    and
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \sigma [x \mapsto  m] (y) = \sigma (y) \quad  \forall  x, y.\ x \ \mathrlap {\,/}{=}\  y
+  ]]></fr:tex>
+        <html:p>
+    For a structure <fr:tex display="inline"><![CDATA[\mathcal  M = (M, I)]]></fr:tex>, environment <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>, and formula <fr:tex display="inline"><![CDATA[\phi ]]></fr:tex> we define
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    M, \sigma  \vDash  \phi 
+  ]]></fr:tex>
+        <html:p>
+    In particular we have 
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \exists  S \subseteq  M^k.\ \mathcal  M, \sigma [X \mapsto  S]\vDash  \phi (X) \to  \mathcal  M, \sigma  \vDash  \exists  X.\ \phi (X)
+  ]]></fr:tex>
+        <html:p>
+    As a basic example let's consider the following formula:
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \phi (X) = \forall  x, y.\ X(x, y) \to  x < y
+  ]]></fr:tex>
+        <html:p>
+    Now let's take <fr:tex display="inline"><![CDATA[M = \mathbb {N}]]></fr:tex> and <fr:tex display="inline"><![CDATA[S = \{(1, 2), (2, 4)\}]]></fr:tex>, this gives us
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \mathcal  M, \sigma [X \mapsto  \{(1, 2), (2, 4)\}]\vDash  \phi (X)
+  ]]></fr:tex>
+        <html:p>
+    which in turn implies that there does indeed exist a predicate variable <fr:tex display="inline"><![CDATA[X]]></fr:tex> such that the formula holds under this predicate.
+  </html:p>
+        <html:p>
+    So the idea in general for predicate variables is
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    M, \sigma  \vDash  X(t_1, t_2, \ldots , t_k) \iff  (\llbracket  t_1 \rrbracket _\sigma , \llbracket  t_2 \rrbracket _\sigma , \ldots , \llbracket  t_k \rrbracket _\sigma ) \in  \sigma (X)
+  ]]></fr:tex>
+        <html:p>
+    If we give a sort of plain english example of why this makes sense, suppose we introduce 3 predicate symbols
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \begin {align}
+      \textrm {Student}(x) \\
+      \textrm {Course}(x) \\
+      \textrm {Enrolled}(x, y)
+    \end {align}
+  ]]></fr:tex>
+        <html:p>
+    Here our interpretation function could for example be a database defined for these predicate symbols, so if our domain <fr:tex display="inline"><![CDATA[M]]></fr:tex> has all students, then our interpretation function could be something like
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    I(\textrm {Student}) = \{\textrm {Jack}, \textrm {Jason}, \textrm {Lisa}\}
+  ]]></fr:tex>
+        <html:p>
+    Now say there is some property we want to <html:em>discover</html:em>: What students are <html:strong>eligible</html:strong> to graduate? Let's define this property as 
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \textrm {Eligible}(x) = ??
+  ]]></fr:tex>
+        <html:p>
+    This is what is known as a <html:em>predicate variable</html:em>. The most important thing to understand about predicate variables is that we <html:em>don't define</html:em> <fr:tex display="inline"><![CDATA[\textrm {Eligible}]]></fr:tex>. We <html:em>constrain what counts</html:em> as <fr:tex display="inline"><![CDATA[\textrm {Eligible}]]></fr:tex>. For example 
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \forall  x.\ \textrm {Student}(x) \land  \textrm {PassedAllCourses}(x) \to  \textrm {Eligible}(x)
+  ]]></fr:tex>
+        <html:p>
+    A nice contrast we can now establish here is the idea of what it means for something to be <html:em>true</html:em>. For <html:em>predicate symbols</html:em> truth is determined by an interpretation, if an interpretation says <fr:tex display="inline"><![CDATA[I(\textrm {Student}) = \{\textrm {Jack}\}]]></fr:tex> we know <fr:tex display="inline"><![CDATA[\textrm {Student}(\textrm {Jack})]]></fr:tex> is true, i.e. Jack is a student. In contrast, <html:em>predicate variables</html:em> are typically characterized by constraints, meaning that, as opposed to having a fixed interpretation, their truth is defined through some combination of those fixed predicate symbols. Another way of thinking about this is that the constraint's which characterize the predicate variable really characterize a <fr:tex display="inline"><![CDATA[S \subseteq  M^k]]></fr:tex> such that our constraints hold for <fr:tex display="inline"><![CDATA[S]]></fr:tex>. To relate this back to our original definition
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    S \subseteq  M^k.\ M, \sigma [X \mapsto  S] \vDash  \phi (X) \to  M, \sigma  \vDash  \exists  X.\ \phi (X)
+  ]]></fr:tex>
+        <html:p>
+    Here we are saying that:
+  </html:p>
+        <html:ol><html:li>
+      If we have a set of students <fr:tex display="inline"><![CDATA[S]]></fr:tex> as some combination of all students <fr:tex display="inline"><![CDATA[M]]></fr:tex></html:li>
+    <html:li>
+      ... such that our eligibility constraint formula <fr:tex display="inline"><![CDATA[\phi (X)]]></fr:tex> holds true for <fr:tex display="inline"><![CDATA[x \in  S]]></fr:tex></html:li>
+    <html:li>
+      ... then it means that there exists an eligibility relation <fr:tex display="inline"><![CDATA[X]]></fr:tex> such that our formula holds true for this relation.
+    </html:li></html:ol>
+        <html:p>
+    From the environmental perspective if we say <fr:tex display="inline"><![CDATA[X = \textrm {Eligible}]]></fr:tex> then we have that
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    M, \sigma  \vDash  X(\textrm {Alice}) \iff  \textrm {Alice} \in  \sigma (X)
+  ]]></fr:tex>
+        <html:p>
+    in plain English meaning that the student Alice is only eligible to graduate if and only if they are in the set of students in the environment denoted as eligible to graduate. Where this set <fr:tex display="inline"><![CDATA[\sigma (X)]]></fr:tex> represents those students for which the constraints have held. Which is to say that:
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \sigma (\textrm {Eligible}) = \{x \in  M \mid  \textrm {Student}(x) \land  \textrm {PassedAllCourses}(x)\}
+  ]]></fr:tex>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:date>
+          <fr:year>2025</fr:year>
+          <fr:month>12</fr:month>
+          <fr:day>19</fr:day>
+        </fr:date>
+        <fr:title text="Least fixed points">Least fixed points</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <html:p>
+    We start with the classical Knaster-Tarski definition
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \textrm {lfp}(f) = \bigwedge  \{x \mid  f(x) \leq  x\}
+  ]]></fr:tex>
+        <html:p>
+    We define an operator
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    F_\varphi  : X \mapsto  \{\overline  a \in  M^k \mid  \mathcal  M \vDash  \varphi  (X, \overline  a)\}
+  ]]></fr:tex>
+        <html:p>
+    where <fr:tex display="inline"><![CDATA[\varphi (R, x_1, x_2, \ldots , x_k)]]></fr:tex> is a first order formula in <fr:tex display="inline"><![CDATA[\mathcal  L \cup  \{R\}]]></fr:tex>. Intuitively this operator represents a map from a predicate variable to those sets in <fr:tex display="inline"><![CDATA[M^k]]></fr:tex> for which the formula <fr:tex display="inline"><![CDATA[\varphi ]]></fr:tex> is true.
+  </html:p>
+        <html:p>
+    We can define the semantics of an <html:strong>atomic least fixed-point formula</html:strong> as follows 
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \mathcal  M \vDash  [\textrm {lfp}_R \varphi (R, \overline  x)] (\overline  a) \iff  \overline  a \in  \textrm {lfp}(F_\varphi )
+  ]]></fr:tex>
+        <fr:tree show-metadata="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>12</fr:month>
+              <fr:day>19</fr:day>
+            </fr:date>
+            <fr:title text="LFP example: Graph">LFP example: Graph</fr:title>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <html:p>
+      Let <fr:tex display="inline"><![CDATA[\mathcal  L = \{E\}]]></fr:tex> be the language of graphs, here <fr:tex display="inline"><![CDATA[E]]></fr:tex> is a <html:em>binary relation symbol</html:em> representing the edge relation, and let <fr:tex display="inline"><![CDATA[R]]></fr:tex> be a <html:em>binary predicate variable</html:em>. We can define
+    </html:p>
+            <fr:tex display="block"><![CDATA[
+      \varphi (R, u, v) \equiv  E(u, v) \lor  \exists  w(R(u, w) \land  E(w, v))
+    ]]></fr:tex>
+            <html:p>
+      The idea being that for any two points in our graph either we can have an edge between them, or there exists some intermediate point <fr:tex display="inline"><![CDATA[w]]></fr:tex> which we can each from <fr:tex display="inline"><![CDATA[u]]></fr:tex> and there is an edge from <fr:tex display="inline"><![CDATA[w]]></fr:tex> to <fr:tex display="inline"><![CDATA[v]]></fr:tex>.
+    </html:p>
+            <fr:tex display="block"><![CDATA[
+      [\textrm {lfp}_R \varphi  (R, u, v)] (x, y)
+    ]]></fr:tex>
+            <html:p>
+      which holds only iff there is a path from <fr:tex display="inline"><![CDATA[x]]></fr:tex> to <fr:tex display="inline"><![CDATA[y]]></fr:tex>. We can properly instate this example as follows:
+    </html:p>
+            <html:ul><html:li>
+        We have a set of nodes <fr:tex display="inline"><![CDATA[M]]></fr:tex></html:li>
+      <html:li>
+        We have an interpretation <fr:tex display="inline"><![CDATA[I(E) \subseteq  M \times  M]]></fr:tex> denoting the edges between our nodes
+      </html:li></html:ul>
+            <html:p>
+      Now expressing our monotonic operator for this example we have
+    </html:p>
+            <fr:tex display="block"><![CDATA[
+      F_\varphi (S) = \{(u, v) \mid  E(u, v)\} \cup  \{(u, v) \mid  \exist  w.\ (u, w) \in  S \land  E(w, v)\}
+    ]]></fr:tex>
+            <html:p>
+      We know that 
+    </html:p>
+            <fr:tex display="block"><![CDATA[
+      \textrm {lfp}_R\varphi (R, u,v)
+    ]]></fr:tex>
+            <html:p>
+      denotes the <html:strong>smallest relation</html:strong> <fr:tex display="inline"><![CDATA[R \subseteq  M^2]]></fr:tex> such that 
+    </html:p>
+            <fr:tex display="block"><![CDATA[
+      R = F(R)
+    ]]></fr:tex>
+            <html:p>
+      We compute the least fixed point starting from the empty relation 
+    </html:p>
+            <html:ol><html:li><fr:tex display="inline"><![CDATA[R_0 = \emptyset ]]></fr:tex></html:li>
+      <html:li><fr:tex display="inline"><![CDATA[R_1 = F(R_0) = \{(u, v) \mid  E(u, v)\}]]></fr:tex></html:li>
+      <html:li><fr:tex display="inline"><![CDATA[R_2 = F(R_1)]]></fr:tex> here we have that 
+        <html:ol><html:li>
+            the LHS of our operator adds all edges
+          </html:li>
+          <html:li>
+            the RHS adds all pairs (u, v) where we have
+            <fr:tex display="block"><![CDATA[
+              u \to  w \to  v
+            ]]></fr:tex></html:li></html:ol>
+        What this means is that <fr:tex display="inline"><![CDATA[R_2]]></fr:tex> denotes the set of paths of length <fr:tex display="inline"><![CDATA[\leq  2]]></fr:tex></html:li>
+      <html:li><fr:tex display="inline"><![CDATA[\ldots ]]></fr:tex></html:li>
+      <html:li>
+        We ultimately end up with some order
+        <fr:tex display="block"><![CDATA[
+          R_0 \subseteq  R_1 \subseteq  R_2 \subseteq  \ldots 
+        ]]></fr:tex></html:li></html:ol>
+            <html:p>
+      As an example let's consider the graph
+    </html:p>
+            <fr:tex display="block"><![CDATA[
+      E = \{(a, b), (b, c), (c, d)\}
+    ]]></fr:tex>
+            <html:ol><html:li><fr:tex display="inline"><![CDATA[R_1 = \{(a, b), (b, c), (c, d)\} ]]></fr:tex></html:li>
+      <html:li><fr:tex display="inline"><![CDATA[R_2 = R_1 \cup  \{(a, c), (b, d)\} ]]></fr:tex></html:li>
+      <html:li><fr:tex display="inline"><![CDATA[R_3 = R_2 \cup  \{(a, d)\} ]]></fr:tex></html:li>
+      <html:li><fr:tex display="inline"><![CDATA[R_4 = R_3 = \textrm {fixed point}]]></fr:tex></html:li></html:ol>
+            <html:p>
+      Thus we end up with
+    </html:p>
+            <fr:tex display="block"><![CDATA[
+      \textrm {lfp} = \{(a, b), (b, c), (c, d), (a, c), (b, d), (a, d)\}
+    ]]></fr:tex>
+            <html:p>
+      So the idea is then that 
+    </html:p>
+            <fr:tex display="block"><![CDATA[
+      [\textrm {lfp}_R\varphi (R, u, v)] (x, y) = \top  \iff  (x, y) \in  R_{\infty }
+    ]]></fr:tex>
+            <html:p>
+      i.e. the least fixed point is true for a pair of verticies if we can find a path between them in the least fixed point set.
+    </html:p>
+          </fr:mainmatter>
+        </fr:tree>
+        <html:p>
+    We can generalize some previous concepts for product lattices, first we again define our operator
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \begin {align}
+      F_i^M : M^{k_1} \times  \ldots  \times  M^{k_n} &\to  M^k, \\
+      (X_1, \ldots , X_n) &\mapsto  \{\overline  x \in  M^{k_i} \mid  M \vDash  \varphi _i(X_1, \ldots , X_n, \overline  x)\}
+    \end {align}
+  ]]></fr:tex>
+        <html:p>
+    We can then define 
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    F_\phi ^{\mathcal  M} = (F_1^{\mathcal  M}, \ldots , F_n^\mathcal  M)
+  ]]></fr:tex>
+        <html:p>
+    With some notational conventions that <fr:tex display="inline"><![CDATA[(F_\phi )_i \equiv  F_i^{\mathcal  M}]]></fr:tex> where our <html:em>formula</html:em> is
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \phi  = (\varphi _i(R_1, \ldots , R_n, \overline  x_i ))^n_{i = 1} \in  L \cup  \{R_1, \ldots , R_n\}
+  ]]></fr:tex>
+        <html:p>
+    We define the <html:strong>simulatenous fixed point</html:strong> as
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    [\textrm {lfp}_{R_i} \phi ] (\overline  t)
+  ]]></fr:tex>
+        <html:p>
+    where <fr:tex display="inline"><![CDATA[\overline  t]]></fr:tex> is a <fr:tex display="inline"><![CDATA[k_i]]></fr:tex>-tuple of terms in <fr:tex display="inline"><![CDATA[\mathcal  L]]></fr:tex>, similarly to before we have
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    M \vDash  [\textrm {lfp}_{R_i} \phi ] (\overline  a) \iff  \overline  a \in  \textrm {lfp}(F_\phi )_i
+  ]]></fr:tex>
+        <fr:tree show-metadata="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>12</fr:month>
+              <fr:day>19</fr:day>
+            </fr:date>
+            <fr:title text="Sim-LFP Example: graphs again">Sim-LFP Example: graphs again</fr:title>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <html:p>
+      Again let's consider <fr:tex display="inline"><![CDATA[L = \{E\}]]></fr:tex>, where <fr:tex display="inline"><![CDATA[E]]></fr:tex> is our usual relation symbol and let <fr:tex display="inline"><![CDATA[R]]></fr:tex> and <fr:tex display="inline"><![CDATA[S]]></fr:tex> be two binary predicate variables. Here we can define <fr:tex display="inline"><![CDATA[\phi ]]></fr:tex> as 
+    </html:p>
+            <fr:tex display="block"><![CDATA[
+      \begin {align}
+        \varphi _1(R, S, u, v) &\equiv  E(u, v) \lor  \exists  w(S(u, w) \land  E(w, v)) \\
+        \varphi _2(R, S, u, v) &\equiv  \exists  w(R(u, w) \land  E(w, u))
+      \end {align}
+    ]]></fr:tex>
+            <html:p>
+      Here we now have two least-fixed points
+    </html:p>
+            <fr:tex display="block"><![CDATA[
+      \begin {align}
+        [\textrm {lfp}_R \phi ] \\
+        [\textrm {lfp}_S \phi ]
+      \end {align}
+    ]]></fr:tex>
+            <html:p>
+      Intuitively these least-fixed points express two sets
+    </html:p>
+            <html:ul><html:li>
+        The first denotes the set of paths which have an odd length
+      </html:li>
+      <html:li>
+        The second denotes the set of paths which have an even length
+      </html:li></html:ul>
+            <html:p>
+      So one way of understanding the least-fixed points in this case is that they are a kind of recursive computation of the set of states - in this case edges - which follow the rules of the respective predicate variables or more acurately follow the constraints which characterize these predicates.
+    </html:p>
+            <html:p>
+      If we again use our initial example let's compute both sets
+    </html:p>
+            <html:ol><html:li><fr:tex display="block"><![CDATA[
+          \begin {align}
+            R_1 &= E \cup  (S_0 \circ  E) = E \\
+            S_1 &= (R_0 \circ  E) = \emptyset 
+          \end {align}
+        ]]></fr:tex>
+        so we have 
+        <fr:tex display="block"><![CDATA[
+          R_1 = E, S_1 = \emptyset 
+        ]]></fr:tex></html:li>
+      <html:li><fr:tex display="block"><![CDATA[
+          \begin {align}
+            R_2 &= E \cup  (S_1 \circ  E) = E \\
+            S_2 &= (R_1 \circ  E)
+          \end {align}
+        ]]></fr:tex>
+        which gives 
+        <fr:tex display="block"><![CDATA[
+          R_2 = E, S_2  \{(a, c), (b, d)\}
+        ]]></fr:tex></html:li>
+      <html:li><fr:tex display="block"><![CDATA[
+          \begin {align}
+            R_3 &= E \cup  (S_2 \circ  E) \\
+            S_3 &= (R_2 \circ  E) \equiv  S_2
+          \end {align}
+        ]]></fr:tex>
+        which gives
+        <fr:tex display="block"><![CDATA[
+          R_3 = E \cup  \{(a, d)\}, S_3 = S_2
+        ]]></fr:tex></html:li>
+      <html:li>
+        Here we stabilize
+      </html:li></html:ol>
+            <html:p>
+      Thus our final result is
+    </html:p>
+            <fr:tex display="block"><![CDATA[
+      R_\infty  = E \cup  \{(a, b)\}, S_\infty  = \{(a, c), (b, d)\}
+    ]]></fr:tex>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:date>
+          <fr:year>2025</fr:year>
+          <fr:month>12</fr:month>
+          <fr:day>19</fr:day>
+        </fr:date>
+        <fr:title text="Abstract linear-Horn fixed-point theorem">Abstract linear-Horn fixed-point theorem</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <html:p>
+    For a formula <fr:tex display="inline"><![CDATA[\varphi ]]></fr:tex> we define <fr:tex display="inline"><![CDATA[\varphi ^D]]></fr:tex> as 
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \varphi ^D = \varphi [X_1 \mapsto  \neg  X_1, \ldots , X_n \mapsto  \neg  X_n]
+  ]]></fr:tex>
+        <html:p>
+    Let <fr:tex display="inline"><![CDATA[\exists  \overline  X \varphi ]]></fr:tex> be a linear-Horn formula equation 
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \begin {align}
+      \mu _j &= [\textrm {lfp}_{X_j} \phi _\varphi ] \\
+      v_j &= \neg  [\textrm {lfp}_{X_j} \phi _{\varphi ^D}]
+    \end {align}
+  ]]></fr:tex>
+        <html:p>
+    for <fr:tex display="inline"><![CDATA[j \in  [1, n]]]></fr:tex>, then we have 
+  </html:p>
+        <html:ol><html:li><fr:tex display="block"><![CDATA[
+        \vDash _a \exists  \overline  X \varphi  \leftrightarrow  \varphi [\overline  X \mapsto  \overline  \mu ]\ \land \ \vDash _a \exists  \overline  X \varphi  \leftrightarrow  \varphi [\overline  X \mapsto  \overline  v]
+      ]]></fr:tex></html:li>
+    <html:li><fr:tex display="block"><![CDATA[
+          (\exists  \mathcal  M_G, \overline  R.\ \mathcal  M_G \vDash _a \varphi  [\overline  X \mapsto  \overline  R])
+          \to  (M_G \vDash _a\ \wedge _{j=1}^n (\mu _j \to  R_j \land  R_j \to  v_j))
+      ]]></fr:tex></html:li></html:ol>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:date>
+          <fr:year>2025</fr:year>
+          <fr:month>12</fr:month>
+          <fr:day>19</fr:day>
+        </fr:date>
+        <fr:title text="Verification conditions and least-fixed points">Verification conditions and least-fixed points</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <html:p>
+    Let's consider the linear-Horn formula equation
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \exists  Y \texttt {vc}(\{Y\}\ p\ \{Q\}) \equiv  \exists  Y \varphi 
+  ]]></fr:tex>
+        <html:p>
+    let <fr:tex display="inline"><![CDATA[v = \neg  [\textrm {lfp}_Y \phi _{\varphi ^D}]]]></fr:tex> then 
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    [v] = \texttt {wp}(p, Q)
+  ]]></fr:tex>
+        <html:p>
+    On an intuitive level this might already make a lot of sense, we can reason about this incrementally
+  </html:p>
+        <html:ul><html:li><fr:tex display="inline"><![CDATA[\textrm {lfp}_Y \varphi ]]></fr:tex> represents the set of states we <html:strong>can prove safe</html:strong></html:li>
+    <html:li><fr:tex display="inline"><![CDATA[\textrm {lfp}_Y \varphi ^D]]></fr:tex> represents the set of states we <html:strong>can prove unsafe</html:strong></html:li>
+    <html:li><fr:tex display="inline"><![CDATA[\neg  (\textrm {lfp}_Y \varphi ^D)]]></fr:tex> is then the set of states we <html:strong>cannot prove unsafe</html:strong></html:li></html:ul>
+        <html:p>
+    A nicer way we can phrase the last example is that it denotes the greatest set of states excluding all unsafe ones. 
+  </html:p>
+        <fr:tree show-metadata="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>12</fr:month>
+              <fr:day>19</fr:day>
+            </fr:date>
+            <fr:title text="VC Sim-LFP Example: While loop">VC Sim-LFP Example: While loop</fr:title>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <html:p>
+      Before going into the proof I thought it would be nice to just show an actual example to demonstrate this, so let us consider the following program <fr:tex display="inline"><![CDATA[p]]></fr:tex></html:p>
+            <html:pre class="code-block language-python">
+              <html:code class="language-python">
+      while x &gt; 0 do
+        x := x - 1
+    </html:code>
+            </html:pre>
+            <html:p>
+      lets pick the postcondition <fr:tex display="inline"><![CDATA[Q \equiv  (x = 0)]]></fr:tex>, now we know for partial correctness we must have
+    </html:p>
+            <html:ul><html:li>
+        Our <html:em>exit condition</html:em> as 
+        <fr:tex display="block"><![CDATA[
+          I(x) \land  x \leq  0  \to  x = 0
+        ]]></fr:tex></html:li>
+      <html:li>
+        Our <html:em>preservation condition</html:em> as
+        <fr:tex display="block"><![CDATA[
+          I(x) \land  x > 0 \to  I(x - 1)
+        ]]></fr:tex></html:li>
+      <html:li>
+        Our <html:em>entry condition</html:em> as 
+        <fr:tex display="block"><![CDATA[
+          x \geq  0 \to  I(x)
+        ]]></fr:tex></html:li></html:ul>
+            <html:p>
+      Our loop invariant <fr:tex display="inline"><![CDATA[I]]></fr:tex> here denotes our <html:em>predicate variable</html:em></html:p>
+            <fr:tex display="block"><![CDATA[
+      \phi (I, x) \equiv  (x \leq  0 \land  x \ \mathrlap {\,/}{=}\  0) \lor  (x > 0 \land  \neg  I(x - 1))
+    ]]></fr:tex>
+            <html:p>
+      We can then use this to compute bad states
+    </html:p>
+            <html:ol><html:li><fr:tex display="inline"><![CDATA[B_0 = \emptyset ]]></fr:tex></html:li>
+      <html:li><fr:tex display="inline"><![CDATA[B_1 = \{x < 0\} ]]></fr:tex></html:li>
+      <html:li><fr:tex display="inline"><![CDATA[B_2 = \{x < 1\} ]]></fr:tex></html:li>
+      <html:li><fr:tex display="inline"><![CDATA[B_3 =\{x < 2\} ]]></fr:tex></html:li>
+      <html:li><fr:tex display="inline"><![CDATA[\ldots ]]></fr:tex></html:li>
+      <html:li><fr:tex display="inline"><![CDATA[B_n = \{x \leq  n - 1\} ]]></fr:tex></html:li></html:ol>
+            <html:p>
+      If we take the union then 
+    </html:p>
+            <fr:tex display="block"><![CDATA[
+      \textrm {lfp}\phi  = \bigvee _{i = 0}^n B_i \equiv  \{x < 0\}
+    ]]></fr:tex>
+            <html:p>
+      Thus negating this gives us
+    </html:p>
+            <fr:tex display="block"><![CDATA[
+      v = \neg  [\textrm {lfp}_I \phi ] \quad  v(x) = \neg (x < 0) \equiv  x \geq  0
+    ]]></fr:tex>
+            <html:p>
+      which turns out to previsely be our weakest precondition
+    </html:p>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:date>
+          <fr:year>2025</fr:year>
+          <fr:month>12</fr:month>
+          <fr:day>19</fr:day>
+        </fr:date>
+        <fr:title text="Strongest post-condition as least-fixed point">Strongest post-condition as least-fixed point</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <html:p>
+    Again we consider the linear-Horn formula equation, this time focused on the post-condition
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \exists  X \texttt {vc}(\{P\}\ s\ \{X\}) \equiv  \exists  X \varphi 
+  ]]></fr:tex>
+        <html:p>
+    We let <fr:tex display="inline"><![CDATA[\mu  = [\textrm {lfp}_X \phi _\varphi ]]]></fr:tex>, then
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    [\mu ] = \texttt {sp}(s, Q)
+  ]]></fr:tex>
+        <html:p>
+    As a reminder, in the denotational sense we can express the strongest postcondition as
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \texttt {sp}(s, P) = \{\sigma  \in  \Sigma  \mid  \exists  \sigma ' \in  \Sigma  : \mathcal  M, \sigma ' \models  P \land  (s, \sigma ') \Downarrow  \sigma  \}
+  ]]></fr:tex>
+        <html:p>
+    The idea being that the strongest post-condition represents the set of states which all other states evaluate into. In other words it denotes the set of states which capture or encapsulate the states of all successful executions. With this the least-fixed point interpretation shouldn't be too hard to understand. As a reminder, our least fixed point can be read as:
+  </html:p>
+        <html:blockquote>
+    the most precise characterization of our predicate variable <fr:tex display="inline"><![CDATA[X]]></fr:tex> w.r.t to its constraints <fr:tex display="inline"><![CDATA[\varphi ]]></fr:tex></html:blockquote>
+        <html:p>
+    We know our constraints represent those conditions required for the successful execution i.e. validity of the hoare triple. Hence, it naturally follows that the least fixed point then represents the most precise; or more accurately <html:em>least</html:em>; set of states <html:em>after execution</html:em> coming from some initial successful state and execution. 
+  </html:p>
+      </fr:mainmatter>
+    </fr:tree>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

@@ -1,0 +1,12 @@
+\date{2025-12-15}
+
+\import{base-macros}
+
+\taxon{VU-VFS-2025}
+
+\title{Lecture 8 - Horn Clauses}
+
+
+\subtree{
+  \title{Introduction & Syntax}
+}

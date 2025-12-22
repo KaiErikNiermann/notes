@@ -11,11 +11,11 @@
     <fr:uri>https://kaierikniermann.github.io/notes/0045/</fr:uri>
     <fr:display-uri>0045</fr:display-uri>
     <fr:route>/notes/0045/</fr:route>
-    <fr:title text="Hoare logc - assignment proof rule">Hoare logc - assignment proof rule</fr:title>
+    <fr:title text="Hoare logic - assignment proof rule">Hoare logic - assignment proof rule</fr:title>
     <fr:taxon>Quiz</fr:taxon>
   </fr:frontmatter>
   <fr:mainmatter><html:ol><html:li>
-    Consider the assignment <fr:tex display="inline"><![CDATA[x := y]]></fr:tex> and the postcondition <fr:tex display="inline"><![CDATA[x > 2]]></fr:tex>. Whatneeds to hold efore the assignment such that <fr:tex display="inline"><![CDATA[x > 2]]></fr:tex> holds afterwards?
+    Consider the assignment <fr:tex display="inline"><![CDATA[x := y]]></fr:tex> and the postcondition <fr:tex display="inline"><![CDATA[x > 2]]></fr:tex>. What needs to hold before the assignment such that <fr:tex display="inline"><![CDATA[x > 2]]></fr:tex> holds afterwards?
   </html:li>
   <html:li>
     Consider <fr:tex display="inline"><![CDATA[i := i + 1]]></fr:tex> and post-condition <fr:tex display="inline"><![CDATA[i > 10]]></fr:tex>. What do we need to know before the assignment such that i &gt; 10 holds afterwards?
@@ -818,11 +818,11 @@
                     <fr:uri>https://kaierikniermann.github.io/notes/0045/</fr:uri>
                     <fr:display-uri>0045</fr:display-uri>
                     <fr:route>/notes/0045/</fr:route>
-                    <fr:title text="Hoare logc - assignment proof rule">Hoare logc - assignment proof rule</fr:title>
+                    <fr:title text="Hoare logic - assignment proof rule">Hoare logic - assignment proof rule</fr:title>
                     <fr:taxon>Quiz</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter><html:ol><html:li>
-    Consider the assignment <fr:tex display="inline"><![CDATA[x := y]]></fr:tex> and the postcondition <fr:tex display="inline"><![CDATA[x > 2]]></fr:tex>. Whatneeds to hold efore the assignment such that <fr:tex display="inline"><![CDATA[x > 2]]></fr:tex> holds afterwards?
+    Consider the assignment <fr:tex display="inline"><![CDATA[x := y]]></fr:tex> and the postcondition <fr:tex display="inline"><![CDATA[x > 2]]></fr:tex>. What needs to hold before the assignment such that <fr:tex display="inline"><![CDATA[x > 2]]></fr:tex> holds afterwards?
   </html:li>
   <html:li>
     Consider <fr:tex display="inline"><![CDATA[i := i + 1]]></fr:tex> and post-condition <fr:tex display="inline"><![CDATA[i > 10]]></fr:tex>. What do we need to know before the assignment such that i &gt; 10 holds afterwards?
@@ -923,7 +923,7 @@
                     <fr:taxon>Quiz</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter><html:p>
-  A friend suggests the following proof rule for assigments:
+  A friend suggests the following proof rule for assignments:
 </html:p><fr:tex display="block"><![CDATA[
   \vdash  \{(x = e) \to  Q\}\ x := e\ \{Q\}
 ]]></fr:tex><html:p>
@@ -985,13 +985,13 @@
     \forall  \sigma .\ \sigma  \vDash  (x = e) \to  Q \land  \exists  \sigma '.\ \langle  (x := e), \sigma  \rangle  \Downarrow  \sigma ' \to  \sigma ' \vDash  Q
   ]]></fr:tex>
   <fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:taxon>Proof</fr:taxon></fr:frontmatter><fr:mainmatter><html:p>
-      Let <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> be the intial state before the assignment <fr:tex display="inline"><![CDATA[x := e]]></fr:tex>. We must show that if <fr:tex display="inline"><![CDATA[\sigma  \vDash  (x = e) \to  Q]]></fr:tex>, then, after executing <fr:tex display="inline"><![CDATA[x := e]]></fr:tex>, the resulting state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> satisfies <fr:tex display="inline"><![CDATA[\sigma ' \vDash  Q]]></fr:tex> (i.e. is valid for the assertions in the postcondition).
+      Let <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> be the initial state before the assignment <fr:tex display="inline"><![CDATA[x := e]]></fr:tex>. We must show that if <fr:tex display="inline"><![CDATA[\sigma  \vDash  (x = e) \to  Q]]></fr:tex>, then, after executing <fr:tex display="inline"><![CDATA[x := e]]></fr:tex>, the resulting state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> satisfies <fr:tex display="inline"><![CDATA[\sigma ' \vDash  Q]]></fr:tex> (i.e. is valid for the assertions in the postcondition).
     </html:p><html:ul><html:li>
         Before the assignment we have <fr:tex display="inline"><![CDATA[\sigma  \vDash  (x = e) \to  Q]]></fr:tex>, in other words this means that:
         <fr:tex display="block"><![CDATA[
           \sigma (x) = \sigma (e) \to  \sigma  \vDash   Q
         ]]></fr:tex>
-        so if the variable <fr:tex display="inline"><![CDATA[x]]></fr:tex> in the intial state evaluates to the same thing as some expression <fr:tex display="inline"><![CDATA[e]]></fr:tex> then our post postcondition is valid for this state.
+        so if the variable <fr:tex display="inline"><![CDATA[x]]></fr:tex> in the initial state evaluates to the same thing as some expression <fr:tex display="inline"><![CDATA[e]]></fr:tex> then our post postcondition is valid for this state.
       </html:li>
       <html:li>
         After the assignment we have a new state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> defined as:
@@ -1004,9 +1004,9 @@
         ]]></fr:tex></html:li>
       <html:li>
         Now we want to check if <fr:tex display="inline"><![CDATA[\sigma ' \vDash  Q]]></fr:tex> as desired, we proceed by a case analysis on the equality <fr:tex display="inline"><![CDATA[\sigma '(x) = \sigma (e)]]></fr:tex>
-        <html:ul><html:li><html:em>Case:</html:em> <fr:tex display="inline"><![CDATA[\sigma (e) = \sigma (x)]]></fr:tex>, then by the precondition we have <fr:tex display="inline"><![CDATA[\sigma  \vDash  Q]]></fr:tex>. Since <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> only changes the value of <fr:tex display="inline"><![CDATA[x]]></fr:tex> to <fr:tex display="inline"><![CDATA[\sigma (e)]]></fr:tex>, and <fr:tex display="inline"><![CDATA[Q]]></fr:tex> is satisfied by the intial state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> it follows that <fr:tex display="inline"><![CDATA[\sigma ' \vDash  Q]]></fr:tex>.
+        <html:ul><html:li><html:em>Case:</html:em> <fr:tex display="inline"><![CDATA[\sigma (e) = \sigma (x)]]></fr:tex>, then by the precondition we have <fr:tex display="inline"><![CDATA[\sigma  \vDash  Q]]></fr:tex>. Since <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> only changes the value of <fr:tex display="inline"><![CDATA[x]]></fr:tex> to <fr:tex display="inline"><![CDATA[\sigma (e)]]></fr:tex>, and <fr:tex display="inline"><![CDATA[Q]]></fr:tex> is satisfied by the initial state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> it follows that <fr:tex display="inline"><![CDATA[\sigma ' \vDash  Q]]></fr:tex>.
           </html:li>
-          <html:li><html:em>Case:</html:em> <fr:tex display="inline"><![CDATA[\sigma (e) \ \mathrlap {\,/}{=}\ \sigma (x)]]></fr:tex>, then our precondition becomes vacuously true as the anticident is false. However as the assignment does terminate we do need to ensure that <fr:tex display="inline"><![CDATA[Q]]></fr:tex> holds in the new state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex>. However since <fr:tex display="inline"><![CDATA[Q]]></fr:tex> can be arbitrary we cannot guarantee that <fr:tex display="inline"><![CDATA[\sigma ' \vDash  Q]]></fr:tex>.
+          <html:li><html:em>Case:</html:em> <fr:tex display="inline"><![CDATA[\sigma (e) \ \mathrlap {\,/}{=}\ \sigma (x)]]></fr:tex>, then our precondition becomes vacuously true as the antecedent is false. However, as the assignment does terminate we do need to ensure that <fr:tex display="inline"><![CDATA[Q]]></fr:tex> holds in the new state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex>. However, since <fr:tex display="inline"><![CDATA[Q]]></fr:tex> can be arbitrary we cannot guarantee that <fr:tex display="inline"><![CDATA[\sigma ' \vDash  Q]]></fr:tex>.
           </html:li></html:ul></html:li></html:ul></fr:mainmatter></fr:tree>
   <html:p>
     Let's link the proof of soundness back to the example, so in our inital state <fr:tex display="inline"><![CDATA[\sigma _1]]></fr:tex> we have that:
@@ -1030,7 +1030,7 @@
     \vdash  \{P[x \mapsto  e]\}\ x := e\ \{P\}
   ]]></fr:tex>
   <html:p>
-    we can notice here that by removing the consequent of the logical implication we ensure that if the assertion of x being subsituted / being equal to the expression e <html:em>before</html:em> the execution of the statment doesnt hold, then it correctly means that we indeed cannot suggest that after an assignment our assertion <fr:tex display="inline"><![CDATA[P]]></fr:tex> is somehow correect.
+    we can notice here that by removing the consequent of the logical implication we ensure that if the assertion of x being substituted / being equal to the expression e <html:em>before</html:em> the execution of the statement doesn't hold, then it correctly means that we indeed cannot suggest that after an assignment our assertion <fr:tex display="inline"><![CDATA[P]]></fr:tex> is somehow correct.
   </html:p>
 </fr:mainmatter></fr:tree>
   
@@ -1133,7 +1133,7 @@
                     <fr:uri>https://kaierikniermann.github.io/notes/0048/</fr:uri>
                     <fr:display-uri>0048</fr:display-uri>
                     <fr:route>/notes/0048/</fr:route>
-                    <fr:title text="Precond. Strengthenting &amp; Postcond. Weakening">Precond. Strengthenting &amp; Postcond. Weakening</fr:title>
+                    <fr:title text="Precond. Strengthening &amp; Postcond. Weakening">Precond. Strengthening &amp; Postcond. Weakening</fr:title>
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter><html:p>
@@ -1164,7 +1164,7 @@
   On a high level this is quite evidently just transitivity, which is to say that if some assertion <fr:tex display="inline"><![CDATA[P']]></fr:tex> holds and by implication <fr:tex display="inline"><![CDATA[P]]></fr:tex> holds, and upon successful termination of <fr:tex display="inline"><![CDATA[s]]></fr:tex> we have that <fr:tex display="inline"><![CDATA[Q]]></fr:tex> holds and by implication <fr:tex display="inline"><![CDATA[Q']]></fr:tex> holds, then we can transitively reason that <fr:tex display="inline"><![CDATA[\{P'\}\ s\ \{Q'\}]]></fr:tex> would also hold for our program <fr:tex display="inline"><![CDATA[s]]></fr:tex>.
 </html:p><html:p>
   What we can do here is decompose this rule into two separate rules:
-</html:p><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:title text="Precondition strenghtenting">Precondition strenghtenting</fr:title></fr:frontmatter><fr:mainmatter>
+</html:p><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:title text="Precondition strengthening">Precondition strengthening</fr:title></fr:frontmatter><fr:mainmatter>
   
     
     <fr:resource hash="d5f3ee2521e2c4f40c707279150c3182"><fr:resource-content><html:img src="/notes/d5f3ee2521e2c4f40c707279150c3182.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
@@ -1203,7 +1203,7 @@
   </html:p><fr:tex display="block"><![CDATA[
     \{x > 2\}\ \texttt {if}\ (x > 2)\ \texttt {then}\ y := 2 \texttt {else}\ y := 3\ \{y := 2\}
   ]]></fr:tex><html:p>
-    Clearly here the condition just requires that <fr:tex display="inline"><![CDATA[x]]></fr:tex> is larger then 2, if our precondition asserts that its larger then 3, the <fr:tex display="inline"><![CDATA[\texttt {then}]]></fr:tex> branch executes just the same and our postcondition holds.
+    Clearly here the condition just requires that <fr:tex display="inline"><![CDATA[x]]></fr:tex> is larger than 2, if our precondition asserts that its larger than 3, the <fr:tex display="inline"><![CDATA[\texttt {then}]]></fr:tex> branch executes just the same and our postcondition holds.
   </html:p></fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:title text="Postcondition weakening">Postcondition weakening</fr:title></fr:frontmatter><fr:mainmatter>
   
     
@@ -1227,7 +1227,7 @@
   \end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>
-    On a high level this says that if we can prove some postcondition <fr:tex display="inline"><![CDATA[Q']]></fr:tex>, we can always relax this condition to something weaker. So in simpler terms if we have the fact that the postcondition <fr:tex display="inline"><![CDATA[Q']]></fr:tex> holds for some more restrictive state, then we can naturally lessen the ristrictions and have it still hold.
+    On a high level this says that if we can prove some postcondition <fr:tex display="inline"><![CDATA[Q']]></fr:tex>, we can always relax this condition to something weaker. So in simpler terms if we have the fact that the postcondition <fr:tex display="inline"><![CDATA[Q']]></fr:tex> holds for some more restrictive state, then we can naturally lessen the restrictions and have it still hold.
   </html:p></fr:mainmatter></fr:tree></fr:mainmatter>
                 </fr:tree>
                 <fr:tree show-metadata="false">

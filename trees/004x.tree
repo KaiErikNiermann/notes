@@ -1,0 +1,79 @@
+\date{2025-12-16}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Ensuring well-formed horn clauses}
+
+\p{
+  Which of the following are well-formed horn clauses:
+}
+\ol{
+  \li{
+    #{(x < n) \to q(x, n)}
+  }
+  \li{
+    #{q(x, n) \land (x < n) \to \bot}
+  }
+  \li{
+    #{q(x, y) \land r(x) \to p(x)}
+  }
+  \li{
+    #{q(x, y) \to p(x + 1, y)}
+  }
+  \li{
+    #{q(x) \land \neg r(x) \to p(x)}
+  }
+  \li{
+    #{q(x) \lor r(x) \to p(x)}
+  }
+  \li{
+    #{q(x) \to x < n}
+  }
+}
+\p{
+  also: can the non-well-formed horn clauses be transformed into well-formed horn clauses?
+}
+
+\solution{
+  \ol{
+    \li{
+      Well-formed
+    }
+    \li{
+      Well-formed
+    }
+    \li{
+      Well-formed
+    }
+    \li{
+      Not well-formed, has an expression in place of what is meant to be a \em{variable}
+    }
+    \li{
+      Not well-formed, as a reminder in disjunctive form a horn clause is 
+      ##{
+        \neg p \lor \neg q \lor \neg r \lor \vdots \lor \neg \phi \lor H
+      }
+      we cannot have a negated query as it's disallowed by the syntax
+    }
+    \li{
+      Not well-formed, see above, should be a conjunct in implication form
+    }
+    \li{
+      Not well-formed, the head is a query (relation over a vector of \em{variables}) or #{\bot}
+    }
+  }
+  \p{
+    Yes, we can normalize the non-well-formed horn clauses for example through the introduction of fresh variables so as an example the clause
+  }
+  ##{
+    q(x, y) \to p(x + 1, y)
+  }
+  \p{
+    can be converted to:
+  }
+  ##{
+    q(x, y) \land x' = x + 1 \to p(x', y)
+  }
+}

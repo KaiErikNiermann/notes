@@ -17,7 +17,7 @@
   }
 }
 \p{
-  Here we say that #{P} is the \strong{invariant} also often denoted as #{I}. In plain english the rules says that:
+  Here we say that #{P} is the \strong{invariant} also often denoted as #{I}. In plain English the rules says that:
 }
 \blockquote{
   if #{I} is a loop invariant, then the condition #{I \land \neg b} must hold after the loop terminates

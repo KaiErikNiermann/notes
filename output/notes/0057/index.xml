@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>17</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/0057/</fr:uri>
+    <fr:display-uri>0057</fr:display-uri>
+    <fr:route>/notes/0057/</fr:route>
+    <fr:title text="Constrained clause">Constrained clause</fr:title>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <html:p>
+  Let <fr:tex display="inline"><![CDATA[\mathcal  L]]></fr:tex> be a first-order language. A <html:strong>constrained clause</html:strong> is a formula <fr:tex display="inline"><![CDATA[C]]></fr:tex> of the form 
+</html:p>
+    <fr:tex display="block"><![CDATA[
+  \phi  \land  \bigvee _{i = 1}^m \neg  X_i(\bf  t_i) \land  \bigvee  _{j = 1}^n Y_j(\bf  s_j)
+]]></fr:tex>
+    <html:p>
+  where:
+</html:p>
+    <html:ul><html:li>
+    (<fr:tex display="inline"><![CDATA[\phi ]]></fr:tex>) is a <html:em>first-order formula</html:em> in <fr:tex display="inline"><![CDATA[L]]></fr:tex></html:li>
+  <html:li>
+    (<fr:tex display="inline"><![CDATA[X_i, Y_j]]></fr:tex>) are <html:em>predicate variables</html:em>, i.e. denote placeholders for relations
+  </html:li>
+  <html:li>
+    (<fr:tex display="inline"><![CDATA[\bf  t_i, \bf  s_j]]></fr:tex>) are <html:em>tuples of terms</html:em> in <fr:tex display="inline"><![CDATA[L]]></fr:tex></html:li></html:ul>
+    <html:p>
+  the formula <fr:tex display="inline"><![CDATA[C]]></fr:tex> is denoted...
+</html:p>
+    <html:ul><html:li><html:em>Horn</html:em>, if <fr:tex display="inline"><![CDATA[n \leq  1]]></fr:tex></html:li>
+  <html:li><html:em>dual-Horn</html:em>, if <fr:tex display="inline"><![CDATA[m \leq  1]]></fr:tex></html:li>
+  <html:li><html:em>linear-Horn</html:em>, if <fr:tex display="inline"><![CDATA[m, n \leq  1]]></fr:tex></html:li></html:ul>
+    <html:p>
+  commonly we talk about sets of constrained clauses <fr:tex display="inline"><![CDATA[S]]></fr:tex>, these sets denote <html:strong>conjunctions</html:strong> of clauses and are thus equivalent to the formula  
+</html:p>
+    <fr:tex display="block"><![CDATA[
+  \forall ^* \land _{C \in  S} \equiv  S \triangleq  \{C_1, C_2, \ldots , C_n\}
+]]></fr:tex>
+    <html:p>
+  The formula <fr:tex display="inline"><![CDATA[\exists  \bf  X \forall  ^*_{C \in  S} C]]></fr:tex> is called
+</html:p>
+    <html:ul><html:li>A <html:em>Horn formula</html:em>, if <fr:tex display="inline"><![CDATA[S]]></fr:tex> is a set of CHC</html:li>
+  <html:li>A <html:em>dual-Horn formula</html:em>, if <fr:tex display="inline"><![CDATA[S]]></fr:tex> is a set of CdHC</html:li>
+  <html:li>A <html:em>linear-Horn formula</html:em>, if <fr:tex display="inline"><![CDATA[S]]></fr:tex> is a set of ClHC</html:li></html:ul>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

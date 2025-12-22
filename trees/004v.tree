@@ -1,0 +1,52 @@
+\date{2025-12-15}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Horn clauses - Syntax}
+
+\p{
+  A Horn clause is a disjunctive clause (disjunction of literals) with at most one positive, i.e. unnegated literal. Often written in implication form as a conjunction of literals implying some literal called the head.
+}
+##{
+  \underbrace{\underbrace{p(x_1, x_2) \land q(x_1, x_2, x_3) \land \ldots}_\text{queries} \land \underbrace{\phi}_\text{constraint}}_\text{body} \to \underbrace{H}_\text{head}
+}
+\p{
+  Here:
+}
+\ol{
+  \li{
+    \em{queries} are \strong{relations} over some vector of variables
+  }
+  \li{
+    #{\phi} represents a formula in a first-order theory which does not contain queries
+  }
+  \li{
+    #{H} is called the head and represents either a \em{query} in which case we also call the horn clause a \em{definite class} if it has the following shape
+    ##{
+      (p \land q \land \ldots \land \phi) \to H
+    }
+    or a \em{fact} if it has the following shape
+    ##{
+      \top \to H
+    }
+    #{H} can also be #{\bot} in which case we refer to the horn clause as a \em{gloal clause} with the shape 
+    ##{
+      (p \land q \land \ldots \land \phi) \to \bot
+    }
+    with the idea being that as opposed to \em{assuming} the query holds we now \em{show} that it holds
+  }
+}
+\p{
+  Free variables are implicitly universally quantified over, so a horn clause like
+}
+##{
+  \cf{mortal}(X) \to \cf{human}(X)
+}
+\p{
+  stands for
+}
+##{
+  \forall X.\ \cf{mortal}(X) \to \cf{human}(X)
+}

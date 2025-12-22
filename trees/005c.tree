@@ -1,0 +1,23 @@
+\date{2025-12-22}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Strongest Postcondition}
+
+\p{
+  In the most straightforward sense the strongest postcondition, denoted \cf{sp} or \cf{post}, denotes the exact or \em{least} set of \strong{final states} which we land in after a successful execution. Set theoretically we can denote it as.
+}
+##{
+  \cf{sp}(s, P) = \{\sigma \in \Sigma \mid \exists \sigma' \in \Sigma : \sigma ' \vDash P \land (s, \sigma') \Downarrow \sigma\}
+}
+\p{
+  We can also use a more logic way of expressing it as follows
+}
+##{
+  \cf{sp}(s, P) \triangleq \exists \sigma'.\ P(\sigma') \land (s, \sigma') \Downarrow \sigma
+}
+\p{
+  But the idea is in principle the same, it represents the set of states corresponding to some evaluated result based on some existing safe state.
+}

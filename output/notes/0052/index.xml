@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>17</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/0052/</fr:uri>
+    <fr:display-uri>0052</fr:display-uri>
+    <fr:route>/notes/0052/</fr:route>
+    <fr:title text="Horn clauses in the weakest precondition">Horn clauses in the weakest precondition</fr:title>
+    <fr:taxon>Quiz</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter><html:p>
+  What's:
+</html:p><fr:tex display="block"><![CDATA[
+  \texttt {wp}(x := x + 1, p(x, y))
+]]></fr:tex>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>17</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:p>
+    As a reminder for assignment we simply substitute the assignment under the postcondition, so this weakest precondition evaluates to:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    p(x, y)[x \mapsto  x + 1] \equiv  p(x + 1, y)
+  ]]></fr:tex>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

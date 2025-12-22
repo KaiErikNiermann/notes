@@ -46,7 +46,7 @@
     Where we know that #{i = 1 \to \top} so we can use precondition strengthening to use #{i = 1} as our precondition since it implies something we've already syntactically demonstrated to be provable.
   }
   \p{
-    Clearly we have that the first assignment in the sequence holds by the naive assignment, same for for the second assigment #{a[1] = 2} since it precondition reduces to the tautology #{\top}, so the final rule is then derivable. But we can obviously see that it erroneously assumes that #{i} represents some kind of distinct index but we can see that in the second assignment its alised by the constant index #{1} which means that while we can derive the rule it is \em{not semantically valid} hence unsound.
+    Clearly we have that the first assignment in the sequence holds by the naive assignment, same for the second assignment #{a[1] = 2} since it precondition reduces to the tautology #{\top}, so the final rule is then derivable. But we can obviously see that it erroneously assumes that #{i} represents some kind of distinct index but, we can see that in the second assignment its aliased by the constant index #{1} which means that while we can derive the rule it is \em{not semantically valid} hence unsound.
   }
   \p{
     To compare this with the correct rule we have that:
@@ -79,8 +79,9 @@
   }
   ##{
     a'(j) = \begin{cases}
-    2 & \cif\ j = 1
-    a(j) & \text{otherwise}
+      2 & \texttt{if}\ j = 1 \\
+      a(j) & \text{otherwise}
+    \end{cases}
   }
   \p{
     we can then do a case split on the equality #{i = 1} using our defined function
@@ -133,7 +134,7 @@
     simplifying this we get
   }
   ##{
-    (i \neq 1)
+    (i \ \mathrlap{\,/}{=}\  1)
   }
   \p{
     Which is where the crux of our issue lies, the precondition of our Hoare triple was #{i = 1}, but clearly here to derive our sequence of assignments we must have that i is not 1, hence this hoare triple is not derivable as its also clearly not valid.

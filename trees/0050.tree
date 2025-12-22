@@ -1,0 +1,27 @@
+\date{2025-12-16}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Horn clause - solution}
+
+\p{
+  A \strong{solution} is a function #{\Sigma} that maps \em{queries} to \em{formulas} in the background theory over the same variables. Formally we write #{\Sigma \vDash C} and say that #{\Sigma} satisfies #{C}, if #{C} is true if we replace all queries by their solutions, written as an inference rule:
+}
+\infrule{
+  \inferrule{
+    \Sigma(p) \land \Sigma(q) \land \ldots \land \phi \to \Sigma(r)
+  }{
+    \Sigma \models p(x_1, x_2) \land q(x_1, x_2, x_3) \land \ldots \land \phi \to r(x_1)
+  }
+}
+\p{
+  We write #{\Sigma \vDash \mathcal{C}} and say that #{\Sigma} \em{satisfies} the set of clauses #{\{C_1, C_2, \ldots, C_n\}}, if it satisfies all \em{individual clauses}, i.e:
+}
+##{
+  \Sigma \vDash C_1 \land \Sigma \vDash C_2 \land \ldots \land \Sigma \vDash C_n
+}
+\p{
+  We say that #{\mathcal C} is \strong{satisfiable}, if #{\exists \Sigma.\ \Sigma \vDash \mathcal C}
+}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>16</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/004y/</fr:uri>
+    <fr:display-uri>004y</fr:display-uri>
+    <fr:route>/notes/004y/</fr:route>
+    <fr:title text="Constrained Horn clauses">Constrained Horn clauses</fr:title>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <html:p>
+  We define <fr:tex display="inline"><![CDATA[\mathcal {C}]]></fr:tex> to be a set of constrained Horn clauses such that
+</html:p>
+    <fr:tex display="block"><![CDATA[
+  \mathcal {C} \triangleq  \{C_1, \ldots , C_n\}
+]]></fr:tex>
+    <html:p>
+  there are two important properties we should consider
+</html:p>
+    <html:ul><html:li>
+    We say that a query <fr:tex display="inline"><![CDATA[r]]></fr:tex> <html:strong>depends</html:strong> on a query <fr:tex display="inline"><![CDATA[q]]></fr:tex> if there is some clause <fr:tex display="inline"><![CDATA[C \in  \mathcal {C}]]></fr:tex> such that <fr:tex display="inline"><![CDATA[q]]></fr:tex> appears in <fr:tex display="inline"><![CDATA[C]]></fr:tex>'s body and <fr:tex display="inline"><![CDATA[r]]></fr:tex> appears in <fr:tex display="inline"><![CDATA[C]]></fr:tex>'s head. 
+  </html:li>
+  <html:li>
+    We say that a set of horn clauses <fr:tex display="inline"><![CDATA[\mathcal {C}]]></fr:tex> is recursive if at least one predicate directly or indirectly depends on itself. Formally, if we consider a sequence of horn clauses
+    <fr:tex display="block"><![CDATA[
+      C_1, C_2, \ldots , C_k
+    ]]></fr:tex>
+    such that the head of some clause <fr:tex display="inline"><![CDATA[C_i]]></fr:tex> depends on the body of some clause <fr:tex display="inline"><![CDATA[C_{m}]]></fr:tex> and the head of <fr:tex display="inline"><![CDATA[C_k]]></fr:tex> depends on the body of <fr:tex display="inline"><![CDATA[C_i]]></fr:tex> then we have a cycle which makes the set <fr:tex display="inline"><![CDATA[\mathcal {C}]]></fr:tex> recursive. As an example let's define a set of horn clauses to characterize transitive closure. 
+    <fr:tex display="block"><![CDATA[
+      \begin {align}
+        \texttt {reach}(x, y) &\gets  \texttt {edge}(x, y) \\
+        \texttt {reach}(x, z) &\gets  \texttt {reach}(x, y) \land  \texttt {reach}(y, z)
+      \end {align}
+    ]]></fr:tex></html:li></html:ul>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

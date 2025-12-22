@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>16</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/004x/</fr:uri>
+    <fr:display-uri>004x</fr:display-uri>
+    <fr:route>/notes/004x/</fr:route>
+    <fr:title text="Ensuring well-formed horn clauses">Ensuring well-formed horn clauses</fr:title>
+    <fr:taxon>Quiz</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter><html:p>
+  Which of the following are well-formed horn clauses:
+</html:p><html:ol><html:li><fr:tex display="inline"><![CDATA[(x < n) \to  q(x, n)]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[q(x, n) \land  (x < n) \to  \bot ]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[q(x, y) \land  r(x) \to  p(x)]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[q(x, y) \to  p(x + 1, y)]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[q(x) \land  \neg  r(x) \to  p(x)]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[q(x) \lor  r(x) \to  p(x)]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[q(x) \to  x < n]]></fr:tex></html:li></html:ol><html:p>
+  also: can the non-well-formed horn clauses be transformed into well-formed horn clauses?
+</html:p>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>16</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>
+      Well-formed
+    </html:li>
+    <html:li>
+      Well-formed
+    </html:li>
+    <html:li>
+      Well-formed
+    </html:li>
+    <html:li>
+      Not well-formed, has an expression in place of what is meant to be a <html:em>variable</html:em></html:li>
+    <html:li>
+      Not well-formed, as a reminder in disjunctive form a horn clause is 
+      <fr:tex display="block"><![CDATA[
+        \neg  p \lor  \neg  q \lor  \neg  r \lor  \vdots  \lor  \neg  \phi  \lor  H
+      ]]></fr:tex>
+      we cannot have a negated query as it's disallowed by the syntax
+    </html:li>
+    <html:li>
+      Not well-formed, see above, should be a conjunct in implication form
+    </html:li>
+    <html:li>
+      Not well-formed, the head is a query (relation over a vector of <html:em>variables</html:em>) or <fr:tex display="inline"><![CDATA[\bot ]]></fr:tex></html:li></html:ol>
+  <html:p>
+    Yes, we can normalize the non-well-formed horn clauses for example through the introduction of fresh variables so as an example the clause
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    q(x, y) \to  p(x + 1, y)
+  ]]></fr:tex>
+  <html:p>
+    can be converted to:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    q(x, y) \land  x' = x + 1 \to  p(x', y)
+  ]]></fr:tex>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

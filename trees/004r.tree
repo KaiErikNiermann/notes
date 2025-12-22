@@ -1,0 +1,60 @@
+\date{2025-12-12}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Weakest precondition for assert and assume}
+
+\p{
+  Answer the following:
+}
+\ol{
+  \li{
+    What's #{\texttt{wp}(\texttt{assert}(P), Q)}
+  }
+  \li{
+    What's #{\texttt{wp}(\texttt{assume}(P), Q)}
+  }
+  \li{
+    Given a statement #{s}, can we transform it into a statement #{s'} such that:
+    ##{
+      \vDash \{P\}\ s\ \{Q\} \iff \{\top\}\ s'\ \{\top\}
+    }
+  }
+}
+
+\solution{
+  \p{
+    We can remember that the weakest precondition is simply what we can derive reasoning backwards from the formulaic expression of a hoare triple.
+  }
+  \ol{
+    \li{
+      Considering our wp formula we have 
+      ##{
+        \texttt{wp}(\texttt{assert}(b), Q)(\sigma) \to (\texttt{assert}(b), \sigma) \Downarrow \texttt{.ok}\ \sigma \to Q(\sigma)
+      }
+      reasoning backwards we can start with a case split on the evaluation of the assertion, this leads to two cases
+      \ul{
+        \li{
+          #{b} evaluates to \em{true}, as this case trivially implies that the assertion evaluates into #{\texttt{.ok}\ \sigma} it means we must prove #{Q(\sigma)}. The only way we can prove this is by having our weakest precondition be a witness to this assertion.
+        }
+        \li{
+          #{b} evaluates to \em{false}, as this would imply a contradiction since the assertion evaluates to #{\texttt{.ok}\ \sigma}, more specifically we know have to prove the contradiction that #{\texttt{.ok}\ \sigma = \texttt{.fail} \sigma}, we know (i.e. have a hypothesis) by inversion that #{b \Downarrow^f \sigma} since we know #{b} has to be true to prove the contradiction we also must ensure the weakest precondition states that #{b \Downarrow ^t \sigma} 
+        }
+      }
+      from these two cases we can conclude that two demonstrate the soundness of the weakest precondition for assert statements, it must be the case that the \cf{wp} is the conjunction of the postcondition and the logical assertion that what is being asserted is indeed true, so we have that
+      ##{
+        \texttt{wp}(\texttt{assert}(b), Q)(\sigma) \equiv (b \Downarrow^t \sigma) \land Q(\sigma)
+      }
+      the more intuitive reasoning here is that #{Q} should hold before and after as an assert should, just by design, not do anything to the memory, it's only an assertion after all. Additionally, the condition should hold true as \cf{wp} \em{definitionally} describes a set of states where all terminating executions end in a state satisfying #{Q} thus if #{b} does not evaluate to true, there is no terminating execution from #{\sigma}. 
+    }
+    \li{
+      We can just use the more intuitive reasoning here, we know the weakest precondition characterizes a set of states where terminating executions end in a state satisfying #{Q}. The only way for something being assumed to be true leading to some other else is it if implies something else, thus our \cf{wp} becomes
+      ##{
+        \texttt{wp}(\texttt{assume}(b), Q)(\sigma) \equiv (b \Downarrow^t \sigma) \to Q(\sigma)
+      }
+      in terms of backward reasoning the idea is that #{\texttt{assume}(p)} essentially just adds a raw hypothesis #{(b \Downarrow^t \sigma)} but clearly that by itself doesn't somehow allow me to just manifest #{Q(\sigma)}, the only way we could possibly get #{Q} from #{b} being true is if we have a function which states that #{b} being true implies #{Q}.
+    }
+  }
+}

@@ -211,11 +211,6 @@
                 <fr:title text="Remarks">Remarks</fr:title>
               </fr:frontmatter>
               <fr:mainmatter>
-                <html:pre class="code-block language-lean">
-                  <html:code class="language-lean">
-    some piece of code
-  </html:code>
-                </html:pre>
                 <html:ul><html:li><html:p>
         An additional point made in <fr:link href="/notes/nlab-grothendieck-universe/" title="Grothendieck universe" uri="https://kaierikniermann.github.io/notes/nlab-grothendieck-universe/" display-uri="nlab-grothendieck-universe" type="local">(2)</fr:link> is that <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> denotes a <html:em>pure set</html:em>, that is, all elements of <fr:tex display="inline"><![CDATA[\mathcal  U]]></fr:tex> are sets and there are no urelements (elements which are not sets). Formally we say that a set <fr:tex display="inline"><![CDATA[x]]></fr:tex> is pure if for every finite sequence or chain <fr:link href="/notes/nlab-pure-set/" title="pure set" uri="https://kaierikniermann.github.io/notes/nlab-pure-set/" display-uri="nlab-pure-set" type="local">(3)</fr:link>:
       </html:p>

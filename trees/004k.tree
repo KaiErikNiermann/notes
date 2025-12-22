@@ -1,0 +1,164 @@
+\date{2025-12-10}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Working backwards - weakest precondition}
+
+\p{
+  I'll split this explanation into 3 parts, first the basic intuition, then the pen-and-paper reasoning, and finally a more granular explanation.
+}
+
+\subtree{
+  \title{The idea}
+
+  \p{
+    Say we want to verify a hoare triple #{\{P\}\ s\ \{Q\}}, the \em{weakest precondition} approach is that we:
+  }
+  \ol{
+    \li{
+      Start with our postcondition #{Q} and, going backwards, we compute a formula #{\texttt{wp}(s, Q)} called the \em{weakest precondition} of #{Q} w.r.t the statement #{s}.
+    }
+    \li{
+      #{\texttt{wp}(s, Q)} has the property that it's the weakest condition which \strong{guarantees that} #{Q} will hold after the termination of #{s}.
+    }
+  }
+  \p{
+    Therefore we can say that the triple is valid:
+  }
+  ##{
+    \vDash \{P\}\ s\ \{Q\} \iff P \to \texttt{wp}(s, Q)
+  }
+}
+
+\subtree{
+  \title{The basic rules}
+
+  \p{
+    The basic rules can be recursively defined as follows:
+  }
+  \ul{
+    \li{
+      For \strong{assignments}:
+      ##{
+        \texttt{wp}(x := e, Q) \triangleq Q[x \mapsto e]
+      }
+    }
+    \li{
+      For \strong{composition}
+      ##{
+        \texttt{wp}(s_1; s_2, Q) \triangleq \texttt{wp}(s_1, \texttt{wp}(s_2, Q))
+      }
+    }
+    \li{
+      For \strong{conditionals}
+      ##{
+        \texttt{wp}(\texttt{if}\ b\ \texttt{then}\ s_1\ \texttt{else}\ s_2, Q) \triangleq (b \to \texttt{wp}(s_1, Q)) \land (\neg b \to \texttt{wp}(s_2, Q))
+      }
+    }
+  }
+}
+
+\subtree{
+  \title{The more detailed reasoning}
+
+  \p{
+    As a reminder, a Hoare triple:
+  }
+  ##{
+    \{P\}\ s\ \{Q\}
+  }
+  \p{
+    Is simply a kind of syntax sugar for the logical formula:
+  }
+  ##{
+    \forall \sigma, \sigma'.\ P(\sigma) \to (s, \sigma) \Downarrow \sigma' \to Q(\sigma)
+  }
+  \p{
+    So for all source and target states, if we terminate on #{s} then #{Q} holds. Additionally, for different kinds of expressions we also have our constructions rules to ensure soundness, take for example assignment, our rule to only derive valid Hoare triples was:
+  }
+  \infrule{
+    \inferrule{}{
+      \vdash \{Q[x \mapsto e]\}\ x := e\ \{Q\}
+    }
+  }
+  \p{
+    If we assume #{e} to be some variable expression in a context #{\sigma : \texttt{Vars} \to \Z} which has to evaluate to a number before assignment then we can write the above rule more pedantically as:
+  }
+  ##{
+    \forall \sigma, \sigma'.\ (\forall n : \Z.\ (e, \sigma) \Downarrow n \to Q[x \mapsto n]) \to (x := e, \sigma) \Downarrow \sigma' \to Q(\sigma')
+  }
+  \p{
+    The idea of backwards reasoning here is as follows:
+  }
+  \ol{
+    \li{
+      First we look at the big step evaluation #{(x := e, \sigma) \Downarrow \sigma'}, we know that if this assignment succeeded, it implies there must have been a successful evaluation of the #{e} term, we know this because the only way to have derived this step is by the following inference rule:
+      \infrule{
+        \inferrule{
+          \vdash \forall n.\ \langle e, \sigma \rangle \Downarrow n
+        }{
+          \vdash \langle x := e, \sigma \rangle \Downarrow \sigma[x \mapsto n]
+        }
+      }
+    }
+    \li{
+      Using what we've learned from (1) we apply the notion of inversion, i.e. if we know a conclusion to be true, we can assert the premises of that conclusion must have also been true, this in a sense gives us the premises to use as new judgements.
+    }
+    \li{
+      Now looking at the expression
+      ##{
+        \forall n : \Z,.\ (e, \sigma) \Downarrow n \to Q[x \mapsto n]
+      }
+      we can clearly derive the precondition #{Q[x \mapsto n]} since we know the antecedent #{\forall n.\ (e, \sigma) \Downarrow n} is true, as it must have been true to derive the big step evaluation.
+    }
+    \li{
+      Since we have now demonstrated we can indeed provide sufficient reasoning to arrive at our conclusion #{Q(\sigma')} this finishes the proof.
+    }
+  }
+  \p{
+    The shorthand of the \em{weakest precondition} is nothing more than an expression of precisely this idea in a more concise fashion. Take for example \cf{if conditions}.
+  }
+  \ol{
+    \li{
+      We again start from our post-condition then proceed with a case split or more accurately an inversion on the evaluation rule.
+    }
+    \li{
+      The inversion naturally gives us two branches, the true and false branch. This represents the conjunction here, then with each conjunct the antecedent of the implication is represented by the true or false guard condition #{b}, the consequent in this instance is simply a recursive call on the \cf{then} and \cf{else} branch bodies.
+    }
+  }
+  \p{
+    The main thing I'm trying to drive home here is that the weakest precondition idea is fundamentally just based on the concept of:
+  }
+  \ol{
+    \li{
+      Seeing how a term must have been derived
+    }
+    \li{
+      Recursively going up the chain of any other sub-terms
+    }
+  }
+  \p{
+    So in a straightforward way, it's nothing more than chaining together all the individual proof rules for the various hoare triples. To show an example in lean using a some nice macros to create a simple syntax:
+  }
+  \codeblock{lean}{
+    example (n : Num) : 
+    {{ ⟦ "x" ↦ n ⟧ }} 
+      tm{ x := x + 1 } 
+    {{ ⟦ "x" ↦ n + 1 ⟧ }} := by
+    apply Hoare.assign'
+    intro σ m hpre heval
+    cases heval with
+    | sum he1 he2 =>
+      cases he1; cases he2
+      simp [hpre]
+  }
+  \p{The hoare triple we are proving here corresponds to this in the normal syntax:}
+  ##{
+    \{x \mapsto n \}\ x := x + 1\ \{x \mapsto n + 1\}
+  }
+  \p{
+    We can see here to "prove" this hoare triple was valid we started by doing our standard case split on the assign - that's the \cf{apply Hoare.assign'} - statement, then we were inside the addition, here we did a case split which gave us the lhs and rhs we were adding, after doing a case split on those two sides we could finally just simplify (and finalize) our proof using the fact that in #{\sigma} #{x} evaluates to #{n}.
+  }
+}

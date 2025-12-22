@@ -273,7 +273,11 @@
 
   "Paragraph": {
     "prefix": ["\\p", "para", "paragraph"],
-    "body": ["\\p{${1:text}}"],
+    "body": [
+      "\\p{",
+      "  ${1:text}",
+      "}"
+    ],
     "description": "Paragraph"
   },
   "Emphasis": {
@@ -625,7 +629,13 @@
   "lrbrack": {
     "prefix": ["\\lrbrack", "lrbrack"],
     "body": ["\\langle ${1:content} \\rangle"],
-    "description": "Left/right double brackets"
+    "description": "Left/right angle brackets"
+  },
+
+  "lrBrack": {
+    "prefix": ["\\lrBrack", "lrBrack"], 
+    "body": ["\\lBrack ${1:content} \\rBrack"], 
+    "description": "left right double brackets"
   },
 
   // ============================================================
@@ -666,33 +676,6 @@
       "}"
     ],
     "description": "Embed LaTeX rendered to SVG"
-  },
-  "Embed TeX (TikZ)": {
-    "prefix": ["\\tikz", "tikz"],
-    "body": [
-      "\\tex{",
-      "  \\usepackage{tikz}",
-      "}{",
-      "  \\begin{tikzpicture}",
-      "    ${1:TikZ code}",
-      "  \\end{tikzpicture}",
-      "}"
-    ],
-    "description": "Embed TikZ diagram"
-  },
-  "Embed TeX (Commutative Diagram)": {
-    "prefix": ["\\tikzcd", "cd", "commdiag"],
-    "body": [
-      "\\tex{",
-      "  \\usepackage{tikz-cd}",
-      "}{",
-      "  \\begin{tikzcd}",
-      "    ${1:A} \\arrow[r] \\arrow[d] & ${2:B} \\arrow[d] \\\\\\\\",
-      "    ${3:C} \\arrow[r] & ${4:D}",
-      "  \\end{tikzcd}",
-      "}"
-    ],
-    "description": "Commutative diagram with tikz-cd"
   },
 
   // ============================================================

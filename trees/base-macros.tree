@@ -167,12 +167,15 @@
 \def\ixprod[ix]{#{\big-symbol{\prod_{\prn{\ix}}}}}
 \def\dcoprod[ix]{#{\big-symbol{\coprod_{\prn{\ix}}}}}
 \def\iixprod[ix]{#{\big-symbol{\prod_{\brc{\ix}}}}}
+\def\neq{#{\ \mathrlap{\,/}{=}\ }}
 
 \def\lam[x]{\lambda{\x}\mathpunct{.}}
 \def\inv{^{-1}}
 
 \def\Lim[arg1]{\operatorname{lim}_{\arg1}}
 \def\Colim[arg1]{\operatorname{colim}_{\arg1}}
+
+\def\C{#{\mathcal{C}}}
 
 \def\FinPow[X]{#{\mathcal{P}\Sub{\mathit{fin}}\prn{\X}}}
 \def\Psh{#{\operatorname{Pr}}}

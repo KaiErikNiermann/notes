@@ -1,0 +1,18 @@
+\date{2025-12-12}
+
+\import{base-macros}
+
+\taxon{VU-VFS-2025}
+
+\title{Lecture 7 - VC's for functions and pointers}
+
+\subtree{
+  \title{Assertions}
+  \transclude{004q}
+  \transclude{004r}
+}
+
+\subtree{
+  \title{Functions & Contracts}
+}
+

@@ -1,0 +1,48 @@
+\date{2025-12-13}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{VC's for functions}
+
+\p{
+  Let's start by informally describing the syntax of functions:
+}
+\codeblock{lean}{
+  fn f(x1, ..., xn) {
+    requires (P)
+    ensures  (Q)
+    modifies (v1, ..., vk)
+    s;
+    return e;
+  }
+}
+\p{
+  Then for function calls we have:
+}
+\codeblock{lean}{
+  x := f(e1, ..., en)
+}
+
+\subtree{
+  \title{Verifying function definitions}
+
+  \p{
+    The central idea with function definitions is that we \em{assume} the preconditions #{P} and \em{assert} the post-conditions #{Q}, what this means in a practical sense is that when verifying the function body what we \em{actually} must verify is:
+  }
+  ##{
+    \texttt{assume}(P);\ s;\ \texttt{ret} := e;\ \texttt{assert}(Q) 
+  }
+  \p{
+    The idea being that by this convention a function contract - the requires, ensures, modifies specification - \em{internally} assumes that the caller has met the necessary pre-conditions and provides as a guarantee the required post-conditions.
+  }
+}
+
+\subtree{
+  \title{Verifying function calls}
+
+  \p{
+    Content
+  }
+}

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>16</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/0050/</fr:uri>
+    <fr:display-uri>0050</fr:display-uri>
+    <fr:route>/notes/0050/</fr:route>
+    <fr:title text="Horn clause - solution">Horn clause - solution</fr:title>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter><html:p>
+  A <html:strong>solution</html:strong> is a function <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> that maps <html:em>queries</html:em> to <html:em>formulas</html:em> in the background theory over the same variables. Formally we write <fr:tex display="inline"><![CDATA[\Sigma  \vDash  C]]></fr:tex> and say that <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> satisfies <fr:tex display="inline"><![CDATA[C]]></fr:tex>, if <fr:tex display="inline"><![CDATA[C]]></fr:tex> is true if we replace all queries by their solutions, written as an inference rule:
+</html:p>
+  
+    
+    <fr:resource hash="d9ed32b08e0e488df79f18da6d8f0646"><fr:resource-content><html:img src="/notes/d9ed32b08e0e488df79f18da6d8f0646.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule {
+    \Sigma (p) \land  \Sigma (q) \land  \ldots  \land  \phi  \to  \Sigma (r)
+  }{
+    \Sigma  \models  p(x_1, x_2) \land  q(x_1, x_2, x_3) \land  \ldots  \land  \phi  \to  r(x_1)
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+  We write <fr:tex display="inline"><![CDATA[\Sigma  \vDash  \mathcal {C}]]></fr:tex> and say that <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> <html:em>satisfies</html:em> the set of clauses <fr:tex display="inline"><![CDATA[\{C_1, C_2, \ldots , C_n\}]]></fr:tex>, if it satisfies all <html:em>individual clauses</html:em>, i.e:
+</html:p><fr:tex display="block"><![CDATA[
+  \Sigma  \vDash  C_1 \land  \Sigma  \vDash  C_2 \land  \ldots  \land  \Sigma  \vDash  C_n
+]]></fr:tex><html:p>
+  We say that <fr:tex display="inline"><![CDATA[\mathcal  C]]></fr:tex> is <html:strong>satisfiable</html:strong>, if <fr:tex display="inline"><![CDATA[\exists  \Sigma .\ \Sigma  \vDash  \mathcal  C]]></fr:tex></html:p></fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

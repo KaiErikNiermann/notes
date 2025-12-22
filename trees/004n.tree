@@ -1,0 +1,161 @@
+\date{2025-12-11}
+
+\import{base-macros}
+
+\taxon{Example}
+
+\title{Verification conditions in while loops}
+
+\p{
+  Let's consider the following while loop:
+}
+\codeblock{lean}{
+  @pre x <= 0
+  while [x <= 6] (x <= 5) do
+    x := x + 1
+  @post x = 6
+}
+\p{
+  if we denote the loop and its body as #{W}, then it corresponds to the following hoare triple:
+}
+##{
+  \{x \leq 0\}\ W\ \{x = 6\}
+}
+\p{
+  With the addition of the invariant #{I \triangleq x \leq 6}, now the verification condition for the loop is expressed as:
+}
+##{
+  \begin{align}
+    \texttt{vc}(W [I], x = 6) &= \forall \sigma.\ I(\sigma) \land (b \Downarrow^t \sigma) \to \texttt{wp}(W [I], s, I(\sigma)) \\
+    &\land \forall \sigma.\ I(\sigma) \land (b \Downarrow^f \sigma) \to Q(\sigma) \\
+    &\land \texttt{vc}(s, I)
+  \end{align}
+}
+\p{
+  starting with the first conjunct with have:
+}
+##{
+  \forall \sigma, x \leq 6 \to (x \leq 5 \Downarrow^t \sigma) \to \texttt{wp}(x := x + 1, (x \leq 6))
+} 
+\p{
+  After we unfold the \cf{wp} our goal reduces to:
+}
+##{
+  x \mapsto x + 1 \leq 6 \equiv x \leq 5
+}
+\p{
+  And we clearly know this is true just by inversion of the evaluation of the loop guard. Moving on to the second conjunct:
+}
+##{
+  \forall \sigma.\ x \leq 6 \land (x \leq 5 \Downarrow^f \sigma) \to x = 6
+}
+\p{
+  This represents our termination condition, here we know by inversion of the loop guard again that the premise of our implication becomes:
+}
+##{
+  x \leq 6 \land x > 5 \to x = 6
+}
+\p{
+  Our final conjunct is the verification condition on the assignment, so:
+}
+##{
+  \texttt{vc}(x := x + 1, x \leq 6)
+}
+\p{
+  Unfolding the call again we know this just resolves to #{\top} as there are no verification conditions for assignment.
+}
+\p{
+  Finally we also have to demonstrate that:
+}
+##{
+  (x \leq 0 \land x = x_0) \to \texttt{wp}(W [I], Q)
+}
+\p{
+  unfolding the \cf{wp} again gives
+}
+##{
+  (x \leq 0 \land x = x_0) \to x \leq 6
+}
+\p{
+  Clearly we can see this trivially holds, i.e. our precondition is stronger than the invariant, hence by precondition strengthening, it is valid.
+}
+
+\subtree{
+  \title{How do we get there though?}
+
+  \p{
+    I do think it's worth telling this as a bit of a story, we start with the fundamental theorem for while loops:
+  }
+  \infrule{
+    \inferrule*[right=HWhile]{
+      \forall \sigma, \sigma'.\ I(\sigma) \land (b \Downarrow^t \sigma) \to (s, \sigma) \Downarrow \sigma' \to P(\sigma)
+    }{
+      \forall \sigma, \sigma'.\ I(\sigma) \to (\cwhile\ b\ \cdo\ s, \sigma) \Downarrow \sigma' \to I(\sigma) \land (b \Downarrow^f \sigma) 
+    }
+  }
+  \p{
+    So this is just the expanded rule for constructing valid or sound while hoare triples, now this rule assumes that the invariant #{I} is the same as the precondition #{P} which is naturally not always the case, so it could be nice to have a rule which accounts for constructing valid while loops with invariants and custom preconditions. Same with custom post-conditions #{Q}.
+  }
+  \infrule{
+    \mprset{flushleft}
+    \inferrule*[right=HWhile2]{
+      (hS: \forall \sigma, \sigma'.\ I(\sigma) \land (b \Downarrow^t \sigma) \to (s, \sigma) \Downarrow \sigma' \to P(\sigma)) \\\\
+      (hP: \forall \sigma, P(\sigma) \to I(\sigma)) \\\\
+      (hQ: \forall I(\sigma) \land (b \Downarrow^f \sigma) \to Q(\sigma))
+    }{
+      \forall \sigma, \sigma' P(\sigma) \to (\cwhile\ b\ \cdo\ s, \sigma) \Downarrow \sigma' \to Q(\sigma)
+    }
+  }
+  \p{
+    If you want to be super pedantic you could show how this is just a combination of consequence + while rule. Anyway then, moving on we have the rule for \cf{wp} soundness.
+  }
+  \infrule{
+    \inferrule*[right=WPSound]{
+      \cf{vc}(s, Q)
+    }{
+      \forall \sigma, \sigma'.\ \texttt{wp}(s, Q)(\sigma) \to (s, \sigma) \Downarrow \sigma' \to Q(\sigma') 
+    }
+  }
+  \p{
+    Now depending on how you actually design your \cf{wp} and \cf{vc} code this rule can look slightly different, though I like this distinction, in this instance for the case of while loops #{\texttt{wp}(W[I], Q)} simply returns the invariant #{I}, this means that again if we want to have a custom precondition for #{W} we'd want to verify we would extend the rule as:
+  }
+  \infrule{
+    \inferrule*[right=VCSound]{
+      \cf{vc}(s, Q) \\ \forall \sigma, P(\sigma) \to \texttt{wp}(s, Q)(\sigma)
+    }{
+      \forall \sigma, \sigma'.\ P(\sigma) \to (s, \sigma) \Downarrow \sigma' \to Q(\sigma') 
+    }
+  }
+  \p{
+    Thus for while loops it would become:
+  }
+  \infrule{
+    \inferrule*[right=VCSound-While]{
+      \cf{vc}(\cwhile\ b\ \cdo\ s, Q) \\ \forall P(\sigma) \to I(\sigma)
+    }{
+      \forall \sigma, \sigma'.\ P(\sigma) \to (s, \sigma) \Downarrow \sigma' \to Q(\sigma') 
+    }
+  }
+  \p{
+    Where the verification conditions would unfold to what we discussed before.
+  }
+  \p{
+    A nice point to make here is that all of these rules are essentially derived from one another, which is to say that:
+  }
+  \ltexfig{
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXHRleHR7SFdoaWxlfSJdLFswLDEsIlxcdGV4dHtIV2hpbGUyfSJdLFswLDIsIlxcdGV4dHtXUFNvdW5kLVdoaWxlfSJdLFswLDMsIlxcdGV4dHtWQ1NvdW5kLVdoaWxlfSJdLFszLDIsIlxcdGV4dHt1c2VzfSJdLFsyLDEsIlxcdGV4dHt1c2VzfSJdLFsxLDAsIlxcdGV4dHt1c2VzfSJdXQ==
+  }{
+    \[\begin{tikzcd}
+      {\text{HWhile}} \\
+      {\text{HWhile2}} \\
+      {\text{WPSound-While}} \\
+      {\text{VCSound-While}}
+      \arrow["{\text{uses}}", from=2-1, to=1-1]
+      \arrow["{\text{uses}}", from=3-1, to=2-1]
+      \arrow["{\text{uses}}", from=4-1, to=3-1]
+    \end{tikzcd}\]
+  }
+  \p{
+    In a conceptual sense verification conditions i.e. what we need to prove to demonstrate a hoare triple is valid, are simply a convenience mechanism derived from the fundamental logic of how we construct a hoare triple.
+  }
+}

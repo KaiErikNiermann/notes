@@ -1,0 +1,35 @@
+\date{2025-12-17}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Horn clause wp for while loops}
+
+\p{
+  Consider the following while loop:
+}
+##{
+  W \triangleq \cf{while}\ x < n\ \cf{do}\ x := x + 1
+}
+\p{
+  say we wanted to prove the Hoare triple:
+}
+##{
+  \vdash \{x \leq n\}\ W\ \{x = n\}
+}
+\p{
+  Answer the following questions:  
+}
+\ol{
+  \li{What is #{\cf{wp}(W, p(x, n))}}
+  \li{Which clauses do we have to add to prove the triple?}
+  \li{Do the Horn-clauses match our syntax restrictions?}
+}
+
+\solution{
+  \ol{
+    \li{}
+    \li{item}
+  }
+}

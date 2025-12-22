@@ -39,7 +39,7 @@
 \end {mathpar}]]></fr:resource-source></fr:resource>
   
 <html:p>
-  Here we say that <fr:tex display="inline"><![CDATA[P]]></fr:tex> is the <html:strong>invariant</html:strong> also often denoted as <fr:tex display="inline"><![CDATA[I]]></fr:tex>. In plain english the rules says that:
+  Here we say that <fr:tex display="inline"><![CDATA[P]]></fr:tex> is the <html:strong>invariant</html:strong> also often denoted as <fr:tex display="inline"><![CDATA[I]]></fr:tex>. In plain English the rules says that:
 </html:p><html:blockquote>
   if <fr:tex display="inline"><![CDATA[I]]></fr:tex> is a loop invariant, then the condition <fr:tex display="inline"><![CDATA[I \land  \neg  b]]></fr:tex> must hold after the loop terminates
 </html:blockquote><html:p>

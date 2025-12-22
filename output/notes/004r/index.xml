@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>12</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/004r/</fr:uri>
+    <fr:display-uri>004r</fr:display-uri>
+    <fr:route>/notes/004r/</fr:route>
+    <fr:title text="Weakest precondition for assert and assume">Weakest precondition for assert and assume</fr:title>
+    <fr:taxon>Quiz</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter><html:p>
+  Answer the following:
+</html:p><html:ol><html:li>
+    What's <fr:tex display="inline"><![CDATA[\texttt {wp}(\texttt {assert}(P), Q)]]></fr:tex></html:li>
+  <html:li>
+    What's <fr:tex display="inline"><![CDATA[\texttt {wp}(\texttt {assume}(P), Q)]]></fr:tex></html:li>
+  <html:li>
+    Given a statement <fr:tex display="inline"><![CDATA[s]]></fr:tex>, can we transform it into a statement <fr:tex display="inline"><![CDATA[s']]></fr:tex> such that:
+    <fr:tex display="block"><![CDATA[
+      \vDash  \{P\}\ s\ \{Q\} \iff  \{\top \}\ s'\ \{\top \}
+    ]]></fr:tex></html:li></html:ol>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>12</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:p>
+    We can remember that the weakest precondition is simply what we can derive reasoning backwards from the formulaic expression of a hoare triple.
+  </html:p>
+  <html:ol><html:li>
+      Considering our wp formula we have 
+      <fr:tex display="block"><![CDATA[
+        \texttt {wp}(\texttt {assert}(b), Q)(\sigma ) \to  (\texttt {assert}(b), \sigma ) \Downarrow  \texttt {.ok}\ \sigma  \to  Q(\sigma )
+      ]]></fr:tex>
+      reasoning backwards we can start with a case split on the evaluation of the assertion, this leads to two cases
+      <html:ul><html:li><fr:tex display="inline"><![CDATA[b]]></fr:tex> evaluates to <html:em>true</html:em>, as this case trivially implies that the assertion evaluates into <fr:tex display="inline"><![CDATA[\texttt {.ok}\ \sigma ]]></fr:tex> it means we must prove <fr:tex display="inline"><![CDATA[Q(\sigma )]]></fr:tex>. The only way we can prove this is by having our weakest precondition be a witness to this assertion.
+        </html:li>
+        <html:li><fr:tex display="inline"><![CDATA[b]]></fr:tex> evaluates to <html:em>false</html:em>, as this would imply a contradiction since the assertion evaluates to <fr:tex display="inline"><![CDATA[\texttt {.ok}\ \sigma ]]></fr:tex>, more specifically we know have to prove the contradiction that <fr:tex display="inline"><![CDATA[\texttt {.ok}\ \sigma  = \texttt {.fail} \sigma ]]></fr:tex>, we know (i.e. have a hypothesis) by inversion that <fr:tex display="inline"><![CDATA[b \Downarrow ^f \sigma ]]></fr:tex> since we know <fr:tex display="inline"><![CDATA[b]]></fr:tex> has to be true to prove the contradiction we also must ensure the weakest precondition states that <fr:tex display="inline"><![CDATA[b \Downarrow  ^t \sigma ]]></fr:tex></html:li></html:ul>
+      from these two cases we can conclude that two demonstrate the soundness of the weakest precondition for assert statements, it must be the case that the <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex> is the conjunction of the postcondition and the logical assertion that what is being asserted is indeed true, so we have that
+      <fr:tex display="block"><![CDATA[
+        \texttt {wp}(\texttt {assert}(b), Q)(\sigma ) \equiv  (b \Downarrow ^t \sigma ) \land  Q(\sigma )
+      ]]></fr:tex>
+      the more intuitive reasoning here is that <fr:tex display="inline"><![CDATA[Q]]></fr:tex> should hold before and after as an assert should, just by design, not do anything to the memory, it's only an assertion after all. Additionally, the condition should hold true as <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex> <html:em>definitionally</html:em> describes a set of states where all terminating executions end in a state satisfying <fr:tex display="inline"><![CDATA[Q]]></fr:tex> thus if <fr:tex display="inline"><![CDATA[b]]></fr:tex> does not evaluate to true, there is no terminating execution from <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>. 
+    </html:li>
+    <html:li>
+      We can just use the more intuitive reasoning here, we know the weakest precondition characterizes a set of states where terminating executions end in a state satisfying <fr:tex display="inline"><![CDATA[Q]]></fr:tex>. The only way for something being assumed to be true leading to some other else is it if implies something else, thus our <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex> becomes
+      <fr:tex display="block"><![CDATA[
+        \texttt {wp}(\texttt {assume}(b), Q)(\sigma ) \equiv  (b \Downarrow ^t \sigma ) \to  Q(\sigma )
+      ]]></fr:tex>
+      in terms of backward reasoning the idea is that <fr:tex display="inline"><![CDATA[\texttt {assume}(p)]]></fr:tex> essentially just adds a raw hypothesis <fr:tex display="inline"><![CDATA[(b \Downarrow ^t \sigma )]]></fr:tex> but clearly that by itself doesn't somehow allow me to just manifest <fr:tex display="inline"><![CDATA[Q(\sigma )]]></fr:tex>, the only way we could possibly get <fr:tex display="inline"><![CDATA[Q]]></fr:tex> from <fr:tex display="inline"><![CDATA[b]]></fr:tex> being true is if we have a function which states that <fr:tex display="inline"><![CDATA[b]]></fr:tex> being true implies <fr:tex display="inline"><![CDATA[Q]]></fr:tex>.
+    </html:li></html:ol>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>12</fr:month>
+              <fr:day>12</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/004p/</fr:uri>
+            <fr:display-uri>004p</fr:display-uri>
+            <fr:route>/notes/004p/</fr:route>
+            <fr:title text="Lecture 7 - VC's for functions and pointers">Lecture 7 - VC's for functions and pointers</fr:title>
+            <fr:taxon>VU-VFS-2025</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>12</fr:day>
+                </fr:date>
+                <fr:title text="Assertions">Assertions</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>12</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004q/</fr:uri>
+                    <fr:display-uri>004q</fr:display-uri>
+                    <fr:route>/notes/004q/</fr:route>
+                    <fr:title text="Assertions &amp; Havoc">Assertions &amp; Havoc</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>
+  We introduce 3 new syntactic constructs with their associated hoare rules, these constructs are:
+</html:p>
+                    <html:ul><html:li>
+    The statement <fr:tex display="inline"><![CDATA[\texttt {assert(F)}]]></fr:tex> which <fr:tex display="inline"><![CDATA[\texttt {fails}]]></fr:tex> if <fr:tex display="inline"><![CDATA[F]]></fr:tex> evaluates to <fr:tex display="inline"><![CDATA[\bot ]]></fr:tex></html:li>
+  <html:li>
+    The statement <fr:tex display="inline"><![CDATA[\texttt {assume(F)}]]></fr:tex> which <html:em>tells us</html:em> that <fr:tex display="inline"><![CDATA[F]]></fr:tex> evaluates to <fr:tex display="inline"><![CDATA[\top ]]></fr:tex></html:li>
+  <html:li>
+    The statement <fr:tex display="inline"><![CDATA[\texttt {x := havoc()}]]></fr:tex> which assigns a non-deterministic value to a variable <fr:tex display="inline"><![CDATA[x]]></fr:tex></html:li></html:ul>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>12</fr:day>
+                        </fr:date>
+                        <fr:title text="Evaluation rules">Evaluation rules</fr:title>
+                      </fr:frontmatter>
+                      <fr:mainmatter><html:p>
+    We introduce a new construct <fr:tex display="inline"><![CDATA[\texttt {fail}]]></fr:tex> which denotes the failure state, as an alternative to <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>.
+  </html:p>
+  
+    
+    <fr:resource hash="ae7f136d04a0b18a085786e8e21f03eb"><fr:resource-content><html:img src="/notes/ae7f136d04a0b18a085786e8e21f03eb.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=AssertTrue]{
+      \sigma  \vDash  F
+    }{
+      \langle  \texttt {assert}(F), \sigma  \rangle  \Downarrow  \sigma 
+    }
+    \and 
+    \inferrule *[right=AssertFalse]{
+      \sigma  \ \mathrlap {\,/}{\vDash }\ F 
+    }{
+      \langle  \texttt {assert}(F), \sigma  \rangle  \Downarrow  \texttt {fail}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    For the assumption we only have a <fr:tex display="inline"><![CDATA[\top ]]></fr:tex> rule, the idea being if the assumption holds then the statement is equivalent to a <fr:tex display="inline"><![CDATA[\texttt {skip}]]></fr:tex> otherwise the execution gets stuck <html:em>but doesn't fail</html:em>.
+  </html:p>
+  
+    
+    <fr:resource hash="13bef5c9407002338be261f562217a9d"><fr:resource-content><html:img src="/notes/13bef5c9407002338be261f562217a9d.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=AssumeTrue]{
+      \sigma  \vDash  F
+    }{
+      \langle  \texttt {assume}(F), \sigma  \rangle  \Downarrow  \sigma 
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    The idea with <html:em>getting stuck</html:em> being that since we aren't failing for the case of partial-correctness (failure or termination) it means we can simply ignore this case.
+  </html:p><html:p>
+    The final big-step evaluation rule is for the havoc statement:
+  </html:p>
+  
+    
+    <fr:resource hash="cd6249abdd51cb761839b63fd7375b7e"><fr:resource-content><html:img src="/notes/cd6249abdd51cb761839b63fd7375b7e.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=Havoc]{
+      n \in  \mathbb {Z}
+    }{
+      \langle  x := \texttt {havoc}(), \sigma  \rangle  \Downarrow  \sigma [x \mapsto  n]
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>12</fr:day>
+                        </fr:date>
+                        <fr:title text="Hoare rules">Hoare rules</fr:title>
+                      </fr:frontmatter>
+                      <fr:mainmatter><html:p>
+    In addition to our big-step evaluation rules we also have Hoare rules.
+  </html:p>
+  
+    
+    <fr:resource hash="df22b510951c12ccf7a001491e21bf58"><fr:resource-content><html:img src="/notes/df22b510951c12ccf7a001491e21bf58.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=Assert]{
+      P \to  F
+    }{
+      \vdash  \{P\}\ \texttt {assert}(F)\ \{P \land  F\}
+    }
+    \and 
+    \inferrule *[right=Assume]{
+      \\
+    }{
+      \vdash  \{P\}\ \texttt {assume}(F)\ \{P \land  F\}
+    }
+    \and  
+    \inferrule *[right=Havoc]{
+      \\
+    }{
+      \vdash  \{\forall  y.\ Q[x\mapsto  y]\}\ x := \texttt {havoc}()\ \{Q\}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>12</fr:day>
+                        </fr:date>
+                        <fr:title text="A more detailed explanation">A more detailed explanation</fr:title>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+                        <html:p>
+    A central thing to understand with assertions especially is that they integrate a result's monad into the big-step evaluation semantics, in addition to the Hoare logic. So the idea is now instead of the relationship being denoted by:
+  </html:p>
+                        <fr:tex display="block"><![CDATA[
+    (\texttt {Stmt} \times  \texttt {Memory}) \to  \texttt {Memory} \to  \texttt {Prop}
+  ]]></fr:tex>
+                        <html:p>
+    It's now expressed as 
+  </html:p>
+                        <fr:tex display="block"><![CDATA[
+    (\texttt {Stmt} \times  \texttt {Memory}) \to  (\texttt {Result} \texttt {Memory}) \to  \texttt {Prop}
+  ]]></fr:tex>
+                        <html:p>
+    Where we can model <fr:tex display="inline"><![CDATA[\texttt {Result}]]></fr:tex> as the following monad 
+  </html:p>
+                        <html:pre class="code-block language-lean">
+                          <html:code class="language-lean">
+    inductive Result (α : Type)
+    | ok : α → Result α      -- Normal termination with final state
+    | fail : Result α        -- Assertion failure / error state
+    deriving Repr, DecidableEq
+  </html:code>
+                        </html:pre>
+                        <html:p>
+    At this point if you want to be pedantic it's worth mentioning that the implication is that we are lifting all other inference rules into the context of this result monad, though for pedagogical purposes its enough to just assume that <fr:tex display="inline"><![CDATA[\Downarrow  \sigma ]]></fr:tex> just corresponds to <fr:tex display="inline"><![CDATA[\Downarrow  \texttt {.ok} \sigma ]]></fr:tex> i.e. evaluated into a non-fail state.
+  </html:p>
+                        <html:p>
+    The Hoare triple is where stuff becomes a bit more interesting. As a reminder, the classical hoare triple is basically just an alias for the logical formula:
+  </html:p>
+                        <fr:tex display="block"><![CDATA[
+    \forall  \sigma , \sigma '.\ P(\sigma ) \to  \langle  s, \sigma  \rangle  \Downarrow  \sigma ' \to  Q(\sigma ')
+  ]]></fr:tex>
+                        <html:p>
+    Naturally because we know are no longer evaluating into just <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> but either an <fr:tex display="inline"><![CDATA[\texttt {ok}]]></fr:tex> or <fr:tex display="inline"><![CDATA[\texttt {fail}]]></fr:tex> state, it's worth asking how we actually represent that as a Hoare triple. We can start in much the same way as we do for the regular partial correctness hoare triple
+  </html:p>
+                        <fr:tex display="block"><![CDATA[
+    \forall  \sigma , \sigma _t.\ P(\sigma ) \to  \langle  s, \sigma  \rangle  \Downarrow  \sigma _t \to  (??)
+  ]]></fr:tex>
+                        <html:p>
+    Here we then run into I guess a design choice as to how we proceed, the two main possibilities are:
+  </html:p>
+                        <html:ul><html:li>
+      We <html:em>fail sometimes succeed other times</html:em> this would mean that:
+      <fr:tex display="block"><![CDATA[
+        (\exists  \sigma ', \sigma _t = \texttt {.ok}\ \sigma ' \land  Q(\sigma '))
+      ]]></fr:tex>
+      another way of seeing this is here we are <html:em>disallowig failure</html:em> meaning that for a hoare triple to be proven valid we must explicitly demonstrate as a side condition that we cannot fail otherwise our hoare triple is invalid.
+    </html:li>
+    <html:li>
+      We <html:em>never fail</html:em> which would mean that:
+      <fr:tex display="block"><![CDATA[
+        (\forall  \sigma ', \sigma _t = \texttt {.ok}\ \sigma ' \land  Q(\sigma '))
+      ]]></fr:tex>
+      for this rule another way of seeing it is we are <html:em>ignoring failure</html:em> or <html:em>filter success states</html:em> since we are clearly only quantifying over those states that are successfull.
+    </html:li></html:ul>
+                        <html:p>
+    The latter option seems to be generally more common in theoretical settings because it doesn't require explicitly accounting for failure states, they are just implicitly filtered out in the logic.
+  </html:p>
+                      </fr:mainmatter>
+                    </fr:tree>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>12</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004r/</fr:uri>
+                    <fr:display-uri>004r</fr:display-uri>
+                    <fr:route>/notes/004r/</fr:route>
+                    <fr:title text="Weakest precondition for assert and assume">Weakest precondition for assert and assume</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  Answer the following:
+</html:p><html:ol><html:li>
+    What's <fr:tex display="inline"><![CDATA[\texttt {wp}(\texttt {assert}(P), Q)]]></fr:tex></html:li>
+  <html:li>
+    What's <fr:tex display="inline"><![CDATA[\texttt {wp}(\texttt {assume}(P), Q)]]></fr:tex></html:li>
+  <html:li>
+    Given a statement <fr:tex display="inline"><![CDATA[s]]></fr:tex>, can we transform it into a statement <fr:tex display="inline"><![CDATA[s']]></fr:tex> such that:
+    <fr:tex display="block"><![CDATA[
+      \vDash  \{P\}\ s\ \{Q\} \iff  \{\top \}\ s'\ \{\top \}
+    ]]></fr:tex></html:li></html:ol>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>12</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:p>
+    We can remember that the weakest precondition is simply what we can derive reasoning backwards from the formulaic expression of a hoare triple.
+  </html:p>
+  <html:ol><html:li>
+      Considering our wp formula we have 
+      <fr:tex display="block"><![CDATA[
+        \texttt {wp}(\texttt {assert}(b), Q)(\sigma ) \to  (\texttt {assert}(b), \sigma ) \Downarrow  \texttt {.ok}\ \sigma  \to  Q(\sigma )
+      ]]></fr:tex>
+      reasoning backwards we can start with a case split on the evaluation of the assertion, this leads to two cases
+      <html:ul><html:li><fr:tex display="inline"><![CDATA[b]]></fr:tex> evaluates to <html:em>true</html:em>, as this case trivially implies that the assertion evaluates into <fr:tex display="inline"><![CDATA[\texttt {.ok}\ \sigma ]]></fr:tex> it means we must prove <fr:tex display="inline"><![CDATA[Q(\sigma )]]></fr:tex>. The only way we can prove this is by having our weakest precondition be a witness to this assertion.
+        </html:li>
+        <html:li><fr:tex display="inline"><![CDATA[b]]></fr:tex> evaluates to <html:em>false</html:em>, as this would imply a contradiction since the assertion evaluates to <fr:tex display="inline"><![CDATA[\texttt {.ok}\ \sigma ]]></fr:tex>, more specifically we know have to prove the contradiction that <fr:tex display="inline"><![CDATA[\texttt {.ok}\ \sigma  = \texttt {.fail} \sigma ]]></fr:tex>, we know (i.e. have a hypothesis) by inversion that <fr:tex display="inline"><![CDATA[b \Downarrow ^f \sigma ]]></fr:tex> since we know <fr:tex display="inline"><![CDATA[b]]></fr:tex> has to be true to prove the contradiction we also must ensure the weakest precondition states that <fr:tex display="inline"><![CDATA[b \Downarrow  ^t \sigma ]]></fr:tex></html:li></html:ul>
+      from these two cases we can conclude that two demonstrate the soundness of the weakest precondition for assert statements, it must be the case that the <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex> is the conjunction of the postcondition and the logical assertion that what is being asserted is indeed true, so we have that
+      <fr:tex display="block"><![CDATA[
+        \texttt {wp}(\texttt {assert}(b), Q)(\sigma ) \equiv  (b \Downarrow ^t \sigma ) \land  Q(\sigma )
+      ]]></fr:tex>
+      the more intuitive reasoning here is that <fr:tex display="inline"><![CDATA[Q]]></fr:tex> should hold before and after as an assert should, just by design, not do anything to the memory, it's only an assertion after all. Additionally, the condition should hold true as <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex> <html:em>definitionally</html:em> describes a set of states where all terminating executions end in a state satisfying <fr:tex display="inline"><![CDATA[Q]]></fr:tex> thus if <fr:tex display="inline"><![CDATA[b]]></fr:tex> does not evaluate to true, there is no terminating execution from <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>. 
+    </html:li>
+    <html:li>
+      We can just use the more intuitive reasoning here, we know the weakest precondition characterizes a set of states where terminating executions end in a state satisfying <fr:tex display="inline"><![CDATA[Q]]></fr:tex>. The only way for something being assumed to be true leading to some other else is it if implies something else, thus our <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex> becomes
+      <fr:tex display="block"><![CDATA[
+        \texttt {wp}(\texttt {assume}(b), Q)(\sigma ) \equiv  (b \Downarrow ^t \sigma ) \to  Q(\sigma )
+      ]]></fr:tex>
+      in terms of backward reasoning the idea is that <fr:tex display="inline"><![CDATA[\texttt {assume}(p)]]></fr:tex> essentially just adds a raw hypothesis <fr:tex display="inline"><![CDATA[(b \Downarrow ^t \sigma )]]></fr:tex> but clearly that by itself doesn't somehow allow me to just manifest <fr:tex display="inline"><![CDATA[Q(\sigma )]]></fr:tex>, the only way we could possibly get <fr:tex display="inline"><![CDATA[Q]]></fr:tex> from <fr:tex display="inline"><![CDATA[b]]></fr:tex> being true is if we have a function which states that <fr:tex display="inline"><![CDATA[b]]></fr:tex> being true implies <fr:tex display="inline"><![CDATA[Q]]></fr:tex>.
+    </html:li></html:ol>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>12</fr:day>
+                </fr:date>
+                <fr:title text="Functions &amp; Contracts">Functions &amp; Contracts</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter />
+            </fr:tree>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

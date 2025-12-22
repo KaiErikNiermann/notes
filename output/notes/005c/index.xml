@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>22</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/005c/</fr:uri>
+    <fr:display-uri>005c</fr:display-uri>
+    <fr:route>/notes/005c/</fr:route>
+    <fr:title text="Strongest Postcondition">Strongest Postcondition</fr:title>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <html:p>
+  In the most straightforward sense the strongest postcondition, denoted <fr:tex display="inline"><![CDATA[\texttt {sp}]]></fr:tex> or <fr:tex display="inline"><![CDATA[\texttt {post}]]></fr:tex>, denotes the exact or <html:em>least</html:em> set of <html:strong>final states</html:strong> which we land in after a successful execution. Set theoretically we can denote it as.
+</html:p>
+    <fr:tex display="block"><![CDATA[
+  \texttt {sp}(s, P) = \{\sigma  \in  \Sigma  \mid  \exists  \sigma ' \in  \Sigma  : \sigma  ' \vDash  P \land  (s, \sigma ') \Downarrow  \sigma \}
+]]></fr:tex>
+    <html:p>
+  We can also use a more logic way of expressing it as follows
+</html:p>
+    <fr:tex display="block"><![CDATA[
+  \texttt {sp}(s, P) \triangleq  \exists  \sigma '.\ P(\sigma ') \land  (s, \sigma ') \Downarrow  \sigma 
+]]></fr:tex>
+    <html:p>
+  But the idea is in principle the same, it represents the set of states corresponding to some evaluated result based on some existing safe state.
+</html:p>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

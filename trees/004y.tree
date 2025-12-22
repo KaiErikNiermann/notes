@@ -1,0 +1,35 @@
+\date{2025-12-16}
+
+\import{base-macros}
+
+\taxon{Definition} 
+
+\title{Constrained Horn clauses}
+
+\p{
+  We define \C to be a set of constrained Horn clauses such that
+}
+##{
+  \C \triangleq \{C_1, \ldots, C_n\}
+}
+\p{
+  there are two important properties we should consider
+}
+\ul{
+  \li{
+    We say that a query #{r} \strong{depends} on a query #{q} if there is some clause #{C \in \C} such that #{q} appears in #{C}'s body and #{r} appears in #{C}'s head. 
+  }
+  \li{
+    We say that a set of horn clauses \C is recursive if at least one predicate directly or indirectly depends on itself. Formally, if we consider a sequence of horn clauses
+    ##{
+      C_1, C_2, \ldots, C_k
+    }
+    such that the head of some clause #{C_i} depends on the body of some clause #{C_{m}} and the head of #{C_k} depends on the body of #{C_i} then we have a cycle which makes the set \C recursive. As an example let's define a set of horn clauses to characterize transitive closure. 
+    ##{
+      \begin{align}
+        \cf{reach}(x, y) &\gets \cf{edge}(x, y) \\
+        \cf{reach}(x, z) &\gets \cf{reach}(x, y) \land \cf{reach}(y, z)
+      \end{align}
+    }
+  }
+}

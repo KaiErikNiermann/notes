@@ -1,0 +1,599 @@
+\date{2025-12-19}
+
+\import{base-macros}
+
+\subtree{
+  \title{Pre-preamble}
+
+  \p{
+    So we have a universe #{U} or also #{M} or even #{D}, but idk none of the syntax matters it's more or less just a collection of I suppose a \em{set} of things.
+  }
+  \p{
+    Now then we have predicate variables, often denoted with a capital letter, which range over the members of our universe of things and express a truth value. In other words:
+  }
+  ##{
+    P : U^k \to \cf{Prop}
+  }
+  \p{
+    The idea then is that we have formulas, commonly denoted with greek letters as to differentiate themselves from predicate variables, these formulas consist of logical connectives, quantifiers, interpreted predicates and so on, a simple example.
+  }
+  ##{
+    \phi (P) = x > 0 \land P(x)
+  }
+  \p{
+    A possible interpretation of this is that our predicate variable #{P} represents the set of all #{x \in U} such that #{x \geq 0}, applying this interpretation our resulting formula becomes
+  }
+  ##{
+    \phi = x > 0 \land x \geq 0
+  }
+}
+
+\subtree{
+  \title{Preamble}
+
+  \p{
+    An #{\mathcal L}-structure is a pair #{\mathcal M = (M, I)}, where:
+  }
+  \ul{
+    \li{
+      #{M} is a set
+    }
+    \li{
+      #{I} is an interpretation of #{L}, i.e.
+      \ul{
+        \li{
+          #{I(P) \subseteq M^k} for any #{k}-ary predicate symbol #{P \in \mathcal L}
+        }
+        \li{
+          #{I(f) : M^k \to M} for any #{k}-ary function symbol #{f \in \mathcal L}
+        }
+      }
+    }
+  }
+  \p{
+    An \em{environment} is an interpretation of free variables by elements of the structure. So for some environment #{\sigma}, a variable #{x, m \in M} we define:
+  }
+  ##{
+    \sigma[x \mapsto m] \equiv \sigma[x \mapsto m] (x) = m
+  }
+  \p{
+    and
+  }
+  ##{
+    \sigma[x \mapsto m] (y) = \sigma(y) \quad \forall x, y.\ x \neq y
+  }
+  \p{
+    For a structure #{\mathcal M = (M, I)}, environment #{\sigma}, and formula #{\phi} we define
+  }
+  ##{
+    M, \sigma \vDash \phi
+  }
+  \p{
+    In particular we have 
+  }
+  ##{
+    \exists S \subseteq M^k.\ \mathcal M, \sigma[X \mapsto S]\vDash \phi(X) \to \mathcal M, \sigma \vDash \exists X.\ \phi(X)
+  }
+  \p{
+    As a basic example let's consider the following formula:
+  }
+  ##{
+    \phi(X) = \forall x, y.\ X(x, y) \to x < y
+  }
+  \p{
+    Now let's take #{M = \N} and #{S = \{(1, 2), (2, 4)\}}, this gives us
+  }
+  ##{
+    \mathcal M, \sigma[X \mapsto \{(1, 2), (2, 4)\}]\vDash \phi(X)
+  }
+  \p{
+    which in turn implies that there does indeed exist a predicate variable #{X} such that the formula holds under this predicate.
+  }
+  \p{
+    So the idea in general for predicate variables is
+  }
+  ##{
+    M, \sigma \vDash X(t_1, t_2, \ldots, t_k) \iff (\llbracket t_1 \rrbracket_\sigma, \llbracket t_2 \rrbracket_\sigma, \ldots, \llbracket t_k \rrbracket_\sigma) \in \sigma(X)
+  }
+  \p{
+    If we give a sort of plain english example of why this makes sense, suppose we introduce 3 predicate symbols
+  }
+  ##{
+    \begin{align}
+      \textrm{Student}(x) \\
+      \textrm{Course}(x) \\
+      \textrm{Enrolled}(x, y)
+    \end{align}
+  }
+  \p{
+    Here our interpretation function could for example be a database defined for these predicate symbols, so if our domain #{M} has all students, then our interpretation function could be something like
+  }
+  ##{
+    I(\textrm{Student}) = \{\textrm{Jack}, \textrm{Jason}, \textrm{Lisa}\}
+  }
+  \p{
+    Now say there is some property we want to \em{discover}: What students are \strong{eligible} to graduate? Let's define this property as 
+  }
+  ##{
+    \textrm{Eligible}(x) = ??
+  }
+  \p{
+    This is what is known as a \em{predicate variable}. The most important thing to understand about predicate variables is that we \em{don't define} #{\textrm{Eligible}}. We \em{constrain what counts} as #{\textrm{Eligible}}. For example 
+  }
+  ##{
+    \forall x.\ \textrm{Student}(x) \land \textrm{PassedAllCourses}(x) \to \textrm{Eligible}(x)
+  }
+  \p{
+    A nice contrast we can now establish here is the idea of what it means for something to be \em{true}. For \em{predicate symbols} truth is determined by an interpretation, if an interpretation says #{I(\textrm{Student}) = \{\textrm{Jack}\}} we know #{\textrm{Student}(\textrm{Jack})} is true, i.e. Jack is a student. In contrast, \em{predicate variables} are typically characterized by constraints, meaning that, as opposed to having a fixed interpretation, their truth is defined through some combination of those fixed predicate symbols. Another way of thinking about this is that the constraint's which characterize the predicate variable really characterize a #{S \subseteq M^k} such that our constraints hold for #{S}. To relate this back to our original definition
+  }
+  ##{
+    S \subseteq M^k.\ M, \sigma[X \mapsto S] \vDash \phi(X) \to M, \sigma \vDash \exists X.\ \phi(X)
+  }
+  \p{
+    Here we are saying that:
+  }
+  \ol{
+    \li{
+      If we have a set of students #{S} as some combination of all students #{M}
+    }
+    \li{
+      ... such that our eligibility constraint formula #{\phi(X)} holds true for #{x \in S}
+    }
+    \li{
+      ... then it means that there exists an eligibility relation #{X} such that our formula holds true for this relation.
+    }
+  }
+  \p{
+    From the environmental perspective if we say #{X = \textrm{Eligible}} then we have that
+  }
+  ##{
+    M, \sigma \vDash X(\textrm{Alice}) \iff \textrm{Alice} \in \sigma(X)
+  }
+  \p{
+    in plain English meaning that the student Alice is only eligible to graduate if and only if they are in the set of students in the environment denoted as eligible to graduate. Where this set #{\sigma(X)} represents those students for which the constraints have held. Which is to say that:
+  }
+  ##{
+    \sigma(\textrm{Eligible}) = \{x \in M \mid \textrm{Student}(x) \land \textrm{PassedAllCourses}(x)\}
+  }
+}
+
+\subtree{
+  \title{Least fixed points}
+
+  \p{
+    We start with the classical Knaster-Tarski definition
+  }
+  ##{
+    \textrm{lfp}(f) = \bigwedge \{x \mid f(x) \leq x\}
+  }
+  \p{
+    We define an operator
+  }
+  ##{
+    F_\varphi : X \mapsto \{\overline a \in M^k \mid \mathcal M \vDash \varphi (X, \overline a)\}
+  }
+  \p{
+    where #{\varphi(R, x_1, x_2, \ldots, x_k)} is a first order formula in #{\mathcal L \cup \{R\}}. Intuitively this operator represents a map from a predicate variable to those sets in #{M^k} for which the formula #{\varphi} is true.
+  }
+  \p{
+    We can define the semantics of an \strong{atomic least fixed-point formula} as follows 
+  }
+  ##{
+    \mathcal M \vDash [\textrm{lfp}_R \varphi(R, \overline x)] (\overline a) \iff \overline a \in \textrm{lfp}(F_\varphi)
+  }
+  \subtree{
+    \title{LFP example: Graph}
+
+    \p{
+      Let #{\mathcal L = \{E\}} be the language of graphs, here #{E} is a \em{binary relation symbol} representing the edge relation, and let #{R} be a \em{binary predicate variable}. We can define
+    }
+    ##{
+      \varphi(R, u, v) \equiv E(u, v) \lor \exists w(R(u, w) \land E(w, v))
+    }
+    \p{
+      The idea being that for any two points in our graph either we can have an edge between them, or there exists some intermediate point #{w} which we can each from #{u} and there is an edge from #{w} to #{v}.
+    }
+    ##{
+      [\textrm{lfp}_R \varphi (R, u, v)] (x, y)
+    }
+    \p{
+      which holds only iff there is a path from #{x} to #{y}. We can properly instate this example as follows:
+    }
+    \ul{
+      \li{
+        We have a set of nodes #{M}
+      }
+      \li{
+        We have an interpretation #{I(E) \subseteq M \times M} denoting the edges between our nodes
+      }
+    }
+    \p{
+      Now expressing our monotonic operator for this example we have
+    }
+    ##{
+      F_\varphi(S) = \{(u, v) \mid E(u, v)\} \cup \{(u, v) \mid \exist w.\ (u, w) \in S \land E(w, v)\}
+    }
+    \p{
+      We know that 
+    }
+    ##{
+      \textrm{lfp}_R\varphi(R, u,v)
+    }
+    \p{
+      denotes the \strong{smallest relation} #{R \subseteq M^2} such that 
+    }
+    ##{
+      R = F(R)
+    }
+    \p{
+      We compute the least fixed point starting from the empty relation 
+    }
+    \ol{
+      \li{
+        #{R_0 = \emptyset}
+      }
+      \li{
+        #{R_1 = F(R_0) = \{(u, v) \mid E(u, v)\}}
+      }
+      \li{
+        #{R_2 = F(R_1)} here we have that 
+        \ol{
+          \li{
+            the LHS of our operator adds all edges
+          }
+          \li{
+            the RHS adds all pairs (u, v) where we have
+            ##{
+              u \to w \to v
+            }
+          }
+        }
+        What this means is that #{R_2} denotes the set of paths of length #{\leq 2}
+      }
+      \li{
+        #{\ldots}
+      }
+      \li{
+        We ultimately end up with some order
+        ##{
+          R_0 \subseteq R_1 \subseteq R_2 \subseteq \ldots
+        }
+      }
+    }
+    \p{
+      As an example let's consider the graph
+    }
+    ##{
+      E = \{(a, b), (b, c), (c, d)\}
+    }
+    \ol{
+      \li{
+        #{R_1 = \{(a, b), (b, c), (c, d)\} }
+      }
+      \li{
+        #{R_2 = R_1 \cup \{(a, c), (b, d)\} }
+      }
+      \li{
+        #{R_3 = R_2 \cup \{(a, d)\} }
+      }
+      \li{
+        #{R_4 = R_3 = \textrm{fixed point}}
+      }
+    }
+    \p{
+      Thus we end up with
+    }
+    ##{
+      \textrm{lfp} = \{(a, b), (b, c), (c, d), (a, c), (b, d), (a, d)\}
+    }
+    \p{
+      So the idea is then that 
+    }
+    ##{
+      [\textrm{lfp}_R\varphi(R, u, v)] (x, y) = \top \iff (x, y) \in R_{\infty}
+    }
+    \p{
+      i.e. the least fixed point is true for a pair of verticies if we can find a path between them in the least fixed point set.
+    }
+  }
+  \p{
+    We can generalize some previous concepts for product lattices, first we again define our operator
+  }
+  ##{
+    \begin{align}
+      F_i^M : M^{k_1} \times \ldots \times M^{k_n} &\to M^k, \\
+      (X_1, \ldots, X_n) &\mapsto \{\overline x \in M^{k_i} \mid M \vDash \varphi_i(X_1, \ldots, X_n, \overline x)\}
+    \end{align}
+  }
+  \p{
+    We can then define 
+  }
+  ##{
+    F_\phi^{\mathcal M} = (F_1^{\mathcal M}, \ldots, F_n^\mathcal M)
+  }
+  \p{
+    With some notational conventions that #{(F_\phi)_i \equiv F_i^{\mathcal M}} where our \em{formula} is
+  }
+  ##{
+    \phi = (\varphi_i(R_1, \ldots, R_n, \overline x_i ))^n_{i = 1} \in L \cup \{R_1, \ldots, R_n\}
+  }
+  \p{
+    We define the \strong{simulatenous fixed point} as
+  }
+  ##{
+    [\textrm{lfp}_{R_i} \phi] (\overline t)
+  }
+  \p{
+    where #{\overline t} is a #{k_i}-tuple of terms in #{\mathcal L}, similarly to before we have
+  }
+  ##{
+    M \vDash [\textrm{lfp}_{R_i} \phi] (\overline a) \iff \overline a \in \textrm{lfp}(F_\phi)_i
+  }
+  \subtree{
+    \title{Sim-LFP Example: graphs again}
+
+    \p{
+      Again let's consider #{L = \{E\}}, where #{E} is our usual relation symbol and let #{R} and #{S} be two binary predicate variables. Here we can define #{\phi} as 
+    }
+    ##{
+      \begin{align}
+        \varphi_1(R, S, u, v) &\equiv E(u, v) \lor \exists w(S(u, w) \land E(w, v)) \\
+        \varphi_2(R, S, u, v) &\equiv \exists w(R(u, w) \land E(w, u))
+      \end{align}
+    }
+    \p{
+      Here we now have two least-fixed points
+    }
+    ##{
+      \begin{align}
+        [\textrm{lfp}_R \phi] \\
+        [\textrm{lfp}_S \phi]
+      \end{align}
+    }
+    \p{
+      Intuitively these least-fixed points express two sets
+    }
+    \ul{
+      \li{
+        The first denotes the set of paths which have an odd length
+      }
+      \li{
+        The second denotes the set of paths which have an even length
+      }
+    }
+    \p{
+      So one way of understanding the least-fixed points in this case is that they are a kind of recursive computation of the set of states - in this case edges - which follow the rules of the respective predicate variables or more acurately follow the constraints which characterize these predicates.
+    }
+    \p{
+      If we again use our initial example let's compute both sets
+    }
+    \ol{
+      \li{
+        ##{
+          \begin{align}
+            R_1 &= E \cup (S_0 \circ E) = E \\
+            S_1 &= (R_0 \circ E) = \emptyset
+          \end{align}
+        }
+        so we have 
+        ##{
+          R_1 = E, S_1 = \emptyset
+        }
+      }
+      \li{
+        ##{
+          \begin{align}
+            R_2 &= E \cup (S_1 \circ E) = E \\
+            S_2 &= (R_1 \circ E)
+          \end{align}
+        }
+        which gives 
+        ##{
+          R_2 = E, S_2  \{(a, c), (b, d)\}
+        }
+      }
+      \li{
+        ##{
+          \begin{align}
+            R_3 &= E \cup (S_2 \circ E) \\
+            S_3 &= (R_2 \circ E) \equiv S_2
+          \end{align}
+        }
+        which gives
+        ##{
+          R_3 = E \cup \{(a, d)\}, S_3 = S_2
+        }
+      }
+      \li{
+        Here we stabilize
+      }
+    }
+    \p{
+      Thus our final result is
+    }
+    ##{
+      R_\infty = E \cup \{(a, b)\}, S_\infty = \{(a, c), (b, d)\}
+    }
+  }
+}
+
+\subtree{
+  \title{Abstract linear-Horn fixed-point theorem}
+
+  \p{
+    For a formula #{\varphi} we define #{\varphi^D} as 
+  }
+  ##{
+    \varphi^D = \varphi[X_1 \mapsto \neg X_1, \ldots, X_n \mapsto \neg X_n]
+  }
+
+  \p{
+    Let #{\exists \overline X \varphi} be a linear-Horn formula equation 
+  }
+  ##{
+    \begin{align}
+      \mu_j &= [\textrm{lfp}_{X_j} \phi_\varphi] \\
+      v_j &= \neg [\textrm{lfp}_{X_j} \phi_{\varphi^D}]
+    \end{align}
+  }
+  \p{
+    for #{j \in [1, n]}, then we have 
+  }
+  \ol{
+    \li{
+      ##{
+        \vDash_a \exists \overline X \varphi \leftrightarrow \varphi[\overline X \mapsto \overline \mu]\ \land\ \vDash_a \exists \overline X \varphi \leftrightarrow \varphi[\overline X \mapsto \overline v]
+      }
+    }
+    \li{
+      ##{
+          (\exists \mathcal M_G, \overline R.\ \mathcal M_G \vDash_a \varphi [\overline X \mapsto \overline R])
+          \to (M_G \vDash_a\ \wedge_{j=1}^n (\mu_j \to R_j \land R_j \to v_j))
+      }
+    }
+  }
+}
+
+\subtree{
+  \title{Verification conditions and least-fixed points}
+
+  \p{
+    Let's consider the linear-Horn formula equation
+  }
+  ##{
+    \exists Y \cf{vc}(\{Y\}\ p\ \{Q\}) \equiv \exists Y \varphi
+  }
+  \p{
+    let #{v = \neg [\textrm{lfp}_Y \phi_{\varphi^D}]} then 
+  }
+  ##{
+    [v] = \cf{wp}(p, Q)
+  }
+  \p{
+    On an intuitive level this might already make a lot of sense, we can reason about this incrementally
+  }
+  \ul{
+    \li{
+      #{\textrm{lfp}_Y \varphi} represents the set of states we \strong{can prove safe}
+    }
+    \li{
+      #{\textrm{lfp}_Y \varphi^D} represents the set of states we \strong{can prove unsafe}
+    }
+    \li{
+      #{\neg (\textrm{lfp}_Y \varphi^D)} is then the set of states we \strong{cannot prove unsafe}
+    }
+  }
+  \p{
+    A nicer way we can phrase the last example is that it denotes the greatest set of states excluding all unsafe ones. 
+  }
+  \subtree{
+    \title{VC Sim-LFP Example: While loop}
+
+    \p{
+      Before going into the proof I thought it would be nice to just show an actual example to demonstrate this, so let us consider the following program #{p}
+    }
+    \codeblock{python}{
+      while x > 0 do
+        x := x - 1
+    }
+    \p{
+      lets pick the postcondition #{Q \equiv (x = 0)}, now we know for partial correctness we must have
+    }
+    \ul{
+      \li{
+        Our \em{exit condition} as 
+        ##{
+          I(x) \land x \leq 0  \to x = 0
+        }
+      }
+      \li{
+        Our \em{preservation condition} as
+        ##{
+          I(x) \land x > 0 \to I(x - 1)
+        }
+      }
+      \li{
+        Our \em{entry condition} as 
+        ##{
+          x \geq 0 \to I(x)
+        } 
+      }
+    }
+    \p{
+      Our loop invariant #{I} here denotes our \em{predicate variable}
+    }
+    ##{
+      \phi(I, x) \equiv (x \leq 0 \land x \neq 0) \lor (x > 0 \land \neg I(x - 1))
+    }
+    \p{
+      We can then use this to compute bad states
+    }
+    \ol{
+      \li{
+        #{B_0 = \emptyset}
+      }
+      \li{
+        #{B_1 = \{x < 0\} }
+      }
+      \li{
+        #{B_2 = \{x < 1\} }
+      }
+      \li{
+        #{B_3 =\{x < 2\} }
+      }
+      \li{
+        #{\ldots}
+      }
+      \li{
+        #{B_n = \{x \leq n - 1\} }
+      }
+    }
+    \p{
+      If we take the union then 
+    }
+    ##{
+      \textrm{lfp}\phi = \bigvee_{i = 0}^n B_i \equiv \{x < 0\}
+    }
+    \p{
+      Thus negating this gives us
+    }
+    ##{
+      v = \neg [\textrm{lfp}_I \phi] \quad v(x) = \neg(x < 0) \equiv x \geq 0
+    }
+    \p{
+      which turns out to previsely be our weakest precondition
+    }
+  }
+}
+
+\subtree{
+  \title{Strongest post-condition as least-fixed point}
+
+  \p{
+    Again we consider the linear-Horn formula equation, this time focused on the post-condition
+  }
+  ##{
+    \exists X \cf{vc}(\{P\}\ s\ \{X\}) \equiv \exists X \varphi
+  }
+  \p{
+    We let #{\mu = [\textrm{lfp}_X \phi_\varphi]}, then
+  }
+  ##{
+    [\mu] = \cf{sp}(s, Q)
+  }
+  \p{
+    As a reminder, in the denotational sense we can express the strongest postcondition as
+  }
+  ##{
+    \cf{sp}(s, P) = \{\sigma \in \Sigma \mid \exists \sigma' \in \Sigma : \mathcal M, \sigma' \models P \land (s, \sigma') \Downarrow \sigma \}
+  }
+  \p{
+    The idea being that the strongest post-condition represents the set of states which all other states evaluate into. In other words it denotes the set of states which capture or encapsulate the states of all successful executions. With this the least-fixed point interpretation shouldn't be too hard to understand. As a reminder, our least fixed point can be read as:
+  }
+  \blockquote{
+    the most precise characterization of our predicate variable #{X} w.r.t to its constraints #{\varphi}
+  }
+  \p{
+    We know our constraints represent those conditions required for the successful execution i.e. validity of the hoare triple. Hence, it naturally follows that the least fixed point then represents the most precise; or more accurately \em{least}; set of states \em{after execution} coming from some initial successful state and execution. 
+  }
+}

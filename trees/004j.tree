@@ -1,0 +1,34 @@
+\date{2025-12-10}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Finding inductive invariants - arrays}
+
+\p{
+  Consider the following while loop #{W}:
+}
+\codeblock{lean}{
+  while i < n do
+    a[i] := 0;
+    i    := i + 1
+}
+\p{
+  Consider the following pre-and-post condition:
+}
+##{
+  \{i = 0 \land n > 0\}\ W\ \{\forall j.\ 0 \leq j < n \to a[j] = 0\}
+}
+\p{
+  What is an inductive invariant that shows correctness?
+}
+
+\solution{
+  \p{
+    This is almost a sort of canonical example where the index replacement trick works really nicely. On a high level our postcondition asserts something about the array over the first #{n} indices, hence if we want to have an invariant which shows correctness, we can simply reframe our postcondition as an assertion up to the #{i}th position / iteration, in other words we simply replace #{n} with #{i}:
+  }
+  ##{
+    \forall j.\ 0 \leq j < i \to a[j] = 0
+  }
+}

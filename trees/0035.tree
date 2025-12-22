@@ -18,3 +18,10 @@
 ##{
   \forall A \in \mathcal A_T.\ M \vDash A
 }
+\p{
+  where:
+}
+\ul{
+  \li{#{U} is the universe or more commonly the \em{domain}}
+  \li{#{I} is the \em{interpretation} which assigns some meaning to our formula}
+}

@@ -158,10 +158,20 @@ h4 {
 
 pre,
 img,
-.katex-display,
 section,
 center {
   overflow-y: hidden;
+}
+
+.katex-display {
+  overflow: visible;
+}
+
+/* Only show scrollbar when content actually overflows the container */
+.katex-display > .katex {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 4px; /* Prevent scrollbar from clipping descenders */
 }
 
 pre {

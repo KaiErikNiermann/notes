@@ -4,10 +4,10 @@
 
 \taxon{Definition}
 
-\title{Theory of Arrays #{T_{A}}}
+\title{Theory of Arrays}
 
 \p{
-  The theory of arrays is a first-order theory that models arrays as functions from indices to values. It's signature includes:
+  The theory of arrays is a first-order theory that models arrays as functions from indices to values. Its signature includes:
 }
 ##{
   \Sigma_A \triangleq \{- [ - ], \langle - \triangleleft - \rangle, =\}

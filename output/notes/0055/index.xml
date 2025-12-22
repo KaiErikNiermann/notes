@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>17</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/0055/</fr:uri>
+    <fr:display-uri>0055</fr:display-uri>
+    <fr:route>/notes/0055/</fr:route>
+    <fr:title text="Horn clause wp for while loops">Horn clause wp for while loops</fr:title>
+    <fr:taxon>Quiz</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter><html:p>
+  Consider the following while loop:
+</html:p><fr:tex display="block"><![CDATA[
+  W \triangleq  \texttt {while}\ x < n\ \texttt {do}\ x := x + 1
+]]></fr:tex><html:p>
+  say we wanted to prove the Hoare triple:
+</html:p><fr:tex display="block"><![CDATA[
+  \vdash  \{x \leq  n\}\ W\ \{x = n\}
+]]></fr:tex><html:p>
+  Answer the following questions:  
+</html:p><html:ol><html:li>What is <fr:tex display="inline"><![CDATA[\texttt {wp}(W, p(x, n))]]></fr:tex></html:li>
+  <html:li>Which clauses do we have to add to prove the triple?</html:li>
+  <html:li>Do the Horn-clauses match our syntax restrictions?</html:li></html:ol>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>17</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li />
+    <html:li>item</html:li></html:ol>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

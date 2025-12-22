@@ -1,0 +1,21 @@
+\date{2025-12-19}
+
+\import{base-macros}
+
+\title{Normalizing Horn clauses}
+
+\p{
+  Something of note when dealing with weakets preconditions [in terms of horn clauses](0056) is that we have to first normalize them to ensure they are in the correct horn format, which is to say we commonly have some horn clause in the form
+}
+##{
+  p(e_1, e_2) \land \ldots \land \phi \to H(e_3) 
+}
+\p{
+  where #{e_i} represents an expression, to normalize these clauses we lift the expressions out of the parameters for the predicates and into the list of conjuncts, i.e.:
+}
+##{
+  p(x_1, x_2) \land x_1 = e_1 \land x_2 = e_2 \land x_3 = e_3 \land \ldots \land \phi \to H(x_3)
+}
+\p{
+  So we create fresh variables #{x_1, x_2, x_3} and assign these to the respective expressions then use them in place of the expressions themselves.
+}

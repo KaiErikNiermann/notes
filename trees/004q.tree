@@ -1,0 +1,155 @@
+\date{2025-12-12}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Assertions & Havoc}
+
+\p{
+  We introduce 3 new syntactic constructs with their associated hoare rules, these constructs are:
+}
+\ul{
+  \li{
+    The statement \cf{assert(F)} which \cf{fails} if #{F} evaluates to #{\bot}
+  }
+  \li{
+    The statement \cf{assume(F)} which \em{tells us} that #{F} evaluates to #{\top}
+  }
+  \li{
+    The statement \cf{x := havoc()} which assigns a non-deterministic value to a variable #{x}
+  }
+}
+\subtree{
+  \title{Evaluation rules}
+
+  \p{
+    We introduce a new construct \cf{fail} which denotes the failure state, as an alternative to #{\sigma}.
+  }
+  \infrule{
+    \inferrule*[right=AssertTrue]{
+      \sigma \vDash F
+    }{
+      \langle \cf{assert}(F), \sigma \rangle \Downarrow \sigma
+    }
+    \and
+    \inferrule*[right=AssertFalse]{
+      \sigma \ \mathrlap{\,/}{\vDash}\ F 
+    }{
+      \langle \cf{assert}(F), \sigma \rangle \Downarrow \cf{fail}
+    }
+  }
+  \p{
+    For the assumption we only have a #{\top} rule, the idea being if the assumption holds then the statement is equivalent to a \cf{skip} otherwise the execution gets stuck \em{but doesn't fail}.
+  }
+  \infrule{
+    \inferrule*[right=AssumeTrue]{
+      \sigma \vDash F
+    }{
+      \langle \cf{assume}(F), \sigma \rangle \Downarrow \sigma
+    }
+  }
+  \p{
+    The idea with \em{getting stuck} being that since we aren't failing for the case of partial-correctness (failure or termination) it means we can simply ignore this case.
+  }
+  \p{
+    The final big-step evaluation rule is for the havoc statement:
+  }
+  \infrule{
+    \inferrule*[right=Havoc]{
+      n \in \Z
+    }{
+      \langle x := \cf{havoc}(), \sigma \rangle \Downarrow \sigma[x \mapsto n]
+    }
+  }
+}
+
+\subtree{
+  \title{Hoare rules}
+
+  \p{
+    In addition to our big-step evaluation rules we also have Hoare rules.
+  }
+  \infrule{
+    \inferrule*[right=Assert]{
+      P \to F
+    }{
+      \vdash \{P\}\ \cf{assert}(F)\ \{P \land F\}
+    }
+    \and
+    \inferrule*[right=Assume]{
+      \\
+    }{
+      \vdash \{P\}\ \cf{assume}(F)\ \{P \land F\}
+    }
+    \and 
+    \inferrule*[right=Havoc]{
+      \\
+    }{
+      \vdash \{\forall y.\ Q[x\mapsto y]\}\ x := \cf{havoc}()\ \{Q\}
+    }
+  }
+}
+
+\subtree{
+  \title{A more detailed explanation}
+
+  \p{
+    A central thing to understand with assertions especially is that they integrate a result's monad into the big-step evaluation semantics, in addition to the Hoare logic. So the idea is now instead of the relationship being denoted by:
+  }
+  ##{
+    (\texttt{Stmt} \times \texttt{Memory}) \to \texttt{Memory} \to \texttt{Prop}
+  }
+  \p{
+    It's now expressed as 
+  }
+  ##{
+    (\texttt{Stmt} \times \texttt{Memory}) \to (\texttt{Result} \texttt{Memory}) \to \texttt{Prop}
+  }
+  \p{
+    Where we can model \cf{Result} as the following monad 
+  }
+  \codeblock{lean}{
+    inductive Result (α : Type)
+    | ok : α → Result α      -- Normal termination with final state
+    | fail : Result α        -- Assertion failure / error state
+    deriving Repr, DecidableEq
+  }
+  \p{
+    At this point if you want to be pedantic it's worth mentioning that the implication is that we are lifting all other inference rules into the context of this result monad, though for pedagogical purposes its enough to just assume that #{\Downarrow \sigma} just corresponds to #{\Downarrow \texttt{.ok} \sigma} i.e. evaluated into a non-fail state.
+  }
+  \p{
+    The Hoare triple is where stuff becomes a bit more interesting. As a reminder, the classical hoare triple is basically just an alias for the logical formula:
+  }
+  ##{
+    \forall \sigma, \sigma'.\ P(\sigma) \to \langle s, \sigma \rangle \Downarrow \sigma' \to Q(\sigma')
+  }
+  \p{
+    Naturally because we know are no longer evaluating into just #{\sigma'} but either an \cf{ok} or \cf{fail} state, it's worth asking how we actually represent that as a Hoare triple. We can start in much the same way as we do for the regular partial correctness hoare triple
+  }
+  ##{
+    \forall \sigma, \sigma_t.\ P(\sigma) \to \langle s, \sigma \rangle \Downarrow \sigma_t \to (??)
+  }
+  \p{
+    Here we then run into I guess a design choice as to how we proceed, the two main possibilities are:
+  }
+  \ul{
+    \li{
+      We \em{fail sometimes succeed other times} this would mean that:
+      ##{
+        (\exists \sigma', \sigma_t = \texttt{.ok}\ \sigma' \land Q(\sigma'))
+      }
+      another way of seeing this is here we are \em{disallowig failure} meaning that for a hoare triple to be proven valid we must explicitly demonstrate as a side condition that we cannot fail otherwise our hoare triple is invalid.
+    }
+    \li{
+      We \em{never fail} which would mean that:
+      ##{
+        (\forall \sigma', \sigma_t = \texttt{.ok}\ \sigma' \land Q(\sigma'))
+      }
+      for this rule another way of seeing it is we are \em{ignoring failure} or \em{filter success states} since we are clearly only quantifying over those states that are successfull.
+    }
+  }
+  \p{
+    The latter option seems to be generally more common in theoretical settings because it doesn't require explicitly accounting for failure states, they are just implicitly filtered out in the logic.
+  }
+}

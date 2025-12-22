@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>13</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/004s/</fr:uri>
+    <fr:display-uri>004s</fr:display-uri>
+    <fr:route>/notes/004s/</fr:route>
+    <fr:title text="VC's for functions">VC's for functions</fr:title>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <html:p>
+  Let's start by informally describing the syntax of functions:
+</html:p>
+    <html:pre class="code-block language-lean">
+      <html:code class="language-lean">
+  fn f(x1, ..., xn) {
+    requires (P)
+    ensures  (Q)
+    modifies (v1, ..., vk)
+    s;
+    return e;
+  }
+</html:code>
+    </html:pre>
+    <html:p>
+  Then for function calls we have:
+</html:p>
+    <html:pre class="code-block language-lean">
+      <html:code class="language-lean">
+  x := f(e1, ..., en)
+</html:code>
+    </html:pre>
+    <fr:tree show-metadata="false">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:date>
+          <fr:year>2025</fr:year>
+          <fr:month>12</fr:month>
+          <fr:day>13</fr:day>
+        </fr:date>
+        <fr:title text="Verifying function definitions">Verifying function definitions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <html:p>
+    The central idea with function definitions is that we <html:em>assume</html:em> the preconditions <fr:tex display="inline"><![CDATA[P]]></fr:tex> and <html:em>assert</html:em> the post-conditions <fr:tex display="inline"><![CDATA[Q]]></fr:tex>, what this means in a practical sense is that when verifying the function body what we <html:em>actually</html:em> must verify is:
+  </html:p>
+        <fr:tex display="block"><![CDATA[
+    \texttt {assume}(P);\ s;\ \texttt {ret} := e;\ \texttt {assert}(Q) 
+  ]]></fr:tex>
+        <html:p>
+    The idea being that by this convention a function contract - the requires, ensures, modifies specification - <html:em>internally</html:em> assumes that the caller has met the necessary pre-conditions and provides as a guarantee the required post-conditions.
+  </html:p>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:date>
+          <fr:year>2025</fr:year>
+          <fr:month>12</fr:month>
+          <fr:day>13</fr:day>
+        </fr:date>
+        <fr:title text="Verifying function calls">Verifying function calls</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <html:p>
+    Content
+  </html:p>
+      </fr:mainmatter>
+    </fr:tree>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

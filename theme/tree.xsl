@@ -23,6 +23,22 @@
           </xsl:if>
         </script>
         <script type="module" src="{/f:tree/@base-url}forester.js"></script>
+        <script type="text/javascript">
+          <![CDATA[
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          ]]>
+        </script>
         <title>
           <xsl:value-of select="/f:tree/f:frontmatter/f:title/@text" />
         </title>

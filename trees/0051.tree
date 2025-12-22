@@ -1,0 +1,62 @@
+\date{2025-12-17}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Solutions to Horn clauses}
+
+\p{
+  Consider the following set of Horn clauses:
+}
+##{
+  \begin{align}
+    x = 1 &\to p(x) \\
+    p(x) \land x' = x + 1 &\to p(x') \\
+    p(x) &\to 0 \leq x
+  \end{align}
+}
+\p{
+  Answer the following questions:
+}
+\ol{
+  \li{
+    Is the following a solution to #{\C}
+    ##{
+      \Sigma \triangleq \{p \to x = 1\}
+    }
+  }
+  \li{
+    What about 
+    ##{
+      \Sigma \triangleq \{p \to x \geq 1\}
+    }
+  }
+}
+
+\solution{
+  \ol{
+    \li{
+      Substituting #{p} for #{x = 1} we get
+      ##{
+        \begin{align}
+          x = 1 &\to x = 1 \\
+          x = 1 \land x' = x + 1 &\to x' = 1 \\
+          x = 1 &\to 0 \leq x
+        \end{align}
+      }
+      clearly the first clause is satisfied, but in the second clause obviously #{x'} should be 2 thus this is false.
+    }
+    \li{
+      again substituting in the formula we get
+      ##{
+        \begin{align}
+        x \geq 1 &\to x = 1
+        x \geq 1 &\to x' = x + 1 &\to x' \geq 1
+        x \geq 1 &\to 0 \leq x
+        \end{align}
+      }
+      for the case of #{x = 1} we can satisfy the first clause, the second clause is also satisfied by the fact that #{x'} can be > 1, finally the third clause is just trivially satisfied. Thus, we have that #{\Sigma \vDash \mathcal{C}} as we have demonstrated that #{\forall C \in \mathcal C.\ \Sigma \vDash C}.
+    }
+  }
+}

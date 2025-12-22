@@ -1,0 +1,56 @@
+\date{2025-12-17}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Constrained clause}
+
+\p{
+  Let #{\mathcal L} be a first-order language. A \strong{constrained clause} is a formula #{C} of the form 
+}
+##{
+  \phi \land \bigvee_{i = 1}^m \neg X_i(\bf t_i) \land \bigvee _{j = 1}^n Y_j(\bf s_j)
+}
+\p{
+  where:
+}
+\ul{
+  \li{
+    (#{\phi}) is a \em{first-order formula} in #{L}
+  }
+  \li{
+    (#{X_i, Y_j}) are \em{predicate variables}, i.e. denote placeholders for relations
+  }
+  \li{
+    (#{\bf t_i, \bf s_j}) are \em{tuples of terms} in #{L}
+  }
+}
+\p{
+  the formula #{C} is denoted...
+}
+\ul{
+  \li{
+    \em{Horn}, if #{n \leq 1}
+  }
+  \li{
+    \em{dual-Horn}, if #{m \leq 1}
+  }
+  \li{
+    \em{linear-Horn}, if #{m, n \leq 1}
+  }
+}
+\p{
+  commonly we talk about sets of constrained clauses #{S}, these sets denote \strong{conjunctions} of clauses and are thus equivalent to the formula  
+}
+##{
+  \forall^* \land_{C \in S} \equiv S \triangleq \{C_1, C_2, \ldots, C_n\}
+}
+\p{
+  The formula #{\exists \bf X \forall ^*_{C \in S} C} is called
+}
+\ul{
+  \li{A \em{Horn formula}, if #{S} is a set of CHC}
+  \li{A \em{dual-Horn formula}, if #{S} is a set of CdHC}
+  \li{A \em{linear-Horn formula}, if #{S} is a set of ClHC}
+}

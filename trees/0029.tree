@@ -7,8 +7,8 @@
 \title{Monotone function}
 
 \p{
-  A \em{monotone function} (or \em{monotone map}) between two preorders #{(A, \preceq_A)} and #{(B, \preceq_B)} is a function #{f: A \to B} that preserves the order relation. This means that for all elements #{x, y \in A}, if #{x \preceq_A y}, then it must also hold that #{f(x) \preceq_B f(y)}. In other words, the function #{f} does not reverse the order of elements when mapping them from set #{A} to set #{B}. Formally:[(1)](fong-spivak-seven-sketches-2019)
+  A \em{monotone function} (or \em{monotone map}) between two preorders #{(A, \leq_A)} and #{(B, \leq_B)} is a function #{f: A \to B} that preserves the order relation. This means that for all elements #{x, y \in A}, if #{x \leq_A y}, then it must also hold that #{f(x) \leq_B f(y)}. In other words, the function #{f} does not reverse the order of elements when mapping them from set #{A} to set #{B}. Formally:[(1)](fong-spivak-seven-sketches-2019)
 }
 ##{
-  \forall x, y \in A.\ x \preceq_A y \implies f(x) \preceq_B f(y)
+  \forall x, y \in A.\ x \leq_A y \implies f(x) \leq_B f(y)
 }

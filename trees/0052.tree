@@ -1,0 +1,23 @@
+\date{2025-12-17}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Horn clauses in the weakest precondition}
+
+\p{
+  What's:
+}
+##{
+  \cf{wp}(x := x + 1, p(x, y))
+}
+
+\solution{
+  \p{
+    As a reminder for assignment we simply substitute the assignment under the postcondition, so this weakest precondition evaluates to:
+  }
+  ##{
+    p(x, y)[x \mapsto x + 1] \equiv p(x + 1, y)
+  }
+}

@@ -1,0 +1,1909 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>11</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/004n/</fr:uri>
+    <fr:display-uri>004n</fr:display-uri>
+    <fr:route>/notes/004n/</fr:route>
+    <fr:title text="Verification conditions in while loops">Verification conditions in while loops</fr:title>
+    <fr:taxon>Example</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <html:p>
+  Let's consider the following while loop:
+</html:p>
+    <html:pre class="code-block language-lean">
+      <html:code class="language-lean">
+  @pre x &lt;= 0
+  while [x &lt;= 6] (x &lt;= 5) do
+    x := x + 1
+  @post x = 6
+</html:code>
+    </html:pre>
+    <html:p>
+  if we denote the loop and its body as <fr:tex display="inline"><![CDATA[W]]></fr:tex>, then it corresponds to the following hoare triple:
+</html:p>
+    <fr:tex display="block"><![CDATA[
+  \{x \leq  0\}\ W\ \{x = 6\}
+]]></fr:tex>
+    <html:p>
+  With the addition of the invariant <fr:tex display="inline"><![CDATA[I \triangleq  x \leq  6]]></fr:tex>, now the verification condition for the loop is expressed as:
+</html:p>
+    <fr:tex display="block"><![CDATA[
+  \begin {align}
+    \texttt {vc}(W [I], x = 6) &= \forall  \sigma .\ I(\sigma ) \land  (b \Downarrow ^t \sigma ) \to  \texttt {wp}(W [I], s, I(\sigma )) \\
+    &\land  \forall  \sigma .\ I(\sigma ) \land  (b \Downarrow ^f \sigma ) \to  Q(\sigma ) \\
+    &\land  \texttt {vc}(s, I)
+  \end {align}
+]]></fr:tex>
+    <html:p>
+  starting with the first conjunct with have:
+</html:p>
+    <fr:tex display="block"><![CDATA[
+  \forall  \sigma , x \leq  6 \to  (x \leq  5 \Downarrow ^t \sigma ) \to  \texttt {wp}(x := x + 1, (x \leq  6))
+]]></fr:tex>
+    <html:p>
+  After we unfold the <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex> our goal reduces to:
+</html:p>
+    <fr:tex display="block"><![CDATA[
+  x \mapsto  x + 1 \leq  6 \equiv  x \leq  5
+]]></fr:tex>
+    <html:p>
+  And we clearly know this is true just by inversion of the evaluation of the loop guard. Moving on to the second conjunct:
+</html:p>
+    <fr:tex display="block"><![CDATA[
+  \forall  \sigma .\ x \leq  6 \land  (x \leq  5 \Downarrow ^f \sigma ) \to  x = 6
+]]></fr:tex>
+    <html:p>
+  This represents our termination condition, here we know by inversion of the loop guard again that the premise of our implication becomes:
+</html:p>
+    <fr:tex display="block"><![CDATA[
+  x \leq  6 \land  x > 5 \to  x = 6
+]]></fr:tex>
+    <html:p>
+  Our final conjunct is the verification condition on the assignment, so:
+</html:p>
+    <fr:tex display="block"><![CDATA[
+  \texttt {vc}(x := x + 1, x \leq  6)
+]]></fr:tex>
+    <html:p>
+  Unfolding the call again we know this just resolves to <fr:tex display="inline"><![CDATA[\top ]]></fr:tex> as there are no verification conditions for assignment.
+</html:p>
+    <html:p>
+  Finally we also have to demonstrate that:
+</html:p>
+    <fr:tex display="block"><![CDATA[
+  (x \leq  0 \land  x = x_0) \to  \texttt {wp}(W [I], Q)
+]]></fr:tex>
+    <html:p>
+  unfolding the <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex> again gives
+</html:p>
+    <fr:tex display="block"><![CDATA[
+  (x \leq  0 \land  x = x_0) \to  x \leq  6
+]]></fr:tex>
+    <html:p>
+  Clearly we can see this trivially holds, i.e. our precondition is stronger than the invariant, hence by precondition strengthening, it is valid.
+</html:p>
+    <fr:tree show-metadata="false">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:date>
+          <fr:year>2025</fr:year>
+          <fr:month>12</fr:month>
+          <fr:day>11</fr:day>
+        </fr:date>
+        <fr:title text="How do we get there though?">How do we get there though?</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter><html:p>
+    I do think it's worth telling this as a bit of a story, we start with the fundamental theorem for while loops:
+  </html:p>
+  
+    
+    <fr:resource hash="f42c13c5bc0c06965aac3d8a53b4374b"><fr:resource-content><html:img src="/notes/f42c13c5bc0c06965aac3d8a53b4374b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=HWhile]{
+      \forall  \sigma , \sigma '.\ I(\sigma ) \land  (b \Downarrow ^t \sigma ) \to  (s, \sigma ) \Downarrow  \sigma ' \to  P(\sigma )
+    }{
+      \forall  \sigma , \sigma '.\ I(\sigma ) \to  (\texttt {while}\ b\ \texttt {do}\ s, \sigma ) \Downarrow  \sigma ' \to  I(\sigma ) \land  (b \Downarrow ^f \sigma ) 
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    So this is just the expanded rule for constructing valid or sound while hoare triples, now this rule assumes that the invariant <fr:tex display="inline"><![CDATA[I]]></fr:tex> is the same as the precondition <fr:tex display="inline"><![CDATA[P]]></fr:tex> which is naturally not always the case, so it could be nice to have a rule which accounts for constructing valid while loops with invariants and custom preconditions. Same with custom post-conditions <fr:tex display="inline"><![CDATA[Q]]></fr:tex>.
+  </html:p>
+  
+    
+    <fr:resource hash="890b3d70f277eca374a0f7fd92162983"><fr:resource-content><html:img src="/notes/890b3d70f277eca374a0f7fd92162983.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \mprset {flushleft}
+    \inferrule *[right=HWhile2]{
+      (hS: \forall  \sigma , \sigma '.\ I(\sigma ) \land  (b \Downarrow ^t \sigma ) \to  (s, \sigma ) \Downarrow  \sigma ' \to  P(\sigma )) \\\\
+      (hP: \forall  \sigma , P(\sigma ) \to  I(\sigma )) \\\\
+      (hQ: \forall  I(\sigma ) \land  (b \Downarrow ^f \sigma ) \to  Q(\sigma ))
+    }{
+      \forall  \sigma , \sigma ' P(\sigma ) \to  (\texttt {while}\ b\ \texttt {do}\ s, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma )
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    If you want to be super pedantic you could show how this is just a combination of consequence + while rule. Anyway then, moving on we have the rule for <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex> soundness.
+  </html:p>
+  
+    
+    <fr:resource hash="dd3f1daef4c0a411a628116908358df1"><fr:resource-content><html:img src="/notes/dd3f1daef4c0a411a628116908358df1.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=WPSound]{
+      \texttt {vc}(s, Q)
+    }{
+      \forall  \sigma , \sigma '.\ \texttt {wp}(s, Q)(\sigma ) \to  (s, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ') 
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    Now depending on how you actually design your <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {vc}]]></fr:tex> code this rule can look slightly different, though I like this distinction, in this instance for the case of while loops <fr:tex display="inline"><![CDATA[\texttt {wp}(W[I], Q)]]></fr:tex> simply returns the invariant <fr:tex display="inline"><![CDATA[I]]></fr:tex>, this means that again if we want to have a custom precondition for <fr:tex display="inline"><![CDATA[W]]></fr:tex> we'd want to verify we would extend the rule as:
+  </html:p>
+  
+    
+    <fr:resource hash="c2a2b2d56a7d61b460256853aa1900ae"><fr:resource-content><html:img src="/notes/c2a2b2d56a7d61b460256853aa1900ae.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=VCSound]{
+      \texttt {vc}(s, Q) \\ \forall  \sigma , P(\sigma ) \to  \texttt {wp}(s, Q)(\sigma )
+    }{
+      \forall  \sigma , \sigma '.\ P(\sigma ) \to  (s, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ') 
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    Thus for while loops it would become:
+  </html:p>
+  
+    
+    <fr:resource hash="1cd9102e2156e0e7a536397c134c1441"><fr:resource-content><html:img src="/notes/1cd9102e2156e0e7a536397c134c1441.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=VCSound-While]{
+      \texttt {vc}(\texttt {while}\ b\ \texttt {do}\ s, Q) \\ \forall  P(\sigma ) \to  I(\sigma )
+    }{
+      \forall  \sigma , \sigma '.\ P(\sigma ) \to  (s, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ') 
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    Where the verification conditions would unfold to what we discussed before.
+  </html:p><html:p>
+    A nice point to make here is that all of these rules are essentially derived from one another, which is to say that:
+  </html:p>
+ 
+  
+  <html:figure><html:a href="
+    " target="_blank" class="quiver-link">
+    <fr:resource hash="be1b5988e0dbe18e4c588f358e8ce017"><fr:resource-content><html:img src="/notes/be1b5988e0dbe18e4c588f358e8ce017.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+   
+   % String-diagram specific extensions live here. Add diagram tweaks without
+ % re-running the full base preamble (to avoid duplicate definitions).
+
+   
+  
+   \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{amsmath, amsthm, amsfonts}
+  \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
+  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
+
+  % A TikZ style for curved arrows of a fixed height, due to AndréC.
+  \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+        .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+        and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+    \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+  quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+  % A TikZ style for shortening paths without the poor behaviour of `shorten <' and `shorten >'.
+  \tikzset{between/.style n args={2}{/tikz/spath/at end path construction={
+        \tikzset{spath/split at keep middle={current}{#1}{#2}}
+  }}}
+
+  % TikZ arrowhead/tail styles.
+  \tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+  \tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+  \tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+  % TikZ arrow styles.
+  \tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+
+
+  ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
+    \[\begin {tikzcd}
+      {\text {HWhile}} \\
+      {\text {HWhile2}} \\
+      {\text {WPSound-While}} \\
+      {\text {VCSound-While}}
+      \arrow ["{\text {uses}}", from=2-1, to=1-1]
+      \arrow ["{\text {uses}}", from=3-1, to=2-1]
+      \arrow ["{\text {uses}}", from=4-1, to=3-1]
+    \end {tikzcd}\]
+  ]]></fr:resource-source></fr:resource>
+   </html:a></html:figure>
+ 
+<html:p>
+    In a conceptual sense verification conditions i.e. what we need to prove to demonstrate a hoare triple is valid, are simply a convenience mechanism derived from the fundamental logic of how we construct a hoare triple.
+  </html:p></fr:mainmatter>
+    </fr:tree>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>12</fr:month>
+              <fr:day>6</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/004a/</fr:uri>
+            <fr:display-uri>004a</fr:display-uri>
+            <fr:route>/notes/004a/</fr:route>
+            <fr:title text="Lecture 6 - Hoare logic &amp; Weakest preconditions">Lecture 6 - Hoare logic &amp; Weakest preconditions</fr:title>
+            <fr:taxon>VU-VFS-2025</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>6</fr:day>
+                </fr:date>
+                <fr:title text="Loops &amp; Invariants">Loops &amp; Invariants</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>6</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004c/</fr:uri>
+                    <fr:display-uri>004c</fr:display-uri>
+                    <fr:route>/notes/004c/</fr:route>
+                    <fr:title text="Checking valid invariants">Checking valid invariants</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  Consider the following code:
+</html:p><html:pre class="code-block language-python"><html:code class="language-python">
+  i = 0;
+  j = 0;
+  n = 10;
+  while i &lt; n do 
+    i = i + 1;
+    j = i + j
+</html:code></html:pre><html:p>
+  Which of the following is a loop invariant?
+</html:p><html:ol><html:li><fr:tex display="inline"><![CDATA[i \leq  n]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[i < n]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[j \geq  n]]></fr:tex></html:li></html:ol>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>
+      Before the loop <fr:tex display="inline"><![CDATA[i = 0]]></fr:tex> and <fr:tex display="inline"><![CDATA[n = 10]]></fr:tex>, since that means <fr:tex display="inline"><![CDATA[i \leq  n]]></fr:tex> is true we move on to checking it holds true <html:em>after</html:em> each loop iteration. What we can observe is that the loop condition is <fr:tex display="inline"><![CDATA[i < n]]></fr:tex> and during the loop we have <fr:tex display="inline"><![CDATA[i = i + 1]]></fr:tex>, what this suggests is that clearly during the iteratons the invariant holds, additionally when <fr:tex display="inline"><![CDATA[i = 10]]></fr:tex> we have that <fr:tex display="inline"><![CDATA[10 < 0 \to  \bot ]]></fr:tex> hence the invariant also holds upon the termination of the loop, i.e. after the final iteration, thus it's indeed a valid loop invariant.
+    </html:li>
+    <html:li>
+      No, this is not a valid invariant, we can see that its very close to being right, but it doesnt account for the case after the final iteration and before we check the loop condition, i.e. where <fr:tex display="inline"><![CDATA[i = 10]]></fr:tex>, hence its not a valid loop invariant because it does not hold true after each iteration.
+    </html:li>
+    <html:li>
+      No, this is quite easy to see as it immediately fails even before we get into the loop as <fr:tex display="inline"><![CDATA[0 \geq  10 \to  \bot ]]></fr:tex>.
+    </html:li></html:ol>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>6</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004d/</fr:uri>
+                    <fr:display-uri>004d</fr:display-uri>
+                    <fr:route>/notes/004d/</fr:route>
+                    <fr:title text="Proving validity with invariants">Proving validity with invariants</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  Let's consider the statement <fr:tex display="inline"><![CDATA[W]]></fr:tex>:
+</html:p><html:pre class="code-block language-python"><html:code class="language-python">
+  while x &lt; n do 
+    x = x + 1
+</html:code></html:pre><html:p>
+  Answer the following questions:
+</html:p><html:ol><html:li>
+    Prove the validity of 
+    <fr:tex display="block"><![CDATA[
+      \vdash  \{x \leq  n\}\ W\ \{x \geq  n\}
+    ]]></fr:tex>
+    using the loop invariant <fr:tex display="inline"><![CDATA[I = x \leq  n]]></fr:tex></html:li> 
+  <html:li>
+    Would <fr:tex display="inline"><![CDATA[\top ]]></fr:tex> also have worked as a loop invariant?
+  </html:li>
+  <html:li>
+    If we changed the post condition to <fr:tex display="inline"><![CDATA[x = n]]></fr:tex>, what would that have changed?
+  </html:li></html:ol>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:p>
+    As the usual piece of little assistance let's take a look at the while rule
+  </html:p>
+  
+  
+    
+    <fr:resource hash="510feb572ccb159e80172c821612b9ea"><fr:resource-content><html:img src="/notes/510feb572ccb159e80172c821612b9ea.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=While]{
+      \vdash  \{I \land  b\}\ s\ \{I\}
+    }{
+      \vdash  \{I\}\ \texttt {while}\ b\ \texttt {do}\ s\ \{I \land  \neg  b\}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+  <html:ol><html:li>
+      Here we can try to construct the proof tree first of all, instantiating our rule with the given invariant we have: 
+      
+  
+    
+    <fr:resource hash="ff7656998e9e92f8893c373912cba5d0"><fr:resource-content><html:img src="/notes/ff7656998e9e92f8893c373912cba5d0.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+        \inferrule {
+          \{x \leq  n \land  x < n\}\ x := x + 1\ \{x \leq  n\}
+        }{
+          \{x \leq  n\}\ W\ \{x \leq  n \land  \underbrace {x \geq  n}_{\neg  b}\}   
+        }
+      \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+      Using the assignment rule we then want to prove the antecident here, so 
+      
+  
+    
+    <fr:resource hash="20c749146276ffdfaf2c600a94744eee"><fr:resource-content><html:img src="/notes/20c749146276ffdfaf2c600a94744eee.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+        \inferrule {}{
+          \{Q[x := x + 1]\}\ x := x + 1\ \{Q\}
+        }
+      \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+      instantiating this with or postcondition <fr:tex display="inline"><![CDATA[Q]]></fr:tex> we have
+      
+  
+    
+    <fr:resource hash="cd3e0abe522f0573ab42337bb4c40675"><fr:resource-content><html:img src="/notes/cd3e0abe522f0573ab42337bb4c40675.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+        \inferrule {}{
+          \{(x \leq  n)[x \mapsto  x + 1]\}\ s\ \{x \leq  n\}
+        }
+      \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+      in other words our precondition becomes
+      <fr:tex display="block"><![CDATA[
+        (x + 1) \leq  n
+      ]]></fr:tex>
+      Therefore the use the assignment rule we want we have to demonstrate
+      <fr:tex display="block"><![CDATA[
+        (x \leq  n \land  x < n \to  (x + 1) \leq  n)
+      ]]></fr:tex>
+      since we have that 
+      <fr:tex display="block"><![CDATA[
+        x \leq  n \land  x < n \equiv  x < n \to  (x + 1) \leq  n
+      ]]></fr:tex>
+      we clearly have that 
+      
+  
+    
+    <fr:resource hash="dae60e421b8d868a6a576b45d0b301fb"><fr:resource-content><html:img src="/notes/dae60e421b8d868a6a576b45d0b301fb.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+        \inferrule *[right=Pre-Strength]{
+          \vdash  \{x + 1 \leq  n\}\ s\ \{x \leq  n\} \\ \vDash  (x \leq  n \land  x < n) \to  (x + 1) \leq  n 
+        }{
+          \vdash  \{x \leq  n \land  x < n\}\ x := x + 1\ \{x \leq  n\}
+        }
+      \end {mathpar}]]></fr:resource-source></fr:resource></html:li> 
+    <html:li>
+      Yes, let's again instantiate our rule
+      
+  
+    
+    <fr:resource hash="fe8fe062c22fd123b9f0913392bb48d3"><fr:resource-content><html:img src="/notes/fe8fe062c22fd123b9f0913392bb48d3.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+        \inferrule {
+          \{\top  \land  x < n\}\ x := x + 1\ \{\top \}
+        }{
+          \{\top \}\ W\ \{\top  \land  x \geq  n \}
+        }
+      \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+      since our postcondition for the assignmnet is a tautology, i.e. always valid, it will hold under substitution thus making the assignment trivially valid hence working as a correct loop invariant.
+    </html:li>
+    <html:li>
+      Something we could observe in question (1) is that 
+      
+  
+    
+    <fr:resource hash="2dddb0d9a84bb5a9fac365035a048797"><fr:resource-content><html:img src="/notes/2dddb0d9a84bb5a9fac365035a048797.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+        \inferrule {
+          \{x \leq  n\}\ W\ \{\overbrace {x \leq  n \land  x \geq  n}^{x = n}\} \\ \vDash  (x = n) \to  x \geq  n 
+        }{
+          \{x \leq  n\}\ W\ \{x \geq  n\}
+        }
+      \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+      so this is a bit of a trick question in that with question 1 we are actually just using a postcondition weaking <html:em>on this postcondition</html:em>, hence this is naturally a valid postcondition.
+    </html:li></html:ol>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>7</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004f/</fr:uri>
+                    <fr:display-uri>004f</fr:display-uri>
+                    <fr:route>/notes/004f/</fr:route>
+                    <fr:title text="Invariant">Invariant</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>
+  In the most straightforward sense we say that an invariant is simply:
+</html:p>
+                    <html:blockquote>
+  A property that holds at all reachable states of the program
+</html:blockquote>
+                    <html:p>
+  Formally we can say if <fr:tex display="inline"><![CDATA[P]]></fr:tex> denotes our property and <fr:tex display="inline"><![CDATA[\mathcal  R]]></fr:tex> denotes our set of reachable states then we can say that <fr:tex display="inline"><![CDATA[P]]></fr:tex> is an invariant if:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \forall  \sigma , \sigma  \in  \mathcal  R \to  P(\sigma )
+]]></fr:tex>
+                    <html:p>
+  An important thing to note here is that an invariant by itself does not need to be checkable or syntactic in any sense, there are <html:strong>no requirements</html:strong> that <fr:tex display="inline"><![CDATA[P]]></fr:tex> must imply after each step. The distinction here is important because we can have something be an invariant though be insufficient as a proof rule.
+</html:p>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>6</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004e/</fr:uri>
+                    <fr:display-uri>004e</fr:display-uri>
+                    <fr:route>/notes/004e/</fr:route>
+                    <fr:title text="Inductive Invariant">Inductive Invariant</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  An inductive invariant is a regular invariant, which is to say that it:
+</html:p><html:blockquote>
+  is a property which holds at all reachable states of the program
+</html:blockquote><html:p>
+  But it has the additional constraint that it must be <fr:link href="/notes/002e/" title="Closed set" uri="https://kaierikniermann.github.io/notes/002e/" display-uri="002e" type="local">closed</fr:link> under the transition relation. In other words if it holds before a step, it must also hold after the step. Formally we say that a property <fr:tex display="inline"><![CDATA[P]]></fr:tex> represents an <html:strong>inductive invariant</html:strong> if:
+</html:p><html:ul><html:li>
+    As a <html:em>base case</html:em> it holds at program initialization
+    <fr:tex display="block"><![CDATA[
+      \texttt {init} \to  P
+    ]]></fr:tex></html:li>
+  <html:li>
+    In the <html:em>inductive step</html:em> we have
+    <fr:tex display="block"><![CDATA[
+      P(\sigma ) \land  (S, \sigma ) \to  \sigma ' \to  P(\sigma ')
+    ]]></fr:tex>
+    in plain English: If the property holds on the state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> and after the <html:em>small step evaluation</html:em> <fr:tex display="inline"><![CDATA[S]]></fr:tex> we land in a new state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> then the property also holds in the new state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex>. 
+  </html:li></html:ul><html:p>
+  If both of the conditions hold then we we automatically have that:
+</html:p><fr:tex display="block"><![CDATA[
+  \sigma  \in  \mathcal  R.\ P(\sigma )
+]]></fr:tex><html:p>
+  Which is to say that these conditions imply an inductive invariant is also an invariant. The prime example where we can see this is in the case of the while loop for hoare logic:
+</html:p>
+  
+    
+    <fr:resource hash="ce0d0a8b1cdc6f924015d66fdf7cfd17"><fr:resource-content><html:img src="/notes/ce0d0a8b1cdc6f924015d66fdf7cfd17.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule *[right=While]{
+    \vdash  \{I \land  b\}\ s\ \{I\}
+  }{
+    \vdash  \{I\}\ \texttt {while}\ b\ \texttt {do}\ s\ \{I \land  \neg  b\}
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+  Here the invariant is represented by the assertion <fr:tex display="inline"><![CDATA[I]]></fr:tex> on the memory state. What this rule says is that:
+</html:p><html:ul><html:li>
+    If the assertion <fr:tex display="inline"><![CDATA[I]]></fr:tex> and the loop guard <fr:tex display="inline"><![CDATA[b]]></fr:tex> hold, and upon termination of <fr:tex display="inline"><![CDATA[s]]></fr:tex> we have that <fr:tex display="inline"><![CDATA[I]]></fr:tex> holds.
+  </html:li>
+  <html:li>
+    Then we can lift the invariant out of the loop and say that it must hold for all loop iterations and upon termination of the loop we clearly have that our loop guard must be false and our invariant should still hold.
+  </html:li></html:ul><html:p>
+  This corresponds precisely to the notion of an <html:em>inductive</html:em> invariant as if we can demonstrate it holding for the execution and termination of a single statement - the base case - then we can derive the inductive case where it holds for all iterations.
+</html:p></fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>7</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004g/</fr:uri>
+                    <fr:display-uri>004g</fr:display-uri>
+                    <fr:route>/notes/004g/</fr:route>
+                    <fr:title text="Finding inductive invariants">Finding inductive invariants</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  Consider the following statement <fr:tex display="inline"><![CDATA[W]]></fr:tex>:
+</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+  while x &lt; n do
+    x := y;
+    y := x + 1 
+</html:code></html:pre><html:p>
+  Say that we wanted to prove the following Hoare triple:
+</html:p><fr:tex display="block"><![CDATA[
+  \{x = 0 \land  y = 1\}\ W\ \{x \geq  0\}
+]]></fr:tex><html:p>
+  What is an inductive invariant <fr:tex display="inline"><![CDATA[I]]></fr:tex> which allows us to prove the triple?
+</html:p>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>7</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:p>
+    For reference lets pull up the while rule again:
+  </html:p>
+  
+  
+    
+    <fr:resource hash="510feb572ccb159e80172c821612b9ea"><fr:resource-content><html:img src="/notes/510feb572ccb159e80172c821612b9ea.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=While]{
+      \vdash  \{I \land  b\}\ s\ \{I\}
+    }{
+      \vdash  \{I\}\ \texttt {while}\ b\ \texttt {do}\ s\ \{I \land  \neg  b\}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+  <html:p>
+    One not entirely unreasonable albiet simple choice is to try out the post condition <fr:tex display="inline"><![CDATA[x \geq  0]]></fr:tex>, its not too uncommon that a valid postcondition - or more often a variant of it - are in fact valid loop invariants. Testing this out it means we would have to prove the body:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    \vdash  \{x \geq  0 \land  x < n\}\ x := y; y := x + 1\ \{x \geq  0\}
+  ]]></fr:tex>
+  <html:p>
+    To see if this is inductive we can try and find a counterexample to demonstrate its not, and indeed we can see that <fr:tex display="inline"><![CDATA[\sigma  = \{y \mapsto  -1000, x \mapsto  1, n \mapsto  2 \}]]></fr:tex> would mean that <fr:tex display="inline"><![CDATA[P(\sigma )]]></fr:tex> would hold, and we could indeed step to a state <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> though clearly we have that:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    \sigma ' \ \mathrlap {\,/}{\vDash }\ (x \geq  0)[x \mapsto  -1000]
+  ]]></fr:tex>
+  <html:p>
+    Since we can see here that the unconstrained <fr:tex display="inline"><![CDATA[y]]></fr:tex> is causing is issues lets go with:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    I \triangleq  x \geq  0 \land  y = x + 1
+  ]]></fr:tex>
+  <html:p>
+    Since this ensures that <fr:tex display="inline"><![CDATA[y]]></fr:tex> is correctly related to <fr:tex display="inline"><![CDATA[x]]></fr:tex> it means that we indeed have that
+    <fr:tex display="block"><![CDATA[
+      \sigma  \vDash  I (x := y; y := x + 1, \sigma ) \to  \sigma ' \to  \sigma ' \vDash  I
+    ]]></fr:tex>
+    as desired
+  </html:p>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>6</fr:day>
+                </fr:date>
+                <fr:title text="Arrays &amp; Invariants">Arrays &amp; Invariants</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>2</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/003l/</fr:uri>
+                    <fr:display-uri>003l</fr:display-uri>
+                    <fr:route>/notes/003l/</fr:route>
+                    <fr:title text="Theory of Arrays">Theory of Arrays</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>
+  The theory of arrays is a first-order theory that models arrays as functions from indices to values. Its signature includes:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \Sigma _A \triangleq  \{- [ - ], \langle  - \triangleleft  - \rangle , =\}
+]]></fr:tex>
+                    <html:p>
+  where:
+</html:p>
+                    <html:ul><html:li><fr:tex display="inline"><![CDATA[-[ - ]]]></fr:tex>: read operation, which takes an array and an index and returns the value at that index.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\langle  - \triangleleft  - \rangle ]]></fr:tex>: write operation, which takes an array, an index, and a
+    value, and returns a new array with the value at the specified index updated.
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[=]]></fr:tex>: equality relation, which checks if two arrays are identical.
+  </html:li></html:ul>
+                    <html:p>
+  The axioms of the theory of arrays are:
+</html:p>
+                    <fr:resource hash="8ff9653ef4ba489edcda34b8856e7a7b">
+                      <fr:resource-content>
+                        <html:img src="/notes/8ff9653ef4ba489edcda34b8856e7a7b.svg" />
+                      </fr:resource-content>
+                      <fr:resource-source type="latex" part="preamble"><![CDATA[
+  \usepackage {eulervm}
+  \usepackage {amsmath}
+]]></fr:resource-source>
+                      <fr:resource-source type="latex" part="body"><![CDATA[
+    \begin{align*}
+    \forall a, i, v.\; [a \langle i \triangleleft v \rangle][i] &= v \quad \tag{Read-Over-Write 1} \\
+    \forall a, i, j, v.\; i \neq j \implies [a \langle i \triangleleft v \rangle][j] &= a[j] \quad \tag{Read-Over-Write 2} \\
+    \forall a, b.\; (\forall i.\; a[i] = b[i]) &\implies a = b \quad \tag{Extensionality}
+  \end{align*}
+]]></fr:resource-source>
+                    </fr:resource>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>7</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004i/</fr:uri>
+                    <fr:display-uri>004i</fr:display-uri>
+                    <fr:route>/notes/004i/</fr:route>
+                    <fr:title text="A hypothetical array inference rule">A hypothetical array inference rule</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  Say we want to add arrays to our programming language, and we come up with the following inference rule to reason about assignments:
+</html:p>
+  
+    
+    <fr:resource hash="ac752829cdc3421250a0155d7991fa94"><fr:resource-content><html:img src="/notes/ac752829cdc3421250a0155d7991fa94.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule {}{
+    \vdash  \{Q[a[e_1] \mapsto  e_2]\}\ a[e_1] := e_2\ \{Q\}
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+  Is this rule correct?
+</html:p>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>7</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:p>
+    There are a few ways we can answer this, starting in with the most pedantic let's construct the proof tree and then see if we can come up with a counter example, we consider the following hoare triple:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    \{i = 1\}\ a[i] := 3; a[1] := 2\ \{a[i] = 3\}
+  ]]></fr:tex>
+  <html:p>
+    By the sequence and precondition strengthening rule we have that
+  </html:p>
+  
+  
+    
+    <fr:resource hash="40b0fd9b78430a73fece6d0c9349d8be"><fr:resource-content><html:img src="/notes/40b0fd9b78430a73fece6d0c9349d8be.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule {
+      \vdash  \{i = 1 \to  3 = 3\}\ a[i] := 3\ \{a[i] = 3\} \\ 
+      \vdash  \{a[i] = 3\}\ a[1] = 2\ \{a[i] = 3\}
+    }{
+      \vdash  \{i = 1\}\ a[i] := 3; a[1] := 2\ \{a[i] = 3\}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+  <html:p>
+    Of note here we are deriving <fr:tex display="inline"><![CDATA[i = 1]]></fr:tex> through the following implications:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    Q[a[i] \mapsto  3] \equiv  (a[i] = 3)[a[i] \mapsto  3] \equiv  (3 = 3) \equiv  \top 
+  ]]></fr:tex>
+  <html:p>
+    Where we know that <fr:tex display="inline"><![CDATA[i = 1 \to  \top ]]></fr:tex> so we can use precondition strengthening to use <fr:tex display="inline"><![CDATA[i = 1]]></fr:tex> as our precondition since it implies something we've already syntactically demonstrated to be provable.
+  </html:p>
+  <html:p>
+    Clearly we have that the first assignment in the sequence holds by the naive assignment, same for the second assignment <fr:tex display="inline"><![CDATA[a[1] = 2]]></fr:tex> since it precondition reduces to the tautology <fr:tex display="inline"><![CDATA[\top ]]></fr:tex>, so the final rule is then derivable. But we can obviously see that it erroneously assumes that <fr:tex display="inline"><![CDATA[i]]></fr:tex> represents some kind of distinct index but, we can see that in the second assignment its aliased by the constant index <fr:tex display="inline"><![CDATA[1]]></fr:tex> which means that while we can derive the rule it is <html:em>not semantically valid</html:em> hence unsound.
+  </html:p>
+  <html:p>
+    To compare this with the correct rule we have that:
+  </html:p>
+  
+  
+    
+    <fr:resource hash="395f1fa21ead978e4709be636110ea8e"><fr:resource-content><html:img src="/notes/395f1fa21ead978e4709be636110ea8e.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule {
+    }{
+      \vdash  \{Q[a \mapsto  a \langle  e_1 \lhd  e_2 \rangle ]\}\ a[e_1] := e_2\ \{Q\}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+  <html:p>
+    Now again let's try to derive the hoare triple we want to prove correct:
+  </html:p>
+  
+  
+    
+    <fr:resource hash="389e6242b715dad6f6b3a142c523e5d5"><fr:resource-content><html:img src="/notes/389e6242b715dad6f6b3a142c523e5d5.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule {
+      \vdash  \{i = 1\}\ a[i] := 3\ \{R\} \\
+      \vdash  \{R\}\ a[1] := 3\ \{a[i] := 3\}
+    }{
+      \vdash  \{i = 1\}\ a[i] := 3; a[1] := 2\ \{a[i] = 3\}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+  <html:p>
+    To derive we want to find some assertion <fr:tex display="inline"><![CDATA[R]]></fr:tex>, applying the correct assignment rule to the second assignment we define <fr:tex display="inline"><![CDATA[R]]></fr:tex> as.
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    R \equiv  (a[i] := 3)[a \mapsto  a \langle  1 \lhd  2 \rangle ]
+  ]]></fr:tex>
+  <html:p>
+    we can think of this as defining the function:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    a'(j) = \begin {cases}
+      2 & \texttt {if}\ j = 1 \\
+      a(j) & \text {otherwise}
+    \end {cases}
+  ]]></fr:tex>
+  <html:p>
+    we can then do a case split on the equality <fr:tex display="inline"><![CDATA[i = 1]]></fr:tex> using our defined function
+  </html:p>
+  <html:ol><html:li>
+      If <fr:tex display="inline"><![CDATA[i = 1]]></fr:tex> then we have
+      <fr:tex display="block"><![CDATA[
+        a'[i] = a[1] = 2 \to  a'[i] = 3 \equiv  2 = 3 \equiv  \bot 
+      ]]></fr:tex></html:li>
+    <html:li>
+      If <fr:tex display="inline"><![CDATA[i \ \mathrlap {\,/}{=}\ 1]]></fr:tex> we have
+      <fr:tex display="block"><![CDATA[
+        a'[i] = a[i] \to  a'[i] = 3 \equiv  a[i] = 3
+      ]]></fr:tex></html:li></html:ol>
+  <html:p>
+    Since it clearly must be the case that <fr:tex display="inline"><![CDATA[i \ \mathrlap {\,/}{=}\ 1]]></fr:tex> it implies that our assertion <fr:tex display="inline"><![CDATA[R]]></fr:tex> is equivalent to:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    R \equiv  (i \ \mathrlap {\,/}{=}\ 1\land  a[i] = 3)
+  ]]></fr:tex>
+  <html:p>
+    Now testing this rule on the first hoare triple:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    \{i = 1\}\ a[i] := 3\ \{i \ \mathrlap {\,/}{=}\ 1\land  a[i] = 3\}
+  ]]></fr:tex>
+  <html:p>
+    By the assignment rule we must somehow be able to derive <fr:tex display="inline"><![CDATA[i = 1]]></fr:tex> from the following:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    R[a \mapsto  a \langle  i \lhd  3 \rangle ]
+  ]]></fr:tex>
+  <html:p>
+    substituting in our <fr:tex display="inline"><![CDATA[R]]></fr:tex> we get
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    (i \ \mathrlap {\,/}{=}\ 1\land  a[i] = 3)[a \mapsto  a \langle  i \lhd  3 \rangle ]
+  ]]></fr:tex>
+  <html:p>
+    after a reduction we have
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    (i \ \mathrlap {\,/}{=}\ 1 \land  \underbrace {(a \langle  i \lhd  3 \rangle [i] = 3)}_{\top })
+  ]]></fr:tex>
+  <html:p>
+    simplifying this we get
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    (i \ \mathrlap {\,/}{=}\  1)
+  ]]></fr:tex>
+  <html:p>
+    Which is where the crux of our issue lies, the precondition of our Hoare triple was <fr:tex display="inline"><![CDATA[i = 1]]></fr:tex>, but clearly here to derive our sequence of assignments we must have that i is not 1, hence this hoare triple is not derivable as its also clearly not valid.
+  </html:p>
+  <html:p>
+    A simpler approach at establishing the same idea is by just directly working backwards
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    \begin {align}
+    a \langle  1 \lhd  2 \rangle [i] & = 3 \\
+    a \langle  i \lhd  3 \rangle  \langle  1 \lhd  2 \rangle [i] & = 3
+    \end {align}
+  ]]></fr:tex>
+  <html:p>
+    so first we substitute <fr:tex display="inline"><![CDATA[a]]></fr:tex> for the assignment <fr:tex display="inline"><![CDATA[a[1] := 2]]></fr:tex>, then we update it for the assignment <fr:tex display="inline"><![CDATA[a[i] := 3]]></fr:tex>, then our precondition would imply that:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    i = 1 \to  a \langle  i \lhd  3 \rangle  \langle  1 \lhd  2 \rangle [i] = 3
+  ]]></fr:tex>
+  <html:p>
+    We indeed cannot derive the triple with the precondition, as it should be trivially apparent that if <fr:tex display="inline"><![CDATA[i = 1]]></fr:tex> after overwriting with <fr:tex display="inline"><![CDATA[a[1] = 2]]></fr:tex> we clearly cannot have <fr:tex display="inline"><![CDATA[a[1] = 3]]></fr:tex>.
+  </html:p>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>2</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/003m/</fr:uri>
+                    <fr:display-uri>003m</fr:display-uri>
+                    <fr:route>/notes/003m/</fr:route>
+                    <fr:title text="Theory of arrays T_A">Theory of arrays <fr:tex display="inline"><![CDATA[T_A]]></fr:tex></fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  Which of the following formula is valid/satisfiable/unsatisfiable ?
+</html:p><html:ol><html:li><fr:tex display="inline"><![CDATA[a[3] = 2]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[a \langle  3 \triangleleft  5 \rangle [3] = 5]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[a \langle  3 \triangleleft  5 \rangle [3] = 3]]></fr:tex></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[a[3] = 2\land  a \langle  3 \triangleleft  5 \rangle [3] = 5]]></fr:tex></html:li></html:ol>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>2</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>
+      This formula is <html:strong>satisfiable</html:strong>. For example, if we have an array <fr:tex display="inline"><![CDATA[a]]></fr:tex> such that <fr:tex display="inline"><![CDATA[a[3] = 2]]></fr:tex>, then the formula holds true.
+    </html:li>
+    <html:li>
+      This formula is <html:strong>valid</html:strong>. According to the Read-Over-Write axiom, when we write a value to an index in an array and then read from that same index, we get the value we just wrote. So regardless of the initial contents of array <fr:tex display="inline"><![CDATA[a]]></fr:tex>, after performing the write operation <fr:tex display="inline"><![CDATA[a \langle  3 \triangleleft  5 \rangle ]]></fr:tex>, reading from index <fr:tex display="inline"><![CDATA[3]]></fr:tex> will always yield <fr:tex display="inline"><![CDATA[5]]></fr:tex> hence making it always true (valid).
+    </html:li>
+    <html:li>
+      This formula is <html:strong>unsatisfiable</html:strong>. According to the Read-Over-Write axiom, when we write a value to an index in an array and then read from that same index, we get the value we just wrote. Therefore, after performing the write operation <fr:tex display="inline"><![CDATA[a \langle  3 \triangleleft  5 \rangle ]]></fr:tex>, reading from index <fr:tex display="inline"><![CDATA[3]]></fr:tex> will always yield <fr:tex display="inline"><![CDATA[5]]></fr:tex>, making it impossible for it to equal <fr:tex display="inline"><![CDATA[3]]></fr:tex>.
+    </html:li>
+    <html:li>
+      This formula is <html:strong>satisfiable</html:strong>. For example, if we have an array <fr:tex display="inline"><![CDATA[a]]></fr:tex> such that <fr:tex display="inline"><![CDATA[a[3] = 2]]></fr:tex>, then after performing the write operation <fr:tex display="inline"><![CDATA[a \langle  3 \triangleleft  5 \rangle ]]></fr:tex>, reading from index <fr:tex display="inline"><![CDATA[3]]></fr:tex> will yield <fr:tex display="inline"><![CDATA[5]]></fr:tex>. Thus, both parts of the conjunction can be true simultaneously though are not valid in all interpretations.
+    </html:li></html:ol>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>10</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004j/</fr:uri>
+                    <fr:display-uri>004j</fr:display-uri>
+                    <fr:route>/notes/004j/</fr:route>
+                    <fr:title text="Finding inductive invariants - arrays">Finding inductive invariants - arrays</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  Consider the following while loop <fr:tex display="inline"><![CDATA[W]]></fr:tex>:
+</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+  while i &lt; n do
+    a[i] := 0;
+    i    := i + 1
+</html:code></html:pre><html:p>
+  Consider the following pre-and-post condition:
+</html:p><fr:tex display="block"><![CDATA[
+  \{i = 0 \land  n > 0\}\ W\ \{\forall  j.\ 0 \leq  j < n \to  a[j] = 0\}
+]]></fr:tex><html:p>
+  What is an inductive invariant that shows correctness?
+</html:p>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>10</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:p>
+    This is almost a sort of canonical example where the index replacement trick works really nicely. On a high level our postcondition asserts something about the array over the first <fr:tex display="inline"><![CDATA[n]]></fr:tex> indices, hence if we want to have an invariant which shows correctness, we can simply reframe our postcondition as an assertion up to the <fr:tex display="inline"><![CDATA[i]]></fr:tex>th position / iteration, in other words we simply replace <fr:tex display="inline"><![CDATA[n]]></fr:tex> with <fr:tex display="inline"><![CDATA[i]]></fr:tex>:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    \forall  j.\ 0 \leq  j < i \to  a[j] = 0
+  ]]></fr:tex>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>6</fr:day>
+                </fr:date>
+                <fr:title text="Soundness &amp; Completeness">Soundness &amp; Completeness</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>5</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/0041/</fr:uri>
+                    <fr:display-uri>0041</fr:display-uri>
+                    <fr:route>/notes/0041/</fr:route>
+                    <fr:title text="Soundness &amp; Completeness - Hoare triples">Soundness &amp; Completeness - Hoare triples</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>
+  In a very general sense if we have a logical or formal system a core idea is that we only want to prove things that are actually true, and conversely if we find something that is true we would want to be able to prove it. This leads to two important properties of formal systems:
+</html:p>
+                    <html:ul><html:li><html:strong>Soundness</html:strong> is the property that everything provable within the system is in fact true, within the context of hoare logic it means that all hoare triples which we can syntactically derive using our inference rules are by implication valid (i.e. true in all interpretations), formally:
+    <fr:tex display="block"><![CDATA[
+      \vdash  \{P\}\ s\ \{Q\} \to \ \vDash  \{P\}\ s\ \{Q\}
+    ]]></fr:tex></html:li>
+  <html:li><html:strong>Completeness</html:strong> is the property that everything that is true can be proven within the system, in the context of hoare logic it means that all valid hoare triples can be syntactically derived using our inference rules, formally:
+    <fr:tex display="block"><![CDATA[
+      \vDash  \{P\}\ s\ \{Q\} \to \ \vdash  \{P\}\ s\ \{Q\}
+    ]]></fr:tex></html:li></html:ul>
+                  </fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>6</fr:day>
+                </fr:date>
+                <fr:title text="Weakest precondition">Weakest precondition</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>10</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004k/</fr:uri>
+                    <fr:display-uri>004k</fr:display-uri>
+                    <fr:route>/notes/004k/</fr:route>
+                    <fr:title text="Working backwards - weakest precondition">Working backwards - weakest precondition</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>
+  I'll split this explanation into 3 parts, first the basic intuition, then the pen-and-paper reasoning, and finally a more granular explanation.
+</html:p>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>10</fr:day>
+                        </fr:date>
+                        <fr:title text="The idea">The idea</fr:title>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+                        <html:p>
+    Say we want to verify a hoare triple <fr:tex display="inline"><![CDATA[\{P\}\ s\ \{Q\}]]></fr:tex>, the <html:em>weakest precondition</html:em> approach is that we:
+  </html:p>
+                        <html:ol><html:li>
+      Start with our postcondition <fr:tex display="inline"><![CDATA[Q]]></fr:tex> and, going backwards, we compute a formula <fr:tex display="inline"><![CDATA[\texttt {wp}(s, Q)]]></fr:tex> called the <html:em>weakest precondition</html:em> of <fr:tex display="inline"><![CDATA[Q]]></fr:tex> w.r.t the statement <fr:tex display="inline"><![CDATA[s]]></fr:tex>.
+    </html:li>
+    <html:li><fr:tex display="inline"><![CDATA[\texttt {wp}(s, Q)]]></fr:tex> has the property that it's the weakest condition which <html:strong>guarantees that</html:strong> <fr:tex display="inline"><![CDATA[Q]]></fr:tex> will hold after the termination of <fr:tex display="inline"><![CDATA[s]]></fr:tex>.
+    </html:li></html:ol>
+                        <html:p>
+    Therefore we can say that the triple is valid:
+  </html:p>
+                        <fr:tex display="block"><![CDATA[
+    \vDash  \{P\}\ s\ \{Q\} \iff  P \to  \texttt {wp}(s, Q)
+  ]]></fr:tex>
+                      </fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>10</fr:day>
+                        </fr:date>
+                        <fr:title text="The basic rules">The basic rules</fr:title>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+                        <html:p>
+    The basic rules can be recursively defined as follows:
+  </html:p>
+                        <html:ul><html:li>
+      For <html:strong>assignments</html:strong>:
+      <fr:tex display="block"><![CDATA[
+        \texttt {wp}(x := e, Q) \triangleq  Q[x \mapsto  e]
+      ]]></fr:tex></html:li>
+    <html:li>
+      For <html:strong>composition</html:strong>
+      <fr:tex display="block"><![CDATA[
+        \texttt {wp}(s_1; s_2, Q) \triangleq  \texttt {wp}(s_1, \texttt {wp}(s_2, Q))
+      ]]></fr:tex></html:li>
+    <html:li>
+      For <html:strong>conditionals</html:strong>
+      <fr:tex display="block"><![CDATA[
+        \texttt {wp}(\texttt {if}\ b\ \texttt {then}\ s_1\ \texttt {else}\ s_2, Q) \triangleq  (b \to  \texttt {wp}(s_1, Q)) \land  (\neg  b \to  \texttt {wp}(s_2, Q))
+      ]]></fr:tex></html:li></html:ul>
+                      </fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>10</fr:day>
+                        </fr:date>
+                        <fr:title text="The more detailed reasoning">The more detailed reasoning</fr:title>
+                      </fr:frontmatter>
+                      <fr:mainmatter><html:p>
+    As a reminder, a Hoare triple:
+  </html:p><fr:tex display="block"><![CDATA[
+    \{P\}\ s\ \{Q\}
+  ]]></fr:tex><html:p>
+    Is simply a kind of syntax sugar for the logical formula:
+  </html:p><fr:tex display="block"><![CDATA[
+    \forall  \sigma , \sigma '.\ P(\sigma ) \to  (s, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma )
+  ]]></fr:tex><html:p>
+    So for all source and target states, if we terminate on <fr:tex display="inline"><![CDATA[s]]></fr:tex> then <fr:tex display="inline"><![CDATA[Q]]></fr:tex> holds. Additionally, for different kinds of expressions we also have our constructions rules to ensure soundness, take for example assignment, our rule to only derive valid Hoare triples was:
+  </html:p>
+  
+    
+    <fr:resource hash="1f706d41965394f91a10df6073b856ca"><fr:resource-content><html:img src="/notes/1f706d41965394f91a10df6073b856ca.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule {}{
+      \vdash  \{Q[x \mapsto  e]\}\ x := e\ \{Q\}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    If we assume <fr:tex display="inline"><![CDATA[e]]></fr:tex> to be some variable expression in a context <fr:tex display="inline"><![CDATA[\sigma  : \texttt {Vars} \to  \mathbb {Z}]]></fr:tex> which has to evaluate to a number before assignment then we can write the above rule more pedantically as:
+  </html:p><fr:tex display="block"><![CDATA[
+    \forall  \sigma , \sigma '.\ (\forall  n : \mathbb {Z}.\ (e, \sigma ) \Downarrow  n \to  Q[x \mapsto  n]) \to  (x := e, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ')
+  ]]></fr:tex><html:p>
+    The idea of backwards reasoning here is as follows:
+  </html:p><html:ol><html:li>
+      First we look at the big step evaluation <fr:tex display="inline"><![CDATA[(x := e, \sigma ) \Downarrow  \sigma ']]></fr:tex>, we know that if this assignment succeeded, it implies there must have been a successful evaluation of the <fr:tex display="inline"><![CDATA[e]]></fr:tex> term, we know this because the only way to have derived this step is by the following inference rule:
+      
+  
+    
+    <fr:resource hash="6c10f3f9ee55204e9496b67ae3f5df55"><fr:resource-content><html:img src="/notes/6c10f3f9ee55204e9496b67ae3f5df55.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+        \inferrule {
+          \vdash  \forall  n.\ \langle  e, \sigma  \rangle  \Downarrow  n
+        }{
+          \vdash  \langle  x := e, \sigma  \rangle  \Downarrow  \sigma [x \mapsto  n]
+        }
+      \end {mathpar}]]></fr:resource-source></fr:resource></html:li>
+    <html:li>
+      Using what we've learned from (1) we apply the notion of inversion, i.e. if we know a conclusion to be true, we can assert the premises of that conclusion must have also been true, this in a sense gives us the premises to use as new judgements.
+    </html:li>
+    <html:li>
+      Now looking at the expression
+      <fr:tex display="block"><![CDATA[
+        \forall  n : \mathbb {Z},.\ (e, \sigma ) \Downarrow  n \to  Q[x \mapsto  n]
+      ]]></fr:tex>
+      we can clearly derive the precondition <fr:tex display="inline"><![CDATA[Q[x \mapsto  n]]]></fr:tex> since we know the antecedent <fr:tex display="inline"><![CDATA[\forall  n.\ (e, \sigma ) \Downarrow  n]]></fr:tex> is true, as it must have been true to derive the big step evaluation.
+    </html:li>
+    <html:li>
+      Since we have now demonstrated we can indeed provide sufficient reasoning to arrive at our conclusion <fr:tex display="inline"><![CDATA[Q(\sigma ')]]></fr:tex> this finishes the proof.
+    </html:li></html:ol><html:p>
+    The shorthand of the <html:em>weakest precondition</html:em> is nothing more than an expression of precisely this idea in a more concise fashion. Take for example <fr:tex display="inline"><![CDATA[\texttt {if conditions}]]></fr:tex>.
+  </html:p><html:ol><html:li>
+      We again start from our post-condition then proceed with a case split or more accurately an inversion on the evaluation rule.
+    </html:li>
+    <html:li>
+      The inversion naturally gives us two branches, the true and false branch. This represents the conjunction here, then with each conjunct the antecedent of the implication is represented by the true or false guard condition <fr:tex display="inline"><![CDATA[b]]></fr:tex>, the consequent in this instance is simply a recursive call on the <fr:tex display="inline"><![CDATA[\texttt {then}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {else}]]></fr:tex> branch bodies.
+    </html:li></html:ol><html:p>
+    The main thing I'm trying to drive home here is that the weakest precondition idea is fundamentally just based on the concept of:
+  </html:p><html:ol><html:li>
+      Seeing how a term must have been derived
+    </html:li>
+    <html:li>
+      Recursively going up the chain of any other sub-terms
+    </html:li></html:ol><html:p>
+    So in a straightforward way, it's nothing more than chaining together all the individual proof rules for the various hoare triples. To show an example in lean using a some nice macros to create a simple syntax:
+  </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+    example (n : Num) : 
+    {{ ⟦ "x" ↦ n ⟧ }} 
+      tm{ x := x + 1 } 
+    {{ ⟦ "x" ↦ n + 1 ⟧ }} := by
+    apply Hoare.assign'
+    intro σ m hpre heval
+    cases heval with
+    | sum he1 he2 =&gt;
+      cases he1; cases he2
+      simp [hpre]
+  </html:code></html:pre><html:p>The hoare triple we are proving here corresponds to this in the normal syntax:</html:p><fr:tex display="block"><![CDATA[
+    \{x \mapsto  n \}\ x := x + 1\ \{x \mapsto  n + 1\}
+  ]]></fr:tex><html:p>
+    We can see here to "prove" this hoare triple was valid we started by doing our standard case split on the assign - that's the <fr:tex display="inline"><![CDATA[\texttt {apply Hoare.assign'}]]></fr:tex> - statement, then we were inside the addition, here we did a case split which gave us the lhs and rhs we were adding, after doing a case split on those two sides we could finally just simplify (and finalize) our proof using the fact that in <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> <fr:tex display="inline"><![CDATA[x]]></fr:tex> evaluates to <fr:tex display="inline"><![CDATA[n]]></fr:tex>.
+  </html:p></fr:mainmatter>
+                    </fr:tree>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>10</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004m/</fr:uri>
+                    <fr:display-uri>004m</fr:display-uri>
+                    <fr:route>/notes/004m/</fr:route>
+                    <fr:title text="Weakest precondition - while loop"><fr:link href="/notes/004k/" title="Working backwards - weakest precondition" uri="https://kaierikniermann.github.io/notes/004k/" display-uri="004k" type="local">Weakest precondition</fr:link> - while loop</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  In an abstract sense the weakest precondition for while loops is no different from that for most other syntactic constructs, to reason backward we apply inversion to the statement we are considering; in this case the while loop; and then simply recurse on the sub-terms. Though the while loop differentiates itself through the notion of invariants.
+</html:p><html:p>
+  Before we define how to compute the weakest precondition let's define the hoare rule again:
+</html:p>
+  
+    
+    <fr:resource hash="4f95541c155792a37a075207cfb1dad0"><fr:resource-content><html:img src="/notes/4f95541c155792a37a075207cfb1dad0.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule {
+    \vdash  \{I \land  b\}\ s\ \{I\}
+  }{
+    \vdash  \{I\}\ \texttt {while}\ b\ \texttt {do}\ s\ \{I \land  \neg  b\}
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+  The central thing to observe here is the invariant hypothesis which acts as the premise for the while loop formation, if we write expand it out a bit we get:
+</html:p><fr:tex display="block"><![CDATA[
+  \{I(\sigma ) \land  b \Downarrow ^t \sigma \}\ s\ \{I\}
+]]></fr:tex><html:p>
+  So the idea, to reiterate again, is that if our invariant holds in the state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> and our loop condition evaluates to <fr:tex display="inline"><![CDATA[\texttt {true}]]></fr:tex>, then upon termination of <fr:tex display="inline"><![CDATA[s]]></fr:tex> i.e. the loop body we have that the invariant <fr:tex display="inline"><![CDATA[I]]></fr:tex> still holds.
+</html:p><html:ol><html:li>
+    In the false case our proof becomes trivial through inversion we know there is some terminating state <fr:tex display="inline"><![CDATA[\sigma _t]]></fr:tex> and we know the loop condition must have evaluated to false, hence we can immediately provide the conditions to fulfill the postcondition and thus create our valid hoare triple.
+  </html:li>
+  <html:li>
+    The true case is a bit more complex, first let's look at the evaluation semantics for it
+    
+  
+    
+    <fr:resource hash="0b6c171b9d9141496d070da4344f4b9f"><fr:resource-content><html:img src="/notes/0b6c171b9d9141496d070da4344f4b9f.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+      \inferrule *[right=S-WhileTrue]{
+        \langle  b, \sigma _1 \rangle  \Downarrow  \texttt {true} \\
+        \langle  s, \sigma _1 \rangle  \Downarrow  \sigma _2\\
+        \langle  \texttt {while } b \texttt { do } s, \sigma _2\rangle  \Downarrow  \sigma _3
+      }{
+        \langle  \texttt {while } b \texttt { do } s, \sigma _1 \rangle  \Downarrow  \sigma _3
+      }
+    \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+    We can see the final state is <fr:tex display="inline"><![CDATA[\sigma _3]]></fr:tex> this means that the post-condition we want to prove for the true state is 
+    <fr:tex display="block"><![CDATA[
+      I(\sigma _3) \land  b \Downarrow  ^f \sigma _3
+    ]]></fr:tex>
+    The main thing we leverage here is the invariant hypothesis, rewriting it as a function we have 
+    <fr:tex display="block"><![CDATA[
+      \lambda  (\sigma , \sigma ').\ \lambda ( I(\sigma ) \land  b \Downarrow ^f \sigma ).\ \lambda  ((c, \sigma ) \Downarrow  \sigma ').\ I(\sigma ')
+    ]]></fr:tex>
+    in addition to 
+    <fr:tex display="block"><![CDATA[
+      \lambda \sigma .\ \lambda  I(\sigma ).\ \lambda  (\langle  W, \sigma  \rangle  = \langle  W, \sigma _2 \rangle ).\ I(\sigma _3) \land  b \Downarrow ^f \sigma _3
+    ]]></fr:tex>
+    The idea is then that we use inversion to give us the evaluated terms, we plug those terms into the invariant hypothesis to get <fr:tex display="inline"><![CDATA[I(\sigma _2)]]></fr:tex>, then using <fr:tex display="inline"><![CDATA[\sigma _2]]></fr:tex>, <fr:tex display="inline"><![CDATA[I(\sigma _2)]]></fr:tex>, and reflexivity (since <fr:tex display="inline"><![CDATA[\langle  W, \sigma _2\rangle  \equiv  \langle  W, \sigma _2 \rangle ]]></fr:tex>) we have created the proof that the invariant holds for the final memory state and the loop guard indeed evaluates to false.
+  </html:li></html:ol></fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>10</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004l/</fr:uri>
+                    <fr:display-uri>004l</fr:display-uri>
+                    <fr:route>/notes/004l/</fr:route>
+                    <fr:title text="Computing weakest preconditions">Computing weakest preconditions</fr:title>
+                    <fr:taxon>Quiz</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  Consider the following statement:
+</html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+  x := y + 1;
+  if x &gt; 0 then
+    z := 1
+  else
+    z := -1
+</html:code></html:pre><html:p>
+  Answer the following questions:
+</html:p><html:ol><html:li>
+    What is <fr:tex display="inline"><![CDATA[\texttt {wp}(s, z > 0)]]></fr:tex></html:li>
+  <html:li>
+    What is <fr:tex display="inline"><![CDATA[\texttt {wp}(s, z \leq  0)]]></fr:tex></html:li>
+  <html:li>
+    Can we prove <fr:tex display="inline"><![CDATA[\{-1 \leq  y\}\ s\ \{z > 0\}]]></fr:tex></html:li>
+  <html:li>
+    What about <fr:tex display="inline"><![CDATA[\{y > -1\}\ s\ \{z > 0\}]]></fr:tex></html:li></html:ol>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>10</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>
+      In an abstract sense the statement is a sequence of an assignment and an if statement, starting with the if statement we get:
+      <fr:tex display="block"><![CDATA[
+        (x > 0) \to  \texttt {wp}(z := 1, Q) \land  (x \leq  0) \to  \texttt {wp}(z := -1, Q)
+      ]]></fr:tex>
+      Both of the assignments resolve to substitutions of 1 and -1, so we get 
+      <fr:tex display="block"><![CDATA[
+        (x > 0) \to  (z > 0)[z \mapsto  1] \land  (x \leq  0) \to  (z > 0)[z \mapsto  -1]
+      ]]></fr:tex>
+      With sequences we know it's a nested pattern, i.e. <fr:tex display="inline"><![CDATA[\texttt {wp}(s_1, \texttt {wp}(s_2, Q))]]></fr:tex>, the second argument we already have, we know that <fr:tex display="inline"><![CDATA[s_1]]></fr:tex> here is just the assignment, so again we apply the subtitution 
+      <fr:tex display="block"><![CDATA[
+        ((x > 0) \to  Q[z \mapsto  1] \land  (x \leq  0) \to  Q[z \mapsto  -1])[x \mapsto  (y + 1)]
+      ]]></fr:tex>
+      which reduces to 
+      <fr:tex display="block"><![CDATA[
+        \begin {align}
+          ((y + 1 > 0) \to  (1 > 0) &\land  (y + 1 \leq  0) \to  (-1 > 0)) \\
+          ((y + 1 > 0) \to  \top  &\land  (y + 1 \leq  0) \to  \bot ) \\
+          ((y + 1 > 0) \to  \top  &\land  \neg (y + 1 \leq  0)) \\
+          ((y + 1 > 0) \to  \top  &\land  (y + 1 > 0)) \\
+          ((y + 1 > 0) \to  \top )& \\
+          (y + 1 > 0)& \\
+        \end {align}
+      ]]></fr:tex></html:li>
+    <html:li>
+      To skip ahead a slight bit, so we have 
+      <fr:tex display="block"><![CDATA[
+        (x > 0) \to  (z \leq  0)[z \mapsto  1] \land  (x \leq  0) \to  (z \leq  0)[z \mapsto  -1]
+      ]]></fr:tex>
+      then substituting for the intial assignment of <fr:tex display="inline"><![CDATA[x]]></fr:tex>
+      <fr:tex display="block"><![CDATA[
+        (y + 1 > 0) \to  (1 \leq  0) \land  (y + 1 \leq  0) \to  (-1 \leq  0)
+      ]]></fr:tex>
+      Here we just end up in the reverse case, i.e. 
+      <fr:tex display="block"><![CDATA[
+        (y + 1 > 0) \to  (\bot ) \land  (y + 1 \leq  0) \to  \top 
+      ]]></fr:tex>
+      reduces now to 
+      <fr:tex display="block"><![CDATA[
+        (y + 1 \leq  0)
+      ]]></fr:tex></html:li>
+    <html:li>
+      The high level idea here is that we computed the weakest precondition for <fr:tex display="inline"><![CDATA[z > 0]]></fr:tex> already, it was 
+      <fr:tex display="block"><![CDATA[
+        (y + 1 > 0)
+      ]]></fr:tex>
+      since it's the weakest we can only admit other preconditions if they imply the weakest one, so if we then look at the implication 
+      <fr:tex display="block"><![CDATA[
+        -1 > y \to  (y + 1 > 0)
+      ]]></fr:tex>
+      we can trivially see that this implication does not hold, i.e. we cannot apply precondition strengthening here hence the rule does not allow us to prove the hoare triple.
+    </html:li>
+    <html:li>Same reasoning as above, but now it works since 
+      <fr:tex display="block"><![CDATA[
+        y > -1 \to  y + 1 > 0
+      ]]></fr:tex>
+      indeed makes sense
+    </html:li></html:ol>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>11</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/004n/</fr:uri>
+                    <fr:display-uri>004n</fr:display-uri>
+                    <fr:route>/notes/004n/</fr:route>
+                    <fr:title text="Verification conditions in while loops">Verification conditions in while loops</fr:title>
+                    <fr:taxon>Example</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <html:p>
+  Let's consider the following while loop:
+</html:p>
+                    <html:pre class="code-block language-lean">
+                      <html:code class="language-lean">
+  @pre x &lt;= 0
+  while [x &lt;= 6] (x &lt;= 5) do
+    x := x + 1
+  @post x = 6
+</html:code>
+                    </html:pre>
+                    <html:p>
+  if we denote the loop and its body as <fr:tex display="inline"><![CDATA[W]]></fr:tex>, then it corresponds to the following hoare triple:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \{x \leq  0\}\ W\ \{x = 6\}
+]]></fr:tex>
+                    <html:p>
+  With the addition of the invariant <fr:tex display="inline"><![CDATA[I \triangleq  x \leq  6]]></fr:tex>, now the verification condition for the loop is expressed as:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \begin {align}
+    \texttt {vc}(W [I], x = 6) &= \forall  \sigma .\ I(\sigma ) \land  (b \Downarrow ^t \sigma ) \to  \texttt {wp}(W [I], s, I(\sigma )) \\
+    &\land  \forall  \sigma .\ I(\sigma ) \land  (b \Downarrow ^f \sigma ) \to  Q(\sigma ) \\
+    &\land  \texttt {vc}(s, I)
+  \end {align}
+]]></fr:tex>
+                    <html:p>
+  starting with the first conjunct with have:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \forall  \sigma , x \leq  6 \to  (x \leq  5 \Downarrow ^t \sigma ) \to  \texttt {wp}(x := x + 1, (x \leq  6))
+]]></fr:tex>
+                    <html:p>
+  After we unfold the <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex> our goal reduces to:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  x \mapsto  x + 1 \leq  6 \equiv  x \leq  5
+]]></fr:tex>
+                    <html:p>
+  And we clearly know this is true just by inversion of the evaluation of the loop guard. Moving on to the second conjunct:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \forall  \sigma .\ x \leq  6 \land  (x \leq  5 \Downarrow ^f \sigma ) \to  x = 6
+]]></fr:tex>
+                    <html:p>
+  This represents our termination condition, here we know by inversion of the loop guard again that the premise of our implication becomes:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  x \leq  6 \land  x > 5 \to  x = 6
+]]></fr:tex>
+                    <html:p>
+  Our final conjunct is the verification condition on the assignment, so:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  \texttt {vc}(x := x + 1, x \leq  6)
+]]></fr:tex>
+                    <html:p>
+  Unfolding the call again we know this just resolves to <fr:tex display="inline"><![CDATA[\top ]]></fr:tex> as there are no verification conditions for assignment.
+</html:p>
+                    <html:p>
+  Finally we also have to demonstrate that:
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  (x \leq  0 \land  x = x_0) \to  \texttt {wp}(W [I], Q)
+]]></fr:tex>
+                    <html:p>
+  unfolding the <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex> again gives
+</html:p>
+                    <fr:tex display="block"><![CDATA[
+  (x \leq  0 \land  x = x_0) \to  x \leq  6
+]]></fr:tex>
+                    <html:p>
+  Clearly we can see this trivially holds, i.e. our precondition is stronger than the invariant, hence by precondition strengthening, it is valid.
+</html:p>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>11</fr:day>
+                        </fr:date>
+                        <fr:title text="How do we get there though?">How do we get there though?</fr:title>
+                      </fr:frontmatter>
+                      <fr:mainmatter><html:p>
+    I do think it's worth telling this as a bit of a story, we start with the fundamental theorem for while loops:
+  </html:p>
+  
+    
+    <fr:resource hash="f42c13c5bc0c06965aac3d8a53b4374b"><fr:resource-content><html:img src="/notes/f42c13c5bc0c06965aac3d8a53b4374b.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=HWhile]{
+      \forall  \sigma , \sigma '.\ I(\sigma ) \land  (b \Downarrow ^t \sigma ) \to  (s, \sigma ) \Downarrow  \sigma ' \to  P(\sigma )
+    }{
+      \forall  \sigma , \sigma '.\ I(\sigma ) \to  (\texttt {while}\ b\ \texttt {do}\ s, \sigma ) \Downarrow  \sigma ' \to  I(\sigma ) \land  (b \Downarrow ^f \sigma ) 
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    So this is just the expanded rule for constructing valid or sound while hoare triples, now this rule assumes that the invariant <fr:tex display="inline"><![CDATA[I]]></fr:tex> is the same as the precondition <fr:tex display="inline"><![CDATA[P]]></fr:tex> which is naturally not always the case, so it could be nice to have a rule which accounts for constructing valid while loops with invariants and custom preconditions. Same with custom post-conditions <fr:tex display="inline"><![CDATA[Q]]></fr:tex>.
+  </html:p>
+  
+    
+    <fr:resource hash="890b3d70f277eca374a0f7fd92162983"><fr:resource-content><html:img src="/notes/890b3d70f277eca374a0f7fd92162983.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \mprset {flushleft}
+    \inferrule *[right=HWhile2]{
+      (hS: \forall  \sigma , \sigma '.\ I(\sigma ) \land  (b \Downarrow ^t \sigma ) \to  (s, \sigma ) \Downarrow  \sigma ' \to  P(\sigma )) \\\\
+      (hP: \forall  \sigma , P(\sigma ) \to  I(\sigma )) \\\\
+      (hQ: \forall  I(\sigma ) \land  (b \Downarrow ^f \sigma ) \to  Q(\sigma ))
+    }{
+      \forall  \sigma , \sigma ' P(\sigma ) \to  (\texttt {while}\ b\ \texttt {do}\ s, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma )
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    If you want to be super pedantic you could show how this is just a combination of consequence + while rule. Anyway then, moving on we have the rule for <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex> soundness.
+  </html:p>
+  
+    
+    <fr:resource hash="dd3f1daef4c0a411a628116908358df1"><fr:resource-content><html:img src="/notes/dd3f1daef4c0a411a628116908358df1.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=WPSound]{
+      \texttt {vc}(s, Q)
+    }{
+      \forall  \sigma , \sigma '.\ \texttt {wp}(s, Q)(\sigma ) \to  (s, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ') 
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    Now depending on how you actually design your <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {vc}]]></fr:tex> code this rule can look slightly different, though I like this distinction, in this instance for the case of while loops <fr:tex display="inline"><![CDATA[\texttt {wp}(W[I], Q)]]></fr:tex> simply returns the invariant <fr:tex display="inline"><![CDATA[I]]></fr:tex>, this means that again if we want to have a custom precondition for <fr:tex display="inline"><![CDATA[W]]></fr:tex> we'd want to verify we would extend the rule as:
+  </html:p>
+  
+    
+    <fr:resource hash="c2a2b2d56a7d61b460256853aa1900ae"><fr:resource-content><html:img src="/notes/c2a2b2d56a7d61b460256853aa1900ae.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=VCSound]{
+      \texttt {vc}(s, Q) \\ \forall  \sigma , P(\sigma ) \to  \texttt {wp}(s, Q)(\sigma )
+    }{
+      \forall  \sigma , \sigma '.\ P(\sigma ) \to  (s, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ') 
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    Thus for while loops it would become:
+  </html:p>
+  
+    
+    <fr:resource hash="1cd9102e2156e0e7a536397c134c1441"><fr:resource-content><html:img src="/notes/1cd9102e2156e0e7a536397c134c1441.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule *[right=VCSound-While]{
+      \texttt {vc}(\texttt {while}\ b\ \texttt {do}\ s, Q) \\ \forall  P(\sigma ) \to  I(\sigma )
+    }{
+      \forall  \sigma , \sigma '.\ P(\sigma ) \to  (s, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ') 
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    Where the verification conditions would unfold to what we discussed before.
+  </html:p><html:p>
+    A nice point to make here is that all of these rules are essentially derived from one another, which is to say that:
+  </html:p>
+ 
+  
+  <html:figure><html:a href="
+    " target="_blank" class="quiver-link">
+    <fr:resource hash="be1b5988e0dbe18e4c588f358e8ce017"><fr:resource-content><html:img src="/notes/be1b5988e0dbe18e4c588f358e8ce017.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+   
+   % String-diagram specific extensions live here. Add diagram tweaks without
+ % re-running the full base preamble (to avoid duplicate definitions).
+
+   
+  
+   \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{amsmath, amsthm, amsfonts}
+  \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
+  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
+
+  % A TikZ style for curved arrows of a fixed height, due to AndréC.
+  \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+        .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+        and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+    \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+  quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+  % A TikZ style for shortening paths without the poor behaviour of `shorten <' and `shorten >'.
+  \tikzset{between/.style n args={2}{/tikz/spath/at end path construction={
+        \tikzset{spath/split at keep middle={current}{#1}{#2}}
+  }}}
+
+  % TikZ arrowhead/tail styles.
+  \tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+  \tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+  \tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+  % TikZ arrow styles.
+  \tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+
+
+  ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
+    \[\begin {tikzcd}
+      {\text {HWhile}} \\
+      {\text {HWhile2}} \\
+      {\text {WPSound-While}} \\
+      {\text {VCSound-While}}
+      \arrow ["{\text {uses}}", from=2-1, to=1-1]
+      \arrow ["{\text {uses}}", from=3-1, to=2-1]
+      \arrow ["{\text {uses}}", from=4-1, to=3-1]
+    \end {tikzcd}\]
+  ]]></fr:resource-source></fr:resource>
+   </html:a></html:figure>
+ 
+<html:p>
+    In a conceptual sense verification conditions i.e. what we need to prove to demonstrate a hoare triple is valid, are simply a convenience mechanism derived from the fundamental logic of how we construct a hoare triple.
+  </html:p></fr:mainmatter>
+                    </fr:tree>
+                  </fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

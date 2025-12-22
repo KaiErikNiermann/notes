@@ -1,0 +1,7 @@
+\date{2025-12-15}
+
+\import{base-macros}
+
+##{
+  \forall \sigma.\ (\cf{requires}(\sigma) \to \cf{wp}(s, \cf{ensures})(\sigma)) \land (\cf{requires}(\sigma) \to \cf{vc}(s, \cf{ensures})(\sigma))  
+}

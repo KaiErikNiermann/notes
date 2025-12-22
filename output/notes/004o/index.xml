@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>11</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/004o/</fr:uri>
+    <fr:display-uri>004o</fr:display-uri>
+    <fr:route>/notes/004o/</fr:route>
+  </fr:frontmatter>
+  <fr:mainmatter><html:p>
+  So again a hoare triple is just:
+</html:p><fr:tex display="block"><![CDATA[
+  \forall  \sigma , \sigma '.\ P(\sigma ) \to  (s, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma )
+]]></fr:tex><html:p>
+  and then we also have formation rules like for sequencing like:
+</html:p>
+  
+    
+    <fr:resource hash="63acf2899aa435ae88488e83cb8797f8"><fr:resource-content><html:img src="/notes/63acf2899aa435ae88488e83cb8797f8.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule {
+    \vdash  \{P\}\ s_1\ \{Q\} \\ 
+    \vdash  \{Q\}\ s_2\ \{R\}
+  }{
+    \vdash  \{P\}\ s_1; s_2\ \{R\}
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+  and we know that we have soundness when:
+</html:p><fr:tex display="block"><![CDATA[
+  \vdash  \{P\}\ s\ \{Q\} \to \ \vDash  \{P\}\ s\ \{Q\}
+]]></fr:tex><html:p>
+  but then as a proof rule what's actually going for sequence as an example is:
+</html:p>
+  
+    
+    <fr:resource hash="da4f3bb9316bcc9759a88f40180c89b4"><fr:resource-content><html:img src="/notes/da4f3bb9316bcc9759a88f40180c89b4.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule {
+    (h_1 : \{P\}\ s_1\ \{Q\}) \\
+    (h_2 : \{Q\}\ s_2\ \{R\})
+  }{
+    \{P\}\ s_1; s_2\ \{R\}
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+  But as a proof rule we actually need to provide a witness of that final hoare triple, in actuality that final hoare triple is the formula:
+</html:p><fr:tex display="block"><![CDATA[
+  \forall  \sigma , \sigma '.\ P(\sigma ) \to  (s_1; s_2, \sigma ) \Downarrow  \sigma ' \to  R(\sigma )
+]]></fr:tex><html:p>
+  but then the weakest precondition now is defined as:
+</html:p><fr:tex display="block"><![CDATA[
+  \texttt {wp}(s_1; s_2, Q) = \texttt {wp}(s_1, \texttt {wp}(s_2, Q))
+]]></fr:tex><html:p>
+  We also know that soundness here would mean:
+</html:p><fr:tex display="block"><![CDATA[
+  \forall  \sigma , \sigma '.\ \texttt {wp}(s_1; s_2, Q(\sigma )) \to  (s, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ')
+]]></fr:tex><html:p>
+  So thinking about this further let's expand our like classical inference rule:
+</html:p>
+  
+    
+    <fr:resource hash="3bf1266e1d49437b5f92b8013dcb3716"><fr:resource-content><html:img src="/notes/3bf1266e1d49437b5f92b8013dcb3716.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule {
+    (h_1 : \forall  \sigma , \sigma '.\ P(\sigma ) \to  (s_1, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ')) \\
+    (h_2 : \forall  \sigma , \sigma '.\ Q(\sigma ) \to  (s_2, \sigma ) \Downarrow  \sigma ' \to  R(\sigma '))
+  }{
+    \forall  \sigma , \sigma '.\ P(\sigma ) \to  (s_1; s_2, \sigma ) \Downarrow  \sigma ' \to  R(\sigma ')
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+  but the rule for the soundness of the weakest precondition would be:
+</html:p>
+  
+    
+    <fr:resource hash="2f8a2e75e0f45717925944a70fb2529c"><fr:resource-content><html:img src="/notes/2f8a2e75e0f45717925944a70fb2529c.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule {
+    (h_{\text {vc}} : \texttt {vc}(s_1; s_2, Q))
+  }{
+    \forall  \sigma , \sigma '.\ \texttt {wp}(s_1; s_2, Q(\sigma )) \to  (s, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ')
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+  We know here that the verification condition expands to:
+</html:p><fr:tex display="block"><![CDATA[
+  \texttt {vc}(s_1; s_2, Q) = \texttt {vc}(s_2, Q) \land  \texttt {vc}(s_1, \texttt {wp}(s_2, Q(\sigma )))
+]]></fr:tex><html:p>
+  so this transforms our rule to:
+</html:p>
+  
+    
+    <fr:resource hash="78435f57dfab702c771454ed606446dd"><fr:resource-content><html:img src="/notes/78435f57dfab702c771454ed606446dd.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule {
+    (h_{\text {vc}} : \texttt {vc}(s_2, Q) \land  \texttt {vc}(s_1, \texttt {wp}(s_2, Q(\sigma ))))
+  }{
+    \forall  \sigma , \sigma '.\ \texttt {wp}(s_1; s_2, Q(\sigma )) \to  (s, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ')
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+  But with the proof of soundness we also have the two induction hypothesis generated for each statement which forms the constructor of the sequence, so we have two hypotheses available to us:
+</html:p><fr:tex display="block"><![CDATA[
+  \begin {align}
+    ih_1 &: \forall  Q, \underbrace {\texttt {vc}(s_1, Q)}_{h_{\text {vc}}} \to  \forall  \sigma , \sigma '.\ \texttt {wp}(s_1, Q(\sigma )) \to  (s_1, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ') \\
+    ih_2 &: \forall  Q, \underbrace {\texttt {vc}(s_2, Q)}_{h_{\text {vc}}} \to  \forall  \sigma , \sigma '.\ \texttt {wp}(s_2, Q(\sigma )) \to  (s_2, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ')
+  \end {align}
+]]></fr:tex><html:p>
+  What we can see is that these two inductive hypothesis conceptually mirror the classical inference rule formed out of just expanding the literal Hoare triple syntax into its implication form.
+</html:p><html:p>
+  Also by the evaluation semantics we have:
+</html:p>
+  
+    
+    <fr:resource hash="fd9fd770fdd6c5656cfae12933ad8366"><fr:resource-content><html:img src="/notes/fd9fd770fdd6c5656cfae12933ad8366.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule {
+    \langle  s_1, \sigma  \rangle \Downarrow  \sigma ' \\
+    \langle  s_2, \sigma ' \rangle  \Downarrow \sigma ''
+  }{
+    \langle  s_1; s_2, \sigma  \rangle  \Downarrow  \sigma ''
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+  The main part of the proof here is that we instantiate the first induction hypothesis with the weakest precondition for the second statement, i.e.:
+</html:p><fr:tex display="block"><![CDATA[
+  ih_1(\texttt {wp}(s_2, Q))
+]]></fr:tex><html:p>
+  What this gives us is:
+</html:p><fr:tex display="block"><![CDATA[
+  \begin {align}
+    \texttt {vc}(s_1, \texttt {wp}(s_2, Q(\sigma )))
+    &\to  \forall  \sigma , \sigma '.\ \texttt {wp}(s_1, \texttt {wp}(s_2, Q(\sigma )))  \\
+    &\to  (s_1, \sigma ) \Downarrow  \sigma ' \\
+    &\to  \texttt {wp}(s_2, Q(\sigma '))
+  \end {align}
+]]></fr:tex><html:p>
+  So then if we instantiate the second induction hypothesis with <fr:tex display="inline"><![CDATA[Q]]></fr:tex> we can get:
+</html:p><fr:tex display="block"><![CDATA[
+  \begin {align}
+    \texttt {vc}(s_2, Q)
+    &\to  \forall  \sigma , \sigma '.\ \texttt {wp}(s_2, Q(\sigma )) \\
+    &\to  (s_2, \sigma ) \Downarrow  \sigma ' \\
+    &\to  Q(\sigma ')
+  \end {align}
+]]></fr:tex><html:p>
+  Here then we have:
+</html:p><html:ul><html:li>
+    The <html:em>verification condition</html:em> for the second statement given by just the proof statement.
+  </html:li>
+  <html:li>
+    The weakest precondition for <fr:tex display="inline"><![CDATA[\sigma ']]></fr:tex> of <fr:tex display="inline"><![CDATA[s_2]]></fr:tex> is given by instanting the statement with the <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex> we just construct directly.
+  </html:li>
+  <html:li>
+    Finally the evaluation is provided just by inversion on the inference rule that forms <fr:tex display="inline"><![CDATA[S]]></fr:tex></html:li></html:ul><html:p>
+  We can create a sort of diagrammatic overview of what this looks like:
+</html:p>
+ 
+  
+  <html:figure><html:a href="
+" target="_blank" class="quiver-link">
+    <fr:resource hash="33b4508e9c8f3a8d441d8804fbd9c8ba"><fr:resource-content><html:img src="/notes/33b4508e9c8f3a8d441d8804fbd9c8ba.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+   
+   % String-diagram specific extensions live here. Add diagram tweaks without
+ % re-running the full base preamble (to avoid duplicate definitions).
+
+   
+  
+   \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{amsmath, amsthm, amsfonts}
+  \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
+  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
+
+  % A TikZ style for curved arrows of a fixed height, due to AndréC.
+  \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+        .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+        and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+    \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+  quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+  % A TikZ style for shortening paths without the poor behaviour of `shorten <' and `shorten >'.
+  \tikzset{between/.style n args={2}{/tikz/spath/at end path construction={
+        \tikzset{spath/split at keep middle={current}{#1}{#2}}
+  }}}
+
+  % TikZ arrowhead/tail styles.
+  \tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+  \tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+  \tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+  % TikZ arrow styles.
+  \tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+
+
+  ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
+  \[\begin {tikzcd}
+  {ih_1} & {\texttt {wp}(s_2, Q(\sigma ))} \\
+  {\texttt {vc}(s_1, \texttt {wp}(s_2, Q(\sigma )))} & {hvc_1} \\
+  {\texttt {wp}(s_1, \texttt {wp}(s_2, Q(\sigma )))} & hwp \\
+  {(s_1, \sigma )\Downarrow  \sigma '} & {hinv_1} \\
+  { \texttt {wp}(s_2, Q(\sigma '))} & {ih_2} \\
+  & {\texttt {vc}(s_2, Q)} & {hvc_1} \\
+  & {\texttt {wp}(s_2, Q(\sigma '))} \\
+  & {(s_2, \sigma ')\Downarrow  \sigma ''} & {hinv_2} \\
+  & {Q(\sigma '')}
+	\arrow [Rightarrow, dashed, from=1-1, to=2-1]
+	\arrow [dashed, from=1-2, to=1-1]
+	\arrow [dotted, from=1-2, to=2-2]
+	\arrow [from=2-1, to=3-1]
+	\arrow [dashed, from=2-2, to=2-1]
+	\arrow [dotted, from=2-2, to=3-2]
+	\arrow [from=3-1, to=4-1]
+	\arrow [dashed, from=3-2, to=3-1]
+	\arrow [dotted, from=3-2, to=4-2]
+	\arrow [from=4-1, to=5-1]
+	\arrow [dashed, from=4-2, to=4-1]
+	\arrow [dotted, from=4-2, to=5-2]
+	\arrow [curve={height=18pt}, dashed, from=5-1, to=7-2]
+	\arrow [Rightarrow, dashed, from=5-2, to=6-2]
+	\arrow [curve={height=-12pt}, dotted, from=5-2, to=6-3]
+	\arrow [from=6-2, to=7-2]
+	\arrow [dashed, from=6-3, to=6-2]
+	\arrow [dotted, from=6-3, to=8-3]
+	\arrow [from=7-2, to=8-2]
+	\arrow [from=8-2, to=9-2]
+	\arrow [dashed, from=8-3, to=8-2]
+	\arrow [curve={height=-12pt}, dotted, from=8-3, to=9-2]
+\end {tikzcd}\]
+]]></fr:resource-source></fr:resource>
+   </html:a></html:figure>
+ 
+</fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

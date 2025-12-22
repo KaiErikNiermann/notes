@@ -4,11 +4,11 @@
 
 \taxon{Quiz}
 
-\title{Hoare logc - assignment proof rule}
+\title{Hoare logic - assignment proof rule}
 
 \ol{
   \li{
-    Consider the assignment #{x := y} and the postcondition #{x > 2}. Whatneeds to hold efore the assignment such that #{x > 2} holds afterwards?
+    Consider the assignment #{x := y} and the postcondition #{x > 2}. What needs to hold before the assignment such that #{x > 2} holds afterwards?
   }
   \li{
     Consider #{i := i + 1} and post-condition #{i > 10}. What do we need to know before the assignment such that i > 10 holds afterwards?

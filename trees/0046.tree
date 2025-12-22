@@ -7,7 +7,7 @@
 \title{A hypothetical proof rule}
 
 \p{
-  A friend suggests the following proof rule for assigments:
+  A friend suggests the following proof rule for assignments:
 }
 ##{
   \vdash \{(x = e) \to Q\}\ x := e\ \{Q\}
@@ -72,7 +72,7 @@
     \taxon{Proof}
 
     \p{
-      Let #{\sigma} be the intial state before the assignment #{x := e}. We must show that if #{\sigma \vDash (x = e) \to Q}, then, after executing #{x := e}, the resulting state #{\sigma'} satisfies #{\sigma' \vDash Q} (i.e. is valid for the assertions in the postcondition).
+      Let #{\sigma} be the initial state before the assignment #{x := e}. We must show that if #{\sigma \vDash (x = e) \to Q}, then, after executing #{x := e}, the resulting state #{\sigma'} satisfies #{\sigma' \vDash Q} (i.e. is valid for the assertions in the postcondition).
     }
     \ul{
       \li{
@@ -80,7 +80,7 @@
         ##{
           \sigma(x) = \sigma(e) \to \sigma \vDash  Q
         }
-        so if the variable #{x} in the intial state evaluates to the same thing as some expression #{e} then our post postcondition is valid for this state.
+        so if the variable #{x} in the initial state evaluates to the same thing as some expression #{e} then our post postcondition is valid for this state.
       }
       \li{
         After the assignment we have a new state #{\sigma'} defined as:
@@ -96,10 +96,10 @@
         Now we want to check if #{\sigma' \vDash Q} as desired, we proceed by a case analysis on the equality #{\sigma'(x) = \sigma(e)}
         \ul{
           \li{
-            \em{Case:} #{\sigma(e) = \sigma(x)}, then by the precondition we have #{\sigma \vDash Q}. Since #{\sigma'} only changes the value of #{x} to #{\sigma(e)}, and #{Q} is satisfied by the intial state #{\sigma} it follows that #{\sigma' \vDash Q}.
+            \em{Case:} #{\sigma(e) = \sigma(x)}, then by the precondition we have #{\sigma \vDash Q}. Since #{\sigma'} only changes the value of #{x} to #{\sigma(e)}, and #{Q} is satisfied by the initial state #{\sigma} it follows that #{\sigma' \vDash Q}.
           }
           \li{
-            \em{Case:} #{\sigma(e) \ \mathrlap{\,/}{=}\ \sigma(x)}, then our precondition becomes vacuously true as the anticident is false. However as the assignment does terminate we do need to ensure that #{Q} holds in the new state #{\sigma'}. However since #{Q} can be arbitrary we cannot guarantee that #{\sigma' \vDash Q}.
+            \em{Case:} #{\sigma(e) \ \mathrlap{\,/}{=}\ \sigma(x)}, then our precondition becomes vacuously true as the antecedent is false. However, as the assignment does terminate we do need to ensure that #{Q} holds in the new state #{\sigma'}. However, since #{Q} can be arbitrary we cannot guarantee that #{\sigma' \vDash Q}.
           }
         }
       }
@@ -127,6 +127,6 @@
     \vdash \{P[x \mapsto e]\}\ x := e\ \{P\}
   }
   \p{
-    we can notice here that by removing the consequent of the logical implication we ensure that if the assertion of x being subsituted / being equal to the expression e \em{before} the execution of the statment doesnt hold, then it correctly means that we indeed cannot suggest that after an assignment our assertion #{P} is somehow correect.
+    we can notice here that by removing the consequent of the logical implication we ensure that if the assertion of x being substituted / being equal to the expression e \em{before} the execution of the statement doesn't hold, then it correctly means that we indeed cannot suggest that after an assignment our assertion #{P} is somehow correct.
   }
 }

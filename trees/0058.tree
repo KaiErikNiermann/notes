@@ -1,0 +1,20 @@
+\date{2025-12-17}
+
+\import{base-macros}
+
+\taxon{Definition}
+
+\title{Universal closure w.r.t variables}
+
+\p{
+  If a formula #{C} has a set of free variables:
+}
+##{
+  \cf{FV}(C) = \{x_1, x_2, \ldots, x_n\}
+}
+\p{
+  Then we can denote the universal closure #{\forall^*} as representing the universal quantification over all those free variables, i.e. [(1)](hetzlkloibhofer2025):
+}
+##{
+  \forall^* C \equiv \forall x_1, x_2, \ldots, x_n.\ C
+}

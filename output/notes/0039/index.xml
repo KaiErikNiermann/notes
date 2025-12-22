@@ -207,6 +207,11 @@
                     <fr:tex display="block"><![CDATA[
   \forall  A \in  \mathcal  A_T.\ M \vDash  A
 ]]></fr:tex>
+                    <html:p>
+  where:
+</html:p>
+                    <html:ul><html:li><fr:tex display="inline"><![CDATA[U]]></fr:tex> is the universe or more commonly the <html:em>domain</html:em></html:li>
+  <html:li><fr:tex display="inline"><![CDATA[I]]></fr:tex> is the <html:em>interpretation</html:em> which assigns some meaning to our formula</html:li></html:ul>
                   </fr:mainmatter>
                 </fr:tree>
                 <fr:tree show-metadata="false">
@@ -857,12 +862,12 @@
                     <fr:uri>https://kaierikniermann.github.io/notes/003l/</fr:uri>
                     <fr:display-uri>003l</fr:display-uri>
                     <fr:route>/notes/003l/</fr:route>
-                    <fr:title text="Theory of Arrays T_{A}">Theory of Arrays <fr:tex display="inline"><![CDATA[T_{A}]]></fr:tex></fr:title>
+                    <fr:title text="Theory of Arrays">Theory of Arrays</fr:title>
                     <fr:taxon>Definition</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter>
                     <html:p>
-  The theory of arrays is a first-order theory that models arrays as functions from indices to values. It's signature includes:
+  The theory of arrays is a first-order theory that models arrays as functions from indices to values. Its signature includes:
 </html:p>
                     <fr:tex display="block"><![CDATA[
   \Sigma _A \triangleq  \{- [ - ], \langle  - \triangleleft  - \rangle , =\}

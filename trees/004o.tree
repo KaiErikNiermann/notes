@@ -1,0 +1,199 @@
+\date{2025-12-11}
+
+\import{base-macros}
+
+\p{
+  So again a hoare triple is just:
+}
+##{
+  \forall \sigma, \sigma'.\ P(\sigma) \to (s, \sigma) \Downarrow \sigma' \to Q(\sigma)
+}
+
+\p{
+  and then we also have formation rules like for sequencing like:
+}
+\infrule{
+  \inferrule{
+    \vdash \{P\}\ s_1\ \{Q\} \\ 
+    \vdash \{Q\}\ s_2\ \{R\}
+  }{
+    \vdash \{P\}\ s_1; s_2\ \{R\}
+  }
+}
+\p{
+  and we know that we have soundness when:
+}
+##{
+  \vdash \{P\}\ s\ \{Q\} \to\ \vDash \{P\}\ s\ \{Q\}
+}
+\p{
+  but then as a proof rule what's actually going for sequence as an example is:
+}
+\infrule{
+  \inferrule{
+    (h_1 : \{P\}\ s_1\ \{Q\}) \\
+    (h_2 : \{Q\}\ s_2\ \{R\})
+  }{
+    \{P\}\ s_1; s_2\ \{R\}
+  }
+}
+\p{
+  But as a proof rule we actually need to provide a witness of that final hoare triple, in actuality that final hoare triple is the formula:
+}
+##{
+  \forall \sigma, \sigma'.\ P(\sigma) \to (s_1; s_2, \sigma) \Downarrow \sigma' \to R(\sigma)
+}
+\p{
+  but then the weakest precondition now is defined as:
+}
+##{
+  \texttt{wp}(s_1; s_2, Q) = \texttt{wp}(s_1, \texttt{wp}(s_2, Q))
+}
+\p{
+  We also know that soundness here would mean:
+}
+##{
+  \forall \sigma, \sigma'.\ \texttt{wp}(s_1; s_2, Q(\sigma)) \to (s, \sigma) \Downarrow \sigma' \to Q(\sigma')
+}
+\p{
+  So thinking about this further let's expand our like classical inference rule:
+}
+\infrule{
+  \inferrule{
+    (h_1 : \forall \sigma, \sigma'.\ P(\sigma) \to (s_1, \sigma) \Downarrow \sigma' \to Q(\sigma')) \\
+    (h_2 : \forall \sigma, \sigma'.\ Q(\sigma) \to (s_2, \sigma) \Downarrow \sigma' \to R(\sigma'))
+  }{
+    \forall \sigma, \sigma'.\ P(\sigma) \to (s_1; s_2, \sigma) \Downarrow \sigma' \to R(\sigma')
+  }
+}
+\p{
+  but the rule for the soundness of the weakest precondition would be:
+}
+\infrule{
+  \inferrule{
+    (h_{\text{vc}} : \texttt{vc}(s_1; s_2, Q))
+  }{
+    \forall \sigma, \sigma'.\ \texttt{wp}(s_1; s_2, Q(\sigma)) \to (s, \sigma) \Downarrow \sigma' \to Q(\sigma')
+  }
+}
+\p{
+  We know here that the verification condition expands to:
+}
+##{
+  \texttt{vc}(s_1; s_2, Q) = \texttt{vc}(s_2, Q) \land \texttt{vc}(s_1, \texttt{wp}(s_2, Q(\sigma)))
+}
+\p{
+  so this transforms our rule to:
+}
+\infrule{
+  \inferrule{
+    (h_{\text{vc}} : \texttt{vc}(s_2, Q) \land \texttt{vc}(s_1, \texttt{wp}(s_2, Q(\sigma))))
+  }{
+    \forall \sigma, \sigma'.\ \texttt{wp}(s_1; s_2, Q(\sigma)) \to (s, \sigma) \Downarrow \sigma' \to Q(\sigma')
+  }
+}
+\p{
+  But with the proof of soundness we also have the two induction hypothesis generated for each statement which forms the constructor of the sequence, so we have two hypotheses available to us:
+}
+##{
+  \begin{align}
+    ih_1 &: \forall Q, \underbrace{\texttt{vc}(s_1, Q)}_{h_{\text{vc}}} \to \forall \sigma, \sigma'.\ \texttt{wp}(s_1, Q(\sigma)) \to (s_1, \sigma) \Downarrow \sigma' \to Q(\sigma') \\
+    ih_2 &: \forall Q, \underbrace{\texttt{vc}(s_2, Q)}_{h_{\text{vc}}} \to \forall \sigma, \sigma'.\ \texttt{wp}(s_2, Q(\sigma)) \to (s_2, \sigma) \Downarrow \sigma' \to Q(\sigma')
+  \end{align}
+}
+\p{
+  What we can see is that these two inductive hypothesis conceptually mirror the classical inference rule formed out of just expanding the literal Hoare triple syntax into its implication form.
+}
+\p{
+  Also by the evaluation semantics we have:
+}
+\infrule{
+  \inferrule{
+    \langle s_1, \sigma \rangle\Downarrow \sigma' \\
+    \langle s_2, \sigma' \rangle \Downarrow\sigma''
+  }{
+    \langle s_1; s_2, \sigma \rangle \Downarrow \sigma''
+  }
+}
+\p{
+  The main part of the proof here is that we instantiate the first induction hypothesis with the weakest precondition for the second statement, i.e.:
+}
+##{
+  ih_1(\texttt{wp}(s_2, Q))
+}
+\p{
+  What this gives us is:
+}
+##{
+  \begin{align}
+    \texttt{vc}(s_1, \texttt{wp}(s_2, Q(\sigma)))
+    &\to \forall \sigma, \sigma'.\ \texttt{wp}(s_1, \texttt{wp}(s_2, Q(\sigma)))  \\
+    &\to (s_1, \sigma) \Downarrow \sigma' \\
+    &\to \texttt{wp}(s_2, Q(\sigma'))
+  \end{align}
+}
+\p{
+  So then if we instantiate the second induction hypothesis with #{Q} we can get:
+}
+##{
+  \begin{align}
+    \texttt{vc}(s_2, Q)
+    &\to \forall \sigma, \sigma'.\ \texttt{wp}(s_2, Q(\sigma)) \\
+    &\to (s_2, \sigma) \Downarrow \sigma' \\
+    &\to Q(\sigma')
+  \end{align}
+}
+\p{
+  Here then we have:
+}
+\ul{
+  \li{
+    The \em{verification condition} for the second statement given by just the proof statement.
+  }
+  \li{
+    The weakest precondition for #{\sigma'} of #{s_2} is given by instanting the statement with the \cf{wp} we just construct directly.
+  }
+  \li{
+    Finally the evaluation is provided just by inversion on the inference rule that forms #{S}
+  }
+}
+\p{
+  We can create a sort of diagrammatic overview of what this looks like:
+}
+\ltexfig{
+% https://q.uiver.app/#q=WzAsMTYsWzAsMSwidmMoc18xLCB3cChzXzIsIFEoXFxzaWdtYSkpKSJdLFswLDIsIndwKHNfMSwgd3Aoc18yLCBRKFxcc2lnbWEpKSJdLFswLDMsIihzXzEsIFxcc2lnbWEpXFxEb3duYXJyb3cgXFxzaWdtYSciXSxbMCw0LCIgd3Aoc18yLCBRKFxcc2lnbWEnKSkiXSxbMSw1LCJ2YyhzXzIsIFEpIl0sWzEsNiwid3Aoc18yLCBRKFxcc2lnbWEnKSkiXSxbMSwzLCJoaW52XzEiXSxbMSw3LCIoc18yLCBcXHNpZ21hJylcXERvd25hcnJvdyBcXHNpZ21hJyciXSxbMCwwLCJpaF8xIl0sWzIsNywiaGludl8yIl0sWzEsOCwiUShcXHNpZ21hJycpIl0sWzEsNCwiaWhfMiJdLFsxLDEsImh2Y18xIl0sWzEsMiwiaHdwIl0sWzIsNSwiaHZjXzEiXSxbMSwwLCJ3cChzXzIsIFEoXFxzaWdtYSkpIl0sWzEsMl0sWzIsM10sWzQsNV0sWzYsMiwiIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzMsNSwiIiwxLHsiY3VydmUiOjMsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs1LDddLFs4LDAsIiIsMCx7ImxldmVsIjoyLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbOSw3LCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNywxMF0sWzExLDQsIiIsMSx7ImxldmVsIjoyLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMTIsMCwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEzLDEsIiIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxMiwxMywiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEzLDYsIiIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxNCw0LCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNiwxMSwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzExLDE0LCIiLDEseyJjdXJ2ZSI6LTIsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxNCw5LCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbOSwxMCwiIiwxLHsiY3VydmUiOi0yLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMTUsOCwiIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsMV0sWzE1LDEyLCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
+}{
+  \[\begin{tikzcd}
+  {ih_1} & {\texttt{wp}(s_2, Q(\sigma))} \\
+  {\texttt{vc}(s_1, \texttt{wp}(s_2, Q(\sigma)))} & {hvc_1} \\
+  {\texttt{wp}(s_1, \texttt{wp}(s_2, Q(\sigma)))} & hwp \\
+  {(s_1, \sigma)\Downarrow \sigma'} & {hinv_1} \\
+  { \texttt{wp}(s_2, Q(\sigma'))} & {ih_2} \\
+  & {\texttt{vc}(s_2, Q)} & {hvc_1} \\
+  & {\texttt{wp}(s_2, Q(\sigma'))} \\
+  & {(s_2, \sigma')\Downarrow \sigma''} & {hinv_2} \\
+  & {Q(\sigma'')}
+	\arrow[Rightarrow, dashed, from=1-1, to=2-1]
+	\arrow[dashed, from=1-2, to=1-1]
+	\arrow[dotted, from=1-2, to=2-2]
+	\arrow[from=2-1, to=3-1]
+	\arrow[dashed, from=2-2, to=2-1]
+	\arrow[dotted, from=2-2, to=3-2]
+	\arrow[from=3-1, to=4-1]
+	\arrow[dashed, from=3-2, to=3-1]
+	\arrow[dotted, from=3-2, to=4-2]
+	\arrow[from=4-1, to=5-1]
+	\arrow[dashed, from=4-2, to=4-1]
+	\arrow[dotted, from=4-2, to=5-2]
+	\arrow[curve={height=18pt}, dashed, from=5-1, to=7-2]
+	\arrow[Rightarrow, dashed, from=5-2, to=6-2]
+	\arrow[curve={height=-12pt}, dotted, from=5-2, to=6-3]
+	\arrow[from=6-2, to=7-2]
+	\arrow[dashed, from=6-3, to=6-2]
+	\arrow[dotted, from=6-3, to=8-3]
+	\arrow[from=7-2, to=8-2]
+	\arrow[from=8-2, to=9-2]
+	\arrow[dashed, from=8-3, to=8-2]
+	\arrow[curve={height=-12pt}, dotted, from=8-3, to=9-2]
+\end{tikzcd}\]
+}

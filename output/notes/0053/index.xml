@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>17</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/0053/</fr:uri>
+    <fr:display-uri>0053</fr:display-uri>
+    <fr:route>/notes/0053/</fr:route>
+    <fr:title text="Horn clause wp for conditionals">Horn clause wp for conditionals</fr:title>
+    <fr:taxon>Quiz</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter><html:p>
+  Let's consider the following statement: 
+</html:p><html:pre class="code-block language-python"><html:code class="language-python">
+  x := y + 1;
+  if x &gt; 0 then
+    z := 1
+  else
+    z := -1
+</html:code></html:pre><html:p>
+  Compute:
+</html:p><fr:tex display="block"><![CDATA[
+  \texttt {wp}(s, p(x, y, z))
+]]></fr:tex>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>17</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:p>
+    First it's probably smart to expand the <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex> a bit 
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    \texttt {wp}(s, p(x, y, z)) \equiv  \texttt {wp}(s_1, \texttt {wp}(s_2, p(x, y, z)))
+  ]]></fr:tex>
+  <html:p>
+    So let's first focus on computing the inner <fr:tex display="inline"><![CDATA[\texttt {wp}]]></fr:tex>, in our case that's the if statement which we've lablelled <fr:tex display="inline"><![CDATA[s_2]]></fr:tex></html:p>
+  <fr:tex display="block"><![CDATA[
+    \begin {align}
+      \texttt {wp}(s_2, p(x, y, z)) \equiv &  \\
+      q(x, y, z) \land  b \to  \texttt {wp}(s_{21}, p(x, y, z)) &\ \land  \\
+      q(x, y, z) \land  \neg  b \to  \texttt {wp}(s_{22}, p(x, y, z))
+    \end {align}
+  ]]></fr:tex>
+  <html:p>
+    we know either branch <fr:tex display="inline"><![CDATA[s_{21}, s_{22}]]></fr:tex> is just assignments thus it reduces to
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    q(x, y, z) \land  b \to  p(x, y, z = 1) \land  q(x, y, z) \land  \neg  b \to  p(x, y, z = -1)
+  ]]></fr:tex>
+  <html:p>
+    finally we consider <fr:tex display="inline"><![CDATA[s_1]]></fr:tex> which again is just assignment so we susbtitute all <fr:tex display="inline"><![CDATA[x]]></fr:tex> in the above expression for <fr:tex display="inline"><![CDATA[y + 1]]></fr:tex> giving us
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    \begin {align}
+      q(y + 1, y, z) \land  y + 1 > 0 \to  p(y + 1, y, z = 1) &\ \land  \\
+      q(y + 1, y, z) \land  y + 1 \leq  0 \to  p(y + 1, y, z = -1)
+    \end {align}
+  ]]></fr:tex>
+  <html:p>
+    We can simplify this to the form:
+  </html:p>
+  <fr:tex display="block"><![CDATA[
+    q(y + 1, y, z) \to  ((y + 1 > 0 \to  p(y + 1, y, 1)) \land  (y + 1 \leq  0 \to  p(y + 1, y, -1)))
+  ]]></fr:tex>
+
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

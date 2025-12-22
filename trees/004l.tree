@@ -1,0 +1,100 @@
+\date{2025-12-10}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Computing weakest preconditions}
+
+\p{
+  Consider the following statement:
+}
+\codeblock{lean}{
+  x := y + 1;
+  if x > 0 then
+    z := 1
+  else
+    z := -1
+}
+\p{
+  Answer the following questions:
+}
+\ol{
+  \li{
+    What is #{\texttt{wp}(s, z > 0)}
+  }
+  \li{
+    What is #{\texttt{wp}(s, z \leq 0)}
+  }
+  \li{
+    Can we prove #{\{-1 \leq y\}\ s\ \{z > 0\}}
+  }
+  \li{
+    What about #{\{y > -1\}\ s\ \{z > 0\}}
+  }
+}
+
+\solution{
+  \ol{
+    \li{
+      In an abstract sense the statement is a sequence of an assignment and an if statement, starting with the if statement we get:
+      ##{
+        (x > 0) \to \texttt{wp}(z := 1, Q) \land (x \leq 0) \to \texttt{wp}(z := -1, Q)
+      }
+      Both of the assignments resolve to substitutions of 1 and -1, so we get 
+      ##{
+        (x > 0) \to (z > 0)[z \mapsto 1] \land (x \leq 0) \to (z > 0)[z \mapsto -1]
+      }
+      With sequences we know it's a nested pattern, i.e. #{\texttt{wp}(s_1, \texttt{wp}(s_2, Q))}, the second argument we already have, we know that #{s_1} here is just the assignment, so again we apply the subtitution 
+      ##{
+        ((x > 0) \to Q[z \mapsto 1] \land (x \leq 0) \to Q[z \mapsto -1])[x \mapsto (y + 1)]
+      }
+      which reduces to 
+      ##{
+        \begin{align}
+          ((y + 1 > 0) \to (1 > 0) &\land (y + 1 \leq 0) \to (-1 > 0)) \\
+          ((y + 1 > 0) \to \top &\land (y + 1 \leq 0) \to \bot) \\
+          ((y + 1 > 0) \to \top &\land \neg(y + 1 \leq 0)) \\
+          ((y + 1 > 0) \to \top &\land (y + 1 > 0)) \\
+          ((y + 1 > 0) \to \top)& \\
+          (y + 1 > 0)& \\
+        \end{align}
+      }
+    }
+    \li{
+      To skip ahead a slight bit, so we have 
+      ##{
+        (x > 0) \to (z \leq 0)[z \mapsto 1] \land (x \leq 0) \to (z \leq 0)[z \mapsto -1]
+      }
+      then substituting for the intial assignment of #{x}
+      ##{
+        (y + 1 > 0) \to (1 \leq 0) \land (y + 1 \leq 0) \to (-1 \leq 0)
+      }
+      Here we just end up in the reverse case, i.e. 
+      ##{
+        (y + 1 > 0) \to (\bot) \land (y + 1 \leq 0) \to \top
+      }
+      reduces now to 
+      ##{
+        (y + 1 \leq 0)
+      }
+    }
+    \li{
+      The high level idea here is that we computed the weakest precondition for #{z > 0} already, it was 
+      ##{
+        (y + 1 > 0)
+      }
+      since it's the weakest we can only admit other preconditions if they imply the weakest one, so if we then look at the implication 
+      ##{
+        -1 > y \to (y + 1 > 0)
+      }
+      we can trivially see that this implication does not hold, i.e. we cannot apply precondition strengthening here hence the rule does not allow us to prove the hoare triple.
+    }
+    \li{Same reasoning as above, but now it works since 
+      ##{
+        y > -1 \to y + 1 > 0
+      }
+      indeed makes sense
+    }
+  }
+}

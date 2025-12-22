@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2025</fr:year>
+      <fr:month>12</fr:month>
+      <fr:day>17</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/0056/</fr:uri>
+    <fr:display-uri>0056</fr:display-uri>
+    <fr:route>/notes/0056/</fr:route>
+    <fr:title text="Weakest preconditions and Horn clauses"><fr:link href="/notes/004k/" title="Working backwards - weakest precondition" uri="https://kaierikniermann.github.io/notes/004k/" display-uri="004k" type="local">Weakest preconditions</fr:link> and <fr:link href="/notes/004v/" title="Horn clauses - Syntax" uri="https://kaierikniermann.github.io/notes/004v/" display-uri="004v" type="local">Horn clauses</fr:link></fr:title>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <fr:tree show-metadata="false">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:date>
+          <fr:year>2025</fr:year>
+          <fr:month>12</fr:month>
+          <fr:day>17</fr:day>
+        </fr:date>
+        <fr:title text="A motivating example">A motivating example</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter><html:p>
+    Let's consider the following Hoare triple:
+  </html:p><fr:tex display="block"><![CDATA[
+    \vdash  \{x > 0\}\ y := x;z := x + y\ \{z > 0\}
+  ]]></fr:tex><html:p>
+    In order to prove that the triple is valid we would apply the rule of composition (or sequencing)
+  </html:p>
+  
+    
+    <fr:resource hash="3f67366c4a3fd44306960755fd1ad232"><fr:resource-content><html:img src="/notes/3f67366c4a3fd44306960755fd1ad232.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule {
+      \vdash  \{P\}\ s_1\ \{R\} \\
+      \vdash  \{R\}\ s_2\ \{Q\}
+    }{
+      \vdash  \{P\}\ s_1; s_2\ \{Q\}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    We know intuitively that what this means is we have to find an assertion <fr:tex display="inline"><![CDATA[r]]></fr:tex> on the memory state such that 
+  </html:p><fr:tex display="block"><![CDATA[
+    \vdash  \{x > 0\}\ y := x\ \{r(x, y, z)\} \land  \vdash  \{r(x, y, z)\}\ z := x + y\ \{z > 0\}
+  ]]></fr:tex><html:p>
+    So the predicate / relation <fr:tex display="inline"><![CDATA[r]]></fr:tex> represents some assertion over the variables in our state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex>. The natural question then becomes what is this predicate? The natural approach that could be taken here is to use the weakest precondition approach.
+  </html:p><fr:tex display="block"><![CDATA[
+    \begin {align}
+      \texttt {wp}(y := x,\ \texttt {wp}(z := x + y,\ z > 0)) &\equiv  \\
+      \texttt {wp}(y := x,\ (z > 0)[z \mapsto  x + y]) &\equiv  \\
+      \texttt {wp}(y := x,\ x + y > 0)
+    \end {align}
+  ]]></fr:tex><html:p>
+    an equivalent way we can write this is 
+  </html:p><fr:tex display="block"><![CDATA[
+    \begin {align}
+      \forall  \sigma ,\sigma '.\ (x > 0 \land  y = x)(\sigma ) \to  (s_1, \sigma ) \Downarrow  \sigma ' &\to  q(x, y, z)(\sigma ') \\
+      \forall  \sigma ,\sigma '.\ (q(x, y, z) \land  z' = x + y) \to  (s_2, \sigma ) \Downarrow  \sigma ' &\to  (z' > 0)(\sigma )
+    \end {align}
+  ]]></fr:tex><html:p>
+    The important observation to make here is that if the Hoare triple is valid, we must have a solution for our relation <fr:tex display="inline"><![CDATA[q(x, y, z)]]></fr:tex>. Since our reasoning is furthermore predicated on the successful execution of the two statements, and we can implicitly assume we are reasoning over memory states let's simplify the above equations.
+  </html:p><fr:tex display="block"><![CDATA[
+    \begin {align}
+      (x > 0 \land  y = x) &\to  q(x, y, z) \\
+      (q(x, y, z) \land  z' = x + y) &\to  z' > 0
+    \end {align}
+  ]]></fr:tex><html:p>
+    Now let's see if we can verify our earlier solution <fr:tex display="inline"><![CDATA[q(x, y, z) \triangleq  x + y > 0]]></fr:tex></html:p><fr:tex display="block"><![CDATA[
+    \begin {align}
+      x > 0 \land  y = x &\to  x + y > 0 \\
+      x + y > 0 \land  z' = x + y &\to  z' > 0
+    \end {align}
+  ]]></fr:tex><html:p>
+    Clearly we can see both implications hold thus our earlier solution is indeed valid.
+  </html:p></fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:date>
+          <fr:year>2025</fr:year>
+          <fr:month>12</fr:month>
+          <fr:day>17</fr:day>
+        </fr:date>
+        <fr:title text="The rules">The rules</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <html:p>
+    We'll enumerate the rules as a list:
+  </html:p>
+        <html:ul><html:li>
+      For <html:em>assignment</html:em>:
+      <fr:tex display="block"><![CDATA[
+        \texttt {wp}(x := e, p(\overline  x)) \triangleq  p(\overline  x)[x \mapsto  e]
+      ]]></fr:tex></html:li>
+    <html:li>
+      For <html:em>sequential composition</html:em>:
+      <fr:tex display="block"><![CDATA[
+        \texttt {wp}(s_1;s_2, p(\overline  x)) \triangleq  \texttt {wp}(s_1, \texttt {wp}(s_2, p(\overline  x)))
+      ]]></fr:tex></html:li>
+    <html:li>
+      For <html:em>if statements</html:em>:
+      <fr:tex display="block"><![CDATA[
+        \texttt {wp}(\texttt {if}\ b\texttt {then}\ s_1\ \texttt {else}\ s_2, p(\overline  x)) \triangleq  q(\overline  x)
+      ]]></fr:tex>
+      with the constraints 
+      <fr:tex display="block"><![CDATA[
+        \begin {align}
+          q(\overline  x) \land  b &\to  \texttt {wp}(s_1, p(\overline  x)) \\ 
+          q(\overline  x) \land  \neg  b &\to  \texttt {wp}(s_2, p(\overline  x))
+        \end {align}
+      ]]></fr:tex></html:li>
+    <html:li>
+      For <html:em>while loops</html:em>: 
+      <fr:tex display="block"><![CDATA[
+        \texttt {wp}(\texttt {while}\ b\ \texttt {do}\ s, p(\overline  x)) \triangleq  q(\overline  x)
+      ]]></fr:tex>
+      with the constriants
+      <fr:tex display="block"><![CDATA[
+        \begin {align}
+          q(\overline  x) \land  b &\to  \texttt {wp}(s, q(\overline  x)) \\
+          q(\overline  x) \land  \neg  b &\to  p(\overline  x)
+        \end {align}
+      ]]></fr:tex></html:li></html:ul>
+      </fr:mainmatter>
+    </fr:tree>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>12</fr:month>
+              <fr:day>19</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/0059/</fr:uri>
+            <fr:display-uri>0059</fr:display-uri>
+            <fr:route>/notes/0059/</fr:route>
+            <fr:title text="Normalizing Horn clauses">Normalizing Horn clauses</fr:title>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <html:p>
+  Something of note when dealing with weakets preconditions <fr:link href="/notes/0056/" title="Weakest preconditions and Horn clauses" uri="https://kaierikniermann.github.io/notes/0056/" display-uri="0056" type="local">in terms of horn clauses</fr:link> is that we have to first normalize them to ensure they are in the correct horn format, which is to say we commonly have some horn clause in the form
+</html:p>
+            <fr:tex display="block"><![CDATA[
+  p(e_1, e_2) \land  \ldots  \land  \phi  \to  H(e_3) 
+]]></fr:tex>
+            <html:p>
+  where <fr:tex display="inline"><![CDATA[e_i]]></fr:tex> represents an expression, to normalize these clauses we lift the expressions out of the parameters for the predicates and into the list of conjuncts, i.e.:
+</html:p>
+            <fr:tex display="block"><![CDATA[
+  p(x_1, x_2) \land  x_1 = e_1 \land  x_2 = e_2 \land  x_3 = e_3 \land  \ldots  \land  \phi  \to  H(x_3)
+]]></fr:tex>
+            <html:p>
+  So we create fresh variables <fr:tex display="inline"><![CDATA[x_1, x_2, x_3]]></fr:tex> and assign these to the respective expressions then use them in place of the expressions themselves.
+</html:p>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>12</fr:month>
+              <fr:day>15</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/004v/</fr:uri>
+            <fr:display-uri>004v</fr:display-uri>
+            <fr:route>/notes/004v/</fr:route>
+            <fr:title text="Horn clauses - Syntax">Horn clauses - Syntax</fr:title>
+            <fr:taxon>Definition</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <html:p>
+  A Horn clause is a disjunctive clause (disjunction of literals) with at most one positive, i.e. unnegated literal. Often written in implication form as a conjunction of literals implying some literal called the head.
+</html:p>
+            <fr:tex display="block"><![CDATA[
+  \underbrace {\underbrace {p(x_1, x_2) \land  q(x_1, x_2, x_3) \land  \ldots }_\text {queries} \land  \underbrace {\phi }_\text {constraint}}_\text {body} \to  \underbrace {H}_\text {head}
+]]></fr:tex>
+            <html:p>
+  Here:
+</html:p>
+            <html:ol><html:li><html:em>queries</html:em> are <html:strong>relations</html:strong> over some vector of variables
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\phi ]]></fr:tex> represents a formula in a first-order theory which does not contain queries
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[H]]></fr:tex> is called the head and represents either a <html:em>query</html:em> in which case we also call the horn clause a <html:em>definite class</html:em> if it has the following shape
+    <fr:tex display="block"><![CDATA[
+      (p \land  q \land  \ldots  \land  \phi ) \to  H
+    ]]></fr:tex>
+    or a <html:em>fact</html:em> if it has the following shape
+    <fr:tex display="block"><![CDATA[
+      \top  \to  H
+    ]]></fr:tex>
+    <fr:tex display="inline"><![CDATA[H]]></fr:tex> can also be <fr:tex display="inline"><![CDATA[\bot ]]></fr:tex> in which case we refer to the horn clause as a <html:em>gloal clause</html:em> with the shape 
+    <fr:tex display="block"><![CDATA[
+      (p \land  q \land  \ldots  \land  \phi ) \to  \bot 
+    ]]></fr:tex>
+    with the idea being that as opposed to <html:em>assuming</html:em> the query holds we now <html:em>show</html:em> that it holds
+  </html:li></html:ol>
+            <html:p>
+  Free variables are implicitly universally quantified over, so a horn clause like
+</html:p>
+            <fr:tex display="block"><![CDATA[
+  \texttt {mortal}(X) \to  \texttt {human}(X)
+]]></fr:tex>
+            <html:p>
+  stands for
+</html:p>
+            <fr:tex display="block"><![CDATA[
+  \forall  X.\ \texttt {mortal}(X) \to  \texttt {human}(X)
+]]></fr:tex>
+          </fr:mainmatter>
+        </fr:tree>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>12</fr:month>
+              <fr:day>10</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/004k/</fr:uri>
+            <fr:display-uri>004k</fr:display-uri>
+            <fr:route>/notes/004k/</fr:route>
+            <fr:title text="Working backwards - weakest precondition">Working backwards - weakest precondition</fr:title>
+            <fr:taxon>Definition</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <html:p>
+  I'll split this explanation into 3 parts, first the basic intuition, then the pen-and-paper reasoning, and finally a more granular explanation.
+</html:p>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>10</fr:day>
+                </fr:date>
+                <fr:title text="The idea">The idea</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>
+    Say we want to verify a hoare triple <fr:tex display="inline"><![CDATA[\{P\}\ s\ \{Q\}]]></fr:tex>, the <html:em>weakest precondition</html:em> approach is that we:
+  </html:p>
+                <html:ol><html:li>
+      Start with our postcondition <fr:tex display="inline"><![CDATA[Q]]></fr:tex> and, going backwards, we compute a formula <fr:tex display="inline"><![CDATA[\texttt {wp}(s, Q)]]></fr:tex> called the <html:em>weakest precondition</html:em> of <fr:tex display="inline"><![CDATA[Q]]></fr:tex> w.r.t the statement <fr:tex display="inline"><![CDATA[s]]></fr:tex>.
+    </html:li>
+    <html:li><fr:tex display="inline"><![CDATA[\texttt {wp}(s, Q)]]></fr:tex> has the property that it's the weakest condition which <html:strong>guarantees that</html:strong> <fr:tex display="inline"><![CDATA[Q]]></fr:tex> will hold after the termination of <fr:tex display="inline"><![CDATA[s]]></fr:tex>.
+    </html:li></html:ol>
+                <html:p>
+    Therefore we can say that the triple is valid:
+  </html:p>
+                <fr:tex display="block"><![CDATA[
+    \vDash  \{P\}\ s\ \{Q\} \iff  P \to  \texttt {wp}(s, Q)
+  ]]></fr:tex>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>10</fr:day>
+                </fr:date>
+                <fr:title text="The basic rules">The basic rules</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>
+    The basic rules can be recursively defined as follows:
+  </html:p>
+                <html:ul><html:li>
+      For <html:strong>assignments</html:strong>:
+      <fr:tex display="block"><![CDATA[
+        \texttt {wp}(x := e, Q) \triangleq  Q[x \mapsto  e]
+      ]]></fr:tex></html:li>
+    <html:li>
+      For <html:strong>composition</html:strong>
+      <fr:tex display="block"><![CDATA[
+        \texttt {wp}(s_1; s_2, Q) \triangleq  \texttt {wp}(s_1, \texttt {wp}(s_2, Q))
+      ]]></fr:tex></html:li>
+    <html:li>
+      For <html:strong>conditionals</html:strong>
+      <fr:tex display="block"><![CDATA[
+        \texttt {wp}(\texttt {if}\ b\ \texttt {then}\ s_1\ \texttt {else}\ s_2, Q) \triangleq  (b \to  \texttt {wp}(s_1, Q)) \land  (\neg  b \to  \texttt {wp}(s_2, Q))
+      ]]></fr:tex></html:li></html:ul>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>10</fr:day>
+                </fr:date>
+                <fr:title text="The more detailed reasoning">The more detailed reasoning</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter><html:p>
+    As a reminder, a Hoare triple:
+  </html:p><fr:tex display="block"><![CDATA[
+    \{P\}\ s\ \{Q\}
+  ]]></fr:tex><html:p>
+    Is simply a kind of syntax sugar for the logical formula:
+  </html:p><fr:tex display="block"><![CDATA[
+    \forall  \sigma , \sigma '.\ P(\sigma ) \to  (s, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma )
+  ]]></fr:tex><html:p>
+    So for all source and target states, if we terminate on <fr:tex display="inline"><![CDATA[s]]></fr:tex> then <fr:tex display="inline"><![CDATA[Q]]></fr:tex> holds. Additionally, for different kinds of expressions we also have our constructions rules to ensure soundness, take for example assignment, our rule to only derive valid Hoare triples was:
+  </html:p>
+  
+    
+    <fr:resource hash="1f706d41965394f91a10df6073b856ca"><fr:resource-content><html:img src="/notes/1f706d41965394f91a10df6073b856ca.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+    \inferrule {}{
+      \vdash  \{Q[x \mapsto  e]\}\ x := e\ \{Q\}
+    }
+  \end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+    If we assume <fr:tex display="inline"><![CDATA[e]]></fr:tex> to be some variable expression in a context <fr:tex display="inline"><![CDATA[\sigma  : \texttt {Vars} \to  \mathbb {Z}]]></fr:tex> which has to evaluate to a number before assignment then we can write the above rule more pedantically as:
+  </html:p><fr:tex display="block"><![CDATA[
+    \forall  \sigma , \sigma '.\ (\forall  n : \mathbb {Z}.\ (e, \sigma ) \Downarrow  n \to  Q[x \mapsto  n]) \to  (x := e, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ')
+  ]]></fr:tex><html:p>
+    The idea of backwards reasoning here is as follows:
+  </html:p><html:ol><html:li>
+      First we look at the big step evaluation <fr:tex display="inline"><![CDATA[(x := e, \sigma ) \Downarrow  \sigma ']]></fr:tex>, we know that if this assignment succeeded, it implies there must have been a successful evaluation of the <fr:tex display="inline"><![CDATA[e]]></fr:tex> term, we know this because the only way to have derived this step is by the following inference rule:
+      
+  
+    
+    <fr:resource hash="6c10f3f9ee55204e9496b67ae3f5df55"><fr:resource-content><html:img src="/notes/6c10f3f9ee55204e9496b67ae3f5df55.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+        \inferrule {
+          \vdash  \forall  n.\ \langle  e, \sigma  \rangle  \Downarrow  n
+        }{
+          \vdash  \langle  x := e, \sigma  \rangle  \Downarrow  \sigma [x \mapsto  n]
+        }
+      \end {mathpar}]]></fr:resource-source></fr:resource></html:li>
+    <html:li>
+      Using what we've learned from (1) we apply the notion of inversion, i.e. if we know a conclusion to be true, we can assert the premises of that conclusion must have also been true, this in a sense gives us the premises to use as new judgements.
+    </html:li>
+    <html:li>
+      Now looking at the expression
+      <fr:tex display="block"><![CDATA[
+        \forall  n : \mathbb {Z},.\ (e, \sigma ) \Downarrow  n \to  Q[x \mapsto  n]
+      ]]></fr:tex>
+      we can clearly derive the precondition <fr:tex display="inline"><![CDATA[Q[x \mapsto  n]]]></fr:tex> since we know the antecedent <fr:tex display="inline"><![CDATA[\forall  n.\ (e, \sigma ) \Downarrow  n]]></fr:tex> is true, as it must have been true to derive the big step evaluation.
+    </html:li>
+    <html:li>
+      Since we have now demonstrated we can indeed provide sufficient reasoning to arrive at our conclusion <fr:tex display="inline"><![CDATA[Q(\sigma ')]]></fr:tex> this finishes the proof.
+    </html:li></html:ol><html:p>
+    The shorthand of the <html:em>weakest precondition</html:em> is nothing more than an expression of precisely this idea in a more concise fashion. Take for example <fr:tex display="inline"><![CDATA[\texttt {if conditions}]]></fr:tex>.
+  </html:p><html:ol><html:li>
+      We again start from our post-condition then proceed with a case split or more accurately an inversion on the evaluation rule.
+    </html:li>
+    <html:li>
+      The inversion naturally gives us two branches, the true and false branch. This represents the conjunction here, then with each conjunct the antecedent of the implication is represented by the true or false guard condition <fr:tex display="inline"><![CDATA[b]]></fr:tex>, the consequent in this instance is simply a recursive call on the <fr:tex display="inline"><![CDATA[\texttt {then}]]></fr:tex> and <fr:tex display="inline"><![CDATA[\texttt {else}]]></fr:tex> branch bodies.
+    </html:li></html:ol><html:p>
+    The main thing I'm trying to drive home here is that the weakest precondition idea is fundamentally just based on the concept of:
+  </html:p><html:ol><html:li>
+      Seeing how a term must have been derived
+    </html:li>
+    <html:li>
+      Recursively going up the chain of any other sub-terms
+    </html:li></html:ol><html:p>
+    So in a straightforward way, it's nothing more than chaining together all the individual proof rules for the various hoare triples. To show an example in lean using a some nice macros to create a simple syntax:
+  </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
+    example (n : Num) : 
+    {{ ⟦ "x" ↦ n ⟧ }} 
+      tm{ x := x + 1 } 
+    {{ ⟦ "x" ↦ n + 1 ⟧ }} := by
+    apply Hoare.assign'
+    intro σ m hpre heval
+    cases heval with
+    | sum he1 he2 =&gt;
+      cases he1; cases he2
+      simp [hpre]
+  </html:code></html:pre><html:p>The hoare triple we are proving here corresponds to this in the normal syntax:</html:p><fr:tex display="block"><![CDATA[
+    \{x \mapsto  n \}\ x := x + 1\ \{x \mapsto  n + 1\}
+  ]]></fr:tex><html:p>
+    We can see here to "prove" this hoare triple was valid we started by doing our standard case split on the assign - that's the <fr:tex display="inline"><![CDATA[\texttt {apply Hoare.assign'}]]></fr:tex> - statement, then we were inside the addition, here we did a case split which gave us the lhs and rhs we were adding, after doing a case split on those two sides we could finally just simplify (and finalize) our proof using the fact that in <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> <fr:tex display="inline"><![CDATA[x]]></fr:tex> evaluates to <fr:tex display="inline"><![CDATA[n]]></fr:tex>.
+  </html:p></fr:mainmatter>
+            </fr:tree>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

@@ -134,11 +134,6 @@
 
 \subtree{
   \title{Remarks}
-
-  \codeblock{lean}{
-    some piece of code
-  }
-
   \ul{
     \li{
       \p{

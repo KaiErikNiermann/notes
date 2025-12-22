@@ -1,0 +1,61 @@
+\date{2025-12-10}
+
+\import{base-macros}
+
+\taxon{Definition} 
+
+\title{[Weakest precondition](004k) - while loop}
+
+\p{
+  In an abstract sense the weakest precondition for while loops is no different from that for most other syntactic constructs, to reason backward we apply inversion to the statement we are considering; in this case the while loop; and then simply recurse on the sub-terms. Though the while loop differentiates itself through the notion of invariants.
+}
+
+\p{
+  Before we define how to compute the weakest precondition let's define the hoare rule again:
+}
+\infrule{
+  \inferrule{
+    \vdash \{I \land b\}\ s\ \{I\}
+  }{
+    \vdash \{I\}\ \cwhile\ b\ \cdo\ s\ \{I \land \neg b\}
+  }
+}
+\p{
+  The central thing to observe here is the invariant hypothesis which acts as the premise for the while loop formation, if we write expand it out a bit we get:
+}
+##{
+  \{I(\sigma) \land b \Downarrow^t \sigma\}\ s\ \{I\}
+}
+\p{
+  So the idea, to reiterate again, is that if our invariant holds in the state #{\sigma} and our loop condition evaluates to \cf{true}, then upon termination of #{s} i.e. the loop body we have that the invariant #{I} still holds.
+}
+\ol{
+  \li{
+    In the false case our proof becomes trivial through inversion we know there is some terminating state #{\sigma_t} and we know the loop condition must have evaluated to false, hence we can immediately provide the conditions to fulfill the postcondition and thus create our valid hoare triple.
+  }
+  \li{
+    The true case is a bit more complex, first let's look at the evaluation semantics for it
+    \infrule{
+      \inferrule*[right=S-WhileTrue]{
+        \langle b, \sigma_1 \rangle \Downarrow \cf{true} \\
+        \langle s, \sigma_1 \rangle \Downarrow \sigma_2\\
+        \langle \cf{while } b \cf{ do } s, \sigma_2\rangle \Downarrow \sigma_3
+      }{
+        \langle \cf{while } b \cf{ do } s, \sigma_1 \rangle \Downarrow \sigma_3
+      }
+    }
+    We can see the final state is #{\sigma_3} this means that the post-condition we want to prove for the true state is 
+    ##{
+      I(\sigma_3) \land b \Downarrow ^f \sigma_3
+    }
+    The main thing we leverage here is the invariant hypothesis, rewriting it as a function we have 
+    ##{
+      \lambda (\sigma, \sigma').\ \lambda( I(\sigma) \land b \Downarrow^f \sigma).\ \lambda ((c, \sigma) \Downarrow \sigma').\ I(\sigma')
+    }
+    in addition to 
+    ##{
+      \lambda\sigma.\ \lambda I(\sigma).\ \lambda (\langle W, \sigma \rangle = \langle W, \sigma_2 \rangle).\ I(\sigma_3) \land b \Downarrow^f \sigma_3
+    }
+    The idea is then that we use inversion to give us the evaluated terms, we plug those terms into the invariant hypothesis to get #{I(\sigma_2)}, then using #{\sigma_2}, #{I(\sigma_2)}, and reflexivity (since #{\langle W, \sigma_2\rangle \equiv \langle W, \sigma_2 \rangle}) we have created the proof that the invariant holds for the final memory state and the loop guard indeed evaluates to false.
+  }
+}

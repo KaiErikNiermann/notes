@@ -16,6 +16,22 @@
 }
 
 \subtree{
-  \title{Arrays}
+  \title{Arrays & Invariants}
+  \transclude{003l}
+  \transclude{004i}
+  \transclude{003m}
+  \transclude{004j}
+}
 
+\subtree{
+  \title{Soundness & Completeness}
+  \transclude{0041}
+}
+
+\subtree{
+  \title{Weakest precondition}
+  \transclude{004k}
+  \transclude{004m}
+  \transclude{004l}
+  \transclude{004n}
 }

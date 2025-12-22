@@ -4,7 +4,7 @@
 
 \taxon{Definition} 
 
-\title{Precond. Strengthenting & Postcond. Weakening}
+\title{Precond. Strengthening & Postcond. Weakening}
 
 \p{
   As a reminder in hoare logic we denote the consequence rule as follows:
@@ -24,7 +24,7 @@
   What we can do here is decompose this rule into two separate rules:
 }
 \subtree{
-  \title{Precondition strenghtenting}
+  \title{Precondition strengthening}
 
   \infrule{
     \inferrule*[right=Pre-Strength]{
@@ -58,7 +58,7 @@
     \{x > 2\}\ \cif\ (x > 2)\ \cthen\ y := 2 \celse\ y := 3\ \{y := 2\}
   }
   \p{
-    Clearly here the condition just requires that #{x} is larger then 2, if our precondition asserts that its larger then 3, the #{\cthen} branch executes just the same and our postcondition holds.
+    Clearly here the condition just requires that #{x} is larger than 2, if our precondition asserts that its larger than 3, the #{\cthen} branch executes just the same and our postcondition holds.
   }
 }
 
@@ -74,6 +74,6 @@
   }
 
   \p{
-    On a high level this says that if we can prove some postcondition #{Q'}, we can always relax this condition to something weaker. So in simpler terms if we have the fact that the postcondition #{Q'} holds for some more restrictive state, then we can naturally lessen the ristrictions and have it still hold.
+    On a high level this says that if we can prove some postcondition #{Q'}, we can always relax this condition to something weaker. So in simpler terms if we have the fact that the postcondition #{Q'} holds for some more restrictive state, then we can naturally lessen the restrictions and have it still hold.
   }
 }

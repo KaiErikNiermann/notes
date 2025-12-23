@@ -6,7 +6,15 @@
 
 \title{Lecture 8 - Horn Clauses}
 
-
 \subtree{
   \title{Introduction & Syntax}
+  \transclude{004v}
+  \transclude{004w}
+  \transclude{0050}
+  \transclude{004z}
+}
+
+\subtree{
+  \title{Application of Horn clauses}
+  \transclude{0059}
 }

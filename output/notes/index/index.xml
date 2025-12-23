@@ -5893,6 +5893,400 @@
                 </fr:tree>
               </fr:mainmatter>
             </fr:tree>
+            <fr:tree show-metadata="false" expanded="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>15</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/004u/</fr:uri>
+                <fr:display-uri>004u</fr:display-uri>
+                <fr:route>/notes/004u/</fr:route>
+                <fr:title text="Lecture 8 - Horn Clauses">Lecture 8 - Horn Clauses</fr:title>
+                <fr:taxon>VU-VFS-2025</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>15</fr:day>
+                    </fr:date>
+                    <fr:title text="Introduction &amp; Syntax">Introduction &amp; Syntax</fr:title>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>15</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/004v/</fr:uri>
+                        <fr:display-uri>004v</fr:display-uri>
+                        <fr:route>/notes/004v/</fr:route>
+                        <fr:title text="Horn clauses - Syntax">Horn clauses - Syntax</fr:title>
+                        <fr:taxon>Definition</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+                        <html:p>
+  A Horn clause is a disjunctive clause (disjunction of literals) with at most one positive, i.e. unnegated literal. Often written in implication form as a conjunction of literals implying some literal called the head.
+</html:p>
+                        <fr:tex display="block"><![CDATA[
+  \underbrace {\underbrace {p(x_1, x_2) \land  q(x_1, x_2, x_3) \land  \ldots }_\text {queries} \land  \underbrace {\phi }_\text {constraint}}_\text {body} \to  \underbrace {H}_\text {head}
+]]></fr:tex>
+                        <html:p>
+  Here:
+</html:p>
+                        <html:ol><html:li><html:em>queries</html:em> are <html:strong>relations</html:strong> over some vector of variables
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[\phi ]]></fr:tex> represents a formula in a first-order theory which does not contain queries
+  </html:li>
+  <html:li><fr:tex display="inline"><![CDATA[H]]></fr:tex> is called the head and represents either a <html:em>query</html:em> in which case we also call the horn clause a <html:em>definite class</html:em> if it has the following shape
+    <fr:tex display="block"><![CDATA[
+      (p \land  q \land  \ldots  \land  \phi ) \to  H
+    ]]></fr:tex>
+    or a <html:em>fact</html:em> if it has the following shape
+    <fr:tex display="block"><![CDATA[
+      \top  \to  H
+    ]]></fr:tex>
+    <fr:tex display="inline"><![CDATA[H]]></fr:tex> can also be <fr:tex display="inline"><![CDATA[\bot ]]></fr:tex> in which case we refer to the horn clause as a <html:em>gloal clause</html:em> with the shape 
+    <fr:tex display="block"><![CDATA[
+      (p \land  q \land  \ldots  \land  \phi ) \to  \bot 
+    ]]></fr:tex>
+    with the idea being that as opposed to <html:em>assuming</html:em> the query holds we now <html:em>show</html:em> that it holds
+  </html:li></html:ol>
+                        <html:p>
+  Free variables are implicitly universally quantified over, so a horn clause like
+</html:p>
+                        <fr:tex display="block"><![CDATA[
+  \texttt {mortal}(X) \to  \texttt {human}(X)
+]]></fr:tex>
+                        <html:p>
+  stands for
+</html:p>
+                        <fr:tex display="block"><![CDATA[
+  \forall  X.\ \texttt {mortal}(X) \to  \texttt {human}(X)
+]]></fr:tex>
+                      </fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>15</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/004w/</fr:uri>
+                        <fr:display-uri>004w</fr:display-uri>
+                        <fr:route>/notes/004w/</fr:route>
+                        <fr:title text="Horn clauses - Semantics">Horn clauses - Semantics</fr:title>
+                        <fr:taxon>Definition</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter />
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>16</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/0050/</fr:uri>
+                        <fr:display-uri>0050</fr:display-uri>
+                        <fr:route>/notes/0050/</fr:route>
+                        <fr:title text="Horn clause - solution">Horn clause - solution</fr:title>
+                        <fr:taxon>Definition</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter><html:p>
+  A <html:strong>solution</html:strong> is a function <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> that maps <html:em>queries</html:em> to <html:em>formulas</html:em> in the background theory over the same variables. Formally we write <fr:tex display="inline"><![CDATA[\Sigma  \vDash  C]]></fr:tex> and say that <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> satisfies <fr:tex display="inline"><![CDATA[C]]></fr:tex>, if <fr:tex display="inline"><![CDATA[C]]></fr:tex> is true if we replace all queries by their solutions, written as an inference rule:
+</html:p>
+  
+    
+    <fr:resource hash="d9ed32b08e0e488df79f18da6d8f0646"><fr:resource-content><html:img src="/notes/d9ed32b08e0e488df79f18da6d8f0646.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule {
+    \Sigma (p) \land  \Sigma (q) \land  \ldots  \land  \phi  \to  \Sigma (r)
+  }{
+    \Sigma  \models  p(x_1, x_2) \land  q(x_1, x_2, x_3) \land  \ldots  \land  \phi  \to  r(x_1)
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+<html:p>
+  We write <fr:tex display="inline"><![CDATA[\Sigma  \vDash  \mathcal {C}]]></fr:tex> and say that <fr:tex display="inline"><![CDATA[\Sigma ]]></fr:tex> <html:em>satisfies</html:em> the set of clauses <fr:tex display="inline"><![CDATA[\{C_1, C_2, \ldots , C_n\}]]></fr:tex>, if it satisfies all <html:em>individual clauses</html:em>, i.e:
+</html:p><fr:tex display="block"><![CDATA[
+  \Sigma  \vDash  C_1 \land  \Sigma  \vDash  C_2 \land  \ldots  \land  \Sigma  \vDash  C_n
+]]></fr:tex><html:p>
+  We say that <fr:tex display="inline"><![CDATA[\mathcal  C]]></fr:tex> is <html:strong>satisfiable</html:strong>, if <fr:tex display="inline"><![CDATA[\exists  \Sigma .\ \Sigma  \vDash  \mathcal  C]]></fr:tex></html:p></fr:mainmatter>
+                    </fr:tree>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>16</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/004z/</fr:uri>
+                        <fr:display-uri>004z</fr:display-uri>
+                        <fr:route>/notes/004z/</fr:route>
+                        <fr:title text="Finding recursive Horn clauses">Finding recursive Horn clauses</fr:title>
+                        <fr:taxon>Quiz</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter><html:p>
+  Is the following set of horn clauses recursive?
+</html:p><html:ol><html:li><fr:tex display="block"><![CDATA[
+      \begin {align}
+        q(x) \land  r(x) &\to  p(x) \\
+        p(x) \land  (x < n) &\to  \bot 
+      \end {align}
+    ]]></fr:tex></html:li>
+  <html:li><fr:tex display="block"><![CDATA[
+      \begin {align}
+        q(x) \land  r(x) &\to  p(x) \\
+        p(x) \land  (x > 0) &\to  r(x) \\
+        p(x) \land  (x < n) &\to  \bot 
+      \end {align}
+    ]]></fr:tex></html:li></html:ol>
+  
+    
+    
+    <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>16</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
+  <html:ol><html:li>
+      No, we can draw the dependency graph as follows
+      
+ 
+  
+  <html:figure><html:a href="https://q.uiver.app/#q=WzAsMyxbMSwwLCJwIl0sWzAsMSwicSJdLFsyLDEsInIiXSxbMSwwXSxbMiwwXV0=" target="_blank" class="quiver-link">
+    <fr:resource hash="182baed65cc7d3866c81269a209a1558"><fr:resource-content><html:img src="/notes/182baed65cc7d3866c81269a209a1558.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+   
+   % String-diagram specific extensions live here. Add diagram tweaks without
+ % re-running the full base preamble (to avoid duplicate definitions).
+
+   
+  
+   \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{amsmath, amsthm, amsfonts}
+  \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
+  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
+
+  % A TikZ style for curved arrows of a fixed height, due to AndréC.
+  \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+        .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+        and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+    \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+  quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+  % A TikZ style for shortening paths without the poor behaviour of `shorten <' and `shorten >'.
+  \tikzset{between/.style n args={2}{/tikz/spath/at end path construction={
+        \tikzset{spath/split at keep middle={current}{#1}{#2}}
+  }}}
+
+  % TikZ arrowhead/tail styles.
+  \tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+  \tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+  \tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+  % TikZ arrow styles.
+  \tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+
+
+  ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
+        \[\begin {tikzcd}
+          & p \\
+          q && r
+          \arrow [from=2-1, to=1-2]
+          \arrow [from=2-3, to=1-2]
+        \end {tikzcd}\]
+      ]]></fr:resource-source></fr:resource>
+   </html:a></html:figure></html:li>
+    <html:li>
+      Yes, because the head <fr:tex display="inline"><![CDATA[p]]></fr:tex> depends on the query <fr:tex display="inline"><![CDATA[r]]></fr:tex> and vv. again as a graph we can draw it as follows
+      
+ 
+  
+  <html:figure><html:a href="https://q.uiver.app/#q=WzAsMyxbMSwwLCJwIl0sWzAsMSwicSJdLFsyLDEsInIiXSxbMSwwXSxbMiwwXSxbMCwyLCIiLDIseyJvZmZzZXQiOi0yLCJjdXJ2ZSI6LTJ9XV0=" target="_blank" class="quiver-link">
+    <fr:resource hash="1d857ace1a4564b61ec6d573c46bf6ec"><fr:resource-content><html:img src="/notes/1d857ace1a4564b61ec6d573c46bf6ec.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+   
+   % String-diagram specific extensions live here. Add diagram tweaks without
+ % re-running the full base preamble (to avoid duplicate definitions).
+
+   
+  
+   \usepackage{eulervm}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{amsmath, amsthm, amsfonts}
+  \usepackage{tikz, tikz-cd, mathtools, amssymb, stmaryrd}
+  \usetikzlibrary{arrows.meta, shapes, positioning, calc, decorations.pathreplacing, backgrounds, fit, matrix, spath3}
+
+  % A TikZ style for curved arrows of a fixed height, due to AndréC.
+  \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+        .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+        and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+    \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+  quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+  % A TikZ style for shortening paths without the poor behaviour of `shorten <' and `shorten >'.
+  \tikzset{between/.style n args={2}{/tikz/spath/at end path construction={
+        \tikzset{spath/split at keep middle={current}{#1}{#2}}
+  }}}
+
+  % TikZ arrowhead/tail styles.
+  \tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+  \tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+  \tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+  % TikZ arrow styles.
+  \tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+
+
+  ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[
+        \[\begin {tikzcd}
+          & p \\
+          q && r
+          \arrow [shift left=2, curve={height=-12pt}, from=1-2, to=2-3]
+          \arrow [from=2-1, to=1-2]
+          \arrow [from=2-3, to=1-2]
+        \end {tikzcd}\]
+      ]]></fr:resource-source></fr:resource>
+   </html:a></html:figure></html:li></html:ol>
+</fr:mainmatter></fr:tree>
+  
+</fr:mainmatter>
+                    </fr:tree>
+                  </fr:mainmatter>
+                </fr:tree>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>15</fr:day>
+                    </fr:date>
+                    <fr:title text="Application of Horn clauses">Application of Horn clauses</fr:title>
+                  </fr:frontmatter>
+                  <fr:mainmatter>
+                    <fr:tree show-metadata="false">
+                      <fr:frontmatter>
+                        <fr:authors />
+                        <fr:date>
+                          <fr:year>2025</fr:year>
+                          <fr:month>12</fr:month>
+                          <fr:day>19</fr:day>
+                        </fr:date>
+                        <fr:uri>https://kaierikniermann.github.io/notes/0059/</fr:uri>
+                        <fr:display-uri>0059</fr:display-uri>
+                        <fr:route>/notes/0059/</fr:route>
+                        <fr:title text="Normalizing Horn clauses">Normalizing Horn clauses</fr:title>
+                        <fr:taxon>Definition</fr:taxon>
+                      </fr:frontmatter>
+                      <fr:mainmatter>
+                        <html:p>
+  Something of note when dealing with weakets preconditions <fr:link href="/notes/0056/" title="Weakest preconditions and Horn clauses" uri="https://kaierikniermann.github.io/notes/0056/" display-uri="0056" type="local">in terms of horn clauses</fr:link> is that we have to first normalize them to ensure they are in the correct horn format, which is to say we commonly have some horn clause in the form
+</html:p>
+                        <fr:tex display="block"><![CDATA[
+  p(e_1, e_2) \land  \ldots  \land  \phi  \to  H(e_3) 
+]]></fr:tex>
+                        <html:p>
+  where <fr:tex display="inline"><![CDATA[e_i]]></fr:tex> represents an expression, to normalize these clauses we lift the expressions out of the parameters for the predicates and into the list of conjuncts, i.e.:
+</html:p>
+                        <fr:tex display="block"><![CDATA[
+  p(x_1, x_2) \land  x_1 = e_1 \land  x_2 = e_2 \land  x_3 = e_3 \land  \ldots  \land  \phi  \to  H(x_3)
+]]></fr:tex>
+                        <html:p>
+  So we create fresh variables <fr:tex display="inline"><![CDATA[x_1, x_2, x_3]]></fr:tex> and assign these to the respective expressions then use them in place of the expressions themselves.
+</html:p>
+                      </fr:mainmatter>
+                    </fr:tree>
+                  </fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false" expanded="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>23</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/005g/</fr:uri>
+                <fr:display-uri>005g</fr:display-uri>
+                <fr:route>/notes/005g/</fr:route>
+                <fr:title text="Lecture 9 - Solving Horn Clauses">Lecture 9 - Solving Horn Clauses</fr:title>
+                <fr:taxon>VU-VFS-2025</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter />
+            </fr:tree>
+            <fr:tree show-metadata="false" expanded="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>23</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/005h/</fr:uri>
+                <fr:display-uri>005h</fr:display-uri>
+                <fr:route>/notes/005h/</fr:route>
+                <fr:title text="Lecture 10 - Information Flow Types">Lecture 10 - Information Flow Types</fr:title>
+                <fr:taxon>VU-VFS-2025</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter />
+            </fr:tree>
+            <fr:tree show-metadata="false" expanded="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>23</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/005i/</fr:uri>
+                <fr:display-uri>005i</fr:display-uri>
+                <fr:route>/notes/005i/</fr:route>
+                <fr:title text="Lecture 11 - Information Flow &amp; Side Channels">Lecture 11 - Information Flow &amp; Side Channels</fr:title>
+                <fr:taxon>VU-VFS-2025</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter />
+            </fr:tree>
+            <fr:tree show-metadata="false" expanded="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>23</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/005j/</fr:uri>
+                <fr:display-uri>005j</fr:display-uri>
+                <fr:route>/notes/005j/</fr:route>
+                <fr:title text="Lecture 12 - Refinement Types">Lecture 12 - Refinement Types</fr:title>
+                <fr:taxon>VU-VFS-2025</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter />
+            </fr:tree>
           </fr:mainmatter>
         </fr:tree>
       </fr:mainmatter>

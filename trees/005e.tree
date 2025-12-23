@@ -64,3 +64,11 @@
     \cf{sp}^\# (s, a) = \alpha(\cf{sp}(s, \gamma(a)))
   }
 }
+
+\subtree{
+  \title{Correctness}
+
+  \p{
+    The most important property to remember about the abstract strongest post-condition is that if we \em{do over-approximate an error state} it \strong{does not} allow us to conclude that the program is wrong.
+  }
+}

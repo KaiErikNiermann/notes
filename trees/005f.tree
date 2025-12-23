@@ -1,0 +1,97 @@
+\date{2025-12-22}
+
+\import{base-macros}
+
+\taxon{Definition}  
+
+\title{Information Flow Types - Rules}
+
+\p{
+  We define a typing judgement as 
+}
+##{
+  \Gamma \vdash e : \tau 
+}
+\p{
+  Expressing that in the context #{\Gamma} expression #{e} has a label #{\tau \in \mathcal T}
+}
+\infrule{
+  \inferrule*[right=T-Var]{
+    \Gamma(x) = \tau 
+  }{
+    \Gamma \vdash x : \tau
+  }
+  \and 
+  \inferrule*[right=T-Num]{
+    \\ 
+  }{
+    \Gamma \vdash n : \cf{obs}
+  }
+  \and
+  \inferrule*[right=T-Plus]{
+    \Gamma \vdash e_1 : \tau_1 \\
+    \Gamma \vdash e_2 : \tau_2 
+  }{
+    \Gamma e_1 + e_2 : \tau_1 \sqcup \tau_2
+  }
+  \and
+  \inferrule*[right=True]{
+    \\
+  }{
+    \Gamma \vdash \top : \cf{obs}
+  }
+  \and 
+  \inferrule*[right=T-Or]{
+    \Gamma \vdash b_1 : \tau_1 \\
+    \Gamma \vdash b_2 : \tau_2 \\
+  }{
+    \Gamma \vdash b_1 \lor b_2 : \tau_1 \sqcup \tau_2
+  }
+  \and 
+  \inferrule*[right=T-Eq]{
+    \Gamma \vdash e_1 : \tau_1 \\
+    \Gamma \vdash e_2 : \tau_2 
+  }{
+    \Gamma e_1 = e_2 : \tau_1 \sqcup \tau_2
+  }
+}
+
+\infrule{
+  \inferrule*[right=E-Assign]{
+    \Gamma \vdash x : \tau_1 \\
+    \Gamma \vdash e : \tau_2 \\
+    \tau_2 \sqsubseteq \tau_1 \\ 
+    \cf{pc} \sqsubseteq \tau_1
+  }{
+    \Gamma, \cf{pc} \vdash x := e
+  }
+  \and 
+  \inferrule*[right=E-Seq]{
+    \Gamma, \cf{pc} \vdash s_1 \\
+    \Gamma, \cf{pc} \vdash s_2
+  }{
+    \Gamma, \cf{pc} \vdash s_1 ; s_2
+  }
+  \and 
+  \inferrule*[right=E-If]{
+    \Gamma \vdash b : \cf{obs} \\ 
+    \Gamma \vdash s_1 \\
+    \Gamma \vdash s_2
+  }{
+    \Gamma \vdash \cf{if}\ b\ \cf{then}\ s_1\ \cf{else}\ s_2
+  }
+  \and
+  \inferrule*[right=E-While]{
+    \Gamma \vdash b : \tau \\
+    \Gamma \vdash s 
+  }{
+    \Gamma \vdash \cf{while}\ b\ \cf{do}\ s
+  }
+  \and
+  \inferrule*[right=E-ArrRead]{
+    \Gamma \vdash e : \cf{obs} \\ 
+    \Gamma \vdash a : \tau 
+  }{
+    \Gamma \vdash a[e] : \tau
+  }
+}

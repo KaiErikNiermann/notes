@@ -89,6 +89,22 @@
   ]]></fr:tex>
       </fr:mainmatter>
     </fr:tree>
+    <fr:tree show-metadata="false">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:date>
+          <fr:year>2025</fr:year>
+          <fr:month>12</fr:month>
+          <fr:day>22</fr:day>
+        </fr:date>
+        <fr:title text="Correctness">Correctness</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <html:p>
+    The most important property to remember about the abstract strongest post-condition is that if we <html:em>do over-approximate an error state</html:em> it <html:strong>does not</html:strong> allow us to conclude that the program is wrong.
+  </html:p>
+      </fr:mainmatter>
+    </fr:tree>
   </fr:mainmatter>
   <fr:backmatter>
     <fr:tree show-metadata="false" hidden-when-empty="true">

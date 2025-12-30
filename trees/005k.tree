@@ -1,0 +1,18 @@
+\date{2025-12-25}
+
+\import{base-macros}
+
+\taxon{Quiz}
+
+\title{Computing the strongest post-condition}
+
+\p{
+  Consider the following set of Horn clauses
+}
+##{
+  \begin{align}
+    x = 0 &\to q(x) \\
+    (q(y) \land y < 6 \land x = y + 1) \to q(x)
+  \end{align}
+} 
+

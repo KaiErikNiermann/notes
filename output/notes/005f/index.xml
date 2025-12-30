@@ -142,7 +142,168 @@
         <fr:authors />
         <fr:title text="Context">Context</fr:title>
       </fr:frontmatter>
-      <fr:mainmatter />
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2025</fr:year>
+              <fr:month>12</fr:month>
+              <fr:day>23</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/005h/</fr:uri>
+            <fr:display-uri>005h</fr:display-uri>
+            <fr:route>/notes/005h/</fr:route>
+            <fr:title text="Lecture 10 - Information Flow Types">Lecture 10 - Information Flow Types</fr:title>
+            <fr:taxon>VU-VFS-2025</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2025</fr:year>
+                  <fr:month>12</fr:month>
+                  <fr:day>23</fr:day>
+                </fr:date>
+                <fr:title text="The type system">The type system</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <fr:tree show-metadata="false">
+                  <fr:frontmatter>
+                    <fr:authors />
+                    <fr:date>
+                      <fr:year>2025</fr:year>
+                      <fr:month>12</fr:month>
+                      <fr:day>22</fr:day>
+                    </fr:date>
+                    <fr:uri>https://kaierikniermann.github.io/notes/005f/</fr:uri>
+                    <fr:display-uri>005f</fr:display-uri>
+                    <fr:route>/notes/005f/</fr:route>
+                    <fr:title text="Information Flow Types - Rules">Information Flow Types - Rules</fr:title>
+                    <fr:taxon>Definition</fr:taxon>
+                  </fr:frontmatter>
+                  <fr:mainmatter><html:p>
+  We define a typing judgement as 
+</html:p><fr:tex display="block"><![CDATA[
+  \Gamma  \vdash  e : \tau  
+]]></fr:tex><html:p>
+  Expressing that in the context <fr:tex display="inline"><![CDATA[\Gamma ]]></fr:tex> expression <fr:tex display="inline"><![CDATA[e]]></fr:tex> has a label <fr:tex display="inline"><![CDATA[\tau  \in  \mathcal  T]]></fr:tex></html:p>
+  
+    
+    <fr:resource hash="e817215c8e8176b90fe550dfef532c91"><fr:resource-content><html:img src="/notes/e817215c8e8176b90fe550dfef532c91.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule *[right=T-Var]{
+    \Gamma (x) = \tau  
+  }{
+    \Gamma  \vdash  x : \tau 
+  }
+  \and  
+  \inferrule *[right=T-Num]{
+    \\ 
+  }{
+    \Gamma  \vdash  n : \texttt {obs}
+  }
+  \and 
+  \inferrule *[right=T-Plus]{
+    \Gamma  \vdash  e_1 : \tau _1 \\
+    \Gamma  \vdash  e_2 : \tau _2 
+  }{
+    \Gamma  e_1 + e_2 : \tau _1 \sqcup  \tau _2
+  }
+  \and 
+  \inferrule *[right=True]{
+    \\
+  }{
+    \Gamma  \vdash  \top  : \texttt {obs}
+  }
+  \and  
+  \inferrule *[right=T-Or]{
+    \Gamma  \vdash  b_1 : \tau _1 \\
+    \Gamma  \vdash  b_2 : \tau _2 \\
+  }{
+    \Gamma  \vdash  b_1 \lor  b_2 : \tau _1 \sqcup  \tau _2
+  }
+  \and  
+  \inferrule *[right=T-Eq]{
+    \Gamma  \vdash  e_1 : \tau _1 \\
+    \Gamma  \vdash  e_2 : \tau _2 
+  }{
+    \Gamma  e_1 = e_2 : \tau _1 \sqcup  \tau _2
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+  
+    
+    <fr:resource hash="2998d80c704732e4ec1559ab8173463f"><fr:resource-content><html:img src="/notes/2998d80c704732e4ec1559ab8173463f.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule *[right=E-Assign]{
+    \Gamma  \vdash  x : \tau _1 \\
+    \Gamma  \vdash  e : \tau _2 \\
+    \tau _2 \sqsubseteq  \tau _1 \\ 
+    \texttt {pc} \sqsubseteq  \tau _1
+  }{
+    \Gamma , \texttt {pc} \vdash  x := e
+  }
+  \and  
+  \inferrule *[right=E-Seq]{
+    \Gamma , \texttt {pc} \vdash  s_1 \\
+    \Gamma , \texttt {pc} \vdash  s_2
+  }{
+    \Gamma , \texttt {pc} \vdash  s_1 ; s_2
+  }
+  \and  
+  \inferrule *[right=E-If]{
+    \Gamma  \vdash  b : \texttt {obs} \\ 
+    \Gamma  \vdash  s_1 \\
+    \Gamma  \vdash  s_2
+  }{
+    \Gamma  \vdash  \texttt {if}\ b\ \texttt {then}\ s_1\ \texttt {else}\ s_2
+  }
+  \and 
+  \inferrule *[right=E-While]{
+    \Gamma  \vdash  b : \tau  \\
+    \Gamma  \vdash  s 
+  }{
+    \Gamma  \vdash  \texttt {while}\ b\ \texttt {do}\ s
+  }
+  \and 
+  \inferrule *[right=E-ArrRead]{
+    \Gamma  \vdash  e : \texttt {obs} \\ 
+    \Gamma  \vdash  a : \tau  
+  }{
+    \Gamma  \vdash  a[e] : \tau 
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                </fr:tree>
+              </fr:mainmatter>
+            </fr:tree>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
     </fr:tree>
     <fr:tree show-metadata="false" hidden-when-empty="true">
       <fr:frontmatter>

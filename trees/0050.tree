@@ -4,7 +4,7 @@
 
 \taxon{Definition}
 
-\title{Horn clause - solution}
+\title{Horn clause - Solution}
 
 \p{
   A \strong{solution} is a function #{\Sigma} that maps \em{queries} to \em{formulas} in the background theory over the same variables. Formally we write #{\Sigma \vDash C} and say that #{\Sigma} satisfies #{C}, if #{C} is true if we replace all queries by their solutions, written as an inference rule:

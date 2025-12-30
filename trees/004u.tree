@@ -17,4 +17,12 @@
 \subtree{
   \title{Application of Horn clauses}
   \transclude{0059}
+  \transclude{005c}
+  \transclude{005k}
+}
+
+\subtree{
+  \title{Abstraction}
+  \transclude{005d}
+  \transclude{005e}
 }

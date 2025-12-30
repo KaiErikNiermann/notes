@@ -5,3 +5,9 @@
 \taxon{VU-VFS-2025}
 
 \title{Lecture 10 - Information Flow Types}
+
+\subtree{
+  \title{The type system}
+  
+  \transclude{005f}
+}

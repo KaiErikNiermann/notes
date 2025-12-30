@@ -7798,7 +7798,7 @@
                                 <fr:uri>https://kaierikniermann.github.io/notes/0050/</fr:uri>
                                 <fr:display-uri>0050</fr:display-uri>
                                 <fr:route>/notes/0050/</fr:route>
-                                <fr:title text="Horn clause - solution">Horn clause - solution</fr:title>
+                                <fr:title text="Horn clause - Solution">Horn clause - Solution</fr:title>
                                 <fr:taxon>Definition</fr:taxon>
                               </fr:frontmatter>
                               <fr:mainmatter><html:p>
@@ -8015,6 +8015,311 @@
 </html:p>
                               </fr:mainmatter>
                             </fr:tree>
+                            <fr:tree show-metadata="false">
+                              <fr:frontmatter>
+                                <fr:authors />
+                                <fr:date>
+                                  <fr:year>2025</fr:year>
+                                  <fr:month>12</fr:month>
+                                  <fr:day>22</fr:day>
+                                </fr:date>
+                                <fr:uri>https://kaierikniermann.github.io/notes/005c/</fr:uri>
+                                <fr:display-uri>005c</fr:display-uri>
+                                <fr:route>/notes/005c/</fr:route>
+                                <fr:title text="Strongest Postcondition">Strongest Postcondition</fr:title>
+                                <fr:taxon>Definition</fr:taxon>
+                              </fr:frontmatter>
+                              <fr:mainmatter>
+                                <html:p>
+  In the most straightforward sense the strongest postcondition, denoted <fr:tex display="inline"><![CDATA[\texttt {sp}]]></fr:tex> or <fr:tex display="inline"><![CDATA[\texttt {post}]]></fr:tex>, denotes the exact or <html:em>least</html:em> set of <html:strong>final states</html:strong> which we land in after a successful execution. Set theoretically we can denote it as.
+</html:p>
+                                <fr:tex display="block"><![CDATA[
+  \texttt {sp}(s, P) = \{\sigma  \in  \Sigma  \mid  \exists  \sigma ' \in  \Sigma  : \sigma  ' \vDash  P \land  (s, \sigma ') \Downarrow  \sigma \}
+]]></fr:tex>
+                                <html:p>
+  We can also use a more logic way of expressing it as follows
+</html:p>
+                                <fr:tex display="block"><![CDATA[
+  \texttt {sp}(s, P) \triangleq  \exists  \sigma '.\ P(\sigma ') \land  (s, \sigma ') \Downarrow  \sigma 
+]]></fr:tex>
+                                <html:p>
+  But the idea is in principle the same, it represents the set of states corresponding to some evaluated result based on some existing safe state.
+</html:p>
+                              </fr:mainmatter>
+                            </fr:tree>
+                            <fr:tree show-metadata="false">
+                              <fr:frontmatter>
+                                <fr:authors />
+                                <fr:date>
+                                  <fr:year>2025</fr:year>
+                                  <fr:month>12</fr:month>
+                                  <fr:day>25</fr:day>
+                                </fr:date>
+                                <fr:uri>https://kaierikniermann.github.io/notes/005k/</fr:uri>
+                                <fr:display-uri>005k</fr:display-uri>
+                                <fr:route>/notes/005k/</fr:route>
+                                <fr:title text="Computing the strongest post-condition">Computing the strongest post-condition</fr:title>
+                                <fr:taxon>Quiz</fr:taxon>
+                              </fr:frontmatter>
+                              <fr:mainmatter>
+                                <html:p>
+  Consider the following set of Horn clauses
+</html:p>
+                                <fr:tex display="block"><![CDATA[
+  \begin {align}
+    x = 0 &\to  q(x) \\
+    (q(y) \land  y < 6 \land  x = y + 1) \to  q(x)
+  \end {align}
+]]></fr:tex>
+                              </fr:mainmatter>
+                            </fr:tree>
+                          </fr:mainmatter>
+                        </fr:tree>
+                        <fr:tree show-metadata="false">
+                          <fr:frontmatter>
+                            <fr:authors />
+                            <fr:date>
+                              <fr:year>2025</fr:year>
+                              <fr:month>12</fr:month>
+                              <fr:day>15</fr:day>
+                            </fr:date>
+                            <fr:title text="Abstraction">Abstraction</fr:title>
+                          </fr:frontmatter>
+                          <fr:mainmatter>
+                            <fr:tree show-metadata="false">
+                              <fr:frontmatter>
+                                <fr:authors />
+                                <fr:date>
+                                  <fr:year>2025</fr:year>
+                                  <fr:month>12</fr:month>
+                                  <fr:day>22</fr:day>
+                                </fr:date>
+                                <fr:uri>https://kaierikniermann.github.io/notes/005d/</fr:uri>
+                                <fr:display-uri>005d</fr:display-uri>
+                                <fr:route>/notes/005d/</fr:route>
+                                <fr:title text="Abstraction &amp; Concretization function">Abstraction &amp; Concretization function</fr:title>
+                                <fr:taxon>Definition</fr:taxon>
+                              </fr:frontmatter>
+                              <fr:mainmatter>
+                                <html:p>
+  In the most general sense we consider two domains, an abstract domain <fr:tex display="inline"><![CDATA[A]]></fr:tex> and a concrete domain <fr:tex display="inline"><![CDATA[C]]></fr:tex>. We have two functions the abstraction function
+</html:p>
+                                <fr:tex display="block"><![CDATA[
+  \alpha  : C \to  A
+]]></fr:tex>
+                                <html:p>
+  and the concretization function
+</html:p>
+                                <fr:tex display="block"><![CDATA[
+  \gamma  : A \to  C
+]]></fr:tex>
+                                <html:p>
+  Naturally we often instantiate these two domains for different scenarios.
+</html:p>
+                                <fr:tree show-metadata="false">
+                                  <fr:frontmatter>
+                                    <fr:authors />
+                                    <fr:date>
+                                      <fr:year>2025</fr:year>
+                                      <fr:month>12</fr:month>
+                                      <fr:day>22</fr:day>
+                                    </fr:date>
+                                    <fr:title text="Example: Interval abstraction">Example: Interval abstraction</fr:title>
+                                  </fr:frontmatter>
+                                  <fr:mainmatter>
+                                    <html:p>
+    Let's consider a basic instance of abstraction where we think of the concrete domain as set's of numbers and the abstract domain as rangers or intervals of numbers which characterize these sets. So formally we say
+  </html:p>
+                                    <html:ul><html:li>
+      Our concrete domain is the powerset <fr:tex display="inline"><![CDATA[\mathcal  P(\mathbb {R})]]></fr:tex> of the natural real numbers <fr:tex display="inline"><![CDATA[\mathbb {R}]]></fr:tex> ordered by set-inclusion so <fr:tex display="inline"><![CDATA[\sqsubseteq  \equiv  \subseteq ]]></fr:tex></html:li>
+    <html:li>
+      Our abstract domain is represented by intervals in addition to the symbols for true and false, so
+      <fr:tex display="block"><![CDATA[
+        A = \textrm {Intervals} \cup  \{\top , \bot \}
+      ]]></fr:tex></html:li>
+    <html:li>
+      Our concretization function maps from an interval to all those numbers contained within the interval, so as an example
+      <fr:tex display="block"><![CDATA[
+        \gamma ([l, u]) \equiv  \{x \mid  l \leq  x \leq  u\}
+      ]]></fr:tex></html:li>
+    <html:li>
+      Our abstraction function which takes a concrete element <fr:tex display="inline"><![CDATA[c]]></fr:tex> then maps this to the meet or conjunct of all abstract element in which the ordering with the concretization function holds, i.e.
+      <fr:tex display="block"><![CDATA[
+        \alpha (c) = \bigwedge  \{a \in  A \mid  c \subseteq  \gamma (a)\}
+      ]]></fr:tex>
+      the idea is that it represents the most precise abstract representation which can capture the concrete element c. Operationally we can express this equivalently as 
+      <fr:tex display="block"><![CDATA[
+                \alpha(c \equiv \{x_1, x_2, \ldots, x_n\}) = \begin{cases}
+          [\textrm{min}\ c, \textrm{max}\ c] & \textrm{if bounded} \\
+          [\textrm{min}\ c, +\infty) & \textrm{if only lb} \\
+          (-\infty, \textrm{max}\ c] & \textrm{if only ub} \\
+          \top & \textrm{if unbounded} \\
+          \bot & \textrm{if}\ = \emptyset
+        \end{cases}
+      ]]></fr:tex> 
+      so more plainly we can understand the abstraction function of just being the most exact combination i.e. meet / conjunction of intervals to express our concrete element.
+    </html:li></html:ul>
+                                  </fr:mainmatter>
+                                </fr:tree>
+                                <fr:tree show-metadata="false">
+                                  <fr:frontmatter>
+                                    <fr:authors />
+                                    <fr:date>
+                                      <fr:year>2025</fr:year>
+                                      <fr:month>12</fr:month>
+                                      <fr:day>22</fr:day>
+                                    </fr:date>
+                                    <fr:title text="Example: Predicate abstraction">Example: Predicate abstraction</fr:title>
+                                  </fr:frontmatter>
+                                  <fr:mainmatter>
+                                    <html:p>
+    A common application within the domain of logic and computer science is to consider the concrete domain as referring to formulas or equivalently set's of states, not too much unlike our power-set of numbers. With our abstract state then being a conjunct of predicates from some finite set <fr:tex display="inline"><![CDATA[P]]></fr:tex> which best characterize our concrete formulas.
+  </html:p>
+                                    <html:ul><html:li>
+      Each element in the abstract domain is some permutation of our finite predicate set <fr:tex display="inline"><![CDATA[P]]></fr:tex>, so we have 
+      <fr:tex display="block"><![CDATA[
+        A = \mathcal  P(P) \quad  P_1 \sqsubseteq  P_2 \iff  P_2 \subseteq  P_1
+      ]]></fr:tex>
+      each abstract element <fr:tex display="inline"><![CDATA[a \in  P]]></fr:tex> is defined by the conjunction 
+      <fr:tex display="block"><![CDATA[
+        \bigwedge  _{p \in  a} p
+      ]]></fr:tex> 
+      hence our concretization function yields those set's of concrete states (or predicates representing these states) which statisfy <fr:tex display="inline"><![CDATA[a]]></fr:tex>. 
+      <fr:tex display="block"><![CDATA[
+        \gamma (a) = \{\sigma  \in  \Sigma  \mid  \forall  p \in  a.\ p(\sigma ) = \top \} \equiv  \llbracket  \bigwedge _{p \in  a} p \rrbracket  
+      ]]></fr:tex></html:li>
+    <html:li>
+      The abstraction function is then defined more or less the usual way, we take in a concrete set of states <fr:tex display="inline"><![CDATA[c]]></fr:tex> then aggregate those predicates which describe our concrete set of states most precisely.
+      <fr:tex display="block"><![CDATA[
+        \alpha  (c) = \bigcap  \{a \in  A \mid  c \subseteq  \gamma (a)\}
+      ]]></fr:tex>
+      can equivalent formulation is 
+      <fr:tex display="block"><![CDATA[
+        \alpha  (c) = \bigwedge  \{p \in  P \mid  c \to  p\}
+      ]]></fr:tex></html:li></html:ul>
+                                    <html:p>
+    Let's consider as an example 
+  </html:p>
+                                    <fr:tex display="block"><![CDATA[
+    P = \{x \geq  0, x \geq  5, x \leq  10\} \quad  c = \{x = 7\}
+  ]]></fr:tex>
+                                    <html:p>
+    Here we can define the abstraction function as follows
+  </html:p>
+                                    <fr:tex display="block"><![CDATA[
+    \alpha  (x = 7) = \bigwedge  \{x \geq  0, x \geq  5, x \leq  10\}
+  ]]></fr:tex>
+                                  </fr:mainmatter>
+                                </fr:tree>
+                              </fr:mainmatter>
+                            </fr:tree>
+                            <fr:tree show-metadata="false">
+                              <fr:frontmatter>
+                                <fr:authors />
+                                <fr:date>
+                                  <fr:year>2025</fr:year>
+                                  <fr:month>12</fr:month>
+                                  <fr:day>22</fr:day>
+                                </fr:date>
+                                <fr:uri>https://kaierikniermann.github.io/notes/005e/</fr:uri>
+                                <fr:display-uri>005e</fr:display-uri>
+                                <fr:route>/notes/005e/</fr:route>
+                                <fr:title text="Abstract strongest postcondition"><fr:link href="/notes/005d/" title="Abstraction &amp; Concretization function" uri="https://kaierikniermann.github.io/notes/005d/" display-uri="005d" type="local">Abstract</fr:link> strongest postcondition</fr:title>
+                                <fr:taxon>Definition</fr:taxon>
+                              </fr:frontmatter>
+                              <fr:mainmatter>
+                                <fr:tree show-metadata="false">
+                                  <fr:frontmatter>
+                                    <fr:authors />
+                                    <fr:date>
+                                      <fr:year>2025</fr:year>
+                                      <fr:month>12</fr:month>
+                                      <fr:day>22</fr:day>
+                                    </fr:date>
+                                    <fr:title text="The idea">The idea</fr:title>
+                                  </fr:frontmatter>
+                                  <fr:mainmatter>
+                                    <html:p>
+    Our usual strongest postcondition can be understood as a mapping from a concrete domain to a concrete domain, i.e.
+  </html:p>
+                                    <fr:tex display="block"><![CDATA[
+    \begin {align}
+      \texttt {sp} : \texttt {Stmt} \times  \texttt {C} \to  C
+    \end {align}
+  ]]></fr:tex>
+                                    <html:p>
+    Where <fr:tex display="inline"><![CDATA[C]]></fr:tex> represents our concrete domain, in the world of program logic this is typically assertions on the state of some memory environment. The idea behind the <html:em>abstract</html:em> <fr:tex display="inline"><![CDATA[\texttt {sp}]]></fr:tex>, is that we have a function
+  </html:p>
+                                    <fr:tex display="block"><![CDATA[
+    \begin {align}
+      \texttt {sp}^\# : \texttt {Stmt} \times  \texttt {A} \to  \texttt {A}
+    \end {align}
+  ]]></fr:tex>
+                                    <html:p>
+    In other words we are considering the strongest postcondition from within the abstract domain. Intuitively this just means that our predicates or assertions on the memory states (or equivalently the set of states we characterize) will be expressed in abstract terms.
+  </html:p>
+                                  </fr:mainmatter>
+                                </fr:tree>
+                                <fr:tree show-metadata="false">
+                                  <fr:frontmatter>
+                                    <fr:authors />
+                                    <fr:date>
+                                      <fr:year>2025</fr:year>
+                                      <fr:month>12</fr:month>
+                                      <fr:day>22</fr:day>
+                                    </fr:date>
+                                    <fr:title text="In more detail">In more detail</fr:title>
+                                  </fr:frontmatter>
+                                  <fr:mainmatter>
+                                    <html:p>
+    The abstract strongest postcondition, denoted <fr:tex display="inline"><![CDATA[\texttt {sp}^\#]]></fr:tex> or <fr:tex display="inline"><![CDATA[\textrm {post\#}]]></fr:tex> is defined as
+  </html:p>
+                                    <fr:tex display="block"><![CDATA[
+    \texttt {sp}^\# (s, a) = \alpha  (\texttt {sp}(s, \gamma (a)))
+  ]]></fr:tex>
+                                    <html:p>
+    Let's explain a bit on how we can derive this, we begin with the idea that for each <fr:tex display="inline"><![CDATA[a \in  A]]></fr:tex> and each statement <fr:tex display="inline"><![CDATA[s]]></fr:tex> we want:
+  </html:p>
+                                    <fr:tex display="block"><![CDATA[
+    \texttt {sp}(s, \gamma (a)) \subseteq  \gamma (\texttt {sp}^\#(s, a))
+  ]]></fr:tex>
+                                    <html:p>
+    This expresses <html:strong>soundness</html:strong> in other words, the resulting set of states, generated by concretizing the abstraction <fr:tex display="inline"><![CDATA[a]]></fr:tex> must be contained within the prediction of the abstract transformer predicate <fr:tex display="inline"><![CDATA[\texttt {sp}^\#]]></fr:tex>. Then using the Galois connection we have between <fr:tex display="inline"><![CDATA[\alpha ]]></fr:tex> and <fr:tex display="inline"><![CDATA[\gamma ]]></fr:tex></html:p>
+                                    <fr:tex display="block"><![CDATA[
+    \forall  a \in  A, c \in  C.\ \alpha (c) \subseteq  a \iff  c \leq  \gamma  (a)
+  ]]></fr:tex>
+                                    <html:p>
+    which expresses the notion that <fr:tex display="inline"><![CDATA[c]]></fr:tex> is <html:em>approximated</html:em> by <fr:tex display="inline"><![CDATA[a]]></fr:tex>. We can rewrite our earlier soundness condition as:
+  </html:p>
+                                    <fr:tex display="block"><![CDATA[
+    \alpha (\texttt {sp}(s, \gamma (a))) \sqsubseteq  \texttt {sp}^\# (s, a)
+  ]]></fr:tex>
+                                    <html:p>
+    two again denote the same conceptual thing that our abstract predicate transformer <fr:tex display="inline"><![CDATA[\texttt {sp}^\#]]></fr:tex> is an over-approximation of the analogous transformer for the concrete domain. As we would preferably like to have the most precise approximation we choose equality. Or stated differently by definition the most precise abstracted approximation of the strongest post-condition we can have for some abstracted state is literally just this state concretized, and the resulting set abstracted. 
+  </html:p>
+                                    <fr:tex display="block"><![CDATA[
+    \texttt {sp}^\# (s, a) = \alpha (\texttt {sp}(s, \gamma (a)))
+  ]]></fr:tex>
+                                  </fr:mainmatter>
+                                </fr:tree>
+                                <fr:tree show-metadata="false">
+                                  <fr:frontmatter>
+                                    <fr:authors />
+                                    <fr:date>
+                                      <fr:year>2025</fr:year>
+                                      <fr:month>12</fr:month>
+                                      <fr:day>22</fr:day>
+                                    </fr:date>
+                                    <fr:title text="Correctness">Correctness</fr:title>
+                                  </fr:frontmatter>
+                                  <fr:mainmatter>
+                                    <html:p>
+    The most important property to remember about the abstract strongest post-condition is that if we <html:em>do over-approximate an error state</html:em> it <html:strong>does not</html:strong> allow us to conclude that the program is wrong.
+  </html:p>
+                                  </fr:mainmatter>
+                                </fr:tree>
+                              </fr:mainmatter>
+                            </fr:tree>
                           </fr:mainmatter>
                         </fr:tree>
                       </fr:mainmatter>
@@ -8049,7 +8354,151 @@
                         <fr:title text="Lecture 10 - Information Flow Types">Lecture 10 - Information Flow Types</fr:title>
                         <fr:taxon>VU-VFS-2025</fr:taxon>
                       </fr:frontmatter>
-                      <fr:mainmatter />
+                      <fr:mainmatter>
+                        <fr:tree show-metadata="false">
+                          <fr:frontmatter>
+                            <fr:authors />
+                            <fr:date>
+                              <fr:year>2025</fr:year>
+                              <fr:month>12</fr:month>
+                              <fr:day>23</fr:day>
+                            </fr:date>
+                            <fr:title text="The type system">The type system</fr:title>
+                          </fr:frontmatter>
+                          <fr:mainmatter>
+                            <fr:tree show-metadata="false">
+                              <fr:frontmatter>
+                                <fr:authors />
+                                <fr:date>
+                                  <fr:year>2025</fr:year>
+                                  <fr:month>12</fr:month>
+                                  <fr:day>22</fr:day>
+                                </fr:date>
+                                <fr:uri>https://kaierikniermann.github.io/notes/005f/</fr:uri>
+                                <fr:display-uri>005f</fr:display-uri>
+                                <fr:route>/notes/005f/</fr:route>
+                                <fr:title text="Information Flow Types - Rules">Information Flow Types - Rules</fr:title>
+                                <fr:taxon>Definition</fr:taxon>
+                              </fr:frontmatter>
+                              <fr:mainmatter><html:p>
+  We define a typing judgement as 
+</html:p><fr:tex display="block"><![CDATA[
+  \Gamma  \vdash  e : \tau  
+]]></fr:tex><html:p>
+  Expressing that in the context <fr:tex display="inline"><![CDATA[\Gamma ]]></fr:tex> expression <fr:tex display="inline"><![CDATA[e]]></fr:tex> has a label <fr:tex display="inline"><![CDATA[\tau  \in  \mathcal  T]]></fr:tex></html:p>
+  
+    
+    <fr:resource hash="e817215c8e8176b90fe550dfef532c91"><fr:resource-content><html:img src="/notes/e817215c8e8176b90fe550dfef532c91.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule *[right=T-Var]{
+    \Gamma (x) = \tau  
+  }{
+    \Gamma  \vdash  x : \tau 
+  }
+  \and  
+  \inferrule *[right=T-Num]{
+    \\ 
+  }{
+    \Gamma  \vdash  n : \texttt {obs}
+  }
+  \and 
+  \inferrule *[right=T-Plus]{
+    \Gamma  \vdash  e_1 : \tau _1 \\
+    \Gamma  \vdash  e_2 : \tau _2 
+  }{
+    \Gamma  e_1 + e_2 : \tau _1 \sqcup  \tau _2
+  }
+  \and 
+  \inferrule *[right=True]{
+    \\
+  }{
+    \Gamma  \vdash  \top  : \texttt {obs}
+  }
+  \and  
+  \inferrule *[right=T-Or]{
+    \Gamma  \vdash  b_1 : \tau _1 \\
+    \Gamma  \vdash  b_2 : \tau _2 \\
+  }{
+    \Gamma  \vdash  b_1 \lor  b_2 : \tau _1 \sqcup  \tau _2
+  }
+  \and  
+  \inferrule *[right=T-Eq]{
+    \Gamma  \vdash  e_1 : \tau _1 \\
+    \Gamma  \vdash  e_2 : \tau _2 
+  }{
+    \Gamma  e_1 = e_2 : \tau _1 \sqcup  \tau _2
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+
+  
+    
+    <fr:resource hash="2998d80c704732e4ec1559ab8173463f"><fr:resource-content><html:img src="/notes/2998d80c704732e4ec1559ab8173463f.svg" /></fr:resource-content><fr:resource-source type="latex" part="preamble"><![CDATA[
+     
+    \usepackage{eulervm}
+  \usepackage{mathtools}
+  \usepackage[scaled=0.92]{inconsolata}
+  \usepackage{mathpartir}
+  \usepackage{centernot}
+  \usepackage[cal=cm]{mathalpha} % force \mathcal to CM-style callig
+
+  \newcommand{\cf}[1]{\texttt{#1}}
+
+    ]]></fr:resource-source><fr:resource-source type="latex" part="body"><![CDATA[\begin {mathpar}
+  \inferrule *[right=E-Assign]{
+    \Gamma  \vdash  x : \tau _1 \\
+    \Gamma  \vdash  e : \tau _2 \\
+    \tau _2 \sqsubseteq  \tau _1 \\ 
+    \texttt {pc} \sqsubseteq  \tau _1
+  }{
+    \Gamma , \texttt {pc} \vdash  x := e
+  }
+  \and  
+  \inferrule *[right=E-Seq]{
+    \Gamma , \texttt {pc} \vdash  s_1 \\
+    \Gamma , \texttt {pc} \vdash  s_2
+  }{
+    \Gamma , \texttt {pc} \vdash  s_1 ; s_2
+  }
+  \and  
+  \inferrule *[right=E-If]{
+    \Gamma  \vdash  b : \texttt {obs} \\ 
+    \Gamma  \vdash  s_1 \\
+    \Gamma  \vdash  s_2
+  }{
+    \Gamma  \vdash  \texttt {if}\ b\ \texttt {then}\ s_1\ \texttt {else}\ s_2
+  }
+  \and 
+  \inferrule *[right=E-While]{
+    \Gamma  \vdash  b : \tau  \\
+    \Gamma  \vdash  s 
+  }{
+    \Gamma  \vdash  \texttt {while}\ b\ \texttt {do}\ s
+  }
+  \and 
+  \inferrule *[right=E-ArrRead]{
+    \Gamma  \vdash  e : \texttt {obs} \\ 
+    \Gamma  \vdash  a : \tau  
+  }{
+    \Gamma  \vdash  a[e] : \tau 
+  }
+\end {mathpar}]]></fr:resource-source></fr:resource>
+  
+</fr:mainmatter>
+                            </fr:tree>
+                          </fr:mainmatter>
+                        </fr:tree>
+                      </fr:mainmatter>
                     </fr:tree>
                     <fr:tree show-metadata="false" expanded="false">
                       <fr:frontmatter>

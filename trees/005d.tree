@@ -29,7 +29,7 @@
   }
   \ul{
     \li{
-      Our concrete domain is the powerset #{\mathcal P(\R)} of the natural real numbers #{\R} ordered by set-inclusion so #{\sqsubseteq \equiv \subseteq}
+      Our concrete domain is the power set #{\mathcal P(\R)} of the natural real numbers #{\R} ordered by set-inclusion so #{\sqsubseteq \equiv \subseteq}
     }
     \li{
       Our abstract domain is represented by intervals in addition to the symbols for true and false, so
@@ -81,7 +81,7 @@
       ##{
         \bigwedge _{p \in a} p
       } 
-      hence our concretization function yields those set's of concrete states (or predicates representing these states) which statisfy #{a}. 
+      hence our concretization function yields those set's of concrete states (or predicates representing these states) which satisfy #{a}. 
       ##{
         \gamma(a) = \{\sigma \in \Sigma \mid \forall p \in a.\ p(\sigma) = \top\} \equiv \llbracket \bigwedge_{p \in a} p \rrbracket 
       }

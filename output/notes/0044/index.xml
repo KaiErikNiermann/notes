@@ -1080,11 +1080,11 @@
                     <fr:uri>https://kaierikniermann.github.io/notes/0047/</fr:uri>
                     <fr:display-uri>0047</fr:display-uri>
                     <fr:route>/notes/0047/</fr:route>
-                    <fr:title text="Assesing provability">Assesing provability</fr:title>
+                    <fr:title text="Assessing provability">Assessing provability</fr:title>
                     <fr:taxon>Quiz</fr:taxon>
                   </fr:frontmatter>
                   <fr:mainmatter><html:p>
-  Using the correct proof rule for assignments, asses which of the hoare truples are provable i.e. valid.
+  Using the correct proof rule for assignments, asses which of the hoare triples are provable i.e. valid.
 </html:p>
   
     
@@ -1115,11 +1115,11 @@
     
     <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li>
-      Yes, since we have that for any state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> the subtitution
+      Yes, since we have that for any state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> the substitution
       <fr:tex display="block"><![CDATA[
         (y = x)[x \mapsto  4]
       ]]></fr:tex>
-      holds, thus our precondition holds and upon termination of the assignment clearly our postcondition then holds aswell.
+      holds, thus our precondition holds and upon termination of the assignment clearly our postcondition then holds as well.
     </html:li>
     <html:li>
       Yes, again we that our post condition says <fr:tex display="inline"><![CDATA[x = n]]></fr:tex> so <fr:tex display="inline"><![CDATA[(x = n)[ n \mapsto  (x + 1)]]]></fr:tex> holds as our precondition is then
@@ -1136,7 +1136,7 @@
         \sigma  \nvDash  (2 = x) \equiv  (2 = 3)
       ]]></fr:tex></html:li>
     <html:li>
-      Yes, this is just correct by definition of of a substitution leaving irrelevant variables unaffected.
+      Yes, this is just correct by definition of a substitution leaving irrelevant variables unaffected.
     </html:li></html:ol>
 </fr:mainmatter></fr:tree>
   

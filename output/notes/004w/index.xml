@@ -471,7 +471,7 @@
     Let's consider a basic instance of abstraction where we think of the concrete domain as set's of numbers and the abstract domain as rangers or intervals of numbers which characterize these sets. So formally we say
   </html:p>
                         <html:ul><html:li>
-      Our concrete domain is the powerset <fr:tex display="inline"><![CDATA[\mathcal  P(\mathbb {R})]]></fr:tex> of the natural real numbers <fr:tex display="inline"><![CDATA[\mathbb {R}]]></fr:tex> ordered by set-inclusion so <fr:tex display="inline"><![CDATA[\sqsubseteq  \equiv  \subseteq ]]></fr:tex></html:li>
+      Our concrete domain is the power set <fr:tex display="inline"><![CDATA[\mathcal  P(\mathbb {R})]]></fr:tex> of the natural real numbers <fr:tex display="inline"><![CDATA[\mathbb {R}]]></fr:tex> ordered by set-inclusion so <fr:tex display="inline"><![CDATA[\sqsubseteq  \equiv  \subseteq ]]></fr:tex></html:li>
     <html:li>
       Our abstract domain is represented by intervals in addition to the symbols for true and false, so
       <fr:tex display="block"><![CDATA[
@@ -524,7 +524,7 @@
       <fr:tex display="block"><![CDATA[
         \bigwedge  _{p \in  a} p
       ]]></fr:tex> 
-      hence our concretization function yields those set's of concrete states (or predicates representing these states) which statisfy <fr:tex display="inline"><![CDATA[a]]></fr:tex>. 
+      hence our concretization function yields those set's of concrete states (or predicates representing these states) which satisfy <fr:tex display="inline"><![CDATA[a]]></fr:tex>. 
       <fr:tex display="block"><![CDATA[
         \gamma (a) = \{\sigma  \in  \Sigma  \mid  \forall  p \in  a.\ p(\sigma ) = \top \} \equiv  \llbracket  \bigwedge _{p \in  a} p \rrbracket  
       ]]></fr:tex></html:li>

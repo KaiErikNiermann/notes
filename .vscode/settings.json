@@ -454,10 +454,10 @@
   },
   "ltex.hiddenFalsePositives": {
     "en-US": [
-      "{\"rule\":\"MORFOLOGIK_RULE_EN_US\",\"sentence\":\".*[a-z]+-[0-9A-Fa-f]{4}.*\"}",
-      "{\"rule\":\"MORFOLOGIK_RULE_EN_GB\",\"sentence\":\".*[a-z]+-[0-9A-Fa-f]{4}.*\"}",
-      "{\"rule\":\"MORFOLOGIK_RULE_EN_US\",\"sentence\":\".*[a-zA-Z]+_[a-zA-Z0-9]+.*\"}",
-      "{\"rule\":\"MORFOLOGIK_RULE_EN_GB\",\"sentence\":\".*[a-zA-Z]+_[a-zA-Z0-9]+.*\"}"
+      // "{\"rule\":\"MORFOLOGIK_RULE_EN_US\",\"sentence\":\".*[a-z]+-[0-9A-Fa-f]{4}.*\"}",
+      // "{\"rule\":\"MORFOLOGIK_RULE_EN_GB\",\"sentence\":\".*[a-z]+-[0-9A-Fa-f]{4}.*\"}",
+      // "{\"rule\":\"MORFOLOGIK_RULE_EN_US\",\"sentence\":\".*[a-zA-Z]+_[a-zA-Z0-9]+.*\"}",
+      // "{\"rule\":\"MORFOLOGIK_RULE_EN_GB\",\"sentence\":\".*[a-zA-Z]+_[a-zA-Z0-9]+.*\"}"
     ]
   }, 
   "ltex.latex.commands": {

@@ -141,3 +141,8 @@ denotational
 sp
 bigwedge
 sqsubseteq
+tikzcd
+NatTrans
+u₁
+v₂
+disch

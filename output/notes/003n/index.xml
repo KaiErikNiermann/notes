@@ -1000,11 +1000,11 @@
             <fr:uri>https://kaierikniermann.github.io/notes/0047/</fr:uri>
             <fr:display-uri>0047</fr:display-uri>
             <fr:route>/notes/0047/</fr:route>
-            <fr:title text="Assesing provability">Assesing provability</fr:title>
+            <fr:title text="Assessing provability">Assessing provability</fr:title>
             <fr:taxon>Quiz</fr:taxon>
           </fr:frontmatter>
           <fr:mainmatter><html:p>
-  Using the correct proof rule for assignments, asses which of the hoare truples are provable i.e. valid.
+  Using the correct proof rule for assignments, asses which of the hoare triples are provable i.e. valid.
 </html:p>
   
     
@@ -1035,11 +1035,11 @@
     
     <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li>
-      Yes, since we have that for any state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> the subtitution
+      Yes, since we have that for any state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> the substitution
       <fr:tex display="block"><![CDATA[
         (y = x)[x \mapsto  4]
       ]]></fr:tex>
-      holds, thus our precondition holds and upon termination of the assignment clearly our postcondition then holds aswell.
+      holds, thus our precondition holds and upon termination of the assignment clearly our postcondition then holds as well.
     </html:li>
     <html:li>
       Yes, again we that our post condition says <fr:tex display="inline"><![CDATA[x = n]]></fr:tex> so <fr:tex display="inline"><![CDATA[(x = n)[ n \mapsto  (x + 1)]]]></fr:tex> holds as our precondition is then
@@ -1056,7 +1056,7 @@
         \sigma  \nvDash  (2 = x) \equiv  (2 = 3)
       ]]></fr:tex></html:li>
     <html:li>
-      Yes, this is just correct by definition of of a substitution leaving irrelevant variables unaffected.
+      Yes, this is just correct by definition of a substitution leaving irrelevant variables unaffected.
     </html:li></html:ol>
 </fr:mainmatter></fr:tree>
   
@@ -4957,11 +4957,11 @@
                         <fr:uri>https://kaierikniermann.github.io/notes/0047/</fr:uri>
                         <fr:display-uri>0047</fr:display-uri>
                         <fr:route>/notes/0047/</fr:route>
-                        <fr:title text="Assesing provability">Assesing provability</fr:title>
+                        <fr:title text="Assessing provability">Assessing provability</fr:title>
                         <fr:taxon>Quiz</fr:taxon>
                       </fr:frontmatter>
                       <fr:mainmatter><html:p>
-  Using the correct proof rule for assignments, asses which of the hoare truples are provable i.e. valid.
+  Using the correct proof rule for assignments, asses which of the hoare triples are provable i.e. valid.
 </html:p>
   
     
@@ -4992,11 +4992,11 @@
     
     <fr:tree show-metadata="false" expanded="false" toc="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>12</fr:month><fr:day>6</fr:day></fr:date><fr:taxon>Solution</fr:taxon></fr:frontmatter><fr:mainmatter>
   <html:ol><html:li>
-      Yes, since we have that for any state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> the subtitution
+      Yes, since we have that for any state <fr:tex display="inline"><![CDATA[\sigma ]]></fr:tex> the substitution
       <fr:tex display="block"><![CDATA[
         (y = x)[x \mapsto  4]
       ]]></fr:tex>
-      holds, thus our precondition holds and upon termination of the assignment clearly our postcondition then holds aswell.
+      holds, thus our precondition holds and upon termination of the assignment clearly our postcondition then holds as well.
     </html:li>
     <html:li>
       Yes, again we that our post condition says <fr:tex display="inline"><![CDATA[x = n]]></fr:tex> so <fr:tex display="inline"><![CDATA[(x = n)[ n \mapsto  (x + 1)]]]></fr:tex> holds as our precondition is then
@@ -5013,7 +5013,7 @@
         \sigma  \nvDash  (2 = x) \equiv  (2 = 3)
       ]]></fr:tex></html:li>
     <html:li>
-      Yes, this is just correct by definition of of a substitution leaving irrelevant variables unaffected.
+      Yes, this is just correct by definition of a substitution leaving irrelevant variables unaffected.
     </html:li></html:ol>
 </fr:mainmatter></fr:tree>
   
@@ -7561,7 +7561,7 @@
     Let's consider a basic instance of abstraction where we think of the concrete domain as set's of numbers and the abstract domain as rangers or intervals of numbers which characterize these sets. So formally we say
   </html:p>
                             <html:ul><html:li>
-      Our concrete domain is the powerset <fr:tex display="inline"><![CDATA[\mathcal  P(\mathbb {R})]]></fr:tex> of the natural real numbers <fr:tex display="inline"><![CDATA[\mathbb {R}]]></fr:tex> ordered by set-inclusion so <fr:tex display="inline"><![CDATA[\sqsubseteq  \equiv  \subseteq ]]></fr:tex></html:li>
+      Our concrete domain is the power set <fr:tex display="inline"><![CDATA[\mathcal  P(\mathbb {R})]]></fr:tex> of the natural real numbers <fr:tex display="inline"><![CDATA[\mathbb {R}]]></fr:tex> ordered by set-inclusion so <fr:tex display="inline"><![CDATA[\sqsubseteq  \equiv  \subseteq ]]></fr:tex></html:li>
     <html:li>
       Our abstract domain is represented by intervals in addition to the symbols for true and false, so
       <fr:tex display="block"><![CDATA[
@@ -7614,7 +7614,7 @@
       <fr:tex display="block"><![CDATA[
         \bigwedge  _{p \in  a} p
       ]]></fr:tex> 
-      hence our concretization function yields those set's of concrete states (or predicates representing these states) which statisfy <fr:tex display="inline"><![CDATA[a]]></fr:tex>. 
+      hence our concretization function yields those set's of concrete states (or predicates representing these states) which satisfy <fr:tex display="inline"><![CDATA[a]]></fr:tex>. 
       <fr:tex display="block"><![CDATA[
         \gamma (a) = \{\sigma  \in  \Sigma  \mid  \forall  p \in  a.\ p(\sigma ) = \top \} \equiv  \llbracket  \bigwedge _{p \in  a} p \rrbracket  
       ]]></fr:tex></html:li>

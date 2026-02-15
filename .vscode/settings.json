@@ -1,13 +1,17 @@
 {
-  "python.languageServer": "None", 
+  "liveServer.settings.root": "/output",
+  "fiveServer.root": "/output",
   "emeraldwalk.runonsave": {
     "commands": [
       {
         "match": ".*$",
-        "cmd": "npm run build"
+        "cmd": "pnpm run build"
       }
     ]
   }, 
+  "forester.subtree.autoId.enabled": true,
+  "forester.completion.showID": true,
+  "forester.path": "/home/as_user/.local/bin/forester",
   "forester.languageTool.enable": true,
   "forester.languageTool.language": "en",
   "ltex.enabled": ["forester"],
@@ -449,7 +453,38 @@
       "lhs",
       "rhs",
       "LHS",
-      "RHS"
+      "RHS",
+      "equisat",
+      "boldsymbol",
+      "mathopen",
+      "setminus",
+      "mathbin",
+      "csec",
+      "sslist",
+      "mathrel",
+      "mand",
+      "tpacons",
+      "lwand",
+      "cInts",
+      "cInt",
+      "cVar",
+      "cVars",
+      "cLocations",
+      "cHeap",
+      "cState",
+      "cStore",
+      "cAtoms",
+      "bindnasrepma",
+      "usetikzlibrary",
+      "tikzset",
+      "tikztostart",
+      "tikztotarget",
+      "tikztonodes",
+      "pgfkeysvalueof",
+      "pgfsetarrowsstart",
+      "newcommand",
+      "definecolor",
+      "rightarr"
     ]
   },
   "ltex.hiddenFalsePositives": {

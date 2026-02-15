@@ -7,7 +7,7 @@
 \title{Complete Lattice}
 
 \p{
-  A \em{complete lattice} isss a [partially ordered set](002d) in which all subsets have both a \em{greatest lower bound} (also known as \em{infimum} or \em{meet}) and a \em{least upper bound} (also known as \em{supremum} or \em{join}). This means that for any subset #{S} of the complete lattice #{L}, there exists an element #{\sqcup\ S} in #{L} such that: [(1)](baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024)
+  A \em{complete lattice} is a [partially ordered set](002d) in which all subsets have both a \em{greatest lower bound} (also known as \em{infimum} or \em{meet}) and a \em{least upper bound} (also known as \em{supremum} or \em{join}). This means that for any subset #{S} of the complete lattice #{L}, there exists an element #{\sqcup\ S} in #{L} such that: [(1)](baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024)
 }
 \ul{
   \li{

@@ -2,6 +2,16 @@
 
 This project now relies on locally built Forester output instead of performing the OCaml/Forester build inside GitHub Actions. The `output/notes/` directory must therefore be up to date and committed before you push to `main`.
 
+## Build prerequisites
+
+The build now renders HTML from XML using `xsltproc` (libxslt). Install it once per machine.
+
+- macOS (Homebrew): `brew install libxslt`
+- Debian/Ubuntu: `sudo apt-get install xsltproc`
+- Fedora: `sudo dnf install libxslt`
+- Arch: `sudo pacman -S libxslt`
+- Windows: use WSL and install `xsltproc` via your WSL distro
+
 ## Local pre-push hook
 
 1. Point Git to the tracked hooks directory once per clone:
@@ -16,7 +26,7 @@ You can always run the same logic manually with `bash .githooks/pre-push`.
 
 ## Build instructions
 
-- Use your custom Forester binary to generate the static site: `npm run build`.
+- Use your custom Forester binary to generate the static site: `npm run build`. This now includes the HTML render step.
 - Stage and commit the updated `output/notes/` contents alongside your source changes.
 - Push to `main`; CI will only upload the already-built `output/notes/` directory to GitHub Pages.
 

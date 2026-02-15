@@ -126,6 +126,48 @@ const storeTheme = (theme: Theme): void => {
   }
 };
 
+/**
+ * Auto-number citation links.
+ * Finds all links with class "citation" or links pointing to Reference trees,
+ * and numbers them sequentially [1], [2], etc. Each unique reference gets
+ * the same number throughout the document.
+ */
+const numberCitations = (): void => {
+  const citationMap = new Map<string, number>();
+  let counter = 1;
+
+  // Find all citation links - either explicitly marked with .citation class
+  // or links whose title contains "Reference" (indicating a reference tree)
+  const citationLinks = document.querySelectorAll<HTMLAnchorElement>(
+    'a.citation, span.link.local a[title*="Reference"], span.citation a'
+  );
+
+  citationLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (!href) return;
+
+    // Use the href as the unique key for the reference
+    const refKey = href.replace(/#.*$/, ""); // Strip any anchor
+
+    if (!citationMap.has(refKey)) {
+      citationMap.set(refKey, counter++);
+    }
+
+    const citationNumber = citationMap.get(refKey)!;
+    // Only replace if the link text looks like it's meant to be a citation
+    // (contains brackets or is just a number)
+    const currentText = link.textContent?.trim() || "";
+    if (
+      currentText.startsWith("[") ||
+      /^\d+$/.test(currentText) ||
+      /^\[\d+\]$/.test(currentText) ||
+      link.closest(".citation")
+    ) {
+      link.textContent = `[${citationNumber}]`;
+    }
+  });
+};
+
 window.addEventListener("load", () => {
   highlightCodeBlocks();
   autoRenderMath(document.body, {
@@ -136,6 +178,9 @@ window.addEventListener("load", () => {
     ],
     ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code", "option"],
   });
+
+  // Number citations after math rendering
+  numberCitations();
 
   const themeToggle = document.getElementById("theme-toggle");
   let prefersDark: MediaQueryList | null;

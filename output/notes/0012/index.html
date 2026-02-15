@@ -1,7 +1,473 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/0012/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>Interpretation (FOL)</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Definition"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Interpretation (FOL) <a class="slug" href="/notes/0012/">[0012]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+  In first order logic a <em>Interpretation</em>; similar to the case of propositional logic; is a mapping which assigns meaning to the syntax of the language. In this instance it's a mapping from constants, function symbols and predicate symbols to specific objects, functions and relations in a given domain. We can define an interpretation as a sort of piece wise function as follows:
+</p>
+    \[
+  \begin {align*}
+  I &amp;: \mathcal  C \cup  \mathcal  F \cup  \mathcal  R \to  D \cup  (D^n \to  D) \cup  (D^n \to  \{\top , \bot \}) \\
+  I(c) &amp; = d \quad  \forall  c \in  \mathcal  C, d \in  D \\
+  I(f) &amp; = f_D: D^n \to  D \quad  \forall  f \in  \mathcal  F \\
+  I(p) &amp; = p_D: D^n \to  \{\top , \bot \} \quad  \forall  p \in  \mathcal  R \\
+  \end {align*}
+\]
+    <p xmlns="http://www.w3.org/1999/xhtml">
+  Where \(D\) (sometimes also denoted as \(U\)) is the <em>domain of discourse</em> which is a non-empty set of objects over which the quantifiers range. Intuitively the domain of discourse represents what we wish to talk about in our interpretation. We can break this down into 3 parts:
+</p>
+    <ul xmlns="http://www.w3.org/1999/xhtml"><li><strong>constants</strong> (\(c \in  \mathcal  C\)): are mapped to specific elements in the domain \(d \in  D\). For example if \(c\) is the constant \("a"\) and \(D = \{1, 2, 3\}\), then \(I(a) = 1\) could be a valid mapping.
+  </li>
+  <li><strong>function symbols</strong> (\(f \in  \mathcal  F\)): are mapped to functions that take elements from the domain and return elements in the domain. For example if \(f\) is a unary function symbol \("f"\) and \(D = \{1, 2, 3\}\), then \(I(f) = f_D\) where \(f_D(1) = 2\), \(f_D(2) = 3\), and \(f_D(3) = 1\) could be a valid mapping.
+  </li>
+  <li><strong>relation symbols</strong> (\(p \in  \mathcal  R\)): are mapped to relations (or predicates) that take elements from the domain and return truth values \(\{\top , \bot \}\). For example if \(p\) is a binary relation symbol \("R"\) and \(D = \{1, 2, 3\}\), then \(I(R) = R_D\) where \(R_D(1, 2) = \top \), \(R_D(2, 3) = \bot \), and \(R_D(3, 1) = \top \) could be a valid mapping.
+  </li></ul>
+  </details></section><footer xmlns="">
+    
+    <section lang="en" class="block hide-metadata"><details id="id2" open="open"><summary><header><h1>
+<span class="taxon"></span>Context  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="VU-VFS-2025"><details id="id3"><summary><header><h1>
+<span class="taxon">VU-VFS-2025. </span>Lecture 3 - First Order Logic <a class="slug" href="/notes/000u/">[000u]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+            <section lang="en" class="block hide-metadata"><details id="id4" open="open"><summary><header><h1>
+<span class="taxon"></span>Syntax  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id5" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>FOL - Syntax <a class="slug" href="/notes/000v/">[000v]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  We can define a first order language as a tuple of 3 sets \(\langle  \mathcal  C, \mathcal  F, \mathcal  R\rangle \) where:
+</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li><strong>Constants</strong> (\(\mathcal  C\)): the set of constants in the language. E.g., \(\{a, b, c\}\)</li>
+  <li><strong>Function Symbols</strong> (\(\mathcal  F\)): the set of function symbols in the language. E.g., \(\{f, g, h\}\)</li>
+  <li><strong>Relation Symbols</strong> (\(\mathcal  R\)): the set of relation symbols in the language. E.g., \(\{R, S, T\}\)</li></ul>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Using BNF we can define the syntax as follows
+</p>
+                    
+                        <html:img src="/notes/18b8dd7c29a3cc72847fbb5fc08ba8f0.svg" class="tex-diagram"></html:img>
+                      
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Here the atom \(p\) represents an <em>atomic predicate</em> applied to terms \(t_1, \ldots , t_n\), where \(p \in  \mathcal  R\) with an arity of \(n\)</p>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id6" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>First Order Logic - Syntax <a class="slug" href="/notes/000w/">[000w]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><strong xmlns="http://www.w3.org/1999/xhtml">Which of the following are syntactically valid formulas in first order logic?</strong><ol xmlns="http://www.w3.org/1999/xhtml"><li>\(f(x)\)</li>
+  <li>\(p(x)\)</li>
+  <li>\(p(f(x))\)</li>
+  <li>\(p(p(x))\)</li>
+  <li>\(p(f(f(x)))\)</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id7"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>\(f(x)\): <em>Invalid</em>, as \(f\) is a function symbol and cannot stand alone as a formula.
+    </li>
+    <li>\(p(x)\): <em>Valid</em>, as \(p\) is a relation symbol applied to the term \(x\).
+    </li>
+    <li>\(p(f(x))\): <em>Valid</em>, as \(f(x)\) is a term and \(p\) is a relation symbol applied to that term.
+    </li>
+    <li>\(p(p(x))\): <em>Invalid</em>, as \(p(x)\) is a formula, not a term, and cannot be an argument to \(p\).
+    </li>
+    <li>\(p(f(f(x)))\): <em>Valid</em>, as \(f(x)\) is a term, and applying \(f\) again yields another term, which can be an argument to \(p\).
+    </li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id8" open="open"><summary><header><h1>
+<span class="taxon"></span>Quantifiers &amp; Scoping  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id9" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>FOL - Quantifiers and Scoping <a class="slug" href="/notes/000x/">[000x]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  For quantifiers:
+</p>
+                    \[
+  \forall  x.\ F \quad  \exists  x.\ F
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Each variable occurring within the formula \(F\) known as the <em>scope</em> is either:
+</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li><strong>bound</strong>: if it is within the scope of a quantifier that binds it. E.g., in \(\forall  x.\ P(x, y)\), the variable \(x\) is bound.
+  </li>
+  <li><strong>free</strong>: if it is not bound by any quantifier within the formula. E.g., in \(\forall  x.\ P(x, y)\), the variable \(y\) is free.
+  </li></ul>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id10" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Quantifiers and Scoping in FOL <a class="slug" href="/notes/000y/">[000y]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Consider the formula
+</p>\[
+  \forall  y.\ ((\forall  x.\ p(x))) \to  q(x, y)
+\]<ol xmlns="http://www.w3.org/1999/xhtml"><li>
+    Is the \(y\) bound or free?
+  </li>
+  <li>
+    Is the first occurrence of \(x\) bound or free?
+  </li>
+  <li>
+    Is the second occurrence of \(x\) bound or free?
+  </li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id11"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>\(y\) is <em>bound</em>, as it is within the scope of the quantifier \(\forall  y\).
+    </li>
+    <li>
+      The first occurrence of \(x\) is <em>bound</em>, as it is within the scope of the quantifier \(\forall  x\).
+    </li>
+    <li>
+      The second occurrence of \(x\) is <em>free</em>, as it is not within the scope of any quantifier that binds it.
+    </li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id12" open="open"><summary><header><h1>
+<span class="taxon"></span>Closed, Open &amp; Ground Formulas  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id13" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Closed, Open, and Ground Formulas (FOL) <a class="slug" href="/notes/000z/">[000z]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  We have 3 important classifications of formulas in First Order Logic (FOL) based on the nature of their variables:
+</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li><strong>Closed Formula</strong>: A formula with <em>no free variables</em>. All variables in the formula are bound by quantifiers. E.g., \(\forall  x.\ \exists  y.\ p(x, y)\) is a closed formula.
+  </li>
+  <li><strong>Open Formula</strong>: A formula with <em>at least one free variable</em>. E.g., \(p(x, y)\) is an open formula since both \(x\) and \(y\) are free.
+  </li>
+  <li><strong>Ground Formula</strong>: A formula with <em>no variables at all</em>. E.g., \(p(a, b)\) is a ground formula if \(a\) and \(b\) are constants.
+  </li></ul>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id14" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>FOL - Closed, Open, and Ground Formulas <a class="slug" href="/notes/0010/">[0010]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Consider the following formula
+</p>\[
+  \forall  y.\ ((\forall  x.\ p(x))) \to  (\exists  x.\ q(x, y))
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  Is this formula closed, open, or ground?
+</p>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id15"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+  This formula is a <strong xmlns="http://www.w3.org/1999/xhtml">closed formula</strong> because all variables within the formula are bound by quantifiers. The variable \(y\) is bound by the quantifier \(\forall  y\), and both occurrences of \(x\) are bound by their respective quantifiers \(\forall  x\) and \(\exists  x\). There are no free variables in this formula. 
+
+  A nice example of a ground formula is something like this 
+  \[
+    p(a, f(b)) \to  q(c)
+  \]
+  We can see here that there are no variables at all; \(a\), \(b\), and \(c\) are not bound by any quantifiers, hence the formula is ground since we aren't substituting/quantifying over any variables.
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id16" open="open"><summary><header><h1>
+<span class="taxon"></span>Term Evaluation  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id17" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Interpretation (FOL) <a class="slug" href="/notes/0012/">[0012]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  In first order logic a <em>Interpretation</em>; similar to the case of propositional logic; is a mapping which assigns meaning to the syntax of the language. In this instance it's a mapping from constants, function symbols and predicate symbols to specific objects, functions and relations in a given domain. We can define an interpretation as a sort of piece wise function as follows:
+</p>
+                    \[
+  \begin {align*}
+  I &amp;: \mathcal  C \cup  \mathcal  F \cup  \mathcal  R \to  D \cup  (D^n \to  D) \cup  (D^n \to  \{\top , \bot \}) \\
+  I(c) &amp; = d \quad  \forall  c \in  \mathcal  C, d \in  D \\
+  I(f) &amp; = f_D: D^n \to  D \quad  \forall  f \in  \mathcal  F \\
+  I(p) &amp; = p_D: D^n \to  \{\top , \bot \} \quad  \forall  p \in  \mathcal  R \\
+  \end {align*}
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Where \(D\) (sometimes also denoted as \(U\)) is the <em>domain of discourse</em> which is a non-empty set of objects over which the quantifiers range. Intuitively the domain of discourse represents what we wish to talk about in our interpretation. We can break this down into 3 parts:
+</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li><strong>constants</strong> (\(c \in  \mathcal  C\)): are mapped to specific elements in the domain \(d \in  D\). For example if \(c\) is the constant \("a"\) and \(D = \{1, 2, 3\}\), then \(I(a) = 1\) could be a valid mapping.
+  </li>
+  <li><strong>function symbols</strong> (\(f \in  \mathcal  F\)): are mapped to functions that take elements from the domain and return elements in the domain. For example if \(f\) is a unary function symbol \("f"\) and \(D = \{1, 2, 3\}\), then \(I(f) = f_D\) where \(f_D(1) = 2\), \(f_D(2) = 3\), and \(f_D(3) = 1\) could be a valid mapping.
+  </li>
+  <li><strong>relation symbols</strong> (\(p \in  \mathcal  R\)): are mapped to relations (or predicates) that take elements from the domain and return truth values \(\{\top , \bot \}\). For example if \(p\) is a binary relation symbol \("R"\) and \(D = \{1, 2, 3\}\), then \(I(R) = R_D\) where \(R_D(1, 2) = \top \), \(R_D(2, 3) = \bot \), and \(R_D(3, 1) = \top \) could be a valid mapping.
+  </li></ul>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id18" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Structures and Variable Assignments (FOL) <a class="slug" href="/notes/0013/">[0013]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  A <strong>structure</strong> \(\mathcal {M}\) for a first-order language \(\mathcal {L}\) consists of:
+</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+    A non-empty domain \(D\), which is the set of objects that the variables can refer to.
+  </li>
+  <li>
+    An interpretation function \(I\) that assigns meanings to the non-logical symbols in \(\mathcal {L}\):
+  </li>
+  <ul><li>
+      For each constant symbol \(c\) in \(\mathcal {L}\), \(I(c)\) is an element of \(D\).
+    </li>
+    <li>
+      For each n-ary function symbol \(f\) in \(\mathcal {L}\), \(I(f)\) is a function from \(D^n\) to \(D\).
+    </li>
+    <li>
+      For each n-ary predicate symbol \(P\) in \(\mathcal {L}\), \(I(P)\) is a subset of \(D^n\).
+    </li></ul></ul>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  A <strong>variable assignment</strong> \(\sigma \) for a structure \(S\) is a function that assigns each variable to an element of the domain \(D\) of the structure. That is, for each variable \(x\), \(\sigma (x) \in  D\).
+</p>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id19" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Term evaluation (FOL) <a class="slug" href="/notes/0011/">[0011]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  In First Order Logic, terms are evaluated based on an <span xmlns="" class="link local"><a href="/notes/0012/" title="Interpretation (FOL) [0012]">interpretation</a></span> \(I\) and a <span xmlns="" class="link local"><a href="/notes/0013/" title="Structures and Variable Assignments (FOL) [0013]">variable assignment</a></span> \(\sigma \) within a structure \(S\) denoted as \(\langle  I, \sigma \rangle (t)\). The evaluation rules are as follows:
+</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+    If \(t\) is a constant symbol \(c\), then \(\langle  I, \sigma \rangle (c) = I(c)\).
+  </li>
+  <li>
+    If \(t\) is a variable \(x\), then \(\langle  I, \sigma \rangle (x) = \sigma (x)\).
+  </li>
+  <li>
+    If \(t\) is a function application \(f(t_1, t_2, \ldots , t_n)\), then 
+    \[
+      \langle  I, \sigma \rangle (f(t_1, t_2, \ldots , t_n)) = I(f)(\langle  I, \sigma \rangle (t_1), \langle  I, \sigma \rangle (t_2), \ldots , \langle  I, \sigma \rangle (t_n))
+    \]</li></ul>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id20" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Term evaluation (FOL) <a class="slug" href="/notes/0014/">[0014]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Consider the following domain/universe of discourse, variable assignment, and interpretation:
+</p><ul xmlns="http://www.w3.org/1999/xhtml"><li>
+    Universe 
+    \[
+      U \triangleq  \{1, 2\}
+    \]</li>
+  <li>
+    Variable assignment
+    \[
+      \sigma  \triangleq  \{x\mapsto  2, y\mapsto  1\}
+    \]</li>
+  <li>
+    Interpretation
+    \[
+      \begin {align*}
+      I &amp; \triangleq  \{a \mapsto  1, b \mapsto  2\} \\
+      I &amp; \triangleq  \{f(1, 1) \mapsto  2, f(1, 2) \mapsto  2, f(2, 1) \mapsto  1, f(2, 2) \mapsto  1\}
+      \end {align*}
+    \]</li></ul><p xmlns="http://www.w3.org/1999/xhtml">
+  What is the evaluation of the following terms under the given interpretation and variable assignment?
+</p><ol xmlns="http://www.w3.org/1999/xhtml"><li>\(f(a, y)\)</li>
+  <li>\(f(x, b)\)</li>
+  <li>\(f(f(x, b), f(a, y))\)</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id21"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>\(\langle  I, \sigma  \rangle  (f(a, y)) = I(f)(\langle  I, \sigma  \rangle  (a), \langle  I, \sigma  \rangle  (y)) = I(f)(I(a), \sigma (y)) = I(f)(1, 1) = 2\)</li>
+    <li>\(\langle  I, \sigma  \rangle  (f(x, b)) = I(f)(\langle  I, \sigma  \rangle  (x), \langle  I, \sigma  \rangle  (b)) = I(f)(\sigma (x), I(b)) = I(f)(2, 2) = 1\)</li>
+    <li>\(\langle  I, \sigma  \rangle  (f(f(x, b), f(a, y))) = I(f)(\langle  I, \sigma  \rangle  (f(x, b)), \langle  I, \sigma  \rangle  (f(a, y))) = I(f)(1, 2) = 2\)</li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id22" open="open"><summary><header><h1>
+<span class="taxon"></span>Semantic Entailment  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id23" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Semantic Entailment \(\models \) (FOL) <a class="slug" href="/notes/0015/">[0015]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  We evaluate formulas in first order logic <em>under</em> a structure which consists of a domain and an interpretation function. In addition, we need a variable assignment to evaluate formulas with free variables. To denote truth under a structure \(S\) and variable assignment \(\sigma \) we write:
+</p><ul xmlns="http://www.w3.org/1999/xhtml"><li><strong>True</strong>: If a formula \(F\) evaluates to true under \(U, I, \sigma \) we write \[U, I, \sigma  \models  F\]</li>
+  <li><strong>False</strong>: If a formula \(F\) evaluates to false under \(U, I, \sigma \) we write \[U, I, \sigma  \nvDash  F\]</li></ul><p xmlns="http://www.w3.org/1999/xhtml">
+  We can define semantic entailment inductively as follows:
+</p>
+  
+    
+    <html:img src="/notes/d7624c2c82ab393fab290297f3fd0420.svg" class="tex-diagram"></html:img>
+  
+</details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id24" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Semantic Entailment (FOL) <a class="slug" href="/notes/0016/">[0016]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Consider constants (free variables) \(a, b\) and a unary function \(f\), and a binary predicate \(p\). Let \(U = \{\alpha , \beta \}\) and interpretation function \(I\) be defined as follows:
+</p>\[
+  \begin {align*}
+  I &amp;= \{a \mapsto  \alpha , b \mapsto  \beta \} \\
+  I &amp;= \{f(\alpha ) \mapsto  \beta , f(\beta ) \mapsto  \alpha \} \\
+  I &amp;= \{p(\beta , \alpha ) \mapsto  \top , p(\beta , \beta ) \mapsto  \top \}
+  \end {align*}
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  Under the structure \(S = (U, I)\) and variable assignment \(\sigma  = \{x \mapsto  \alpha \}\) what do the following formulas evaluate to?
+</p><ol xmlns="http://www.w3.org/1999/xhtml"><li>\(p(f(b), f(x))\)</li>
+  <li>\(p(f(x), f(b))\)</li>
+  <li>\(p(a, f(x))\)</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id25"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>\(p(f(b), f(x))\) evaluates to \(\top \) because \(f(b) = f(\beta ) = \alpha \) and \(f(x) = f(\alpha ) = \beta \), and \(p(\alpha , \beta ) = \top \).
+    </li>
+    <li>\(p(f(x), f(b))\) evaluates to \(\top \) because \(f(x) = f(\alpha ) = \beta \) and \(f(b) = f(\beta ) = \alpha \), and \(p(\beta , \alpha ) = \top \).
+    </li>
+    <li>\(p(a, f(x))\) evaluates to \(\bot \) because \(a = \alpha \) and \(f(x) = f(\alpha ) = \beta \), and \(p(\alpha , \beta ) = \bot \).
+    </li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id26" open="open"><summary><header><h1>
+<span class="taxon"></span>Semantic argument method  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id27" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Connectives and Quantifiers (FOL) <a class="slug" href="/notes/0017/">[0017]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  In addition to evaluating atomic formulas, we can define the evaluation of complex formulas using logical connectives and quantifiers as follows:
+</p>
+  
+    
+    <html:img src="/notes/2ed6f8116f00585c9a6a6031eb24b377.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+  For the proof rules of quantifiers we have two variants depending on whether we are dealing with free or bound variables:
+</p>
+  
+    
+    <html:img src="/notes/e31d38f49dbceb637264aba1c17cc280.svg" class="tex-diagram"></html:img>
+  
+</details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id28" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Semantic Argument method (FOL) <a class="slug" href="/notes/0018/">[0018]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  In first order logic, the <em>semantic argument method</em> represents a proof by contradiction. The basic idea is as follows:
+</p><ol xmlns="http://www.w3.org/1999/xhtml"><li>
+    We assume that our formula \(F\) is not valid, i.e., \(\exists  S, \sigma  \nvDash  F\)</li>
+  <li>
+    Use the proof rules to derive a contradiction from this assumption.
+  </li>
+  <li>
+    If we can indeed derive a contradiction, we conclude that our initial assumption was false, and therefore \(F\) must be valid.
+  </li></ol><p xmlns="http://www.w3.org/1999/xhtml">
+  We can express the semantic argument method via the following inference rule:
+</p>
+  
+    
+    <html:img src="/notes/2454f17b7350a6508743934c93b962c3.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+  So the idea here being that if we have a predicate and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction. This allows us to conclude that our initial assumption (that the formula is not valid) must be false, thereby proving the validity of the formula.
+</p></details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id29" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Semantic Argument method (FOL) <a class="slug" href="/notes/0019/">[0019]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Consider the following formula:
+</p>\[
+  F \triangleq  (\forall  x.\ p(x)) \to  (\forall  y.\ p(y))
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  Using the semantic argument method, determine whether the formula \(F\) is valid.
+</p>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id30"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+  We begin by assuming that \(\exists  S, \sigma  \nvDash  F\)
+  \[
+    \begin {align*}
+    &amp; S, \sigma  \nvDash  (\forall  x.\ p(x)) \to  (\forall  y.\ p(y)) \\
+    &amp; \therefore  S, \sigma  \models  \forall  x.\ p(x) \land  S, \sigma  \nvDash  \forall  y.\ p(y) \\
+    &amp; \therefore  S, \sigma  \models  \forall  x.\ p(x) \land  S, \sigma  \models  \neg  \forall  y.\ p(y) \\
+    \end {align*}
+  \]
+  Since we have \(p\) and its negation both holding under the same interpretation and variable assignment, we can derive a contradiction using the Contradiction rule from the semantic argument method. Therefore, our initial assumption that \(F\) is not valid must be false. Hence, we conclude that the formula \(F\) is valid.
+</details></section>
+  
+</details></section>
+              </details></section>
+          </details></section>
+      </details></section>
+    <section lang="en" class="block hide-metadata"><details id="id31" open="open"><summary><header><h1>
+<span class="taxon"></span>Backlinks  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Definition"><details id="id32"><summary><header><h1>
+<span class="taxon">Definition. </span>Term evaluation (FOL) <a class="slug" href="/notes/0011/">[0011]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  In First Order Logic, terms are evaluated based on an <span xmlns="" class="link local"><a href="/notes/0012/" title="Interpretation (FOL) [0012]">interpretation</a></span> \(I\) and a <span xmlns="" class="link local"><a href="/notes/0013/" title="Structures and Variable Assignments (FOL) [0013]">variable assignment</a></span> \(\sigma \) within a structure \(S\) denoted as \(\langle  I, \sigma \rangle (t)\). The evaluation rules are as follows:
+</p>
+            <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+    If \(t\) is a constant symbol \(c\), then \(\langle  I, \sigma \rangle (c) = I(c)\).
+  </li>
+  <li>
+    If \(t\) is a variable \(x\), then \(\langle  I, \sigma \rangle (x) = \sigma (x)\).
+  </li>
+  <li>
+    If \(t\) is a function application \(f(t_1, t_2, \ldots , t_n)\), then 
+    \[
+      \langle  I, \sigma \rangle (f(t_1, t_2, \ldots , t_n)) = I(f)(\langle  I, \sigma \rangle (t_1), \langle  I, \sigma \rangle (t_2), \ldots , \langle  I, \sigma \rangle (t_n))
+    \]</li></ul>
+          </details></section>
+      </details></section>
+    
+    
+  </footer></article></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

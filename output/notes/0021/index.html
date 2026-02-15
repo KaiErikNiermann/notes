@@ -1,7 +1,96 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/0021/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>Complete (Strong) Induction</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Definition"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Complete (Strong) Induction <a class="slug" href="/notes/0021/">[0021]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 24, 2025</li></ul></div></header></summary>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+  If we let \(P(0), P(1), \ldots \) be a sequence of propositions indexed by the natural numbers, then the principle of <em>complete induction</em> (also known as <em>strong induction</em>) states that to prove that all of these propositions are true, it suffices to show that for every natural number \(m\), if all of the propositions \(P(0), P(2), \ldots , P(m)\) are true, then \(P(n)\) is also true where \(m &lt; n\). In other words, we assume the truth of all previous cases up to \(m\) in order to prove the case for \(n\). The schema for the principle of complete induction is as follows <span xmlns="" class="link local"><a href="/notes/bradley2007calculus/" title="The Calculus of Computation: Decision Procedures with Applications to Verification [bradley2007calculus]">(1)</a></span>:
+</p>
+    \[
+  \forall  n.\ (\forall  m.\ m &lt; n \to  P(m)) \to  P(n)
+\]
+    <p xmlns="http://www.w3.org/1999/xhtml">
+  In this formulation the base case is implicitly included since when \(n = 0\), the inner universal quantification \(\forall  m.\ m &lt; 0 \to  P(m)\) is vacuously true hence we prove \(P(0)\) directly. We can also state the more classic form of complete induction which explicitly includes the base case as follows:
+</p>
+    \[
+  \forall  n.\ (\forall  m.\ (m \leq  n) \to  P(m)) \to  P(n + 1)
+\]
+    <p xmlns="http://www.w3.org/1999/xhtml">
+  Here the base case ends up being:
+</p>
+    \[
+  ((1 \geq  m \leq  1) \to  P(1)) \to  P(2) \equiv  P(1) \to  P(2)
+\]
+    <p xmlns="http://www.w3.org/1999/xhtml">
+  Here our base case similarly is proven directly just by virtue of the rhs implication reducing to \(P(1)\)<span xmlns="" class="link local"><a href="/notes/ernst2022introductiontoproof/" title="An Introduction to Proof via Inquiry-Based Learning: “4.3: Complete Induction” [ernst2022introductiontoproof]">2</a></span>. A note to make here is that conceptually there is no difference between how we proove the base case in complete induction versus ordinary induction.
+</p>
+  </details></section><footer xmlns="">
+    <section lang="en" class="block hide-metadata"><details id="id2" open="open"><summary><header><h1>
+<span class="taxon"></span>References  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Reference"><details id="id3"><summary><header><h1>
+<span class="taxon">Reference. </span>An Introduction to Proof via Inquiry-Based Learning: “4.3: Complete Induction” <a class="slug" href="/notes/ernst2022introductiontoproof/">[ernst2022introductiontoproof]</a> </h1>
+<div class="metadata"><ul>
+<li class="meta-item">January 1, 2022</li>
+<li class="meta-item"><address class="author">Ernst, Dana</address></li>
+<li class="meta-item"><a class="link external" href="https://math.libretexts.org/Bookshelves/Mathematical_Logic_and_Proof/An_Introduction_to_Proof_via_Inquiry-Based-Learning_(Ernst)/04%3A_New_Page/4.03%3A_New_Page">https://math.libretexts.org/Bookshelves/Mathematical_Logic_and_Proof/An_Introduction_to_Proof_via_Inquiry-Based-Learning_(Ernst)/04%3A_New_Page/4.03%3A_New_Page</a></li>
+<li class="meta-item"><a class="link external" href="https://math.libretexts.org/Bookshelves/Mathematical_Logic_and_Proof/An_Introduction_to_Proof_via_Inquiry-Based_Learning_(Ernst)/04%3A_New_Page/4.03%3A_New_Page">https://math.libretexts.org/Bookshelves/Mathematical_Logic_and_Proof/An_Introduction_to_Proof_via_Inquiry-Based_Learning_(Ernst)/04%3A_New_Page/4.03%3A_New_Page</a></li>
+</ul></div></header></summary></details></section>
+        <section lang="en" class="block" data-taxon="Reference"><details id="id4"><summary><header><h1>
+<span class="taxon">Reference. </span>The Calculus of Computation: Decision Procedures with Applications to Verification <a class="slug" href="/notes/bradley2007calculus/">[bradley2007calculus]</a> </h1>
+<div class="metadata"><ul>
+<li class="meta-item">January 1, 2007</li>
+<li class="meta-item"><address class="author">Bradley, Aaron R., Manna, Zohar</address></li>
+<li class="meta-item"><a class="link external" href="https://community.wvu.edu/~krsubramani/courses/backupcourses/dm2Spr2013/coursetext/CalcofComp.pdf">https://community.wvu.edu/~krsubramani/courses/backupcourses/dm2Spr2013/coursetext/CalcofComp.pdf</a></li>
+</ul></div></header></summary></details></section>
+      </details></section>
+    
+    
+    
+    
+  </footer></article></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

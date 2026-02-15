@@ -1,7 +1,522 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>The Hitchhiker’s Guide to Logical Verification (2024 Desktop Edition)</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Reference"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Reference. </span>The Hitchhiker’s Guide to Logical Verification (2024 Desktop Edition) <a class="slug" href="/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/">[baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024]</a> </h1>
+<div class="metadata"><ul>
+<li class="meta-item">March 28, 2024</li>
+<li class="meta-item"><address class="author">Baanen, Anne, Bentkamp, Alexander, Blanchette, Jasmin, Holzl, Johannes, Limperg, Jannis</address></li>
+<li class="meta-item"><a class="link external" href="https://raw.githubusercontent.com/lean-forward/logical_verification_2024/main/hitchhikers_guide_2024_desktop.pdf">https://raw.githubusercontent.com/lean-forward/logical_verification_2024/main/hitchhikers_guide_2024_desktop.pdf</a></li>
+</ul></div></header></summary></details></section><footer xmlns="">
+    
+    
+    <section lang="en" class="block hide-metadata"><details id="id2" open="open"><summary><header><h1>
+<span class="taxon"></span>Backlinks  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Blog"><details id="id3"><summary><header><h1>
+<span class="taxon">Blog. </span>Type universes in Lean4 <a class="slug" href="/notes/002r/">[002r]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary>
+            <section lang="en" class="block hide-metadata"><details id="id4" open="open"><summary><header><h1>
+<span class="taxon"></span>A brief overview  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata"><details id="id5" open="open"><summary><header><h1>
+<span class="taxon"></span>Universe hierarchy  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+      In Lean4, types are organized into a hierarchy of <em>universes</em> (also referred to as <em>sorts</em>). Each universe is associated with a <em>level</em>, which is a natural number. The \(\texttt {Sort}\) operator constructs a universe from a given level. To avoid things like Girard's paradox, Lean4 employs a stratified type system where each universe can only contain types from lower universes, we have the following hierarchy <span xmlns="" class="link local"><a href="/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" title="The Hitchhiker’s Guide to Logical Verification (2024 Desktop Edition) [baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024]">(1)</a></span>:
+    </p>\[
+      \begin {align*}
+      \texttt {Prop} : \texttt {Type 0} : \texttt {Type 1} : \texttt {Type 2} : \cdots  \\
+      \texttt {Sort 0} : \texttt {Sort 1} : \texttt {Sort 2} : \texttt {Sort 3} : \cdots 
+      \end {align*}
+    \]<p xmlns="http://www.w3.org/1999/xhtml">\(\texttt {Sort}\) has two main aliases used in Lean4: \(\texttt {Prop}\) and \(\texttt {Type u}\). Here, \(\texttt {Prop}\) (which is equivalent to \(\texttt {Sort 0}\)) is the universe of logical propositions, while \(\texttt {Type u}\) (which is equivalent to \(\texttt {Sort (u + 1)}\)) represents a universe of types at level \(u\). So we can say:
+    </p>\[
+      \texttt {Type u} \equiv  \texttt {Sort (u + 1)}
+    \]\[
+      \texttt {Prop} \equiv  \texttt {Sort 0}
+    \]<p xmlns="http://www.w3.org/1999/xhtml">
+      In general we can express the hierarchy for any universe level \(u\) as follows:
+    </p>
+  
+    
+    <html:img src="/notes/a3c29f626bfeab7896c406c2972da4df.svg" class="tex-diagram"></html:img>
+  
+</details></section>
+                <section lang="en" class="block hide-metadata"><details id="id6" open="open"><summary><header><h1>
+<span class="taxon"></span>Predicative universes  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+      Except propositions, a type in a universe at level \(u\) cannot quantify over types from strictly larger universes unless the whole result is lifted to a larger universe. In the case of types we have:
+    </p>
+  
+    
+    <html:img src="/notes/6421c48de3f29311e497b41a79a808fd.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+      To demonstrate some valid instance of this inference rule lets consider the following lean examples:
+    </p><pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      example (α : Type 1) (β : Type 2) : Type 2 := α → β
+      example (α : Type 2) (β : Type 1) : Type 2 := α → β
+    </code></pre><p xmlns="http://www.w3.org/1999/xhtml">
+      Both of the above examples are valid because the resulting type is lifted to the maximum universe level of the input types. In general, we say that the behavior of the \(\texttt {Type}\) universes is called <strong>predicative</strong> meaning that objects <em>may not</em> be defined in terms of quantifiers ranging over that same object.
+    </p></details></section>
+                <section lang="en" class="block hide-metadata"><details id="id7" open="open"><summary><header><h1>
+<span class="taxon"></span>Impredicative universes  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+      We can observe that a function type's universe is determined by the universes of its argument and return types. However, in the case of propositions we have a different behavior:
+    </p>
+  
+    
+    <html:img src="/notes/01b9da1304665deaca41d0e69e7e2b67.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+      Predicates, which are functions that return propositions, may have argument types in any universe, but the function itself remains in the \(\texttt {Prop}\) universe. This behavior is called <strong>impredicative</strong> meaning that objects <em>may</em> be defined in terms of quantifiers ranging over that same object. The rule \(\textsc {ArrowProp}\) means that expressions such \(\forall  a : \texttt {Prop}, a \to  a\), which quantify over all propositions (including themselves), yield a proposition, that is:
+    </p>\[
+      (\forall  a : \texttt {Prop},\ a \to  a) : \texttt {Prop}
+    \]<p xmlns="http://www.w3.org/1999/xhtml">
+      We can see some more examples of quantifying both over propositions and types as follows:
+    </p><pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      /-- Quantifying over propositions yields a proposition -/
+      example : Prop := ∀ (P : Prop) (p1 p2 : P), p1 = p2
+
+      /-- Proposition quantifying over all type stays in Prop -/
+      example : Prop := ∀ (α : Type), ∀ (x : α), x = x
+      example : Prop := ∀ (α : Type 5), ∀ (x : α), x = x
+    </code></pre></details></section>
+                <section lang="en" class="block hide-metadata"><details id="id8" open="open"><summary><header><h1>
+<span class="taxon"></span>The general rule  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+      We can combine these two rules to get a more general rule for function types that return types in any universe:
+    </p>
+  
+    
+    <html:img src="/notes/0701b5f9a243365e0125751bf06c9e91.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+      Here the function type's universe is determined by the (impredicative max) <strong>imax</strong> of the universes of its argument and return types, where \(\texttt {imax}\) is defined as follows:
+    </p>\[
+      \texttt {imax}(u, v) = \begin {cases}
+      0 &amp; \text {if } v = 0 \\
+      \texttt {max}(u, v) &amp; \text {otherwise}
+      \end {cases}
+    \]</details></section>
+                <section lang="en" class="block hide-metadata"><details id="id9" open="open"><summary><header><h1>
+<span class="taxon"></span>The level grammar  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      We can describe the level grammar via the following inductive type:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      inductive Level
+      | zero : Level
+      | succ : Level → Level
+      | max  : Level → Level → Level
+      | imax : Level → Level → Level
+    </code></pre>
+                  </details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id10" open="open"><summary><header><h1>
+<span class="taxon"></span>Universe Binding  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata"><details id="id11" open="open"><summary><header><h1>
+<span class="taxon"></span>Explicit  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      We can define functions and types that are <strong>universe polymorphic</strong> by introducing universe levels either <em>explicitly</em> or <em>implicitly</em>. An explicit universe level is specified directly in the definition, while an implicit universe level is inferred by Lean4. For example:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+        /-- Explicit universe level -/
+        def map.{u v} {α : Type u} {β : Type v} 
+            (f : α → β) : List α → List β :=
+          | []       ⇒ []
+          | x :: xs  =&gt; f x :: map f xs
+      </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      Here the map is declared with explicit universe levels \(u\) and \(v\) and instantiates the polymorphic \(\texttt {List}\). We can also define the same function with implicit universe levels as follows:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+        universe u v
+        def map {α : Type u} {β : Type v} 
+            (f : α → β) : List α → List β := ...
+      </code></pre>
+                  </details></section>
+                <section lang="en" class="block hide-metadata"><details id="id12" open="open"><summary><header><h1>
+<span class="taxon"></span>Implicit  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      By default in Lean4 the option \(\texttt {autoImplicit}\) is set to true, meaning that our universe levels will be inferred automatically meaning that we can simply write:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+        def map {α : Type u} {β : Type v} 
+            (f : α → β) : List α → List β := ...
+      </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      Importantly automatic implicit parameter inference <em>only works</em> if the universe is mentioned in the header preceding the assignment, i.e:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+        /-- Bad: unknown universe u -/
+        def L := List (Type u)
+        /-- Good: universe u mentioned in header -/
+        def L.{u} := List (Type u)
+      </code></pre>
+                  </details></section>
+                <section lang="en" class="block hide-metadata"><details id="id13" open="open"><summary><header><h1>
+<span class="taxon"></span>Implicit + fresh  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      We can also go even further with implicit universes by allowing Lean4 to generate fresh universe levels for us. This is done by omitting the universe annotation and replacing it with a * suffix:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      /-- Fresh implicit universe levels -/
+      def map {α : Type*} {β : Type*} 
+          (f : α → β) : List α → List β := ...
+    </code></pre>
+                  </details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id14" open="open"><summary><header><h1>
+<span class="taxon"></span>Universe Lifting  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    Sometimes we may want to explicitly lift a type from one universe to a higher universe. Lean4 provides lifting operators which are wrappers around terms of a type that reside in a higher universe. There are two main lifting operators:
+  </p>
+                <ul xmlns="http://www.w3.org/1999/xhtml"><li>\(\texttt {PLift}\): Lifts a proposition from \(\texttt {Prop}\) to \(\texttt {Type 0}\) (i.e. \(\texttt {Sort 1}\)).
+    </li>
+    <li>\(\texttt {ULift}\): Lifts a type from \(\texttt {Type u}\) to any number of levels.
+    </li></ul>
+                <section lang="en" class="block hide-metadata"><details id="id15" open="open"><summary><header><h1>
+<span class="taxon"></span>PLift  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      The \(\texttt {PLift}\) operator is used to lift propositions into the first type universe. It is defined as follows:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      structure PLift (α : Sort u) : Type u where
+        /-- Wraps a proof/value to increase its type's universe lvl -/
+        up ::
+        /-- Extracts a wrapped proof/value from a lifted prop/type. -/
+        down : α
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      Some simple examples:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      #check False       -- False : Prop
+      #check PLift False -- PLift False : Type
+      #check Nat         -- Nat : Type
+      #check PLift Nat   -- PLift Nat : Type 1
+
+      example : PLift Prop        := PLift.up True
+      example : Prop              := (PLift.down (PLift.up False))
+      example : List (PLift True) := [.up (by trivial), .up (by decide)]
+    </code></pre>
+                  </details></section>
+                <section lang="en" class="block hide-metadata"><details id="id16" open="open"><summary><header><h1>
+<span class="taxon"></span>ULift  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      The \(\texttt {ULift}\) operator is used to lift types to higher universes. It is defined as follows:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      structure ULift.{r, s} (α : Type s) : Type (max s r) where
+        /-- Wraps a value to increase its type's universe level. -/
+        up ::
+        /-- Extracts a wrapped value from a universe-lifted type. -/
+        down : α
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      Some simple examples:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      #check Nat               -- Nat : Type
+      #check ULift Nat         -- ULift Nat : Type 1
+      #check ULift (ULift Nat) -- ULift (ULift Nat) : Type 2
+
+      example : ULift Nat        := ULift.up 42
+      example : List (ULift Nat) := [.up 1, .up 2, .up 3]
+    </code></pre>
+                  </details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id17" open="open"><summary><header><h1>
+<span class="taxon"></span>Example: Preorder Category  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    A <em>preorder relation</em> is a binary relation that is <strong>reflexive</strong> and <strong>transitive</strong>. In Lean this is expressed as follows:
+  </p>
+                <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+    class Preorder (α : Type*) extends LE α, LT α where
+      le_refl   : ∀ a : α, a ≤ a
+      le_trans  : ∀ a b c : α, a ≤ b → b ≤ c → a ≤ c
+      lt := fun a b =&gt; a ≤ b ∧ ¬b ≤ a
+      lt_iff_le_not_ge : ∀ a b : α, a &lt; b ↔ a ≤ b ∧ ¬b ≤ a := by intros; rfl
+  </code></pre>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    We can already see here that the preorder relation uses implicit universe polymorphism via the \(\texttt {Type*}\) annotation. We can now construct a small category from a preorder relation as follows:
+  </p>
+                <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+    open CategoryTheory
+
+    instance {α : Type u} [Preorder α] : SmallCategory α where
+      Hom a b          := ULift &lt;| PLift (a ≤ b)
+      id a             := .up &lt;| .up &lt;| le_refl a
+      comp {a b c} f g := .up &lt;| .up &lt;| (le_trans f.down.down g.down.down)
+  </code></pre>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    Let's break this down part by part starting with the homomorphism:
+  </p>
+                <section lang="en" class="block hide-metadata"><details id="id18" open="open"><summary><header><h1>
+<span class="taxon"></span>Arrows  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      For the case of the category definition, Lean fundamentally uses quivers to represent the homs between objects. Now before showing how lean defines them lets I think try and do it ourselves. So in this instance in an abstract sense we want the relationship \(\leq \) to represent our morphism or arrow between two objects, so in a sense the following two are equivalent:
+    </p>
+                    \[
+      a \leq  b \equiv  a \xrightarrow {\leq } b
+    \]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      So in the most straightforward sense what we can do is define any kind of "container" to represent our source and target objects under some label, we can define this naively as follows:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      class Graph (Obj : Type) where
+        arrow (source : Obj) (target : Obj) : Type
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      Now let's try to define an instance of such a graph on a preorder relation in which our objects simply live in \(\texttt {Type 0}\):
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      instance {α : Type} [Preorder α] : Graph α where
+        arrow a b := a ≤ b -- arrow from a to b is the relation a ≤ b
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      Here we are declaring an instance, this instance takes
+      <ul><li>
+          An <strong>implicit type parameter</strong> \(\alpha \) which is the type of our objects at the universe level 0.
+        </li>
+        <li>
+          A <strong>type class constraint</strong> \(\texttt {[Preorder α]}\) which ensures that the type \(\alpha \) has a preorder relation defined on it. In other words it guarantees that the relation \(\leq \) is reflexive and transitive for all elements of type \(\alpha \).
+        </li></ul>
+      And we provide the necessary implementation for the \(\texttt {arrow}\) function by setting it to be the preorder relation \(\leq \). But what you will notice is that we have a problem here, namely that our preorder relation lives in the universe \(\texttt {Prop}\) as it's obviously a logical relation, but our graph arrows need to live in \(\texttt {Type}\) (i.e. \(\texttt {Type 0}\)). 
+    </p>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      A first thought might be to just set the arrow type to be \(\texttt {Prop}\) directly, in our definition of the class \(\texttt {Graph}\) though this is rather restrictive as it means that any graph we wish to define can only ever have arrows representing propositions, what if we want to have arrows represent other types such as functions or numbers?
+    </p>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      One way to approach this is to use the \(\texttt {PLift}\) operator to lift our preorder relation from \(\texttt {Prop}\) to \(\texttt {Type 0}\) as follows:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      instance {α : Type} [Preorder α] : Graph α where
+        arrow a b := PLift (a ≤ b) -- lift relation to Type 0
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      While this does work, and often is probably a reasonable way to go about things, much of Lean's mathlib employs universe polymorphic types to define various kinds of structures. Thus parameterizing over some universe level \(u\) we define our polymorphic instance as:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      instance {α : Type u} [Preorder α] : Graph α where
+        arrow a b := PLift (a ≤ b) 
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      But now we naturally run into another issue, namely that the class for our graph is now no longer universe polymorphic which leads to a universe level mismatch. The most straightforward fix here is to simply make the objects in the graph universe polymorphic as well:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      class Graph (Obj : Type u) where -- now polymorphic over u
+        arrow (source : Obj) (target : Obj) : Type
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      But this leads to another question, what level should the arrows live in? We've already seen that arrows can represent various different kinds of things different from the types of objects themselves, (e.g. \(2 \leq  3\) is a proposition but clearly 2 and 3 are numbers). Now one approach is to simply leave the arrows in \(\texttt {Type 0}\) but this already is mildly annoying as it forces us to lift any arrows that don't naturally live in \(\texttt {Type 0}\). Furthermore, we've already seen that having the type stuck at Prop is also not nice, so what we can do is make the arrows' universe polymorphic as well, though over a different universe level \(v\) motivated by the aforementioned situation of different levels of arrows and objects:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      class Graph (Obj : Type u) where
+        arrow (source : Obj) (target : Obj) : Sort v
+
+      instance {α : Type u} [Preorder α] : Graph α where
+        arrow a b := a ≤ b -- now lives in Sort 0 (i.e. Prop)
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      But hold up, why are we lifting in the definition of the instance for the SmallCategory? Let's take a look at all the relevant type signatures:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      -- Quiver 
+      -- (V : Type u) where
+
+      -- CategoryStruct
+      -- (obj : Type u) : Type max u (v + 1) extends Quiver.{v + 1} obj
+
+      -- Category 
+      -- (obj : Type u) : Type max u (v + 1) extends CategoryStruct.{v} obj 
+
+      -- SmallCategory
+      -- (obj : Type u) : Type (u + 1) extends Category.{u} obj 
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      Let's break this down step by step starting first with the relationship between CategoryStruct and Quiver, for the sake of simplicity i'll abstract away some exact names and make all universes explicit:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      variable {α : Type m} [Preorder α] (a b c : α)
+
+      class Box.{u, v} (obj : Type u) where
+        pair : obj → obj → Sort v
+
+      class A.{u, v} (obj : Type u) 
+        : Type max u (v + 1) extends (Box.{u, v + 1} obj) where
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      I think an interesting question I first had here is with the extension of \(\texttt {Box}\) in \(\texttt {A}\) why might you want to increase the universe level of the arrows by one? The main reason this is done in general is to essentially constrain the \(v\) to never be zero. The implication of this being that our extended class \(\texttt {A}\) can never have any pairs which live in \(\texttt {Prop}\).
+    </p>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      A good follow up to this might be, why would you not want things to live in \(\texttt {Prop}\)? In the most general sense some reasons are:
+    </p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li>\(\texttt {Prop}\) is <em>proof irrelevant</em>: In Lean, propositions are considered proof irrelevant, meaning that all proofs of a given proposition are treated as equal. This can lead to loss of information when you want to be able to distinguish between different morphisms or in our simplified example pairs.
+      </li>
+      <li>\(\texttt {Prop}\) is <em>not computational</em>: Propositions in Lean are not computationally relevant, meaning that they do not have computational content. If you want to perform computations or extract algorithms from your morphisms or pairs, having them in \(\texttt {Prop}\) would prevent that.
+      </li>
+      <li>\(\texttt {Prop}\) has <em>limited structure</em>: Propositions in Lean do not have the same rich structure as types in higher universes. If you need to work with morphisms or pairs that have additional structure (like being functions, sets, etc.), you would want them to live in a higher universe.
+      </li></ul>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      As an example we can consider the following:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      -- @classname disables universe inference for that class
+      variable (a₁ : @A.{m, v} α)
+      #check (a₁.pair a b : Sort (v + 1)) -- Box.pair a b : Type v
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      We can see here that the pair now lives in \(\texttt {Sort (v + 1)}\), meaning that if we had \(v = 0\) then our pairs would now live in \(\texttt {Type 0}\). A natural byproduct of this choice - having arrows live in \(\texttt {Sort (v + 1)}\) - is that the type of the structure itself must now live in the largest universe such that it can contain both the objects and the arrows. This is why we have the type signature \(\texttt {Type max u (v + 1)}\) for \(\texttt {A}\). Equivalently we can expand this as:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      -- since Type u = Sort (u + 1) and Type (v + 1) = Sort (v + 2)
+      Sort (max (u + 1) (v + 2)) 
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      If we then create similarly abstract versions for the Category class (B) and SmallCategory class (C) we have:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      class B.{u, v} (obj : Type u) 
+        : Type max u (v + 1) extends A.{u, v} obj where
+
+      class C.{u} (obj : Type u) 
+        : Type (u + 1) extends B.{u, u} obj where 
+      --                        ^ can also type B.{u} (inferres v = u)
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      We can see here that our SmallCategory (C) now constrains the arrows to live in the same universe as the objects by setting \(v = u\) in the extension of \(\texttt {B}\). Thus, if we construct our pair, we have:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      variable (c : @C.{m} α)
+      #check (c.pair a b : Sort (m + 1)) -- Box.pair a b : Type m
+    </code></pre>
+                  </details></section>
+                <section lang="en" class="block hide-metadata"><details id="id19" open="open"><summary><header><h1>
+<span class="taxon"></span>Identity morphism  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      Next up let's look at the identity morphism:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      id a := .up &lt;| .up &lt;| le_refl a
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      The identity is defined as a function that quantifies over all objects \(a\) in our category and returns an arrow from \(a\) to \(a\). Naturally we then first want to construct our arrow, the identity arrow from \(a\) to \(a\) is simply the reflexivity property of the preorder relation \(\leq \), that is \(a \leq  a\) which we can get via \(\texttt {le\_refl a}\). However since our arrows live in \(\texttt {Type m}\), we need to lift our relation twice, first using \(\texttt {PLift.up}\) to lift it from \(\texttt {Prop}\) to \(\texttt {Type 0}\), and then again using \(\texttt {ULift.up}\) to lift it from \(\texttt {Type 0}\) to \(\texttt {Type m}\). A note to make for people unfamiliar with the syntax here, the following pieces of code are equivalent:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      -- .up &lt;| .up &lt;| le_refl a == ULift.up (PLift.up (le_refl a))
+    </code></pre>
+                  </details></section>
+                <section lang="en" class="block hide-metadata"><details id="id20" open="open"><summary><header><h1>
+<span class="taxon"></span>Composition  </h1>
+<div class="metadata"><ul><li class="meta-item">November 28, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      Finally let's look at the composition of arrows:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      comp {a b c} f g := .up &lt;| .up &lt;| (le_trans f.down.down g.down.down)
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      The lifting portion here follows the same reasoning as the identity morphism, we need to lift the resulting relation from \(\texttt {Prop}\) to \(\texttt {Type m}\). The actual composition is done via the transitivity property of the preorder relation \(\leq \). The thing is here that our input arrows \(f\) and \(g\) are both lifted types corresponding to:
+    </p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      f : ULift (PLift (a ≤ b))
+      g : ULift (PLift (b ≤ c))
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+      Thus to extract the actual preorder relations we need to use the \(\texttt {down}\) method twice, first to go from \(\texttt {ULift}\) to \(\texttt {PLift}\), and then again to go from \(\texttt {PLift}\) to the actual relation in \(\texttt {Prop}\). Once we have the two relations extracted we can then apply the transitivity property \(\texttt {le\_trans}\) to get the composed relation \(a \leq  c\) (which we then lift back up).
+    </p>
+                  </details></section>
+              </details></section>
+          </details></section>
+        <section lang="en" class="block" data-taxon="Definition"><details id="id21"><summary><header><h1>
+<span class="taxon">Definition. </span>Complete Lattice <a class="slug" href="/notes/002c/">[002c]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  A <em>complete lattice</em> is a <span xmlns="" class="link local"><a href="/notes/002d/" title="Partial order [002d]">partially ordered set</a></span> in which all subsets have both a <em>greatest lower bound</em> (also known as <em>infimum</em> or <em>meet</em>) and a <em>least upper bound</em> (also known as <em>supremum</em> or <em>join</em>). This means that for any subset \(S\) of the complete lattice \(L\), there exists an element \(\sqcup \ S\) in \(L\) such that: <span xmlns="" class="link local"><a href="/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" title="The Hitchhiker’s Guide to Logical Verification (2024 Desktop Edition) [baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024]">(1)</a></span></p>
+            <ul xmlns="http://www.w3.org/1999/xhtml"><li>\(\sqcup \ S\) is a lower bound of \(S\): For all elements \(s \in  S\), \(\sqcup \ S \leq  s\).
+  </li>
+  <li>\(\sqcup \ S\) is the greatest of all lower bounds: For any other lower bound \(b\) of \(S\), \(b \leq  \sqcup \ S\).
+  </li></ul>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  Similarly, there exists an element \(\sqcap \ S\) in \(L\) such that:
+</p>
+            <ul xmlns="http://www.w3.org/1999/xhtml"><li>\(\sqcap \ S\) is an upper bound of \(S\): For all elements \(s \in  S\), \(s \leq  \sqcap \ S\).
+  </li>
+  <li>\(\sqcap \ S\) is the least of all upper bounds: For any other upper bound \(b\) of \(S\), \(\sqcap \ S \leq  b\).
+  </li></ul>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  In a complete lattice, every subset, including the empty set and the entire set itself, has both a supremum and an infimum within the lattice.
+</p>
+          </details></section>
+        <section lang="en" class="block" data-taxon="Definition"><details id="id22"><summary><header><h1>
+<span class="taxon">Definition. </span>Fixpoint <a class="slug" href="/notes/0028/">[0028]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  A <em>fixpoint</em> (or <em>fixed point</em>) of a function \(f: S \to  S\) is an element \(x \in  S\) such that applying the function \(f\) to \(x\) returns \(x\) itself. In other words, \(x\) is a fixpoint of \(f\) if the following condition holds: <span xmlns="" class="link local"><a href="/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" title="The Hitchhiker’s Guide to Logical Verification (2024 Desktop Edition) [baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024]">(1)</a></span></p>
+            \[
+  f(x) = x
+\]
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  This means that when you input \(x\) into the function \(f\), the output is the same as the input.
+</p>
+          </details></section>
+      </details></section>
+    
+    
+  </footer></article></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

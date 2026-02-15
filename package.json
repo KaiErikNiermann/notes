@@ -4,23 +4,32 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "forester build --persist-tex forest.toml",
+    "build": "forester build --persist-tex forest.toml && bash scripts/render_html.sh",
     "clean": "rm -rf build/ output/",
-    "serve": "python3 -m http.server 1313 -d output",
+    "serve": "tsx server.ts",
+    "serve:python": "python3 -m http.server 1313 -d output",
     "dev": "npm run serve",
-    "test": "npm --prefix theme/dev run test"
+    "test": "npm --prefix theme/dev run test",
+    "typecheck:server": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@types/connect": "^3.4.38",
+    "@types/node": "^24.5.2",
+    "@types/serve-static": "^1.15.9",
+    "@types/ws": "^8.18.1",
+    "chokidar": "^5.0.0",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^9.2.1",
     "connect": "^3.7.0",
     "connect-livereload": "^0.6.1",
     "live-reload": "^1.1.1",
-    "serve-static": "^1.16.2"
+    "serve-static": "^1.16.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
   },
   "dependencies": {
     "ws": "^8.18.3"

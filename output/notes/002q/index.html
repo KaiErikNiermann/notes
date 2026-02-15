@@ -1,7 +1,341 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/002q/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>Grothendieck universe</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Definition"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Grothendieck universe <a class="slug" href="/notes/002q/">[002q]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+    <section lang="en" class="block hide-metadata"><details id="id2" open="open"><summary><header><h1>
+<span class="taxon">1. </span>Motivation  </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+    In set theory (along with other theories which consider collections of stuff) there is an issue which you try to talk about the <em>collection of collections</em>, as it gives rise to certain paradoxes by the recursive nature of it. One way out is to consider a hierarchy of notions of collections, where a "collection of collections" is not in fact considered a "collection" itself but rather some notion of a higher increment of collection.
+  </p>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+    This is the idea behind <em>universes</em>, where the universe is a collection of all set's which intuitively can be thought of as a "set of all sets" but is not itself a set but one increment above it in the hierarchy.
+  </p>
+      </details></section>
+    <section lang="en" class="block hide-metadata"><details id="id3" open="open"><summary><header><h1>
+<span class="taxon">2. </span>Definition  </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+    A <em>Grothendieck universe</em> is a set (in ZFC) \(\mathcal  U\) with the following properties <span xmlns="" class="link local"><a href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories [johnson-yau-2d-categories-2020]">(1)</a></span>:
+  </p>
+        <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      (<em>transitivity</em>) If \(x \in  \mathcal  U\) and \(y \in  x\), then \(y \in  \mathcal  U\).
+    </li>
+    <li>
+      (<em>power set</em>) If \(x \in  \mathcal  U\), then \(\mathcal  P(x) \in  \mathcal  U\) where \(\mathcal  P(x)\) is the powerset (set of all subsets) of \(x\).
+    </li>
+    <li>
+      (<em>unions</em>) If \(I \in  \mathcal  U\) and \(x_i \in  \mathcal  U\) for each \(i \in  I\), then the union
+      \[
+        \bigcup  _{i \in  I} x_i \in  \mathcal  U
+      \]</li>
+    <li>
+      (<em>natural numbers</em>) The set of natural numbers \(\mathbb {N} \in  \mathcal  U\).
+    </li></ol>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+    Additional properties of \(\mathcal  U\) can be enumerated as follows:
+  </p>
+        <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+      If \(x, y \in  \mathcal  U\) then \(\{x, y\} \in  \mathcal  U\).
+    </li>
+    <li>
+      If \(x \in  \mathcal  U\) and \(y \subset  x\), then \(y \in  \mathcal  U\).
+    </li>
+    <li>
+      If \(I \in  \mathcal  U\) and \(x_i \in  \mathcal  U\) for each \(i \in  I\), we have the <strong>cartesian product</strong>:
+      \[
+        \prod _{i \in  I} x_i \in  \mathcal  U
+      \]</li>
+    <li>
+      If \(I \in  \mathcal  U\) and \(x_i \in  \mathcal  U\) for each \(i \in  I\), we have the <strong>disjoint union</strong>:
+      \[\coprod _{i \in  I} x_i \in  \mathcal  U
+
+      \]
+      <li>
+        If \(x, y \in  \mathcal  U\), then the <strong>function set</strong> from \(x\) to \(y\) is also in \(\mathcal  U\):
+        \[
+          y^x = \{ f : x \to  y \} \in  \mathcal  U
+        \]</li></li></ul>
+      </details></section>
+    <section lang="en" class="block hide-metadata"><details id="id4" open="open"><summary><header><h1>
+<span class="taxon">3. </span>An aside on classes and sets  </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+    In a very general sense a <strong>class</strong> is any collection of sets defined by a property that all its members share. So we can express it it as a predicate on some universe \(\mathcal  U\):
+  </p>
+        \[
+    A : \mathcal  U \to  \texttt {Prop}
+  \]
+        <p xmlns="http://www.w3.org/1999/xhtml">
+    As an example in the case of an unsorted set theory (such as ZFC) in which all objects are sets, we define a class \(C\) as a proposition or truth value in the context of some free variable \(A\), the notation used in <span xmlns="" class="link local"><a href="/notes/nlab-class/" title="class [nlab-class]">(5)</a></span> is:
+  </p>
+        \[
+    \Gamma , A \mid  \phi  \vdash  C : \texttt {Prop}
+  \]
+        <p xmlns="http://www.w3.org/1999/xhtml">
+    This expresses that in the context of assumptions \(\Gamma \) extended with the variable \(A\) the proposition \(\phi \) defines a class \(C\). A more classical, albiet probably less formal, way to read this might be:
+  </p>
+        \[
+    C = \{ x \in  \mathcal  U \mid  \phi (x)\}
+  \]
+        <p xmlns="http://www.w3.org/1999/xhtml">
+    Furthermore we say that a class \(X\) is a <em>set</em> if and only if there exists a class \(Y \in  \mathcal  U\) such that \(X \in  Y\). A <strong>proper class</strong> is a class which is not a set <span xmlns="" class="link local"><a href="/notes/low-universes-category-theory-2014/" title="Universes for Category Theory [low-universes-category-theory-2014]">(6)</a></span>.
+  </p>
+      </details></section>
+    <section lang="en" class="block hide-metadata"><details id="id5" open="open"><summary><header><h1>
+<span class="taxon">4. </span>Axiom of Universes  </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+    The common theme amongst these properties is that the aim to express <span xmlns="" class="link local"><em xmlns="http://www.w3.org/1999/xhtml"><a xmlns="" href="/notes/002e/" title="Closed set [002e]">closure</a></em></span> of the set \(\mathcal  U\) under various standard set-theoretic operations. This allows us to treat \(\mathcal  U\) as a <em>universe</em> of sets in which we can carry out normal set-theoretic constructions without leaving the universe.
+  </p>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+    The <em>Axiom of Universes</em> is the general convention which is adopted in category theory and other fields which states that for every set \(x\) there exists a Grothendieck universe \(\mathcal  U\) such that \(x \in  \mathcal  U\).
+  </p>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+    An <em>element</em> of \(\mathcal  U\) is by convention called a \(\mathcal  U\)-<strong>small set</strong> or simply a <em>small set</em> when the universe is clear from context or apparently also just a <em>set</em> <span xmlns="" class="link local"><a href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories [johnson-yau-2d-categories-2020]">(1)</a></span>.
+  </p>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+    A subset of \(\mathcal  U\) is called \(\mathcal  U\)-<strong>moderate</strong> or simply <em>moderate</em> when the universe is clear from context.
+  </p>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+    The general line of reasoning, at least in ZFC is that for every set \(x\) we assume there exists a Grothendieck universe \(\mathcal  U\) such that \(x \in  \mathcal  U\). Accordinly for every universe \(\mathcal  U\) there exists a larger universe \(\mathcal  U'\) such that \(\mathcal  U \in  \mathcal  U'\), and therefore also \(U \subseteq  U'\). Thus under this assumption with have the guarantee of a hierarchy of universes <span xmlns="" class="link local"><a href="/notes/streicher-intro-category-logic-2003/" title="Introduction to Category Theory and Categorical Logic [streicher-intro-category-logic-2003]">(4)</a></span>:
+  </p>
+        \[
+    \mathcal  U_0 \in  \mathcal  U_1 \in  \mathcal  U_2 \in  \cdots 
+  \]
+        <p xmlns="http://www.w3.org/1999/xhtml">
+    Which are also <em>cumulative</em> in the sense that
+  </p>
+        \[
+    \mathcal  U_0 \subseteq  \mathcal  U_1 \subseteq  \mathcal  U_2 \subseteq  \cdots 
+  \]
+      </details></section>
+    <section lang="en" class="block hide-metadata"><details id="id6" open="open"><summary><header><h1>
+<span class="taxon">5. </span>Remarks  </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+        <ul xmlns="http://www.w3.org/1999/xhtml"><li><p>
+        An additional point made in <span xmlns="" class="link local"><a href="/notes/nlab-grothendieck-universe/" title="Grothendieck universe [nlab-grothendieck-universe]">(2)</a></span> is that \(\mathcal  U\) denotes a <em>pure set</em>, that is, all elements of \(\mathcal  U\) are sets and there are no urelements (elements which are not sets). Formally we say that a set \(x\) is pure if for every finite sequence or chain <span xmlns="" class="link local"><a href="/notes/nlab-pure-set/" title="pure set [nlab-pure-set]">(3)</a></span>:
+      </p>
+      \[
+        x_0 = x \in  x_1 \in  x_2 \in  \cdots  \in  x_n
+      \]
+      <p>
+        each \(x_i\) is a set. Another way this is intuitively thought of is that every object reachable from \(x\) by finitely many membership steps is also a set.
+      </p>
+
+      <p>
+        Since we are typically working in the context of ZFC set theory which only allows for sets as elements, all sets are pure by default hence the distinction is sometimes omitted. Theories such as ZFA (Zermelo-Fraenkel set theory with atoms) allow for urelements which do not qualify as sets but can be members of sets.
+      </p></li>
+    <li><p>
+        The <em>countable set</em> property is sometimes <span xmlns="" class="link local"><a href="/notes/levy-formulating-categorical-classes-2018/" title="Formulating Categorical Concepts with Classes [levy-formulating-categorical-classes-2018]">(7)</a></span> also replaces with
+      </p>
+      \[
+        \emptyset  \in  \mathcal  U \quad  \text { or } \quad   \omega  \in  \mathcal  U
+      \]
+      <p>
+        Where \(\omega \) is the set of all finite (von Neumann) ordinals.
+      </p></li>
+    <li><p>
+        Subset's of \(\mathcal  U\) seem to have a somewhat confusing naming convention. So nlab says they are called <em>moderate</em> though this is sometimes also overloaded with the ambiguous term <em>large</em>. They mention that under the assumption that <em>set</em> is equivalent to <em>small set</em> then <em>moderate</em> clearly aligns with <em>proper classes</em> (as those are definitionally distinct from sets). I assume the convention taken in at least <span xmlns="" class="link local"><a href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories [johnson-yau-2d-categories-2020]">(1)</a></span> is that they use they essentially use the term <em>class</em> to mean <em>proper class</em> and by implication <em>moderate set</em> relative to some universe.
+      </p>
+
+      <p>
+        My assumption is that people use <em>class</em> and <em>proper class</em> interchangeably mainly because a proper class actually refers to an object distinct from a set, whereas a class can make it ambiguous whether you mean a set (which is a class) or a proper class (which is not a set).
+      </p></li></ul>
+      </details></section>
+  </details></section><footer xmlns="">
+    <section lang="en" class="block hide-metadata"><details id="id7" open="open"><summary><header><h1>
+<span class="taxon"></span>References  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Reference"><details id="id8"><summary><header><h1>
+<span class="taxon">Reference. </span>Grothendieck universe <a class="slug" href="/notes/nlab-grothendieck-universe/">[nlab-grothendieck-universe]</a> </h1>
+<div class="metadata"><ul>
+<li class="meta-item">November 1, 2025</li>
+<li class="meta-item"><address class="author">nLab authors</address></li>
+<li class="meta-item"><a class="link external" href="https://ncatlab.org/nlab/show/Grothendieck+universe">https://ncatlab.org/nlab/show/Grothendieck+universe</a></li>
+</ul></div></header></summary></details></section>
+        <section lang="en" class="block" data-taxon="Reference"><details id="id9"><summary><header><h1>
+<span class="taxon">Reference. </span>class <a class="slug" href="/notes/nlab-class/">[nlab-class]</a> </h1>
+<div class="metadata"><ul>
+<li class="meta-item">November 1, 2025</li>
+<li class="meta-item"><address class="author">nLab authors</address></li>
+<li class="meta-item"><a class="link external" href="https://ncatlab.org/nlab/show/class">https://ncatlab.org/nlab/show/class</a></li>
+</ul></div></header></summary></details></section>
+        <section lang="en" class="block" data-taxon="Reference"><details id="id10"><summary><header><h1>
+<span class="taxon">Reference. </span>pure set <a class="slug" href="/notes/nlab-pure-set/">[nlab-pure-set]</a> </h1>
+<div class="metadata"><ul>
+<li class="meta-item">November 1, 2025</li>
+<li class="meta-item"><address class="author">nLab authors</address></li>
+<li class="meta-item"><a class="link external" href="https://ncatlab.org/nlab/show/pure+set">https://ncatlab.org/nlab/show/pure+set</a></li>
+</ul></div></header></summary></details></section>
+        <section lang="en" class="block" data-taxon="Reference"><details id="id11"><summary><header><h1>
+<span class="taxon">Reference. </span>2-Dimensional Categories <a class="slug" href="/notes/johnson-yau-2d-categories-2020/">[johnson-yau-2d-categories-2020]</a> </h1>
+<div class="metadata"><ul>
+<li class="meta-item">June 17, 2020</li>
+<li class="meta-item"><address class="author">Johnson, Niles, Yau, Donald</address></li>
+<li class="meta-item"><a class="link external" href="https://arxiv.org/abs/2002.06055v3">https://arxiv.org/abs/2002.06055v3</a></li>
+</ul></div></header></summary></details></section>
+        <section lang="en" class="block" data-taxon="Reference"><details id="id12"><summary><header><h1>
+<span class="taxon">Reference. </span>Formulating Categorical Concepts with Classes <a class="slug" href="/notes/levy-formulating-categorical-classes-2018/">[levy-formulating-categorical-classes-2018]</a> </h1>
+<div class="metadata"><ul>
+<li class="meta-item">July 27, 2018</li>
+<li class="meta-item"><address class="author">Levy, Paul Blain</address></li>
+<li class="meta-item">University of Birmingham</li>
+<li class="meta-item"><a class="link external" href="https://arxiv.org/pdf/1801.08528">https://arxiv.org/pdf/1801.08528</a></li>
+</ul></div></header></summary></details></section>
+        <section lang="en" class="block" data-taxon="Reference"><details id="id13"><summary><header><h1>
+<span class="taxon">Reference. </span>Universes for Category Theory <a class="slug" href="/notes/low-universes-category-theory-2014/">[low-universes-category-theory-2014]</a> </h1>
+<div class="metadata"><ul>
+<li class="meta-item">November 28, 2014</li>
+<li class="meta-item"><address class="author">Low, Zhen Lin</address></li>
+<li class="meta-item"><a class="link external" href="https://arxiv.org/pdf/1304.5227.pdf">https://arxiv.org/pdf/1304.5227.pdf</a></li>
+</ul></div></header></summary></details></section>
+        <section lang="en" class="block" data-taxon="Reference"><details id="id14"><summary><header><h1>
+<span class="taxon">Reference. </span>Introduction to Category Theory and Categorical Logic <a class="slug" href="/notes/streicher-intro-category-logic-2003/">[streicher-intro-category-logic-2003]</a> </h1>
+<div class="metadata"><ul>
+<li class="meta-item">January 1, 2003</li>
+<li class="meta-item"><address class="author">Streicher, Thomas</address></li>
+<li class="meta-item">Technische Universitat Darmstadt</li>
+</ul></div></header></summary></details></section>
+      </details></section>
+    
+    <section lang="en" class="block hide-metadata"><details id="id15" open="open"><summary><header><h1>
+<span class="taxon"></span>Backlinks  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Definition"><details id="id16"><summary><header><h1>
+<span class="taxon">Definition. </span>Type Universes <a class="slug" href="/notes/002p/">[002p]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  In an abstract sense type universes can be regarded similarly in motivation to <span xmlns="" class="link local"><a href="/notes/002q/" title="Grothendieck universe [002q]">Grothendieck universes</a></span> in that they represent a collection (type in this case) of types which are <span xmlns="" class="link local"><a href="/notes/002e/" title="Closed set [002e]">closed</a></span> under certain type constructions. There are typically two presentations of type universes either a la Russell or Tarksi, starting with the former we have:
+</p>
+  
+    
+    <html:img src="/notes/115f455a0913e5321de5e5a94f33d5bc.svg" class="tex-diagram"></html:img>
+  
+
+  
+    
+    <html:img src="/notes/2c0a109ad6fb421ba708cc8cf356a351.svg" class="tex-diagram"></html:img>
+  
+
+  
+    
+    <html:img src="/notes/40a0f23856b5eb6fd0215e52c2166284.svg" class="tex-diagram"></html:img>
+  
+
+  
+    
+    <html:img src="/notes/c6c5b4e7ae1bc1f397a16f72bbf04abb.svg" class="tex-diagram"></html:img>
+  
+
+  <hr xmlns="http://www.w3.org/1999/xhtml"></hr>
+
+  
+    
+    <html:img src="/notes/fd9520a71a4cb16d24751bc20e6bf747.svg" class="tex-diagram"></html:img>
+  
+\[
+  \pi (X, B) : \prod _{(X\ :\ \mathcal {U}_i)} (\texttt {El}_i(X) \to  \mathcal {U}_i) \to  \mathcal {U}_i
+\]
+  
+    
+    <html:img src="/notes/7b6cfa1a1a89748f9a70ca3b70a64c8b.svg" class="tex-diagram"></html:img>
+  
+
+  
+    
+    <html:img src="/notes/5b302c1d19523954ced15f57f876afd6.svg" class="tex-diagram"></html:img>
+  
+
+  
+    
+    <html:img src="/notes/9ee838060f5095e65c0f51e8f7c3afdd.svg" class="tex-diagram"></html:img>
+  
+
+  
+    
+    <html:img src="/notes/bc5e66dcee96b2d7bd2beb323a48e1c6.svg" class="tex-diagram"></html:img>
+  
+</details></section>
+      </details></section>
+    <section lang="en" class="block hide-metadata"><details id="id17" open="open"><summary><header><h1>
+<span class="taxon"></span>Related  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Definition"><details id="id18"><summary><header><h1>
+<span class="taxon">Definition. </span>Closed set <a class="slug" href="/notes/002e/">[002e]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 26, 2025</li></ul></div></header></summary>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  We define a subset of a given set to be <em>closed</em> under some operation on the larget set if preforming that operation on a member of the <em>subset</em> always produces a member of the same subset. Formally we can say that:
+</p>
+            <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+    Given some <strong>set operation</strong> \(f : X^n \to  X\)</li>
+  <li>
+    A subset \(S \subseteq  X\) is <strong>closed</strong> under the operation \(f\) if
+    \[
+      \forall  x_1, x_2, \ldots , x_n \in  S.\ f(x_1, x_2, \ldots , x_n) \in  S
+    \]</li></ul>
+          </details></section>
+      </details></section>
+    
+  </footer></article><nav id="toc"><div class="block"><h1>Table of Contents</h1><ul xmlns="" class="block">
+<li>
+<a class="bullet" href="#id2" title="Motivation">■</a><span class="link local" data-target="#id2"><span class="taxon">1. </span>Motivation</span><ul class="block"></ul>
+</li>
+<li>
+<a class="bullet" href="#id3" title="Definition">■</a><span class="link local" data-target="#id3"><span class="taxon">2. </span>Definition</span><ul class="block"></ul>
+</li>
+<li>
+<a class="bullet" href="#id4" title="An aside on classes and sets">■</a><span class="link local" data-target="#id4"><span class="taxon">3. </span>An aside on classes and sets</span><ul class="block"></ul>
+</li>
+<li>
+<a class="bullet" href="#id5" title="Axiom of Universes">■</a><span class="link local" data-target="#id5"><span class="taxon">4. </span>Axiom of Universes</span><ul class="block"></ul>
+</li>
+<li>
+<a class="bullet" href="#id6" title="Remarks">■</a><span class="link local" data-target="#id6"><span class="taxon">5. </span>Remarks</span><ul class="block"></ul>
+</li>
+</ul></div></nav></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

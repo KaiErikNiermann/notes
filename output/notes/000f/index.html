@@ -1,7 +1,383 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/000f/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>Negation Normal Form (NNF)</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Quiz"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Negation Normal Form (NNF) <a class="slug" href="/notes/000f/">[000f]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><strong xmlns="http://www.w3.org/1999/xhtml">Which of the following formulas are in Negation Normal Form (NNF)?</strong><ol xmlns="http://www.w3.org/1999/xhtml"><li>\(p \to  q\)</li>
+  <li>\(p \lor  (\neg  q  \land  (r \lor  \neg  s))\)</li>
+  <li>\(p \lor  (\neg  q \land  \neg  (\neg  r \land  s))\)</li>
+  <li>\(p \lor  (\neg  q \land  (\neg  \neg  r \lor  \neg  s)) \)</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id2"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      No. The implication operator \(\to \) is not allowed in NNF.
+    </li>
+    <li>
+      Yes. Negations are only applied to literals, and only \(\land \) and \(\lor \) are used.
+    </li>
+    <li>
+      No. The negation operator \(\neg \) is applied to a non-literal formula \((\neg  r \land  s)\).
+    </li>
+    <li>
+      No. The double negation \(\neg  \neg  r\) is not allowed in NNF. Important to remember since that can trip you up.
+    </li></ol>
+</details></section>
+  
+</details></section><footer xmlns="">
+    
+    <section lang="en" class="block hide-metadata"><details id="id3" open="open"><summary><header><h1>
+<span class="taxon"></span>Context  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="VU-VFS-2025"><details id="id4"><summary><header><h1>
+<span class="taxon">VU-VFS-2025. </span>Lecture 2 - Normal Forms &amp; DPLL <a class="slug" href="/notes/000b/">[000b]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+            <section lang="en" class="block hide-metadata"><details id="id5" open="open"><summary><header><h1>
+<span class="taxon"></span>Formula Equivalence  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id6" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Equivalence of Formulae <a class="slug" href="/notes/000c/">[000c]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Two formulas \(F\) and \(G\) are said to be <strong>equivalent</strong>, written \(F \equiv  G\), if they have the same truth value under every interpretation. In other words, for every interpretation \(I\), \(I \models  F\) if and only if \(I \models  G\).
+</p>
+                    \[
+  F \equiv  G \iff  \forall  I (I \models  F \iff  I \models  G)
+\]
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id7" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Normal Forms &amp; DPLL - Equivalence <a class="slug" href="/notes/000d/">[000d]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><strong xmlns="http://www.w3.org/1999/xhtml">Which of the following equivalences hold?</strong><ol xmlns="http://www.w3.org/1999/xhtml"><li>\(\bot  \equiv  \bot \)</li>
+  <li>\(\top  \equiv  \top \)</li>
+  <li>\(\neg  \top  \equiv  \neg  \bot \)</li>
+  <li>\(\neg  (p \land  q) \equiv  \neg  p \lor  \neg  q\)</li>
+  <li>\(p \equiv  p \lor  q\)</li>
+  <li>\(\neg  \neg  p \equiv  p\)</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id8"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      True. Both sides are always false.
+    </li>
+    <li>
+      True. Both sides are always true.
+    </li>
+    <li>
+      False. Left side is always false, right side is always true.
+    </li>
+    <li>
+      True. This is <span xmlns="" class="link local"><a href="/notes/000g/" title="De Morgan's Laws [000g]">De Morgan's law</a></span>. Good to remember 
+      \[
+        \neg  (p \land  q) \equiv  \neg  p \lor  \neg  q
+      \]</li>
+    <li>
+      False. Left side is true when p is true, right side is true when either p or q is true.
+    </li>
+    <li>
+      True. Double negation elimination.
+    </li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id9" open="open"><summary><header><h1>
+<span class="taxon"></span>Negation Normal Forms  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id10" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Negation Normal Form (NNF) <a class="slug" href="/notes/000e/">[000e]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  A formula \(F\) is in Negation Normal Form (NNF) if the negation operator \(\neg \) is only applied to literals (i.e., propositional variables or their negations), and the only other allowed operators are conjunction \(\land \) and disjunction \(\lor \). A nice way to think about it is that we can never have the case where we need to apply <span xmlns="" class="link local"><a href="/notes/000g/" title="De Morgan's Laws [000g]">De Morgan's laws</a></span> to push negations further down the formula tree. So all negations come pre-distributed to the literals.
+</p>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id11" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Negation Normal Form (NNF) <a class="slug" href="/notes/000f/">[000f]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><strong xmlns="http://www.w3.org/1999/xhtml">Which of the following formulas are in Negation Normal Form (NNF)?</strong><ol xmlns="http://www.w3.org/1999/xhtml"><li>\(p \to  q\)</li>
+  <li>\(p \lor  (\neg  q  \land  (r \lor  \neg  s))\)</li>
+  <li>\(p \lor  (\neg  q \land  \neg  (\neg  r \land  s))\)</li>
+  <li>\(p \lor  (\neg  q \land  (\neg  \neg  r \lor  \neg  s)) \)</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id12"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      No. The implication operator \(\to \) is not allowed in NNF.
+    </li>
+    <li>
+      Yes. Negations are only applied to literals, and only \(\land \) and \(\lor \) are used.
+    </li>
+    <li>
+      No. The negation operator \(\neg \) is applied to a non-literal formula \((\neg  r \land  s)\).
+    </li>
+    <li>
+      No. The double negation \(\neg  \neg  r\) is not allowed in NNF. Important to remember since that can trip you up.
+    </li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id13" open="open"><summary><header><h1>
+<span class="taxon"></span>Disjunctive Normal Form  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id14" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Distributing Conjunction <a class="slug" href="/notes/000k/">[000k]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  The distributive law of conjunction over disjunction states that for any formulas \(F\), \(G\), and \(H\), the following equivalence holds:
+</p>
+                    \[
+  \begin {align*}
+  F \land  (G \lor  H) &amp;\equiv  (F \land  G) \lor  (F \land  H) \\
+  (F \lor  G) \land  H &amp;\equiv  (F \land  H) \lor  (G \land  H)
+  \end {align*}
+\]
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id15" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Eliminating Implications and Biconditionals <a class="slug" href="/notes/000j/">[000j]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  To eliminate implications (\(\to \)) and biconditionals (\(\leftrightarrow \)) from a formula \(F\), we can use the following equivalences:
+</p>
+                    \[
+  \begin {align*}
+  p \to  q &amp;\equiv  \neg  p \lor  q \\
+  p \leftrightarrow  q &amp;\equiv  (p \land  q) \lor  (\neg  p \land  \neg  q)
+  \end {align*}
+\]
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id16" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Disjunctive Normal Form (DNF) <a class="slug" href="/notes/000h/">[000h]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  A formula \(F\) is in Disjunctive Normal Form (DNF) if it is a disjunction of one or more conjunctions of one or more literals. In other words, \(F\) can be expressed as a series of clauses connected by disjunctions (\(\lor \)), where each clause is a series of literals connected by conjunctions (\(\land \)). A literal is either a propositional variable or its negation.
+</p>
+                    \[
+  F = C_1 \lor  C_2 \lor  ... \lor  C_n
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Where each clause \(C_i\) is of the form:
+</p>
+                    \[
+  C_i = L_{i1} \land  L_{i2} \land  ... \land  L_{im}
+\]
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id17" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Converting to DNF <a class="slug" href="/notes/000l/">[000l]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Convert the following formula into Disjunctive Normal Form (DNF):
+</p>\[
+  (q \lor  \neg  \neg  p) \land  (\neg  r \to  s)
+\]
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id18"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+  <html:img src="/notes/0ed774c5f98ccbf4fe2a8d866cb96b0e.svg" class="tex-diagram"></html:img>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id19" open="open"><summary><header><h1>
+<span class="taxon"></span>Equisatisfiability  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id20" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Equisatisfiability <a class="slug" href="/notes/000q/">[000q]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Two formulas are said to be <strong>equisatisfiable</strong> if either both formulas are satisfiable or both are unsatisfiable. In other words, there exists an assignment of truth values to the variables that makes one formula true if and only if there exists; not necessarily the same assignment; that makes the other formula true. Equisatisfiability is a weaker condition than logical equivalence, as equisatisfiable formulas may not have the same truth values under all assignments, but they share the same satisfiability status.
+</p>
+                    \[
+  \texttt {equisat}(F, G) \iff  (\exists  I.\ I \models  F) \iff  (\exists  J.\ J \models  G)
+\]
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id21" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Equisatisfiability <a class="slug" href="/notes/000r/">[000r]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  If a formula \(F\) and \(G\) are equisatisfiable, then are they equivalent?
+</p>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id22"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+  No. We can answer this in a few different ways. In the most direct sense they are just definitionally not the same thing, in that equivalence requires that both formulas have the same truth value under all interpretations, whereas equisatisfiability only requires that both formulas have <em xmlns="http://www.w3.org/1999/xhtml">a</em> satisfying interpretation or both be unsatisfiable.
+
+  Another way to see it is that in an abstract sense equivalence describes an object-level relationship between formulas, whereas equisatisfiability describes a meta-level relationship about the existence of satisfying interpretations. Thus, they are fundamentally different kinds of relationships.
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id23" open="open"><summary><header><h1>
+<span class="taxon"></span>Tseitin Transformation  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id24" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Conjunctive Normal Form (CNF) <a class="slug" href="/notes/000n/">[000n]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  A formula is in <strong>Conjunctive Normal Form (CNF)</strong> if it is expressed as a conjunction of disjunctions of literals. In other words, a CNF formula is a series of clauses (disjunctions) connected by AND operators. Each clause contains literals (variables or their negations) connected by OR operators. For example, the formula \((p \lor  \neg  q) \land  (r \lor  s \lor  \neg  t)\) is in CNF.
+</p>
+                    \[
+  F = C_1 \land  C_2 \land  ... \land  C_n
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Where each clause \(C_i\) is of the form:
+</p>
+                    \[
+  C_i = L_{i1} \lor  L_{i2} \lor  ... \lor  L_{im}
+\]
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id25" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Exponential Blow up problem <a class="slug" href="/notes/000m/">[000m]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  When converting a formula to Disjunctive Normal Form (DNF) or Conjunctive Normal Form (CNF), the size of the resulting formula can grow exponentially in the worst case. This is known as the <strong>exponential blow up problem</strong>. For example, a formula with \(n\) variables can result in a DNF or CNF with up to \(2^n\) clauses.
+</p>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id26" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Tseytin's Transformation <a class="slug" href="/notes/000s/">[000s]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Tseytin's transformation is a method used in propositional logic to convert any given formula into an equisatisfiable formula in <span xmlns="" class="link local"><a href="/notes/000n/" title="Conjunctive Normal Form (CNF) [000n]">Conjunctive Normal Form (CNF)</a></span>. The key idea behind Tseytin's transformation is to introduce new variables to represent subformulas of the original formula, thereby avoiding <span xmlns="" class="link local"><a href="/notes/000m/" title="Exponential Blow up problem [000m]">an exponential increase in size</a></span> that can occur with naive CNF conversion methods. There are two key properties of Tseytin's for a formula \(F\) and its Tseytin transformation \(F'\):
+</p>
+                    <ol xmlns="http://www.w3.org/1999/xhtml"><li><strong>unsatisfiability:</strong> \(F\) is unsatisfiable if and only if \(F'\) is unsatisfiable.
+  </li>
+  <li><strong>model correspondence:</strong> For every satisfying assignment (model) of \(F'\), there exists a corresponding satisfying assignment of \(F\), and vice versa, when restricted to the original variables of \(F\).
+  </li></ol>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  To demonstrate how it works lets consider the following formula
+</p>
+                    \[
+  \phi  = ((p \lor  q ) \land  r) \to  (\neg  s)
+\]
+                    <ol xmlns="http://www.w3.org/1999/xhtml"><li><strong>Subformula identification:</strong> Identify the subformulas of \(\phi \) and assign a new variable to each subformula. For our example, we can identify the following subformulas and assign new variables:
+    \[
+      \begin {align*}
+      &amp; \neg  s \\
+      &amp; p \lor  q \\
+      &amp; (p \lor  q) \land  r \\
+      &amp; ((p \lor  q) \land  r) \to  (\neg  s)
+      \end {align*}
+    \]</li>
+  <li><strong>Variable assignment:</strong> Assign new variables to each subformula:
+    \[
+      \begin {align*}
+      &amp; x_1 \text { for } \neg  s \\
+      &amp; x_2 \text { for } p \lor  q \\
+      &amp; x_3 \text { for } (p \lor  q) \land  r \\
+      &amp; x_4 \text { for } ((p \lor  q) \land  r) \to  (\neg  s)
+      \end {align*}
+    \]</li>
+  <li><strong>Equivalence clauses:</strong> For each subformula, create clauses that enforce the equivalence between the new variable and the subformula it represents. For our example, we would create the following clauses:
+    \[
+      \begin {align*}
+      &amp; (x_1 \leftrightarrow  \neg  s) \\
+      &amp; (x_2 \leftrightarrow  (p \lor  q)) \\
+      &amp; (x_3 \leftrightarrow  (x_2 \land  r)) \\
+      &amp; (x_4 \leftrightarrow  (x_3 \to  x_1))
+      \end {align*}
+    \]</li>
+  <li><strong>Conjunct of clauses:</strong> Combine all the equivalence clauses into a single formula in CNF. The final formula \(\phi '\) will be the conjunction of all these clauses along with the clause that asserts the truth of the variable representing the entire formula (in this case, \(x_4\)):
+    \[
+      \phi ' = (x_1 \leftrightarrow  \neg  s) \land  (x_2 \leftrightarrow  (p \lor  q)) \land  (x_3 \leftrightarrow  (x_2 \land  r)) \land  (x_4 \leftrightarrow  (x_3 \to  x_1)) \land  x_4
+    \]</li>
+  <li><strong>Conversion to CNF:</strong> Finally, convert the combined formula into CNF using standard techniques (like distributing disjunctions over conjunctions). The resulting formula will be in CNF and equisatisfiable to the original formula \(\phi \). For example if we consider the clause 
+    \[
+      x_2 \leftrightarrow  (p \lor  q)
+    \] this can be converted to CNF as
+    \[
+      (x_2 \lor  \neg  p) \land  (x_2 \lor  \neg  q) \land  (\neg  x_2 \lor  p \lor  q)
+    \]</li></ol>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id27" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Tseytin's Transformation <a class="slug" href="/notes/000t/">[000t]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Lets consider the following formula
+</p>\[
+  F \triangleq  (p \land  q) \lor  (p \land  \neg  r \land  s)
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  Using Tseytin's transformation, convert the formula \(F\) into an equisatisfiable formula in CNF.
+</p>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id28"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+  For the sake of brevity, let's skip assume the subformula extraction is already done, and we created the following equivalence clauses:
+  \[
+    \begin {align*}
+    F_1 &amp;\triangleq  t_1 \leftrightarrow  (\neg  r \land  s) \\
+    F_2 &amp;\triangleq  t_2 \leftrightarrow  (p \land  t_1) \\
+    F_3 &amp;\triangleq  t_3 \leftrightarrow  (p \land  q) \\
+    F_4 &amp;\triangleq  t_4 \leftrightarrow  (t_2 \lor  t_3)
+    \end {align*}
+  \]
+  This gives us the following conjunct for the transformed formula:
+  \[
+    F' \triangleq  F_1 \land  F_2 \land  F_3 \land  F_4 \land  t_4
+  \]
+</details></section>
+  
+</details></section>
+              </details></section>
+          </details></section>
+      </details></section>
+    
+    
+    
+  </footer></article></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

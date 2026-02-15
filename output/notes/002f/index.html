@@ -1,7 +1,318 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/002f/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>Closure operator</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Definition"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Closure operator <a class="slug" href="/notes/002f/">[002f]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 26, 2025</li></ul></div></header></summary>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+  A <em>closure operator</em> on a set \(S\) is a function \(\text {Cl} : \mathcal  P(S) \to  \mathcal  P(S)\) from the powerset of \(S\) to itself that satisfies the following three properties for all subsets \(A, B \subseteq  S\):
+</p>
+    <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+    The operator is <strong>extensive</strong> meaning that the closure of a set always contains the set itself:
+    \[
+      A \subseteq  \text {Cl}(A)
+    \]</li>
+  <li>
+    The operator is <strong>idempotent</strong> meaning that applying the closure operator twice is the same as applying it once:
+    \[
+      \text {Cl}(\text {Cl}(A)) = \text {Cl}(A)
+    \]</li>
+  <li>
+    The operator is <strong>monotone</strong> meaning that if one set is a subset of another, then the closure of the first set is a subset of the closure of the second set:
+    \[
+      A \subseteq  B \implies  \text {Cl}(A) \subseteq  \text {Cl}(B)
+    \]</li></ul>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+  We say that the <em>closure of a subset</em> is the result of the closure operator beingapplied to that subset. The closure of this subset under some operation is the <em>smallest superset</em> of the subset which is closed (i.e., remains within the superset when the operation is applied). It's also sometimes called the <em>span</em> (such as in linear algebra), <em>generated set</em>, or <em>hull</em>.
+</p>
+  </details></section><footer xmlns="">
+    
+    
+    <section lang="en" class="block hide-metadata"><details id="id2" open="open"><summary><header><h1>
+<span class="taxon"></span>Backlinks  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Definition"><details id="id3"><summary><header><h1>
+<span class="taxon">Definition. </span>Closure of a <span class="link local"><a href="/notes/002h/" title="Syntactic (inference) rule [002h]">syntactic rule</a></span> <a class="slug" href="/notes/002i/">[002i]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 26, 2025</li></ul></div></header></summary>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  A <span xmlns="" class="link local"><a href="/notes/002h/" title="Syntactic (inference) rule [002h]">syntactic rule</a></span> on a set \(X\) expresses a closure condition (or <span xmlns="" class="link local"><a href="/notes/002f/" title="Closure operator [002f]">operator</a></span>) on the subsets of \(X\), which is to say on the elements of the power set \(\mathcal {P}\). In particular, we can say that for a particular subset \(S \in  \mathcal {P}(X)\), we have that:
+</p>
+            \[
+  \{S \subseteq  X \mid  x_1,\ldots ,x_n \in  S \to  x \in  S\}
+\]
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  When we have a set \(\mathcal  R\) denoting a set of <span xmlns="" class="link local"><a href="/notes/002h/" title="Syntactic (inference) rule [002h]">rules</a></span> over \(X\), we will write:
+</p>
+            \[
+  \text {Cl}_\mathcal  R \in  \mathcal  P(X)
+\]
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  to denote the intersection of the closure conditions expressed by each rule in \(\mathcal  R\). In other words, the set of subsets of \(X\) that are closed under all the rules in \(\mathcal  R\). Intuitively this set denotes all set's which satisfy the premises of the rule and hence can derive the conclusion. A particular rule \(r \in  \mathcal  R\) is said to determine a monotone function \(f_r: \mathcal  P(X) \to  \mathcal  P(X)\) such that for any subset \(S \subseteq  X\), we have that:
+</p>
+            \[
+  f_r(S) = \{x \in  X \mid  x_1, \ldots , x_n \in  S\}
+\]
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  What this function expresses is that if we know the assertions \(x_1\) to \(x_n\) are true (are in \(S\)) then we can additionally conclude \(x\) is true. A more pedantic equivalent version of this function is:
+</p>
+            \[
+  f_r(S) = S \cup  \{x \in  X \mid  x_1, \ldots , x_n \in  S\}
+\]
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  There seems to be a general tendency to prefer the first version as it emphasizes the idea of the derivation of new conclusions from premises, however the second version is what's pedantically accurate in that we are accumulating the conclusion \(x\) into the set \(S\) based on the existing premises.
+</p>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  Furthermore we have that the set \(\mathcal  R\) of rules induces a monotone function that collectively closes up under each rule in the set as follows:
+</p>
+            \[
+  f_\mathcal  R(S) = \bigcup _{r \in  \mathcal  R} f_r(S)
+\]
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  What this function expresses is that for any subset \(S \subseteq  X\), we can apply each rule in \(\mathcal  R\) to \(S\) and take the union of all the resulting sets. This gives us the smallest superset of \(S\) closed under \(\mathcal  R\). Intuitively it expresses all derivable conclusions \(x\) from premises \(x_1, \ldots , x_n\) in \(S\) according to the rules in \(\mathcal  R\). In other words it corresponds to the idea of enumerating all rules for our given set \(S\) and seeing if we can add any new conclusions to \(S\) based on the premises already in \(S\).
+</p>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  The <span xmlns="" class="link local"><a href="/notes/002f/" title="Closure operator [002f]">closure</a></span> of the set \(X\) under the rules in \(\mathcal  R\), denoted by \(X_\mathcal  R\), is then defined as the least fixpoint (or <span xmlns="" class="link local"><a href="/notes/002b/" title="Tarski's Theorem [002b]">least pre-fixed point</a></span>) of the function \(f_\mathcal  R\):
+</p>
+            \[
+  \mu  f_\mathcal  R = \bigcap \ \{ S \subseteq  X \mid  f_\mathcal  R(S) \subseteq  S \}
+\]
+          </details></section>
+        <section lang="en" class="block" data-taxon="Definition"><details id="id4"><summary><header><h1>
+<span class="taxon">Definition. </span>Rule induction <a class="slug" href="/notes/0027/">[0027]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  We let \(\mathcal  R\) denote the set of syntactic rules over some set \(X\). Let \(X_\mathcal  R \subseteq  X\) be the closure of \(X\) under the rules in \(\mathcal  R\). In other words: <span xmlns="" class="link local"><a href="/notes/sterling-rule-induction-2025/" title="Theorem. Rule induction [sterling-rule-induction-2025]">(1)</a></span></p>
+            \[
+  (X_\mathcal  R \in  \text {Cl}_\mathcal  R \land  \forall  S \in  \text {Cl}_\mathcal  R \to  X_\mathcal  R \subseteq  S) \equiv  (X_\mathcal  R = \bigcap  \text {Cl}_\mathcal  R)
+\]
+            <section lang="en" class="block hide-metadata"><details id="id5" open="open"><summary><header><h1>
+<span class="taxon"></span>Proof of rule induction  </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+    Our proof here is defined in two parts:
+  </p><ol xmlns="http://www.w3.org/1999/xhtml"><li><strong>Closed</strong>: We show that the set \(X_\mathcal  R\) is closed under the rules in \(\mathcal  R\). In other words, for every rule \((x_1, \ldots , x_n) \mapsto  x \in  \mathcal  R\), if \(x_1, \ldots , x_n \in  X_\mathcal  R\), then \(x \in  X_\mathcal  R\).
+    </li>
+    <li><strong>Minimal</strong>: We show that \(X_\mathcal  R\) is the smallest set closed under the rules in \(\mathcal  R\). In other words, for any set \(S \subseteq  X\) that is closed under the rules in \(\mathcal  R\), we have \(X_\mathcal  R \subseteq  S\).
+    </li></ol>
+  
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Proof"><details id="id6" open="open"><summary><header><h1>
+<span class="taxon">Proof. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+      We fix an arbitrary rule in \(\mathcal  R\):
+    </p>
+    
+  
+    
+    <html:img src="/notes/63b338beeb6e34f7b990a23c3e92b73c.svg" class="tex-diagram"></html:img>
+  
+
+    <p xmlns="http://www.w3.org/1999/xhtml">
+      By definition of \(X_\mathcal  R\), we have that \(x_1, \ldots , x_n \in  X_\mathcal  R\). Since \(X_\mathcal  R\) is closed under the rules in \(\mathcal  R\), it follows that \(x \in  X_\mathcal  R\). Thus, \(X_\mathcal  R\) is closed under the rules in \(\mathcal  R\).
+    </p>
+
+    <p xmlns="http://www.w3.org/1999/xhtml">
+      Now we want to check that \(X_\mathcal  R\) is the smallest set closed under the rules in \(\mathcal  R\). Let \(S \subseteq  X\) be an arbitrary set that is closed under the rules in \(\mathcal  R\). We need to show that \(X_\mathcal  R \subseteq  S\). We can equivalently state this as:
+    </p>
+    <blockquote xmlns="http://www.w3.org/1999/xhtml">
+      Forall derivations \(d\) generated by rules in \(\mathcal  R\), the conclusions of \(d\) are in \(S\).
+    </blockquote>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+      Or in terms of the height of a derivation as:
+    </p>
+    <blockquote xmlns="http://www.w3.org/1999/xhtml">
+      Forall derivations \(d\) of height \(h\) generated by rules in \(\mathcal  R\), the conclusions of \(d\) are in \(S\).
+    </blockquote>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+      We proceed by induction on the height of the derivation \(d\).
+    </p>
+    <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+        In the <strong>base case</strong> any derivation has a height of at least 1, the base case holds vacuously.
+      </li>
+      <li><p>
+          In the <strong>inductive case</strong> we suppose that the conclusions of every derivation of height less than or equal to \(k\) are in \(S\). ; we must prove that the conclusion of any derivation of height \(k + 1\) is also in \(S\).
+        </p>
+
+        <p>
+          Let \(d\) be an arbitrary derivation of height \(k + 1\). By definition of derivation height, the last inference in \(d\) must be of the form:
+        </p>
+        
+  
+    
+    <html:img src="/notes/8ab9294001d8167ff895f88a8c82a4e8.svg" class="tex-diagram"></html:img>
+  
+
+        <p>
+          where each sub-derivation \(d_i\) has height less than or equal to \(k\). By the inductive hypothesis, the conclusions of each sub-derivation \(d_i\) are in \(S\). Since \(S\) is closed under the rules in \(\mathcal  R\), it follows that the conclusion \(x\) of the derivation \(d\) is also in \(S\).
+        </p></li></ul>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+      Thus, by induction, we have shown that for all derivations \(d\) generated by rules in \(\mathcal  R\), the conclusions of \(d\) are in \(S\). Therefore, \(X_\mathcal  R \subseteq  S\).
+    </p>
+  </details></section>
+  
+</details></section>
+            <section lang="en" class="block hide-metadata"><details id="id7" open="open"><summary><header><h1>
+<span class="taxon"></span>Tarski's fixpoint view  </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    Another way we can view what this proof establishes is in terms of the <span xmlns="" class="link local"><a href="/notes/0029/" title="Monotone function [0029]">monotone function</a></span> \(f_\mathcal  R: \mathcal  P(X) \to  \mathcal  P(X)\) induced by the rules in \(\mathcal  R\), <span xmlns="" class="link local"><a href="/notes/002i/" title="Closure of a syntactic rule [002i]">defined as</a></span>:
+  </p>
+                \[
+    f_\mathcal  R(S) = \bigcup _{r \in  \mathcal  R} f_r(S)
+  \]
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    The main fact this proof establishes is that the closure \(X_\mathcal  R\) is the <span xmlns="" class="link local"><a href="/notes/002b/" title="Tarski's Theorem [002b]">least fixed point</a></span> of the function \(f_\mathcal  R\), meaning that:
+  </p>
+                \[
+    f_\mathcal  R(X_\mathcal  R) = X_\mathcal  R \land  \forall  S.\ f_\mathcal  R(S) \subseteq  S \implies  X_\mathcal  R \subseteq  S
+  \]
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    In other words \(X_\mathcal  R\) is the smallest set of premises and conclusions that is <span xmlns="" class="link local"><a href="/notes/002f/" title="Closure operator [002f]">closed under</a></span> the rules in \(\mathcal  R\). Naturally every other set <span xmlns="" class="link local"><a href="/notes/002f/" title="Closure operator [002f]">closed under</a></span> the rules must contain at least the members of \(X_\mathcal  R\) (but possibly more).
+  </p>
+              </details></section>
+          </details></section>
+        <section lang="en" class="block" data-taxon="Definition"><details id="id8"><summary><header><h1>
+<span class="taxon">Definition. </span>Tarski's Theorem <a class="slug" href="/notes/002b/">[002b]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  We define a set \(X\), let \(\mathcal  L(X)\) be the <span xmlns="" class="link local"><a href="/notes/002c/" title="Complete Lattice [002c]">complete lattice</a></span> of all subsets of \(X\) ordered by inclusion. A function \(f: \mathcal  L(X) \to  \mathcal  L(X)\) is said to be <span xmlns="" class="link local"><em xmlns="http://www.w3.org/1999/xhtml"><a xmlns="" href="/notes/0029/" title="Monotone function [0029]">monotone</a></em></span> in this instance if it preserves inclusion which is to say that the following holds: <span xmlns="" class="link local"><a href="/notes/harper-tarski-fixed-point-2025/" title="Tarski’s Fixed Point Theorem* [harper-tarski-fixed-point-2025]">(1)</a></span></p>
+            \[
+  A \subseteq  B \subseteq  X \implies  f(A) \subseteq  f(B)
+\]
+            <section lang="en" class="block hide-metadata"><details id="id9" open="open"><summary><header><h1>
+<span class="taxon"></span>Pre-and-post fixed point  </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    For a monotone function \(f\) a <em>pre-fixed point</em> of \(f\) is a subset \(A \subseteq  X\) such that \(f(A) \subseteq  A\). Similarly, a <em>post-fixed point</em> of \(f\) is a subset \(B \subseteq  X\) such that \(B \subseteq  f(B)\).
+  </p>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    Conceptually the idea here is that the prefixed points are those sets in \(X\) where the function \(f\) maps to <em>at most</em> all members in \(A\). Conversely, the post-fixed points represent the subset where at least all members of the set are mapped to by other members of the same set. Another way to describe it would be that the pre-fixed points represent a closed or <em>under-approximation</em> of the function \(f\) while the post-fixed points represent a consistent or <em>over-approximation</em> of the function.
+  </p>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    A pre-fixed point of \(f\) is also said to be \(f\)-closed and a post-fixed point of \(f\) is said to be \(f\)-consistent.
+  </p>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    A <em>least pre-fixed point</em> of a monotone \(f\) is the <em>smallest</em> subset \(A \subseteq  X\) such that \(f(A) \subseteq  A\), denoted by \(\mu  f\). Similarly, a <em>greatest post-fixed point</em> of \(f\) is the <em>largest</em> subset \(B \subseteq  X\) such that \(B \subseteq  f(B)\), denoted by \(\nu  f\).
+  </p>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    Every monotone function \(f\) has a unique least pre-fixed point and a unique greatest post-fixed point given by the following equations:
+  </p>
+                \[
+    \begin {align*}
+      \mu  f &amp; = \bigcap  \{ A \subseteq  X \mid  f(A) \subseteq  A \} \\
+      \nu  f &amp; = \bigcup  \{ B \subseteq  X \mid  B \subseteq  f(B) \}
+    \end {align*}
+  \]
+              </details></section>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  Of note here is that the least pre-fixed point here corresponds to the closure of the function \(f\). That is to say that it is the smallest set which is closed under the function \(f\). Conversely, the greatest post-fixed point corresponds to the consistency of the function \(f\), being the largest set which is consistent with respect to \(f\).
+</p>
+            <section lang="en" class="block hide-metadata"><details id="id10" open="open"><summary><header><h1>
+<span class="taxon"></span>Lambek's lemma  </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+    One thing we can observe is that \(\mu  f\) is contained in all pre-fixed points of \(f\), by virtue of being the intersection, i.e. closure for all pre-fixed points. Furthermore, we have that \(\mu  f\) is itself a pre-fixed point of \(f\)</p>\[
+    f(\mu  f) \subseteq  \mu  f
+  \]<p xmlns="http://www.w3.org/1999/xhtml">
+    and it is thereby the least pre-fixed point. To see this we note that if:
+  </p>\[
+    f(A ) \subseteq  A \to  f(\mu  f) \subseteq  A
+  \]
+    
+    <section lang="en" class="block hide-metadata"><details id="id11"><summary><header><h1>
+<span class="taxon"></span>Explanation  </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+        So the idea here is again that since \(A\) is a pre-fixed point of \(f\), by definition we have that \(f(A) \subseteq  A\). The implication here is that if we apply \(f\) to our closure, the resulting set must still be within \(A\) since again we definitionally cannot have that \(f\) maps outside \(A\) so even if we constrain ourselves to some smaller set \(\mu  f\) it doesn't negate the fact that \(f\) still cannot map outside \(A\).
+      </p></details></section>
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    But by definition of \(\mu  f\) we have that
+  </p>\[
+    \mu  f \subseteq  A
+  \]
+    
+    <section lang="en" class="block hide-metadata"><details id="id12"><summary><header><h1>
+<span class="taxon"></span>Explanation  </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+        This is more or less just restating the definition of \(\mu  f\) as the intersection of all pre-fixed points of \(f\), which includes \(A\).
+      </p></details></section>
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    Thus by monotonicity of \(f\) we have the following as required
+  </p>\[
+    f(\mu  f) \subseteq  f(A) \subseteq  A
+  \]<p xmlns="http://www.w3.org/1999/xhtml">
+    Additionally we have
+  </p>\[
+    f(f(\mu  f)) \subseteq  f(\mu  f)
+  \]<p xmlns="http://www.w3.org/1999/xhtml">
+    Which is to reiterate that \(f(\mu  f)\) is itself a pre-fixed point of \(f\). Therefore, we have that
+  </p>\[
+    \mu  f \subseteq  f(\mu  f)
+  \]
+    
+    <section lang="en" class="block hide-metadata"><details id="id13"><summary><header><h1>
+<span class="taxon"></span>Explanation  </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+        What this says at a high level; or what it implies given the above condition; is that the application of the monotone operator to the closure set \(\mu  f\) doesn't shrink the set any further, in other words its operation stabilizes at this set such that each member in this set maps precisely to some other member in the set not more (i.e. outside as that would mean it's not closed) and not less (as that would imply it's not minimal).
+      </p>\[
+        f(\mu  f) \subseteq  \mu  f
+      \]<p xmlns="http://www.w3.org/1999/xhtml">
+        What this says at a high level; or what it implies given the above condition; is that the application of the monotone operator to the closure set \(\mu  f\) doesn't shrink the set any further, in other words its operation stabilizes at this set such that each member in this set maps precisely to some other member in the set not more (i.e. outside as that would mean it's not closed) and not less (as that would imply it's not minimal). A question I had here was:
+      </p><blockquote xmlns="http://www.w3.org/1999/xhtml">
+        But why does this actually happen?
+      </blockquote><p xmlns="http://www.w3.org/1999/xhtml">
+        A nice perspective to have firstly is seeing the set \(\mu  f\) here as a <span xmlns="" class="link local"><a href="/notes/002f/" title="Closure operator [002f]">generating set</a></span> for the function \(f\). In other words if we view the function \(f\) as a set of rules which generate new members in the set from existing members, then the closure \(\mu  f\) represents the most precise set of members which can be generated by these rules without introducing any extraneous members.
+      </p><p xmlns="http://www.w3.org/1999/xhtml">
+        The effect of this is that because the members in \(\mu  f\) are precisely those which can be generated by the rules in \(f\), applying \(f\) to this set will simply regenerate the same members, hence why we have that \(\mu  f \subseteq  f(\mu  f)\) since all the members in \(\mu  f\) already correspond to members generated by the members of \(\mu  f\) under the rules of \(f\)</p><p xmlns="http://www.w3.org/1999/xhtml">
+        Furthermore, since we are working in the context of a complete lattice, as we take the intersection of more and more closed subsets under \(f\) we eventually reach a point where if we take some further intersection (move down more) we end up losing the closed property, but if we move up (i.e. take the union of more closed sets) we end up introducing extraneous members which violate the minimalism property, hence the idea that we stabilize at this set i.e. we are a <span xmlns="" class="link local"><em xmlns="http://www.w3.org/1999/xhtml"><a xmlns="" href="/notes/0028/" title="Fixpoint [0028]">fixed point</a></em></span> on the lattice under the operator.
+      </p></details></section>
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    The implication of this being that the closure \(\mu  f\) is a <span xmlns="" class="link local"><em xmlns="http://www.w3.org/1999/xhtml"><a xmlns="" href="/notes/0028/" title="Fixpoint [0028]">fixed point</a></em></span> of \(f\), and, because any fixed point is a pre-fixed point, it is the least pre-fixed point of \(f\). A dual argument shows that the greatest post-fixed point \(\nu  f\) is also a fixed point of \(f\). This result is known as <em>Lambek's lemma</em> in Category theory.
+  </p></details></section>
+          </details></section>
+      </details></section>
+    
+    
+  </footer></article></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

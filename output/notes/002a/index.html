@@ -1,7 +1,103 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/002a/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>Preorder relation</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Definition"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Preorder relation <a class="slug" href="/notes/002a/">[002a]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+  A <em>preorder relation</em> is a binary relation \(\preceq \) on a set \(S\) that is both <em>reflexive</em> and <em>transitive</em>. This means that for all elements \(a, b, c \in  S\), the following conditions hold:<span xmlns="" class="link local"><a href="/notes/fong-spivak-seven-sketches-2019/" title="Seven Sketches in Compositionality: An Invitation to Applied Category Theory [fong-spivak-seven-sketches-2019]">(1)</a></span></p>
+    <ul xmlns="http://www.w3.org/1999/xhtml"><li>\(x \preceq  x\) (Reflexivity): Every element is related to itself.
+  </li>
+  <li>\(a \preceq  b \land  b \preceq  c \to  a \preceq  c\) (Transitivity): If an element \(a\) is related to \(b\), and \(b\) is related to \(c\), then \(a\) is also related to \(c\).
+  </li></ul>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+  We denote the case of \(x\) and \(y\) being equivalent using the notation \(\equiv \) under the following conditions
+</p>
+    \[
+  x \equiv  y \iff  x \preceq  y \land  y \preceq  x
+\]
+  </details></section><footer xmlns="">
+    <section lang="en" class="block hide-metadata"><details id="id2" open="open"><summary><header><h1>
+<span class="taxon"></span>References  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Reference"><details id="id3"><summary><header><h1>
+<span class="taxon">Reference. </span>Seven Sketches in Compositionality: An Invitation to Applied Category Theory <a class="slug" href="/notes/fong-spivak-seven-sketches-2019/">[fong-spivak-seven-sketches-2019]</a> </h1>
+<div class="metadata"><ul>
+<li class="meta-item">January 1, 2019</li>
+<li class="meta-item"><address class="author">Fong, Brendan, Spivak, David I.</address></li>
+</ul></div></header></summary></details></section>
+      </details></section>
+    
+    <section lang="en" class="block hide-metadata"><details id="id4" open="open"><summary><header><h1>
+<span class="taxon"></span>Backlinks  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Definition"><details id="id5"><summary><header><h1>
+<span class="taxon">Definition. </span>Partial order <a class="slug" href="/notes/002d/">[002d]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary>
+            <section lang="en" class="block hide-metadata"><details id="id6" open="open"><summary><header><h1>
+<span class="taxon"></span>Remarks  </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary>
+                <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+    some piece of code
+  </code></pre>
+              </details></section>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  A partial order is just a <span xmlns="" class="link local"><a href="/notes/002a/" title="Preorder relation [002a]">preorder</a></span> with an additional property called <em>antisymmetry</em>. A partial order on a set \(P\) is a binary relation \(\leq \) that satisfies the following three properties for all elements \(a, b, c \in  P\):
+</p>
+            <ul xmlns="http://www.w3.org/1999/xhtml"><li>\(a \leq  a\) (Reflexivity): Every element is related to itself.
+  </li>
+  <li>\(a \leq  b \land  b \leq  c \to  a \leq  c\) (Transitivity): If an element \(a\) is related to \(b\), and \(b\) is related to \(c\), then \(a\) is also related to \(c\).
+  </li>
+  <li>\(a \leq  b \land  b \leq  a \to  a = b\) (Antisymmetry): If an element \(a\) is related to \(b\), and \(b\) is related to \(a\), then \(a\) and \(b\) must be the same element.
+  </li></ul>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  More accurately a partial order is a <em>reflexive, weak, non-strict partial order</em>. Also known as <em>skeletal preorder</em>. <span class="citation"><span xmlns="" class="link local"><a href="/notes/fong-spivak-seven-sketches-2019/" title="Seven Sketches in Compositionality: An Invitation to Applied Category Theory [fong-spivak-seven-sketches-2019]">[0]</a></span></span></p>
+          </details></section>
+      </details></section>
+    
+    
+  </footer></article></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

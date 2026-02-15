@@ -7446,18 +7446,6 @@
                     </fr:tree>
                   </fr:mainmatter>
                 </fr:tree>
-                <fr:tree show-metadata="false">
-                  <fr:frontmatter>
-                    <fr:authors />
-                    <fr:date>
-                      <fr:year>2025</fr:year>
-                      <fr:month>12</fr:month>
-                      <fr:day>12</fr:day>
-                    </fr:date>
-                    <fr:title text="Functions &amp; Contracts">Functions &amp; Contracts</fr:title>
-                  </fr:frontmatter>
-                  <fr:mainmatter />
-                </fr:tree>
               </fr:mainmatter>
             </fr:tree>
             <fr:tree show-metadata="false" expanded="false">

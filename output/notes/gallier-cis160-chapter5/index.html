@@ -1,7 +1,75 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/gallier-cis160-chapter5/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>Chapter 5: Partial Orders, Lattices, Well-Founded Orderings, Equivalence Relations, Distributive Lattices, Boolean Algebras, Heyting Algebras</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Reference"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Reference. </span>Chapter 5: Partial Orders, Lattices, Well-Founded Orderings, Equivalence Relations, Distributive Lattices, Boolean Algebras, Heyting Algebras <a class="slug" href="/notes/gallier-cis160-chapter5/">[gallier-cis160-chapter5]</a> </h1>
+<div class="metadata"><ul>
+<li class="meta-item"><address class="author">Gallier, Jean</address></li>
+<li class="meta-item">University of Pennsylvania</li>
+<li class="meta-item"><a class="link external" href="https://www.seas.upenn.edu/~jean/cis160/cis260slides7.pdf">https://www.seas.upenn.edu/~jean/cis160/cis260slides7.pdf</a></li>
+</ul></div></header></summary></details></section><footer xmlns="">
+    
+    
+    <section lang="en" class="block hide-metadata"><details id="id2" open="open"><summary><header><h1>
+<span class="taxon"></span>Backlinks  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Definition"><details id="id3"><summary><header><h1>
+<span class="taxon">Definition. </span>Well-order (well ordering) <a class="slug" href="/notes/002k/">[002k]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 26, 2025</li></ul></div></header></summary>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  Given a <span xmlns="" class="link local"><a href="/notes/002d/" title="Partial order [002d]">poset</a></span> \((X, \leq )\), we say that the relation \(\leq \) is a <em>well-order</em> and that \(X\) is <em>well-ordered</em> by \(\leq \) iff. every non-empty subset \(S \subseteq  X\) has a least element; that is, there exists an element \(m \in  S\) such that for all \(s \in  S\), \(m \leq  s\). So, formally we have: <span xmlns="" class="link local"><a href="/notes/gallier-cis160-chapter5/" title="Chapter 5: Partial Orders, Lattices, Well-Founded Orderings, Equivalence Relations, Distributive Lattices, Boolean Algebras, Heyting Algebras [gallier-cis160-chapter5]">(1)</a></span></p>
+            \[
+  \forall  (S : \mathcal {P}(X)).\ S \ \mathrlap {\,/}{=}\  \emptyset  \implies  (\exists  m \in  S.\ \forall  s \in  S.\ m \leq  s)
+\]
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  When X is nonempty, if we pick out any two-element subset, \(\{a, b\}\) of \(X\), since the subset must have a least element, either \(a \leq  b\) or \(b \leq  a\). Thus, a <em>well-order</em> is a total order.
+</p>
+          </details></section>
+      </details></section>
+    
+    
+  </footer></article></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

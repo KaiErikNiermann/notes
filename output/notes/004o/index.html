@@ -1,7 +1,171 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/004o/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title></title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon"></span> <a class="slug" href="/notes/004o/">[004o]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 11, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  So again a hoare triple is just:
+</p>\[
+  \forall  \sigma , \sigma '.\ P(\sigma ) \to  (s, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma )
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  and then we also have formation rules like for sequencing like:
+</p>
+  
+    
+    <html:img src="/notes/63acf2899aa435ae88488e83cb8797f8.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+  and we know that we have soundness when:
+</p>\[
+  \vdash  \{P\}\ s\ \{Q\} \to \ \vDash  \{P\}\ s\ \{Q\}
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  but then as a proof rule what's actually going for sequence as an example is:
+</p>
+  
+    
+    <html:img src="/notes/da4f3bb9316bcc9759a88f40180c89b4.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+  But as a proof rule we actually need to provide a witness of that final hoare triple, in actuality that final hoare triple is the formula:
+</p>\[
+  \forall  \sigma , \sigma '.\ P(\sigma ) \to  (s_1; s_2, \sigma ) \Downarrow  \sigma ' \to  R(\sigma )
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  but then the weakest precondition now is defined as:
+</p>\[
+  \texttt {wp}(s_1; s_2, Q) = \texttt {wp}(s_1, \texttt {wp}(s_2, Q))
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  We also know that soundness here would mean:
+</p>\[
+  \forall  \sigma , \sigma '.\ \texttt {wp}(s_1; s_2, Q(\sigma )) \to  (s, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ')
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  So thinking about this further let's expand our like classical inference rule:
+</p>
+  
+    
+    <html:img src="/notes/3bf1266e1d49437b5f92b8013dcb3716.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+  but the rule for the soundness of the weakest precondition would be:
+</p>
+  
+    
+    <html:img src="/notes/2f8a2e75e0f45717925944a70fb2529c.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+  We know here that the verification condition expands to:
+</p>\[
+  \texttt {vc}(s_1; s_2, Q) = \texttt {vc}(s_2, Q) \land  \texttt {vc}(s_1, \texttt {wp}(s_2, Q(\sigma )))
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  so this transforms our rule to:
+</p>
+  
+    
+    <html:img src="/notes/78435f57dfab702c771454ed606446dd.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+  But with the proof of soundness we also have the two induction hypothesis generated for each statement which forms the constructor of the sequence, so we have two hypotheses available to us:
+</p>\[
+  \begin {align}
+    ih_1 &amp;: \forall  Q, \underbrace {\texttt {vc}(s_1, Q)}_{h_{\text {vc}}} \to  \forall  \sigma , \sigma '.\ \texttt {wp}(s_1, Q(\sigma )) \to  (s_1, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ') \\
+    ih_2 &amp;: \forall  Q, \underbrace {\texttt {vc}(s_2, Q)}_{h_{\text {vc}}} \to  \forall  \sigma , \sigma '.\ \texttt {wp}(s_2, Q(\sigma )) \to  (s_2, \sigma ) \Downarrow  \sigma ' \to  Q(\sigma ')
+  \end {align}
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  What we can see is that these two inductive hypothesis conceptually mirror the classical inference rule formed out of just expanding the literal Hoare triple syntax into its implication form.
+</p><p xmlns="http://www.w3.org/1999/xhtml">
+  Also by the evaluation semantics we have:
+</p>
+  
+    
+    <html:img src="/notes/fd9fd770fdd6c5656cfae12933ad8366.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+  The main part of the proof here is that we instantiate the first induction hypothesis with the weakest precondition for the second statement, i.e.:
+</p>\[
+  ih_1(\texttt {wp}(s_2, Q))
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  What this gives us is:
+</p>\[
+  \begin {align}
+    \texttt {vc}(s_1, \texttt {wp}(s_2, Q(\sigma )))
+    &amp;\to  \forall  \sigma , \sigma '.\ \texttt {wp}(s_1, \texttt {wp}(s_2, Q(\sigma )))  \\
+    &amp;\to  (s_1, \sigma ) \Downarrow  \sigma ' \\
+    &amp;\to  \texttt {wp}(s_2, Q(\sigma '))
+  \end {align}
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  So then if we instantiate the second induction hypothesis with \(Q\) we can get:
+</p>\[
+  \begin {align}
+    \texttt {vc}(s_2, Q)
+    &amp;\to  \forall  \sigma , \sigma '.\ \texttt {wp}(s_2, Q(\sigma )) \\
+    &amp;\to  (s_2, \sigma ) \Downarrow  \sigma ' \\
+    &amp;\to  Q(\sigma ')
+  \end {align}
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  Here then we have:
+</p><ul xmlns="http://www.w3.org/1999/xhtml"><li>
+    The <em>verification condition</em> for the second statement given by just the proof statement.
+  </li>
+  <li>
+    The weakest precondition for \(\sigma '\) of \(s_2\) is given by instanting the statement with the \(\texttt {wp}\) we just construct directly.
+  </li>
+  <li>
+    Finally the evaluation is provided just by inversion on the inference rule that forms \(S\)</li></ul><p xmlns="http://www.w3.org/1999/xhtml">
+  We can create a sort of diagrammatic overview of what this looks like:
+</p>
+ 
+  
+  <figure xmlns="http://www.w3.org/1999/xhtml"><a href=" " target="_blank" class="quiver-link">
+    <html:img src="/notes/33b4508e9c8f3a8d441d8804fbd9c8ba.svg" class="tex-diagram"></html:img>
+   </a></figure>
+ 
+</details></section><footer xmlns="">
+    
+    
+    
+    
+    
+  </footer></article></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

@@ -52,7 +52,7 @@
           <header class="header">
             <nav class="nav">
               <div class="logo">
-                <a href="{/f:tree/@base-url}index/index.xml" title="Home">
+                <a href="{/f:tree/@base-url}index/" title="Home">
                   <xsl:text>« Home</xsl:text>
                 </a>
               </div>
@@ -73,6 +73,38 @@
             </nav>
           </xsl:if>
         </div>
+        <!-- Live reload for development -->
+        <script>
+          <![CDATA[
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          ]]>
+        </script>
       </body>
     </html>
   </xsl:template>

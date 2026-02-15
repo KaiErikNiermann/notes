@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "lastModified": "2026-01-14T21:28:04.720Z",
+  "customPatterns": [
+    {
+      "pattern": "\\cite{",
+      "closingChar": "}",
+      "triggerChar": "{",
+      "description": "Example: LaTeX citation"
+    }
+  ],
+  "includeBuiltins": true
+}

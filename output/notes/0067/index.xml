@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2026</fr:year>
+      <fr:month>2</fr:month>
+      <fr:day>11</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/0067/</fr:uri>
+    <fr:display-uri>0067</fr:display-uri>
+    <fr:route>/notes/0067/</fr:route>
+    <fr:title text="Lecture 1 › Syntax and semantics of prop1 › Semantics of prop1"><fr:link href="/notes/0068/" title="Lecture 1 › Syntax and semantics of prop1" uri="https://kaierikniermann.github.io/notes/0068/" display-uri="0068" type="local"><fr:link href="/notes/0062/" title="Lecture 1" uri="https://kaierikniermann.github.io/notes/0062/" display-uri="0062" type="local">Lecture 1</fr:link> › Syntax and semantics of prop1</fr:link> › Semantics of prop1</fr:title>
+    <fr:taxon>Definition</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter>
+    <html:p>Content</html:p>
+  </fr:mainmatter>
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2026</fr:year>
+              <fr:month>2</fr:month>
+              <fr:day>11</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/0068/</fr:uri>
+            <fr:display-uri>0068</fr:display-uri>
+            <fr:route>/notes/0068/</fr:route>
+            <fr:title text="Lecture 1 › Syntax and semantics of prop1"><fr:link href="/notes/0062/" title="Lecture 1" uri="https://kaierikniermann.github.io/notes/0062/" display-uri="0062" type="local">Lecture 1</fr:link> › Syntax and semantics of prop1</fr:title>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2026</fr:year>
+                  <fr:month>2</fr:month>
+                  <fr:day>11</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/0066/</fr:uri>
+                <fr:display-uri>0066</fr:display-uri>
+                <fr:route>/notes/0066/</fr:route>
+                <fr:title text="Syntax of prop1">Syntax of prop1</fr:title>
+                <fr:taxon>Definition</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>Content</html:p>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2026</fr:year>
+                  <fr:month>2</fr:month>
+                  <fr:day>11</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/0067/</fr:uri>
+                <fr:display-uri>0067</fr:display-uri>
+                <fr:route>/notes/0067/</fr:route>
+                <fr:title text="Semantics of prop1">Semantics of prop1</fr:title>
+                <fr:taxon>Definition</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>Content</html:p>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2026</fr:year>
+                  <fr:month>2</fr:month>
+                  <fr:day>11</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/006c/</fr:uri>
+                <fr:display-uri>006c</fr:display-uri>
+                <fr:route>/notes/006c/</fr:route>
+                <fr:title text="prop1 example">prop1 example</fr:title>
+                <fr:taxon>Example</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>Example content...</html:p>
+              </fr:mainmatter>
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2026</fr:year>
+                  <fr:month>2</fr:month>
+                  <fr:day>11</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/006e/</fr:uri>
+                <fr:display-uri>006e</fr:display-uri>
+                <fr:route>/notes/006e/</fr:route>
+                <fr:title text="Soundness and completeness">Soundness and completeness</fr:title>
+              </fr:frontmatter>
+              <fr:mainmatter>
+                <html:p>Content</html:p>
+              </fr:mainmatter>
+            </fr:tree>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

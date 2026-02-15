@@ -1,7 +1,735 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/003y/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>Hoare triple evaluation</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Quiz"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Hoare triple evaluation <a class="slug" href="/notes/003y/">[003y]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 5, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Asses the validity of each of the following Hoare triples.
+</p><ol xmlns="http://www.w3.org/1999/xhtml"><li>\(\{x = 0 \}\ x := x + 1\ \{x = 1\}\)</li>
+  <li>\(\{x = 0 \land  y = 1\}\ x := x + 1\ \{x = 1 \land  y = 2\}\)</li>
+  <li>\(\{x = 0 \land  y = 1\}\ x := x + 1 \{x = 1 \lor  y = 2\}\)</li>
+  <li>\(\{x = 0\}\ \texttt {while}\ \top \ \texttt {do}\ x := x + 1\ \{x = 1\}\)</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id2"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 5, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      Valid. If \(x = 0\) before execution, then after executing \(x := x + 1\), \(x\) will be \(1\).
+    </li>
+    <li>
+      Invalid. While \(x\) will be \(1\) after execution, \(y\) remains \(1\), so the post-condition \(y = 2\) does not hold.
+    </li>
+    <li>
+      Valid. After execution, \(x\) will be \(1\), satisfying the post-condition \(x = 1 \lor  y = 2\).
+    </li>
+    <li>
+      Valid. The loop runs indefinitely, so the post-condition is vacuously true as the program never terminates.
+    </li></ol>
+</details></section>
+  
+</details></section><footer xmlns="">
+    
+    <section lang="en" class="block hide-metadata"><details id="id3" open="open"><summary><header><h1>
+<span class="taxon"></span>Context  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="VU-VFS-2025"><details id="id4"><summary><header><h1>
+<span class="taxon">VU-VFS-2025. </span>Lecture 5 - Nano and Hoare Logic <a class="slug" href="/notes/003n/">[003n]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+            <section lang="en" class="block hide-metadata"><details id="id5" open="open"><summary><header><h1>
+<span class="taxon"></span>Semantics and Evaluation  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id6" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Simple Imperative Language - Syntax <a class="slug" href="/notes/003t/">[003t]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 4, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  We define the syntax of a simple imperative programming language, using the followng bnf grammar:
+</p>
+  
+    
+    <html:img src="/notes/d9358af54b1514c3e8ea6264dd0ad402.svg" class="tex-diagram"></html:img>
+  
+</details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id7" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Simple Imperative Language - Semantics <a class="slug" href="/notes/003u/">[003u]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 4, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  We can divide the environmental big-step semantics of our simple language into three parts:
+</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li><strong>Expression evaluation</strong>: Describes how arithmetic expressions are evaluated to numbers.
+  </li>
+  <li><strong>Boolean expression evaluation</strong>: Describes how boolean expressions are evaluated to boolean values (true/false).
+  </li>
+  <li><strong>Statement execution</strong>: Describes how statements are executed, transforming an initial state (environment) into a final state.
+  </li></ul>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  The general big-step environmental evalutation rule is denoted as:
+</p>
+                    \[
+  \langle  t, \sigma  \rangle  \Downarrow  v
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Here:
+</p>
+                    <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+    We have some starting term \(\texttt {t}\) (which can be an expression, boolean expression, or statement), along with some state \(\sigma \).
+  </li>
+  <li>
+    The evaluation results in some value \(\texttt {v}\) (which can be a number, boolean value, or new state).
+  </li></ol>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  A quick aside here to deconstruct the term <strong>big-step environmental evaluation</strong>:
+</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+    We say that this evaluation is <strong>big-step</strong> as it assumes some arbitrary state of intermediate steps, meaning that within big step semantics we do not care about intermediate computation only about some input expression and the final output value. A simple analogue to make here is that big-step semantics are akin to a teacher asking you to only show ur final answer to a math problem rather than all the steps you took to get there.
+  </li>
+  <li>
+    We say that this evaluation is <strong>environmental</strong> (as opposed to being substitution based) as we explicitly keep track of a state \(\sigma \) which maps variables to their values. This is in contrast to substitution based semantics where variable occurrences are replaced directly with their values in expressions.
+  </li></ul>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  The state \(\sigma  : \texttt {String} \to  \mathbb {Z}\) represents a mapping from variables (commonly strings) to their corresponding values (numbers). We denote the updated state after assigning a value to a variable \(\texttt {x}\) as:
+</p>
+                    \[
+  \sigma [x \mapsto  n]
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  This means that in the new state, the variable \(\texttt {x}\) now maps to the number \(\texttt {n}\), while all other variable mappings remain unchanged from the original state \(\sigma \).
+</p>
+                    <section lang="en" class="block hide-metadata"><details id="id8" open="open"><summary><header><h1>
+<span class="taxon"></span>Expression evaluation  </h1>
+<div class="metadata"><ul><li class="meta-item">December 4, 2025</li></ul></div></header></summary>
+  
+    
+    <html:img src="/notes/6a4d239ebe747cfb08700219cfa18949.svg" class="tex-diagram"></html:img>
+  
+</details></section>
+                    <section lang="en" class="block hide-metadata"><details id="id9" open="open"><summary><header><h1>
+<span class="taxon"></span>Boolean expression evaluation  </h1>
+<div class="metadata"><ul><li class="meta-item">December 4, 2025</li></ul></div></header></summary>
+  
+    
+    <html:img src="/notes/a16aa0da1d83a5e40e560fb3943d67ea.svg" class="tex-diagram"></html:img>
+  
+</details></section>
+                    <section lang="en" class="block hide-metadata"><details id="id10" open="open"><summary><header><h1>
+<span class="taxon"></span>Statement evaluation  </h1>
+<div class="metadata"><ul><li class="meta-item">December 4, 2025</li></ul></div></header></summary>
+  
+    
+    <html:img src="/notes/c80b26dde9779d9a29c9fa2cc9590978.svg" class="tex-diagram"></html:img>
+  
+</details></section>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id11" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Simple Imperative Language - Evaluation <a class="slug" href="/notes/003v/">[003v]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 4, 2025</li></ul></div></header></summary><ol xmlns="http://www.w3.org/1999/xhtml"><li>
+    What does the following evaluate to?
+    \[
+      \langle  (x := x - 1), \sigma [x \mapsto  2] \rangle 
+    \]</li>
+  <li>
+    What does the following evaluate to?
+    \[
+      \langle  \texttt {if } x + 1 \leq  3 \texttt { then } x := x - 1, \sigma [x \mapsto  1] \rangle 
+    \]</li>
+  <li>
+    What does the following evaluate to?
+    \[
+      \langle  \texttt {while } (x + 1 \leq  3) \texttt { then } x := x - 1, \sigma [x \mapsto  1] \rangle 
+    \]</li>
+  <li>
+    Is the following a <span xmlns="" class="link local"><a href="/notes/003w/" title="Total &amp; Partial function [003w]">total function</a></span>?
+    \[
+      \langle  e, \sigma  \rangle  \Downarrow  n
+    \]</li>
+  <li>
+    Is the following a <span xmlns="" class="link local"><a href="/notes/003w/" title="Total &amp; Partial function [003w]">total function</a></span>?
+    \[
+      \langle  s, \sigma  \rangle  \Downarrow  \sigma '
+    \]</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id12"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 4, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      Starting in the state \(x \mapsto  2\) we evaluate \(x := x - 1\) to the state \(x \mapsto  1\)</li>
+    <li>
+      Starting in the state \(x \mapsto  1\), we first evaluate the condition \(x + 1 \leq  3\):
+      \[
+        \begin {align*}
+        \langle  x + 1, \sigma [x \mapsto  1] \rangle  &amp;\Downarrow  2 \\
+        \langle  3, \sigma [x \mapsto  1] \rangle  &amp;\Downarrow  3 \\
+        \langle  2 \leq  3, \sigma [x \mapsto  1] \rangle  &amp;\Downarrow  \texttt {true}
+        \end {align*}
+      \]
+      Since the condition evaluates to true, we then evaluate the then-branch \(x := x - 1\):
+      \[
+        \begin {align*}
+        \langle  x - 1, \sigma [x \mapsto  1] \rangle  &amp;\Downarrow  0 \\
+        \langle  x := 0, \sigma [x \mapsto  1] \rangle  &amp;\Downarrow  \sigma [x \mapsto  0]
+        \end {align*}
+      \]</li>
+    <li>
+      We again start by evaluating the condition
+      \[
+        \begin {align*}
+        \langle  x + 1, \sigma [x \mapsto  1] \rangle  &amp;\Downarrow  2 \\
+        \langle  3, \sigma [x \mapsto  1] \rangle  &amp;\Downarrow  3 \\
+        \langle  2 \leq  3, \sigma [x \mapsto  1] \rangle  &amp;\Downarrow  \texttt {true}
+        \end {align*}
+      \]
+      Since we can see that the body of the loop only decreases \(x\), we are stuck in an infinite loop:
+      \[
+        \begin {align*}
+        \langle  x := x - 1, \sigma [x \mapsto  1] \rangle  &amp;\Downarrow  \sigma [x \mapsto  0] \\
+        \langle  \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1, \sigma [x \mapsto  0] \rangle  &amp;\Downarrow  \sigma [x \mapsto  -1] \\
+        \langle  \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1, \sigma [x \mapsto  -1] \rangle  &amp;\Downarrow  \sigma [x \mapsto  -2] \\
+        &amp;\vdots 
+        \end {align*}
+      \]</li>
+    <li>
+      Yes, for every expression \(e\) and state \(\sigma \), there exists a number \(n\) such that
+      \[
+        \langle  e, \sigma  \rangle  \Downarrow  n
+      \]
+      This follows from the fact that expressions are finite syntax trees built from a finite set of rules, and each rule can be evaluated in a finite number of steps.
+    </li>
+    <li>
+      No, there exist statements \(s\) and states \(\sigma \) for which there is no resulting state \(\sigma '\) such that
+      \[
+        \langle  s, \sigma  \rangle  \Downarrow  \sigma '
+      \]
+      For example, consider the while-loop
+      \[
+        \texttt {while } (x + 1 \leq  3) \texttt { do } x := x - 1
+      \]
+      starting from the state \(\sigma [x \mapsto  1]\). As shown in the previous question, this loop does not terminate, and thus there is no resulting state \(\sigma '\).
+    </li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id13" open="open"><summary><header><h1>
+<span class="taxon"></span>Hoare Logic  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id14" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Hoare triple - partial correctness <a class="slug" href="/notes/003x/">[003x]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 5, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  The basic unit of reasoning or <em>judgement</em> of the <strong>partial correctness</strong> of a program is the <strong>Hoare triple</strong> denoted as:
+</p>
+                    \[
+  \{P\}\ s\ \{Q\}
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  where:
+</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li>\(P\) represents the <strong>precondition</strong> which must hold true <em>before</em> the execution of the statement \(s\).
+  </li>
+  <li>\(Q\) represents the <strong>postcondition</strong> which must hold true <em>after</em> the execution of the statement \(s\), provided that \(P\) was true before execution.
+  </li></ul>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  If we consider a variable state \(\sigma  : \texttt {String} \to  \mathbb {Z}\) mapping variable names to integer values, then we can define the partial correctness condition of a Hoare triple as follows:
+</p>
+                    \[
+  \sigma  \vDash  P \to  \exists  \sigma '.\ \langle  s, \sigma  \rangle  \Downarrow  \sigma ' \to  \sigma ' \vDash  Q
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  What this says is that: if the precondition \(P\) holds in the initial state \(\sigma \), and if executing the statement \(s\) from that state leads to a new state \(\sigma '\), then the postcondition \(Q\) must hold in the new state \(\sigma '\).
+</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  In a more programmatic sense we can understand the pre and postconditions as assertions on the memory state \(\sigma \), in other words they represent a function \(A : (\texttt {String} \to  \mathbb {Z}) \to  \texttt {Prop}\) that evaluates to true or false based on the values of the variables in the state. Thus, we can rewrite the Hoare triple condition as:
+</p>
+                    \[
+  P(\sigma ) \to  \exists  \sigma '.\ \langle  s, \sigma  \rangle  \Downarrow  \sigma ' \to  Q(\sigma ')
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Or in lean equivalently as:
+</p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+  abbrev Condition := Memory -&gt; Prop
+
+  def HoareTriple {P Q : Condition} (c : Stmt) : Prop :=
+    ∀ σ σ', P σ → (c, σ) ⇓ₛ σ' → Q σ'
+</code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  A note here is that we are using some custom notation for the big-step semantics relation. The notation \(\Downarrow _s\) here simply means the big step evaluation relation for <em>statements</em>.
+</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  In general for a Hoare triple we denote its validity as:
+</p>
+                    \[
+  \vDash  \{P\}\ s\ \{Q\}
+\]
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id15" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Hoare triple evaluation <a class="slug" href="/notes/003y/">[003y]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 5, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Asses the validity of each of the following Hoare triples.
+</p><ol xmlns="http://www.w3.org/1999/xhtml"><li>\(\{x = 0 \}\ x := x + 1\ \{x = 1\}\)</li>
+  <li>\(\{x = 0 \land  y = 1\}\ x := x + 1\ \{x = 1 \land  y = 2\}\)</li>
+  <li>\(\{x = 0 \land  y = 1\}\ x := x + 1 \{x = 1 \lor  y = 2\}\)</li>
+  <li>\(\{x = 0\}\ \texttt {while}\ \top \ \texttt {do}\ x := x + 1\ \{x = 1\}\)</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id16"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 5, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      Valid. If \(x = 0\) before execution, then after executing \(x := x + 1\), \(x\) will be \(1\).
+    </li>
+    <li>
+      Invalid. While \(x\) will be \(1\) after execution, \(y\) remains \(1\), so the post-condition \(y = 2\) does not hold.
+    </li>
+    <li>
+      Valid. After execution, \(x\) will be \(1\), satisfying the post-condition \(x = 1 \lor  y = 2\).
+    </li>
+    <li>
+      Valid. The loop runs indefinitely, so the post-condition is vacuously true as the program never terminates.
+    </li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id17" open="open"><summary><header><h1>
+<span class="taxon"></span>Partial vs Total correctness  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id18" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Hoare triple - total correctness <a class="slug" href="/notes/003z/">[003z]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 5, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  The classical <span xmlns="" class="link local"><a href="/notes/003x/" title="Hoare triple - partial correctness [003x]">hoare triple</a></span> \(\{P\}\ s\ \{Q\}\) only captures the notion of <strong>partial correctness</strong>, meaning that if the program terminates, then the postcondition \(Q\) holds given that the precondition \(P\) held before execution. However, it does not guarantee that the program will terminate. To capture both correctness and termination, we define the <strong>total correctness</strong> Hoare triple denoted as:
+</p>
+                    \[
+  [P]\ s\ [Q]
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  The total correctness Hoare triple asserts that:
+</p>
+                    \[
+  \sigma  \vDash  P \to  \exists  \sigma '.\ \langle  s, \sigma  \rangle  \Downarrow  \sigma ' \land  \sigma ' \vDash  Q
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Or equivalently viewing the conditions as assertions on memory states:
+</p>
+                    \[
+  P(\sigma ) \to  \exists  \sigma '.\ \langle  s, \sigma  \rangle  \Downarrow  \sigma ' \land  Q(\sigma ')
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  The central difference we can observe here is with the usage of a conjunction with the postcondition as opposed to an implication. This means that for total correctness, if the precondition \(P\) holds in the initial state \(\sigma \), then there must exist a final state \(\sigma '\) such that executing the statement \(s\) from \(\sigma \) leads to \(\sigma '\) <em>and</em> the postcondition \(Q\) holds in that final state. Whereas in the case of partial correctness, if we had non-termination, the postcondition could be vacuously true.
+</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  For the sake of completeness let's also show how we might implement this in lean:
+</p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+  def TotalHoareTriple {P Q : Condition} (c : Stmt) : Prop :=
+    ∀ σ, P σ → ∃ σ', (c, σ) ⇓ₛ σ' ∧ Q σ'
+</code></pre>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id19" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Understanding hoare triples <a class="slug" href="/notes/0040/">[0040]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 5, 2025</li></ul></div></header></summary><ol xmlns="http://www.w3.org/1999/xhtml"><li>
+    What does \(\{\top \}\ s\ \{Q\}\) express?
+  </li>
+  <li>
+    What about \(\{P\}\ s\ \{\top \}\)?
+  </li>
+  <li>
+    What about \([P]\ s\ [\top ]\)?
+  </li>
+  <li>
+    When does \(\{\top \}\ s\ \{\bot \}\) hold?
+  </li>
+  <li>
+    When does \(\{\bot \}\ s\ \{Q\}\) hold?
+  </li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id20"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 5, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      It states that no matter the initial state, if the program \(s\) terminates, then the postcondition \(Q\) will hold. In other words, all <em>terminating states</em> end up in or satisfy \(Q\).
+    </li>
+    <li>
+      It states that if the precondition \(P\) holds before execution of \(s\), then after execution (if it terminates), the postcondition will always be true. Since \(\top \) is always true, this Hoare triple is valid for any program \(s\) and precondition \(P\).
+    </li>
+    <li>
+      Since this is a total correctness Hoare triple, it states that if the precondition \(P\) holds before execution of \(s\), then the program \(s\) will always terminate, regardless of the final state. The postcondition \(\top \) is trivially satisfied since it is always true. In other words we terminate on all states satisfying \(P\).
+    </li>
+    <li>
+      This Hoare triple holds if and only if the program \(s\) <em>never terminates</em> for any initial state. Since the postcondition is \(\bot \), which is always false, the only way for the Hoare triple to be valid is if there are no terminating executions of \(s\).
+    </li>
+    <li>
+      This Hoare triple holds for any program \(s\) and postcondition \(Q\), because the precondition \(\bot \) is always false. Since there are no initial states that satisfy \(\bot \), the implication in the definition of the Hoare triple is vacuously true.
+    </li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id21" open="open"><summary><header><h1>
+<span class="taxon"></span>Inference rules  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id22" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Inference Rule Schema - Hoare logic <a class="slug" href="/notes/0043/">[0043]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 5, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  To denote the idea of syntactic consequence / inference within Hoare logic we use the notation:
+</p>
+  
+    
+    <html:img src="/notes/2e12a2e5ca0ca3ffda6781ef9f314039.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+  Which says that if we can derive the hoare triple \(\{P\}\ s_1\ \{Q\}\) and so on up to \(\{Q\}\ s_n\ \{R\}\) using the inference rules of Hoare logic, then we can derive the hoare triple \(\{P\}\ s\ \{R\}\).
+</p><p xmlns="http://www.w3.org/1999/xhtml">
+  Inference rules without any hypotheses are considered <strong>base cases</strong>.
+</p></details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id23" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Hoare logic - assignment proof rule <a class="slug" href="/notes/0045/">[0045]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 5, 2025</li></ul></div></header></summary><ol xmlns="http://www.w3.org/1999/xhtml"><li>
+    Consider the assignment \(x := y\) and the postcondition \(x &gt; 2\). What needs to hold before the assignment such that \(x &gt; 2\) holds afterwards?
+  </li>
+  <li>
+    Consider \(i := i + 1\) and post-condition \(i &gt; 10\). What do we need to know before the assignment such that i &gt; 10 holds afterwards?
+  </li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id24"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 5, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      Let's write this out first as a hoare triple: \(\{?\}\ x := y\ \{x &gt; 2\}\). Without even looking at the assignment rule it should be obvious that if we want \(x &gt; 2\) to hold after the assignment, then before the assignment we need \(y &gt; 2\), since after the assignment \(x\) will take the value of \(y\). So the hoare triple is valid when we have: \(\{y &gt; 2\}\ x := y\ \{x &gt; 2\}\).
+    </li>
+    <li>
+      Similarly we write the hoare triple: \(\{?\}\ i := i + 1\ \{i &gt; 10\}\). To ensure that \(i &gt; 10\) holds after the assignment, we need to consider what value of \(i\) before the assignment will lead to \(i &gt; 10\) afterwards. Since we are incrementing \(i\) by 1, we need \(i + 1 &gt; 10\) before the assignment, so our hoare triple becomes \(\{i + 1 &gt; 10\}\ i := i + 1 \{i &gt; 10\}\).
+    </li></ol>
+</details></section>
+  
+</details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id25" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Hoare triple inference rules - Nano language <a class="slug" href="/notes/0044/">[0044]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 5, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  The basic inference rules for the Hoare logic applied to the Nano language are as follows:
+</p>
+  
+    
+    <html:img src="/notes/ae8a764266248441ae574ce29f32b3a7.svg" class="tex-diagram"></html:img>
+  
+</details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id26" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>A hypothetical proof rule <a class="slug" href="/notes/0046/">[0046]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 6, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  A friend suggests the following proof rule for assignments:
+</p>\[
+  \vdash  \{(x = e) \to  Q\}\ x := e\ \{Q\}
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  Is the proof rule correct?
+</p>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id27"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 6, 2025</li></ul></div></header></summary>
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    Now let's test out the rule on a particular hoare triple:
+  </p>
+  \[
+    \{?\}\ x := 4\ \{y = x\}
+  \]
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    To make the hoare triple valid we would have to use the following precondition:
+  </p>
+  \[
+    \vdash  \{(x = 4) \to  y = x\}\ x := 4\ \{y = x\}
+  \]
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    but let's now assume the following initial state:
+  </p>
+  \[
+    \sigma _1 = \{x \mapsto  3, y \mapsto  1\}
+  \]
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    this does correctly entail our precondition, i.e. we have \(\sigma _1 \vDash  P\) as necessary by virtue of vacous truth, then executing the statement we have:
+  </p>
+  \[
+    \langle  x := 4, \sigma _1 \rangle  \Downarrow  \sigma _2
+  \]
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    In the new context clearly \(x\) is reassigned to 4, thus:
+  </p>
+  \[
+    \sigma _2 = \{x \mapsto  4, y \mapsto  1\}
+  \]
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    But we can see that clearly \(\sigma _2\) violates our postcondition \(Q\), which is to say, \(\sigma _2 \nvDash  (y = x)\). The implication of this is that while the hoare triple is derivable it is <em>not</em> then necessarily also valid, in words this proof rule is unsound.
+  </p>
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    For completeness let's also provide a proof of soundness. As a reminder soundness states that:
+  </p>
+  <blockquote xmlns="http://www.w3.org/1999/xhtml">
+    If a hoare triple is derivable using the inference rules of our system, then it is valid (i.e. true in all interpretations.)
+  </blockquote>
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    Formally we express this as:
+  </p>
+  \[
+    \vdash  \{P\}\ s\ \{Q\} \to  \vDash  \{P\}\ s\ \{Q\}
+  \]
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    If we instantiate this rule for our hypothetical assignment rule we must demonstrate the following:
+  </p>
+  \[
+    \forall  \sigma .\ \sigma  \vDash  (x = e) \to  Q \land  \exists  \sigma '.\ \langle  (x := e), \sigma  \rangle  \Downarrow  \sigma ' \to  \sigma ' \vDash  Q
+  \]
+  <section lang="en" class="block hide-metadata" data-taxon="Proof"><details id="id28" open="open"><summary><header><h1>
+<span class="taxon">Proof. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 6, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+      Let \(\sigma \) be the initial state before the assignment \(x := e\). We must show that if \(\sigma  \vDash  (x = e) \to  Q\), then, after executing \(x := e\), the resulting state \(\sigma '\) satisfies \(\sigma ' \vDash  Q\) (i.e. is valid for the assertions in the postcondition).
+    </p><ul xmlns="http://www.w3.org/1999/xhtml"><li>
+        Before the assignment we have \(\sigma  \vDash  (x = e) \to  Q\), in other words this means that:
+        \[
+          \sigma (x) = \sigma (e) \to  \sigma  \vDash   Q
+        \]
+        so if the variable \(x\) in the initial state evaluates to the same thing as some expression \(e\) then our post postcondition is valid for this state.
+      </li>
+      <li>
+        After the assignment we have a new state \(\sigma '\) defined as:
+        \[
+          \sigma '(x) = \sigma (e)
+        \]
+        with everything else being unchanged, which is to say that
+        \[
+          \forall  y.\ y\ \mathrlap {\,/}{=}\ x \land  \sigma '(y) = \sigma (y)
+        \]</li>
+      <li>
+        Now we want to check if \(\sigma ' \vDash  Q\) as desired, we proceed by a case analysis on the equality \(\sigma '(x) = \sigma (e)\)
+        <ul><li><em>Case:</em> \(\sigma (e) = \sigma (x)\), then by the precondition we have \(\sigma  \vDash  Q\). Since \(\sigma '\) only changes the value of \(x\) to \(\sigma (e)\), and \(Q\) is satisfied by the initial state \(\sigma \) it follows that \(\sigma ' \vDash  Q\).
+          </li>
+          <li><em>Case:</em> \(\sigma (e) \ \mathrlap {\,/}{=}\ \sigma (x)\), then our precondition becomes vacuously true as the antecedent is false. However, as the assignment does terminate we do need to ensure that \(Q\) holds in the new state \(\sigma '\). However, since \(Q\) can be arbitrary we cannot guarantee that \(\sigma ' \vDash  Q\).
+          </li></ul></li></ul></details></section>
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    Let's link the proof of soundness back to the example, so in our inital state \(\sigma _1\) we have that:
+  </p>
+  \[
+    \sigma (x) \ \mathrlap {\,/}{=}\ \sigma (y) \equiv  3 \ \mathrlap {\,/}{=}\ 4
+  \]
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    Since this means that the equality \(x = 4\) is false we have that implication so the precondition \(P\) is true. This corresponds precisely to the second case where \(\sigma (e) \ \mathrlap {\,/}{=}\ \sigma (x)\). The issue we can then see which naturally follows is that in the new state clearly its the case that:
+  </p>
+  \[
+    \sigma _2 = \{x \mapsto  4, y \mapsto  1\} \nvDash  (x = y)
+  \]
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    In other words we had the case where our precondition was vacuously true thus erroneously implying upon termination the arbitrary \(y = x\) must also hold. Clearly then this proof rule is incorrect as in the case of a vacuous truth we are able to generate unsound hoare triples.
+  </p>
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    To compare this with the <em>correct</em> assignment rule we have:
+  </p>
+  \[
+    \vdash  \{P[x \mapsto  e]\}\ x := e\ \{P\}
+  \]
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    we can notice here that by removing the consequent of the logical implication we ensure that if the assertion of x being substituted / being equal to the expression e <em>before</em> the execution of the statement doesn't hold, then it correctly means that we indeed cannot suggest that after an assignment our assertion \(P\) is somehow correct.
+  </p>
+</details></section>
+  
+</details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id29" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Assessing provability <a class="slug" href="/notes/0047/">[0047]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 6, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Using the correct proof rule for assignments, asses which of the hoare triples are provable i.e. valid.
+</p>
+  
+    
+    <html:img src="/notes/ad663f7befbaeae2486b4d0e959338be.svg" class="tex-diagram"></html:img>
+  
+<ol xmlns="http://www.w3.org/1999/xhtml"><li>\(\{y = 4\}\ x:= 4\ \{y = x\}\)</li>
+  <li>\(\{x + 1 = n\}\ x := x + 1\ \{x = n\}\)</li>
+  <li>\(\{y = x\}\ y := 2\ \{y = x\}\)</li>
+  <li>\(\{z = 3\}\ y := x\ \{z = 3\}\)</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id30"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 6, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      Yes, since we have that for any state \(\sigma \) the substitution
+      \[
+        (y = x)[x \mapsto  4]
+      \]
+      holds, thus our precondition holds and upon termination of the assignment clearly our postcondition then holds as well.
+    </li>
+    <li>
+      Yes, again we that our post condition says \(x = n\) so \((x = n)[ n \mapsto  (x + 1)]\) holds as our precondition is then
+      \[
+        (x + 1 = n)[n \mapsto  (x + 1)] = (x + 1 = x + 1)
+      \]</li>
+    <li>
+      No, again using our reasoning we have 
+      \[
+        (y = x)[y \mapsto  2] = 2 = x
+      \]
+      but then if we have \(\sigma  = \{ x \mapsto  3\}\) we can generate 
+      \[
+        \sigma  \nvDash  (2 = x) \equiv  (2 = 3)
+      \]</li>
+    <li>
+      Yes, this is just correct by definition of a substitution leaving irrelevant variables unaffected.
+    </li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id31" open="open"><summary><header><h1>
+<span class="taxon"></span>Consequence  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id32" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Precond. Strengthening &amp; Postcond. Weakening <a class="slug" href="/notes/0048/">[0048]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 6, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  As a reminder in hoare logic we denote the consequence rule as follows:
+</p>
+  
+    
+    <html:img src="/notes/c67b32a98e204fcbe7f95e1ed6f10a3d.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+  On a high level this is quite evidently just transitivity, which is to say that if some assertion \(P'\) holds and by implication \(P\) holds, and upon successful termination of \(s\) we have that \(Q\) holds and by implication \(Q'\) holds, then we can transitively reason that \(\{P'\}\ s\ \{Q'\}\) would also hold for our program \(s\).
+</p><p xmlns="http://www.w3.org/1999/xhtml">
+  What we can do here is decompose this rule into two separate rules:
+</p><section lang="en" class="block hide-metadata"><details id="id33" open="open"><summary><header><h1>
+<span class="taxon"></span>Precondition strengthening  </h1>
+<div class="metadata"><ul><li class="meta-item">December 6, 2025</li></ul></div></header></summary>
+  
+    
+    <html:img src="/notes/d5f3ee2521e2c4f40c707279150c3182.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+    The idea of strengthening here comes from the fact that the rhs of an implication always <em>at least</em> denotes a more restrictive or <em>strengthened</em> condition on the memory state \(\sigma \). So a basic example being clearly:
+  </p>\[
+    x &gt; 3 \to  x &gt; 2
+  \]<p xmlns="http://www.w3.org/1999/xhtml">
+    So if we have that:
+  </p>\[
+    \sigma  \vDash  (x &gt; 3) \to  (x &gt; 2) \\ \vdash  \{x &gt; 2\}\ s\ \{Q\}
+  \]<p xmlns="http://www.w3.org/1999/xhtml">
+    Which is to say that our hoare triple is derivable under the weaker precondition \(x &gt; 2\), then clearly the same hoare triple is also derivable under the stronger pre-condition \(x &gt; 3\) as it implies our weaker condition, hence we can derive:
+  </p>\[
+    \vdash  \{x &gt; 3\}\ s\ \{Q\}
+  \]<p xmlns="http://www.w3.org/1999/xhtml">
+    An example program we could take here would be something like:
+  </p>\[
+    \{x &gt; 2\}\ \texttt {if}\ (x &gt; 2)\ \texttt {then}\ y := 2 \texttt {else}\ y := 3\ \{y := 2\}
+  \]<p xmlns="http://www.w3.org/1999/xhtml">
+    Clearly here the condition just requires that \(x\) is larger than 2, if our precondition asserts that its larger than 3, the \(\texttt {then}\) branch executes just the same and our postcondition holds.
+  </p></details></section><section lang="en" class="block hide-metadata"><details id="id34" open="open"><summary><header><h1>
+<span class="taxon"></span>Postcondition weakening  </h1>
+<div class="metadata"><ul><li class="meta-item">December 6, 2025</li></ul></div></header></summary>
+  
+    
+    <html:img src="/notes/e06442d80aba57a8112249b972a0b377.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+    On a high level this says that if we can prove some postcondition \(Q'\), we can always relax this condition to something weaker. So in simpler terms if we have the fact that the postcondition \(Q'\) holds for some more restrictive state, then we can naturally lessen the restrictions and have it still hold.
+  </p></details></section></details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id35" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Postcondition Weakening examples <a class="slug" href="/notes/0049/">[0049]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 6, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Suppose we can prove:
+</p>\[
+  \{\top \}\ s\ \{x = y \land  z = 2\}
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  using the rule of post-condition weakening, which of the following can we prove?
+</p><ol xmlns="http://www.w3.org/1999/xhtml"><li>\(\{\top \}\ s\ \{x = y\}\)</li>
+  <li>\(\{\top \}\ s \ \{z = 2\}\)</li>
+  <li>\(\{\top \}\ s\ \{z &gt; 2\}\)</li>
+  <li>\(\{\top \}\ s\ \{\forall  y.\ x = y\}\)</li>
+  <li>\(\{\top \}\ s\ \{\exists  y.\ x = y\}\)</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id36"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 6, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      Yes, this is provable, removing a conjunct is a common way of weakening an expresison as we are removing one condition.
+    </li>
+    <li>
+      Yes, this is provable, same reasoning as in (1)
+    </li>
+    <li>
+      This is also provable, more or less same reasoning as before, here we are using the fact that 
+      \[
+        z = 2 \to  z &gt; 0
+      \]
+      since obviously \(2 &gt; 0\)</li>
+    <li>
+      No, this is not provable, while removing a conjunct does weaken our postcondition, if we then <em>also</em> quantify over all \(y\) we make an assertion which is <strong>stronger</strong> then what the conjunct says, i.e. that \(x = y\) <em>for a specific \(y\)</em>, hence this is not provable.
+    </li>
+    <li>
+      Yes, this is provable. We have the fact that 
+      \[
+        a = b \equiv  \exists  a = b
+      \]
+      so clearly this is the same as what we did for (1) just with no desugaring of existential syntax
+    </li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+          </details></section>
+      </details></section>
+    
+    
+    
+  </footer></article></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

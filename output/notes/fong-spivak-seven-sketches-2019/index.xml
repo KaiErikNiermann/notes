@@ -108,7 +108,7 @@
   <html:li><fr:tex display="inline"><![CDATA[a \leq  b \land  b \leq  a \to  a = b]]></fr:tex> (Antisymmetry): If an element <fr:tex display="inline"><![CDATA[a]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[b]]></fr:tex>, and <fr:tex display="inline"><![CDATA[b]]></fr:tex> is related to <fr:tex display="inline"><![CDATA[a]]></fr:tex>, then <fr:tex display="inline"><![CDATA[a]]></fr:tex> and <fr:tex display="inline"><![CDATA[b]]></fr:tex> must be the same element.
   </html:li></html:ul>
             <html:p>
-  More accurately a partial order is a <html:em>reflexive, weak, non-strict partial order</html:em>. Also known as <html:em>skeletal preorder</html:em>. <fr:link href="/notes/fong-spivak-seven-sketches-2019/" title="Seven Sketches in Compositionality: An Invitation to Applied Category Theory" uri="https://kaierikniermann.github.io/notes/fong-spivak-seven-sketches-2019/" display-uri="fong-spivak-seven-sketches-2019" type="local">1</fr:link></html:p>
+  More accurately a partial order is a <html:em>reflexive, weak, non-strict partial order</html:em>. Also known as <html:em>skeletal preorder</html:em>. <html:span class="citation"><fr:link href="/notes/fong-spivak-seven-sketches-2019/" title="Seven Sketches in Compositionality: An Invitation to Applied Category Theory" uri="https://kaierikniermann.github.io/notes/fong-spivak-seven-sketches-2019/" display-uri="fong-spivak-seven-sketches-2019" type="local">[0]</fr:link></html:span></html:p>
           </fr:mainmatter>
         </fr:tree>
         <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">

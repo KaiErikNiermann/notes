@@ -1,0 +1,114 @@
+\date{2026-02-11}
+
+\import{base-macros}
+
+\taxon{VU-AL-2026}
+
+\title{Lecture 1}
+ 
+\subtree[0064]{
+  \title{Basic modal logic}
+  
+  \subtree[006g]{
+    \taxon{Example}
+    \title{Examples of modal patterns}
+    
+    \p{Content}
+  }
+
+  \subtree[006i]{
+    \taxon{Definition}
+    \title{Formulas of modal propositional logic}
+    
+    \p{Definition text...}
+  }
+  
+  \subtree[006j]{
+    \taxon{Definition}
+    \title{Frame}
+    
+    \p{Definition text...}
+
+    \subtree[006k]{
+      \taxon{Example}
+      \title{Frame examples}
+      
+      \p{Example content...}
+    }
+  }
+
+  \subtree[006l]{
+    \taxon{Definition}
+    \title{Model and pointed model}
+    
+    \subtree[006m]{
+      \taxon{Example}
+      \title{Model example}
+      
+      \p{Example content...}
+    }
+  }
+
+
+  \subtree[006n]{
+    \taxon{Definition}
+    \title{Local truth}
+    
+    \p{Definition text...}
+
+    \subtree[006o]{
+      \taxon{Example}
+      \title{Local truth in a model}
+      
+      \p{Example content...}
+    }
+  }
+}
+
+\subtree[0065]{
+  \taxon{Definition}
+  \title{Dualities}
+  
+  \p{Content}
+}
+
+\subtree[0068]{
+  \title{Syntax and semantics of prop1}
+  \subtree[0066]{
+    \taxon{Definition}
+    \title{Syntax of prop1}
+    
+    \p{Content}
+  }
+
+  \subtree[0067]{
+    \taxon{Definition}
+    \title{Semantics of prop1}
+    
+    \p{Content}
+  }
+  \subtree[006c]{
+    \taxon{Example}
+    \title{prop1 example}
+    
+    \p{Example content...}
+  }
+
+  \subtree[006e]{
+    \title{Soundness and completeness}
+    
+    \p{Content}
+  }
+}
+
+\subtree[006a]{
+  \taxon{Definition}
+  \title{Hilbert style proof system}
+  
+  \subtree[006d]{
+    \taxon{Example}
+    \title{Hilbert proof example}
+    
+    \p{Example content...}
+  }
+}

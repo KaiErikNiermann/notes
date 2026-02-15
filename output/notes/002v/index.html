@@ -1,7 +1,224 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/002v/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>Functor</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Definition"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Functor <a class="slug" href="/notes/002v/">[002v]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 29, 2025</li></ul></div></header></summary>
+    <section lang="en" class="block hide-metadata"><details id="id2" open="open"><summary><header><h1>
+<span class="taxon">1. </span>The data  </h1>
+<div class="metadata"><ul><li class="meta-item">November 29, 2025</li></ul></div></header></summary>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+    For categories \(C\) and \(D\), a <strong>functor</strong> \(F : C \to  D\) consists of:
+  </p>
+        <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+      An assignment on <em>objects</em>
+      \[
+        \text {Ob}(C) \to  \text {Ob}(D) \quad  X \mapsto  F(X)
+      \]</li>
+    <li>
+      An assignment on <em>morphisms</em>
+      \[
+        C(X, Y) \to  D(F(X), F(Y)) \quad  f \mapsto  F(f)
+      \]
+      equivalently we can denote this explicitly as 
+      \[
+        F_{X, Y} : \text {Hom}_C(X, Y) \to  \text {Hom}_D(F(X), F(Y))
+      \]</li></ul>
+      </details></section>
+    <section lang="en" class="block hide-metadata"><details id="id3" open="open"><summary><header><h1>
+<span class="taxon">2. </span>The axioms  </h1>
+<div class="metadata"><ul><li class="meta-item">November 29, 2025</li></ul></div></header></summary>
+        <p xmlns="http://www.w3.org/1999/xhtml">
+    The data must satisfy <strong>composition</strong> and <strong>identity</strong> axioms:
+  </p>
+        <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+      The equality
+      \[
+        F(g \circ  f) = F(g) \circ  F(f)
+      \]</li>
+    <li>
+      For each object \(X \in  \text {Ob}(C)\) the equality
+      \[
+        F(\text {id}_X) = \text {id}_{F(X)} \in  D(F(X), F(X))
+      \]</li></ul>
+      </details></section>
+    <section lang="en" class="block hide-metadata"><details id="id4" open="open"><summary><header><h1>
+<span class="taxon">3. </span>Commutative diagram  </h1>
+<div class="metadata"><ul><li class="meta-item">November 29, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+    If we wish to represent the composition axiom diagrammatically we can do so as follows:
+  </p>
+ 
+  
+  <figure xmlns="http://www.w3.org/1999/xhtml"><html:img src="/notes/1be3d4f0620782ded632f5328ecda384.svg" class="tex-diagram"></html:img></figure>
+ 
+</details></section>
+    <section lang="en" class="block hide-metadata"><details id="id5" open="open"><summary><header><h1>
+<span class="taxon">4. </span>Lean definition  </h1>
+<div class="metadata"><ul><li class="meta-item">November 29, 2025</li></ul></div></header></summary>
+        <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+        structure Functor 
+      (C : Type u₁) [Category.{v₁} C] 
+      (D : Type u₂) [Category.{v₂} D] :
+          Type max v₁ v₂ u₁ u₂ where
+
+        /-- The action of a functor on objects. -/
+        obj : C → D
+        
+        /-- The action of a functor on morphisms. -/
+        map : ∀ {X Y : C}, (X ⟶ Y) → ((obj X) ⟶ (obj Y))
+        
+        /-- A functor preserves identity morphisms. -/
+        map_id : ∀ X : C, map (𝟙 X) = 𝟙 (obj X) := by cat_disch
+        
+        /-- A functor preserves composition. -/
+        map_comp : ∀ {X Y Z : C} (f : X ⟶ Y) (g : Y ⟶ Z), 
+          map (f ≫ g) = map f ≫ map g := by cat_disch
+
+    /-- Notation for a functor between categories. -/
+    scoped [CategoryTheory] infixr:26 " ⥤ " =&gt; Functor -- type as \func
+  </code></pre>
+      </details></section>
+  </details></section><footer xmlns="">
+    
+    
+    <section lang="en" class="block hide-metadata"><details id="id6" open="open"><summary><header><h1>
+<span class="taxon"></span>Backlinks  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Definition"><details id="id7"><summary><header><h1>
+<span class="taxon">Definition. </span>Full and faithful functors <a class="slug" href="/notes/002w/">[002w]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 30, 2025</li></ul></div></header></summary>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  We consider a <span xmlns="" class="link local"><a href="/notes/002v/" title="Functor [002v]">functor</a></span> between two <span xmlns="" class="link local"><a href="/notes/002o/" title="(Essentially/Locally) small categories [002o]">(locally small)</a></span> categories \(F : C \to  D\). For each pair of objects \(X, Y \in  \mathrm {Ob}(C)\) the functor induces a function between hom-sets:
+</p>
+            \[
+    F_{X, Y} : C(X, Y) \to  D(F(X), F(Y))
+  \]
+            <p xmlns="http://www.w3.org/1999/xhtml">
+
+    We can describe functors based on the properties of these induced functions as follows:
+  </p>
+            <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+      The functor \(F\) is called <strong>faithful</strong> if for every pair of objects \(X, Y \in  \mathrm {Ob}(C)\) the function \(F_{X, Y}\) is injective. We can also denote this as:
+\[
+  (x \xrightarrow {f} y) \mapsto  (F(x) \xrightarrow {F(f)} F(y))
+\]
+or using the notation of an embedding as:
+\[
+        C(X, Y) \hookrightarrow  D(F(X), F(Y))
+      \]
+      An important note to make here is that a faithful functor only presereves distinctness of morphisms, so what this means is that:
+      <blockquote>
+
+        no two different arrows with the same domain and codomain in \(C\) are mapped to (or get identified by) the same arrow in \(D\)</blockquote>
+      It <strong>does not</strong> say
+      <ul><li>
+
+          different objects in \(C\) are mapped to different objects in \(D\).
+        </li>
+        <li>
+
+          two morphisms with different domains/codomains in \(C\) are mapped to different morphisms in \(D\).
+        </li></ul>
+      So in a diagrammatic sense a faithful functor essentially guarantees this:
+      
+ 
+  
+  <figure><a href="https://q.uiver.app/#q=WzAsNCxbMCwyLCJYIl0sWzIsMiwiWSJdLFsxLDAsIkYoWCkiXSxbMywwLCJGKFkpIl0sWzAsMSwiZiIsMCx7ImN1cnZlIjotM31dLFswLDEsImciLDAseyJjdXJ2ZSI6M31dLFsyLDMsIkYoZikiLDAseyJjdXJ2ZSI6LTN9XSxbMiwzLCJGKGcpIiwwLHsiY3VydmUiOjN9XSxbMSwzLCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwyLCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSw3LCIiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9LCJsZXZlbCI6MSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsNiwiIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfSwibGV2ZWwiOjEsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==" target="_blank" class="quiver-link">
+    <html:img src="/notes/5b9e5f3e38d50a3379b87a54a1f4738c.svg" class="tex-diagram"></html:img>
+   </a></figure>
+ 
+
+      <li>
+        The functor \(F\) is called <strong>full</strong> if for every pair of objects \(X, Y \in  \mathrm {Ob}(C)\) the function \(F_{X, Y}\) is surjective. Likewise here its important to note that
+        <blockquote>
+          a full functor only guarantees that any morphism between two objects in the image of \(F\) comes from a morphism in \(C\)</blockquote>
+        It <strong>does not</strong> say
+        <ul><li>
+            every object in \(D\) is in the image of \(F\). In other words objects in \(D\) outside the image of \(F\) may not have any preimage in \(C\).
+          </li>
+          <li>
+
+            every morphism with a domain/codomain outside the image of \(F\) comes from a morphism in \(C\). Similarly morphisms between objects in the image of \(F\) may not have a preimage in \(C\).
+          </li></ul>
+        We can again demonstrate this diagrammatically as follows:
+        
+ 
+  
+  <figure><html:img src="/notes/003b56849dff35fb61d9f02cf7874d94.svg" class="tex-diagram"></html:img></figure>
+ 
+
+        The main idea being that a full functor only guarantees that if we have some arrow between two objects in the image (application) of \(F\) then there exists some preimage arrow in \(C\) that maps to it. But we can have objects and morphisms outside the image of \(F\) that do not have any preimage in \(C\).
+      </li>
+      In other words it <strong>does not mean</strong> the functor is <em>surjective on objects</em> or <em>morphisms</em> in general.
+    </li>
+
+    <li>
+
+      The functor \(F\) is called <strong>fully faithful</strong> if for every pair of objects \(X, Y \in  \mathrm {Ob}(C)\) the function \(F_{X, Y}\) is bijective. We say that a fully faithful functor is necessarily injective on objects up to <span xmlns="" class="link local"><a href="/notes/002s/" title="Isomorphism (morphisms) [002s]">isomorphism</a></span>, that is assuming \(F\) is fully faithful then we have:
+\[
+  F(X) \cong  F(Y) \implies  X \cong  Y
+\]
+This means that if two objects in the image of \(F\) are isomorphic then their preimages in \(C\) must also be isomorphic. In other words what this means is that a fully faithful functor preserves distinctness of objects up to the point of being the same for all practical purposes (i.e. isomorphism).
+</li></ul>
+          </details></section>
+      </details></section>
+    
+    
+  </footer></article><nav id="toc"><div class="block"><h1>Table of Contents</h1><ul xmlns="" class="block">
+<li>
+<a class="bullet" href="#id2" title="The data">■</a><span class="link local" data-target="#id2"><span class="taxon">1. </span>The data</span><ul class="block"></ul>
+</li>
+<li>
+<a class="bullet" href="#id3" title="The axioms">■</a><span class="link local" data-target="#id3"><span class="taxon">2. </span>The axioms</span><ul class="block"></ul>
+</li>
+<li>
+<a class="bullet" href="#id4" title="Commutative diagram">■</a><span class="link local" data-target="#id4"><span class="taxon">3. </span>Commutative diagram</span><ul class="block"></ul>
+</li>
+<li>
+<a class="bullet" href="#id5" title="Lean definition">■</a><span class="link local" data-target="#id5"><span class="taxon">4. </span>Lean definition</span><ul class="block"></ul>
+</li>
+</ul></div></nav></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

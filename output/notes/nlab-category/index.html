@@ -1,7 +1,136 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/nlab-category/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>category</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Reference"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Reference. </span>category <a class="slug" href="/notes/nlab-category/">[nlab-category]</a> </h1>
+<div class="metadata"><ul>
+<li class="meta-item">November 1, 2025</li>
+<li class="meta-item"><address class="author">nLab authors</address></li>
+<li class="meta-item"><a class="link external" href="https://ncatlab.org/nlab/show/category">https://ncatlab.org/nlab/show/category</a></li>
+</ul></div></header></summary></details></section><footer xmlns="">
+    
+    
+    <section lang="en" class="block hide-metadata"><details id="id2" open="open"><summary><header><h1>
+<span class="taxon"></span>Backlinks  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Definition"><details id="id3"><summary><header><h1>
+<span class="taxon">Definition. </span>Category <a class="slug" href="/notes/002m/">[002m]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  There are a few ways you can define a <em>category</em>. In the most basic intuitive sense a category consists of a collection of things called <em>objects</em> and binary relationships (or transitions) between those objects called <em>morphisms</em> (or <em>arrows</em>). We can combine these relationships by <em>composing</em> them, and for each object there is an <em>identity morphism</em> that acts as a neutral element for composition. <span xmlns="" class="link local"><a href="/notes/nlab-category/" title="category [nlab-category]">(1)</a></span></p>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  In the context of <span xmlns="" class="link local"><em xmlns="http://www.w3.org/1999/xhtml"><a xmlns="" href="/notes/002l/" title="Quiver [002l]">quivers</a></em></span> a category can be defined as a quiver with a rule saying for how we can compose two edges that fit together to get a new edge. Furthermore, each vertex (object) has an edge starting and ending at that vertex (the identity morphism). The classical definition is something like this:
+</p>
+            <section lang="en" class="block hide-metadata"><details id="id4" open="open"><summary><header><h1>
+<span class="taxon"></span>The data  </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    A <em>category</em> \(C\) consists of:
+  </p>
+                <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+      A collection (or <em>class</em> <span xmlns="" class="link local"><a href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories [johnson-yau-2d-categories-2020]">(2)</a></span>) of <strong>objects</strong>, denoted as \(\text {Ob}(C)\) or \(C_0\).
+    </li>
+    <li>
+      A collection (or <em>set</em> <span xmlns="" class="link local"><a href="/notes/johnson-yau-2d-categories-2020/" title="2-Dimensional Categories [johnson-yau-2d-categories-2020]">(2)</a></span>) of <strong>morphisms</strong> (or <em>arrows</em>), denoted \(C_1\) or \(C(x, y)\) for \(x, y \in  \text {Ob}(C)\).
+      <ul><li>
+          For every morphism \(f \in  C(x, y)\), there are two associated objects: the <em>source</em> (or <em>domain</em>) \(x\) and the <em>target</em> (or <em>co-domain</em>) \(y\). In standard function notation, we write \(f: x \to  y\) where \(x = \text {dom}(f)\) and \(y = \text {cod}(f)\). NLab has a nice convention where it denotes the source \(s\) of a morphism as \(s(f)\) and the target \(t\) as \(t(f)\).
+        </li>
+        <li>
+          For every pair of morphisms \(f \in  C(x, y)\) and \(g \in  C(y, z)\) (s.t. \(t(f) = s(g)\) i.e. the morphisms type check), there is a <strong>composition</strong> morphism \(g \circ  f \in  C(x, z)\). Written out we can denote this as:
+          \[
+            C(x, y) \times  C(y, z) \to  C(x, z)
+          \]
+          in diagrammatic order this is often written as \(f; g\) we can equivalently use a more graphical notation:
+          
+ 
+  
+  <figure><html:img src="/notes/d8323ce59463aa832587ad5330c42c75.svg" class="tex-diagram"></html:img></figure></li>
+        <li>
+          For every object \(x \in  \text {Ob}\) there is an <strong>identity morphism</strong>:
+          \[
+            (\text {id}_x : x \to  x) \in  C(x, x)
+          \]</li></ul>
+      Note: Some additional notations for morphisms include \(\text {hom}(x, y)\), \(\text {hom}_C(x, y)\) or \(C_1(x, y)\). Additionally, people use the notation \(\text {Mor(C)}\) to denote the following disjoint union
+      \[
+        \text {Mor}(C) = \bigsqcup _{x, y \in  \text {Ob}(C)} C(x, y)
+      \]
+      Which just expresses the idea that the collection of all morphisms in a category is made up of the morphisms between each pair of objects.
+    </li></ul>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id5" open="open"><summary><header><h1>
+<span class="taxon"></span>The axioms  </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    The above are often called <strong>data</strong> of a category. In addition to this data, a category must satisfy the following <strong>axioms</strong> or (<em>conditions</em>):
+  </p>
+                <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+      Morphisms need to be <strong>associative</strong> which means that for every triple of morphisms \(f \in  C(w, x)\), \(g \in  C(x, y)\), and \(h \in  C(y, z)\) the following holds:
+      \[
+        h \circ  (g \circ  f) = (h \circ  g) \circ  f
+      \]</li>
+    <li>
+      For each morphism \(f \in  C(x, y)\) the identity morphisms act as <strong>neutral elements</strong> for composition:
+      \[
+        \text {id}_y \circ  f = f = f \circ  \text {id}_x
+      \]
+      This is also known as the <em>left</em> and <em>right</em> <strong>unit laws</strong> or just <strong>unity</strong> in general.
+    </li></ul>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id6" open="open"><summary><header><h1>
+<span class="taxon"></span>Remarks  </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+                <ul xmlns="http://www.w3.org/1999/xhtml">
+                  <li>
+      A category such as the one described above is often also called a 1-category to distinguish it from higher categories such as 2-categories, n-categories.
+    </li>
+                </ul>
+              </details></section>
+          </details></section>
+      </details></section>
+    
+    
+  </footer></article></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

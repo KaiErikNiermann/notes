@@ -759,6 +759,21 @@ a {
   display: none
 }
 
+/* Citation styling */
+.citation {
+  display: inline;
+}
+
+.citation a {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.citation a:hover {
+  text-decoration: underline;
+}
+
 blockquote {
   font-style: italic;
 }

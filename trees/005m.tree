@@ -1,0 +1,15 @@
+\date{2026-02-11}
+
+\import{base-macros}
+
+\taxon{VU-TRS-2026}
+
+\title{Term Rewriting Systems}
+
+\transclude{005u}
+\transclude{005v}
+\transclude{005w}
+\transclude{005x}
+\transclude{005y}
+\transclude{005z}
+\transclude{0060}

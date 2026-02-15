@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/notes/default.xsl"?>
+<fr:tree xmlns:fr="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" root="false" base-url="/notes/">
+  <fr:frontmatter>
+    <fr:authors />
+    <fr:date>
+      <fr:year>2026</fr:year>
+      <fr:month>2</fr:month>
+      <fr:day>11</fr:day>
+    </fr:date>
+    <fr:uri>https://kaierikniermann.github.io/notes/005z/</fr:uri>
+    <fr:display-uri>005z</fr:display-uri>
+    <fr:route>/notes/005z/</fr:route>
+    <fr:title text="Week 6">Week 6</fr:title>
+    <fr:taxon>VU-TRS-2026</fr:taxon>
+  </fr:frontmatter>
+  <fr:mainmatter />
+  <fr:backmatter>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="References">References</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Context">Context</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter>
+        <fr:tree show-metadata="true" expanded="false" toc="false" numbered="false">
+          <fr:frontmatter>
+            <fr:authors />
+            <fr:date>
+              <fr:year>2026</fr:year>
+              <fr:month>2</fr:month>
+              <fr:day>11</fr:day>
+            </fr:date>
+            <fr:uri>https://kaierikniermann.github.io/notes/005m/</fr:uri>
+            <fr:display-uri>005m</fr:display-uri>
+            <fr:route>/notes/005m/</fr:route>
+            <fr:title text="Term Rewriting Systems">Term Rewriting Systems</fr:title>
+            <fr:taxon>VU-TRS-2026</fr:taxon>
+          </fr:frontmatter>
+          <fr:mainmatter>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2026</fr:year>
+                  <fr:month>2</fr:month>
+                  <fr:day>11</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/005u/</fr:uri>
+                <fr:display-uri>005u</fr:display-uri>
+                <fr:route>/notes/005u/</fr:route>
+                <fr:title text="Week 1">Week 1</fr:title>
+                <fr:taxon>VU-TRS-2026</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter />
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2026</fr:year>
+                  <fr:month>2</fr:month>
+                  <fr:day>11</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/005v/</fr:uri>
+                <fr:display-uri>005v</fr:display-uri>
+                <fr:route>/notes/005v/</fr:route>
+                <fr:title text="Week 2">Week 2</fr:title>
+                <fr:taxon>VU-TRS-2026</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter />
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2026</fr:year>
+                  <fr:month>2</fr:month>
+                  <fr:day>11</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/005w/</fr:uri>
+                <fr:display-uri>005w</fr:display-uri>
+                <fr:route>/notes/005w/</fr:route>
+                <fr:title text="Week 3">Week 3</fr:title>
+                <fr:taxon>VU-TRS-2026</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter />
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2026</fr:year>
+                  <fr:month>2</fr:month>
+                  <fr:day>11</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/005x/</fr:uri>
+                <fr:display-uri>005x</fr:display-uri>
+                <fr:route>/notes/005x/</fr:route>
+                <fr:title text="Week 4">Week 4</fr:title>
+                <fr:taxon>VU-TRS-2026</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter />
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2026</fr:year>
+                  <fr:month>2</fr:month>
+                  <fr:day>11</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/005y/</fr:uri>
+                <fr:display-uri>005y</fr:display-uri>
+                <fr:route>/notes/005y/</fr:route>
+                <fr:title text="Week 5">Week 5</fr:title>
+                <fr:taxon>VU-TRS-2026</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter />
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2026</fr:year>
+                  <fr:month>2</fr:month>
+                  <fr:day>11</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/005z/</fr:uri>
+                <fr:display-uri>005z</fr:display-uri>
+                <fr:route>/notes/005z/</fr:route>
+                <fr:title text="Week 6">Week 6</fr:title>
+                <fr:taxon>VU-TRS-2026</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter />
+            </fr:tree>
+            <fr:tree show-metadata="false">
+              <fr:frontmatter>
+                <fr:authors />
+                <fr:date>
+                  <fr:year>2026</fr:year>
+                  <fr:month>2</fr:month>
+                  <fr:day>11</fr:day>
+                </fr:date>
+                <fr:uri>https://kaierikniermann.github.io/notes/0060/</fr:uri>
+                <fr:display-uri>0060</fr:display-uri>
+                <fr:route>/notes/0060/</fr:route>
+                <fr:title text="Week 7">Week 7</fr:title>
+                <fr:taxon>VU-TRS-2026</fr:taxon>
+              </fr:frontmatter>
+              <fr:mainmatter />
+            </fr:tree>
+          </fr:mainmatter>
+        </fr:tree>
+      </fr:mainmatter>
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Backlinks">Backlinks</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Related">Related</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+    <fr:tree show-metadata="false" hidden-when-empty="true">
+      <fr:frontmatter>
+        <fr:authors />
+        <fr:title text="Contributions">Contributions</fr:title>
+      </fr:frontmatter>
+      <fr:mainmatter />
+    </fr:tree>
+  </fr:backmatter>
+</fr:tree>

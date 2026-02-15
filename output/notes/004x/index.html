@@ -1,7 +1,110 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/004x/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>Ensuring well-formed horn clauses</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Quiz"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Ensuring well-formed horn clauses <a class="slug" href="/notes/004x/">[004x]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 16, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Which of the following are well-formed horn clauses:
+</p><ol xmlns="http://www.w3.org/1999/xhtml"><li>\((x &lt; n) \to  q(x, n)\)</li>
+  <li>\(q(x, n) \land  (x &lt; n) \to  \bot \)</li>
+  <li>\(q(x, y) \land  r(x) \to  p(x)\)</li>
+  <li>\(q(x, y) \to  p(x + 1, y)\)</li>
+  <li>\(q(x) \land  \neg  r(x) \to  p(x)\)</li>
+  <li>\(q(x) \lor  r(x) \to  p(x)\)</li>
+  <li>\(q(x) \to  x &lt; n\)</li></ol><p xmlns="http://www.w3.org/1999/xhtml">
+  also: can the non-well-formed horn clauses be transformed into well-formed horn clauses?
+</p>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id2"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 16, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      Well-formed
+    </li>
+    <li>
+      Well-formed
+    </li>
+    <li>
+      Well-formed
+    </li>
+    <li>
+      Not well-formed, has an expression in place of what is meant to be a <em>variable</em></li>
+    <li>
+      Not well-formed, as a reminder in disjunctive form a horn clause is 
+      \[
+        \neg  p \lor  \neg  q \lor  \neg  r \lor  \vdots  \lor  \neg  \phi  \lor  H
+      \]
+      we cannot have a negated query as it's disallowed by the syntax
+    </li>
+    <li>
+      Not well-formed, see above, should be a conjunct in implication form
+    </li>
+    <li>
+      Not well-formed, the head is a query (relation over a vector of <em>variables</em>) or \(\bot \)</li></ol>
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    Yes, we can normalize the non-well-formed horn clauses for example through the introduction of fresh variables so as an example the clause
+  </p>
+  \[
+    q(x, y) \to  p(x + 1, y)
+  \]
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    can be converted to:
+  </p>
+  \[
+    q(x, y) \land  x' = x + 1 \to  p(x', y)
+  \]
+</details></section>
+  
+</details></section><footer xmlns="">
+    
+    
+    
+    
+    
+  </footer></article></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

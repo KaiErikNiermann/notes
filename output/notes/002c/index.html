@@ -1,7 +1,276 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/002c/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>Complete Lattice</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Definition"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Complete Lattice <a class="slug" href="/notes/002c/">[002c]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+  A <em>complete lattice</em> is a <span xmlns="" class="link local"><a href="/notes/002d/" title="Partial order [002d]">partially ordered set</a></span> in which all subsets have both a <em>greatest lower bound</em> (also known as <em>infimum</em> or <em>meet</em>) and a <em>least upper bound</em> (also known as <em>supremum</em> or <em>join</em>). This means that for any subset \(S\) of the complete lattice \(L\), there exists an element \(\sqcup \ S\) in \(L\) such that: <span xmlns="" class="link local"><a href="/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/" title="The Hitchhiker’s Guide to Logical Verification (2024 Desktop Edition) [baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024]">(1)</a></span></p>
+    <ul xmlns="http://www.w3.org/1999/xhtml"><li>\(\sqcup \ S\) is a lower bound of \(S\): For all elements \(s \in  S\), \(\sqcup \ S \leq  s\).
+  </li>
+  <li>\(\sqcup \ S\) is the greatest of all lower bounds: For any other lower bound \(b\) of \(S\), \(b \leq  \sqcup \ S\).
+  </li></ul>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+  Similarly, there exists an element \(\sqcap \ S\) in \(L\) such that:
+</p>
+    <ul xmlns="http://www.w3.org/1999/xhtml"><li>\(\sqcap \ S\) is an upper bound of \(S\): For all elements \(s \in  S\), \(s \leq  \sqcap \ S\).
+  </li>
+  <li>\(\sqcap \ S\) is the least of all upper bounds: For any other upper bound \(b\) of \(S\), \(\sqcap \ S \leq  b\).
+  </li></ul>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+  In a complete lattice, every subset, including the empty set and the entire set itself, has both a supremum and an infimum within the lattice.
+</p>
+  </details></section><footer xmlns="">
+    <section lang="en" class="block hide-metadata"><details id="id2" open="open"><summary><header><h1>
+<span class="taxon"></span>References  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Reference"><details id="id3"><summary><header><h1>
+<span class="taxon">Reference. </span>The Hitchhiker’s Guide to Logical Verification (2024 Desktop Edition) <a class="slug" href="/notes/baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024/">[baanen-bentkamp-blanchette-holzl-limperg-hitchhikers-2024]</a> </h1>
+<div class="metadata"><ul>
+<li class="meta-item">March 28, 2024</li>
+<li class="meta-item"><address class="author">Baanen, Anne, Bentkamp, Alexander, Blanchette, Jasmin, Holzl, Johannes, Limperg, Jannis</address></li>
+<li class="meta-item"><a class="link external" href="https://raw.githubusercontent.com/lean-forward/logical_verification_2024/main/hitchhikers_guide_2024_desktop.pdf">https://raw.githubusercontent.com/lean-forward/logical_verification_2024/main/hitchhikers_guide_2024_desktop.pdf</a></li>
+</ul></div></header></summary></details></section>
+      </details></section>
+    
+    <section lang="en" class="block hide-metadata"><details id="id4" open="open"><summary><header><h1>
+<span class="taxon"></span>Backlinks  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Example"><details id="id5"><summary><header><h1>
+<span class="taxon">Example. </span><span class="link local"><a href="/notes/002c/" title="Complete Lattice [002c]">Complete lattice</a></span> for subsets ordered by inclusion <a class="slug" href="/notes/002g/">[002g]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 26, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  One of the most basic examples of a <span xmlns="" class="link local"><a href="/notes/002c/" title="Complete Lattice [002c]">complete lattice</a></span> is the power set of a given set \(X\), denoted as \(\mathcal {P}(X)\), ordered by the subset relation \(\subseteq \). The power set \(\mathcal {P}(X)\) consists of all possible subsets of \(X\), including the empty set \(\emptyset \) and the set \(X\) itself. If we consider the following three element set:
+</p>\[
+  \{a, b, c\}
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  We can draw the (complete) powerset lattice as follows:
+</p>
+ 
+  
+  <figure xmlns="http://www.w3.org/1999/xhtml"><html:img src="/notes/d4110ae86a86150f3418408db7e95f27.svg" class="tex-diagram"></html:img></figure>
+ 
+<section lang="en" class="block hide-metadata"><details id="id6" open="open"><summary><header><h1>
+<span class="taxon"></span>Some intuition  </h1>
+<div class="metadata"><ul><li class="meta-item">November 26, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+    There's a few observations we can make just by looking at the lattice:
+  </p><ul xmlns="http://www.w3.org/1999/xhtml"><li>
+      If we take any two subsets on the same level, such as \(\{\{a\}, \{b\}\}\) then <em>two move up a level</em> we take the union of the sets, so:
+      \[
+        \{a\} \cup  \{b\} \to  \{a, b\}
+      \]
+      Conversly if we wish to <em>move down a level</em> we take the intersection of the two sets, so for the same pair
+      \[
+        \{a\} \cap  \{b\} \to  \{\}
+      \]
+      <li>
+        Each level expresses the different powersets of \(X\) with a given cardinality. So the bottom level is the powerset of cardinality 0 (i.e. the empty set), the next level up is the powerset of cardinality 1 (i.e. the singletons), then cardinality 2 and finally cardinality 3 at the top level which is just the set \(X\) itself.
+      </li>
+      <li>
+        Naturally as we move up the lattice the sets get larger (with respect to inclusion) and as we move down the lattice the sets get smaller.
+      </li></li></ul></details></section><p xmlns="http://www.w3.org/1999/xhtml">
+  As a reminder, a <span xmlns="" class="link local"><a href="/notes/002c/" title="Complete Lattice [002c]">complete lattice</a></span> is a partially ordered set (here on inclusion) in which all subsets exhibit both a meet and join. Let's for example take the following subset:
+</p>\[
+  S = \{\{a\}, \{a, b\}\}
+\]<section lang="en" class="block hide-metadata"><details id="id7" open="open"><summary><header><h1>
+<span class="taxon"></span>Lower bound  </h1>
+<div class="metadata"><ul><li class="meta-item">November 26, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+    Here the lower bound is any element \((\sqcup  S) \in  L\) in the larger lattice in which the following property holds:
+  </p>\[
+    \forall  s \in  S.\ (\sqcup  S) \leq  s
+  \]<p xmlns="http://www.w3.org/1999/xhtml">
+    In our case we know that \(\leq \ \equiv \ \subseteq \), furthermore we have that the elements of \(S\) are the two sets \(\{a\}\) and \(\{a, b\}\), hence we can rephrase this condition as
+  </p>\[
+    (\sqcup  S) \subseteq  \{a\} \land  (\sqcup  S) \subseteq  \{a, b\}
+  \]<p xmlns="http://www.w3.org/1999/xhtml">
+    Clearly the lower bound in this instance is then just:
+  </p>\[
+    lb(\sqcup  S) = \{\{\emptyset \}, \{a\}\}
+  \]<p xmlns="http://www.w3.org/1999/xhtml">
+    The greatest lower bound is simply the intersection of all lower bounds hence:
+  </p>\[
+    \text {glb}(\sqcup  S) = \bigcap \ \{\{\emptyset \}, \{a\}\} = \{a\}
+  \]</details></section><section lang="en" class="block hide-metadata"><details id="id8" open="open"><summary><header><h1>
+<span class="taxon"></span>Upper bound  </h1>
+<div class="metadata"><ul><li class="meta-item">November 26, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+    The upper bound is just the flipped condition of the lower bound, i.e.:
+  </p>\[
+    \forall  s \in  S.\ s \leq  (\sqcap  S) \equiv  (\{a\} \subseteq  (\sqcap  S)) \land  (\{a, b\} \subseteq  (\sqcap  S))
+  \]<p xmlns="http://www.w3.org/1999/xhtml">
+    The sets which satisfy this condition are:
+  </p>\[
+    \text (ub)(\sqcup  S) = \{\{a, b\}, \{a, b, c\}\}
+  \]<p xmlns="http://www.w3.org/1999/xhtml">
+    The least upper bound is the smallest of the sets which form the upper bound, i.e.:
+  </p>\[
+    \text {lub}(\sqcap  S) = \{a, b\}
+  \]</details></section></details></section>
+        <section lang="en" class="block" data-taxon="Definition"><details id="id9"><summary><header><h1>
+<span class="taxon">Definition. </span>Tarski's Theorem <a class="slug" href="/notes/002b/">[002b]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  We define a set \(X\), let \(\mathcal  L(X)\) be the <span xmlns="" class="link local"><a href="/notes/002c/" title="Complete Lattice [002c]">complete lattice</a></span> of all subsets of \(X\) ordered by inclusion. A function \(f: \mathcal  L(X) \to  \mathcal  L(X)\) is said to be <span xmlns="" class="link local"><em xmlns="http://www.w3.org/1999/xhtml"><a xmlns="" href="/notes/0029/" title="Monotone function [0029]">monotone</a></em></span> in this instance if it preserves inclusion which is to say that the following holds: <span xmlns="" class="link local"><a href="/notes/harper-tarski-fixed-point-2025/" title="Tarski’s Fixed Point Theorem* [harper-tarski-fixed-point-2025]">(1)</a></span></p>
+            \[
+  A \subseteq  B \subseteq  X \implies  f(A) \subseteq  f(B)
+\]
+            <section lang="en" class="block hide-metadata"><details id="id10" open="open"><summary><header><h1>
+<span class="taxon"></span>Pre-and-post fixed point  </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    For a monotone function \(f\) a <em>pre-fixed point</em> of \(f\) is a subset \(A \subseteq  X\) such that \(f(A) \subseteq  A\). Similarly, a <em>post-fixed point</em> of \(f\) is a subset \(B \subseteq  X\) such that \(B \subseteq  f(B)\).
+  </p>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    Conceptually the idea here is that the prefixed points are those sets in \(X\) where the function \(f\) maps to <em>at most</em> all members in \(A\). Conversely, the post-fixed points represent the subset where at least all members of the set are mapped to by other members of the same set. Another way to describe it would be that the pre-fixed points represent a closed or <em>under-approximation</em> of the function \(f\) while the post-fixed points represent a consistent or <em>over-approximation</em> of the function.
+  </p>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    A pre-fixed point of \(f\) is also said to be \(f\)-closed and a post-fixed point of \(f\) is said to be \(f\)-consistent.
+  </p>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    A <em>least pre-fixed point</em> of a monotone \(f\) is the <em>smallest</em> subset \(A \subseteq  X\) such that \(f(A) \subseteq  A\), denoted by \(\mu  f\). Similarly, a <em>greatest post-fixed point</em> of \(f\) is the <em>largest</em> subset \(B \subseteq  X\) such that \(B \subseteq  f(B)\), denoted by \(\nu  f\).
+  </p>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    Every monotone function \(f\) has a unique least pre-fixed point and a unique greatest post-fixed point given by the following equations:
+  </p>
+                \[
+    \begin {align*}
+      \mu  f &amp; = \bigcap  \{ A \subseteq  X \mid  f(A) \subseteq  A \} \\
+      \nu  f &amp; = \bigcup  \{ B \subseteq  X \mid  B \subseteq  f(B) \}
+    \end {align*}
+  \]
+              </details></section>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  Of note here is that the least pre-fixed point here corresponds to the closure of the function \(f\). That is to say that it is the smallest set which is closed under the function \(f\). Conversely, the greatest post-fixed point corresponds to the consistency of the function \(f\), being the largest set which is consistent with respect to \(f\).
+</p>
+            <section lang="en" class="block hide-metadata"><details id="id11" open="open"><summary><header><h1>
+<span class="taxon"></span>Lambek's lemma  </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+    One thing we can observe is that \(\mu  f\) is contained in all pre-fixed points of \(f\), by virtue of being the intersection, i.e. closure for all pre-fixed points. Furthermore, we have that \(\mu  f\) is itself a pre-fixed point of \(f\)</p>\[
+    f(\mu  f) \subseteq  \mu  f
+  \]<p xmlns="http://www.w3.org/1999/xhtml">
+    and it is thereby the least pre-fixed point. To see this we note that if:
+  </p>\[
+    f(A ) \subseteq  A \to  f(\mu  f) \subseteq  A
+  \]
+    
+    <section lang="en" class="block hide-metadata"><details id="id12"><summary><header><h1>
+<span class="taxon"></span>Explanation  </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+        So the idea here is again that since \(A\) is a pre-fixed point of \(f\), by definition we have that \(f(A) \subseteq  A\). The implication here is that if we apply \(f\) to our closure, the resulting set must still be within \(A\) since again we definitionally cannot have that \(f\) maps outside \(A\) so even if we constrain ourselves to some smaller set \(\mu  f\) it doesn't negate the fact that \(f\) still cannot map outside \(A\).
+      </p></details></section>
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    But by definition of \(\mu  f\) we have that
+  </p>\[
+    \mu  f \subseteq  A
+  \]
+    
+    <section lang="en" class="block hide-metadata"><details id="id13"><summary><header><h1>
+<span class="taxon"></span>Explanation  </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+        This is more or less just restating the definition of \(\mu  f\) as the intersection of all pre-fixed points of \(f\), which includes \(A\).
+      </p></details></section>
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    Thus by monotonicity of \(f\) we have the following as required
+  </p>\[
+    f(\mu  f) \subseteq  f(A) \subseteq  A
+  \]<p xmlns="http://www.w3.org/1999/xhtml">
+    Additionally we have
+  </p>\[
+    f(f(\mu  f)) \subseteq  f(\mu  f)
+  \]<p xmlns="http://www.w3.org/1999/xhtml">
+    Which is to reiterate that \(f(\mu  f)\) is itself a pre-fixed point of \(f\). Therefore, we have that
+  </p>\[
+    \mu  f \subseteq  f(\mu  f)
+  \]
+    
+    <section lang="en" class="block hide-metadata"><details id="id14"><summary><header><h1>
+<span class="taxon"></span>Explanation  </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+        What this says at a high level; or what it implies given the above condition; is that the application of the monotone operator to the closure set \(\mu  f\) doesn't shrink the set any further, in other words its operation stabilizes at this set such that each member in this set maps precisely to some other member in the set not more (i.e. outside as that would mean it's not closed) and not less (as that would imply it's not minimal).
+      </p>\[
+        f(\mu  f) \subseteq  \mu  f
+      \]<p xmlns="http://www.w3.org/1999/xhtml">
+        What this says at a high level; or what it implies given the above condition; is that the application of the monotone operator to the closure set \(\mu  f\) doesn't shrink the set any further, in other words its operation stabilizes at this set such that each member in this set maps precisely to some other member in the set not more (i.e. outside as that would mean it's not closed) and not less (as that would imply it's not minimal). A question I had here was:
+      </p><blockquote xmlns="http://www.w3.org/1999/xhtml">
+        But why does this actually happen?
+      </blockquote><p xmlns="http://www.w3.org/1999/xhtml">
+        A nice perspective to have firstly is seeing the set \(\mu  f\) here as a <span xmlns="" class="link local"><a href="/notes/002f/" title="Closure operator [002f]">generating set</a></span> for the function \(f\). In other words if we view the function \(f\) as a set of rules which generate new members in the set from existing members, then the closure \(\mu  f\) represents the most precise set of members which can be generated by these rules without introducing any extraneous members.
+      </p><p xmlns="http://www.w3.org/1999/xhtml">
+        The effect of this is that because the members in \(\mu  f\) are precisely those which can be generated by the rules in \(f\), applying \(f\) to this set will simply regenerate the same members, hence why we have that \(\mu  f \subseteq  f(\mu  f)\) since all the members in \(\mu  f\) already correspond to members generated by the members of \(\mu  f\) under the rules of \(f\)</p><p xmlns="http://www.w3.org/1999/xhtml">
+        Furthermore, since we are working in the context of a complete lattice, as we take the intersection of more and more closed subsets under \(f\) we eventually reach a point where if we take some further intersection (move down more) we end up losing the closed property, but if we move up (i.e. take the union of more closed sets) we end up introducing extraneous members which violate the minimalism property, hence the idea that we stabilize at this set i.e. we are a <span xmlns="" class="link local"><em xmlns="http://www.w3.org/1999/xhtml"><a xmlns="" href="/notes/0028/" title="Fixpoint [0028]">fixed point</a></em></span> on the lattice under the operator.
+      </p></details></section>
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    The implication of this being that the closure \(\mu  f\) is a <span xmlns="" class="link local"><em xmlns="http://www.w3.org/1999/xhtml"><a xmlns="" href="/notes/0028/" title="Fixpoint [0028]">fixed point</a></em></span> of \(f\), and, because any fixed point is a pre-fixed point, it is the least pre-fixed point of \(f\). A dual argument shows that the greatest post-fixed point \(\nu  f\) is also a fixed point of \(f\). This result is known as <em>Lambek's lemma</em> in Category theory.
+  </p></details></section>
+          </details></section>
+      </details></section>
+    <section lang="en" class="block hide-metadata"><details id="id15" open="open"><summary><header><h1>
+<span class="taxon"></span>Related  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Definition"><details id="id16"><summary><header><h1>
+<span class="taxon">Definition. </span>Partial order <a class="slug" href="/notes/002d/">[002d]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary>
+            <section lang="en" class="block hide-metadata"><details id="id17" open="open"><summary><header><h1>
+<span class="taxon"></span>Remarks  </h1>
+<div class="metadata"><ul><li class="meta-item">November 25, 2025</li></ul></div></header></summary>
+                <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+    some piece of code
+  </code></pre>
+              </details></section>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  A partial order is just a <span xmlns="" class="link local"><a href="/notes/002a/" title="Preorder relation [002a]">preorder</a></span> with an additional property called <em>antisymmetry</em>. A partial order on a set \(P\) is a binary relation \(\leq \) that satisfies the following three properties for all elements \(a, b, c \in  P\):
+</p>
+            <ul xmlns="http://www.w3.org/1999/xhtml"><li>\(a \leq  a\) (Reflexivity): Every element is related to itself.
+  </li>
+  <li>\(a \leq  b \land  b \leq  c \to  a \leq  c\) (Transitivity): If an element \(a\) is related to \(b\), and \(b\) is related to \(c\), then \(a\) is also related to \(c\).
+  </li>
+  <li>\(a \leq  b \land  b \leq  a \to  a = b\) (Antisymmetry): If an element \(a\) is related to \(b\), and \(b\) is related to \(a\), then \(a\) and \(b\) must be the same element.
+  </li></ul>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  More accurately a partial order is a <em>reflexive, weak, non-strict partial order</em>. Also known as <em>skeletal preorder</em>. <span class="citation"><span xmlns="" class="link local"><a href="/notes/fong-spivak-seven-sketches-2019/" title="Seven Sketches in Compositionality: An Invitation to Applied Category Theory [fong-spivak-seven-sketches-2019]">[0]</a></span></span></p>
+          </details></section>
+      </details></section>
+    
+  </footer></article></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

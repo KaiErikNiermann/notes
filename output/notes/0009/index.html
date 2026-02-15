@@ -1,7 +1,294 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/0009/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>Evaluating PL Formulae</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Quiz"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Evaluating PL Formulae <a class="slug" href="/notes/0009/">[0009]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><strong xmlns="http://www.w3.org/1999/xhtml">
+  Consider the formula 
+  \(
+    F \triangleq  (\neg  p \land  q)
+  \)
+  and interpretation 
+  \(
+    I \triangleq  \{p \to  \top , q \to  \bot \}
+  \)
+  Which of the following is true
+</strong><ol xmlns="http://www.w3.org/1999/xhtml"><li>\(I \models  F\)</li>
+  <li>\(I \nvDash  F\)</li></ol><strong xmlns="http://www.w3.org/1999/xhtml">
+  What about the formula
+  \[
+    (p \land  q) \to  (\neg  p \lor  q)
+  \]
+  under the same interpretation?
+</strong>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id2"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+  Theres two main ways you can usually approach questions like this, the more drawn out operational way and then just going by observation more or less. Starting out with the more pedantic approach we can try to construct a proof tree for the formula under the given interpretation. So considering the first formula we have: 
+  
+  
+    
+    <html:img src="/notes/4807516d6cf6f2fdc256701b3e189646.svg" class="tex-diagram"></html:img>
+  
+
+
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    So we can see that the interpretation does not satisfy the formula. In other words for this assignment the formula does not hold true. Given that this is a somewhat simple formula we could also just see this by observation, i.e.
+  </p>
+  \[
+    \underbrace {\neg  p}_{\texttt {False}} \land  \underbrace {q}_{\texttt {False}} \equiv  \bot 
+  \]
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    For the second formula lets just go with the simpler approach again, so we have
+  </p>
+  <html:img src="/notes/f4ab80a835ec37191d2964edcfdc39a1.svg" class="tex-diagram"></html:img>
+
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    So in this case the formula is satisfied by the interpretation.
+  </p>
+</details></section>
+  
+</details></section><footer xmlns="">
+    
+    <section lang="en" class="block hide-metadata"><details id="id3" open="open"><summary><header><h1>
+<span class="taxon"></span>Context  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="VU-VFS-2025"><details id="id4"><summary><header><h1>
+<span class="taxon">VU-VFS-2025. </span>Lecture 1 - Propositional Logic <a class="slug" href="/notes/0004/">[0004]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+            <section lang="en" class="block hide-metadata"><details id="id5" open="open"><summary><header><h1>
+<span class="taxon"></span>Syntax  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id6" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Syntax <a class="slug" href="/notes/0005/">[0005]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Using BNF notation, the syntax of propositional logic can be defined as follows:
+</p>
+ 
+  
+  <figure xmlns="http://www.w3.org/1999/xhtml"><html:img src="/notes/e8fe66989c999aaf2a9551442e29166b.svg" class="tex-diagram"></html:img></figure>
+ 
+</details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id7" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Evaluating Syntax <a class="slug" href="/notes/0006/">[0006]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><ol xmlns="http://www.w3.org/1999/xhtml"><li><strong>Is \(p\) an atom?</strong></li>
+  <li><strong>Is \(p\) a literal?</strong></li>
+  <li><strong>Is \(p\) a formula?</strong></li>
+  <li><strong>What about \(\neg  p\)?</strong></li>
+  <li><strong>What about \(\neg  \neg  p\)?</strong></li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id8"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      Yes, \(p\) is an atom.
+    </li>
+    <li>
+      Yes, \(p\) is a literal. Literals are either atoms or negated atoms, and since \(p\) is an atom, it is also a literal.
+    </li>
+    <li>
+      Yes, \(p\) is a formula. Formulas can be literals, and since \(p\) is a literal, it is also a formula.
+    </li>
+    <li>\(\neg  p\) is not an atom, but it is a literal (as it is a negated atom) and therefore also a formula.
+    </li>
+    <li>\(\neg  \neg  p\) is a formula, since the inner negation \(\neg  p\) is a literal and any additional negation applied promotes it to a formula. In other words only <em>negated atoms</em> are literals but <em>negated literals</em> are formulas. This is especially important when we later discuss Negation Normal Form (NNF). 
+    </li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id9" open="open"><summary><header><h1>
+<span class="taxon"></span>Semantics &amp; Intepretations  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id10" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Semantics <a class="slug" href="/notes/0007/">[0007]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  We can define the semantic inference rules for propositional logic formulas under interpretations as follows inductively, starting with the base cases:
+</p>
+  
+    
+    <html:img src="/notes/028beb2256956745cbd6c6d092a67ec4.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+  Moving on to the inductive case we have
+</p>
+  
+    
+    <html:img src="/notes/6b58c468fd4a9e74c51788f18b2ea6bb.svg" class="tex-diagram"></html:img>
+  
+<p xmlns="http://www.w3.org/1999/xhtml">
+  Similarly, the rules for when an interpretation does not satisfy a formula are as follows:
+</p>
+  
+    
+    <html:img src="/notes/6be5095cad00657a1d9244ee3cab2d11.svg" class="tex-diagram"></html:img>
+  
+</details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id11" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Interpretation <a class="slug" href="/notes/0008/">[0008]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  We define an interpretation as a function which maps propositional variables in a formula to truth values, so formally
+</p>
+                    \[
+  I : \texttt {Var} \to  \{\top , \bot \}
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  We can <em>evaluate</em> a formula <em>under</em> an interpretation \(I\) by substituting each propositional variable with its corresponding truth value given by \(I\). Naturally under different kinds of interpretations formulas can evaluate to different truth values. We can create a classifcation of formulas based on how many interpretations evaluate them to true or false.
+</p>
+                    <ol xmlns="http://www.w3.org/1999/xhtml"><li><strong>satisfiable</strong>: A formula is satisfiable if there exists at least one interpretation under which it evaluates to true.
+  </li>
+  <li><strong>unsatisfying</strong>: A formula is unsatisfying if there exists at least one interpretation under which it evaluates to false.
+  </li>
+  <li><strong>tautology</strong>: A formula is a tautology if it evaluates to true under every possible interpretation.
+  </li>
+  <li><strong>contradiction</strong>: A formula is a contradiction if it evaluates to false under every possible interpretation.
+  </li>
+  <li><strong>contingent</strong>: A formula is contingent if it is satisfiable and unsatisfying, i.e., there exists at least one interpretation under which it evaluates to true and at least one interpretation under which it evaluates to false.
+  </li></ol>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id12" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Evaluating PL Formulae <a class="slug" href="/notes/0009/">[0009]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><strong xmlns="http://www.w3.org/1999/xhtml">
+  Consider the formula 
+  \(
+    F \triangleq  (\neg  p \land  q)
+  \)
+  and interpretation 
+  \(
+    I \triangleq  \{p \to  \top , q \to  \bot \}
+  \)
+  Which of the following is true
+</strong><ol xmlns="http://www.w3.org/1999/xhtml"><li>\(I \models  F\)</li>
+  <li>\(I \nvDash  F\)</li></ol><strong xmlns="http://www.w3.org/1999/xhtml">
+  What about the formula
+  \[
+    (p \land  q) \to  (\neg  p \lor  q)
+  \]
+  under the same interpretation?
+</strong>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id13"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+  Theres two main ways you can usually approach questions like this, the more drawn out operational way and then just going by observation more or less. Starting out with the more pedantic approach we can try to construct a proof tree for the formula under the given interpretation. So considering the first formula we have: 
+  
+  
+    
+    <html:img src="/notes/4807516d6cf6f2fdc256701b3e189646.svg" class="tex-diagram"></html:img>
+  
+
+
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    So we can see that the interpretation does not satisfy the formula. In other words for this assignment the formula does not hold true. Given that this is a somewhat simple formula we could also just see this by observation, i.e.
+  </p>
+  \[
+    \underbrace {\neg  p}_{\texttt {False}} \land  \underbrace {q}_{\texttt {False}} \equiv  \bot 
+  \]
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    For the second formula lets just go with the simpler approach again, so we have
+  </p>
+  <html:img src="/notes/f4ab80a835ec37191d2964edcfdc39a1.svg" class="tex-diagram"></html:img>
+
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    So in this case the formula is satisfied by the interpretation.
+  </p>
+</details></section>
+  
+</details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id14" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Evaluating sat/unsat/valid <a class="slug" href="/notes/000a/">[000a]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary><strong xmlns="http://www.w3.org/1999/xhtml">Are the following formulas sat., unsat., or valid?</strong><ol xmlns="http://www.w3.org/1999/xhtml"><li>\((p\land  q) \to  \neg  p\)</li>
+  <li>\((p \land  q) \to  (p \lor  \neg  q)\)</li>
+  <li>\((p \to  (q \to  r)) \land  \neg ((p \land  q) \to  r)\)</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id15"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">November 22, 2025</li></ul></div></header></summary>
+  As a reminder lets recap the definitions:
+  <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+      A formula is <strong>satisfiable</strong> if there exists at least one combination of true/false assignments to its variables that makes the formula true.
+    </li>
+    <li>
+      A formula is <strong>unsatisfiable</strong> if there is no combination of true/false assignments to its variables that makes the formula true (i.e., it is always false).
+    </li>
+    <li>
+      A formula is <strong>valid</strong> (or a tautology) if it is true under all possible combinations of true/false assignments to its variables.
+    </li></ul>
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    Now we can analyze each formula:
+  </p>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      For the lhs to be true both p and q must be true. However, if p is true then \(\neg  p\) is false, making the implication false. If p is false then the implication is vacuously true regardless of what we set q to. Thus, this formula is satisfiable (e.g., when p is false) but not valid (e.g., when p and q are true).
+    </li>
+    <li>
+      If both p and q are true then the lhs is true and so is the rhs by virtue of p being true. If p is false then the implication is vacuously true regardless of q. If q is false then the rhs is true regardless of p. Thus, this formula is valid as it is true for all combinations of truth values for p and q.
+    </li>
+    <li>
+      The first part \((p \to  (q \to  r))\) is true unless p is true and either q or r is false. The second part \(\neg ((p \land  q) \to  r)\) is true when p and q are true but r is false. Thus we can satisfy the entire formula by setting p and q to true and r to false. However, if we set p to false then the first part is vacuously true, but the second part becomes false. Thus, this formula is falsifiable (e.g., when p and q are true and r is false) but not valid (e.g., when p is false).
+    </li></ol>
+
+  If you want to be absolutely sure about these kinds of questions constructing truth tables is always a good idea, albeit a bit tedious for formulas with many variables so just doing a bit of analysis like above is usually sufficient
+</details></section>
+  
+</details></section>
+              </details></section>
+          </details></section>
+      </details></section>
+    
+    
+    
+  </footer></article></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

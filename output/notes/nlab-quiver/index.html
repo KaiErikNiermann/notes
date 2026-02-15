@@ -1,7 +1,94 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/nlab-quiver/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>quiver</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Reference"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Reference. </span>quiver <a class="slug" href="/notes/nlab-quiver/">[nlab-quiver]</a> </h1>
+<div class="metadata"><ul>
+<li class="meta-item">November 1, 2025</li>
+<li class="meta-item"><address class="author">nLab authors</address></li>
+<li class="meta-item"><a class="link external" href="https://ncatlab.org/nlab/show/quiver">https://ncatlab.org/nlab/show/quiver</a></li>
+</ul></div></header></summary></details></section><footer xmlns="">
+    
+    
+    <section lang="en" class="block hide-metadata"><details id="id2" open="open"><summary><header><h1>
+<span class="taxon"></span>Backlinks  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Definition"><details id="id3"><summary><header><h1>
+<span class="taxon">Definition. </span>Quiver <a class="slug" href="/notes/002l/">[002l]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+            <p xmlns="http://www.w3.org/1999/xhtml">
+  A <em>quiver</em> is a collection of <strong>edges</strong> which may stretch between (ordered) <strong>pairs</strong> of points called <em>vertices</em>. Thus making a quiver a kind of graph. In the graph theoretical sense a quiver is a <em>directed</em> <em>pseudo-multigraph</em> so breaking that down <span class="citation"><span xmlns="" class="link local"><a href="/notes/nlab-quiver/" title="quiver [nlab-quiver]">[0]</a></span></span>:
+</p>
+            <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+    It's <strong>directed</strong> meaning each arrow has a direction associated with it going from a source vertex to a target vertex
+  </li>
+  <li>
+    It's a <strong>pseudograph</strong> meaning each pair of vertices has some number of edges (including zero) between them, and loops (edges that connect a vertex to itself) are allowed
+  </li>
+  <li>
+    It's a <strong>multigraph</strong> which means we constrain the kinds of edges to disallow loops (an edge from a vertex to itself.)
+  </li></ul>
+            <section lang="en" class="block hide-metadata"><details id="id4" open="open"><summary><header><h1>
+<span class="taxon"></span>
+                  <span class="link external"><a href="https://github.com/leanprover-community/mathlib4/blob/0fecc98248f62972b3fc32f83e1966c657fbb658/Mathlib/Combinatorics/Quiver/Basic.lean#L35-L47" title="">Lean representation</a></span>
+                  </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+                <p xmlns="http://www.w3.org/1999/xhtml">
+    The lean representation of this construct is given as follows:
+  </p>
+                <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+    universe v v₁ v₂ u u₁ u₂
+
+    class Quiver (V : Type u) where
+      Hom : V → V → Sort v
+  </code></pre>
+              </details></section>
+          </details></section>
+      </details></section>
+    
+    
+  </footer></article></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

@@ -30,5 +30,5 @@
   }
 }
 \p{
-  More accurately a partial order is a \em{reflexive, weak, non-strict partial order}. Also known as \em{skeletal preorder}. [1](fong-spivak-seven-sketches-2019)
+  More accurately a partial order is a \em{reflexive, weak, non-strict partial order}. Also known as \em{skeletal preorder}. \cite{fong-spivak-seven-sketches-2019} 
 }

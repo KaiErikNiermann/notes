@@ -1,0 +1,12 @@
+{
+  "title": "How are assertions modelled via a result monad in big-step semantics?",
+  "sources": [
+    {
+      "url": "004q",
+      "label": "Assertions & Havoc",
+      "comment": null
+    }
+  ],
+  "front": "Describe how assertions (and failure) are modelled using a result monad in the big-step evaluation semantics. How can we simplify this pedagogically when writing evaluation judgments, and what does it mean to \"lift\" other inference rules into the monad?",
+  "back": "Key points and reasoning:\n- Integration: Assertions introduce a result monad that distinguishes successful evaluations ($\\texttt{.ok}\\ \\sigma$) from failures ($\\texttt{.fail}$). As the notes state: \"A central thing to understand with assertions especially is that they integrate a result's monad into the big-step evaluation semantics, in addition to the Hoare logic.\"  \n\n- Pedagogical simplification: to avoid carrying the monad everywhere one can treat the ordinary big-step judgment $\\Downarrow\\ \\sigma$ as shorthand for the success case $\\Downarrow\\ \\texttt{.ok}\\ \\sigma$. The notes: \"though for pedagogical purposes its enough to just assume that $\\Downarrow \\sigma$ just corresponds to $\\Downarrow \\texttt{.ok} \\sigma$ i.e. evaluated into a non-fail state.\"  \n\n- Lifting inference rules: saying we \"lift\" other rules into the monad means every evaluation rule must be interpreted in the monadic context (propagating $\\texttt{.fail}$ or producing $\\texttt{.ok}$). Practically, this requires that whenever an assertion can fail, that failure is represented as a $\\texttt{.fail}$ result and that all composition rules (sequence, conditionals, etc.) thread these $\\texttt{.ok}/\\texttt{.fail}$ results appropriately. The note: \"it's worth mentioning that the implication is that we are lifting all other inference rules into the context of this result monad.\"  \n\nEvidence:\n- \"A central thing to understand with assertions especially is that they integrate a result's monad into the big-step evaluation semantics, in addition to the Hoare logic.\"  \n- \"though for pedagogical purposes its enough to just assume that $\\Downarrow \\sigma$ just corresponds to $\\Downarrow \\texttt{.ok} \\sigma$ i.e. evaluated into a non-fail state.\"  \n- \"it's worth mentioning that the implication is that we are lifting all other inference rules into the context of this result monad, though for pedagogical purposes its enough to just assume that $\\Downarrow \\sigma$ just corresponds to $\\Downarrow \\texttt{.ok} \\sigma$.\""
+}

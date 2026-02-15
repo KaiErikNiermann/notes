@@ -1,0 +1,12 @@
+{
+  "title": "Why does assume get \"stuck\" (not fail) and how does that affect partial-correctness proofs?",
+  "sources": [
+    {
+      "url": "004q",
+      "label": "Assertions & Havoc",
+      "comment": null
+    }
+  ],
+  "front": "Explain why the statement $\\texttt{assume(F)}$ is defined to \"get stuck\" (rather than fail) when $F$ is false, and describe the consequence of this choice for proving partial-correctness properties.",
+  "back": "Reasoning:\n- Semantics: $\\texttt{assume(F)}$ has only a $\\top$ rule: if $F$ holds the statement behaves like $\\texttt{skip}$; otherwise execution \"gets stuck\" but does not produce a failure. This is captured by: \"For the assumption we only have a $\\top$ rule, the idea being if the assumption holds then the statement is equivalent to a $\\texttt{skip}$ otherwise the execution gets stuck $\\emph{but doesn't fail}$.\"  \n\n- Why \"stuck\" and not \"fail\": the design treats stuck executions as a separate category from failure so that they do not contribute to the set of failing executions. As the notes explain: \"The idea with $\\emph{getting stuck}$ being that since we aren't failing for the case of partial-correctness (failure or termination) it means we can simply ignore this case.\"  \n\nConsequence for partial-correctness proofs:\n- Because stuck paths are ignored for partial-correctness, $\\texttt{assume(F)}$ can be used to prune execution paths that violate $F$ without causing the program to be considered as failing. Thus verification conditions do not need to account for stuck executions: they are filtered out and do not invalidate a partial-correctness Hoare triple.\n\nEvidence:\n- \"For the assumption we only have a $\\top$ rule, the idea being if the assumption holds then the statement is equivalent to a $\\texttt{skip}$ otherwise the execution gets stuck $\\emph{but doesn't fail}$.\"\n- \"The idea with $\\emph{getting stuck}$ being that since we aren't failing for the case of partial-correctness (failure or termination) it means we can simply ignore this case.\""
+}

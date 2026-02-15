@@ -1,7 +1,609 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/0036/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>Models of T_H</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Quiz"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Models of \(T_H\) <a class="slug" href="/notes/0036/">[0036]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  consider a structure consisting of a universe \(U\) and interpretation \(I\) as follows:
+</p>\[
+  U = \{A, B\} \quad  I = \{\texttt {taller} \mapsto  \{\langle  A, A\rangle , \langle  B, B\rangle \}\}
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  Are the following models of the theory \(T\) or not:
+</p><ol xmlns="http://www.w3.org/1999/xhtml"><li>
+    Is \(\langle  U, I\rangle \) a model of \(T\)</li>
+  <li>
+    If we change the interpretation to
+    \[
+      I = \{\texttt {taller} \mapsto  \{\langle  A, B\rangle \}\}
+    \]
+    is the structure now a model of \(T\)?
+  </li>
+  <li>
+    If we add the following axiom
+    \[
+      \forall  x, y, z.\ (\texttt {taller}(x, y) \land  \texttt {taller}(y, z) \to  \texttt {taller}(x, z))
+    \]
+    and we change the interpretation to
+    \[
+      I = \{\texttt {taller} \mapsto  \{\langle  A, B \rangle , \langle  B, C \rangle \}\}
+    \]
+    then is the structure a model of \(T\)?
+  </li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id2"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    As a reminder we are working with the axiom:
+  </p>
+  \[
+    \forall  x, y.\ (\texttt {taller}(x, y) \to  \neg  \texttt {taller}(y, x))
+  \]
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      Clearly no, as if we take \(x = A\) and \(y = A\) we have that both \(\texttt {taller}(A, A)\) and \(\texttt {taller}(A, A)\) hold, violating the axiom.
+    </li>
+    <li>
+      Here we are chaning or interpretation to just the relation \(\texttt {taller}(A, B)\) holding. In this case the axiom is satisfied as there are no values of \(x\) and \(y\) such that both \(\texttt {taller}(x, y)\) and \(\texttt {taller}(y, x)\) hold. So yes this is a model of \(T\).
+    </li>
+    <li>
+      No, as if we take \(x = A\), \(y = B\) and \(z = C\) we have that both \(\texttt {taller}(A, B)\) and \(\texttt {taller}(B, C)\) hold, but \(\texttt {taller}(A, C)\) does not hold (so not in our interpretation for the \(\texttt {taller}\) relationship), violating the axiom.
+    </li></ol>
+</details></section>
+  
+</details></section><footer xmlns="">
+    
+    <section lang="en" class="block hide-metadata"><details id="id3" open="open"><summary><header><h1>
+<span class="taxon"></span>Context  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="VU-VFS-2025"><details id="id4"><summary><header><h1>
+<span class="taxon">VU-VFS-2025. </span>Lecture 4 - First Order Theories <a class="slug" href="/notes/0032/">[0032]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+            <section lang="en" class="block hide-metadata"><details id="id5" open="open"><summary><header><h1>
+<span class="taxon"></span>Signatures and Axioms  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id6" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>First Order Theory \(T\) <a class="slug" href="/notes/0033/">[0033]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  A <em>first order theory</em> (FOT) \(T\) is defined by two main components:
+</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+    A <em>signature</em> \(\Sigma \) of a set of constant, function, and predicate symbols
+  </li>
+  <li>
+    A set of <em>axioms</em> \(\mathcal  A\) consisting of closed (i.e. no free variables) formulas over the signature \(\Sigma \)</li></ul>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  We say that a formula constructed from only from the contents of the signature \(\Sigma \) is a \(\Sigma \)-formula.
+</p>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id7" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Signatures and Axioms (FOL) <a class="slug" href="/notes/0034/">[0034]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Consider a theory withthe following signature:
+</p>\[
+  \Sigma _H  : \{R = \{\texttt {taller}\}, C = F = \emptyset  \}
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  And the axiom:
+</p>\[
+  \forall  x.\ \forall  y.\ (\texttt {taller}(x, y) \to  \neg  \texttt {taller}(y, x))
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  Are the following legal \(\Sigma _H\)-formulas?
+</p><ol xmlns="http://www.w3.org/1999/xhtml"><li>\(
+      \exists  x.\ \forall  y.\ (\texttt {taller}(x, z) \land  \texttt {taller}(y, w))
+    \)</li>
+  <li>\(
+    \exists  x.\ \forall  z.\ \texttt {taller}(x, z) \land  \texttt {taller}(\text {joe}, \text {tom})
+  \)</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id8"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      Yes
+    </li>
+    <li>
+      No, there are no constants in the signature, so \text {joe} and \text {tom} are not valid terms.
+    </li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id9" open="open"><summary><header><h1>
+<span class="taxon"></span>Models of Theories  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id10" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Structure &amp; Model of \(T\) (FOT) <a class="slug" href="/notes/0035/">[0035]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  A structure which we denote as:
+</p>
+                    \[
+  M \triangleq  \langle  U, I \rangle 
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Is a <strong>model of a theory</strong> \(T\) (or \(T\)-<strong>model</strong>) iff:
+</p>
+                    \[
+  \forall  A \in  \mathcal  A_T.\ M \vDash  A
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  where:
+</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li>\(U\) is the universe or more commonly the <em>domain</em></li>
+  <li>\(I\) is the <em>interpretation</em> which assigns some meaning to our formula</li></ul>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id11" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Models of \(T_H\) <a class="slug" href="/notes/0036/">[0036]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  consider a structure consisting of a universe \(U\) and interpretation \(I\) as follows:
+</p>\[
+  U = \{A, B\} \quad  I = \{\texttt {taller} \mapsto  \{\langle  A, A\rangle , \langle  B, B\rangle \}\}
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  Are the following models of the theory \(T\) or not:
+</p><ol xmlns="http://www.w3.org/1999/xhtml"><li>
+    Is \(\langle  U, I\rangle \) a model of \(T\)</li>
+  <li>
+    If we change the interpretation to
+    \[
+      I = \{\texttt {taller} \mapsto  \{\langle  A, B\rangle \}\}
+    \]
+    is the structure now a model of \(T\)?
+  </li>
+  <li>
+    If we add the following axiom
+    \[
+      \forall  x, y, z.\ (\texttt {taller}(x, y) \land  \texttt {taller}(y, z) \to  \texttt {taller}(x, z))
+    \]
+    and we change the interpretation to
+    \[
+      I = \{\texttt {taller} \mapsto  \{\langle  A, B \rangle , \langle  B, C \rangle \}\}
+    \]
+    then is the structure a model of \(T\)?
+  </li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id12"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+  <p xmlns="http://www.w3.org/1999/xhtml">
+    As a reminder we are working with the axiom:
+  </p>
+  \[
+    \forall  x, y.\ (\texttt {taller}(x, y) \to  \neg  \texttt {taller}(y, x))
+  \]
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      Clearly no, as if we take \(x = A\) and \(y = A\) we have that both \(\texttt {taller}(A, A)\) and \(\texttt {taller}(A, A)\) hold, violating the axiom.
+    </li>
+    <li>
+      Here we are chaning or interpretation to just the relation \(\texttt {taller}(A, B)\) holding. In this case the axiom is satisfied as there are no values of \(x\) and \(y\) such that both \(\texttt {taller}(x, y)\) and \(\texttt {taller}(y, x)\) hold. So yes this is a model of \(T\).
+    </li>
+    <li>
+      No, as if we take \(x = A\), \(y = B\) and \(z = C\) we have that both \(\texttt {taller}(A, B)\) and \(\texttt {taller}(B, C)\) hold, but \(\texttt {taller}(A, C)\) does not hold (so not in our interpretation for the \(\texttt {taller}\) relationship), violating the axiom.
+    </li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id13" open="open"><summary><header><h1>
+<span class="taxon"></span>Satisfiability Modulo \(T\)  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id14" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Satisfiable &amp; Valid modulo \(T\) <a class="slug" href="/notes/0037/">[0037]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  We say that a formula \(F\) is <strong>satisfiable modulo</strong> \(T\) iff <em>there exists</em> a \(T\)-model \(M\) and a variable assignment \(\sigma \) such that:
+</p>
+                    \[
+  M, \sigma  \vDash  F
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  We say that a formula \(F\) is <strong>valid modulo</strong> \(T\) iff <em>forall</em> \(T\)-models \(M\) and all variable assignments \(\sigma \) we have:
+</p>
+                    \[
+  M, \sigma  \vDash  F
+\]
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id15" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>FOL Validity vs Valid modulo \(T\) <a class="slug" href="/notes/0039/">[0039]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  We can compare the two notions by understanding <em>validity in modulo</em> \(T\) as a restriction of <em>validity in FOL</em> to only those models that are \(T\)-models. So the implication of that is that if a formula is valid (true in all models), then its clearly also valid in the subset/restriction to only \(T\)-models. However, the other way around does not hold, since a formula can be true in all \(T\)-models, but false in some non-\(T\)-model. Hence we have the following:
+</p>
+ 
+  
+  <html:img src="/notes/e17a21d7370f74a45bdb962c07a32b9d.svg" class="tex-diagram"></html:img>
+ 
+<p xmlns="http://www.w3.org/1999/xhtml">
+  But the other way around does not hold in general:
+</p>
+ 
+  
+  <html:img src="/notes/8bedd6a874fded6390949fd57cbf0d41.svg" class="tex-diagram"></html:img>
+ 
+</details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id16" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Satisfiability in FOL vs FOT <a class="slug" href="/notes/0038/">[0038]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Consider some arbitrary first order theory \(T\)</p><ol xmlns="http://www.w3.org/1999/xhtml"><li>
+    If a formula is valid in FOL, then is it also valid in modulo \(T\)?
+  </li>
+  <li>
+    If a formula is valid modulo \(T\), then is it also valid in FOL?
+  </li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id17"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      Yes, if its valid in FOL that means its valid in <em>all models</em> which includes those models that are \(T\)-models. Hence its also valid modulo \(T\).
+    </li>
+    <li>
+      No, a formula can be valid in all \(T\)-models, but false in some non-\(T\)-model. Hence its not necessarily valid in FOL.
+    </li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id18" open="open"><summary><header><h1>
+<span class="taxon"></span>Theory of Equality &amp; Congruence  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id19" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Theory of Equality \(T\) <a class="slug" href="/notes/003a/">[003a]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  The <strong>theory of equality</strong> \(T_=\) is a first order theory over the signature \(\Sigma _=\) which contains:
+</p>
+                    \[
+  \sigma _= : \{=, s\}
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Where \(=\) is a binary relation symbol and \(s\) is any constant function or predicate symbol. The axioms of the theory of equality are:
+</p>
+                    
+                        <html:img src="/notes/91ec0848d003ec436b77f543939afd31.svg" class="tex-diagram"></html:img>
+                      
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id20" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Theory of Equality <a class="slug" href="/notes/003b/">[003b]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Consider the universe:
+</p>\[
+  U = \{\alpha , \beta \}
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  which of the following interpetations of \(=\) are allowd by the axioms of \(T_=\):
+</p><ol xmlns="http://www.w3.org/1999/xhtml"><li>\(I(=) \triangleq  \{\langle  \alpha , \beta  \rangle , \langle  \beta  \alpha  \rangle \}\)</li>
+  <li>\(I(=) \triangleq  \{\langle  \alpha , \alpha  \rangle , \langle  \beta , \beta  \rangle \}\)</li>
+  <li>\(I(=) \triangleq  \{\langle  \alpha , \alpha  \rangle , \langle  \alpha , \beta  \rangle , \langle  \beta , \alpha  \rangle , \langle  \beta , \beta  \rangle \}\)</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id21"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      No, violates reflexivity axiom since neither \(\alpha  = \alpha \) nor \(\beta  = \beta \) are in the interpretation
+    </li>
+    <li>
+      Yes, satisfies all axioms of equality
+    </li>
+    <li>
+      Yes, satisfies all axioms of equality
+    </li></ol>
+</details></section>
+  
+</details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id22" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>(Left &amp; Right) Congruence Relations (FOT) <a class="slug" href="/notes/003c/">[003c]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  In the most general sense we say that a relation \(R\) over a set \(A\) is a <strong>congruence</strong> with respect to a function \(f : A^n \to  A\) if for all \(a_1, \ldots , a_n, b_1, \ldots , b_n \in  A\) such that \(a_i\ R\ b_i\) for all \(1 \leq  i \leq  n\) we have:
+</p>
+                    \[
+  f(a_1, \ldots , a_n)\ R\ f(b_1, \ldots , b_n)
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  if we denote \(\overline  x\) as a vector of elements \(x_1, \ldots , x_n\) we can rewrite this more succinctly as:
+</p>
+                    \[
+  \forall  \overline  a, \overline  b \in  A^n.\ (\forall  i.\ a_i\ R\ b_i) \to  f(\overline  a)\ R\ f(\overline  b)
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  In the case of first order theories we can then instantiate \(R\) with things like equality or other relations defined in the theory. Additionally we can \(f\) represent a function or predicate symbol from the signature of the theory. In the case of binary functions or predicates we can also define <strong>left</strong> and <strong>right congruence</strong> as follows:
+</p>
+                    <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+    A relation \(R\) is a <strong>left congruence</strong> with respect to a binary function or predicate \(f : A \times  A \to  A\) if for all \(a, b, c \in  A\) such that \(a\ R\ b\) we have:
+  </li>
+  \[
+    f(a, c)\ R\ f(b, c)
+  \]
+  <li>
+    A relation \(R\) is a <strong>right congruence</strong> with respect to a binary function or predicate \(f : A \times  A \to  A\) if for all \(a, b, c \in  A\) such that \(a\ R\ b\) we have:
+  </li>
+  \[
+    f(c, a)\ R\ f(c, b)
+  \]</ol>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id23" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Function &amp; Predicate congruence <a class="slug" href="/notes/003d/">[003d]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Consider the universe:
+</p>\[
+  U = \{a, b, c\}
+\]<p xmlns="http://www.w3.org/1999/xhtml">
+  and the interpretation:
+</p>\[
+  I(=) \triangleq  \{\langle  a, a \rangle , \langle  a, b \rangle , \langle  b, a \rangle , \langle  b, b \rangle , \langle  c, c \rangle \}
+\]<ol xmlns="http://www.w3.org/1999/xhtml"><li>
+    Does the interpetation \(I(=)\) satisfy the axioms of equality?
+  </li>
+  <li>
+    Which interpretations for a function \(f\) satisfy the axioms of congruence?
+    <ol><li>\(I(f) \triangleq  \{b \to  a, a \to  c, c \to  c\}\)</li>
+      <li>\(I(f) \triangleq  \{b \to  b, a \to  b, c \to  b\}\)</li>
+      <li>\(I(f) \triangleq  \{b \to  a, a \to  b, c \to  c\}\)</li></ol></li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id24"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      Yes, the interpretation satisfies the axioms of equality
+    </li>
+    <li>
+      Going through them one by one:
+      <ol><li>
+          No, because \(f(a) = c\) and \(f(b) = a\) but \(a\ I(=)\ b\) yet \(c\ not\ I(=)\ a\)</li>
+        <li>
+          Yes, because \(f(a) = b\) and \(f(b) = b\) and \(a\ I(=)\ b\) thus \(b\ I(=)\ b\), similarly for \(c\)</li>
+        <li>
+          Yes, because \(f(a) = b\) and \(f(b) = a\) and \(a\ I(=)\ b\) thus \(b\ I(=)\ a\), similarly for \(c\)</li></ol></li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id25" open="open"><summary><header><h1>
+<span class="taxon"></span>Theory of Peano Arithmetic  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id26" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Theory of Peano Arithmetic <a class="slug" href="/notes/003e/">[003e]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Peano Arithmetic (PA) is a first order theory over the signature \(\Sigma _{PA}\) which contains:
+</p>
+                    \[
+  \Sigma _{PA} : \{0, S, +, \times , =\}
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Where \(0\) is a constant symbol representing zero, \(S\) is a unary function symbol representing the successor function, \(+\) and \(\times \) are binary function symbols representing addition and multiplication respectively, and \(=\) is a binary relation symbol representing equality. The axioms of Peano Arithmetic are:
+</p>
+                    
+                        <html:img src="/notes/38b17d08c8a044cd82fc858e037bbf9f.svg" class="tex-diagram"></html:img>
+                      
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id27" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Theory of Peano Arithmetic <a class="slug" href="/notes/003f/">[003f]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Are the following well-formed \(T_{\text {PA}} formulae?\)</p><ol xmlns="http://www.w3.org/1999/xhtml"><li>\(x + y = 1 \land  f(x) = 1 + 1\)</li>
+  <li>\(\forall  x.\ \exists  y.\ \exists  z.\ x + y = 1\land  z \times  x = 1 + 1\)</li>
+  <li>\(2x = y\)</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id28"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      No, the theory of Peano Arithmetic does not include function symbols like \(f\), nor does it include numerals like \(1\) or \(2\). All terms must be constructed using the constant symbol \(0\), the successor function \(S\), and the function symbols \(+\) and \(\times \).
+    </li>
+    <li>
+      Yes, this is a well-formed formula. It uses only the symbols and constructs allowed in the theory of Peano Arithmetic.
+    </li>
+    <li>
+      No, this is not a well-formed formula. The expression \(2x\) is not a valid term in Peano Arithmetic, as numerals like \(2\) are not part of the language. Terms must be built using \(0\), \(S\), \(+\), and \(\times \). A valid way to express the same idea would be \(S(S(0)) \times  x = y\). Or if we replace \(S\) with \(1\) then we could do \((1 + 1) \times  x = y\)</li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id29" open="open"><summary><header><h1>
+<span class="taxon"></span>Theory of Rationals &amp; Integers  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id30" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Theory of Rationals \(T_{\mathbb {Q}}\) <a class="slug" href="/notes/003i/">[003i]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  The theory of rationals \(T_{\mathbb {Q}}\) is a first-order theory over the signature \(\Sigma _{\mathbb {Q}}\) which contains:
+</p>
+                    \[
+  \Sigma _{\mathbb {Q}} : \{0, 1, +, -, =, \geq \}
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  (Axioms ommitted for brevity.)
+</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Some important properties of \(T_{\mathbb {Q}}\) are:
+</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+    Full theory is <em>decidable</em> but doubly exponential.
+  </li>
+  <li>
+    Conjunctive quantifier-free fragment is efficiently decidable (polynomial time).
+  </li>
+  <li>\(T_{\mathbb {Q}}\) is the basis for arithemtic reasoning in SMT solvers such as Z3.
+  </li>
+  <li>
+    In practice the <em>simplex</em> algorithm is used.
+  </li></ul>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id31" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Theory of Presburger Arithmetic <a class="slug" href="/notes/003h/">[003h]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Presburger Arithmetic (PA) is a first order theory over the signature \(\Sigma _{\mathbb {N}}\) which contains:
+</p>
+                    \[
+  \Sigma _{\mathbb {N}} : \{0, 1, +, =\}
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Where \(0\) and \(1\) are constant symbols representing zero and one respectively, \(+\) is a binary function symbol representing addition, and \(=\) is a binary relation symbol representing equality. The axioms of Presburger Arithmetic are:
+</p>
+                    
+                        <html:img src="/notes/b2cd095d79c0e49ba09ee38205cc6cdc.svg" class="tex-diagram"></html:img>
+                      
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  Some important properties of \(T_{\mathbb {N}} are\):
+</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li>
+    Validity in <em>quantifer-free</em> Presburger Arithmetic is decidable.
+  </li>
+  <li>
+    Validity in <em>full</em> Presburger Arithmetic is decidable.
+  </li>
+  <li>
+    Validity in Presburger Arithmetic has a super exponential complexity \(O(2^{2^n})\)</li>
+  <li>\(T_{\mathbb {N}}\) is <em>complete</em>, i.e.
+    \[
+      \forall  F.\ T_{\mathbb {N}} \models  F \lor  T_{\mathbb {N}} \models  \neg  F
+    \]</li></ul>
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id32" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Theory of rationals \(T_{\mathbb {Q}}\) <a class="slug" href="/notes/003k/">[003k]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Consider the following formula:
+</p>\[
+  \exists  x.\ (1 + 1) x = 1 + 1 + 1
+\]<ol xmlns="http://www.w3.org/1999/xhtml"><li>
+    Is this formula valid in \(T_{\mathbb {Q}}\)</li>
+  <li>
+    Is this formula valid in \(T_{\mathbb {Z}}\)</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id33"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      Yes, this formula is valid in \(T_{\mathbb {Q}}\). In the theory of rationals, we can find a rational number \(x = \frac {3}{2}\) that satisfies the equation \((1 + 1) x = 1 + 1 + 1\). Therefore, there exists an \(x\) in the rationals that makes the equation true.
+    </li>
+    <li>
+      No, this formula is not valid in \(T_{\mathbb {Z}}\). In the theory of integers, there is no integer \(x\) that satisfies the equation \((1 + 1) x = 1 + 1 + 1\), since \(\frac {3}{2}\) is not an integer. Thus, there does not exist an integer \(x\) that makes the equation true.
+    </li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata"><details id="id34" open="open"><summary><header><h1>
+<span class="taxon"></span>Theory of Data structures  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id35" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Theory of Arrays <a class="slug" href="/notes/003l/">[003l]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  The theory of arrays is a first-order theory that models arrays as functions from indices to values. Its signature includes:
+</p>
+                    \[
+  \Sigma _A \triangleq  \{- [ - ], \langle  - \triangleleft  - \rangle , =\}
+\]
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  where:
+</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li>\(-[ - ]\): read operation, which takes an array and an index and returns the value at that index.
+  </li>
+  <li>\(\langle  - \triangleleft  - \rangle \): write operation, which takes an array, an index, and a
+    value, and returns a new array with the value at the specified index updated.
+  </li>
+  <li>\(=\): equality relation, which checks if two arrays are identical.
+  </li></ul>
+                    <p xmlns="http://www.w3.org/1999/xhtml">
+  The axioms of the theory of arrays are:
+</p>
+                    
+                        <html:img src="/notes/8ff9653ef4ba489edcda34b8856e7a7b.svg" class="tex-diagram"></html:img>
+                      
+                  </details></section>
+                <section lang="en" class="block hide-metadata" data-taxon="Quiz"><details id="id36" open="open"><summary><header><h1>
+<span class="taxon">Quiz. </span>Theory of arrays \(T_A\) <a class="slug" href="/notes/003m/">[003m]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary><p xmlns="http://www.w3.org/1999/xhtml">
+  Which of the following formula is valid/satisfiable/unsatisfiable ?
+</p><ol xmlns="http://www.w3.org/1999/xhtml"><li>\(a[3] = 2\)</li>
+  <li>\(a \langle  3 \triangleleft  5 \rangle [3] = 5\)</li>
+  <li>\(a \langle  3 \triangleleft  5 \rangle [3] = 3\)</li>
+  <li>\(a[3] = 2\land  a \langle  3 \triangleleft  5 \rangle [3] = 5\)</li></ol>
+  
+    
+    
+    <section lang="en" class="block hide-metadata" data-taxon="Solution"><details id="id37"><summary><header><h1>
+<span class="taxon">Solution. </span>  </h1>
+<div class="metadata"><ul><li class="meta-item">December 2, 2025</li></ul></div></header></summary>
+  <ol xmlns="http://www.w3.org/1999/xhtml"><li>
+      This formula is <strong>satisfiable</strong>. For example, if we have an array \(a\) such that \(a[3] = 2\), then the formula holds true.
+    </li>
+    <li>
+      This formula is <strong>valid</strong>. According to the Read-Over-Write axiom, when we write a value to an index in an array and then read from that same index, we get the value we just wrote. So regardless of the initial contents of array \(a\), after performing the write operation \(a \langle  3 \triangleleft  5 \rangle \), reading from index \(3\) will always yield \(5\) hence making it always true (valid).
+    </li>
+    <li>
+      This formula is <strong>unsatisfiable</strong>. According to the Read-Over-Write axiom, when we write a value to an index in an array and then read from that same index, we get the value we just wrote. Therefore, after performing the write operation \(a \langle  3 \triangleleft  5 \rangle \), reading from index \(3\) will always yield \(5\), making it impossible for it to equal \(3\).
+    </li>
+    <li>
+      This formula is <strong>satisfiable</strong>. For example, if we have an array \(a\) such that \(a[3] = 2\), then after performing the write operation \(a \langle  3 \triangleleft  5 \rangle \), reading from index \(3\) will yield \(5\). Thus, both parts of the conjunction can be true simultaneously though are not valid in all interpretations.
+    </li></ol>
+</details></section>
+  
+</details></section>
+              </details></section>
+          </details></section>
+      </details></section>
+    
+    
+    
+  </footer></article></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

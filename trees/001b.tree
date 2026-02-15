@@ -1,9 +1,3 @@
-\date{2025-11-23}
-
-\import{base-macros}
-
-\taxon{Blog}
-
 \title{Understanding recursors with Lean4}
 
 \date{2025-11-23}
@@ -11,8 +5,6 @@
 \import{base-macros}
 
 \taxon{Blog}
-
-\title{Understanding recursors with Lean4}
 
 \subtree{
   \title{The recursor for natural numbers}
@@ -410,7 +402,7 @@
           .trans (rw_lhs (rw_const .mul 2 3)) (rw_const .add 6 4)
       }
       \p{
-        Here we say that the expression #{((2 * 3) + 4)} after multiple steps evaluates to #{10} by first rewriting the left hand side multiplication to #{6 + 4} and then rewriting that to #{10}. And we chain these operations together using the \code{.trans} constructor of the multi-step evaluation relation. Now the question becomes, how do we define these rewrite steps? Intuitively we can imagine evaluation as being described by the following sort of graph
+        Here we say that the expression #{((2 * 3) + 4)} after multiple steps evaluates to #{10} by first rewriting the left-hand side multiplication to #{6 + 4} and then rewriting that to #{10}. And we chain these operations together using the \code{.trans} constructor of the multistep evaluation relation. Now the question becomes, how do we define these rewrite steps? Intuitively we can imagine evaluation as being described by the following sort of graph
       } 
       \codeblock{lean}{
         +(lhs [op] rhs)
@@ -426,17 +418,17 @@
       }
       \ul{
         \li{
-          \strong{rw_lhs}: If the left hand side can be reduced some number of steps we can reduce it while keeping the right hand side the same. This corresponds to the \code{ST_BinOp1} rule defined earlier.
+          \strong{rw_lhs}: If the left-hand side can be reduced some number of steps we can reduce it while keeping the right-hand side the same. This corresponds to the \code{ST_BinOp1} rule defined earlier.
         }
         \li{
-          \strong{rw_rhs}: If the left hand side is a constant we can reduce the right hand side some number of steps while keeping the left hand side the same. This corresponds to the \code{ST_BinOp2} rule defined earlier.
+          \strong{rw_rhs}: If the left-hand side is a constant we can reduce the right-hand side some number of steps while keeping the left-hand side the same. This corresponds to the \code{ST_BinOp2} rule defined earlier.
         }
         \li{
           \strong{rw_const}: If both sides are constants we can apply the binary operation and reduce the entire expression to a single constant value. This corresponds to the \code{ST_BinOpConst} rule defined earlier.
         }
       }
       \p{
-        As these rules are defined over the structure of multi-step evaluation our implementation of them will naturally be in terms of the inductive structure of a multistep relationship:
+        As these rules are defined over the structure of multistep evaluation our implementation of them will naturally be in terms of the inductive structure of a multistep relationship:
       }
 
       \codeblock{lean}{
@@ -458,7 +450,7 @@
       }
 
       \p{
-        Alternatively we can specify the left and right rewrite rules using the recursor or or head induction principle for multi-step evaluation:
+        Alternatively we can specify the left and right rewrite rules using the recursor or or head induction principle for multistep evaluation:
       }
       \codeblock{lean}{
         lemma rw_rhs' (rhs_rw : rhs ->ⁿ rhs') :

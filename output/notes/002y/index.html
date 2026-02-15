@@ -1,7 +1,211 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/notes/002y/index.xml" />
-    <meta charset="utf-8" />
-  </head>
-</html>
+<!DOCTYPE html PUBLIC "" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.forester-notes.org" xmlns:html="http://www.w3.org/1999/xhtml" data-base-url="/notes/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"></meta><link rel="icon" type="image/svg+xml" href="/notes/notes-icon.svg"></link><link rel="stylesheet" href="/notes/style.css"></link><link rel="stylesheet" href="/notes/katex.min.css"></link><script type="text/javascript"></script><script type="module" src="/notes/forester.js"></script><script type="text/javascript">
+          
+          // Define global macros
+          const katexMacros = {
+            "\\cf": "\\texttt{#1}",
+            "\\mc": "\\mathcal{#1}"
+          };
+          
+          // Auto-render with macros
+          document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+              macros: katexMacros
+            });
+          });
+          
+        </script><title>Natural isomorphism</title></head><body data-theme="dark"><ninja-keys placeholder="Start typing a note title or ID"></ninja-keys><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme"><span class="theme-toggle__icon" aria-hidden="true">◎</span></button><header class="header"><nav class="nav"><div class="logo"><a href="/notes/index/" title="Home">« Home</a></div></nav></header><div id="grid-wrapper"><article><section xmlns="" lang="en" class="block" data-taxon="Definition"><details id="id1" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Natural isomorphism <a class="slug" href="/notes/002y/">[002y]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 30, 2025</li></ul></div></header></summary></details></section><footer xmlns="">
+    
+    
+    <section lang="en" class="block hide-metadata"><details id="id2" open="open"><summary><header><h1>
+<span class="taxon"></span>Backlinks  </h1>
+<div class="metadata"><ul></ul></div></header></summary>
+        <section lang="en" class="block" data-taxon="Definition"><details id="id3"><summary><header><h1>
+<span class="taxon">Definition. </span>(Essentially/Locally) small categories <a class="slug" href="/notes/002o/">[002o]</a> </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+            <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id4" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Small category  </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+                <p xmlns="http://www.w3.org/1999/xhtml">A category \(\mathcal {C}\) is called <strong>small</strong> (or \(U\)-small) if both the collection of objects \(\mathrm {Ob}(\mathcal {C})\) and the collection of morphisms \(\mathrm {Mor}(\mathcal {C})\) are sets (i.e. elements of the universe \(U\)). In lean where we correspond universes to types this just means that we instatiate the universe levels of morphisms and objects to the same thing, we can see this clearly in the definition of a \(\texttt {SmallCategory}\) in mathlib.</p>
+                <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+    abbrev SmallCategory (C : Type u) : Type (u + 1) := Category.{u} C
+  </code></pre>
+              </details></section>
+            <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id5" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Locally small  </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+                <p xmlns="http://www.w3.org/1999/xhtml">A <strong>locally small</strong> category \(\mathcal {C}\) is a category satisfying the following conditions:</p>
+                <ul xmlns="http://www.w3.org/1999/xhtml"><li>The collection of objects \(\mathrm {Ob}(\mathcal {C})\) and morphisms \(\mathrm {Mor}(\mathcal {C})\) are classes. <span xmlns="" class="link local"><a href="/notes/low-universes-category-theory-2014/" title="Universes for Category Theory [low-universes-category-theory-2014]">(1)</a></span></li>
+    <li>For every pair of objects \(X, Y \in  \mathrm {Ob}(\mathcal {C})\) the hom-set \(\mathcal {C}(X, Y)\) is a <em>set</em> (or small set) instead of a <em>proper class</em>.</li></ul>
+                <section lang="en" class="block hide-metadata"><details id="id6" open="open"><summary><header><h1>
+<span class="taxon"></span>The lean definition  </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">This one is a little bit more interesting, first let's look at the definition in mathlib:</p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      class Small (α : Type v) : Prop where
+        /-- If a type is `Small.{w}`, 
+          then there exists an equivalence with some `S : Type w` -/
+        equiv_small : ∃ S : Type w, Nonempty (α ≃ S)
+
+      ...
+      class LocallySmall (C : Type u) [Category.{v} C] : Prop where
+        /-- A locally small category has small hom-types. -/
+        hom_small : ∀ X Y : C, Small.{w} (X ⟶ Y) := by infer_instance
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">So we can see that in lean a locally small category is defined as a normal category with the added property that for every pair of objects \(X, Y \in  \mathrm {Ob}\) the hom-type \(X ⟶ Y\) is \(\texttt {Small}\), which as we can see from the definition of \(\texttt {Small}\) means that there exists some type \(\texttt {S : Type w}\) such that there is an equivalence \(α ≃ S\). We can informally correspond to the lean definition as follows:</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li>Our objects \(\texttt {C : Type u}\) live in some universe level \(u\) which we assoicate with being a class i.e. possibly large collection.</li>
+      <li>The morphisms between any two objects \(\texttt {X, Y : C}\) live in some <em>other</em> universe level \(w\) where the equivalence to some type \(\texttt {S : Type w}\) expresses the notion that the hom-sets are small sets.</li></ul>
+                    <p xmlns="http://www.w3.org/1999/xhtml">Honestly I think quite reasonably its fair to ask: wait what how does that represent smallness ? What is \(\texttt {w}\) even supposed to be? So I think an example is warranted.</p>
+                  </details></section>
+                <section lang="en" class="block hide-metadata"><details id="id7" open="open"><summary><header><h1>
+<span class="taxon"></span>Example of a locally small category  </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">This is arguably a bit contrived but let's consider objects as being containers for types in some universe level \(0\) i.e. sets. So we can define our objects and morphisms as follows:</p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      structure TWrapper : Type 1 where
+        carrier : Type 0
+
+      /-- Morphisms are functions - each Hom(A,B) is a set -/
+      def TWHom (A B : TWrapper) : Type 0 := A.carrier → B.carrier
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">Importantly we can note here that the type of objects \(\texttt {TWrapper : Type 1}\) lives in universe level \(1\) which we can think of as a class of sets. However the morphisms between any two objects \(\texttt {TWHom (A B : TWrapper) : Type 0}\) live in universe level \(0\) which we can think of as small sets. Using this we can define a category instance:</p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      instance TWrapper.category : Category TWrapper where
+        -- The data
+        Hom     := TWHom
+        id      := fun _ =&gt; id
+        comp    := 
+          fun {X Y Z} (f : TWHom X Y) (g : TWHom Y Z) =&gt; fun x =&gt; g (f x)
+
+        -- The laws
+        id_comp := fun _ =&gt; rfl
+        comp_id := fun _ =&gt; rfl
+        assoc := fun _ _ _ =&gt; rfl
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">Now we want to define the locally small instance:</p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      instance TWrapper.locallySmall : LocallySmall.{0} TWrapper where
+        hom_small := fun X Y =&gt; ⟨⟨TWHom X Y, ⟨Equiv.refl _⟩⟩⟩
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">This now answers a few questions that arose earlier:</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li>We instantiated the universe level of our hom-sets \(\texttt {w}\) to \(0\) which corresponds to small sets.</li>
+      <li>The equivalence \(\texttt {α ≃ S}\) in this case is just the identity equivalence \(\texttt {Equiv.refl}\) since our hom-sets are already small sets. On other words here:
+      <pre class="code-block language-lean"><code class="language-lean">
+        Small.{w} (X ⟶ Y)
+      </code></pre>
+      We have that \(\texttt {X ⟶ Y}\) represents our set which exists in universe level \(0\), since we are instantiating \(\texttt {w}\) to \(0\) the \(\texttt {Small}\) definition is satisfied by the identity equivalence.
+      </li></ul>
+                    <p xmlns="http://www.w3.org/1999/xhtml">So we can see that in the context of lean a locally small category is just a category where the objects live in some universe level (class) and the hom-sets live in some smaller universe level (set) and we must provide an equivalence showing that the hom-sets are indeed small sets.</p>
+                  </details></section>
+              </details></section>
+            <section lang="en" class="block hide-metadata" data-taxon="Definition"><details id="id8" open="open"><summary><header><h1>
+<span class="taxon">Definition. </span>Essentially small  </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+                <p xmlns="http://www.w3.org/1999/xhtml">A category \(\mathcal {C}\) is called <strong>essentially small</strong> if there exists a small category \(\mathcal {D}\) and a functor:</p>
+                \[
+    F : \mathcal {D} \to  \mathcal {C}
+  \]
+                <p xmlns="http://www.w3.org/1999/xhtml">That is <em>fully faithful</em> and <em>essentially surjective</em> on objects, i.e. it represents an <span xmlns="" class="link local"><a href="/notes/002x/" title="Equivalence [002x]">equivalence</a></span>. In other words we call a category essentially small if its <em>isomorphism classes</em> of objects form a set.</p>
+                <p xmlns="http://www.w3.org/1999/xhtml">To elaborate a bit more, we say that a functor \(F : C \to  D\) is an <em>equivalence</em> if there exists:</p>
+                <ul xmlns="http://www.w3.org/1999/xhtml"><li>A functor \(G : D \to  C\)</li>
+    <li>The <span xmlns="" class="link local"><a href="/notes/002y/" title="Natural isomorphism [002y]">natural isomorphisms</a></span></li></ul>
+                <section lang="en" class="block hide-metadata"><details id="id9" open="open"><summary><header><h1>
+<span class="taxon"></span>The lean definition  </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">We can again examine the definition in mathlib:</p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      /-- A category is `EssentiallySmall.{w}` if there exists
+      an equivalence to some `S : Type w` with `[SmallCategory S]`. -/
+      @[pp_with_univ]
+      class EssentiallySmall (C : Type u) [Category.{v} C] : Prop where
+        /-- An ES category is equivalent to some small category. -/
+        equiv_smallCategory : ∃ (S : Type w) (_ : SmallCategory S), Nonempty (C ≌ S)
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">We can see quite nicely here how the lean definition corresponds to the informal one. We have our category \(\texttt {C : Type u}\) living in some universe level \(u\) (class) and we require the existence of some small category \(\texttt {S : Type w}\) living in some smaller universe level \(w\) (set) such that there exists an equivalence \(\texttt {C ≌ S}\).</p>
+                  </details></section>
+                <section lang="en" class="block hide-metadata"><details id="id10" open="open"><summary><header><h1>
+<span class="taxon"></span>Example of an essentially small category  </h1>
+<div class="metadata"><ul><li class="meta-item">November 27, 2025</li></ul></div></header></summary>
+                    <p xmlns="http://www.w3.org/1999/xhtml">As an example we will take the categories \(\texttt {FinSet}\) and \(\texttt {FinOrd}\). Starting with the former, the category of finite sets \(\texttt {FinSet}\) is defined as follows:</p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      /-- Finite sets as a category - objects are Fin n for various n -/
+      structure FinSetObj : Type 1 where
+        n : ℕ
+        carrier : Type 0
+        equiv   : carrier ≃ Fin n  -- witness that carrier has exactly n elements
+
+      /-- Morphisms are functions between the carriers -/
+      def FSHom (A B : FinSetObj) : Type 0 := A.carrier → B.carrier
+
+      /-- First, we need a Category instance -/
+      instance FinSetObj.category : Category FinSetObj where
+        Hom     := FSHom
+        id      := fun _ =&gt; id
+        comp    :=
+          fun {X Y Z} (f : FSHom X Y) (g : FSHom Y Z) =&gt; fun x =&gt; g (f x)
+
+        id_comp := fun _ =&gt; rfl
+        comp_id := fun _ =&gt; rfl
+        assoc   := fun _ _ _ =&gt; rfl
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">It's defined as the category who's objects are finite sets and who's morphisms are functions between said sets. Here we are defining a custom variant of a finite set object \(\texttt {FinSetObj}\) which contains:</p>
+                    <ul xmlns="http://www.w3.org/1999/xhtml"><li>A natural number \(\texttt {n : ℕ}\) representing the cardinality of the set.</li>
+      <li>A carrier type \(\texttt {carrier : Type 0}\) representing the actual elements of the set.</li>
+      <li>An equivalence \(\texttt {equiv : carrier ≃ Fin n}\) which acts as a witness that the carrier has exactly \(\texttt {n}\) elements.</li></ul>
+                    <p xmlns="http://www.w3.org/1999/xhtml">We then define our morphisms as functions between the carrier types of two finite set objects. Finally we provide a category instance in the standard way.</p>
+                    <p xmlns="http://www.w3.org/1999/xhtml">Next we want to define the category of all finite ordinal numbers \(\texttt {FinOrd}\). This is defined as follows:</p>
+                    <pre xmlns="http://www.w3.org/1999/xhtml" class="code-block language-lean"><code class="language-lean">
+      /-- The skeleton: the discrete category on ℕ -/
+      abbrev FinSetSkeleton := ℕ
+
+      /-- The skeleton category: 
+        objects are ℕ, morphisms are functions between Fin types -/
+      structure FinSkel : Type 0 where
+        n : ℕ
+
+      instance : SmallCategory FinSkel where
+        Hom   := fun A B =&gt; Fin A.n → Fin B.n
+        id    := fun _ =&gt; id
+        comp  := fun f g =&gt; g ∘ f
+    </code></pre>
+                    <p xmlns="http://www.w3.org/1999/xhtml">In our case we can define the finite ordinals as the skeleton of the finite sets category. So our objects are just natural numbers \(\texttt {n : ℕ}\) representing the finite ordinals and our morphisms are functions between the corresponding finite sets \(\texttt {Fin n}\). Again we provide a small category instance in the standard way.</p>
+                  </details></section>
+              </details></section>
+          </details></section>
+      </details></section>
+    
+    
+  </footer></article></div><script>
+          
+          (function() {
+            var host = location.hostname;
+            console.log('[LiveReload] Hostname:', host);
+            if (host === 'localhost' || host === '127.0.0.1') {
+              console.log('[LiveReload] Attempting connection to ws://127.0.0.1:35729');
+              try {
+                var ws = new WebSocket('ws://127.0.0.1:35729');
+                ws.onopen = function() { 
+                  console.log('[LiveReload] Connected!'); 
+                };
+                ws.onmessage = function(e) { 
+                  console.log('[LiveReload] Message:', e.data);
+                  if (e.data === 'reload') location.reload(); 
+                };
+                ws.onerror = function(e) { 
+                  console.log('[LiveReload] WebSocket Error:', e); 
+                };
+                ws.onclose = function(e) { 
+                  console.log('[LiveReload] Disconnected. Code:', e.code, 'Reason:', e.reason); 
+                };
+              } catch(e) {
+                console.log('[LiveReload] Exception:', e);
+              }
+            } else {
+              console.log('[LiveReload] Skipping - not localhost');
+            }
+          })();
+          
+        </script></body></html>

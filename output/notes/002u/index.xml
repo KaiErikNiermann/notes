@@ -488,11 +488,6 @@
                   <fr:month>11</fr:month>
                   <fr:day>23</fr:day>
                 </fr:date>
-                <fr:date>
-                  <fr:year>2025</fr:year>
-                  <fr:month>11</fr:month>
-                  <fr:day>23</fr:day>
-                </fr:date>
                 <fr:uri>https://kaierikniermann.github.io/notes/001b/</fr:uri>
                 <fr:display-uri>001b</fr:display-uri>
                 <fr:route>/notes/001b/</fr:route>
@@ -503,11 +498,6 @@
                 <fr:tree show-metadata="false">
                   <fr:frontmatter>
                     <fr:authors />
-                    <fr:date>
-                      <fr:year>2025</fr:year>
-                      <fr:month>11</fr:month>
-                      <fr:day>23</fr:day>
-                    </fr:date>
                     <fr:date>
                       <fr:year>2025</fr:year>
                       <fr:month>11</fr:month>
@@ -531,11 +521,6 @@
                 <fr:tree show-metadata="false">
                   <fr:frontmatter>
                     <fr:authors />
-                    <fr:date>
-                      <fr:year>2025</fr:year>
-                      <fr:month>11</fr:month>
-                      <fr:day>23</fr:day>
-                    </fr:date>
                     <fr:date>
                       <fr:year>2025</fr:year>
                       <fr:month>11</fr:month>
@@ -746,11 +731,6 @@
                       <fr:month>11</fr:month>
                       <fr:day>23</fr:day>
                     </fr:date>
-                    <fr:date>
-                      <fr:year>2025</fr:year>
-                      <fr:month>11</fr:month>
-                      <fr:day>23</fr:day>
-                    </fr:date>
                     <fr:title text="The connection to induction">The connection to induction</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter>
@@ -836,11 +816,6 @@
                       <fr:month>11</fr:month>
                       <fr:day>23</fr:day>
                     </fr:date>
-                    <fr:date>
-                      <fr:year>2025</fr:year>
-                      <fr:month>11</fr:month>
-                      <fr:day>23</fr:day>
-                    </fr:date>
                     <fr:title text="Case Study: Evaluating arithmetic expressions">Case Study: Evaluating arithmetic expressions</fr:title>
                   </fr:frontmatter>
                   <fr:mainmatter><html:p>
@@ -899,7 +874,7 @@
       Let's also define a small helper syntax and macro to make it easier to write arithmetic expressions:
     </html:p>
       
-      <fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="A small arithmetic expression grammar">A small arithmetic expression grammar</fr:title></fr:frontmatter><fr:mainmatter><html:pre class="code-block language-lean"><html:code class="language-lean">
+      <fr:tree show-metadata="false" expanded="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="A small arithmetic expression grammar">A small arithmetic expression grammar</fr:title></fr:frontmatter><fr:mainmatter><html:pre class="code-block language-lean"><html:code class="language-lean">
           declare_syntax_cat arithTm
 
           -- atoms
@@ -941,14 +916,14 @@
             | `(ex{ $e₁:arithTm / $e₂:arithTm }) =&gt;
                 `(Expr.binop BinOp.div (ex{$e₁}) (ex{$e₂}))
         </html:code></html:pre></fr:mainmatter></fr:tree>
-    <fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Describing arithmetic evaluation">Describing arithmetic evaluation</fr:title></fr:frontmatter><fr:mainmatter><html:p>
+    <fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Describing arithmetic evaluation">Describing arithmetic evaluation</fr:title></fr:frontmatter><fr:mainmatter><html:p>
         Now say that we wanted to evaluate the expression <fr:tex display="inline"><![CDATA[((2 * 3) + 4)]]></fr:tex> on a high level what we would do is rewrite the multiplication to <fr:tex display="inline"><![CDATA[6 + 4]]></fr:tex> and then rewrite that to <fr:tex display="inline"><![CDATA[10]]></fr:tex>. Expressing this in lean we have:
       </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
         example : -- ((2 * 3) + 4) -&gt;ⁿ 10
         ex{ ((2 * 3) + 4) } -&gt;ⁿ ex{ 10 } :=
           .trans (rw_lhs (rw_const .mul 2 3)) (rw_const .add 6 4)
       </html:code></html:pre><html:p>
-        Here we say that the expression <fr:tex display="inline"><![CDATA[((2 * 3) + 4)]]></fr:tex> after multiple steps evaluates to <fr:tex display="inline"><![CDATA[10]]></fr:tex> by first rewriting the left hand side multiplication to <fr:tex display="inline"><![CDATA[6 + 4]]></fr:tex> and then rewriting that to <fr:tex display="inline"><![CDATA[10]]></fr:tex>. And we chain these operations together using the <html:code>.trans</html:code> constructor of the multi-step evaluation relation. Now the question becomes, how do we define these rewrite steps? Intuitively we can imagine evaluation as being described by the following sort of graph
+        Here we say that the expression <fr:tex display="inline"><![CDATA[((2 * 3) + 4)]]></fr:tex> after multiple steps evaluates to <fr:tex display="inline"><![CDATA[10]]></fr:tex> by first rewriting the left-hand side multiplication to <fr:tex display="inline"><![CDATA[6 + 4]]></fr:tex> and then rewriting that to <fr:tex display="inline"><![CDATA[10]]></fr:tex>. And we chain these operations together using the <html:code>.trans</html:code> constructor of the multistep evaluation relation. Now the question becomes, how do we define these rewrite steps? Intuitively we can imagine evaluation as being described by the following sort of graph
       </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
         +(lhs [op] rhs)
         |
@@ -959,13 +934,13 @@
             +- (rw_const) -&gt; value       (3) reduce both to a constant value
       </html:code></html:pre><html:p>
         The idea of each rule being that:
-      </html:p><html:ul><html:li><html:strong>rw_lhs</html:strong>: If the left hand side can be reduced some number of steps we can reduce it while keeping the right hand side the same. This corresponds to the <html:code>ST_BinOp1</html:code> rule defined earlier.
+      </html:p><html:ul><html:li><html:strong>rw_lhs</html:strong>: If the left-hand side can be reduced some number of steps we can reduce it while keeping the right-hand side the same. This corresponds to the <html:code>ST_BinOp1</html:code> rule defined earlier.
         </html:li>
-        <html:li><html:strong>rw_rhs</html:strong>: If the left hand side is a constant we can reduce the right hand side some number of steps while keeping the left hand side the same. This corresponds to the <html:code>ST_BinOp2</html:code> rule defined earlier.
+        <html:li><html:strong>rw_rhs</html:strong>: If the left-hand side is a constant we can reduce the right-hand side some number of steps while keeping the left-hand side the same. This corresponds to the <html:code>ST_BinOp2</html:code> rule defined earlier.
         </html:li>
         <html:li><html:strong>rw_const</html:strong>: If both sides are constants we can apply the binary operation and reduce the entire expression to a single constant value. This corresponds to the <html:code>ST_BinOpConst</html:code> rule defined earlier.
         </html:li></html:ul><html:p>
-        As these rules are defined over the structure of multi-step evaluation our implementation of them will naturally be in terms of the inductive structure of a multistep relationship:
+        As these rules are defined over the structure of multistep evaluation our implementation of them will naturally be in terms of the inductive structure of a multistep relationship:
       </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
         lemma rw_lhs (lhs_rw : lhs -&gt;ⁿ lhs') :
           (lhs [op] rhs) -&gt;ⁿ (lhs' [op] rhs) :=
@@ -983,7 +958,7 @@
           ((.const lhs) [op] (.const rhs)) -&gt;ⁿ .const (eval_op op lhs rhs) :=
         .single (.ST_BinOpConst op lhs rhs)
       </html:code></html:pre><html:p>
-        Alternatively we can specify the left and right rewrite rules using the recursor or or head induction principle for multi-step evaluation:
+        Alternatively we can specify the left and right rewrite rules using the recursor or or head induction principle for multistep evaluation:
       </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
         lemma rw_rhs' (rhs_rw : rhs -&gt;ⁿ rhs') :
           ((.const lhs) [op] rhs) -&gt;ⁿ ((.const lhs) [op] rhs') :=
@@ -1004,7 +979,7 @@
           ) rhs_rw
       </html:code></html:pre><html:p>
         The motive function here is inferred by Lean via the Lemma, which allos us to avoid having to explicitly specify it. Other than this we can see that the recursors again simply correspond to providing methods to describe what to do for each of the constructors.
-      </html:p></fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Recursors describe usage">Recursors describe usage</fr:title></fr:frontmatter><fr:mainmatter><html:p>
+      </html:p></fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Recursors describe usage">Recursors describe usage</fr:title></fr:frontmatter><fr:mainmatter><html:p>
         So at this point you might, I think fairly ask yourself:
       </html:p><html:blockquote>
         Wait why are you spending so much time on this random example for recursors?
@@ -1012,7 +987,7 @@
         The main reason is that to me it provides one of the most grounded direct examples of what it means for a recursor function to <html:em>eliminate</html:em> a term of an inductive type. In general in type theory we say that <html:em>term elimination</html:em> represents the natural deduction rules for <html:em>how to use</html:em> terms of a given type. Applied to our example we can see that these recursors precisely correspond to the rules of how we evaluate i.e. <html:em>use</html:em> arithmetic expressions.
       </html:p><html:p>
         Each rewrite rule describes how we can take an expression and reduce it step by step until we reach a final value. So in a sense the recursor here <html:em>eliminates</html:em> the expression by providing a systematic way to break it down into its constituent parts and evaluate it. This is precisely the essence of what recursors do in type theory; they provide a way to systematically deconstruct and utilize terms of inductive types according to their defined structure and properties.
-      </html:p></fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Proving correct evaluation">Proving correct evaluation</fr:title></fr:frontmatter><fr:mainmatter><html:p>
+      </html:p></fr:mainmatter></fr:tree><fr:tree show-metadata="false"><fr:frontmatter><fr:authors /><fr:date><fr:year>2025</fr:year><fr:month>11</fr:month><fr:day>23</fr:day></fr:date><fr:title text="Proving correct evaluation">Proving correct evaluation</fr:title></fr:frontmatter><fr:mainmatter><html:p>
         One of the wonderful things we then naturally get from these recursors is that we can use them to describe how a correct evaluation works. So given our evaluation function:
       </html:p><html:pre class="code-block language-lean"><html:code class="language-lean">
         @[simp]

@@ -281,6 +281,7 @@
 % Citation macro with auto-numbering support
 % Usage: \cite{reference-tree-id}
 % The [0] is a placeholder that will be replaced by JavaScript with the actual number
+%! sig \cite(uid: @bib-ref)
 \def\cite[uid]{\<html:span>[class]{citation}{\let\escape[x]{\x}[\escape{[0]}](\uid)}}
 
 \xmlns:jms-indent{jonmsterling:indenting}

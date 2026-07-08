@@ -50,8 +50,9 @@ problems/_manifests/
 src/
 tests/
 
-# Vendored graph-view artifact (fetched/refreshed by `graph-vendor` build stage)
-vendor/
+# Vendored graph-view artifact is committed so CI builds without fetching it
+# (the graph-vendor stage uses the committed copy unless GRAPH_VIEW_SOURCE/REMOTE
+# is set). Its build/graph-view.lock stays under the ignored build/ tree.
 
 # Lake build outputs in the Verso sidecar — `lean/.gitignore` also covers these
 # but we list them at the root for safety in case the file is deleted.

@@ -26,7 +26,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/kaierikniermann/forester-ci:v0.1.0
+      image: ghcr.io/kaierikniermann/forester-ci:v0.1.1
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4

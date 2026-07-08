@@ -1,4 +1,4 @@
-import { promises as fsp } from "node:fs";
+import { existsSync, promises as fsp } from "node:fs";
 import * as path from "node:path";
 import type { Stage } from "../types";
 
@@ -51,28 +51,38 @@ export const graphVendor: Stage<"graph-vendor"> = {
   ],
   run: async (ctx) => {
     const vendorDir = path.join(ctx.root, "vendor", "graph-view");
-    await ctx.fs.rmrf(vendorDir);
-    await ctx.fs.mkdir(vendorDir);
-
+    const manifestPath = path.join(vendorDir, "manifest.json");
     const override = process.env.GRAPH_VIEW_SOURCE;
+    const remote = process.env.GRAPH_VIEW_REMOTE;
+
     if (override) {
+      await ctx.fs.rmrf(vendorDir);
+      await ctx.fs.mkdir(vendorDir);
       const srcDir = path.resolve(override);
       ctx.logger.info(`copying from local path: ${srcDir}`);
       const files = await fsp.readdir(srcDir);
       for (const name of files) {
         await ctx.fs.copy(path.join(srcDir, name), path.join(vendorDir, name));
       }
-    } else {
-      const remote = process.env.GRAPH_VIEW_REMOTE ?? DEFAULT_REMOTE;
-      ctx.logger.info(`git archive --remote=${remote} graph-view-latest dist/graph-view`);
+    } else if (remote || !existsSync(manifestPath)) {
+      // Fetch from the extension repo. Without GRAPH_VIEW_REMOTE this falls back
+      // to a local sibling checkout (dev only). CI commits vendor/graph-view/, so
+      // it takes the branch below instead of ever reaching this fetch.
+      await ctx.fs.rmrf(vendorDir);
+      await ctx.fs.mkdir(vendorDir);
+      const src = remote ?? DEFAULT_REMOTE;
+      ctx.logger.info(`git archive --remote=${src} graph-view-latest dist/graph-view`);
       // tar -x --strip-components=2 dist/graph-view/* → vendor/graph-view/*
       await ctx.exec("bash", [
         "-c",
-        `git archive --remote=${JSON.stringify(remote)} graph-view-latest dist/graph-view | tar -x --strip-components=2 -C ${JSON.stringify(vendorDir)}`,
+        `git archive --remote=${JSON.stringify(src)} graph-view-latest dist/graph-view | tar -x --strip-components=2 -C ${JSON.stringify(vendorDir)}`,
       ]);
+    } else {
+      // The committed artifact is authoritative; refetch only on explicit
+      // GRAPH_VIEW_SOURCE/GRAPH_VIEW_REMOTE. This is what runs in CI.
+      ctx.logger.info("using committed vendor/graph-view (set GRAPH_VIEW_SOURCE or GRAPH_VIEW_REMOTE to refetch)");
     }
 
-    const manifestPath = path.join(vendorDir, "manifest.json");
     const manifestRaw = await ctx.fs.read(manifestPath);
     const manifest = JSON.parse(manifestRaw.toString("utf-8")) as Manifest;
 

@@ -69,6 +69,10 @@ export const TEMPLATE_MANIFEST: TemplateManifest = {
     // --- brand assets + language reference ---
     "notes-icon.svg",
     "FORESTER_LANGUAGE_SPEC.md",
+
+    // --- vendored graph-view artifact, committed so scaffolded forests build in
+    //     CI without fetching it (see scripts/build/stages/graph-vendor.ts) ---
+    "vendor/graph-view/**",
   ],
 
   exclude: [

@@ -33,7 +33,6 @@ import {
   writeFileSync,
 } from "node:fs";
 import * as path from "node:path";
-import { posix } from "node:path";
 import { parseArgs } from "node:util";
 
 import picomatch from "picomatch";
@@ -59,14 +58,8 @@ function errMessage(error: unknown): string {
 }
 
 // ----------------------------------------------------------------------------
-// Repo + filesystem walk
+// Repo helpers (git)
 // ----------------------------------------------------------------------------
-
-// Directory names never descended into while collecting candidates — build
-// artifacts, installs and VCS state that no include glob should ever want.
-const DIR_IGNORE = new Set([
-  "node_modules", ".git", ".tmp", ".venv", "__pycache__", "output", "build",
-]);
 
 // This is a dev build tool; git is expected on PATH, just like `forester`.
 function git(args: readonly string[], cwd?: string): Buffer {
@@ -78,48 +71,18 @@ function repoRoot(): string {
   return git(["rev-parse", "--show-toplevel"]).toString().trim();
 }
 
-/** The literal directory prefix of a glob (everything before the first wildcard). */
-function globRoot(glob: string): string {
-  const wildcard = glob.search(/[*?[{]/);
-  const prefix = wildcard === -1 ? glob : glob.slice(0, wildcard);
-  const slash = prefix.lastIndexOf("/");
-  return slash === -1 ? "" : prefix.slice(0, slash);
-}
-
-/** All files under `<root>/<dir>` (repo-relative, POSIX), skipping DIR_IGNORE dirs. */
-function walkFiles(root: string, dir: string): string[] {
-  const found: string[] = [];
-  for (const entry of readdirSync(path.join(root, dir), { withFileTypes: true })) {
-    const rel = dir ? posix.join(dir, entry.name) : entry.name;
-    if (entry.isDirectory()) {
-      if (!DIR_IGNORE.has(entry.name)) found.push(...walkFiles(root, rel));
-    } else if (entry.isFile()) {
-      found.push(rel);
-    }
-  }
-  return found;
+/**
+ * Tracked files, repo-root-relative, POSIX-separated. The template mirrors only
+ * tracked (committed) files, so untracked local scratch never leaks in; the
+ * manifest's include globs further narrow this set.
+ */
+function trackedFiles(root: string): readonly string[] {
+  return git(["ls-files", "-z"], root).toString("utf-8").split("\0").filter(Boolean);
 }
 
 function compileMatchers(globs: readonly string[]): (candidate: string) => boolean {
   const matchers = globs.map((glob) => picomatch(glob, { dot: true }));
   return (candidate) => matchers.some((match) => match(candidate));
-}
-
-/**
- * Candidate files for the `include` globs. The pipeline is largely untracked, so
- * we walk the filesystem (from each glob's literal root) rather than git — the
- * include globs themselves are the whitelist. Literal (wildcard-free) entries
- * are taken directly.
- */
-function includeCandidates(root: string, include: readonly string[]): readonly string[] {
-  const roots = new Set<string>();
-  const literals: string[] = [];
-  for (const glob of include) {
-    if (/[*?[{]/.test(glob)) roots.add(globRoot(glob));
-    else literals.push(glob);
-  }
-  const walked = [...roots].flatMap((dir) => (existsSync(path.join(root, dir)) ? walkFiles(root, dir) : []));
-  return [...new Set([...literals, ...walked])];
 }
 
 // ----------------------------------------------------------------------------

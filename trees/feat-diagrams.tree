@@ -1,0 +1,24 @@
+\title{Commutative diagrams (TikZ / quiver)}
+\import{base-macros}
+\tag{feature-demo}
+
+\p{A commutative square rendered from TikZ-cd via the \code{texfig} macro. It is
+compiled with LaTeX at build time and embedded as SVG, so it scales crisply and
+follows the page:}
+
+\texfig{
+  \begin{tikzcd}
+    A \arrow[r, "f"] \arrow[d, "g"'] & B \arrow[d, "h"] \\
+    C \arrow[r, "k"'] & D
+  \end{tikzcd}
+}
+
+\p{The \code{ltexfig} variant additionally wraps the figure in a link to its
+[quiver.app](https://q.uiver.app) source, so a diagram stays editable:}
+
+\ltexfig{https://q.uiver.app/}{
+  \begin{tikzcd}
+    X \arrow[r, "\eta"] \arrow[dr, "1"'] & T(X) \arrow[d, "\mu"] \\
+    & X
+  \end{tikzcd}
+}

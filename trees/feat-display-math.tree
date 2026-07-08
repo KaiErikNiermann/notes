@@ -1,0 +1,19 @@
+\title{Display mathematics}
+\import{base-macros}
+\tag{feature-demo}
+
+\p{A display equation written with the bare \code{##{...}} syntax, rendered by
+KaTeX:}
+##{
+  \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}
+}
+
+\p{Multi-line aligned equations via the \code{align} macro:}
+\align{(a+b)^2 &= a^2 + 2ab + b^2 \\
+  (a-b)^2 &= a^2 - 2ab + b^2}
+
+\p{A standalone display block via the \code{texmath} macro, here using the
+project's notation macros (#{\N}, #{\R}, #{\EX}):}
+\texmath{
+  \forall \epsilon > 0 \;\; \exists \delta > 0 : \vrt{x - a} < \delta \implies \vrt{f(x) - f(a)} < \epsilon
+}

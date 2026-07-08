@@ -1,0 +1,35 @@
+\title{d3 figure demo}
+\import{base-macros}
+
+\p{
+  A sidecar figure — the code lives in \code{figures/histogram.ts} with full d3
+  typings, and renders in place here via the \code{d3} macro:
+}
+
+\d3{histogram}
+
+\p{
+  An inline throwaway figure via \code{d3inline}, body wrapped in
+  \code{startverb}/\code{stopverb}:
+}
+
+\d3inline{sketch}{\startverb
+  const svg = d3.select(el).append("svg")
+  .attr("viewBox", "0 0 320 120").attr("width", "100 %").attr("height", 120);
+  const data = d3.range(12).map((i) => 8 + 40 * Math.abs(Math.sin(i / 2)));
+  svg.selectAll("rect").data(data).join("rect")
+  .attr("x", (_d, i) => 6 + i * 26).attr("width", 20)
+  .attr("y", (d) => 110 - d).attr("height", (d) => d)
+  .attr("rx", 2).attr("fill", theme.palette.accents[1] || theme.palette.link);
+  \stopverb}
+
+\p{
+  Both follow the dark/light toggle and re-render on resize.
+}
+
+\p{
+  Per-call params via the \code{d3p} macro — here \code{bins=48; n=2000},
+  read by the same \code{figures/histogram.ts} through \code{ctx.params}:
+}
+
+\d3p{histogram}{bins=48; n=2000}

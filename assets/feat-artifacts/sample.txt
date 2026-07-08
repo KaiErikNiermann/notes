@@ -1,0 +1,4 @@
+field notes — "idea → proof"
+- looked obvious on the whiteboard
+- the third case is where it actually breaks
+- fix: induct on the structure, not the size

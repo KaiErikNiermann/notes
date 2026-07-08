@@ -1,0 +1,26 @@
+\title{Datalog queries}
+\import{base-macros}
+\tag{feature-demo}
+
+\p{
+  Forester carries a Datalog engine over the forest's relational graph: links,
+  transclusions, authorship, taxa, and tags all become facts you can query at
+  \em{build time}. Wrapping a query in \code{query} materializes the matches
+  inline. The query below finds every tree tagged \code{feature-demo} — that is,
+  the other pages of this very gallery — and lists them live:
+}
+
+\query{
+  \datalog{
+    ?X -: {\rel/has-tag ?X '{feature-demo}}
+  }
+}
+
+\p{
+  The premise is a relation applied to terms: the variable \code{?X} is a bare,
+  space-separated term, and \code{{feature-demo}} is a content constant
+  (tick-quoted). Built-in relations include \code{is-reference}, \code{is-person},
+  \code{has-taxon}, \code{has-tag}, \code{links-to}, and \code{transcludes} (plus
+  its transitive closure) queries also compose negated premises after \code{#}
+  for set-difference selection.
+}

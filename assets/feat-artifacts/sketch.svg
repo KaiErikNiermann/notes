@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180" fill="none" stroke="#334155" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" font-family="ui-sans-serif, system-ui, sans-serif">
+  <rect x="14" y="46" width="92" height="52" rx="6" transform="rotate(-1.2 60 72)"/>
+  <text x="60" y="77" fill="#334155" stroke="none" font-size="15" text-anchor="middle">idea</text>
+  <path d="M112 72 C 140 64, 168 80, 196 72"/>
+  <path d="M196 72 l -11 -5 m 11 5 l -10 6"/>
+  <rect x="206" y="44" width="100" height="56" rx="6" transform="rotate(1.1 256 72)"/>
+  <text x="256" y="77" fill="#334155" stroke="none" font-size="15" text-anchor="middle">proof?</text>
+  <path d="M40 128 q 30 -14 60 0 t 60 0 t 60 0" opacity="0.55"/>
+  <path d="M48 146 q 26 -10 52 0 t 52 0" opacity="0.4"/>
+</svg>

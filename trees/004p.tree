@@ -1,4 +1,4 @@
-\date{2025-12-12}
+\date{2026-02-11}
 
 \import{base-macros}
 
@@ -6,8 +6,9 @@
 
 \title{Lecture 7 - VC's for functions and pointers}
 
-\subtree{
+\subtree[0088]{
   \title{Assertions}
   \transclude{004q}
   \transclude{004r}
 }
+

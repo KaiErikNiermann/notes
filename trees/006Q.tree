@@ -1,0 +1,46 @@
+\date{2026-05-26}
+\taxon{Test}
+\import{base-macros}
+\title{Code block ignore markers}
+\tag{test}
+
+\p{
+  This tree exercises the new \code{forester-ignore: start/end} markers. The block below has two collapsed regions: one with a summary in parens, one without. Hover the code block to see the toolbar; click the expand icon to open the modal with the full source.
+}
+
+\codeblock{python}{
+  \startverb
+def build_index(rows):
+    table = {}
+    # forester-ignore: start (validation + normalization)
+    if not isinstance(rows, list):
+        raise TypeError("rows must be a list")
+    rows = [r for r in rows if r is not None]
+    for r in rows:
+        if "id" not in r:
+            raise ValueError(f"missing id: {r!r}")
+    # forester-ignore: end
+
+    for row in rows:
+        table[row["id"]] = row
+
+    # forester-ignore: start
+    for k, v in list(table.items()):
+        if v.get("deleted"):
+            del table[k]
+    # forester-ignore: end
+
+    return table
+    \stopverb
+}
+
+\p{
+  A second block, this one without any markers, should show only a single copy button as before (toolbar with one icon).
+}
+
+\codeblock{python}{
+  \startverb
+def greet(name: str) -> str:
+    return f"hello, {name}"
+    \stopverb
+}

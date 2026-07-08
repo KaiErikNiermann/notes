@@ -7,7 +7,7 @@
 \title{Tseytin's Transformation}
 
 \p{
-  Lets consider the following formula
+  Let's consider the following formula
 }
 ##{
   F \triangleq (p \land q) \lor (p \land \neg r \land s)

@@ -5,11 +5,18 @@
 \xmlns:html{http://www.w3.org/1999/xhtml}
 
 \def\nowrap[body]{\<html:span>[style]{white-space: nowrap}{\body}}
+
+% \comment{anchored}{note} — a margin "comment" / aside (Word-style). The first
+% arg is the prose span being commented on (rendered underlined inline); the
+% second is the note, lifted into the right margin by the renderer + the
+% margin-comments.ts geometry module (a plain end-of-section list without JS).
+%! sig \comment(anchored: content, note: content)
+\def\comment[anchored][note]{\<html:span>[class]{comment}{\<html:span>[class]{comment-anchored}{\anchored}\<html:span>[class]{comment-note}{\note}}}
 \def\mark[body]{\<html:mark>{\body}}
 \def\dem[body]{\strong{\body}}
 
 \def\table[body]{
-  \<html:table>{\body}
+  \<html:table>[class]{data-table}{\body}
 }
 \def\tr[body]{
   \<html:tr>{\body}
@@ -265,7 +272,53 @@
 \def\loglike{#{\ell}}
 \def\normpdf{#{\phi}}
 \def\normcdf{#{\Phi}}
+%! sig \codeblock(lang: @language, body: content)
 \def\codeblock[lang][body]{\<html:pre>[class]{code-block language-\lang}{\<html:code>[class]{language-\lang}{\body}}}
+
+% \verso[name] — placeholder for a Verso-rendered Lean snippet. The build
+% pipeline (scripts/build_verso.py + the inline-verso build stage) elaborates
+% the anchored region in lean/examples/Examples.lean and splices the rendered
+% HTML (with tippy.js type-on-hover) into this div post-XSLT.
+\def\verso[name]{\<html:div>[class]{verso-snippet}[data-verso]{\name}{}}
+
+% \d3[name] — mount point for a sidecar d3 figure defined in figures/<name>.ts.
+% The build (scripts/build/stages/d3-figures.ts) bundles figures + the shared
+% runtime into output/notes/d3-assets/figures.js; forester.js lazy-loads it on
+% pages that contain a figure and calls the figure's render() into this element.
+%! sig \d3(name: @figure)
+\def\d3[name]{\<html:figure>[class]{d3-figure}[data-d3]{\name}{}}
+
+% \d3p[name]{params} — same, with per-call params. `params` is a key=value list
+% separated by `;`, `,`, or newlines (e.g. {bins=40; n=1200}); the runtime
+% parses it into ctx.params for the figure's render().
+%! sig \d3p(name: @figure, params: opaque)
+\def\d3p[name][params]{\<html:figure>[class]{d3-figure}[data-d3]{\name}[data-d3-params]{\params}{}}
+
+% \d3inline[name]{...} — throwaway inline figure. Wrap the body in
+% \startverb ... \stopverb. Runs with d3, el, theme, width, height, params in
+% scope. No highlighting/type-checking — graduate to figures/<name>.ts when it
+% grows. The non-executing script type keeps the JS safe from XSLT escaping;
+% the runtime reads + entity-decodes its text content.
+%! sig \d3inline(name: @figure, body: content)
+\def\d3inline[name][body]{\<html:figure>[class]{d3-figure}[data-d3-inline]{\name}{\<html:script>[type]{application/x-d3-inline}{\body}}}
+
+% \d3inlinep[name]{params}{body} — inline figure with per-call params (same
+% key=value format as \d3p). Wrap the body in \startverb/\stopverb.
+%! sig \d3inlinep(name: @figure, params: opaque, body: content)
+\def\d3inlinep[name][params][body]{\<html:figure>[class]{d3-figure}[data-d3-inline]{\name}[data-d3-params]{\params}{\<html:script>[type]{application/x-d3-inline}{\body}}}
+
+% \embed[opts]{target}{caption} — inline an attachment's CONTENT (not just a
+% download link). `opts` = a mode plus optional flags, space-separated:
+%   image [width=..] [align=left|center|right]   — render the image
+%   code                                         — codeblock, language from the file extension
+%   raw                                          — the text as an annotated block
+% `target` is `#artifact:<key>` (a local attachment) or an external URL (image only;
+% an external target is shown inline but NOT added to the Attachments panel).
+% `caption` may be empty ({}). Emits a placeholder the renderer/inline-assets stage
+% fills in (same idiom as \verso / \d3). Pair with \meta{artifact-source:<key>}{\cite{..}}
+% to carry provenance into the caption + Attachments row + bottom References.
+%! sig \embed(opts: flags{mode: image|code|raw, width?: number, align?: left|center|right}, target: @artifact-ref, caption?: content)
+\def\embed[opts][target][caption]{\<html:figure>[class]{artifact-embed}[data-embed]{\target}[data-opts]{\opts}{\<html:figcaption>{\caption}}}
 \def\shift[arg1][arg2][arg3]{#{\uparrow^{\arg1,\arg2}_{\arg3}}}
 \def\deltaeq[arg1][arg2]{#{\delta(\arg1{=}\arg2)}}
 \def\defeq{#{\triangleq}}
@@ -283,6 +336,17 @@
 % The [0] is a placeholder that will be replaced by JavaScript with the actual number
 %! sig \cite(uid: @bib-ref)
 \def\cite[uid]{\<html:span>[class]{citation}{\let\escape[x]{\x}[\escape{[0]}](\uid)}}
+
+% Symbol definition + reference with on-hover preview.
+% \symdef[id]{description body}        — anchor at the point of definition.
+% \symref[id]{display name}            — inline link; on hover/focus a styled
+%                                        popover renders the body of the matching
+%                                        \symdef. JS hydrates the preview at load.
+\def\symdef[id][desc]{
+  \<html:dfn>[class]{symdef}[id]{sym-\id}{\desc}
+}
+
+\def\symref[id][name]{\<html:span>[class]{symref}{\<html:a>[class]{symref-link}[href]{#sym-\id}[data-sym]{\id}{\name}\<html:span>[class]{symref-preview}[role]{tooltip}{}}}
 
 \xmlns:jms-indent{jonmsterling:indenting}
 

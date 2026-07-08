@@ -1,0 +1,21 @@
+\date{2026-05-26}
+\taxon{Test}
+\import{base-macros}
+\title{Symbol hover refs}
+\tag{test}
+
+\p{
+  Define a few symbols, then reference them in prose. Hovering each \code{symref} should reveal the description in a styled popover.
+}
+
+\p{
+  Let \symdef{group-G}{A group #{G} is a set with a binary operation that is associative, has an identity element, and inverses for every element.} denote our ambient group. Pick a subgroup \symdef{subgroup-H}{A subgroup #{H \leq G} is a subset of #{G} that is itself a group under the inherited operation.} of interest.
+}
+
+\p{
+  Hover over the following references to see the definitions: the group \symref{group-G}{#{G}} acts on itself by left multiplication, and the subgroup \symref{subgroup-H}{#{H}} of \symref{group-G}{#{G}} partitions it into cosets. The map \symref{group-G}{G} is the carrier set throughout.
+}
+
+\p{
+  An unresolved reference \symref{not-defined}{#{X}} should render with a "missing" hint in the preview.
+}

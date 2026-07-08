@@ -4,21 +4,41 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "forester build --persist-tex forest.toml && bash scripts/render_html.sh",
+    "build": "tsx scripts/build.ts",
+    "watch": "tsx scripts/build.ts --watch",
+    "build:graph": "tsx scripts/build.ts --graph",
+    "build:dry": "tsx scripts/build.ts --dry-run",
+    "verso": "tsx scripts/build.ts --only verso",
+    "bundle": "tsx scripts/build.ts --only bundle-js,theme-sync",
     "clean": "rm -rf build/ output/",
+    "refs": "tsx scripts/bib-to-tree.ts",
+    "sync-template": "tsx scripts/sync-template.ts",
     "serve": "tsx server.ts",
     "serve:python": "python3 -m http.server 1313 -d output",
-    "dev": "npm run serve",
-    "test": "npm --prefix theme/dev run test",
-    "typecheck:server": "tsc --noEmit"
+    "dev": "pnpm run serve",
+    "test": "pnpm -C theme/dev test",
+    "test:render": "tsx --test scripts/build/render/__tests__/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "typecheck:server": "tsc --noEmit",
+    "typecheck:browser": "tsc -p scripts/dev/tsconfig.json --noEmit && tsc -p theme/dev/tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "check": "pnpm run lint && pnpm run typecheck && pnpm run typecheck:browser",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "packageManager": "pnpm@10.32.1",
   "type": "commonjs",
   "devDependencies": {
+    "@citation-js/core": "^0.7.21",
+    "@citation-js/plugin-bibtex": "^0.7.21",
+    "@citation-js/plugin-doi": "^0.7.21",
+    "@eslint/js": "^10.0.1",
     "@types/connect": "^3.4.38",
     "@types/node": "^24.5.2",
+    "@types/picomatch": "^4.0.3",
     "@types/serve-static": "^1.15.9",
     "@types/ws": "^8.18.1",
     "chokidar": "^5.0.0",
@@ -26,12 +46,32 @@
     "concurrently": "^9.2.1",
     "connect": "^3.7.0",
     "connect-livereload": "^0.6.1",
+    "esbuild": "^0.27.4",
+    "eslint": "^10.4.1",
+    "eslint-plugin-security": "^4.0.0",
+    "eslint-plugin-sonarjs": "^4.0.3",
+    "eslint-plugin-unicorn": "^64.0.0",
+    "globals": "^17.6.0",
+    "hast-util-from-html": "^2.0.3",
+    "hast-util-to-html": "^9.0.5",
+    "hastscript": "^9.0.1",
+    "husky": "^9.1.7",
     "live-reload": "^1.1.1",
+    "picomatch": "^4.0.4",
+    "saxes": "^6.0.0",
     "serve-static": "^1.16.2",
+    "ts-pattern": "^5.9.0",
     "tsx": "^4.20.5",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.60.1"
   },
   "dependencies": {
+    "cheerio": "^1.2.0",
     "ws": "^8.18.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }

@@ -1,0 +1,33 @@
+\title{Margin comments}
+\import{base-macros}
+\tag{feature-demo}
+\tag{showcase}
+\meta{venue}{Feature gallery}
+
+\p{Some remarks belong neither in the running text nor in a footnote at the very
+bottom of the page — you want them \comment{right here}{An aside sits in the
+margin, level with the text it annotates, rather than collected at the foot of
+the page.}, in the margin, tied to a specific phrase. The \code{comment} macro
+does exactly that: \code{\startverb\comment{anchored phrase}{the note}\stopverb}
+underlines the phrase and lifts the note into the right margin, joined to it by a
+thin line that runs only through the gutter, never across the prose.}
+
+\p{Asides are \comment{spatially owned}{Each paragraph's comments live in the
+vertical band beside it, so one paragraph's notes never shove the next
+paragraph's around.} by the paragraph they annotate. When a single paragraph
+gathers \comment{more}{First.} notes \comment{than}{Second.} will comfortably
+\comment{fit}{Third.} beside \comment{it}{Fourth.}, the extras fold into a small
+"+N more" you can expand — and hovering any underline pops its own note out with
+a connecting line, so nothing is ever truly out of reach.}
+
+\subtree[0084]{
+  \taxon{Definition}
+  \title{some cool term}
+  
+  \p{Definition text...}
+}
+
+\p{On a narrow screen there is no margin to speak of, so the underline becomes
+\comment{tap-to-reveal}{The note opens inline, just beneath the paragraph — the
+footnote-pop-in fallback that Tufte CSS and Gwern's sidenotes settle on for
+mobile.}: tap it and the note expands inline beneath the paragraph.}

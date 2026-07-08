@@ -4,10 +4,10 @@ const splitLines = (text: string): string[] => text.replace(NEWLINE, "\n").split
 
 const trimEmptyEdges = (lines: string[]): string[] => {
   const result = [...lines];
-  while (result.length && result[0].trim() === "") {
+  while (result.length > 0 && result[0].trim() === "") {
     result.shift();
   }
-  while (result.length && result[result.length - 1].trim() === "") {
+  while (result.length > 0 && result[result.length - 1].trim() === "") {
     result.pop();
   }
   return result;
@@ -17,7 +17,7 @@ const getMinimumIndent = (lines: string[]): number => {
   const indents = lines
     .filter((line) => line.trim().length > 0)
     .map((line) => (line.match(/^[ \t]*/) ?? [""])[0].length);
-  return indents.length ? Math.min(...indents) : 0;
+  return indents.length > 0 ? Math.min(...indents) : 0;
 };
 
 const removeIndent = (lines: string[], indent: number): string[] => {
@@ -41,7 +41,7 @@ export const normalizeCodeWhitespace = (textContent = ""): string => {
   }
   const lines = splitLines(textContent);
   const trimmed = trimEmptyEdges(lines);
-  if (!trimmed.length) {
+  if (trimmed.length === 0) {
     return "";
   }
   const minIndent = getMinimumIndent(trimmed);

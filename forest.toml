@@ -3,6 +3,10 @@ trees = ["trees" ]  # The directories in which your trees are stored
 assets = ["assets"] # The directories in which your assets are stored
 url = "https://kaierikniermann.github.io/notes/" # Replace this with your own domain or web storage. If you don't have one, you can use "http://localhost/"; the URL given here does not matter unless you plan to publish your forest.
 home = "index"
+# TS renderer (scripts/build/render/) owns presentation; suppress forester's
+# legacy client-side-XSLT artifacts (the per-note <?xml-stylesheet?> PI and the
+# index.html redirect shims that otherwise clobber our published HTML).
+presentation = "external"
 
 [forest.latex]
 document_class = "standalone"

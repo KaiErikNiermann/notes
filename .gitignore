@@ -1,28 +1,59 @@
+# Node + tooling
 node_modules/
-theme/dev/package-lock.json
 theme/dev/node_modules/
-output/package-lock.json
 
+# Rendered site output — built in CI (see .github/workflows/gh-pages.yml), never
+# committed. Exception: the small committed verso assets (Lean elaboration
+# output), which CI reuses because Lean is absent there.
+/output/*
+!/output/notes/
+/output/notes/*
+!/output/notes/verso-assets/
+
+# Temp / build / log dirs
 .tmp/
 theme/dev/.tmp/
-build
+# Build scratch is generated, except the committed verso fragments that CI (no
+# Lean) splices in via scripts/build_verso.py.
+/build/*
+!/build/verso/
 _tmp/
 .forester-logs/
 .rag/
 .venv/
+
+# Local DBs and caches
 *.sqlite
+notes.db
+.ruff_cache
+.pytest_cache
+*/**/__pycache__
+typings/
+
+# Local config / secrets / agent state
+.env
 .forester-rag.yaml
 .forester-rag.yml
 forester-rag.yaml
 forester-rag.yml
 AGENTS.md
-notes.db
 logs.txt
-.ruff_cache
-.pytest_cache
+
+# LTeX language-check local state
+.languagecheck/
+.languagecheck.db
+.languagecheck.yaml
+
+# Internal docs / problems / typings dirs
 docs/
 problems/_manifests/
-*/**/__pycache__
-typings/
 src/
 tests/
+
+# Vendored graph-view artifact (fetched/refreshed by `graph-vendor` build stage)
+vendor/
+
+# Lake build outputs in the Verso sidecar — `lean/.gitignore` also covers these
+# but we list them at the root for safety in case the file is deleted.
+lean/**/.lake/
+lean/**/_out/

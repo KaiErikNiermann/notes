@@ -1,0 +1,12 @@
+\title{Force-directed graph (inline d3)}
+\import{base-macros}
+
+\p{A live d3 force simulation rendered inline, the code in
+\code{figures/force-graph.ts}. The layout animates as it settles, and each node
+is draggable — release to let it snap back into the simulation.}
+
+\d3{force-graph}
+
+\p{The figure returns a teardown (\code{simulation.stop()}) so toggling the
+theme or resizing re-renders cleanly without leaving the old simulation
+running. Try the theme switch in the top-right.}

@@ -1,106 +1,81 @@
 #!/usr/bin/env python3
-"""Utility for creating one or more numbered .tree files."""
+"""Utility for creating .tree files via ``forester new`` and enriching them."""
 
 from __future__ import annotations
 
-import re
 import shutil
 import subprocess
 from collections.abc import Sequence
-from datetime import datetime
 from pathlib import Path
 from string import Template
 from typing import Annotated
 
 import typer
 
-BASE36_STEM = re.compile(r"^[0-9a-z]{4}$")
-MAX_VALUE = 36**4 - 1
-BASE36_DIGITS = "0123456789abcdefghijklmnopqrstuvwxyz"
 RANGE_DELIMITER = ":"
 
 
 app = typer.Typer(
     add_completion=False,
     help=(
-        "Scan a tree directory, determine the next 4-digit base36 filenames, and "
-        "create one or more .tree files with a date stamp."
+        "Create one or more .tree files using `forester new` and optionally "
+        "set a title, taxon, and other metadata."
     ),
 )
 
 
-def to_base36(value: int, width: int = 4) -> str:
-    if value < 0:
-        raise ValueError("Negative values cannot be converted to base-36")
-    digits: list[str] = []
-    n = value
-    if n == 0:
-        digits.append("0")
-    else:
-        while n > 0:
-            n, rem = divmod(n, 36)
-            digits.append(BASE36_DIGITS[rem])
-    base36 = "".join(reversed(digits))
-    if len(base36) > width:
-        raise ValueError("Value exceeds allotted width for base-36 encoding")
-    return base36.rjust(width, "0")
+def run_forester_new(forest_toml: Path = Path("forest.toml")) -> Path:
+    """Call ``forester new`` and return the path of the created file."""
+    result = subprocess.run(
+        ["forester", "new", str(forest_toml)],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    # `forester new` emits diagnostics (warnings about unresolved identifiers,
+    # config options, etc.) to stdout *before* printing the created file's path,
+    # so the path is the final non-empty line rather than the whole stream.
+    lines = [line.strip() for line in result.stdout.splitlines() if line.strip()]
+    if not lines:
+        raise RuntimeError("`forester new` produced no output.")
+    raw_path = lines[-1]
+    created = Path(raw_path).resolve()
+    if not created.exists():
+        raise FileNotFoundError(
+            f"`forester new` reported '{raw_path}' but the file does not exist."
+        )
+    return created
 
 
-def find_highest_stem_value(tree_dir: Path) -> int:
-    values = [
-        int(tree_path.stem, 36)
-        for tree_path in tree_dir.glob("*.tree")
-        if BASE36_STEM.fullmatch(tree_path.stem) is not None
-    ]
-    return max(values, default=-1)
-
-
-def format_date_line() -> str:
-    now = datetime.now()
-    return now.strftime("\\date{%Y-%m-%d}")
-
-
-def render_tree_content(title: str | None, taxon: str | None) -> str:
-    lines: list[str] = [format_date_line(), "", "\\import{base-macros}", ""]
+def enrich_tree_file(
+    path: Path, title: str | None, taxon: str | None
+) -> None:
+    """Append ``\\import``, ``\\taxon``, and ``\\title`` lines to a tree file."""
+    extra_lines: list[str] = ["", "\\import{base-macros}", ""]
     if taxon is not None:
-        lines.extend([f"\\taxon{{{taxon}}}", ""])
+        extra_lines.extend([f"\\taxon{{{taxon}}}", ""])
     if title is not None:
-        lines.extend([f"\\title{{{title}}}", ""])
-    return "\n".join(lines)
+        extra_lines.extend([f"\\title{{{title}}}", ""])
+    with path.open("a", encoding="utf-8") as f:
+        f.write("\n".join(extra_lines))
 
 
 def create_tree_files(
-    tree_dir: Path, count: int, titles: Sequence[str | None], taxon: str | None
+    count: int,
+    titles: Sequence[str | None],
+    taxon: str | None,
+    forest_toml: Path = Path("forest.toml"),
 ) -> list[Path]:
+    """Create *count* trees via ``forester new`` and enrich each one."""
     if len(titles) != count:
         raise ValueError(
             f"Expected {count} titles, but received {len(titles)} title value(s)."
         )
-    if not tree_dir.exists():
-        raise FileNotFoundError(f"Tree directory '{tree_dir}' does not exist.")
-    if not tree_dir.is_dir():
-        raise NotADirectoryError(f"'{tree_dir}' is not a directory.")
-
-    first_value = find_highest_stem_value(tree_dir) + 1
-    last_value = first_value + count - 1
-    if last_value > MAX_VALUE:
-        raise ValueError("All 4-digit base-36 filenames are exhausted (zzzz reached).")
-
-    targets = [
-        tree_dir / f"{to_base36(value)}.tree"
-        for value in range(first_value, last_value + 1)
-    ]
-    existing_targets = [str(target) for target in targets if target.exists()]
-    if existing_targets:
-        existing_lines = "\n- ".join(existing_targets)
-        raise FileExistsError(
-            f"Refusing to overwrite existing file(s):\n- {existing_lines}"
-        )
-
     created_paths: list[Path] = []
-    for target, title in zip(targets, titles, strict=True):
-        target.write_text(render_tree_content(title, taxon), encoding="utf-8")
-        created_paths.append(target)
+    for title in titles:
+        path = run_forester_new(forest_toml)
+        enrich_tree_file(path, title, taxon)
+        created_paths.append(path)
     return created_paths
 
 
@@ -163,8 +138,21 @@ def expand_interpolation_values(
 
 
 def build_titles(
-    count: int, interpolation_template: str | None, interpolation_range: str | None
+    count: int,
+    title: str | None,
+    interpolation_template: str | None,
+    interpolation_range: str | None,
 ) -> list[str | None]:
+    if title is not None and interpolation_template is not None:
+        raise ValueError(
+            "Cannot use both --title and --interpolate/-i at the same time."
+        )
+    if title is not None:
+        if interpolation_range is not None:
+            raise ValueError(
+                "Interpolation range (--range/-r) cannot be used with --title."
+            )
+        return [title for _ in range(count)]
     if interpolation_template is None:
         if interpolation_range is not None:
             raise ValueError(
@@ -235,12 +223,6 @@ def open_with_vscode(paths: Sequence[Path]) -> None:
 
 @app.command()
 def main(
-    tree_dir: Annotated[
-        Path,
-        typer.Argument(
-            help="Path to the directory that stores .tree files.",
-        ),
-    ] = Path("trees"),
     num_trees: Annotated[
         int,
         typer.Option(
@@ -275,6 +257,13 @@ def main(
             ),
         ),
     ] = None,
+    title: Annotated[
+        str | None,
+        typer.Option(
+            "--title",
+            help="Title for the tree file, will be wrapped in \\title{}.",
+        ),
+    ] = None,
     taxon: Annotated[
         str | None,
         typer.Option(
@@ -302,11 +291,10 @@ def main(
         ),
     ] = True,
 ) -> None:
-    resolved_tree_dir = tree_dir.resolve()
     try:
-        titles = build_titles(num_trees, interpolation_template, interpolation_range)
-        created_paths = create_tree_files(resolved_tree_dir, num_trees, titles, taxon)
-    except (FileNotFoundError, NotADirectoryError, OSError, ValueError) as exc:
+        titles = build_titles(num_trees, title, interpolation_template, interpolation_range)
+        created_paths = create_tree_files(num_trees, titles, taxon)
+    except (FileNotFoundError, NotADirectoryError, OSError, ValueError, RuntimeError) as exc:
         typer.echo(f"Error: {exc}", err=True)
         raise typer.Exit(code=1) from exc
 
@@ -315,10 +303,11 @@ def main(
 
     if transclude_target is not None:
         try:
+            tree_dir = created_paths[0].parent
             created_stems = [path.stem for path in created_paths]
-            append_transclude_lines(resolved_tree_dir, transclude_target, created_stems)
+            append_transclude_lines(tree_dir, transclude_target, created_stems)
             typer.echo(
-                f"Appended transclude lines to {resolved_tree_dir / transclude_target}.tree"
+                f"Appended transclude lines to {tree_dir / transclude_target}.tree"
             )
         except (FileNotFoundError, OSError) as exc:
             typer.echo(f"Error: {exc}", err=True)

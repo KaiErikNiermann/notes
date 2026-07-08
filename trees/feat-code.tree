@@ -1,0 +1,34 @@
+\title{Code blocks}
+\import{base-macros}
+\tag{feature-demo}
+
+\p{
+  Syntax-highlighted code via the \code{codeblock} macro (highlight.js,
+  theme-aware). A brace-free language passes through directly:
+}
+
+\codeblock{python}{
+  def fib(n: int) -> int:
+      a, b = 0, 1
+      for _ in range(n):
+          a, b = b, a + b
+      return a
+}
+
+\p{
+  When the code contains braces (which Forester would otherwise parse), wrap the
+  body in \code{startverb} / \code{stopverb} to keep it verbatim:
+}
+
+\codeblock{typescript}{
+  const fib = (n: number): number => {
+    let [a, b] = [0, 1];
+    for (let i = 0; i < n; i++) [a, b] = [b, a + b];
+    return a;
+  };
+}
+
+\p{
+  Inline code such as \code{git rebase -i HEAD~3} renders in the same monospace
+  treatment as the surrounding prose.
+}

@@ -7,7 +7,7 @@
 \title{Normalizing Horn clauses}
 
 \p{
-  Something of note when dealing with weakets preconditions [in terms of horn clauses](0056) is that we have to first normalize them to ensure they are in the correct horn format, which is to say we commonly have some horn clause in the form
+  Something of note when dealing with weakest preconditions [in terms of horn clauses](0056) is that we have to first normalize them to ensure they are in the correct horn format, which is to say we commonly have some horn clause in the form
 }
 ##{
   p(e_1, e_2) \land \ldots \land \phi \to H(e_3) 

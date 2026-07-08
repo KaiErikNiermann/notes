@@ -312,7 +312,10 @@
   },
   "List Item": {
     "prefix": ["\\li", "li", "item"],
-    "body": ["\\li{${1:item}}"],
+    "body": [
+      "\\li{",
+      "  ${1:item}", 
+      "}"],
     "description": "List item"
   },
   "Inline Code": {
@@ -398,6 +401,12 @@
     ],
     "description": "Display math mode"
   },
+  "Math Caligraphic": {
+    "prefix": ["\\mathcal", "mathcal", "mcal", "cal"],
+    "body": ["\\mathcal{${1:A}}"],
+    "description": "Calligraphic math font"
+  },
+
   "Fraction": {
     "prefix": ["\\frac", "frac"],
     "body": ["\\frac{${1:numerator}}{${2:denominator}}"],
@@ -423,6 +432,21 @@
     "body": ["\\prod_{${1:i=0}}^{${2:n}} ${3:expression}"],
     "description": "Product"
   },
+  "Models": {
+    "prefix": ["\\models", "models", "mod"],
+    "body": ["\\vDash"],
+    "description": "Logical entailment (models)"
+  },
+  "Not Models": {
+    "prefix": ["\\notmodels", "notmodels", "nmod"],
+    "body": ["\\nvDash"],
+    "description": "Logical non-entailment (not models)"
+  },
+  "Model": {
+    "prefix": ["\\Mcal", "Model", "Mod"],
+    "body": ["\\mathcal{M}"], 
+    "description": "Model (logic)"
+  },
   "Integral": {
     "prefix": ["\\int", "int", "integral"],
     "body": ["\\int_{${1:a}}^{${2:b}} ${3:f(x)} \\, d${4:x}"],
@@ -446,10 +470,9 @@
   "Aligned Equations": {
     "prefix": ["\\align", "align"],
     "body": [
-      "\\begin{align}",
-      "  ${1:lhs} &= ${2:rhs} \\\\\\\\",
-      "  ${3:lhs} &= ${4:rhs}",
-      "\\end{align}"
+      "\\begin{align*}",
+      "  ${1}",
+      "\\end{align*}"
     ],
     "description": "Aligned equations"
   },
@@ -468,29 +491,52 @@
   // GREEK LETTERS (Math Mode)
   // ============================================================
 
-  "Alpha": { "prefix": ["\\alpha"], "body": ["\\alpha"], "description": "Greek letter alpha" },
-  "Beta": { "prefix": ["\\beta"], "body": ["\\beta"], "description": "Greek letter beta" },
-  "Gamma": { "prefix": ["\\gamma"], "body": ["\\gamma"], "description": "Greek letter gamma" },
-  "Delta": { "prefix": ["\\delta"], "body": ["\\delta"], "description": "Greek letter delta" },
-  "Epsilon": { "prefix": ["\\epsilon", "\\varepsilon"], "body": ["\\epsilon"], "description": "Greek letter epsilon" },
-  "Zeta": { "prefix": ["\\zeta"], "body": ["\\zeta"], "description": "Greek letter zeta" },
-  "Eta": { "prefix": ["\\eta"], "body": ["\\eta"], "description": "Greek letter eta" },
-  "Theta": { "prefix": ["\\theta"], "body": ["\\theta"], "description": "Greek letter theta" },
-  "Iota": { "prefix": ["\\iota"], "body": ["\\iota"], "description": "Greek letter iota" },
-  "Kappa": { "prefix": ["\\kappa"], "body": ["\\kappa"], "description": "Greek letter kappa" },
-  "Lambda": { "prefix": ["\\lambda"], "body": ["\\lambda"], "description": "Greek letter lambda" },
-  "Mu": { "prefix": ["\\mu"], "body": ["\\mu"], "description": "Greek letter mu" },
-  "Nu": { "prefix": ["\\nu"], "body": ["\\nu"], "description": "Greek letter nu" },
-  "Xi": { "prefix": ["\\xi"], "body": ["\\xi"], "description": "Greek letter xi" },
-  "Pi": { "prefix": ["\\pi"], "body": ["\\pi"], "description": "Greek letter pi" },
-  "Rho": { "prefix": ["\\rho"], "body": ["\\rho"], "description": "Greek letter rho" },
-  "Sigma": { "prefix": ["\\sigma"], "body": ["\\sigma"], "description": "Greek letter sigma" },
-  "Tau": { "prefix": ["\\tau"], "body": ["\\tau"], "description": "Greek letter tau" },
-  "Upsilon": { "prefix": ["\\upsilon"], "body": ["\\upsilon"], "description": "Greek letter upsilon" },
-  "Phi": { "prefix": ["\\phi", "\\varphi"], "body": ["\\phi"], "description": "Greek letter phi" },
-  "Chi": { "prefix": ["\\chi"], "body": ["\\chi"], "description": "Greek letter chi" },
-  "Psi": { "prefix": ["\\psi"], "body": ["\\psi"], "description": "Greek letter psi" },
-  "Omega": { "prefix": ["\\omega"], "body": ["\\omega"], "description": "Greek letter omega" },
+  "Alpha (lowercase)": { "prefix": ["\\alpha"], "body": ["\\alpha"], "description": "Greek letter alpha" },
+  "Alpha (uppercase)": { "prefix": ["\\Alpha"], "body": ["\\Alpha"], "description": "Greek letter Alpha" },
+  "Beta (lowercase)": { "prefix": ["\\beta"], "body": ["\\beta"], "description": "Greek letter beta" },
+  "Beta (uppercase)": { "prefix": ["\\Beta"], "body": ["\\Beta"], "description": "Greek letter Beta" },
+  "Gamma (lowercase)": { "prefix": ["\\gamma"], "body": ["\\gamma"], "description": "Greek letter gamma" },
+  "Gamma (uppercase)": { "prefix": ["\\Gamma"], "body": ["\\Gamma"], "description": "Greek letter Gamma" },
+  "Delta (lowercase)": { "prefix": ["\\delta"], "body": ["\\delta"], "description": "Greek letter delta" },
+  "Delta (uppercase)": { "prefix": ["\\Delta"], "body": ["\\Delta"], "description": "Greek letter Delta" },
+  "Epsilon (lowercase)": { "prefix": ["\\epsilon", "\\varepsilon"], "body": ["\\epsilon"], "description": "Greek letter epsilon" },
+  "Epsilon (uppercase)": { "prefix": ["\\Epsilon"], "body": ["\\Epsilon"], "description": "Greek letter Epsilon" },
+  "Zeta (lowercase)": { "prefix": ["\\zeta"], "body": ["\\zeta"], "description": "Greek letter zeta" },
+  "Zeta (uppercase)": { "prefix": ["\\Zeta"], "body": ["\\Zeta"], "description": "Greek letter Zeta" },
+  "Eta (lowercase)": { "prefix": ["\\eta"], "body": ["\\eta"], "description": "Greek letter eta" },
+  "Eta (uppercase)": { "prefix": ["\\Eta"], "body": ["\\Eta"], "description": "Greek letter Eta" },
+  "Theta (lowercase)": { "prefix": ["\\theta"], "body": ["\\theta"], "description": "Greek letter theta" },
+  "Theta (uppercase)": { "prefix": ["\\Theta"], "body": ["\\Theta"], "description": "Greek letter Theta" },
+  "Iota (lowercase)": { "prefix": ["\\iota"], "body": ["\\iota"], "description": "Greek letter iota" },
+  "Iota (uppercase)": { "prefix": ["\\Iota"], "body": ["\\Iota"], "description": "Greek letter Iota" },
+  "Kappa (lowercase)": { "prefix": ["\\kappa"], "body": ["\\kappa"], "description": "Greek letter kappa" },
+  "Kappa (uppercase)": { "prefix": ["\\Kappa"], "body": ["\\Kappa"], "description": "Greek letter Kappa" },
+  "Lambda (lowercase)": { "prefix": ["\\lambda"], "body": ["\\lambda"], "description": "Greek letter lambda" },
+  "Lambda (uppercase)": { "prefix": ["\\Lambda"], "body": ["\\Lambda"], "description": "Greek letter Lambda" },
+  "Mu (lowercase)": { "prefix": ["\\mu"], "body": ["\\mu"], "description": "Greek letter mu" },
+  "Mu (uppercase)": { "prefix": ["\\Mu"], "body": ["\\Mu"], "description": "Greek letter Mu" },
+  "Nu (lowercase)": { "prefix": ["\\nu"], "body": ["\\nu"], "description": "Greek letter nu" },
+  "Nu (uppercase)": { "prefix": ["\\Nu"], "body": ["\\Nu"], "description": "Greek letter Nu" },
+  "Xi (lowercase)": { "prefix": ["\\xi"], "body": ["\\xi"], "description": "Greek letter xi" },
+  "Xi (uppercase)": { "prefix": ["\\Xi"], "body": ["\\Xi"], "description": "Greek letter Xi" },
+  "Pi (lowercase)": { "prefix": ["\\pi"], "body": ["\\pi"], "description": "Greek letter pi" },
+  "Pi (uppercase)": { "prefix": ["\\Pi"], "body": ["\\Pi"], "description": "Greek letter Pi" },
+  "Rho (lowercase)": { "prefix": ["\\rho"], "body": ["\\rho"], "description": "Greek letter rho" },
+  "Rho (uppercase)": { "prefix": ["\\Rho"], "body": ["\\Rho"], "description": "Greek letter Rho" },
+  "Sigma (lowercase)": { "prefix": ["\\sigma"], "body": ["\\sigma"], "description": "Greek letter sigma" },
+  "Sigma (uppercase)": { "prefix": ["\\Sigma"], "body": ["\\Sigma"], "description": "Greek letter Sigma" },
+  "Tau (lowercase)": { "prefix": ["\\tau"], "body": ["\\tau"], "description": "Greek letter tau" },
+  "Tau (uppercase)": { "prefix": ["\\Tau"], "body": ["\\Tau"], "description": "Greek letter Tau" },
+  "Upsilon (lowercase)": { "prefix": ["\\upsilon"], "body": ["\\upsilon"], "description": "Greek letter upsilon" },
+  "Upsilon (uppercase)": { "prefix": ["\\Upsilon"], "body": ["\\Upsilon"], "description": "Greek letter Upsilon" },
+  "Phi (lowercase)": { "prefix": ["\\phi", "\\varphi"], "body": ["\\phi"], "description": "Greek letter phi" },
+  "Phi (uppercase)": { "prefix": ["\\Phi"], "body": ["\\Phi"], "description": "Greek letter Phi" },
+  "Chi (lowercase)": { "prefix": ["\\chi"], "body": ["\\chi"], "description": "Greek letter chi" },
+  "Chi (uppercase)": { "prefix": ["\\Chi"], "body": ["\\Chi"], "description": "Greek letter Chi" },
+  "Psi (lowercase)": { "prefix": ["\\psi"], "body": ["\\psi"], "description": "Greek letter psi" },
+  "Psi (uppercase)": { "prefix": ["\\Psi"], "body": ["\\Psi"], "description": "Greek letter Psi" },
+  "Omega (lowercase)": { "prefix": ["\\omega"], "body": ["\\omega"], "description": "Greek letter omega" },
+  "Omega (uppercase)": { "prefix": ["\\Omega"], "body": ["\\Omega"], "description": "Greek letter Omega" },
 
   // ============================================================
   // MATH OPERATORS
@@ -544,6 +590,8 @@
   "And": { "prefix": ["\\land", "\\wedge"], "body": ["\\land"], "description": "Logical and" },
   "Or": { "prefix": ["\\lor", "\\vee"], "body": ["\\lor"], "description": "Logical or" },
   "Hoare triple": { "prefix": ["\\hoare", "\\ht"], "body": ["\\{$1\\\\}\\ $2\\ \\{$3\\\\}$4"], "description": "hoare triple" },
+  "Box": { "prefix": ["\\Box", "box"], "body": ["\\Box"], "description": "Box (modal logic)" },
+  "Diamond": { "prefix": ["\\Diamond", "diamond", "dia"], "body": ["\\Diamond"], "description": "Diamond (modal logic)" },
 
   // ============================================================
   // DELIMITERS
@@ -636,6 +684,12 @@
     "prefix": ["\\lrBrack", "lrBrack"], 
     "body": ["\\lBrack ${1:content} \\rBrack"], 
     "description": "left right double brackets"
+  },
+
+  "llrrbrack": { 
+    "prefix": ["\\llrrbrack", "llrrbrack"],
+    "body": ["\\llbrack ${1:content} \\rrbrack"],
+    "description": "Left/Right double angle brackets"
   },
 
   // ============================================================

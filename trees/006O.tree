@@ -1,0 +1,113 @@
+\date{2026-03-27T16:05:51Z}
+
+\import{base-macros}
+
+\taxon{Blog}
+
+\title{A quick refresher in Probability}
+
+\subtree[007o]{
+  \taxon{Definition}
+  \title{Sample Space}
+
+  \p{
+    A \em{sample space} is simply the set of all possible outcomes of an experiment. Often denoted #{\Omega}. A classical example being a coin flip where an outcome is either heads or tails hence in short form we can denote this sample space as 
+    ##{
+      \Omega = \{\textrm{heads}, \textrm{tails}\}
+    }
+  }
+  \p{
+    A sample space can be categorized into 
+    \ul{
+      \li{
+        \strong{Discrete} 
+        \p{
+          A discrete sample space is one which is finite our countably infinite. Examples of this being the earlier case of heads or tails, another example being the outcomes of a die roll.
+        } 
+      }
+      \li{
+        \strong{Continuous}
+        \p{
+          A continuous sample space as the name suggests is one in which we don't have discrete outcomes but rather continuous smooth selection of samples a basic example here being the set of real numbers #{\R} representing some continuous random variable.
+        }
+      }
+    }
+  }
+}
+
+\subtree[007v]{
+  \taxon{Definition}
+  \title{Event space}
+
+  \p{
+    The event space, which we can denote #{\mathcal{F}} (for whatever reason), is a set of \em{events}, where an event is a subset of outcomes in the sample space. In the case of a discrete sample space #{\Omega} this refers to the \em{power set} or the set-of-all-sets, example members of this event space being things like #{\{5\} \in \mathcal{F}} - the die lands on five. Or #{\{2, 4, 6\} \in \mathcal{F}} - the die lands on an even number. For a \em{continuous} sample space the event space corresponds to the \em{set of all intervals}. To be pedantic we can disambiguate between kinds of events, namely:
+    \ul{
+      \li{
+        \strong{Atomic events}
+        \p{
+          An atomic event refers to a \em{single outcome} of an experiment. For example the earlier instance of #{ \{5\} \in \mathcal{F} } would be an atomic event.
+        }
+      }
+      \li{
+        \strong{Compound event}
+        \p{
+          A compound event is then an event with more than one sample point i.e. a member of the event space containing more than one point from the sample space. This would then be the second example of #{ \{2, 4, 6\} \in \mathcal{F} }
+        }
+      }
+    } 
+  }
+}
+
+\subtree[007n]{
+  \taxon{Definition}
+  \title{Random variable}
+
+  \p{
+    A random variable contrary to its confusing name is not a variable but a function from the sample space #{\Omega} to the event space #{\mathcal{F}}, commonly denoted using capital Roman letters such as #{X, T, Z, Z} etc. In other words a random variable is the function which characterizes or maps-to a particular event space.
+  }
+}
+
+\subtree[007p]{
+  \taxon{Definition}
+  \title{Probability and probability density}
+
+  \p{
+    Content
+  }
+}
+
+\subtree[007q]{
+  \taxon{Definition}
+  \title{Joint probability}
+
+  \p{
+    Definition text...
+  }
+}
+
+\subtree[007r]{
+  \taxon{Definition}
+  \title{Marginal probability}
+
+  \p{
+    Definition text...
+  }
+}
+
+\subtree[007t]{
+  \taxon{Definition}
+  \title{Conditional probability}
+
+  \p{
+    Definition text...
+  }
+}
+
+\subtree[007u]{
+  \taxon{Definition}
+  \title{Expectation}
+
+  \p{
+    Definition text...
+  }
+}

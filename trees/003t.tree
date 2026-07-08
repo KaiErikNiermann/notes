@@ -7,7 +7,7 @@
 \title{Simple Imperative Language - Syntax}
 
 \p{
-  We define the syntax of a simple imperative programming language, using the followng bnf grammar:
+  We define the syntax of a simple imperative programming language, using the following BNF grammar:
 }
 
 \grammar{

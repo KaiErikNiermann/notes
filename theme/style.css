@@ -77,6 +77,61 @@
        url('fonts/eulervm/EulerMath-Regular.otf') format('opentype');
 }
 
+/* Libertinus Serif – used for KaTeX \text{} blocks */
+@font-face {
+  font-display: swap;
+  font-family: 'Libertinus Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/libertine/LibertinusSerif-Regular.woff2') format('woff2'),
+       url('fonts/libertine/LibertinusSerif-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Libertinus Serif';
+  font-style: italic;
+  font-weight: 400;
+  src: url('fonts/libertine/LibertinusSerif-Italic.woff2') format('woff2'),
+       url('fonts/libertine/LibertinusSerif-Italic.otf') format('opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Libertinus Serif';
+  font-style: normal;
+  font-weight: 600;
+  src: url('fonts/libertine/LibertinusSerif-Semibold.woff2') format('woff2'),
+       url('fonts/libertine/LibertinusSerif-Semibold.otf') format('opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Libertinus Serif';
+  font-style: italic;
+  font-weight: 600;
+  src: url('fonts/libertine/LibertinusSerif-SemiboldItalic.woff2') format('woff2'),
+       url('fonts/libertine/LibertinusSerif-SemiboldItalic.otf') format('opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Libertinus Serif';
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/libertine/LibertinusSerif-Bold.woff2') format('woff2'),
+       url('fonts/libertine/LibertinusSerif-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Libertinus Serif';
+  font-style: italic;
+  font-weight: 700;
+  src: url('fonts/libertine/LibertinusSerif-BoldItalic.woff2') format('woff2'),
+       url('fonts/libertine/LibertinusSerif-BoldItalic.otf') format('opentype');
+}
+
 .katex {
  font-size: 1.15em !important;
   font-family: 'Euler Math', serif !important;
@@ -94,11 +149,16 @@
 
 
 :root {
+  /* Light is the default theme; the carrier attribute lives on <html> (:root) so a
+     blocking <head> script can set it before the body is ever parsed (no FOUC).
+     color-scheme keeps the UA canvas/scrollbars light even when the OS prefers dark. */
+  color-scheme: light;
   --content-gap: 15px;
   --radius: 5px;
   --bg-color: #ffffff;
   --text-color: #1b1b21;
   --muted-color: #555555;
+  --hr-color: rgba(20, 22, 34, 0.14);
   --link-color: #174d8b;
   --link-underline: rgba(23, 77, 139, 0.35);
   --surface-color: rgba(0, 100, 100, 0.04);
@@ -114,10 +174,12 @@
   --code-font-stack: 'Fira Code', 'FiraCode', 'JuliaMono', 'Julia Mono', 'Noto Sans Math', 'JetBrains Mono', 'IBM Plex Mono', 'SFMono-Regular', 'SF Mono', 'Menlo', monospace;
 }
 
-body[data-theme='dark'] {
+:root[data-theme='dark'] {
+  color-scheme: dark;
   --bg-color: #0f1117;
   --text-color: #f4f6ff;
   --muted-color: #c4cbdd;
+  --hr-color: rgba(200, 210, 235, 0.20);
   --link-color: #86c5ff;
   --link-underline: rgba(134, 197, 255, 0.35);
   --surface-color: rgba(255, 255, 255, 0.04);
@@ -178,7 +240,7 @@ pre {
   margin: 1.5em 0;
   border-radius: var(--radius);
   background-color: var(--surface-color);
-  padding: 0.9em 1.1em;
+  padding: 1.1em;
   font-size: 0.95rem;
   line-height: 1.45;
   overflow-x: auto;
@@ -196,7 +258,7 @@ pre {
 pre.code-block {
   font-family: var(--code-font-stack);
   font-size: 0.90rem;
-  padding: 1.1em 1.35em;
+  padding: 1.1em;
   margin: 1.6em 0;
   line-height: 1.55;
   position: relative;
@@ -228,16 +290,172 @@ pre.code-block code {
   font-family: inherit;
 }
 
+.code-toolbar {
+  position: absolute;
+  top: 0.55em;
+  right: 0.55em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 1;
+}
+
+pre.code-block:hover .code-toolbar,
+pre.code-block:focus-within .code-toolbar,
+.code-toolbar:focus-within {
+  opacity: 1;
+}
+
+.code-copy-btn {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background: var(--surface-color);
+  border: 1px solid var(--code-border-color);
+  border-radius: var(--radius);
+  color: var(--muted-color);
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.code-copy-btn svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+.code-copy-btn:hover {
+  color: var(--text-color);
+  border-color: var(--text-color);
+}
+
+.code-copy-btn.copied {
+  color: #16a34a;
+  border-color: rgba(22, 163, 74, 0.45);
+}
+
+.code-stub {
+  display: inline;
+  color: var(--muted-color);
+  font-style: italic;
+  font-family: inherit;
+}
+
+/* Expanded code modal */
+.code-modal[hidden] {
+  display: none;
+}
+
+.code-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.code-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.code-modal__panel {
+  position: relative;
+  background: var(--bg-color);
+  border: 1px solid var(--code-border-color);
+  border-radius: calc(var(--radius) + 4px);
+  box-shadow: 0 20px 60px -10px var(--code-shadow-color);
+  width: min(90ch, 92vw);
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.code-modal__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.55em 0.7em;
+  border-bottom: 1px solid var(--code-border-color);
+  background: var(--surface-color);
+}
+
+.code-modal__lang {
+  font-family: var(--code-font-stack);
+  font-size: 0.8rem;
+  color: var(--muted-color);
+  margin-right: auto;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+}
+
+.code-modal__pre {
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 1em !important;
+  box-shadow: none !important;
+  overflow: auto;
+  flex: 1 1 auto;
+  counter-reset: code-line;
+}
+
+.code-modal__pre code {
+  display: block;
+}
+
+.code-line {
+  display: block;
+  counter-increment: code-line;
+  padding-left: 0.5em;
+}
+
+.code-line::before {
+  content: counter(code-line);
+  display: inline-block;
+  width: 1.5em;
+  padding-right: 1em;
+  margin-right: 0.5em;
+  text-align: right;
+  color: var(--muted-color);
+  opacity: 0.55;
+  user-select: none;
+  -webkit-user-select: none;
+  border-right: 1px solid var(--code-border-color);
+}
+
+html.code-modal-open {
+  overflow: hidden;
+}
+
 pre code {
   background: transparent;
   white-space: inherit;
   padding: 0;
+  /* Neutralize the inline-code box below so it never leaks into code blocks. */
+  border: 0;
+  border-radius: 0;
+  font-size: inherit;
 }
 
 code {
-  border-radius: var(--radius);
+  border: 1px solid var(--code-border-color);
+  border-radius: 4px;
   background-color: var(--surface-color);
-  padding: 0.2em;
+  font-family: var(--code-font-stack);
+  /* Match the optical size of the adjacent prose (mono runs large at 1em). */
+  font-size: 0.9em;
+  padding: 0.07em 0.32em;
 }
 
 img.tex-diagram {
@@ -315,6 +533,12 @@ body {
   line-height: 1.55;
   background-color: var(--bg-color);
   color: var(--text-color);
+  font-variant-ligatures: common-ligatures contextual discretionary-ligatures historical-ligatures;
+  font-feature-settings: "calt" 1, "liga" 1, "dlig" 1, "hlig" 1;
+  text-rendering: optimizeLegibility;
+  /* Safety net: prevent absolute-positioned popovers from creating a page-wide
+     horizontal scrollbar. JS still clamps preview positions to the viewport. */
+  overflow-x: clip;
 }
 
 math {
@@ -548,6 +772,33 @@ nav#toc li {
   font-weight: 200;
 }
 
+/* Per-tree "open in graph view" button, sits beside the [slug] in each header. */
+.graph-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  box-shadow: none;
+  color: var(--muted-color);
+  border-radius: 4px;
+  padding: 2px;
+  opacity: 0.7;
+  transition: opacity 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.graph-button svg {
+  display: block;
+  width: 0.62em;
+  height: 0.62em;
+}
+
+.graph-button:hover,
+.graph-button:focus-visible {
+  opacity: 1;
+  color: var(--link-color);
+  background-color: rgba(0, 100, 255, 0.1);
+}
+
 .block {
   padding-left: 5px;
   padding-right: 10px;
@@ -559,6 +810,794 @@ nav#toc li {
   text-decoration: underline;
 }
 
+.footnote {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.footnote-ref {
+  line-height: 0;
+}
+
+.footnote-ref a {
+  border-radius: 3px;
+  color: var(--muted-color);
+  padding: 0 0.15em;
+  text-decoration: none;
+}
+
+.footnote-ref a:hover,
+.footnote-ref a:focus {
+  background-color: var(--surface-hover);
+  color: var(--text-color);
+  outline: none;
+}
+
+.footnote-preview {
+  background: var(--bg-color);
+  border: 1px solid var(--code-border-color);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px var(--code-shadow-color);
+  color: var(--text-color);
+  display: block;
+  font-size: .92em;
+  box-sizing: border-box;
+  left: 50%;
+  line-height: 1.4;
+  max-width: calc(100vw - 2rem);
+  min-width: 18em;
+  opacity: 0;
+  overflow-wrap: break-word;
+  padding: .55em .7em;
+  pointer-events: none;
+  position: absolute;
+  top: 1.5em;
+  transform: translate(-50%, -.2em);
+  transition: opacity .14s ease, transform .14s ease, visibility .14s ease;
+  visibility: hidden;
+  white-space: normal;
+  width: min(32em, calc(100vw - 2rem));
+  z-index: 30;
+}
+
+.footnote:hover .footnote-preview,
+.footnote:focus-within .footnote-preview {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  visibility: visible;
+}
+
+.footnote-preview p {
+  margin-bottom: 0;
+}
+
+.footnotes {
+  color: var(--muted-color);
+  font-size: .92em;
+  margin-top: 1em;
+}
+
+/* --- artifacts (per-tree attachments: subtle expandable file-tree) -------- */
+
+.artifacts {
+  border-top: 1px solid var(--code-border-color);
+  color: var(--muted-color);
+  font-size: .92em;
+  margin-top: 1.25em;
+  padding-top: .5em;
+}
+
+.artifacts > summary.artifacts-summary {
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: .01em;
+  list-style: none;
+  user-select: none;
+}
+
+.artifacts > summary.artifacts-summary::marker,
+.artifacts > summary.artifacts-summary::-webkit-details-marker,
+.artifact-folder-group > summary::marker,
+.artifact-folder-group > summary::-webkit-details-marker {
+  display: none;
+}
+
+.artifacts > summary.artifacts-summary::before,
+.artifact-folder-group > summary::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: .4em;
+  transition: transform .12s ease;
+}
+
+.artifacts[open] > summary.artifacts-summary::before,
+.artifact-folder-group[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+.artifact-tree,
+.artifact-subtree {
+  list-style: none;
+  margin: .35em 0 0;
+  padding-left: 1.1em;
+}
+
+.artifact-folder > .artifact-folder-group > summary {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: .35em;
+}
+/* The caret is a flex item now, so `gap` provides its spacing. */
+.artifact-folder-group > summary::before {
+  margin-right: 0;
+}
+
+/* A file row is a positioning context for its action cluster; its content is a
+   single-line head plus (optionally) a tap-to-reveal note region beneath it. */
+.artifact-row {
+  position: relative;
+  border-radius: var(--radius);
+}
+.artifact-row:target {
+  background-color: var(--surface-hover);
+}
+
+/* Always-visible single line: icon + name (+ a "note" disclosure if there's one). */
+.artifact-head {
+  display: flex;
+  align-items: center;
+  gap: .4em;
+  line-height: 1.5;
+  padding: .05em .25em;
+  padding-right: 3.4em;        /* reserve room for the absolute action cluster */
+}
+summary.artifact-head {
+  cursor: pointer;
+  list-style: none;
+}
+summary.artifact-head::marker,
+summary.artifact-head::-webkit-details-marker {
+  display: none;
+}
+
+.artifact-icon {
+  flex-shrink: 0;
+  align-self: center;
+  color: var(--muted-color);
+  display: inline-flex;
+  user-select: none;
+}
+.artifact-icon svg {
+  display: block;
+  width: 15px;
+  height: 15px;
+}
+
+.artifact-name {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The "note" disclosure affordance; its caret rotates when the note is open. */
+.artifact-note-hint {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .2em;
+  color: var(--muted-color);
+  font-size: .82em;
+  user-select: none;
+}
+.artifact-note-hint::after {
+  content: "▸";
+  font-size: .9em;
+  transition: transform .12s ease;
+}
+.artifact-entry[open] .artifact-note-hint::after {
+  transform: rotate(90deg);
+}
+.artifact-note-hint:hover {
+  color: var(--text-color);
+}
+
+/* Revealed note: a markdown-blockquote-style indented region under the file, so
+   long filenames and long notes each get their own space. */
+.artifact-note-body {
+  margin: .15em 0 .45em 1.7em;
+  padding-left: .7em;
+  border-left: 2px solid var(--code-border-color);
+  color: var(--muted-color);
+  font-size: .9em;
+  line-height: 1.5;
+}
+.artifact-note-body > p {
+  margin: 0;
+}
+.artifact-note-body > p + p,
+.artifact-note-body > .artifact-source {
+  margin-top: .35em;
+}
+.artifact-note-body > .artifact-source {
+  display: block;
+}
+
+/* Action cluster (download + backref), pinned to the row's first line. */
+.artifact-actions {
+  position: absolute;
+  top: .05em;
+  right: .25em;
+  display: flex;
+  align-items: center;
+  gap: .1em;
+  height: 1.5em;
+}
+.artifact-download,
+.artifact-backref {
+  border-radius: 3px;
+  color: var(--muted-color);
+  display: inline-flex;
+  align-items: center;
+  padding: 0 .2em;
+  text-decoration: none;
+}
+.artifact-download svg {
+  display: block;
+  width: 15px;
+  height: 15px;
+}
+.artifact-backref {
+  opacity: 0;
+}
+.artifact-row:hover .artifact-backref,
+.artifact-row:target .artifact-backref,
+.artifact-entry[open] ~ .artifact-actions .artifact-backref {
+  opacity: 1;
+}
+.artifact-download:hover,
+.artifact-download:focus,
+.artifact-backref:hover,
+.artifact-backref:focus {
+  background-color: var(--surface-hover);
+  color: var(--text-color);
+  outline: none;
+}
+
+.artifact-ref {
+  line-height: 0;
+}
+
+.artifact-ref a {
+  border-radius: 3px;
+  color: var(--muted-color);
+  padding: 0 .15em;
+  text-decoration: none;
+}
+
+.artifact-ref a:hover,
+.artifact-ref a:focus {
+  background-color: var(--surface-hover);
+  color: var(--text-color);
+  outline: none;
+}
+
+/* Attachments-panel provenance chip ("from [N]") */
+.artifact-source {
+  color: var(--muted-color);
+  font-size: .92em;
+}
+
+/* --- artifact embeds (\embed: inline attachment content) ----------------- */
+
+figure.embed {
+  margin: 1.25em 0;
+}
+
+.embed-image img {
+  border: 1px solid var(--code-border-color);
+  border-radius: var(--radius);
+  box-sizing: border-box; /* width includes border so the dev resize handle tracks exactly */
+  display: block;
+  height: auto;
+  margin-inline: auto; /* default-centered; align=left/right overrides via the img margin */
+  max-width: 100%;
+  padding: 0; /* override the global img padding, which would offset the resize edge */
+}
+
+figure.embed > figcaption {
+  color: var(--muted-color);
+  font-size: .9em;
+  line-height: 1.4;
+  margin-top: .5em;
+  text-align: center;
+}
+
+figure.embed-text {
+  text-align: left;
+}
+
+.embed-source {
+  color: var(--muted-color);
+}
+
+.embed-source::before {
+  content: " ";
+}
+
+/* raw text embed: literal file contents, set apart as an "asset" */
+.asset-text {
+  background: var(--bg-color);
+  border: 1px solid var(--code-border-color);
+  border-radius: var(--radius);
+  font-size: .9em;
+  margin: 0;
+  overflow-x: auto;
+  padding: .7em .85em;
+  position: relative;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.asset-text::before {
+  color: var(--muted-color);
+  content: "asset";
+  font-family: system-ui, sans-serif;
+  font-size: .7em;
+  letter-spacing: .04em;
+  position: absolute;
+  right: .6em;
+  text-transform: uppercase;
+  top: .35em;
+}
+
+.embed--missing {
+  outline: 1px dashed var(--muted-color);
+}
+
+/* --- margin comments (\comment) ----------------------------------------- */
+
+.has-margin-comments {
+  --prose-w: 60ex;
+  --rail-gap: 3ex;
+  --rail-w: 26ex;
+}
+
+/* Anchored phrase: a subtle gray underline, emphasized with its card on hover. */
+/* Commented text is identified by a persistent subtle highlight (Notion-style),
+   NOT an underline — so the word marker never competes/misaligns with the SVG
+   connecting line (two different rasterizers fighting one row of pixels). */
+.comment-anchor {
+  background: var(--surface-hover);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background .12s ease;
+}
+.comment-anchor--active,
+.comment-anchor:hover,
+.comment-anchor:focus-visible {
+  background: color-mix(in srgb, var(--link-color) 16%, transparent);
+  outline: none;
+}
+.comment-anchor--flash {
+  background: color-mix(in srgb, var(--link-color) 30%, transparent);
+}
+
+/* No-JS fallback: the per-tree aside is a readable end-of-tree list. */
+.comments {
+  border-top: 1px solid var(--code-border-color);
+  color: var(--muted-color);
+  font-size: .9em;
+  margin-top: 1.25em;
+  padding-top: .5em;
+}
+.comments > .comment-card { margin: .5em 0; }
+
+/* With JS the fallback list is hidden; cards lift into the margin rail. */
+.has-margin-comments .comments { display: none; }
+
+@media (min-width: 1080px) {
+  /* The rail is absolutely positioned and doesn't grow the article, so force the
+     article to prose+gap+rail width — otherwise it shrinks to the narrowed prose
+     and the rail spills outside (and gets clipped by the body's overflow). */
+  /* `.comments-mobile` is the hidden / tap-to-reveal state (set by the toggle even
+     on wide screens) — let the prose reflow to full width when the rail is gone. */
+  .has-margin-comments article:not(.comments-mobile) {
+    width: calc(var(--prose-w) + var(--rail-gap) + var(--rail-w));
+    max-width: calc(var(--prose-w) + var(--rail-gap) + var(--rail-w));
+  }
+  .has-margin-comments article:not(.comments-mobile) > section { max-width: var(--prose-w); }
+}
+
+.comments-layer {
+  position: absolute;
+  top: 0;
+  left: calc(var(--prose-w) + var(--rail-gap));
+  width: var(--rail-w);
+  height: 100%;
+  pointer-events: none; /* cards re-enable it */
+  z-index: 1;
+}
+.comments-mobile .comments-layer { display: none; }
+
+/* Each commented paragraph is a scrollbox: a clip viewport over a stack of its
+   cards, windowed by a JS-set translateY (discrete card hops, no transition). */
+.comment-group {
+  position: absolute;        /* top/height set inline by JS (the paragraph's band) */
+  left: 0;
+  width: 100%;
+  pointer-events: auto;      /* re-enable over the pointer-events:none layer */
+}
+.comment-clip {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  /* Horizontal padding keeps the cards' 1px side borders clear of the clip edge:
+     `overflow:hidden` otherwise shaves the right border on fractional-DPR monitors
+     (so it's visible on some screens, gone on others). Vertical padding stays 0 so
+     the offsetTop window math is unaffected. */
+  padding: 0 2px;
+  box-sizing: border-box;
+}
+.comment-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;                 /* must match CARD_GAP in margin-comments.ts */
+  will-change: transform;
+}
+
+.comments-layer .comment-card {
+  position: static;
+  width: 100%;
+  box-sizing: border-box;
+  pointer-events: auto;
+  background: var(--bg-color);
+  border: 1px solid var(--code-border-color);
+  border-left: 2px solid var(--hr-color);
+  border-radius: var(--radius);
+  color: var(--muted-color);
+  font-size: .82em;
+  line-height: 1.45;
+  margin: 0;
+  padding: .5em .65em;
+  transition: border-color .15s, box-shadow .15s;
+}
+.comment-card p { margin: 0; }
+.comment-card--active {
+  border-left-color: var(--muted-color);
+  box-shadow: 0 2px 12px var(--code-shadow-color);
+}
+/* Jump-to-card flash (mirrors the anchor --flash). */
+.comment-card--flash {
+  border-left-color: var(--link-color);
+  box-shadow: 0 4px 16px var(--code-shadow-color);
+}
+.comment-backref {
+  color: var(--muted-color);
+  margin-left: .35em;
+  text-decoration: none;
+}
+
+/* Connecting line — drawn entirely in the gutter, so it never crosses prose. */
+.comment-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 0;
+}
+/* Dashed connecting line from the highlighted text to its margin card. */
+.comment-line { fill: none; stroke: var(--hr-color); stroke-width: 1; stroke-dasharray: 4 3; }
+.comment-line--active { stroke: var(--muted-color); }
+
+/* Subtle ↑N / ↓M accents: how many cards are hidden above/below the window.
+   Hidden (count 0) ⇒ the paragraph looks like any other. Click to step. */
+.comment-accent {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: .2em;
+  background: var(--surface-hover);
+  border: 1px solid var(--code-border-color);
+  border-radius: 999px;
+  color: var(--muted-color);
+  cursor: pointer;
+  font: inherit;
+  font-size: .68em;
+  line-height: 1;
+  padding: .15em .5em;
+  z-index: 6;
+}
+.comment-accent--up { top: -.6em; }
+.comment-accent--down { bottom: -.6em; }
+.comment-accent[hidden] { display: none; }
+.comment-accent:hover,
+.comment-accent:focus-visible {
+  background: var(--bg-color);
+  color: var(--text-color);
+  border-color: var(--muted-color);
+  outline: none;
+}
+
+/* Mobile: tap an underline to reveal the note inline beneath its paragraph. */
+.comment-reveal { margin: .4em 0 .8em; }
+.comment-reveal .comment-card {
+  position: static;
+  width: auto;
+  font-size: .9em;
+}
+
+/* Symbol definitions and references with hover preview */
+.symdef {
+  font-style: normal;
+}
+
+.symref {
+  position: relative;
+  display: inline-block;
+}
+
+.symref-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--link-underline);
+  cursor: help;
+  transition: background-color 0.12s ease, border-color 0.12s ease;
+}
+
+.symref-link:hover,
+.symref-link:focus {
+  background-color: var(--surface-hover);
+  border-bottom-color: var(--link-color);
+  outline: none;
+}
+
+.symref-preview {
+  background: var(--bg-color);
+  border: 1px solid var(--code-border-color);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px var(--code-shadow-color);
+  color: var(--text-color);
+  display: block;
+  font-size: .92em;
+  font-style: normal;
+  box-sizing: border-box;
+  line-height: 1.4;
+  max-width: calc(100vw - 2rem);
+  min-width: 18em;
+  opacity: 0;
+  overflow-wrap: break-word;
+  padding: .55em .7em;
+  pointer-events: none;
+  /* Fixed so the popover escapes ancestor overflow:auto/clip and never
+     contributes to a parent's scrollWidth. JS sets top/left at hover time. */
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateY(-4px);
+  transition: opacity .14s ease, transform .14s ease, visibility .14s ease;
+  visibility: hidden;
+  white-space: normal;
+  width: min(32em, calc(100vw - 2rem));
+  z-index: 30;
+}
+
+.symref:hover .symref-preview,
+.symref:focus-within .symref-preview {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.symref-preview p:last-child {
+  margin-bottom: 0;
+}
+
+.symref-preview--missing {
+  color: var(--muted-color);
+  font-style: italic;
+}
+
+/* ---------------------------------------------------------------------------
+ * d3 figures — mount points for \d3{name} (sidecar) and \d3inline (escape
+ * hatch). The runtime appends an <svg> (or whatever) into the <figure>; figures
+ * read colors from the site's CSS vars so they follow the dark/light toggle.
+ * ------------------------------------------------------------------------- */
+.d3-figure {
+  position: relative;
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+/* Overlay controls (e.g. zoom "reset view"), top-right of the figure. */
+.d3-overlay-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: var(--muted-color);
+  background: var(--bg-color);
+  border: 1px solid var(--code-border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.65;
+  transition: opacity 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.d3-overlay-btn:hover,
+.d3-overlay-btn:focus-visible {
+  opacity: 1;
+  color: var(--link-color);
+  border-color: var(--link-color);
+}
+
+.d3-overlay-btn svg {
+  display: block;
+}
+
+.d3-figure > svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.d3-figure > figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.85em;
+  color: var(--muted-color);
+  text-align: center;
+}
+
+/* The inline source carrier never renders. */
+.d3-figure > script {
+  display: none;
+}
+
+/* Surface render/compile failures instead of a silent blank box. */
+.d3-figure[data-d3-error]::after {
+  content: "[d3 figure error: " attr(data-d3-error) "]";
+  display: block;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--code-font-stack);
+  font-size: 0.8em;
+  color: var(--code-number);
+  border: 1px dashed var(--code-border-color);
+  border-radius: var(--radius);
+}
+
+/* ---------------------------------------------------------------------------
+ * Verso snippets — bind Verso's CSS vars to the site's --code-* vars so
+ * Lean code rendered by Verso looks like our existing .code-block (font,
+ * border, shadow, theme), and follows the dark/light toggle automatically.
+ * The .hl.lean token-color CSS lives in verso-assets/verso-snippet.css
+ * (extracted once by build_verso.py from Verso's per-page <style>).
+ * ------------------------------------------------------------------------- */
+:root {
+  --verso-text-font-family: inherit;
+  --verso-code-font-family: var(--code-font-stack);
+  --verso-code-color: var(--text-color);
+  --verso-code-const-color: var(--code-function);
+  --verso-code-keyword-color: var(--code-keyword);
+  --verso-code-var-color: var(--text-color);
+  --verso-info-color: var(--text-color);
+  --verso-warning-color: var(--text-color);
+}
+
+.verso-snippet {
+  margin: 1.6em 0;
+}
+
+.verso-snippet code.hl.lean.block {
+  display: block;
+  font-family: var(--code-font-stack);
+  font-size: 0.90rem;
+  line-height: 1.55;
+  padding: 1.1em;
+  background-color: var(--surface-color);
+  border: 1px solid var(--code-border-color);
+  border-radius: calc(var(--radius) + 2px);
+  box-shadow: 0 14px 40px -32px var(--code-shadow-color);
+  overflow-x: auto;
+  font-variant-ligatures: contextual discretionary-ligatures common-ligatures;
+  font-feature-settings: "calt" 1, "liga" 1;
+}
+
+.verso-snippet code.hl.lean.block .typed.token {
+  color: var(--code-number);
+}
+
+.verso-snippet--missing {
+  color: var(--muted-color);
+  font-style: italic;
+  padding: 0.4em 0.6em;
+  border-left: 3px solid var(--code-border-color);
+  background: var(--surface-color);
+}
+
+/* Tippy popovers render into document.body; theme them via existing vars. */
+.tippy-box[data-theme~='lean'] {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--code-border-color);
+  box-shadow: 0 8px 24px var(--code-shadow-color);
+}
+.tippy-box[data-theme~='lean'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: var(--bg-color);
+}
+.tippy-box[data-theme~='lean'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color: var(--bg-color);
+}
+
+/* Override Verso's hardcoded colors in the hover-info / messages so they
+   stay legible inside our themed tippy box. The extracted snippet CSS sets
+   `color: black` on `.hl.lean .hover-info code` and `background-color: #e5e5e5`
+   on inline hover-info — both fight dark mode. */
+.tippy-box .hl.lean,
+.tippy-box .hl.lean .hover-info,
+.tippy-box .hl.lean .hover-info code,
+.tippy-box .hl.lean .hover-info code.docstring {
+  color: var(--text-color) !important;
+  background: none !important;
+  font-family: var(--code-font-stack);
+}
+/* The docstring is prose explaining the symbol, not code — render it in the
+   main UI font (Inria Sans) to match the body, while keeping inline `code`
+   spans within it monospace. (Verso emits it as a <div class="docstring">.) */
+.tippy-box .hl.lean .hover-info .docstring {
+  font-family: "Inria Sans", system-ui, sans-serif;
+}
+.tippy-box .hl.lean .hover-info .docstring code,
+.tippy-box .hl.lean .hover-info .docstring tt {
+  font-family: var(--code-font-stack);
+}
+.tippy-box .hl.lean .hover-info .sep {
+  border-top-color: var(--code-border-color);
+}
+
+/* Binding-highlight: Verso emits `background-color: #eee` hardcoded, which is
+   invisible against the light page and obliterates white text in dark mode.
+   Replace with a theme-aware tinted highlight. */
+.verso-snippet .hl.lean .token.binding-hl,
+.verso-snippet .hl.lean .literal.string:hover,
+.verso-snippet .hl.lean .token.typed:hover {
+  background-color: var(--surface-hover) !important;
+  border-radius: 2px;
+}
+
+.footnotes hr {
+  margin-bottom: .75em;
+  margin-top: 1em;
+  width: 35%;
+}
+
+.footnotes ol {
+  padding-bottom: 0;
+  padding-left: 1.4em;
+}
+
+.footnotes li {
+  padding-left: .15em;
+}
+
+.footnote-backref {
+  color: var(--muted-color);
+  margin-left: .35em;
+  text-decoration: none;
+}
+
 a.link.local,
 .link.local a,
 a.slug {
@@ -568,49 +1607,96 @@ a.slug {
   text-decoration-color: var(--link-underline);
  }
 
-.theme-toggle {
+/* Fixed top-right cluster of page-chrome buttons (theme + hide-comments). */
+.page-controls {
   position: fixed;
-  bottom: 1rem;
+  top: 1rem;
   right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 20;
+}
+
+.page-control {
   border: 1px solid rgba(127, 127, 127, 0.4);
   background: var(--bg-color);
   color: var(--text-color);
-  border-radius: 50%;
+  border-radius: 0.5rem;
   width: 2.5rem;
   height: 2.5rem;
   padding: 0;
-  font-size: 1rem;
-  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.12);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.theme-toggle__icon {
+.page-control__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-control__icon svg {
   display: block;
-  line-height: 1;
-  transform: translateY(-1px);
+  width: 18px;
+  height: 18px;
 }
 
-body[data-theme='dark'] .theme-toggle {
+:root[data-theme='dark'] .page-control {
   border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
 }
 
-.theme-toggle:hover {
-  transform: translateY(-1px);
+.page-control:hover {
+  /* transform: translateY(-1px); */
+  /* dashed border 2px */
+  border: 1px dashed var(--link-color);
 }
 
-.theme-toggle:focus-visible {
+.page-control:focus-visible {
   outline: 2px solid var(--link-color);
   outline-offset: 2px;
 }
 
+/* Hide-comments toggle: only meaningful on pages with margin comments and on wide
+   screens (the narrow layout is already tap-to-reveal). The eye swaps with state. */
+#comments-toggle { display: none; }
+@media (min-width: 1080px) {
+  .has-margin-comments #comments-toggle { display: flex; }
+}
+.comments-toggle .page-control__icon--off { display: none; }
+.comments-toggle[aria-pressed='true'] .page-control__icon--on { display: none; }
+.comments-toggle[aria-pressed='true'] .page-control__icon--off { display: flex; }
+.comments-toggle[aria-pressed='true'] { color: var(--muted-color); }
+
+/* Theme toggle: show the icon for the theme you'd switch TO — moon in light, sun in
+   dark. Driven purely by the :root[data-theme] carrier so the right glyph is correct
+   at first paint (no JS innerHTML swap → no sun→moon flash on load). */
+.theme-toggle .page-control__icon--sun { display: none; }
+.theme-toggle .page-control__icon--moon { display: flex; }
+:root[data-theme='dark'] .theme-toggle .page-control__icon--sun { display: flex; }
+:root[data-theme='dark'] .theme-toggle .page-control__icon--moon { display: none; }
+
 ninja-keys::part(ninja-action) {
   white-space: nowrap;
+}
+
+/* Align the command palette (ninja-keys) with the site: our UI font + accent in
+   both modes, and our exact surfaces in dark (forester.ts toggles the built-in
+   `dark` class on the element in sync with the theme). */
+ninja-keys {
+  --ninja-font-family: 'Inria Sans', system-ui, sans-serif;
+  --ninja-accent-color: var(--link-color);
+}
+
+:root[data-theme='dark'] ninja-keys {
+  --ninja-modal-background: var(--bg-color);
+  --ninja-text-color: var(--text-color);
+  --ninja-secondary-text-color: var(--muted-color);
+  --ninja-secondary-background-color: var(--surface-color);
+  --ninja-selected-background: var(--surface-hover);
+  --ninja-overflow-background: rgba(0, 0, 0, 0.6);
+  --ninja-placeholder-color: var(--muted-color);
 }
 
 body {
@@ -646,6 +1732,45 @@ td {
 td.macro-name,
 td.macro-body {
   white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------------------
+ * Clean "booktabs"-style scientific tables — the default for the \table macro.
+ * No vertical or box borders; strong rules along the top and bottom, a rule
+ * under the header row, and faint dividers between data rows. Mirrors the LaTeX
+ * booktabs aesthetic with fixed, opinionated defaults.
+ * ------------------------------------------------------------------------- */
+.data-table {
+  border-collapse: collapse;
+  /* Default: centered at content width (the dev styling UI overrides via inline
+     margin/width/colgroup written into \meta{style:<id>}). */
+  margin: 1.5rem auto;
+  width: fit-content;
+  max-width: 100%;
+  font-size: 0.95em;
+  font-variant-numeric: tabular-nums;
+  border-top: 2px solid var(--text-color);
+  border-bottom: 2px solid var(--text-color);
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.45em 1.1em;
+  text-align: left;
+  vertical-align: baseline;
+  border: 0;
+}
+
+/* Mid-rule: the strong line separating the header from the data rows. */
+.data-table th {
+  font-weight: 600;
+  border-bottom: 1.25px solid var(--text-color);
+}
+
+/* Faint dividers between consecutive data rows (row 1 = header, row 2 = first
+   data row sits right under the mid-rule, so dividers start at row 3). */
+.data-table tr:nth-child(n + 3) td {
+  border-top: 1px solid var(--hr-color);
 }
 
 td.macro-doc {
@@ -815,7 +1940,12 @@ img {
   transition: filter 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
 }
 
-body[data-theme='dark'] img {
+:root[data-theme='dark'] span.taxon,
+:root[data-theme='dark'] article>section>details>summary>header>h1>.taxon {
+  color: #9ea6b8;
+}
+
+:root[data-theme='dark'] img {
   filter: invert(1) hue-rotate(180deg) brightness(1);
   opacity: 1;
   background-color: transparent;
@@ -852,12 +1982,13 @@ mark {
 }
 
 hr {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  background-color: gainsboro;
+  margin-top: 1.4rem;
+  margin-bottom: 1.4rem;
+  background-color: var(--hr-color);
   border: 0 none;
   width: 100%;
   height: 2px;
+  border-radius: 999px; /* rounded caps */
 }
 
 ul,

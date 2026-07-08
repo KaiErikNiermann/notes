@@ -1,5 +1,12 @@
 name: Deploy forest
 
+# Build the forest in CI and publish to GitHub Pages. The build runs inside the
+# forester-ci image (forester binary + LaTeX toolchain + Node/pnpm), so nothing
+# native is installed on the runner and `output/` is never committed to git.
+#
+# The image tag is the single point of truth for the forester version — bump it
+# here (and cut a matching release in KaiErikNiermann/forester) to upgrade.
+
 on:
   push:
     branches:
@@ -16,26 +23,24 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  upload:
+  build:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/kaierikniermann/forester-ci:v0.1.0
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
-        with:
-          submodules: true
-          fetch-depth: 0
 
-      - name: Ensure output contains committed build
+      - name: Install dependencies
         run: |
-          OUTPUT_ROOT="output/notes"
-          if [ ! -d "$OUTPUT_ROOT" ] || [ -z "$(ls -A "$OUTPUT_ROOT")" ]; then
-            echo "The output/notes directory is missing or empty. Run 'npm run build' locally before pushing." >&2
-            exit 1
-          fi
-          if [ ! -f "$OUTPUT_ROOT/index.html" ]; then
-            echo "output/notes/index.html is missing. Did the local build complete?" >&2
-            exit 1
-          fi
+          pnpm install --frozen-lockfile
+          pnpm --dir theme/dev install --frozen-lockfile
+
+      # Lean is absent in the image, so the verso stage reuses the committed
+      # build/verso fragments (see scripts/build_verso.py). forester compiles
+      # math/diagrams via the image's latex + dvisvgm.
+      - name: Build site
+        run: pnpm build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -44,7 +49,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: upload
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

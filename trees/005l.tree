@@ -6,10 +6,59 @@
 
 \title{Advanced Logic}
 
-\transclude{005n}
-\transclude{005o}
-\transclude{005p} 
-\transclude{005q}
-\transclude{005r}
-\transclude{005s}
-\transclude{005t}
+\subtree[007w]{
+  \taxon{VU-AL-2026}
+  \title{Lectures}
+  \put\transclude/expanded{false}
+  \put\transclude/toc{false}
+  \transclude{0062}
+  \transclude{0069}
+}
+
+\subtree[007x]{
+  \taxon{VU-AL-2026}
+  \title{Exercise Notes}
+  \p{
+    One preface in regard to notation:
+  }
+  \ul{
+    \li{
+      \strong{Frame} - to denote a frame I'll use either 
+      ##{
+        (W, R) \equiv \mathcal F
+      }
+    }
+    \li{
+      \strong{Accessibility Relation} - to denote the \em{accessibility} or \em{transition} relation I will use 
+      ##{
+        R \subseteq W \times W \equiv R[x] = \{x \in W \mid R x y \} \equiv \forall x \in W.\ x R y
+      }
+      conceptually it's all the same thing just the pairs of transitions existing in the model where the first index denotes the tail/start/source and the second index the target/tip/successor.
+    }
+  }
+  \put\transclude/expanded{false}
+
+  \subtree[0081]{
+    \taxon{VU-AL-2026}
+    \title{Exercise Sheet 1}
+
+    \ol{
+      \li{
+        \ol{
+          \li{
+            This question is mostly based on just remembering what a [\em{model}](006l) is i.e. the main 3 components 
+            ##{
+              \underbrace{(\underbrace{W, R}_{\mathcal{F}}, V)}_{\mathcal{M}}c
+            }
+          }
+          \li{
+            The intuition which helps here is I think just understanding things
+          }
+        }
+      }
+      \li{
+        item
+      }
+    }
+  }
+}

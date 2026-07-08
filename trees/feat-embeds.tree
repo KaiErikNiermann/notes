@@ -1,0 +1,56 @@
+\title{Artifact embeds}
+\import{base-macros}
+\tag{feature-demo}
+\tag{showcase}
+\meta{venue}{Feature gallery}
+\meta{artifact-file:figures/board.svg}{\route-asset{assets/feat-artifacts/sketch.svg}}
+\meta{artifact-source:figures/board.svg}{\cite{rijke-intro-hott-2022}}
+\meta{artifact-file:code/fib.py}{\route-asset{assets/feat-artifacts/sample.py}}
+\meta{artifact-file:notes/field-notes.txt}{\route-asset{assets/feat-artifacts/sample.txt}}
+\meta{artifact-file:hand-drawing.png}{\route-asset{assets/feat-embeds/hand-drawing.png}}
+\meta{style:hand-drawing.png}{width=64}
+\meta{style:figures/board.svg}{align=center width=60}
+
+\p{
+  Where an attachment \em{reference} jumps to a download row, an \code{embed}
+  shows the attachment's \em{content} inline. \code{\startverb\embed{mode flags}{target}{caption}\stopverb}
+  the mode is \code{image}, \code{code}, or \code{raw}; the target is a local
+  \code{#artifact:} key or an external URL.
+}
+
+\p{
+  An image, lifted from a paper. Because its source is declared once as a
+  \code{cite}, the caption, the \strong{Attachments} row below, and the bottom
+  \strong{References} all carry the \em{same} citation number:
+}
+
+\embed{image width=70 align=center}{#artifact:figures/board.svg}{The original board sketch.}
+
+\embed{image}{#artifact:hand-drawing.png}{some piece of text}
+
+\p{
+  A code file rendered as a highlighted block, its language inferred from the
+  \code{.py} extension:
+}
+
+\embed{code}{#artifact:code/fib.py}{}
+
+\p{
+  Or a file's raw text, set apart as an asset:
+}
+
+\embed{raw}{#artifact:notes/field-notes.txt}{}
+
+\p{
+  The syntax in full a local attachment or an external URL (external images
+  render inline but are \em{not} added to Attachments):
+}
+
+\codeblock{text}{
+  \startverb
+  \embed{image width=70 align=center}{#artifact:figures/board.svg}{The original board sketch.}
+  \embed{code}{#artifact:code/fib.py}{}
+  \embed{raw}{#artifact:notes/field-notes.txt}{}
+  \embed{image}{https://example.org/diagram.svg}{external, not attached}
+  \stopverb
+}

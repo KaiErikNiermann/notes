@@ -1,0 +1,8 @@
+node_modules
+output
+build
+.git
+.serena
+__pycache__
+*.pyc
+logs.txt

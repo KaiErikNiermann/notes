@@ -109,7 +109,7 @@
       ##{
         \cf{wp}(\cf{while}\ b\ \cf{do}\ s, p(\overline x)) \triangleq q(\overline x)
       }
-      with the constriants
+      with the constraints
       ##{
         \begin{align}
           q(\overline x) \land b &\to \cf{wp}(s, q(\overline x)) \\

@@ -7,7 +7,7 @@
 \title{Information Flow Types - Rules}
 
 \p{
-  We define a typing judgement as 
+  We define a typing judgment as 
 }
 ##{
   \Gamma \vdash e : \tau 

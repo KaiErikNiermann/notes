@@ -69,7 +69,7 @@
     M, \sigma \vDash \phi
   }
   \p{
-    In particular we have 
+    In particular, we have 
   }
   ##{
     \exists S \subseteq M^k.\ \mathcal M, \sigma[X \mapsto S]\vDash \phi(X) \to \mathcal M, \sigma \vDash \exists X.\ \phi(X)
@@ -96,7 +96,7 @@
     M, \sigma \vDash X(t_1, t_2, \ldots, t_k) \iff (\llbracket t_1 \rrbracket_\sigma, \llbracket t_2 \rrbracket_\sigma, \ldots, \llbracket t_k \rrbracket_\sigma) \in \sigma(X)
   }
   \p{
-    If we give a sort of plain english example of why this makes sense, suppose we introduce 3 predicate symbols
+    If we give a sort of plain English example of why this makes sense, suppose we introduce 3 predicate symbols
   }
   ##{
     \begin{align}
@@ -124,7 +124,7 @@
     \forall x.\ \textrm{Student}(x) \land \textrm{PassedAllCourses}(x) \to \textrm{Eligible}(x)
   }
   \p{
-    A nice contrast we can now establish here is the idea of what it means for something to be \em{true}. For \em{predicate symbols} truth is determined by an interpretation, if an interpretation says #{I(\textrm{Student}) = \{\textrm{Jack}\}} we know #{\textrm{Student}(\textrm{Jack})} is true, i.e. Jack is a student. In contrast, \em{predicate variables} are typically characterized by constraints, meaning that, as opposed to having a fixed interpretation, their truth is defined through some combination of those fixed predicate symbols. Another way of thinking about this is that the constraint's which characterize the predicate variable really characterize a #{S \subseteq M^k} such that our constraints hold for #{S}. To relate this back to our original definition
+    A nice contrast we can now establish here is the idea of what it means for something to be \em{true}. For \em{predicate symbols} truth is determined by an interpretation, if an interpretation says #{I(\textrm{Student}) = \{\textrm{Jack}\}} we know #{\textrm{Student}(\textrm{Jack})} is true, i.e. Jack is a student. In contrast, \em{predicate variables} are typically characterized by constraints, meaning that, as opposed to having a fixed interpretation, their truth is defined through some combination of those fixed predicate symbols. Another way of thinking about this is that the constraints which characterize the predicate variable really characterize a #{S \subseteq M^k} such that our constraints hold for #{S}. To relate this back to our original definition
   }
   ##{
     S \subseteq M^k.\ M, \sigma[X \mapsto S] \vDash \phi(X) \to M, \sigma \vDash \exists X.\ \phi(X)

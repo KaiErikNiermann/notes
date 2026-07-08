@@ -31,7 +31,7 @@
   }
 }
 \p{
-  If both of the conditions hold then we we automatically have that:
+  If both of the conditions hold then we automatically have that:
 }
 ##{
   \sigma \in \mathcal R.\ P(\sigma)

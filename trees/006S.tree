@@ -1,0 +1,17 @@
+\date{2026-05-26}
+\taxon{Test}
+\import{base-macros}
+\title{Verso Lean snippets}
+\tag{test}
+
+\p{
+  Lean snippets via Verso. Defined in \code{lean/examples/Examples.lean}, referenced here by anchor name. Hover any identifier for type info.
+}
+
+\p{Successor on \code{Nat}:}
+
+\verso{nat_succ}
+
+\p{List mapping:}
+
+\verso{list_map}

@@ -7,7 +7,7 @@
 \title{Hoare triple - partial correctness}
 
 \p{
-  The basic unit of reasoning or \em{judgement} of the \strong{partial correctness} of a program is the \strong{Hoare triple} denoted as:
+  The basic unit of reasoning or \em{judgment} of the \strong{partial correctness} of a program is the \strong{Hoare triple} denoted as:
 }
 ##{
   \{P\}\ s\ \{Q\}

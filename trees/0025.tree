@@ -29,7 +29,7 @@
   \forall c.\ \forall e_1,\ldots,e_k.\ (P(e_1) \land P(e_2) \land \ldots \land P(e_k)) \to P(c(e_1, e_2, \ldots, e_k)) \to (\forall e \in \texttt{E}.\ P(e))
 }
 \p{
-  We can equivalently express this through a inference rule as follows:
+  We can equivalently express this through an inference rule as follows:
 }
 \infrule{
   \inferrule*{

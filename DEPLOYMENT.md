@@ -1,35 +1,44 @@
 # Deployment workflow
 
-This project now relies on locally built Forester output instead of performing the OCaml/Forester build inside GitHub Actions. The `output/notes/` directory must therefore be up to date and committed before you push to `main`.
+The forest is **built in CI**, not locally. GitHub Actions runs the whole build
+inside the [`forester-ci`](https://github.com/KaiErikNiermann/forester) image
+(forester binary + LaTeX toolchain + Node/pnpm) and publishes the result to
+GitHub Pages. `output/` is generated in CI and is **not** committed to git.
 
-## Build prerequisites
+## What you do
 
-The build now renders HTML from XML using `xsltproc` (libxslt). Install it once per machine.
+1. Edit trees / theme / build code.
+2. Push to `main`.
+3. `.github/workflows/gh-pages.yml` builds and deploys automatically.
 
-- macOS (Homebrew): `brew install libxslt`
-- Debian/Ubuntu: `sudo apt-get install xsltproc`
-- Fedora: `sudo dnf install libxslt`
-- Arch: `sudo pacman -S libxslt`
-- Windows: use WSL and install `xsltproc` via your WSL distro
+That's it — no local Forester or LaTeX install is required to publish.
 
-## Local pre-push hook
+## Local authoring (optional)
 
-1. Point Git to the tracked hooks directory once per clone:
+For live preview while writing you still want a local Forester:
 
-   ```bash
-   git config core.hooksPath .githooks
-   ```
+- `just new` — scaffold a note
+- `just serve` — live-reloading dev server
+- `just build` — full local build into `output/` (needs `forester` + a TeX
+  distro with `latex` + `dvisvgm` on your PATH)
 
-2. The hook runs `npm run build` (which uses your locally patched Forester binary), verifies that `output/notes/index.html` exists, and blocks the push if `output/notes/` contains unstaged changes.
+The pre-push hook (husky) runs `pnpm run check && pnpm run test:render`
+(lint + typecheck + render tests) — it does **not** build the site, since that
+is CI's job.
 
-You can always run the same logic manually with `bash .githooks/pre-push`.
+## The forester version
 
-## Build instructions
+The image tag in `.github/workflows/gh-pages.yml`
+(`ghcr.io/kaierikniermann/forester-ci:vX.Y.Z`) is the single source of truth for
+the forester version. To upgrade:
 
-- Use your custom Forester binary to generate the static site: `npm run build`. This now includes the HTML render step.
-- Stage and commit the updated `output/notes/` contents alongside your source changes.
-- Push to `main`; CI will only upload the already-built `output/notes/` directory to GitHub Pages.
+1. Tag a release in `KaiErikNiermann/forester` (`git tag vX.Y.Z && git push --tags`);
+   its `release.yml` builds and pushes the new image.
+2. Bump the tag in `gh-pages.yml`.
 
-## GitHub Actions
+## Lean / verso snippets
 
-The `.github/workflows/gh-pages.yml` workflow now simply checks for the presence of committed artifacts under `output/notes/` and uploads them. If the directory is missing or empty, the workflow fails with guidance to rerun the local build.
+Lean is not in the CI image. The `verso` stage reuses the committed
+`build/verso/*.html` fragments and `output/notes/verso-assets/*`. Regenerate
+them locally (with `lake` installed) only when you change Lean snippets; commit
+the updated fragments/assets alongside the source change.

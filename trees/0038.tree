@@ -21,10 +21,10 @@
 \solution{
   \ol{
     \li{
-      Yes, if its valid in FOL that means its valid in \em{all models} which includes those models that are #{T}-models. Hence its also valid modulo #{T}.
+      Yes, if it's valid in FOL that means it's valid in \em{all models} which includes those models that are #{T}-models. Hence, its also valid modulo #{T}.
     }
     \li{
-      No, a formula can be valid in all #{T}-models, but false in some non-#{T}-model. Hence its not necessarily valid in FOL.
+      No, a formula can be valid in all #{T}-models, but false in some non-#{T}-model. Hence, it's not necessarily valid in FOL.
     }
   }
 }

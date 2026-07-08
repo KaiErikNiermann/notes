@@ -1,0 +1,38 @@
+\title{Artifact attachments}
+\import{base-macros}
+\tag{feature-demo}
+\tag{showcase}
+\meta{venue}{Feature gallery}
+\meta{artifact-file:drafts/first-sketch.svg}{\route-asset{assets/feat-artifacts/sketch.svg}}
+\meta{artifact-note:drafts/first-sketch.svg}{The original whiteboard idea, before any formalization.}
+\meta{artifact-file:drafts/outline.md}{\route-asset{assets/feat-artifacts/outline.md}}
+
+\p{A tree can carry its \em{proto} origins the rough sketches, scans, or files a
+note grew out of as explicitly accessible artifacts. They are declared in
+frontmatter and surface in a subtle, collapsible \strong{Attachments} panel at
+the foot of the tree: a little file-tree with per-file download buttons,
+optional explanatory notes, and folder grouping. Nothing is inlined into the
+prose; the artifacts sit set apart, available but out of the way.}
+
+\p{This very note began as a rough whiteboard
+sketch\link{#artifact:drafts/first-sketch.svg}{↗} that later became the draft
+outline beside it the marker jumps to the artifact the same way a citation
+jumps to its footnote. Both files live under a \code{drafts} folder in the
+panel below, which is rendered live from this tree's own frontmatter.}
+
+\p{Declaring an artifact takes one \code{meta} line pointing at a
+\code{route-asset}; the key after \code{artifact-file:} is the display path
+(its folders drive the tree view, its basename is the download filename), and
+an optional \code{artifact-note:} on the same key adds the explainer. Reference
+one inline with \code{link} to a \code{#artifact:} fragment:}
+
+\codeblock{text}{\startverb
+\meta{artifact-file:drafts/first-sketch.svg}{\route-asset{assets/feat-artifacts/sketch.svg}}
+\meta{artifact-note:drafts/first-sketch.svg}{The original whiteboard idea.}
+
+In prose: ...began as a rough sketch \link{#artifact:drafts/first-sketch.svg}{↗} ...
+\stopverb}
+
+\p{In the local dev server you rarely write these by hand: paste an image with
+\code{CTRL+V}, confirm the popover, and the declaration is injected into this
+tree's frontmatter for you.}

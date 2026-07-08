@@ -1,4 +1,4 @@
-\date{2025-12-10}
+\date{2025-12-06}
 
 \import{base-macros}
 
@@ -25,7 +25,7 @@
     }
   }
   \p{
-    Therefore we can say that the triple is valid:
+    Therefore, we can say that the triple is valid:
   }
   ##{
     \vDash \{P\}\ s\ \{Q\} \iff P \to \texttt{wp}(s, Q)
@@ -104,7 +104,7 @@
       }
     }
     \li{
-      Using what we've learned from (1) we apply the notion of inversion, i.e. if we know a conclusion to be true, we can assert the premises of that conclusion must have also been true, this in a sense gives us the premises to use as new judgements.
+      Using what we've learned from (1) we apply the notion of inversion, i.e. if we know a conclusion to be true, we can assert the premises of that conclusion must have also been true, this in a sense gives us the premises to use as new judgments.
     }
     \li{
       Now looking at the expression

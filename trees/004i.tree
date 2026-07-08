@@ -137,7 +137,7 @@
     (i \ \mathrlap{\,/}{=}\  1)
   }
   \p{
-    Which is where the crux of our issue lies, the precondition of our Hoare triple was #{i = 1}, but clearly here to derive our sequence of assignments we must have that i is not 1, hence this hoare triple is not derivable as its also clearly not valid.
+    Which is where the crux of our issue lies, the precondition of our Hoare triple was #{i = 1}, but clearly here to derive our sequence of assignments we must have that I is not 1, hence this hoare triple is not derivable as It's also clearly not valid.
   }
   \p{
     A simpler approach at establishing the same idea is by just directly working backwards

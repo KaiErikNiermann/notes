@@ -7,7 +7,7 @@
 \title{Well-order (well ordering)}
 
 \p{
-  Given a [poset](002d) #{(X, \leq)}, we say that the relation #{\leq} is a \em{well-order} and that #{X} is \em{well-ordered} by #{\leq} iff. every non-empty subset #{S \subseteq X} has a least element; that is, there exists an element #{m \in S} such that for all #{s \in S}, #{m \leq s}. So, formally we have: [(1)](gallier-cis160-chapter5)
+  Given a [poset](002d) #{(X, \leq)}, we say that the relation #{\leq} is a \em{well-order} and that #{X} is \em{well-ordered} by #{\leq} iff every non-empty subset #{S \subseteq X} has a least element; that is, there exists an element #{m \in S} such that for all #{s \in S}, #{m \leq s}. So, formally we have: [(1)](gallier-cis160-chapter5)
 }
 ##{
   \forall (S : \mathcal{P}(X)).\ S \neq \emptyset \implies (\exists m \in S.\ \forall s \in S.\ m \leq s)

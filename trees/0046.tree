@@ -36,7 +36,7 @@
     \sigma_1 = \{x \mapsto 3, y \mapsto 1\}
   }
   \p{
-    this does correctly entail our precondition, i.e. we have #{\sigma_1 \vDash P} as necessary by virtue of vacous truth, then executing the statement we have:
+    This does correctly entail our precondition, i.e. we have #{\sigma_1 \vDash P} as necessary by virtue of vacuous truth, then executing the statement we have:
   }
   ##{
     \langle x := 4, \sigma_1 \rangle \Downarrow \sigma_2
@@ -106,13 +106,13 @@
     }
   }
   \p{
-    Let's link the proof of soundness back to the example, so in our inital state #{\sigma_1} we have that:
+    Let's link the proof of soundness back to the example, so in our initial state #{\sigma_1} we have that:
   }
   ##{
     \sigma(x) \ \mathrlap{\,/}{=}\ \sigma(y) \equiv 3 \ \mathrlap{\,/}{=}\ 4
   }
   \p{
-    Since this means that the equality #{x = 4} is false we have that implication so the precondition #{P} is true. This corresponds precisely to the second case where #{\sigma(e) \ \mathrlap{\,/}{=}\ \sigma(x)}. The issue we can then see which naturally follows is that in the new state clearly its the case that:
+    Since this means that the equality #{x = 4} is false we have that implication so the precondition #{P} is true. This corresponds precisely to the second case where #{\sigma(e) \ \mathrlap{\,/}{=}\ \sigma(x)}. The issue we can then see which naturally follows is that in the new state clearly it's the case that:
   }
   ##{
     \sigma_2 = \{x \mapsto 4, y \mapsto 1\} \nvDash (x = y)
@@ -127,6 +127,6 @@
     \vdash \{P[x \mapsto e]\}\ x := e\ \{P\}
   }
   \p{
-    we can notice here that by removing the consequent of the logical implication we ensure that if the assertion of x being substituted / being equal to the expression e \em{before} the execution of the statement doesn't hold, then it correctly means that we indeed cannot suggest that after an assignment our assertion #{P} is somehow correct.
+    We can notice here that by removing the consequent of the logical implication we ensure that if the assertion of x being substituted / being equal to the expression e \em{before} the execution of the statement doesn't hold, then it correctly means that we indeed cannot suggest that after an assignment our assertion #{P} is somehow correct.
   }
 }

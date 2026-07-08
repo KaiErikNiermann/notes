@@ -1,0 +1,154 @@
+\date{2026-02-11}
+\import{base-macros}
+\taxon{VU-AL-2026}
+
+\title{Lecture 2}
+
+\subtree[006q]{
+  \title{State in a [frame](006j)}
+  \p{
+    A state in a frame is just an element of the set of possible worlds #{w \in W} in the frame #{\mathcal F = \{W, R\}}
+  }
+  \subtree[006r]{
+    \taxon{Example}
+    \title{Examples of states in a frame}
+    \p{
+      To provide some examples of states in a frame let's look at the diagram from Lecture 1 again
+    }
+    \ltexfig{
+      https://q.uiver.app/#q=WzAsNCxbMCwxLCIxIl0sWzEsMCwiMiJdLFsyLDEsIjQiXSxbMSwyLCIzIl0sWzAsMV0sWzEsMl0sWzAsM10sWzMsMl0sWzAsMl0sWzEsMV1d
+    }{
+      \[\begin{tikzcd}
+        & 2 & \\
+        1 && 4 \\
+        & 3
+        \arrow[from=1-2, to=1-2, loop, in=55, out=125, distance=10mm]
+         \arrow[from=1-2, to=2-3]
+         \arrow[from=2-1, to=1-2]
+         \arrow[from=2-1, to=2-3]
+         \arrow[from=2-1, to=3-2]
+         \arrow[from=3-2, to=2-3]
+      \end{tikzcd}\]
+    }
+    \p{
+      There are various states we can assess in this frame diagram
+    }
+    \ul{
+      \li{
+        \blockquote{
+          4 is the only state in which #{\Box \bot} is true
+        }
+        \strong{Explanation}: We know this since the local truth for the \em{necessarily} modality is defined as
+        ##{
+          (\mathcal M, w) \vDash \Box \phi \iff \forall v : (wRv) \to (\mathcal M, v) \vDash \phi
+        }
+        we know this means that #{\Box \bot} is true at a state only if it's true at all successor states. As we can trivially observe that the point #{4} has no successors or target nodes, what this means is that we have vacuous truth.
+      }
+      \li{
+        \blockquote{
+          3 is the only state in which #{\Diamond \Box \bot \land \Box \Box \bot} is true
+        }
+        \strong{Explanation}: We can break this down into the two conjuncts
+        \ol{
+          \li{
+            #{\Diamond \Box \bot} - we have both modalities here, we can read this as: there exists some successor for whom all successors are true. Here again our vacuous condition kicks in, 3 indeed has some successor namely 4, and we know from the earlier example that 4 is vacuously true for #{\Box \bot}.
+          }
+          \li{
+            #{\Box \Box \bot} - This should hopefully be quite straightforward by now as its just equivalent to the above formula given that there only is one successor to 3.
+          }
+        }
+      }
+      \li{
+        \blockquote{
+          1 is the only state in which #{\Diamond (\Diamond \Box \bot \land \Box \Box \bot)} is true
+        }
+        Given what we know from the prior formula this should be relatively straightforward, we know that entire inner section is only true in state/world 3 hence going back to our definition of local truth for #{\Diamond}
+        ##{
+          (\mathcal M, w) \vDash \Diamond \phi \iff \exists v: (w R v) \land (\mathcal M, v) \vDash \phi
+        }
+        we clearly only have #{(\mathcal M, 1) \vDash \Diamond(\phi)} where #{v = 3}.
+      }
+      \li{
+        \blockquote{
+          2 is the only state in which #{\Diamond \Diamond \top \land \neg \Diamond (\Diamond \Box \bot \land \Box \Box \bot)} is true
+        }
+        Probably makes sense to again break this into the two sides of the conjunct
+        \ol{
+          \li{
+            This part seems interesting, if we use our expression again we have
+            ##{
+              \exists v: (w R v) \land (\exists v': (v R v') \land \top)
+            }
+            in plain English I'm fairly certain this is basically just asking which state/world has to successors as the final #{(\mathcal M, v') \vDash \top} is just a tautology, here we technically have 2 states for which this holds, but due to the second conjunct it filters things down to just the state 2. (I think)
+          }
+          \li{
+            This seems less interesting as we can just infer it's an exclusion of 1 since that's the only state in which that expression is true.
+          }
+        }
+      }
+    }
+  }
+  \subtree[006s]{
+    \taxon{Definition}
+    \title{Local truth: some more examples}
+    \p{
+      To expand on some more examples of local truth we can enumerate them below
+    }
+    ##{
+      \begin{align*}
+      (\mathcal M, w) \nvDash \Box p & \iff \exists v \in W : (wRv) \land (\mathcal M, v) \nvDash p \\
+      (\mathcal M, w) \nvDash \Diamond p & \iff \forall v \in W  : (wRv) \land (\mathcal M, v) \nvDash p \\
+      (\mathcal M, w) \vDash \top & \iff \textrm{always} \\
+      (\mathcal M, w) \vDash \bot & \iff \textrm{never} \\
+      (\mathcal M, w) \vDash \Diamond \top & \iff \exists v \in W : (wRv) \\
+      (\mathcal M, w) \vDash \Box \bot &\iff \ \mathrlap{\,/}{\exists}\ v \in W : (wRv) \\
+      (\mathcal M, w) \nvDash \Diamond \bot &\iff \textrm{always} \\
+      (\mathcal M, w) \vDash \Box \top &\iff \textrm{always} \\
+      (\mathcal M, w) \vDash \Diamond \bot &\iff \textrm{never}
+      \end{align*}
+    }
+    \p{
+      The sort of premise I think when it comes to modalities prepended to #{\bot} and #{\top} I think is more or less just analogous to asking if something does or doesn't have a successor. Hence, why #{(\mathcal M, w) \nvDash \Diamond \bot} for example is always true, the line of reasoning being
+      \ol{
+        \li{
+          The model "possibly" needs some successor (where the formula holds)
+        }
+        \li{
+          #{\bot} definitionally holds nowhere
+        }
+        \li{
+          Hence, it's never the case we have a successor where the formula is true as the formula is just itself #{\bot}
+        }
+      }
+    }
+  }
+  \subtree[006t]{
+    \taxon{Definition}
+    \title{Characterizing and distinguishing states}
+    \p{
+      We say that a formula \em{characterizes} a state #{x} in a model #{\mathcal{M}} if #{\phi} is true in #{x} but not in the other states of #{\mathcal{M}}. We say that a formula #{\phi} \em{distinguishes} a state #{x} from a state #{y} in a model #{\mathcal{M}} if #{\phi} is true in #{x} but not in #{y}.
+    }
+    \subtree[006u]{
+      \taxon{Example}
+      \title{Modal formulas characterizing states}
+      \p{
+        As an example question let's say we want to find for every point #{i} a characterizing formula #{\phi_i}, that is, a formula
+        ##{
+          (\mathcal{M}, i) \vDash \phi_j \iff i = j.\ \forall i, j \in \{1, 2, 3, 4\}
+        }
+      }
+      \ltexfig{
+        https://q.uiver.app/#q=WzAsNCxbMCwwLCIxIl0sWzEsMCwiMiJdLFsxLDEsIjMiXSxbMCwxLCI0Il0sWzAsMV0sWzEsMl0sWzMsMl0sWzAsM11d
+      }{
+        \[\begin{tikzcd}
+          1 & 2 \\
+          4 & 3
+          \arrow[from=1-1, to=1-2]
+          \arrow[from=1-1, to=2-1]
+          \arrow[from=1-2, to=2-2]
+          \arrow[from=2-1, to=2-2]
+        \end{tikzcd}\]
+      }
+    }
+  }
+}

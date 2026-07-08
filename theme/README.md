@@ -1,6 +1,6 @@
 # Theme Layout
 
-The theme now keeps runtime artifacts (the files Forester copies into `output/`) at the top level, while the build tooling lives under `dev/`.
+Runtime artifacts (the files Forester copies into `output/`) live at the top level; build tooling lives under `dev/`.
 
 ```text
 theme/
@@ -8,20 +8,27 @@ theme/
 ├─ dev/
 │  ├─ package.json + lockfile
 │  ├─ node_modules/
-│  ├─ javascript-source/ … unbundled JS
-│  └─ bundle-js.sh … esbuild entrypoint
+│  └─ javascript-source/ … unbundled JS
 ├─ fonts/ … static font files consumed by style.css
-├─ *.xsl … templates that Forester loads directly
 ├─ *.css … compiled stylesheet + KaTeX skin
 ├─ forester.js … bundled browser script
-├─ *.png / *.ico … icon set served from the root
-└─ bundle-js.sh … wrapper that invokes `dev/bundle-js.sh`
+└─ *.png / *.ico … icon set served from the root
 ```
+
+**Presentation (HTML rendering)** is the typed TS renderer under
+`scripts/build/render/` — it transforms Forester's compiled `<fr:tree>` XML into
+HTML, replacing the former XSLT 1.0 stylesheets. Edit the renderer modules
+there (with `__tests__/` for the numbering/date/ref logic); the `xslt` build
+stage runs it over every `output/notes/<id>/index.xml`.
 
 ## Working on the theme
 
-1. `cd theme` and run `./bundle-js.sh` to (re)build `forester.js`. This calls the script under `dev/` so existing workflows stay the same.
-2. Modify source files inside `theme/dev/javascript-source/` and re-run the bundler when needed.
-3. Runtime files (`*.xsl`, CSS, fonts, icons) stay untouched at the top level so Forester can pick them up without reconfiguration.
-
-The separation keeps the editable sources and heavy dependencies contained in `dev/`, making the rest of the theme folder easier to browse.
+1. **Markup/layout:** edit `scripts/build/render/*.ts`. The full forest is
+   re-rendered on `pnpm run build`; unit tests run via
+   `pnpm exec tsx --test scripts/build/render/__tests__/`.
+2. **Client JS:** run `pnpm run bundle` from the repo root to (re)build
+   `forester.js` (the `bundle-js` stage drives esbuild over
+   `theme/dev/javascript-source/forester.ts`). Edit sources under
+   `theme/dev/javascript-source/`.
+3. **CSS / fonts / icons** stay at the top level so Forester copies them into
+   `output/` without reconfiguration.

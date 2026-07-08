@@ -1,0 +1,37 @@
+\title{Graph containment modes}
+\import{base-macros}
+
+\p{
+  Three containment strategies for inline force graphs, one figure
+  (\code{figures/force-graph.ts}) driven by a \code{mode} param. Each addresses a
+  different edge case cleanly.
+}
+
+\subtree{
+  \title{contain — bounded box (default)}
+  \p{
+    Small/medium graphs. Hard walls keep every node inside the frame, so you
+    \em{cannot} drag a node off-canvas — try it. No transform, drag is 1:1.
+  }
+  \d3p{force-graph}{nodes=22; mode=contain}
+}
+
+\subtree{
+  \title{fit — auto-frame a large layout}
+  \p{
+    A 130-node graph that would massively overflow a fixed box. The scene is
+    continuously scaled, so the whole graph stays framed as it settles — never
+    clipped, no manual sizing. Nodes are still draggable.
+  }
+  \d3p{force-graph}{nodes=130; mode=fit; height=460}
+}
+
+\subtree{
+  \title{zoom — explore a dense graph}
+  \p{
+    A 170-node graph. It frames itself once on settle, then scroll to zoom and
+    drag the background to pan. Use this when even a fitted graph is too dense to
+    read at a glance.
+  }
+  \d3p{force-graph}{nodes=170; mode=zoom; height=480}
+}

@@ -5,62 +5,392 @@
 \taxon{VU-AL-2026}
 
 \title{Lecture 1}
- 
+
 \subtree[0064]{
   \title{Basic modal logic}
-  
+
+  \p{
+    The central two extensions of basic modal logic introduces to propositional logic are the modal operators 
+  }
+  \ol{
+    \li{
+      #{\Box} - which is read as "necessarily", (also "always, known, provable, etc.")
+    }
+    \li{
+      #{\Diamond} - which is read as "possibly", (also "sometimes considered possible")
+    }
+  }
+
   \subtree[006g]{
     \taxon{Example}
     \title{Examples of modal patterns}
-    
-    \p{Content}
+
+    \p{
+      Below are some examples of patterns with #{\Box} expressing "necessity"
+    }
+    \ul{
+      \li{
+        "Possibly #{p}"
+        ##{
+          \Diamond p
+        }
+      }
+      \li{
+        "If #{p} then necessarily #{q}"
+        ##{
+          p \to \Box q
+        }
+      }
+      \li{
+        "Whatever is necessary is possible"
+        ##{
+          \Box p \to \Diamond p
+        }
+      }
+      \li{
+        "Whatever is possible is necessarily possible"
+        ##{
+          \Diamond p \to \Box \Diamond p
+        }
+      }
+    }
+    \p{
+      We can also show some modal patterns with #{\Box} meaning "I know"
+    }
+    \ul{
+      \li{
+        "I know that someone #{x} appreciates me #{m}"
+        ##{
+          \Box \exists x. A(x, m) \quad \textrm{or} \quad \exists x. \Box A(x, m)
+        }
+      }
+      \li{
+        "Positive vs negative introspection"
+        ##{
+          \Box p \to \Box \Box p \quad \textrm{and} \quad  \neg \Box p \to \Box \neg \Box p
+        }
+        This might not be immediately intuitive, so to clarify, we can rephrase the first formula as \blockquote{
+          "If I know #{p} then I know that I know #{p}"
+        } And the second formula as \blockquote{
+          "If I don't know #{p} then I know that I don't know #{p}"
+        } The first formula is called positive introspection, and the second formula is called negative introspection.
+      }
+    }
+    \p{
+      Finally, we have some modal patterns with #{\Box} meaning "provable"
+    }
+    \ul{
+      \li{
+        Loeb's formula - "if it's provable that if #{p} is provable then #{p} is true, then #{p} is provable"
+        ##{
+          \Box (\Box p \to p) \to \Box p
+        }
+      }
+      \li{
+        Veridicality - "if #{p} is provable then #{p} is true"
+        ##{
+          \Box p \to p
+        } 
+      }
+    }
   }
 
   \subtree[006i]{
     \taxon{Definition}
     \title{Formulas of modal propositional logic}
-    
-    \p{Definition text...}
+
+    \p{
+      The syntax of modal propositional logic is an extension of the syntax of [propositional logic](0004) as introduced prior, in short it simply extends the grammar of propositional logic with the addition of the modal operators #{\Box} and #{\Diamond}. Formally we can express this as follows.
+    }
+    \grammar{
+      F : Prop ::= 
+      | $p \in Var$ : variable
+      | $\bot$ : false
+      | $\top$ : true 
+      | $\neg F$ : negation 
+      | $F \land F$ : conjunction 
+      | $F \lor F$ : disjunction 
+      | $F \rightarrow F$ : implication
+      | $\Box F$ : necessity
+      | $\Diamond F$ : possibility
+    }
+    \p{
+      The binding order convention can be expressed as
+    }
+    ##{
+      (\neg, \Diamond, \Box)\ >\ (\land, \lor)\ >\ (\to)
+    }
   }
-  
+
   \subtree[006j]{
     \taxon{Definition}
     \title{Frame}
-    
-    \p{Definition text...}
+
+    \p{
+      A frame is a pair #{\mathcal F = (W, R)} where
+    }
+    \ul{
+      \li{
+        #{W} is a nonempty set of \em{worlds} or \em{states}
+      }
+      \li{
+        #{R} is a binary relation on #{W}, called the \em{accessibility relation} or \em{transition relation}
+      }
+    }
 
     \subtree[006k]{
       \taxon{Example}
       \title{Frame examples}
-      
-      \p{Example content...}
+
+      \p{
+        Say we have the set of states be just a set of numbers 
+      }
+      ##{
+        W = \{1, 2, 3, 4\}
+      }
+      \p{
+        The accessibility relations would then be some subset of the Cartesian product of the set of states with itself, i.e. #{R \subseteq W \times W}
+      }
+      ##{
+        R = \{(1, 2), (1, 4), (2, 4), (1, 3), (3, 4), (2, 2)\}
+      }
+      \p{
+        When drawn as a graph we have the following structure
+      }
+      \ltexfig{https://q.uiver.app/#q=WzAsNCxbMCwxLCIxIl0sWzEsMCwiMiJdLFsyLDEsIjQiXSxbMSwyLCIzIl0sWzAsMV0sWzEsMl0sWzAsM10sWzMsMl0sWzAsMl0sWzEsMV1d
+      }{
+        \[\begin{tikzcd}
+          & 2 & \\
+          1 && 4 \\
+          & 3
+          \arrow[from=1-2, to=1-2, loop, in=55, out=125, distance=10mm]
+          \arrow[from=1-2, to=2-3]
+          \arrow[from=2-1, to=1-2]
+          \arrow[from=2-1, to=2-3]
+          \arrow[from=2-1, to=3-2]
+          \arrow[from=3-2, to=2-3]
+        \end{tikzcd}\]
+      }
+      \p{
+        One note we can make here is that a frame in this context can also be understood as a generalized [poset](002d) where the accessibility relation is a generalized order relation, and the worlds are the elements of the poset. In that a poset is simply a frame with the constraint that the relation must be reflexive, transitive, and antisymmetric. 
+      }
     }
   }
 
   \subtree[006l]{
     \taxon{Definition}
     \title{Model and pointed model}
-    
+
+    \p{
+      A model is a pair #{\mathcal M = (\mathcal F, V)} where
+    }
+    \ul{
+      \li{
+        #{\mathcal F} is a frame
+      }
+      \li{
+        #{V} is a valuation function #{V : W \to \mathcal P(\cf{Var})} that assigns to each world #{w \in W} a set of propositional variables that are true in that world. Alternatively, we can also write it as the following mapping
+        ##{
+          V : \cf{Var} \to W \to \{0, 1\}
+        }
+      }
+    }
+
+    \p{
+      A \em{pointed model} is a pair #{(\mathcal M, w)} where #{\mathcal M} is a model and #{w \in W} is a world in the model. The pointed model is used to evaluate the truth of formulas at a specific world in the model.
+    }
     \subtree[006m]{
       \taxon{Example}
       \title{Model example}
-      
-      \p{Example content...}
+
+      \p{
+        As an example let's again take our earlier frame 
+      }
+      ##{
+        W = \{1, 2, 3, 4\} \quad R = \{(1, 2), (1, 4), (2, 4), (1, 3), (3, 4), (2, 2)\}
+      }
+      \p{
+        and let's introduce the following valuation function
+      }
+      ##{
+        V = \{p \mapsto \{2, 4\}, q \mapsto \{3, 4\}\}
+      }
+      \p{
+        We can then extend our earlier graph to include the valuation
+      }
+
+      \ltexfig{https://q.uiver.app/#q=WzAsNyxbMCwxLCIxIl0sWzEsMCwiMiJdLFsyLDEsIjQiXSxbMSwyLCIzIl0sWzMsMCwicCJdLFszLDEsInAsIHEiXSxbMywyLCJxIl0sWzAsMV0sWzEsMl0sWzAsM10sWzMsMl0sWzEsMV0sWzQsMSwiIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibWFwcyB0byJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSwyLCIiLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtYXBzIHRvIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs2LDMsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1hcHMgdG8ifSwiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsMl1d}{
+      \[\begin{tikzcd}
+        & 2 && p \\
+        1 && 4 & {p, q} \\
+        & 3 && q
+        \arrow[from=1-2, to=1-2, loop, in=55, out=125, distance=10mm]
+        \arrow[from=1-2, to=2-3]
+        \arrow[dashed, maps to, from=1-4, to=1-2]
+        \arrow[from=2-1, to=1-2]
+        \arrow[from=2-1, to=2-3]
+        \arrow[from=2-1, to=3-2]
+        \arrow[dashed, maps to, from=2-4, to=2-3]
+        \arrow[from=3-2, to=2-3]
+        \arrow[dashed, maps to, from=3-4, to=3-2]
+      \end{tikzcd}\]
+      }
     }
   }
-
 
   \subtree[006n]{
     \taxon{Definition}
     \title{Local truth}
-    
-    \p{Definition text...}
+
+    \p{
+      The truth of a formula in a model is evaluated at a specific world in the model, this is called the local truth of the formula. Formally we can define the local truth of a formula #{\phi} at a world #{w} in a model #{\mathcal M = (\mathcal F, V)} as follows.
+    }
+    \ul{
+      \li{
+        \em{Propositional variable} 
+        ##{
+          (\mathcal M, w) \vDash p \iff V(p, w) = 1
+        }
+      }
+      \li{
+        \em{False and true} 
+        ##{
+          (\mathcal M, w) \vDash \bot \iff \textrm{never} \quad (\mathcal M, w) \vDash \top \iff \textrm{always}
+        }
+      }
+      \li{
+        \em{Negation} 
+        ##{
+          (\mathcal M, w) \vDash \neg \phi \iff (\mathcal M, w) \nvDash \phi
+        }
+      }
+      \li{
+        \em{Connectives}
+        ##{
+          \begin{align*}
+          (\mathcal M, w) \vDash \phi \land \psi & \iff (\mathcal M, w) \vDash \phi \land (\mathcal M, w) \vDash \psi \\
+          (\mathcal M, w) \vDash \phi \lor \psi & \iff (\mathcal M, w) \vDash \phi \lor (\mathcal M, w) \vDash \psi \\
+          (\mathcal M, w) \vDash \phi \to \psi & \iff (\mathcal M, w) \nvDash \phi \lor (\mathcal M, w) \vDash \psi \\
+          \end{align*}
+        }
+      }
+      \li{
+        \em{Modal quantifiers}
+        ##{
+          \begin{align*}
+          (\mathcal M, w) \vDash \Box \phi & \iff \forall v : (w R v) \to (\mathcal M, v) \vDash \phi \\
+          (\mathcal M, w) \vDash \Diamond \phi & \iff \exists v : (w R v) \land (\mathcal M, v) \vDash \phi
+          \end{align*}
+        }
+      }
+    }
 
     \subtree[006o]{
-      \taxon{Example}
+      \taxon{Quiz}
       \title{Local truth in a model}
-      
-      \p{Example content...}
+
+      \p{
+        Looking at the [earlier example](006l) we can evaluate the local truth of some formulas
+      }
+      \ol{
+        \li{
+          Where do we have
+          ##{
+            \Box p
+          }
+          meaning \em{p is known} or \em{p is necessary}?
+        }
+        \li{
+          Where do we have 
+          ##{
+            \Diamond \Box p
+          }
+          meaning \em{it is possible that p is known} or \em{it is possible that p is necessary}?
+        }
+        \li{
+          Where do we have 
+          ##{
+            \Box (q \to p)
+          }
+          meaning \em{it is known that if q then p} or \em{it is necessary that if q then p}
+        }
+      }
+      \solution{
+        \ol{
+          \li{
+            We can break this down step by step, we start with the formula 
+            ##{
+              (\mathcal M, w) \vDash \Box p \iff \forall v : (w R v) \to (\mathcal M, v) \vDash p
+            }
+            furthermore we know that #{(\mathcal M, v) \vDash p \iff V(p, w) = 1}, if we enumerate through the worlds we have that 
+            ##{
+              \begin{align*}
+                V(p, 1) &= 0 \\
+                V(p, 2) &= 1 \\
+                V(p, 3) &= 0 \\
+                V(p, 4) &= 1 \\
+              \end{align*}
+            } 
+            In plain English we can read the definition of local truth here as the requirement that for a formula to be known in a specific world or node we must that all target nodes provide a valuation for #{p}. The only #{w} and #{v} which satisfy this are #{w = 2} and #{v = 4} hence we have that 
+            ##{
+              (\mathcal M, 2) \vDash \Box p
+            }
+          }
+          \li{
+            This is a bit more interesting because we are composing two modalities here, writing out our requirement It's 
+            ##{
+              \begin{align*}
+               (\mathcal M, w) \vDash \Diamond \Box p &\iff \exists v : (wRv) \land (M, v) \vDash \Box p  \\
+               & \iff \exists v : (wRv) \land \forall v' : (vRv') \to (\mathcal M, v') \vDash p
+              \end{align*}
+            }
+            So again translating this into plain English what we want to find in our accessibility graph is 
+            \ol{
+              \li{
+                The existence of some arrow from our initial world #{w} to some world #{v} where...
+              }
+              \li{
+                forall worlds #{v'} accessible from #{v} we have a valuation for #{p}
+              }
+            }
+            to be honest I don't know (yet at least) if there are any tricks here beyond simple just observation of the graph. Since our answer is about #{p} we constrain ourselves to those nodes near #{p} where we can observe the following two subgraphs which exhibit our desired relationship 
+            ##{
+              2 \to 2 \to 4 \quad \textrm{and} \quad 1 \to 2 \to 4
+            }
+          }
+          \li{
+            Here once again we are just dealing with a compound formula
+            ##{
+              \begin{align*}
+                (\mathcal M, w) \vDash \Box (q \to p)
+                & \iff \exists v : (w R v) \land (\mathcal M, v) \vDash (q \to p) \\
+                & \iff \exists v : (w R v) \land (\mathcal M, v) \nvDash q \lor (\mathcal M, v) \vDash p
+              \end{align*}
+            }
+            We can state the requirement here as there must exist some target node #{v} where 
+            \ol{
+              \li{
+                Either there is no valuation for #{q} at this node ...
+              } 
+              \li{
+                or there is some valuation for #{p} at this node.
+              }
+            }
+            Similarly to the point above I'm not sure how much strategy there really is in this task, just looking at the graph we can assess where we find these patterns, which yields the following subgraphs
+            \ul{
+              \li{
+                #{1 (= w) \to 2 (= v) \implies (\mathcal M, 1) \vDash \Box (q \to p)} 
+              }
+              \li{
+                #{2 (= w) \to 4 (= v) \implies (\mathcal M, 2) \vDash \Box (q \to p)}
+              }
+              \li{
+                #{3 (= w) \to 4 (= v) \implies (\mathcal M, 3) \vDash \Box (q \to p)}
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -68,8 +398,13 @@
 \subtree[0065]{
   \taxon{Definition}
   \title{Dualities}
-  
-  \p{Content}
+
+  \p{
+    The same way we have dualities between the universal #{\forall} and existential #{\exists} quantifiers in first-order logic, we have dualities between the modal operators #{\Box} and #{\Diamond}.
+  }
+  ##{
+    \Diamond \phi \equiv \neg \Box \neg \phi \quad \textrm{and} \quad \Box \phi \equiv \neg \Diamond \neg \phi
+  }
 }
 
 \subtree[0068]{
@@ -77,38 +412,315 @@
   \subtree[0066]{
     \taxon{Definition}
     \title{Syntax of prop1}
-    
-    \p{Content}
+
+    \p{
+      There are 3 main parts of prop1, \em{propositional variables}, \em{logical connectives}, and \em{formulas}.
+    }
+    \ol{
+      \li{
+        \strong{propositional variables} - We assume some countable infinite set, commonly denoted \cf{Var} of variables #{p_0, p_1, p_2, \ldots} often written #{p, q, r, \ldots} (as numeric subscripts kinda suck ass.)
+      }
+      \li{
+        \strong{logical connectives} - We in addition use a set of logical connectives, such as #{\neg}, #{\land}, #{\lor}, #{\rightarrow}, and #{\leftrightarrow}
+      }
+      \li{
+        \strong{formulas} - These are built from propositional variables and logical connectives in a recursive way.
+        \grammar{
+          F : Prop ::= 
+          | $p \in Var$ : variable
+          | $\bot$ : false
+          | $\top$ : true 
+          | $\neg F$ : negation 
+          | $F \land F$ : conjunction 
+          | $F \lor F$ : disjunction 
+          | $F \rightarrow F$ : implication
+        }
+      }
+    }
   }
 
   \subtree[0067]{
     \taxon{Definition}
     \title{Semantics of prop1}
-    
-    \p{Content}
+
+    \p{
+      When talking about semantics the main idea is that we assign meaning to some syntax via some \em{interpretation} of its symbols. Also called a \em{valuation} or just in the literal sense a mapping of symbol -> meaning.
+    }
+    ##{
+      v : \cf{Var} \to \{0, 1\}
+    }
+    \p{
+      These kinds of semantics are understandably also called environmental semantics as our symbol; i.e. propositional variable; has meaning in some environment #{v}, often we disambiguate between the symbol #{p} and its meaning #{\llbracket p \rrbracket_v}, in full we have.
+    }
+    ##{
+      \begin{align*}
+      \llbracket p \rrbracket_v & = v(p) \\
+      \llbracket \bot \rrbracket_v & = 0 \\
+      \llbracket \top \rrbracket_v & = 1 \\
+      \llbracket \neg \phi \rrbracket_v & = 1 - \llbracket \phi \rrbracket_v \\
+      \llbracket \phi \star \psi \rrbracket_v & = \llbracket \phi \rrbracket_v \star \llbracket \psi \rrbracket_v
+      \end{align*}
+    }
+    \p{
+      Where #{\star} is given by the following   truth table
+    }
+    \texmath{
+      \begin{array}{cc|ccc}
+        \multicolumn{2}{c|}{\textrm{inputs}} & \multicolumn{3}{c}{\textrm{outputs}} \\
+        x & y & x \land y & x \lor y & x \rightarrow y \\
+        \hline
+        0 & 0 & 0 & 0 & 1 \\
+        0 & 1 & 0 & 1 & 1 \\
+        1 & 0 & 0 & 1 & 0 \\
+        1 & 1 & 1 & 1 & 1 \\
+      \end{array}
+    }
+    \p{
+      Finally, there is some annoying terminology about the classification of formulas by their truth-ness w.r.t some model. We can summarize this classification via the following set of cases.
+    }
+    ##{
+      \cf{class}(F) = \begin{cases}
+        \textrm{satisfying} & \textrm{if } \exists v : v \vDash F \\
+        \textrm{falsifying} & \textrm{if } \exists v : v \nvDash F \\
+        \textrm{valid} & \textrm{if } \forall v : v \vDash F \\
+        \textrm{unsatisfiable} & \textrm{if } \forall v : v \nvDash F \\
+        \textrm{contingent} & \textrm{otherwise}
+      \end{cases}
+    }
+    \p{
+      Here the notation #{\vDash} called "models" simply denotes if a certain formula is true under a model i.e. we have that:
+    }
+    ##{
+      v \vDash F \iff \llbracket F \rrbracket _v = 1
+    }
+    \p{
+      Additionally, we denote the idea of a \em{consequence relationship} between formulas via the following notation:
+    }
+    ##{
+      F_1, \ldots, F_n \vDash G \iff \forall v : (v \vDash F_1 \land \ldots \land v \vDash F_n) \to v \vDash G
+    }
+    \p{
+      Finally, an important shorthand is that of a valid formula, also called a \em{tautology}
+    }
+    ##{
+      \vDash F \iff \forall v : v \vDash F
+    }
   }
   \subtree[006c]{
     \taxon{Example}
     \title{prop1 example}
-    
-    \p{Example content...}
+
+    \p{
+      Are the following formulas correct?
+    }
+    \ol{
+      \li{
+        #{\vDash (p \to q) \land (q \to p)}
+      }
+      \li{
+        #{\Gamma \nvDash F \to \Gamma \vDash \neg F}
+      }
+      \li{
+        #{\Gamma \vDash F \lor G \to \Gamma \vDash F \lor \Gamma \vDash G}
+      }
+    }
+    \solution{
+      \ol{
+        \li{
+          \strong{Yes} - So the question asks for all assignments to #{p} and #{q} does this formula hold. It's a disjunction, so we only need one side to be true. From what we know about implication it might already be trivial here that any assignment of true/false will always yield in either side being true hence the formula holds regardless of assignment.
+        }
+        \li{
+          \strong{No} - This is asking if in a context gamma we have a formula #{F} that evaluates to false, does this imply that its negation is automatically true in that context? No, because the negation of a formula is not necessarily true in the same context where the original formula is false. For example let's take 
+          \ul{
+            \li{
+              #{\Gamma = \emptyset}
+            }
+            \li{
+              #{F = p}
+            }
+          }
+          Here if we had #{\emptyset \vDash p} it would mean 
+          ##{
+            \emptyset \vDash p \iff \forall v (v \vDash \emptyset) \to v \models p
+          }
+          but #{v \vDash \emptyset} is always true since there are no formulas in the context to be satisfied, so we have that #{\emptyset \vDash p} is equivalent to #{\forall v : v \vDash p}, which is not the case since there are some assignments of #{p} that evaluate to false, i.e. if we literally say #{v(p) = \cf{false}} then we have that #{\emptyset \nvDash p} being true. Now we can apply the same inverted logic to the negation of #{p} in that we choose a valuation #{v(p) = \cf{true}} which would make #{\emptyset \nvDash \neg p} true, hence we have that #{\Gamma \nvDash F} does not imply #{\Gamma \vDash \neg F}. 
+        }
+        \li{
+          \strong{No} - This is asking if in a context gamma we have a formula #{F \lor G} that evaluates to true, does this imply that either #{F} or #{G} is automatically true in that context? No, because the disjunction of two formulas can be true even if neither of the individual formulas is true. For example let's take 
+          \ul{
+            \li{
+              #{\Gamma = \emptyset}
+            }
+            \li{
+              #{F = p}
+            }
+            \li{
+              #{G = \neg p}
+            }
+          }
+          Here we have that #{\emptyset \vDash p \lor \neg p} is true since for any valuation of #{p}, either #{p} is true or its negation is true. However, neither #{\emptyset \vDash p} nor #{\emptyset \vDash \neg p} is true since there are valuations where #{p} is false and valuations where #{p} is true, so we have that #{\emptyset \nvDash p} and #{\emptyset \nvDash \neg p}. Hence, we have that #{\Gamma \vDash F \lor G} does not imply #{\Gamma \vDash F} or #{\Gamma \vDash G}.
+        }
+      }
+    }
+
   }
 
   \subtree[006e]{
     \title{Soundness and completeness}
-    
-    \p{Content}
+
+    \p{
+      Soundness and completeness are two fundamental properties of a logical system that relate the syntactic notion of provability to the semantic notion of truth. In other words, with any logical system there are two main questions we can ask about it:
+    }
+    \ul{
+      \li{
+        \em{Soundness} - If a formula is provable in the system, does it mean that it is true in all models of the system? In other words, if #{\Gamma \vdash F} then does it imply that #{\Gamma \vDash F}? Fully written out we have 
+        ##{
+          \phi_1, \ldots, \phi_n \vdash F \to \forall v : (v \vDash \phi_1 \land \ldots \land v \vDash \phi_n) \to v \vDash F
+        }
+      }
+      \li{
+        \em{Completeness} - If a formula is true in all models of the system, does it mean that it is provable in the system? In other words, if #{\Gamma \vDash F} then does it imply that #{\Gamma \vdash F}? Fully written out we have
+        ##{
+          \forall v : (v \vDash \phi_1 \land \ldots \land v \vDash \phi_n) \to v \vDash F \to \phi_1, \ldots, \phi_n \vdash F
+        }
+      }
+    }
+  }
+}
+
+\subtree[006p]{
+  \taxon{Definition}
+  \title{SKI Combinator Calculus}
+
+  \p{
+    SKI combinator calculus is a computational model that uses three basic combinators, S, K, and I, to represent and manipulate functions. 
+  }
+  \ol{
+    \li{
+      #{S} - the substitution combinator, which takes three arguments and applies the first argument to the second and third arguments.
+      ##{
+        S : f \to g \to x \mapsto f x (g x)
+      } 
+      an alternative way to represent this combinator is as follows 
+      ##{
+        S : (x \to f \to g) \to (x \to f) \to (x \to g)
+      }
+    }
+    \li{
+      #{K} - the constant combinator, which takes two arguments and returns the first.
+      ##{
+        K : f \to g \mapsto f
+      }
+    }
+    \li{
+      #{I} - the identity combinator, which takes one argument and returns it.
+      ##{
+        I : x \mapsto x
+      }
+    }
   }
 }
 
 \subtree[006a]{
   \taxon{Definition}
   \title{Hilbert style proof system}
-  
+
+  \p{
+    In the Hilbert style proof system all axioms are instances of the #{K} and #{S} combinators, and the only inference rule is modus ponens. 
+  }
+  \infrule{
+    \inferrule*[right=MP]{
+      x \\ 
+      x \to f
+    }{
+      f
+    }
+  }
+
+  \p{
+    We have that a set of formulas #{\Gamma} proves a formula #{F}, denoted #{\Gamma \vdash F}, if there is a sequence of formulas
+  }
+  ##{
+    \phi_1, \ldots, \phi_n, \phi_{n+1} = F
+  }
+  \p{
+    such that for every #{\phi_i} in the sequence, one of the conditions holds
+  }
+  \ul{
+    \li{
+      \em{Inclusion} - the formula is included in the antecedents, i.e.
+      ##{
+        \phi_i \in \Gamma
+      }
+    }
+    \li{
+      \em{Axiom} - the formula is an instance of an axiom schema, i.e.
+      ##{
+        \phi_i \in \{K, S\}
+      }
+    }
+    \li{
+      \em{Modes pones} - the formula is derived from two previous formulas in the sequence via modus ponens, i.e. there exists #{j, k < i} such that
+      ##{
+        \phi_j = \phi_k \to \phi_i
+      }
+    }
+  }
+  \p{
+    An important inference rule that is often used in Hilbert style proof systems is the \em{deduction theorem}, which states that if #{\Gamma, F \vdash G} then #{\Gamma \vdash F \to G}. This allows us to move assumptions from the antecedent to the consequent of an implication, which can be very useful for structuring proofs.
+  }
+  \infrule{
+    \inferrule*[right=Deduction]{
+      \Gamma, F \vdash G
+    }{
+      \Gamma \vdash F \to G
+    }
+  }
+
   \subtree[006d]{
     \taxon{Example}
     \title{Hilbert proof example}
-    
-    \p{Example content...}
+
+    \p{
+      Say we want to show the following formula
+    }
+    ##{
+      \vdash \phi \to \phi
+    }
+    \p{
+      To show this within the Hilbert proof system, we pick an arbitrary formula #{\psi} and assume it as a premise, then we can apply the deduction theorem to show that #{\vdash \phi \to \phi}.
+    }
+    \ol{
+      \li{
+        ##{
+          (\phi \to (\psi \to \phi) \to \phi) \to ((\psi \to \phi) \to \phi) \to (\phi \to \phi)
+        }
+      }
+      \li{
+        ##{
+          \phi \to (\psi \to \phi) \to \phi
+        }
+      }
+      \li{
+        ##{
+          (\phi \to (\psi \to \phi)) \to (\phi \to \phi)
+        }
+      }
+      \li{
+        ##{
+          \phi \to (\psi \to \phi)
+        }
+      }
+      \li{
+        \infrule{
+          \inferrule*[right=MP]{
+            \overbrace{\phi \to (\psi \to \phi)}^x \to \overbrace{\phi}^f \\
+            \overbrace{\phi \to (\psi \to \phi)}^x
+          }{
+            \phi
+          }
+        }
+      }
+    }
   }
 }

@@ -1,0 +1,27 @@
+\title{Inference rules (mathpartir)}
+\import{base-macros}
+\tag{feature-demo}
+
+\p{Natural-deduction and typing rules via the \code{infrule} macro (the LaTeX
+\code{mathpartir} package). Here, the simply-typed lambda calculus:}
+
+\infrule{
+  \inferrule*[right=Var]{
+    x : \tau \in \Gamma
+  }{
+    \Gamma \vdash x : \tau
+  }
+  \and
+  \inferrule*[right=Abs]{
+    \Gamma, x : \tau_1 \vdash e : \tau_2
+  }{
+    \Gamma \vdash \lambda x.\,e : \tau_1 \to \tau_2
+  }
+  \and
+  \inferrule*[right=App]{
+    \Gamma \vdash e_1 : \tau_1 \to \tau_2 \\
+    \Gamma \vdash e_2 : \tau_1
+  }{
+    \Gamma \vdash e_1\,e_2 : \tau_2
+  }
+}

@@ -20,7 +20,7 @@
     The statement \cf{x := havoc()} which assigns a non-deterministic value to a variable #{x}
   }
 }
-\subtree{
+\subtree[0080]{
   \title{Evaluation rules}
 
   \p{
@@ -64,7 +64,7 @@
   }
 }
 
-\subtree{
+\subtree[007z]{
   \title{Hoare rules}
 
   \p{
@@ -91,7 +91,7 @@
   }
 }
 
-\subtree{
+\subtree[007y]{
   \title{A more detailed explanation}
 
   \p{
@@ -116,7 +116,7 @@
     deriving Repr, DecidableEq
   }
   \p{
-    At this point if you want to be pedantic it's worth mentioning that the implication is that we are lifting all other inference rules into the context of this result monad, though for pedagogical purposes its enough to just assume that #{\Downarrow \sigma} just corresponds to #{\Downarrow \texttt{.ok} \sigma} i.e. evaluated into a non-fail state.
+    At this point if you want to be pedantic it's worth mentioning that the implication is that we are lifting all other inference rules into the context of this result monad, though for pedagogical purposes It's enough to just assume that #{\Downarrow \sigma} just corresponds to #{\Downarrow \texttt{.ok} \sigma} i.e. evaluated into a non-fail state.
   }
   \p{
     The Hoare triple is where stuff becomes a bit more interesting. As a reminder, the classical hoare triple is basically just an alias for the logical formula:
@@ -139,7 +139,7 @@
       ##{
         (\exists \sigma', \sigma_t = \texttt{.ok}\ \sigma' \land Q(\sigma'))
       }
-      another way of seeing this is here we are \em{disallowig failure} meaning that for a hoare triple to be proven valid we must explicitly demonstrate as a side condition that we cannot fail otherwise our hoare triple is invalid.
+      another way of seeing this is here we are \em{disallowing failure} meaning that for a hoare triple to be proven valid we must explicitly demonstrate as a side condition that we cannot fail otherwise our hoare triple is invalid.
     }
     \li{
       We \em{never fail} which would mean that:

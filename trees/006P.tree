@@ -1,0 +1,29 @@
+\date{2026-05-03}
+\taxon{Example}
+\title{Footnote rendering sample}
+\tag{footnotes}
+
+\p{
+  This tree exercises inline footnotes in ordinary prose.\footnote{The preview is shown on hover or keyboard focus, and this same body is repeated in the endnotes list below the current tree.}
+  The two child trees below are included, so the table of contents has real entries while the notes remain part of the content flow.
+}
+
+\subtree[footnote / hover]{
+  \taxon{Example}
+  \title{Hover preview}
+
+  \p{
+    A short note works as an unobtrusive superscript.\footnote{Short notes should stay compact and should not change the surrounding line height.}
+    Longer notes can contain normal Forester inline markup, including \em{emphasis}, \strong{strong text}, \code{inline code}, and math #{x^2 + y^2}.
+  }
+}
+
+\subtree[footnote / toc]{
+  \taxon{Example}
+  \title{TOC interaction}
+
+  \p{
+    This child tree has its own note.\footnote{Because footnotes are keyed to their nearest tree, this note is rendered with this child tree rather than being mixed into the parent endnotes.}
+    The table of contents should still list only trees, not footnotes or endnote entries.
+  }
+}

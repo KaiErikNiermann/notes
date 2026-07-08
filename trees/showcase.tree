@@ -1,0 +1,90 @@
+\title{Feature gallery}
+\import{base-macros}
+
+\p{A guided tour of everything this site can render: basic styling and
+typography, the full mathematics stack (inline and display KaTeX, LaTeX-compiled
+commutative diagrams, BNF grammars, and inference rules), syntax-highlighted
+code, Lean snippets with type-on-hover, symbol-definition hovers, interactive d3
+graphs, cross-references and citations, and build-time Datalog queries.}
+
+\p{Each section below is a self-contained tree, transcluded here but also
+addressable on its own — the transclusion you are looking at is itself one of
+the features on display.}
+
+\put\transclude/toc{false}
+\put\transclude/expanded{true}
+
+\subtree{
+  \title{Styling, typography & lists}
+  \transclude{feat-typography}
+}
+
+\subtree{
+  \title{Display mathematics}
+  \transclude{feat-display-math}
+}
+
+\subtree{
+  \title{Commutative diagrams}
+  \transclude{feat-diagrams}
+}
+
+\subtree{
+  \title{BNF grammars}
+  \transclude{feat-grammar}
+}
+
+\subtree{
+  \title{Inference rules}
+  \transclude{feat-derivations}
+}
+
+\subtree{
+  \title{Code blocks}
+  \transclude{feat-code}
+}
+
+\subtree{
+  \title{Lean (Verso, type-on-hover)}
+  \transclude{006S}
+}
+
+\subtree{
+  \title{Symbol-definition hovers}
+  \transclude{006R}
+}
+
+\subtree{
+  \title{Inline d3 figures}
+  \transclude{d3-demo}
+}
+
+\subtree{
+  \title{Interactive graphs & containment}
+  \transclude{d3-graph-modes}
+}
+
+\subtree{
+  \title{Cross-references, citations & tags}
+  \transclude{feat-references}
+}
+
+\subtree{
+  \title{Margin comments}
+  \transclude{feat-comments}
+}
+
+\subtree{
+  \title{Artifact attachments}
+  \transclude{feat-artifacts}
+}
+
+\subtree{
+  \title{Artifact embeds}
+  \transclude{feat-embeds}
+}
+
+\subtree{
+  \title{Datalog queries}
+  \transclude{feat-datalog}
+}

@@ -1,0 +1,23 @@
+\title{BNF grammar}
+\import{base-macros}
+\tag{feature-demo}
+
+\p{Grammar productions typeset with the \code{grammar} macro (the LaTeX
+\code{bnf} package). The body is verbatim, so metavariables and inline math
+pass through untouched:}
+
+\grammar{
+  \startverb
+    e : Exp ::=
+    | n : numeral
+    | x : variable
+    | $e_1 + e_2$ : addition
+    | $e_1 \times e_2$ : multiplication
+    --
+    s : Stmt ::=
+    | $\texttt{skip}$ : no-op
+    | $x \coloneqq e$ : assignment
+    | $s_1 ; s_2$ : sequencing
+    | $\texttt{if } b \texttt{ then } s_1 \texttt{ else } s_2$ : conditional
+  \stopverb
+}

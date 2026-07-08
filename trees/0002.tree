@@ -5,15 +5,69 @@
 
 \title{Course Notes}
 
-\put\transclude/expanded{false}
+\put\transclude/expanded{true}
 \put\transclude/metadata{true}
 \put\transclude/numbered{false}
-\put\transclude/toc{false}
+\put\transclude/toc{true}
 
 \p{
   This is a collection of notes for various courses I have taken.
 }
 
-\transclude{0003}
-\transclude{005l}
-\transclude{005m}
+\subtree[007a]{
+  \put\transclude/toc{false}
+  \put\transclude/expanded{false}
+  \title{Period 1}
+  % P1 courses
+  \transclude{0003}
+  \transclude{006B}
+  \transclude{006C}
+  \transclude{006D}
+}
+
+\subtree[007b]{
+  \put\transclude/toc{false}
+  \put\transclude/expanded{false}
+  \title{Period 2}
+  % P2 courses
+  \transclude{006E}
+  \transclude{0086}
+}
+
+\subtree[007c]{
+  \put\transclude/toc{false}
+  \put\transclude/expanded{false}
+  \title{Period 4}
+  % P4 courses
+  \transclude{005l}
+  \transclude{005m}
+  \transclude{006F}
+  \transclude{0087}
+}
+
+\subtree[007d]{
+  \put\transclude/toc{false}
+  \put\transclude/expanded{false}
+  \title{Period 5}
+  % P5 courses
+  \transclude{006G}
+}
+
+\subtree[007e]{
+  \put\transclude/toc{false}
+  \put\transclude/expanded{false}
+  \title{Period 6}
+  % P6 courses
+  \transclude{006J}
+  \transclude{006K}
+}
+
+\subtree[007f]{
+  \put\transclude/toc{false}
+  \put\transclude/expanded{false}
+  \title{All Year}
+  % PY courses
+  \transclude{006L}
+  \transclude{006M}
+  \transclude{006N}
+}

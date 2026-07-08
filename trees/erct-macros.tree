@@ -98,12 +98,3 @@
 \def\citek[uid]{\let\escape[x]{\x}[\escape{[\uid]}](\uid)}
 
 \alloc\erct/tex-preamble
-
-\def\texfig[~body]{
- \scope{
-  \put?\erct/tex-preamble{\latex-preamble}
-  \figure{
-   \tex{\get\erct/tex-preamble}{\body{}}
-  }
- }
-}

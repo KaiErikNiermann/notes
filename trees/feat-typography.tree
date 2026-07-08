@@ -1,0 +1,78 @@
+\title{Typography & basic styling}
+\import{base-macros}
+\tag{feature-demo}
+\meta{style:tbl-sl2zcz}{align=center width=59}
+
+\p{
+  Body text supports \em{emphasis}, \strong{bold}, \dem{strong emphasis}, and
+  \mark{highlight}. Inline code like \code{map f xs} sits in a beveled box, and
+  inline math #{e^{i\pi} + 1 = 0} flows naturally with the surrounding prose.
+}
+
+\p{
+  An \strong{unordered} list, with nesting and inline math:
+}
+\ul{
+  \li{
+    A first item with \em{emphasis}.
+  }
+  \li{
+    A second item containing math: #{\sum_{k=1}^{n} k = \frac{n(n+1)}{2}}.
+  }
+  \li{
+    A nested list:
+    \ul{
+      \li{
+        nested item a
+      }
+      \li{
+        nested item b
+      }
+    }
+  }
+}
+
+\p{
+  An \strong{ordered} list:
+}
+\ol{
+  \li{
+    First, establish the base case.
+  }
+  \li{
+    Then, assume the inductive hypothesis.
+  }
+  \li{
+    Finally, prove the inductive step.
+  }
+}
+
+\blockquote{
+  A block quotation is set apart from the body text — useful for definitions,
+  remarks, or quoted passages.
+}
+
+\p{
+  A horizontal rule separates sections:
+}
+\hr
+
+\p{
+  And a small table built from the \code{table} / \code{tr} / \code{th} /
+  \code{td} macros:
+}
+\table{
+  \tr{\th{Symbol}\th{Set}\th{Countable}}
+  \tr{\td{#{\N}}\td{natural numbers}\td{yes}}
+  \tr{\td{#{\Z}}\td{integers}\td{yes}}
+  \tr{\td{#{\Q}}\td{rationals}\td{yes}}
+  \tr{\td{#{\R}}\td{real numbers}\td{no}}
+}
+
+\p{
+  Tables and image figures are centered at a sensible width by default. In the
+  local dev server, hovering one brings up a small toolbar (align left / center /
+  right, a width field) plus drag handles a right edge to resize, and per-column
+  edges on tables; the chosen sizing is saved as a \code{\startverb\meta{style:…}\stopverb}
+  line in the tree's frontmatter, leaving the table/figure markup untouched.
+}

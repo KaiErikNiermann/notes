@@ -32,7 +32,7 @@ export const publish: Stage<"publish"> = {
       outRoot: path.join(ctx.root, "output", "notes"),
       fingerprint: "",
       verifyOutput: true,
-      render: async (content) => content,
+      render: (content) => Promise.resolve(content),
     });
     await result.commit();
     ctx.logger.info(

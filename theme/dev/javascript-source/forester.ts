@@ -441,7 +441,7 @@ const applyTheme = (theme: Theme): void => {
   // `:root[data-theme]` CSS. The toggle icon is CSS-driven off this same attribute,
   // and color-scheme keeps the UA canvas/scrollbars in sync with the theme.
   const root = document.documentElement;
-  root.setAttribute("data-theme", theme);
+  root.dataset.theme = theme;
   root.style.colorScheme = theme;
   // ninja-keys ships a built-in dark palette gated behind a `dark` class; keep
   // it in sync with the site theme so the command palette isn't stuck light.

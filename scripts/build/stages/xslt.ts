@@ -55,6 +55,9 @@ export const xslt: Stage<"xslt"> = {
       fingerprint,
       concurrency: CONCURRENCY,
       toOutRel: (rel) => rel.replace(/index\.xml$/, "index.html"),
+      // Conforms to the processor's async render contract though the render
+      // itself is synchronous.
+      // eslint-disable-next-line @typescript-eslint/require-await
       render: async (content, inputRel) => {
         const rel = path.dirname(inputRel);
         const onSigDiagnostic = (d: SigDiagnostic): void => {

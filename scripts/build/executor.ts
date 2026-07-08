@@ -152,9 +152,9 @@ const runStage = async (
     const afterHex =
       stage.cacheKey
         ? await stage.cacheKey(ctx)
-        : inputsMayOverlapOutputs(stage)
-          ? await computeStageHash(root, stage)
-          : beforeHex;
+        : (inputsMayOverlapOutputs(stage)
+            ? await computeStageHash(root, stage)
+            : beforeHex);
     await writeCachedHash(root, stage.name, afterHex);
     return {
       kind: "ran",

@@ -27,6 +27,27 @@ const walk = async function* (root: string, rel: string = ""): AsyncIterable<str
   }
 };
 
+// Classify patterns by their static prefix (`picomatch.scan`): exact paths (no
+// glob magic), the base dirs of scoped globs, and whether any pattern (e.g.
+// `**/*.ts`) has an empty prefix and thus forces a whole-tree walk.
+interface PatternScan {
+  readonly exactPaths: readonly string[];
+  readonly baseDirs: string[];
+  readonly walkWholeTree: boolean;
+}
+const scanPatterns = (patterns: readonly string[]): PatternScan => {
+  const exactPaths: string[] = [];
+  const baseDirs: string[] = [];
+  let walkWholeTree = false;
+  for (const p of patterns) {
+    const { base, glob } = picomatch.scan(p);
+    if (glob === "") exactPaths.push(base);
+    else if (base === "" || base === ".") walkWholeTree = true;
+    else baseDirs.push(base);
+  }
+  return { exactPaths, baseDirs, walkWholeTree };
+};
+
 /**
  * Glob a set of patterns against the filesystem rooted at `root`.
  * Patterns are interpreted relative to `root` (so `lean/**\/*.lean`,
@@ -46,26 +67,11 @@ export const makeGlob = (root: string) => async (patterns: readonly string[]): P
     }
   };
 
-  // Rather than walking the whole tree for every call, use the static prefix of
-  // each pattern (`picomatch.scan(...).base`) to walk only the subtrees that
-  // could contain matches — a pattern scoped to `theme/` never descends into
-  // `output/` or `lean/`. Results are identical to a full walk; only the set of
-  // directories visited shrinks. Exact-path patterns (no glob magic) are
-  // `stat`ed directly with no walk at all. A pattern whose static prefix is
-  // empty (e.g. `**/*.ts`) forces a single whole-tree walk.
-  const exactPaths: string[] = [];
-  const baseDirs: string[] = [];
-  let walkWholeTree = false;
-  for (const p of patterns) {
-    const { base, glob } = picomatch.scan(p);
-    if (glob === "") {
-      exactPaths.push(base);
-    } else if (base === "" || base === ".") {
-      walkWholeTree = true;
-    } else {
-      baseDirs.push(base);
-    }
-  }
+  // Rather than walking the whole tree for every call, use each pattern's static
+  // prefix to walk only the subtrees that could contain matches — a pattern
+  // scoped to `theme/` never descends into `output/` or `lean/`. Results are
+  // identical to a full walk; only the set of directories visited shrinks.
+  const { exactPaths, baseDirs, walkWholeTree } = scanPatterns(patterns);
 
   if (walkWholeTree) {
     for await (const rel of walk(root)) pushIfMatch(rel);

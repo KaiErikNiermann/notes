@@ -17,6 +17,27 @@ const TREES_ROOT = path.join(__dirname, "trees");
 const ASSETS_ROOT = path.join(__dirname, "assets");
 const PROJECT_ROOT = __dirname;
 
+// The build normalises forester's output to output/notes/, but forester bakes
+// (path-only) links from the last path segment of forest.toml's `url` — e.g. a
+// forest published at https://you.github.io/my-forest/ links to /my-forest/…, at
+// /notes/ links to /notes/…. `SITE` is that public base segment (default
+// "notes"); the server maps the public /SITE/ base onto the internal output/notes/
+// so `just serve` works for a forest at any URL. A pathless url (e.g.
+// http://localhost/) has no segment and can't be served cleanly — warn and fall
+// back to /notes/.
+const siteSegmentFromForestToml = (): string => {
+  try {
+    const toml = fs.readFileSync(path.join(__dirname, "forest.toml"), "utf8");
+    const match = /^\s*url\s*=\s*["']([^"']*)["']/m.exec(toml);
+    if (!match?.[1]) return "";
+    return /([^/]+)\/*$/.exec(new URL(match[1]).pathname)?.[1] ?? "";
+  } catch {
+    return "";
+  }
+};
+const RAW_SITE_SEGMENT = siteSegmentFromForestToml();
+const SITE = RAW_SITE_SEGMENT || "notes";
+
 // Set true in Docker (no build tools available, just serve + reload on output changes)
 const SERVE_ONLY = process.env.SERVE_ONLY === "1";
 
@@ -311,9 +332,9 @@ const DEV_SCRIPT = String.raw`<script>
     }
     if (!file) return;
     e.preventDefault();
-    var m = location.pathname.match(/\/notes\/([^/]+)\//);
+    var m = location.pathname.match(/\/${SITE}\/([^/]+)\//);
     var tree = m ? m[1] : "";
-    if (!tree) { showToast("Can't tell which tree this page is \u2014 paste on a /notes/<id>/ page.", false); return; }
+    if (!tree) { showToast("Can't tell which tree this page is \u2014 paste on a /${SITE}/<id>/ page.", false); return; }
     var ext = MIME_EXT[file.type] || "png";
     var d = new Date();
     showAttachDialog(file, tree, ext, "paste-" + pad2(d.getHours()) + pad2(d.getMinutes()) + pad2(d.getSeconds()));
@@ -417,6 +438,24 @@ const injectDevScript = (html: string): string => {
   return `${html}${DEV_SCRIPT}`;
 };
 
+// Public-base → internal-base remap. Forester bakes links under /SITE/ (from
+// forest.toml's url), but the files live at output/notes/. Rewrite the incoming
+// /SITE/… path to /notes/… so every downstream handler (all written against
+// /notes/) works for a forest served at any URL. No-op when SITE is already
+// "notes". Only /SITE/-prefixed paths are touched, so server-internal routes
+// (/__dev/…) are left alone.
+if (SITE !== "notes") {
+  const base = `/${SITE}`;
+  app.use((req, _res, next) => {
+    const u = req.url ?? "/";
+    if (u === base) req.url = "/notes/";
+    else if (u.startsWith(`${base}/`) || u.startsWith(`${base}?`)) {
+      req.url = `/notes${u.slice(base.length)}`;
+    }
+    next();
+  });
+}
+
 // Directory index resolution
 app.use((req, _res, next) => {
   const requestUrl = req.url ?? "/";
@@ -457,10 +496,10 @@ app.use((req, res: ServerResponse, next) => {
   res.end(injectDevScript(html));
 });
 
-// Redirect / to /notes/
+// Redirect / to the forest's public base (/SITE/).
 app.use((req, res: ServerResponse, next) => {
   if (req.url === "/" || req.url === "") {
-    res.writeHead(302, { Location: "/notes/" });
+    res.writeHead(302, { Location: `/${SITE}/` });
     res.end();
     return;
   }
@@ -717,8 +756,14 @@ app.use((req, res: ServerResponse, next) => {
 app.use(serveStatic(ROOT));
 
 const server = app.listen(PORT, BIND_HOST, () => {
-  console.log(`Server running at http://${BIND_HOST}:${PORT}/notes/`);
+  console.log(`Server running at http://${BIND_HOST}:${PORT}/${SITE}/`);
   console.log(`Serving files from: ${ROOT}`);
+  if (!RAW_SITE_SEGMENT) {
+    console.warn(
+      "[warn] forest.toml `url` has no path segment; serving under /notes/. " +
+        "Set a path (e.g. https://<you>.github.io/<repo>/) so local links match the deployed site.",
+    );
+  }
   if (!SERVE_ONLY) console.log(`Watching sources: ${TREES_ROOT}`);
 });
 
